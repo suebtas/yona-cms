@@ -146,6 +146,7 @@ class Bootstrap
             ->join(true)
             ->addCss(APPLICATION_PATH . '/modules/Admin/assets/admin.less');
 
+
         $di->set('assets', $assetsManager);
     }
 

@@ -53,5 +53,7 @@ return [
         'seo/sitemap'        => '*',
         'seo/manager'        => '*',
         'tree/admin'         => '*',
+        'clinic/index'       => '*',
+        'clinic/form'        => '*',
     ],
 ];
