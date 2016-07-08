@@ -11,7 +11,7 @@ class IndexController extends Controller
     {
     	$this->setClinicEnvironment();
         $this->view->languages_disabled = true;
-        
+
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
             ->addFilter(new \Application\Assets\Filter\Less())
@@ -28,12 +28,20 @@ class IndexController extends Controller
             ->setTargetPath(ROOT . '/assets/modules-clinic.js')
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');;;
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
     }
 
     public function indexAction()
     {
 
+        // Dashboard JS Assets
+        $this->assets->collection('modules-clinic-dashboard-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-dashboard.js')
+            ->setTargetUri('assets/modules-clinic-dashboard.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/dashboard.js');
     }
 
 }
