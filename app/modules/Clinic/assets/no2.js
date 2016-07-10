@@ -202,4 +202,5 @@ $('#p7').editable({
        pk: 1,
        name: 'place',
        title: 'พื้นที่ว่าง '
+       
 });
