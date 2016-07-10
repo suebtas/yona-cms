@@ -395,6 +395,10 @@
                         $('.buttonPrevious').addClass('btn btn-primary');
                         $('.buttonFinish').addClass('btn btn-default');
                       });
+                      function startUp() {
+                        $("#st2").width("60px");
+                      }
+                      startUp();
                     </script>
                     <!-- /jQuery Smart Wizard -->
 
