@@ -51,16 +51,8 @@
               <ul class="wizard_steps">
                 <li>
                   <a href="#step-1">
-                    <span class="step_no">5.1</span>
-                    <span class="step_descr">โรงพยาบาล<br />
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#step-2">
-                    <span class="step_no">5.2</span>
-                    <span class="step_descr">
-                        คลินิก<br />
+                    <span class="step_no" Id="Id1">5.1-5.2</span>
+                    <span class="step_descr">โรงพยาบาล-คลินิก<br />
                     </span>
                   </a>
                 </li>
@@ -106,40 +98,39 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
-                            <td width="40%">สังกัดท้องถิ่น </td>
+                            <td width="50%">คลินิกเอกชน </td>
                             <td width="10%">จำนวน <a href="#" id="h1" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
-                            <td width="40%">เตียงคนไข้ </td>
-                            <td width="10%">จำนวน <a href="#" id="h2" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="30%">เตียงคนไข้ </td>
+                            <td width="20%">จำนวน <a href="#" id="h2" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">สังกัดเอกชน </td>
                             <td width="10%">จำนวน <a href="#" id="h3" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
-                            <td width="40%">เตียงคนไข้ </td>
-                            <td width="10%">จำนวน <a href="#" id="h4" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="30%">เตียงคนไข้ </td>
+                            <td width="20%">จำนวน <a href="#" id="h4" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">สังกัดกระทรวงสาธารณสุข </td>
                             <td width="10%">จำนวน <a href="#" id="h5" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
-                            <td width="40%">เตียงคนไข้ </td>
-                            <td width="10%">จำนวน <a href="#" id="h6" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="30%">เตียงคนไข้ </td>
+                            <td width="20%">จำนวน <a href="#" id="h6" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
                         </tr>
                     </tbody>
                   </table>
 
-              </div>
-
-              <div id="step-2">
-                <form class="form-horizontal form-label-left">
-
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> คลินิกเอกชน จำนวน  
-                    </label>
-                    <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
-                    </div>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง  </label>
+                    <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
+                    คลินิก</label>
                   </div>
-                </form>
+                  <table id="user" class="table table-bordered table-striped" style="clear: both">
+                    <tbody>
+                        <tr>
+                            <td width="50%">คลินิกเอกชน</td>
+                            <td width="50%">จำนวน <a href="#" id="h7" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                        </tr>
+                    </tbody>
+                  </table>
+
               </div>
 
               <div id="step-3">
@@ -344,6 +335,10 @@
       $('.buttonPrevious').addClass('btn btn-primary');
       $('.buttonFinish').addClass('btn btn-default');
     });
+    function startUp(){
+      $('#Id1').width("60px");
+    };
+    startUp();
   </script>
   <!-- /jQuery Smart Wizard -->
 

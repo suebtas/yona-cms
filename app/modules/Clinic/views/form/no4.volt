@@ -50,16 +50,8 @@
               <ul class="wizard_steps">
                 <li>
                   <a href="#step-1">
-                    <span class="step_no">4.1</span>
-                    <span class="step_descr">ชุมชน<br />
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#step-2">
-                    <span class="step_no">4.2</span>
-                    <span class="step_descr">
-                        ครัวเรือน<br />
+                    <span class="step_no" Id="Id1">4.1-4.2</span>
+                    <span class="step_descr">ชุมชน - ครัวเรือน<br />
                     </span>
                   </a>
                 </li>
@@ -108,13 +100,6 @@
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง  </label>
                   </div>
-                </form>
-
-              </div>
-
-              <div id="step-2">
-                <form class="form-horizontal form-label-left">
-
                   <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ครัวเรือน จำนวน 
                     </label>
@@ -124,6 +109,7 @@
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> ครัวเรือน  </label>
                   </div>
                 </form>
+
               </div>
 
               <div id="step-3">
@@ -620,6 +606,10 @@
       $('.buttonPrevious').addClass('btn btn-primary');
       $('.buttonFinish').addClass('btn btn-default');
     });
+    function startUp(){
+      $('#Id1').width("60px");
+    };
+    startUp();
   </script>
   <!-- /jQuery Smart Wizard -->
 

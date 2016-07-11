@@ -43,6 +43,13 @@ $(document).ready(function() {
            name: 'h6',
            title: ''
     });
+    $('#h7').editable({
+           url: 'Form_No5.html',
+           type: 'text',
+           pk: 1,
+           name: 'h7',
+           title: ''
+    });
 
     $('#p11').editable({
            url: 'Form_No5.html',
