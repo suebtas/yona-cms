@@ -1,3 +1,47 @@
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>เทศบาล xxxx</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="หาคำถาม ...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">search !</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>ด้านสภาพทั่วไป การสำรวจข้อมูลขั้นพื้นฐาน <small>ครั้งที่ 1/2558</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
                     <!-- Smart Wizard -->
                     <p>ส่วนพื้นที่แสดงข้อความอธิบายการกรอกข้อมูล</p>
                     <div id="wizard" class="form_wizard wizard_horizontal">
@@ -227,43 +271,49 @@
                     </div>
                     <!-- End SmartWizard Content -->
                     
-                    <!-- jQuery -->
-                    <script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
-                    <!-- Bootstrap -->
-                    <script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-                    <!-- FastClick -->
-                    <script src="{{ url.path() }}clinic/vendors/fastclick/lib/fastclick.js"></script>
-                    <!-- NProgress -->
-                    <script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
-                    <!-- jQuery Smart Wizard -->
-                    <script src="{{ url.path() }}clinic/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-                    <!-- Custom Theme Scripts -->
-                    <!-- <script src="../build/js/custom.min.js"></script> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- jQuery -->
+        <script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="{{ url.path() }}clinic/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
+        <!-- jQuery Smart Wizard -->
+        <script src="{{ url.path() }}clinic/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+        <!-- Custom Theme Scripts -->
+        <!-- <script src="../build/js/custom.min.js"></script> -->
 
 
-                    {{ assets.outputJs('modules-clinic-js') }}
+        {{ assets.outputJs('modules-clinic-js') }}
 
-                    <!-- bootstrap3-editable -->
-                    <link href="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
-                    <script src="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
-                    <!-- Select2 -->
-                    <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
-                    <!-- jQuery Smart Wizard -->
-                    <script>
-                      $(document).ready(function() {
-                        $('#wizard').smartWizard({
-                          transitionEffect: 'slide'
-                        });
+        <!-- bootstrap3-editable -->
+        <link href="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+        <script src="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+        <!-- Select2 -->
+        <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
+        <!-- jQuery Smart Wizard -->
+        <script>
+          $(document).ready(function() {
+            $('#wizard').smartWizard({
+              transitionEffect: 'slide'
+            });
 
-                        $('#wizard_verticle').smartWizard({
-                          transitionEffect: 'slide'
-                        });
+            $('#wizard_verticle').smartWizard({
+              transitionEffect: 'slide'
+            });
 
-                        $('.buttonNext').addClass('btn btn-success');
-                        $('.buttonPrevious').addClass('btn btn-primary');
-                        $('.buttonFinish').addClass('btn btn-default');
-                      });
-                    </script>
-                    <!-- /jQuery Smart Wizard -->
+            $('.buttonNext').addClass('btn btn-success');
+            $('.buttonPrevious').addClass('btn btn-primary');
+            $('.buttonFinish').addClass('btn btn-default');
+          });
+        </script>
+        <!-- /jQuery Smart Wizard -->
 
-                    {{ assets.outputJs('modules-clinic-no1-js') }}
+        {{ assets.outputJs('modules-clinic-no1-js') }}
