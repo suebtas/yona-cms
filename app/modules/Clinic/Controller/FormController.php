@@ -63,18 +63,39 @@ class FormController extends Controller
     public function no3Action()
     {
 
+
     }
     public function no4Action()
     {
+        $this->assets->collection('modules-clinic-no4-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no4.js')
+            ->setTargetUri('assets/modules-clinic-no4.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js');
 
     }
     public function no5Action()
     {
+        $this->assets->collection('modules-clinic-no5-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no5.js')
+            ->setTargetUri('assets/modules-clinic-no5.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js');
 
     }
     public function no6Action()
     {
-
+        $this->assets->collection('modules-clinic-no6-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no6.js')
+            ->setTargetUri('assets/modules-clinic-no6.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js');
     }
     public function no7Action()
     {
@@ -83,6 +104,14 @@ class FormController extends Controller
     public function no8Action()
     {
 
+        // no1 JS Assets
+        $this->assets->collection('modules-clinic-no8-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no8.js')
+            ->setTargetUri('assets/modules-clinic-no8.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js');
     }
     public function no9Action()
     {
