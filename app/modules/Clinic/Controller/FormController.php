@@ -62,7 +62,6 @@ class FormController extends Controller
     }
     public function no3Action()
     {
-<<<<<<< HEAD
       // no3 JS Assets
       $this->assets->collection('modules-clinic-no3-js')
           ->setLocal(true)
@@ -71,10 +70,6 @@ class FormController extends Controller
           ->setTargetUri('assets/modules-clinic-no3.js')
           ->join(true)
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
-=======
-
-
->>>>>>> refs/remotes/origin/clinic-center
     }
     public function no4Action()
     {
