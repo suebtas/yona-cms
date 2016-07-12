@@ -127,7 +127,7 @@
 
         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-          102
+          <span id="sumroad"></span>
           </label>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สะพาน</label>
@@ -454,6 +454,12 @@
                       });
                       function startUp() {
                         $("#st2").width("60px");
+                        var r1 = $('#r1').text();
+                        var r2 = $('#r2').text();
+                        var r3 = $('#r3').text();
+                        var r4 = $('#r4').text();
+                        var sum = parseInt(r1) + parseInt(r2) + parseInt(r3) + parseInt(r4);
+                        $('#sumroad').html(sum);
                       }
                       startUp();
                     </script>
