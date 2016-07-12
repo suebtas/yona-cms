@@ -30,6 +30,7 @@
             <div class="field">
                 {{ form.renderDecorated('role') }}
                 {{ form.renderDecorated('password') }}
+                {{ form.renderDecorated('office') }}
                 {{ form.renderDecorated('active') }}
             </div>
         </div>

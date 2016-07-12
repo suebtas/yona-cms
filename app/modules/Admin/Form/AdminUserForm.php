@@ -30,6 +30,12 @@ class AdminUserForm extends Form
         );
 
         $this->add(
+            (new Text('office', [
+                'required' => no,
+            ]))->setLabel('Office')
+        );
+
+        $this->add(
             (new Email('email', [
                 'required' => true,
             ]))

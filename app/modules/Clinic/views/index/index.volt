@@ -4,12 +4,12 @@
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> สำรวจข้อมูลขั้นพื้นฐาน</span>
-              <div class="count">2500</div>
+              <div class="count">2,500</div>
               <span class="count_bottom">เพิ่มขึ้น <i class="green">40% </i> จากเดือนก่อน</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> โครงสร้างพื้นฐาน</span>
-              <div class="count">1230</div>
+              <div class="count">1,230</div>
               <span class="count_bottom">เพิ่มขึ้น <i class="green">30% </i> จากเดือนก่อน</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">

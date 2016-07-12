@@ -42,6 +42,15 @@
         </div>
     </div>
     <div class="item">
+        <div class="header">{{ helper.at('Clinic Center') }} <i class="university icon"></i></div>
+
+        <div class="menu">
+            <a class="item{{ helper.activeMenu().activeClass('admin-user') }}" href="{{ url.get() }}clinic/index">
+                {{ helper.at('Do Servey') }} <i class="pencil icon"></i>
+            </a>
+        </div>
+    </div>
+    <div class="item">
         <div class="header">{{ helper.at('Admin') }} <i class="wrench icon"></i></div>
 
         <div class="menu">
