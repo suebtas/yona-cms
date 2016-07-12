@@ -1,4 +1,4 @@
-C:34:"Phalcon\Mvc\Model\Resultset\Simple":2622:{a:5:{s:5:"model";C:34:"Page\Model\Translate\PageTranslate":76:{a:5:{s:2:"id";N;s:10:"foreign_id";N;s:4:"lang";N;s:3:"key";N;s:5:"value";N;}}s:5:"cache";N;s:4:"rows";a:5:{i:0;a:5:{s:2:"id";s:1:"6";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:5:"title";s:5:"value";s:8:"Homepage";}i:1;a:5:{s:2:"id";s:1:"7";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:10:"meta_title";s:5:"value";s:8:"Homepage";}i:2;a:5:{s:2:"id";s:1:"8";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:16:"meta_description";s:5:"value";s:28:"meta-description of homepage";}i:3;a:5:{s:2:"id";s:1:"9";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:13:"meta_keywords";s:5:"value";s:0:"";}i:4;a:5:{s:2:"id";s:2:"10";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:4:"text";s:5:"value";s:1764:"<h1>Yona CMS</h1>
+C:34:"Phalcon\Mvc\Model\Resultset\Simple":2630:{a:5:{s:5:"model";C:34:"Page\Model\Translate\PageTranslate":76:{a:5:{s:2:"id";N;s:10:"foreign_id";N;s:4:"lang";N;s:3:"key";N;s:5:"value";N;}}s:5:"cache";N;s:4:"rows";a:5:{i:0;a:5:{s:2:"id";s:1:"6";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:5:"title";s:5:"value";s:8:"Homepage";}i:1;a:5:{s:2:"id";s:1:"7";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:10:"meta_title";s:5:"value";s:8:"Homepage";}i:2;a:5:{s:2:"id";s:1:"8";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:16:"meta_description";s:5:"value";s:28:"meta-description of homepage";}i:3;a:5:{s:2:"id";s:1:"9";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:13:"meta_keywords";s:5:"value";s:0:"";}i:4;a:5:{s:2:"id";s:2:"10";s:10:"foreign_id";s:1:"1";s:4:"lang";s:2:"en";s:3:"key";s:4:"text";s:5:"value";s:1772:"<h1>Yona CMS</h1>
 <p>Yona CMS - open source content management system. Written in <a href="http://phalconphp.com/" target="_blank">Phalcon PHP Framework</a>&nbsp;(version 1.3.x).</p>
 <p>Has a convenient modular structure. It is intended for the design of simple sites, and major portals and web applications. Thanks to its simple configuration and architecture, can be easily modified for any task.</p>
 <p>The official repository on&nbsp;<a href="https://github.com/oleksandr-torosh/yona-cms" target="_blank">Github</a></p>
@@ -7,7 +7,7 @@ C:34:"Phalcon\Mvc\Model\Resultset\Simple":2622:{a:5:{s:5:"model";C:34:"Page\Mode
 <h3>sub-subtitle</h3>
 <p>List:</p>
 <ul>
-<li>First item</li>
+<li>รูปแบบ</li>
 <li>Second item<br />
 <ul>
 <li>Inner level of second item</li>
