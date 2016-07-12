@@ -1,38 +1,3 @@
-<<<<<<< HEAD
-<!-- Smart Wizard -->
-<p>ส่วนพื้นที่แสดงข้อความอธิบายการกรอกข้อมูล</p>
-<div id="wizard" class="form_wizard wizard_horizontal">
-  <ul class="wizard_steps">
-    <li>
-      <a href="#step-1">
-        <span class="step_no">2.1</span>
-        <span class="step_descr">การคมนาคม<br />
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#step-2">
-        <span class="step_no" id="st2">2.2-2.3</span>
-        <span class="step_descr">ระบบขนส่งและการสื่อสาร<br />
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#step-3">
-        <span class="step_no">2.4</span>
-        <span class="step_descr">ไฟฟ้า<br />
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#step-4">
-        <span class="step_no">2.5</span>
-        <span class="step_descr">ลักษณะการใช้ที่ดิน<br />
-        </span>
-      </a>
-    </li>
-  </ul>
-=======
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -117,7 +82,6 @@
                           </a>
                         </li>
                       </ul>
->>>>>>> refs/remotes/origin/clinic-center
 
   <div id="step-1">
     <form class="form-horizontal form-label-left">
