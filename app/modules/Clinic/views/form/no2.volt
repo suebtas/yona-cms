@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+<!-- Smart Wizard -->
+<p>ส่วนพื้นที่แสดงข้อความอธิบายการกรอกข้อมูล</p>
+<div id="wizard" class="form_wizard wizard_horizontal">
+  <ul class="wizard_steps">
+    <li>
+      <a href="#step-1">
+        <span class="step_no">2.1</span>
+        <span class="step_descr">การคมนาคม<br />
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-2">
+        <span class="step_no" id="st2">2.2-2.3</span>
+        <span class="step_descr">ระบบขนส่งและการสื่อสาร<br />
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-3">
+        <span class="step_no">2.4</span>
+        <span class="step_descr">ไฟฟ้า<br />
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#step-4">
+        <span class="step_no">2.5</span>
+        <span class="step_descr">ลักษณะการใช้ที่ดิน<br />
+        </span>
+      </a>
+    </li>
+  </ul>
+=======
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -82,328 +117,334 @@
                           </a>
                         </li>
                       </ul>
+>>>>>>> refs/remotes/origin/clinic-center
 
-                      <div id="step-1">
-                        <form class="form-horizontal form-label-left">
-                          <div class="form-group">
-                            <table id="road" class="table" style="clear: both">
-                              <tbody>
-                                <thead>
-                                  <th width="50%">
-                                    ประเภทถนน
-                                  </th>
-                                  <th>
-                                    จำนวน(สาย)
-                                  </th>
-                                  <th>
-                                    ระยะทาง(กม.)
-                                  </th>
-                                </thead>
-                                  <tr>
-                                      <td>ถนนลูกรัง</td>
-                                      <td><a href="#" id="r1" data-type="text" data-pk="1" data-title="Enter username">68</a></td>
-                                      <td><a href="#" id="dt1" data-type="text" data-pk="1" data-title="Enter username">78</a></td>
-                                  </tr>
-                                  <tr>
-                                      <td>ถนนลาดยาง</td>
-                                      <td><a href="#" id="r2" data-type="text" data-pk="1" data-title="Enter username">20</a></td>
-                                      <td><a href="#" id="dt2" data-type="text" data-pk="1" data-title="Enter username">57</a></td>
-                                  </tr>
-                                  <tr>
-                                      <td>ถนนคอนกรีต</td>
-                                      <td><a href="#" id="r3" data-type="text" data-pk="1" data-title="Enter username">15</a></td>
-                                      <td><a href="#" id="dt3" data-type="text" data-pk="1" data-title="Enter username">14</a></td>
-                                  </tr>
-                              </tbody>
-                            </table>
-                            <center>
-                            <b>ประเถทถนนอื่นๆ</b><br/>
-                            ชื่อถนน <input type="text" name="add_road" class="input-sm">
-                            จำนวน <input type="text" name="add_road" class="input-sm"> สาย ระยะทาง <input type="text" name="add_road" class="input-sm"> กม. <br/><br/>
-                            <center><a id="add_row" class="btn btn-success">เพิ่มถนน</a><a id='delete_row' class="btn btn-danger">ลบถนน</a>
-                            </center>
+  <div id="step-1">
+    <form class="form-horizontal form-label-left">
+      <div class="form-group">
 
 
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
-                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                                <a href="#" id="r_all" data-type="text" data-pk="1" data-title="Enter username">102</a>
-                              </label>
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
+
+        <table id="road" class="table table-striped table-bordered" style="clear: both">
+          <tbody>
+            <thead>
+              <th width="50%">
+                ประเภทถนน
+              </th>
+              <th>
+                จำนวน(สาย)
+              </th>
+              <th>
+                ระยะทาง(กม.)
+              </th>
+            </thead>
+              <tr>
+                  <td>ถนนลูกรัง</td>
+                  <td><a href="#" id="r1" data-type="text" data-pk="1" data-title="Enter username">68</a></td>
+                  <td><a href="#" id="dt1" data-type="text" data-pk="1" data-title="Enter username">78</a></td>
+              </tr>
+              <tr>
+                  <td>ถนนลาดยาง</td>
+                  <td><a href="#" id="r2" data-type="text" data-pk="1" data-title="Enter username">20</a></td>
+                  <td><a href="#" id="dt2" data-type="text" data-pk="1" data-title="Enter username">57</a></td>
+              </tr>
+              <tr>
+                  <td>ถนนคอนกรีต</td>
+                  <td><a href="#" id="r3" data-type="text" data-pk="1" data-title="Enter username">15</a></td>
+                  <td><a href="#" id="dt3" data-type="text" data-pk="1" data-title="Enter username">14</a></td>
+              </tr>
+              <tr>
+                  <td>อื่นๆ(ระบุ) <input type="text" name="name" value="" class="btn btn-default"></td>
+                  <td><a href="#" id="r4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
+                  <td><a href="#" id="dt4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
+              </tr>
+          </tbody>
+        </table>
+
+        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
+          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+          102
+          </label>
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สะพาน</label>
+              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                5
+              </label>
+                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label>
+
+  </div>
+    </form>
+  </div>
+  <div id="step-2">
+    <form class="form-horizontal form-label-left">
+      <div class="form-group">
+      <table class="table table-striped table-bordered" style="clear: both">
+        <thead>
+          <th colspan="3">
+            <center>ระบบขนส่งมวลชน</center>
+          </th>
+        </thead>
+            <tr>
+                <td width="50%">รถโดยสารที่ให้บริการจำนวน</td>
+                <td width="25%"><a href="#" id="bus" data-type="text" data-pk="1" data-title="Enter username">1</a></td>
+                <td width="25%">เส้นทาง</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                  อื่นๆระบุ <input type="text" name="name" value="" class="input-sm"> <button type="button" class="btn btn-success">
+                    เพิ่ม
+                  </button>
+              </td>
+
+            </tr>
+      </table>
+    </div>
+    <hr>
+    <div class="form-group">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <th colspan="3">
+          <center>การสื่อสารโทรคมนาคม</center>
+        </th>
+      </thead>
+      <tr>
+        <td>
+          ที่ทำการไปรษณีย์
+        </td>
+        <td>
+          <a href="#" id="c1" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          แห่ง
+        </td>
+      </tr>
+      <tr>
+        <td>
+          สถานีวิทยุกระจายเสียง
+        </td>
+        <td>
+          <a href="#" id="c2" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          สถานี
+        </td>
+      </tr>
+      <tr>
+        <td>
+          สถานีวิทยุโทรทัศน์
+        </td>
+        <td>
+          <a href="#" id="c3" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          สถานี
+        </td>
+      </tr>
+      <tr>
+        <td>
+          สื่อมวลชนในพื้นที่/หนังสือพิมพ์
+        </td>
+        <td>
+          <a href="#" id="c4" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          ฉบับ
+        </td>
+      </tr>
+      <tr>
+        <td>
+        การให้บริการอินเตอร์เน็ต
+        </td>
+        <td>
+          <a href="#" id="c5" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          แหง
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่
+        </td>
+        <td>
+          <a href="#" id="c6" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          แห่ง
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ให้บริการครอบคลุมร้อยละ
+        </td>
+        <td>
+          <a href="#" id="c7" data-type="text" data-pk="1" data-title="Enter username">40</a>
+        </td>
+        <td>
+          ของพื้นที่ทั้งหมด
+        </td>
+      </tr>
+      <tr>
+        <td>
+          หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่
+        </td>
+        <td>
+          <a href="#" id="c8" data-type="text" data-pk="1" data-title="Enter username">0</a>
+        </td>
+        <td>
+          แห่ง
+        </td>
+      </tr>
+    </table>
+
+    </div>
+    </form>
+  </div>
+
+  <div id="step-3">
+    <form class="form-horizontal form-label-left">
+
+      <div class="form-group">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <td>
+              ครัวเรือนที่ใช้ไฟฟ้า
+            </td>
+            <td>
+              <a href="#" id="e1" data-type="text" data-pk="1" data-title="Enter username">2657</a>
+            </td>
+            <td>
+              ครัวเรือน
+            </td>
+          </tr>
+          <tr>
+            <td>
+              พื้นที่ที่ได้รับบริการไฟฟ้า ร้อยละ
+            </td>
+            <td>
+                <a href="#" id="e2" data-type="text" data-pk="1" data-title="Enter username">98.00</a>
+            </td>
+            <td>
+            ของพื้นที่
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ไฟฟ้าส่องสว่างสารธารณะ จำนวน
+            </td>
+            <td>
+              <a href="#" id="e3" data-type="text" data-pk="1" data-title="Enter username">500</a>
+            </td>
+            <td>
+              ไร่
+            </td>
+          </tr>
+          <tr>
+            <td>
+              จุด/ครอบคลุมถนน
+            </td>
+            <td>
+                <a href="#" id="e4" data-type="text" data-pk="1" data-title="Enter username">20.00</a>
+            </td>
+            <td>
+              สาย
+            </td>
+          </tr>
+        </table>
+        </div>
+    </form>
+  </div>
 
 
-                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สะพาน</label>
-                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                                  <a href="#" id="s" data-type="text" data-pk="1" data-title="Enter username">5</a>
-                                </label>
-                                  <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label>
+  <div id="step-4">
 
-                      </div>
-                        </form>
-                      </div>
-                      <div id="step-2">
-                        <form class="form-horizontal form-label-left">
-                          <div class="form-group">
-                          <table class="table" style="clear: both">
-                                <tr>
-                                    <td width="50%">รถโดยสารที่ให้บริการจำนวน</td>
-                                    <td width="25%">1</td>
-                                    <td width="25%">เส้นทาง</td>
-                                </tr>
-                                <tr>
-                                  <td colspan="3">
-                                      อื่นๆระบ <input type="text" name="name" value="" class="input-sm"> <button type="button" class="btn btn-success">
-                                        เพิ่ม
-                                      </button>
-                                  </td>
+    <form class="form-horizontal form-label-left">
 
-                                </tr>
-                          </table>
-                        </div>
-                        </form>
-                      </div>
-                      <div id="step-3">
-
-                        <form class="form-horizontal form-label-left">
-
-                          <div class="form-group">
-                          <table class="table">
-                            <tr>
-                              <td>
-                                ที่ทำการไปรษณีย์
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                แห่ง
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                สถานีวิทยุกระจายเสียง
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                สถานี
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                สถานีวิทยุโทรทัศน์
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                สถานี
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                สื่อมวลชนในพื้นที่/หนังสือพิมพ์
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                ฉบับ
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                              การให้บริการอินเตอร์เน็ต
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                แหง
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                แห่ง
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                ให้บริการครอบคลุมร้อยละ
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="40.00" class="form-control">
-                              </td>
-                              <td>
-                                ของพื้นที่ทั้งหมด
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="0" class="form-control">
-                              </td>
-                              <td>
-                                แห่ง
-                              </td>
-                            </tr>
-                          </table>
-
-                          </div>
-
-                        </form>
-                      </div>
-                      <div id="step-4">
-                        <form class="form-horizontal form-label-left">
-
-                          <div class="form-group">
-                            <table class="table">
-                              <tr>
-                                <td>
-                                  ครัวเรือนที่ใช้ไฟฟ้า
-                                </td>
-                                <td>
-                                  <input type="text" name="name" value="2657" class="form-control">
-                                </td>
-                                <td>
-                                  ครัวเรือน
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  พื้นที่ที่ได้รับบริการไฟฟ้า ร้อยละ
-                                </td>
-                                <td>
-                                  <input type="text" name="name" value="98.00" class="form-control">
-                                </td>
-                                <td>
-                                ของพื้นที่
-                                </td>
-                              </tr>
-                            </table>
-                            <table class="table">
-                              <tr>
-                                <td>
-                                  ไฟฟ้าส่องสว่างสารธารณะ จำนวน
-                                </td>
-                                <td>
-                                  <input type="text" name="name" value="500" class="form-control">
-                                </td>
-                                <td>
-                                  ไร่
-                                </td>
-                                <td>
-                                  จุด/ครอบคลุมถนน
-                                </td>
-                                <td>
-                                  <input type="text" name="name" value="20.00" class="form-control">
-                                </td>
-                                <td>
-                                  สาย
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </form>
-                      </div>
-
-
-                      <div id="step-5">
-
-                        <form class="form-horizontal form-label-left">
-
-                          <div class="form-group">
-                          <table class="table">
-                            <tr>
-                              <td>
-                                พื้นที่พักอาศัย
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="5000.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                พื้นที่พาณิชยกรรม
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="1000.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                พื้นที่ตั้งหน่วยงานของรัฐ
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="5.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                สวนสาธารณะ/นันทนาการ
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="20.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                พื้นที่เกษตรกรรม
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="80000.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                พื้นที่ตั้งสถานศึกษา
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="100.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                พื้นที่ว่าง
-                              </td>
-                              <td>
-                                <input type="text" name="name" value="5000.00" class="form-control">
-                              </td>
-                              <td>
-                                ไร่
-                              </td>
-                            </tr>
-                          </table>
-                        </form>
-                          </div>
-                    </div>
-                    <!-- End SmartWizard Content -->
+      <div class="form-group">
+      <table class="table table-striped table-bordered">
+        <tr>
+          <td>
+            พื้นที่พักอาศัย
+          </td>
+          <td>
+            <a href="#" id="p1" data-type="text" data-pk="1" data-title="Enter username">5000.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พื้นที่พาณิชยกรรม
+          </td>
+          <td>
+            <a href="#" id="p2" data-type="text" data-pk="1" data-title="Enter username">1000.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พื้นที่ตั้งหน่วยงานของรัฐ
+          </td>
+          <td>
+            <a href="#" id="p3" data-type="text" data-pk="1" data-title="Enter username">5.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            สวนสาธารณะ/นันทนาการ
+          </td>
+          <td>
+            <a href="#" id="p4" data-type="text" data-pk="1" data-title="Enter username">20.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พื้นที่เกษตรกรรม
+          </td>
+          <td>
+            <a href="#" id="p5" data-type="text" data-pk="1" data-title="Enter username">80000.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พื้นที่ตั้งสถานศึกษา
+          </td>
+          <td>
+            <a href="#" id="p6" data-type="text" data-pk="1" data-title="Enter username">100.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+        <tr>
+          <td>
+            พื้นที่ว่าง
+          </td>
+          <td>
+            <a href="#" id="p7" data-type="text" data-pk="1" data-title="Enter username">5000.00</a>
+          </td>
+          <td>
+            ไร่
+          </td>
+        </tr>
+      </table>
+    </form>
+      </div>
+</div>
+</div>
+<!-- End SmartWizard Content -->
 
                   </div>
                 </div>
@@ -447,6 +488,10 @@
                         $('.buttonPrevious').addClass('btn btn-primary');
                         $('.buttonFinish').addClass('btn btn-default');
                       });
+                      function startUp() {
+                        $("#st2").width("60px");
+                      }
+                      startUp();
                     </script>
                     <!-- /jQuery Smart Wizard -->
 

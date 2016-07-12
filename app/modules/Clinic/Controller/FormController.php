@@ -20,8 +20,8 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic.css')
             ->join(true)
             ->addCss(APPLICATION_PATH . '/modules/Clinic/assets/clinic.css');
-            
-            
+
+
         // Clinic JS Assets
         $this->assets->collection('modules-clinic-js')
             ->setLocal(true)
@@ -50,7 +50,7 @@ class FormController extends Controller
     public function no2Action()
     {
 
-        // no1 JS Assets
+        // no2 JS Assets
         $this->assets->collection('modules-clinic-no2-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
@@ -62,8 +62,19 @@ class FormController extends Controller
     }
     public function no3Action()
     {
+<<<<<<< HEAD
+      // no3 JS Assets
+      $this->assets->collection('modules-clinic-no3-js')
+          ->setLocal(true)
+          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+          ->setTargetPath(ROOT . '/assets/modules-clinic-no3.js')
+          ->setTargetUri('assets/modules-clinic-no3.js')
+          ->join(true)
+          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
+=======
 
 
+>>>>>>> refs/remotes/origin/clinic-center
     }
     public function no4Action()
     {
@@ -99,7 +110,14 @@ class FormController extends Controller
     }
     public function no7Action()
     {
-
+      // no7 JS Assets
+      $this->assets->collection('modules-clinic-no7-js')
+          ->setLocal(true)
+          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+          ->setTargetPath(ROOT . '/assets/modules-clinic-no7.js')
+          ->setTargetUri('assets/modules-clinic-no7.js')
+          ->join(true)
+          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js');
     }
     public function no8Action()
     {
@@ -115,7 +133,14 @@ class FormController extends Controller
     }
     public function no9Action()
     {
-
+      // no9 JS Assets
+      $this->assets->collection('modules-clinic-no9-js')
+          ->setLocal(true)
+          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+          ->setTargetPath(ROOT . '/assets/modules-clinic-no9.js')
+          ->setTargetUri('assets/modules-clinic-no9.js')
+          ->join(true)
+          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js');
     }
 
 }

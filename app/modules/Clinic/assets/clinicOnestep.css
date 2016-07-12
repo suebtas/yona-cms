@@ -3778,7 +3778,7 @@ fieldset {
 }
 .wizard_horizontal ul.wizard_steps li:last-child a:before {
   right: 50%;
-  width: 50%;
+  width: 0;
   left: auto;
 }
 .wizard_verticle .stepContainer {
