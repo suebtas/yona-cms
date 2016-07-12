@@ -9,8 +9,6 @@ class IndexController extends Controller
 
     public function initialize()
     {
-<<<<<<< HEAD
-=======
     	$this->setClinicEnvironment();
         $this->view->languages_disabled = true;
 
@@ -31,7 +29,6 @@ class IndexController extends Controller
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
->>>>>>> refs/remotes/origin/clinic-center
     }
 
     public function indexAction()
