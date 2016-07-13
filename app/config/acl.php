@@ -56,4 +56,25 @@ return [
         'clinic/index'       => '*',
         'clinic/form'        => '*',
     ],
+    'clinic-center'      => [
+        'admin/index'   => '*',
+        'clinic/index'   => '*',
+        'clinic/form'   => '*',
+    ],
+    'cc-user'      => [
+        'admin/index'   => '*',
+        'clinic/index'   => '*',
+        'clinic/form'   => '*',
+    ],
+    'cc-approver'      => [
+        'admin/index'   => '*',
+        'clinic/index'   => '*',
+        'clinic/form'   => '*',
+    ],
+    'cc-admin'      => [
+        'admin/index'   => '*',
+        'admin/admin-user'   => '*',
+        'clinic/index'   => '*',
+        'clinic/form'   => '*',
+    ],
 ];

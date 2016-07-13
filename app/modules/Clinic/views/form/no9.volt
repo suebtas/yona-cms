@@ -2,7 +2,7 @@
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <h3>เทศบาล xxxx</h3>
+        <h3>{{ office.name }}</h3>
       </div>
 
       <div class="title_right">

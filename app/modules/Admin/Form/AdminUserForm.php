@@ -17,6 +17,7 @@ use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Check;
 use Phalcon\Validation\Validator\Email as ValidatorEmail;
 use Phalcon\Validation\Validator\PresenceOf;
+use Clinic\Model\Office;
 
 class AdminUserForm extends Form
 {
@@ -30,9 +31,12 @@ class AdminUserForm extends Form
         );
 
         $this->add(
-            (new Text('office', [
-                'required' => no,
-            ]))->setLabel('Office')
+            (new Select('office', Office::find(), array(
+                    'using' => array(
+                        'id',
+                        'name'
+                    ))))
+            ->setLabel('Office')
         );
 
         $this->add(

@@ -62,8 +62,15 @@ class IndexController extends Controller
                         if ($user->checkPassword($password)) {
                             if ($user->isActive()) {
                                 $this->session->set('auth', $user->getAuthData());
-                                $this->flash->success($this->helper->translate("Welcome to the administrative control panel!"));
-                                return $this->redirect($this->url->get() . 'admin');
+                                $auth = $this->session->get('auth');
+                                if ($user->role=='admin') {
+                                    $this->flash->success($this->helper->translate("Welcome to the administrative control panel!"));
+                                    return $this->redirect($this->url->get() . 'admin');
+                                }else if($user->role=='cc-admin'){
+                                    return $this->redirect($this->url->get() . 'clinic/index');
+
+                                }
+                                
                             } else {
                                 $this->flash->error($this->helper->translate("User is not activated yet"));
                             }
@@ -80,7 +87,7 @@ class IndexController extends Controller
                 }
             } else {
                 $this->flash->error($this->helper->translate("Security errors"));
-            }
+            }            
         }
 
         $this->view->form = $form;

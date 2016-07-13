@@ -3,6 +3,7 @@
 namespace Clinic\Controller;
 
 use Application\Mvc\Controller;
+use Clinic\Model\AdminUser;
 
 class IndexController extends Controller
 {
@@ -29,6 +30,8 @@ class IndexController extends Controller
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+        $auth = $this->session->get('auth');
+        $this->view->user = AdminUser::findFirst($auth->id);
     }
 
     public function indexAction()

@@ -23,11 +23,21 @@ class DefaultAcl extends \Phalcon\Acl\Adapter\Memory
         $roles = [];
         $roles['guest'] = new \Phalcon\Acl\Role('guest', 'Guest');
         $roles['member'] = new \Phalcon\Acl\Role('member', 'Member');
+        $roles['clinic-center'] = new \Phalcon\Acl\Role('clinic-center', 'Clinice Center');
 
         $roles['journalist'] = new \Phalcon\Acl\Role('journalist', 'Journalist');
         $roles['editor'] = new \Phalcon\Acl\Role('editor', 'Journalist');
         $roles['admin'] = new \Phalcon\Acl\Role('admin', 'Admin');
 
+        $roles['cc-user'] = new \Phalcon\Acl\Role('cc-user', 'Center User');
+        $roles['cc-approver'] = new \Phalcon\Acl\Role('cc-approver', 'Center Approver');
+        $roles['cc-admin'] = new \Phalcon\Acl\Role('cc-admin', 'Center Admin');
+
+
+        $this->addRole($roles['clinic-center']);
+        $this->addRole($roles['cc-user']);
+        $this->addRole($roles['cc-approver']);
+        $this->addRole($roles['cc-admin']);
         /**
          * Frontend roles
          */

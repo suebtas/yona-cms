@@ -4,6 +4,9 @@ namespace Clinic\Controller;
 
 use Application\Mvc\Controller;
 use Phalcon\Mvc\View;
+use Clinic\Model\AdminUser;
+use Clinic\Model\Office;
+
 class FormController extends Controller
 {
 
@@ -29,7 +32,13 @@ class FormController extends Controller
             ->setTargetPath(ROOT . '/assets/modules-clinic.js')
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');;;
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+
+
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
+        $this->view->user = $user;
+        $this->view->office =  Office::findFirst($user->officeid);
     }
 
     public function no1Action()
