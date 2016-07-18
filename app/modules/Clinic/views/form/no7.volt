@@ -261,7 +261,7 @@
                                   <a href="#" id="f20" data-type="text" data-pk="1" data-title="Enter username" > 10 </a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="กรมการปกครอง" class="form-control">
+                                  <input type="text" name="name" value="" class="form-control">
                                 </td>
                                 <td>
                                   <a href="#" id="f21" data-type="text" data-pk="1" data-title="Enter username" > 2549 </a>
@@ -374,7 +374,7 @@
                                   <a href="#" id="f35" data-type="text" data-pk="1" data-title="Enter username" > 10.00 </a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="ปรับปรุงรถเก่า" class="form-control">
+                                  <input type="text" name="name" value="" class="form-control">
                                 </td>
                                 <td>
                                   <a href="#" id="f36" data-type="text" data-pk="1" data-title="Enter username" > 2553 </a>
@@ -617,6 +617,7 @@
                         </form>
                       </div>
                     </div>
+                  </div>
                     <!-- End SmartWizard Content -->
 
                   </div>

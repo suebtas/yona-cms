@@ -167,17 +167,6 @@
                                   </tr>
                               </tbody>
                             </table>
-                            <div align="center">
-                              <button type="button" class="btn btn-success">
-                                add
-                              </button>
-                              <button type="button" class="btn btn-info">
-                                update
-                              </button>
-                              <button type="button" class="btn btn-danger">
-                                remove
-                              </button>
-                            </div>
                           </div>
 
                         </form>

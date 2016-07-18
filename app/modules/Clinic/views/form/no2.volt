@@ -55,27 +55,20 @@
                         </li>
                         <li>
                           <a href="#step-2">
-                            <span class="step_no">2.2</span>
-                            <span class="step_descr">ระบบขนส่งมวลชน<br />
+                            <span class="step_no" id="st2">2.2-2.3</span>
+                            <span class="step_descr">ระบบขนส่งและการสื่อสาร<br />
                             </span>
                           </a>
                         </li>
                         <li>
                           <a href="#step-3">
-                            <span class="step_no">2.3</span>
-                            <span class="step_descr">การสื่อสารโทรคมนาคม<br />
-                            </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-4">
                             <span class="step_no">2.4</span>
                             <span class="step_descr">ไฟฟ้า<br />
                             </span>
                           </a>
                         </li>
                         <li>
-                          <a href="#step-5">
+                          <a href="#step-4">
                             <span class="step_no">2.5</span>
                             <span class="step_descr">ลักษณะการใช้ที่ดิน<br />
                             </span>
@@ -83,12 +76,10 @@
                         </li>
                       </ul>
 
+
   <div id="step-1">
     <form class="form-horizontal form-label-left">
       <div class="form-group">
-
-
-
         <table id="road" class="table table-striped table-bordered" style="clear: both">
           <tbody>
             <thead>
@@ -453,15 +444,10 @@
                         $('.buttonFinish').addClass('btn btn-default');
                       });
                       function startUp() {
-                        $("#st2").width("60px");
-                        var r1 = $('#r1').text();
-                        var r2 = $('#r2').text();
-                        var r3 = $('#r3').text();
-                        var r4 = $('#r4').text();
-                        var sum = parseInt(r1) + parseInt(r2) + parseInt(r3) + parseInt(r4);
-                        $('#sumroad').html(sum);
-                      }
-                      startUp();
+                          $("#st2").width("60px");
+                          $("div").removeClass("stepContainer");
+                        }
+                        startUp();
                     </script>
                     <!-- /jQuery Smart Wizard -->
 
