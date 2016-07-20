@@ -6,6 +6,9 @@ use Application\Mvc\Controller;
 use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
+use Clinic\Model\BoundaryOffice;
+
+use Clinic\Form\Question\No1Form;
 
 class FormController extends Controller
 {
@@ -43,8 +46,6 @@ class FormController extends Controller
 
     public function no1Action()
     {
-
-
         // no1 JS Assets
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
@@ -53,6 +54,46 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no1.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
+            
+        $model = new BoundaryOffice();
+        $form = new No1Form();
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
+        //$this->view->office =  Office::findFirst($user->officeid);
+        if ($this->request->isPost()) {
+            $this->view->disable();
+            $post = $this->request->getPost();
+            $model->owner_officeid = $user->officeid;
+
+            $option = $this->request->getPost("option");
+            $officeID = $this->request->getPost("no1_1_3_1");
+            if($officeID){
+                if($option=='add'){
+                    echo 'add';
+                    $modelT = new BoundaryOffice();
+                    $modelT->owner_officeid = $user->officeid;
+                    $modelT->close_officeid = $officeID;
+                    $modelT->boundaryid = 1;
+                    if($modelT->save()==false)
+                        echo 'error';
+                    else
+                        echo 'ok';
+                }else if($option=='delete'){
+                    $modelT = BoundaryOffice::find(
+                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 1",
+                            "bind"=>array(
+                                1=>$officeID,
+                                2=>$user->$officeid)
+                            )
+                        );
+                    $modelT->delete();
+                }
+            }
+        }
+        $form->setEntity($model);
+        $this->view->form = $form;
+        $this->view->model = $model;
+
 
 
     }

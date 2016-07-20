@@ -80,6 +80,7 @@
                             </label>
                             <div class="col-md-2">
                                 <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+
                             </div>
                             <span class="col-md-1">ไร่ หรือ</span>
                             <div class="col-md-2 col-sm-3 col-xs-12">
@@ -92,48 +93,32 @@
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศเหนือ ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
-                                <option value="AK" selected>พื้นที่เทศบาลทับมา เทศบาลตำบลน้ำคอกและ เทศบาลตำบลเชิงเนิน</option>
-                                <option value="CA">ทะเลอ่าวไทย</option>
-                                <option value="NV">พื้นที่เทศบาลตำบลเชิงเนิน</option>
-                                <option value="OR">พื้นที่เทศบาลตำบลเนินพระ</option>
-                              </select>
+
+                             {{ form.render('no1_1_3_1') }}
                             </div>
                           </div>
 
                            <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศใต้ ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
-                                <option value="AK">พื้นที่เทศบาลทับมา เทศบาลตำบลน้ำคอกและ เทศบาลตำบลเชิงเนิน</option>
-                                <option value="CA" selected>ทะเลอ่าวไทย</option>
-                                <option value="NV">พื้นที่เทศบาลตำบลเชิงเนิน</option>
-                                <option value="OR">พื้นที่เทศบาลตำบลเนินพระ</option>
-                              </select>
+                              
+                             {{ form.render('no1_1_3_2') }}
                             </div>
                           </div>
 
                            <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศตะวันตก ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
-                                <option value="AK">พื้นที่เทศบาลทับมา เทศบาลตำบลน้ำคอกและ เทศบาลตำบลเชิงเนิน</option>
-                                <option value="CA">ทะเลอ่าวไทย</option>
-                                <option value="NV" selected>พื้นที่เทศบาลตำบลเชิงเนิน</option>
-                                <option value="OR">พื้นที่เทศบาลตำบลเนินพระ</option>
-                              </select>
+
+                             {{ form.render('no1_1_3_3') }}
                             </div>
                           </div>
 
                            <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศตะวันออก ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
-                                <option value="AK">พื้นที่เทศบาลทับมา เทศบาลตำบลน้ำคอกและ เทศบาลตำบลเชิงเนิน</option>
-                                <option value="CA">ทะเลอ่าวไทย</option>
-                                <option value="NV">พื้นที่เทศบาลตำบลเชิงเนิน</option>
-                                <option value="OR" selected>พื้นที่เทศบาลตำบลเนินพระ</option>
-                              </select>
+
+                             {{ form.render('no1_1_3_4') }}
                             </div>
                           </div>
                         </form>
@@ -147,7 +132,7 @@
                             <tbody>
                                 <tr>
                                     <td width="40%">ชาย</td>
-                                    <td width="10%"><a href="#" id="male" data-type="text" data-pk="1" data-title="Enter username">2345</a> คน</td>
+                                    <td width="10%"><a href="#" id="male" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
                                     <td width="40%">หญิง</td>
                                     <td width="10%"><a href="#" id="female" data-type="text" data-pk="1" data-title="Enter username">2407</a> คน</td>
                                 </tr>
@@ -159,9 +144,9 @@
                                 </tr>
                                 <tr>
                                     <td width="40%">วัยรุ่น (18 - 25 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="mature_male" data-type="text" data-pk="1" data-title="Enter username">522</a> คน</td>
+                                    <td width="10%"><a href="#" id="teenager_male" data-type="text" data-pk="1" data-title="Enter username">522</a> คน</td>
                                     <td width="40%">วัยรุ่น (18 - 25 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="mature_female" data-type="text" data-pk="1" data-title="Enter username">487</a> คน</td>
+                                    <td width="10%"><a href="#" id="teenager_female" data-type="text" data-pk="1" data-title="Enter username">487</a> คน</td>
                                 </tr>
                                 <tr>
                                     <td width="40%">ผู้ใหญ่ (26 - 60 ปี) ชาย</td>
@@ -178,6 +163,69 @@
                             </tbody>
                           </table>
 
+
+                          <table id="population" class="table table-bordered table-striped" style="clear: both">
+                            <tbody>
+                                <tr>
+                                  <th width="40%">ประเภทประชากร</th>
+                                  <th width="10%">จำนวน</th>
+                                  <th width="50%">ที่มาของข้อมูล</th>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรแฝงจำนวน</td>
+                                    <td width="10%"><a href="#" id="no_1_2_6_1" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
+                                    <td width="50%"><a href="#" id="no_1_2_6_2" data-type="text" data-pk="1" data-title="Enter username"></a></td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรแฝง(ต่างด้าว)</td>
+                                    <td width="10%"><a href="#" id="no_1_2_7_1" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
+                                    <td width="50%"><a href="#" id="no_1_2_7_2" data-type="text" data-pk="1" data-title="Enter username"></a></td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน </td>
+                                    <td width="10%"><a href="#" id="no_1_2_8_1" data-type="text" data-pk="1" data-title="Enter username">104</a> คน</td>
+                                    <td width="50%"><a href="#" id="no_1_2_8_2" data-type="text" data-pk="1" data-title="Enter username"></a> </td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ความหนาแน่นของประชากร </td>
+                                    <td width="10%"><a href="#" id="no_1_2_9_1" data-type="text" data-pk="1" data-title="Enter username">48.00</a> คน/ตร.กม.</td>
+                                    <td width="50%"><a href="#" id="no_1_2_9_1" data-type="text" data-pk="1" data-title="Enter username"></a> </td>
+                                </tr>                               
+                            </tbody>
+                          </table>
+
+
+                          <table id="job" class="table table-bordered table-striped" style="clear: both">
+                            <tbody>
+                                <tr>
+                                  <th width="40%">ลักษณะอาชีพของประชากร </th>
+                                  <th width="10%">จำนวน</th>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน</td>
+                                    <td width="60%"><a href="#" id="no_1_2_10" data-type="text" data-pk="1" data-title="Enter username">4,500</a> คน</td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน </td>
+                                    <td width="60%"><a href="#" id="no_1_2_11" data-type="text" data-pk="1" data-title="Enter username">500</a> คน</td>
+                                </tr>
+                                <tr>
+                                    <td width="40%">ประชากรที่ประกอบอาชีพอื่นจำนวน  </td>
+                                    <td width="60%"><a href="#" id="no_1_2_12" data-type="text" data-pk="1" data-title="Enter username">500</a> คน</td>
+                                </tr>                               
+                            </tbody>
+                          </table>
+
+
+
+                          <table id="travel" class="table table-bordered table-striped" style="clear: both">
+                            <tbody>
+                                <tr>
+                                    <td width="40%">สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน</td>
+                                    <td width="60%"><a href="#" id="no_1_2_13" data-type="text" data-pk="1" data-title="Enter username">2</a> แห่ง</td>
+                                </tr>                            
+                            </tbody>
+                          </table>
                         </form>
                       </div>
 

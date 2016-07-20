@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 192.168.99.100 (MySQL 5.7.12)
+# Host: 127.0.0.1 (MySQL 5.7.13)
 # Database: yona-cms
-# Generation Time: 2016-07-13 14:27:53 +0000
+# Generation Time: 2016-07-20 12:28:17 +0000
 # ************************************************************
 
 
@@ -44,8 +44,8 @@ LOCK TABLES `admin_user` WRITE;
 
 INSERT INTO `admin_user` (`id`, `officeid`, `role`, `login`, `email`, `name`, `password`, `active`)
 VALUES
-	(1,NULL,'admin','admin','web@wezoom.net','Admin Name','$2y$10$rX2C0Ak2deW430Wzlud8HeoNe0pFl.8yYwOwyI/xCKIENd0vKmEgm',1),
-	(2,NULL,'admin','yona','yona@wezoom.net','Yona CMS User','$2y$10$2UUYmTf4f13el.b5K69WmeijY6E/nY4.hRYaokNe/lfyfvJ3Bz05O',1),
+	(1,3,'admin','admin','web@wezoom.net','Admin Name','$2y$10$rX2C0Ak2deW430Wzlud8HeoNe0pFl.8yYwOwyI/xCKIENd0vKmEgm',1),
+	(2,2,'admin','yona','yona@wezoom.net','Yona CMS User','$2y$10$2UUYmTf4f13el.b5K69WmeijY6E/nY4.hRYaokNe/lfyfvJ3Bz05O',1),
 	(3,1,'cc-admin','suebtas','suebtas@gmail.com','Suebtas Limsaihua','$2y$10$AdroWCxYQnqHJYGBgIKUye8cm7luMtASzhVYxFZP.SA1SEIWomKRa',1);
 
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
@@ -95,7 +95,7 @@ CREATE TABLE `answer` (
   KEY `index answer in survey` (`discovery_surveyid`),
   KEY `index answer in question` (`questionid`),
   CONSTRAINT `answer in question` FOREIGN KEY (`questionid`) REFERENCES `question` (`id`),
-  CONSTRAINT `answer in survey` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery survey` (`id`)
+  CONSTRAINT `answer in survey` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery_survey` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -119,7 +119,7 @@ CREATE TABLE `approval` (
   KEY `index approval on` (`discovery_surveyid`),
   KEY `index user approval on` (`admin_userid`),
   KEY `index approve in` (`sessionid`),
-  CONSTRAINT `approval on` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery survey` (`id`),
+  CONSTRAINT `approval on` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery_survey` (`id`),
   CONSTRAINT `approve in` FOREIGN KEY (`sessionid`) REFERENCES `session` (`id`),
   CONSTRAINT `user approval on` FOREIGN KEY (`admin_userid`) REFERENCES `admin_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -137,14 +137,26 @@ CREATE TABLE `boundary` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `boundary` WRITE;
+/*!40000 ALTER TABLE `boundary` DISABLE KEYS */;
+
+INSERT INTO `boundary` (`id`, `name`)
+VALUES
+	(1,'North'),
+	(2,'South'),
+	(3,'East'),
+	(4,'West');
+
+/*!40000 ALTER TABLE `boundary` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
-# Dump of table boundary office
+# Dump of table boundary_office
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `boundary office`;
+DROP TABLE IF EXISTS `boundary_office`;
 
-CREATE TABLE `boundary office` (
+CREATE TABLE `boundary_office` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `close_officeid` int(11) NOT NULL,
   `boundaryid` int(11) NOT NULL,
@@ -158,6 +170,15 @@ CREATE TABLE `boundary office` (
   CONSTRAINT `set boundary office with` FOREIGN KEY (`boundaryid`) REFERENCES `boundary` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `boundary_office` WRITE;
+/*!40000 ALTER TABLE `boundary_office` DISABLE KEYS */;
+
+INSERT INTO `boundary_office` (`id`, `close_officeid`, `boundaryid`, `owner_officeid`)
+VALUES
+	(1,1,1,1);
+
+/*!40000 ALTER TABLE `boundary_office` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table cms_configuration
@@ -226,18 +247,18 @@ CREATE TABLE `comment` (
   KEY `index user comment on` (`admin_userid`),
   KEY `index comment in` (`sessionid`),
   CONSTRAINT `comment in` FOREIGN KEY (`sessionid`) REFERENCES `session` (`id`),
-  CONSTRAINT `comment on` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery survey` (`id`),
+  CONSTRAINT `comment on` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery_survey` (`id`),
   CONSTRAINT `user comment on` FOREIGN KEY (`admin_userid`) REFERENCES `admin_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
-# Dump of table discovery survey
+# Dump of table discovery_survey
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `discovery survey`;
+DROP TABLE IF EXISTS `discovery_survey`;
 
-CREATE TABLE `discovery survey` (
+CREATE TABLE `discovery_survey` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `officeid` int(11) DEFAULT NULL,
   `surveyid` int(11) DEFAULT NULL,
@@ -416,19 +437,6 @@ VALUES
 
 /*!40000 ALTER TABLE `office` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table office_boundary
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `office_boundary`;
-
-CREATE TABLE `office_boundary` (
-  `officeid` int(11) NOT NULL,
-  `boundaryid` int(11) NOT NULL,
-  PRIMARY KEY (`officeid`,`boundaryid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 
 # Dump of table page
