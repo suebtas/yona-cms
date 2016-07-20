@@ -313,10 +313,10 @@ $(document).ready(function() {
            pk: 1,
            name: 'male',
            title: 'จำนวนผู้ชาย',
-           success: function(response, newValue) {
-            callPopulation();
-           }
-    })
+           
+    }).on('save', function(e, params) {
+      callPopulation();
+    });
     $('#mature_female').editable({
            url: 'Form_No1.html',
            type: 'text',
@@ -329,10 +329,9 @@ $(document).ready(function() {
            type: 'text',
            pk: 1,
            name: 'male',
-           title: 'จำนวนผู้ชาย',
-           success: function(response, newValue) {
-            callPopulation();
-           }
+           title: 'จำนวนผู้ชาย'
+    }).on('save', function(e, params) {
+      callPopulation();
     });
     $('#teenager_female').editable({
            url: 'Form_No1.html',
@@ -346,10 +345,9 @@ $(document).ready(function() {
            type: 'text',
            pk: 1,
            name: 'male',
-           title: 'จำนวนผู้ชาย',
-           success: function(response, newValue) {
-            callPopulation();
-           }
+           title: 'จำนวนผู้ชาย'
+    }).on('save', function(e, params) {
+      callPopulation();
     });
     $('#elder_female').editable({
            url: 'Form_No1.html',
@@ -359,13 +357,15 @@ $(document).ready(function() {
            title: 'จำนวนผู้ชาย'
     });
     $('#elder_male').editable({
-           url: 'Form_No1.html',
+           url: '/clinic/form/no1',
            type: 'text',
            pk: 1,
            name: 'male',
            title: 'จำนวนผู้ชาย',
-           success: function(response, newValue) {
-            callPopulation();
+           validate: function(value) {
+           },
+           success: function(e, params) {
+              callPopulation();
            }
     });
 
@@ -374,13 +374,13 @@ $(document).ready(function() {
     var ic1 = $('#child_male').text();
     if(ic1==''||ic1=='Empty')
       ic1=0;
-    var ic2 = $('#mature_male').text();if(ic1=='')
+    var ic2 = $('#mature_male').text();
     if(ic2==''||ic2=='Empty')
       ic2=0;
-    var ic3 = $('#teenager_male').text();if(ic1=='')
+    var ic3 = $('#teenager_male').text();
     if(ic3==''||ic3=='Empty')
       ic3=0;
-    var ic4 = $('#elder_male').text();if(ic1=='')
+    var ic4 = $('#elder_male').text();
     if(ic4==''||ic4=='Empty')
       ic4=0;
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
