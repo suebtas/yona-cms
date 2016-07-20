@@ -7,7 +7,7 @@ use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
 use Clinic\Model\BoundaryOffice;
-
+use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
 
 class FormController extends Controller
@@ -60,6 +60,65 @@ class FormController extends Controller
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
         //$this->view->office =  Office::findFirst($user->officeid);
+        /*$test = $this->modelsManager->createBuilder()
+                ->columns(array("close_officeid"))
+                ->from('Clinic\Model\BoundaryOffice')
+                ->getQuery()
+                ->execute()
+                ->setHydrateMode(Resultset::HYDRATE_ARRAYS)
+                ->toArray(array("close_officeid"));
+        var_dump($test);
+        die();*/
+        $no1 = [];
+        $no2 = [];
+        $no3 = [];
+        $no4 = [];
+        $tmp = BoundaryOffice::find(
+                                array("owner_officeid = ?1 and boundaryid = 1",
+                                    "bind" => array(
+                                        1=>$user->officeid
+                                        )
+                                    )
+                                )->toArray(array('close_officeid'));
+        foreach ($tmp as $key => $value) {
+            $no1[] = $value["close_officeid"];
+        }
+        $tmp = BoundaryOffice::find(
+                                array("owner_officeid = ?1 and boundaryid = 2",
+                                    "bind" => array(
+                                        1=>$user->officeid
+                                        )
+                                    )
+                                )->toArray(array('close_officeid'));
+        foreach ($tmp as $key => $value) {
+            $no2[] = $value["close_officeid"];
+        }
+        $tmp = BoundaryOffice::find(
+                                array("owner_officeid = ?1 and boundaryid = 3",
+                                    "bind" => array(
+                                        1=>$user->officeid
+                                        )
+                                    )
+                                )->toArray(array('close_officeid'));
+        foreach ($tmp as $key => $value) {
+            $no3[] = $value["close_officeid"];
+        }
+        $tmp = BoundaryOffice::find(
+                                array("owner_officeid = ?1 and boundaryid = 4",
+                                    "bind" => array(
+                                        1=>$user->officeid
+                                        )
+                                    )
+                                )->toArray(array('close_officeid'));
+        foreach ($tmp as $key => $value) {
+            $no4[] = $value["close_officeid"];
+        }
+        $obj = (object) array(
+                'no1_1_3_1' => $no1,
+                'no1_1_3_2' => $no2,
+                'no1_1_3_3' => $no3,
+                'no1_1_3_4' => $no4,
+            );
         if ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -79,18 +138,92 @@ class FormController extends Controller
                     else
                         echo 'ok';
                 }else if($option=='delete'){
+                    echo 'delete';
                     $modelT = BoundaryOffice::find(
                         array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 1",
                             "bind"=>array(
                                 1=>$officeID,
-                                2=>$user->$officeid)
+                                2=>$user->officeid)
+                            )
+                        );
+                    $modelT->delete();
+                }
+            }
+
+            $officeID = $this->request->getPost("no1_1_3_2");
+            if($officeID){
+                if($option=='add'){
+                    echo 'add';
+                    $modelT = new BoundaryOffice();
+                    $modelT->owner_officeid = $user->officeid;
+                    $modelT->close_officeid = $officeID;
+                    $modelT->boundaryid = 2;
+                    if($modelT->save()==false)
+                        echo 'error';
+                    else
+                        echo 'ok';
+                }else if($option=='delete'){
+                    echo 'delete';
+                    $modelT = BoundaryOffice::find(
+                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 2",
+                            "bind"=>array(
+                                1=>$officeID,
+                                2=>$user->officeid)
                             )
                         );
                     $modelT->delete();
                 }
             }
         }
-        $form->setEntity($model);
+            $officeID = $this->request->getPost("no1_1_3_3");
+            if($officeID){
+                if($option=='add'){
+                    echo 'add';
+                    $modelT = new BoundaryOffice();
+                    $modelT->owner_officeid = $user->officeid;
+                    $modelT->close_officeid = $officeID;
+                    $modelT->boundaryid = 3;
+                    if($modelT->save()==false)
+                        echo 'error';
+                    else
+                        echo 'ok';
+                }else if($option=='delete'){
+                    echo 'delete';
+                    $modelT = BoundaryOffice::find(
+                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 3",
+                            "bind"=>array(
+                                1=>$officeID,
+                                2=>$user->officeid)
+                            )
+                        );
+                    $modelT->delete();
+                }
+            }
+            $officeID = $this->request->getPost("no1_1_3_4");
+            if($officeID){
+                if($option=='add'){
+                    echo 'add';
+                    $modelT = new BoundaryOffice();
+                    $modelT->owner_officeid = $user->officeid;
+                    $modelT->close_officeid = $officeID;
+                    $modelT->boundaryid = 4;
+                    if($modelT->save()==false)
+                        echo 'error';
+                    else
+                        echo 'ok';
+                }else if($option=='delete'){
+                    echo 'delete';
+                    $modelT = BoundaryOffice::find(
+                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 4",
+                            "bind"=>array(
+                                1=>$officeID,
+                                2=>$user->officeid)
+                            )
+                        );
+                    $modelT->delete();
+                }
+            }
+        $form->setEntity($obj);
         $this->view->form = $form;
         $this->view->model = $model;
 
