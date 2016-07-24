@@ -79,7 +79,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> พื้นที่
                             </label>
                             <div class="col-md-2">
-                                <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                               {{ form.render('no1_1_2') }}
 
                             </div>
                             <span class="col-md-1">ไร่ หรือ</span>

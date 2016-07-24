@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.7.13)
+# Host: 127.0.0.1 (MySQL 5.6.23)
 # Database: yona-cms
-# Generation Time: 2016-07-20 12:28:17 +0000
+# Generation Time: 2016-07-24 18:23:51 +0000
 # ************************************************************
 
 
@@ -98,6 +98,15 @@ CREATE TABLE `answer` (
   CONSTRAINT `answer in survey` FOREIGN KEY (`discovery_surveyid`) REFERENCES `discovery_survey` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `answer` WRITE;
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+
+INSERT INTO `answer` (`id`, `answer`, `discovery_surveyid`, `questionid`)
+VALUES
+	(6,'130',1,2);
+
+/*!40000 ALTER TABLE `answer` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table approval
@@ -144,8 +153,8 @@ INSERT INTO `boundary` (`id`, `name`)
 VALUES
 	(1,'North'),
 	(2,'South'),
-	(3,'East'),
-	(4,'West');
+	(3,'West'),
+	(4,'East');
 
 /*!40000 ALTER TABLE `boundary` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -175,7 +184,11 @@ LOCK TABLES `boundary_office` WRITE;
 
 INSERT INTO `boundary_office` (`id`, `close_officeid`, `boundaryid`, `owner_officeid`)
 VALUES
-	(1,1,1,1);
+	(31,3,1,3),
+	(32,5,2,3),
+	(33,6,3,3),
+	(34,17,4,3),
+	(35,4,1,3);
 
 /*!40000 ALTER TABLE `boundary_office` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -271,6 +284,15 @@ CREATE TABLE `discovery_survey` (
   CONSTRAINT `make survey` FOREIGN KEY (`surveyid`) REFERENCES `survey` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `discovery_survey` WRITE;
+/*!40000 ALTER TABLE `discovery_survey` DISABLE KEYS */;
+
+INSERT INTO `discovery_survey` (`id`, `officeid`, `surveyid`, `description`, `status`)
+VALUES
+	(1,3,1,NULL,1);
+
+/*!40000 ALTER TABLE `discovery_survey` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table language
@@ -761,6 +783,20 @@ CREATE TABLE `question` (
   CONSTRAINT `session in` FOREIGN KEY (`sessionid`) REFERENCES `session` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `question` WRITE;
+/*!40000 ALTER TABLE `question` DISABLE KEYS */;
+
+INSERT INTO `question` (`id`, `sessionid`, `no`, `description`, `status`)
+VALUES
+	(1,1,'1.1','แผนที่แสดงอาณาเขตการปกครอง',1),
+	(2,1,'1.2','พื้นที่',1),
+	(3,1,'1.3.1','อาณาเขตทางทิศเหนือ ติดต่อกับ',1),
+	(4,1,'1.3.2','อาณาเขตทางทิศใต้ ติดต่อกับ',1),
+	(5,1,'1.3.3','อาณาเขตทางทิศตะวันตก ติดต่อกับ',1),
+	(6,1,'1.3.4','อาณาเขตทางทิศตะวันออก ติดต่อกับ',1);
+
+/*!40000 ALTER TABLE `question` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table seo_manager
@@ -804,6 +840,23 @@ CREATE TABLE `session` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `session` WRITE;
+/*!40000 ALTER TABLE `session` DISABLE KEYS */;
+
+INSERT INTO `session` (`id`, `name`)
+VALUES
+	(1,'ด้านสภาพทั่วไป'),
+	(2,'ด้านโครงสร้างพื้นฐาน'),
+	(3,'ด้านเศรษฐกิจ'),
+	(4,'ด้านสังคม'),
+	(5,'ด้านสาธารณสุข'),
+	(6,'ด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน'),
+	(7,'ด้านการป้องกันและบรรเทาสาธารณภัย'),
+	(8,'ด้านสิ่งแวดล้อมและทรัพยากรธรรมชาติ'),
+	(9,'ด้านการเมือง การบริหาร');
+
+/*!40000 ALTER TABLE `session` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table survey
@@ -820,6 +873,15 @@ CREATE TABLE `survey` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `survey` WRITE;
+/*!40000 ALTER TABLE `survey` DISABLE KEYS */;
+
+INSERT INTO `survey` (`id`, `no`, `description`, `start`, `end`)
+VALUES
+	(1,'1/2559','dd','2016-01-01','2016-12-31');
+
+/*!40000 ALTER TABLE `survey` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table translate

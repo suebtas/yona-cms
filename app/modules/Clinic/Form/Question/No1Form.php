@@ -15,6 +15,7 @@ class No1Form extends \Phalcon\Forms\Form
         $no1_1_2 = new Text('no1_1_2', array(
             'required' => true,
             'placeholder' => 'กรอกคำถามพื้นที่',
+            'class' =>"form-control col-md-3 col-xs-6"
         ));
         $this->add($no1_1_2);
 

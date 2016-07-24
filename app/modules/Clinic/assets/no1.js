@@ -51,7 +51,26 @@ $(document).ready(function() {
       console.log(e);
   });
 
+  $("#no1_1_2").on('blur',function(e){
+    //alert('Changed!');
 
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_1_2: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
   // no1_1_3_2
   $("#no1_1_3_2").select2({
     maximumSelectionLength: 4,

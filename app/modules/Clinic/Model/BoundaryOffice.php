@@ -70,5 +70,12 @@ class BoundaryOffice extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-
+    public static function toArrayCloseOfficeID($options = null){
+        $returnArray = array();
+        $tmp = BoundaryOffice::find($options)->toArray(array('close_officeid'));
+        foreach ($tmp as $key => $value) {
+            $returnArray[] = $value["close_officeid"];
+        }
+        return $returnArray;
+    }
 }
