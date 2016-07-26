@@ -138,7 +138,7 @@
                                 </tr>
                                 <tr>
                                     <td width="40%">เด็ก (ทารก - 17 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="child_male" data-type="text" data-pk="1" data-title="Enter username">522</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_2}}</a> คน</td>
                                     <td width="40%">เด็ก (ทารก - 17 ปี) หญิง</td>
                                     <td width="10%"><a href="#" id="child_female" data-type="text" data-pk="1" data-title="Enter username">487</a> คน</td>
                                 </tr>

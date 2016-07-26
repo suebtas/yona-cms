@@ -319,13 +319,30 @@ $(document).ready(function() {
            name: 'male',
            title: 'จำนวนผู้ชาย'
     });*/
-    $('#child_female').editable({
-           url: 'Form_No1.html',
+    $('#no1_2_1_2').editable({
+           url: '/clinic/form/no1',
            type: 'text',
-           pk: 1,
-           name: 'male',
-           title: 'จำนวนผู้ชาย'
+           title: 'จำนวนเด็กชาย'
     });
+    $('#no1_2_1_2').on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_1_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+    /*
     $('#child_male').editable({
            url: 'Form_No1.html',
            type: 'text',
@@ -335,7 +352,7 @@ $(document).ready(function() {
            
     }).on('save', function(e, params) {
       callPopulation();
-    });
+    });*/
     $('#mature_female').editable({
            url: 'Form_No1.html',
            type: 'text',
