@@ -385,7 +385,7 @@
           <td>
             <b>พื้นที่ทั้งหมด</b>
           </td>
-          <td>
+          <td class="info">
             <b><span id="sumrai"></span></b>
           </td>
           <td>
