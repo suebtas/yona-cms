@@ -56,7 +56,7 @@
     <li>
       <a href="#step-2">
         <span class="step_no">3.3</span>
-        <span class="step_descr">สถานประกอบการพาณิชย์<br />
+        <span class="step_descr">สถานประกอบเทศพาณิชย์ ์<br />
         </span>
       </a>
     </li>
@@ -150,7 +150,7 @@
         <table class="table table-striped table-bordered">
           <thead>
             <th colspan="3">
-              <center>สถานประกอบเการพาณิชย์</center>
+              <center>สถานประกอบเทศพาณิชย์ ์</center>
             </th>
           </thead>
           <tr>
