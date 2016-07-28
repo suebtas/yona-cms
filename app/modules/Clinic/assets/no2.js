@@ -57,7 +57,14 @@ $('#dt4').editable({
        title: 'ระยะทางถนนคอนกรีต'
 });
 //step 2 2.2
-$('#bus').editable({
+$('#bus1').editable({
+       url: 'Form_No2.html',
+       type: 'text',
+       pk: 1,
+       name: 'car',
+       title: 'รถโดยสารที่ให้บริการจำนวน'
+});
+$('#bus2').editable({
        url: 'Form_No2.html',
        type: 'text',
        pk: 1,

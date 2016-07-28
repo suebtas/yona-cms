@@ -94,22 +94,22 @@
               </th>
             </thead>
               <tr>
-                  <td>ถนนลูกรัง</td>
+                  <td>1.ถนนลูกรัง</td>
                   <td><a href="#" id="r1" data-type="text" data-pk="1" data-title="Enter username">68</a></td>
                   <td><a href="#" id="dt1" data-type="text" data-pk="1" data-title="Enter username">78</a></td>
               </tr>
               <tr>
-                  <td>ถนนลาดยาง</td>
+                  <td>2.ถนนลาดยาง</td>
                   <td><a href="#" id="r2" data-type="text" data-pk="1" data-title="Enter username">20</a></td>
                   <td><a href="#" id="dt2" data-type="text" data-pk="1" data-title="Enter username">57</a></td>
               </tr>
               <tr>
-                  <td>ถนนคอนกรีต</td>
+                  <td>3.ถนนคอนกรีต</td>
                   <td><a href="#" id="r3" data-type="text" data-pk="1" data-title="Enter username">15</a></td>
                   <td><a href="#" id="dt3" data-type="text" data-pk="1" data-title="Enter username">14</a></td>
               </tr>
               <tr>
-                  <td>อื่นๆ(ระบุ) <input type="text" name="name" value="" class="btn btn-default"></td>
+                  <td>4.อื่นๆ(ระบุ) <input type="text" name="name" value="" class="btn btn-default"></td>
                   <td><a href="#" id="r4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
                   <td><a href="#" id="dt4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
               </tr>
@@ -141,16 +141,15 @@
         </thead>
             <tr>
                 <td width="50%">รถโดยสารที่ให้บริการจำนวน</td>
-                <td width="25%"><a href="#" id="bus" data-type="text" data-pk="1" data-title="Enter username">1</a></td>
+                <td width="25%"><a href="#" id="bus1" data-type="text" data-pk="1" data-title="Enter username">1</a></td>
                 <td width="25%">เส้นทาง</td>
             </tr>
             <tr>
-              <td colspan="3">
-                  อื่นๆระบุ <input type="text" name="name" value="" class="input-sm"> <button type="button" class="btn btn-success">
-                    เพิ่ม
-                  </button>
+              <td width="50%">
+                อื่นๆ
               </td>
-
+              <td width="25%"><a href="#" id="bus2" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
+              <td width="25%">เส้นทาง</td>
             </tr>
       </table>
     </div>
@@ -446,6 +445,13 @@
                       function startUp() {
                           $("#st2").width("60px");
                           $("div").removeClass("stepContainer");
+
+                          var r1 = $('#r1').text();
+                          var r2 = $('#r2').text();
+                          var r3 = $('#r3').text();
+                          var r4 = $('#r4').text();
+                          var sum = parseFloat(r1) + parseFloat(r2) + parseFloat(r3) + parseFloat(r4);
+                          $('#sumroad').html(sum);
                         }
                         startUp();
                     </script>
