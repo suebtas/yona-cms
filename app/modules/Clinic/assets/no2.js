@@ -56,6 +56,13 @@ $('#dt4').editable({
        name: 'distance',
        title: 'ระยะทางถนนคอนกรีต'
 });
+$('#bridge').editable({
+       url: 'Form_No2.html',
+       type: 'text',
+       pk: 1,
+       name: 'distance',
+       title: 'สะพาน'
+});
 //step 2 2.2
 $('#bus1').editable({
        url: 'Form_No2.html',
@@ -116,13 +123,6 @@ $('#c6').editable({
        title: 'ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่'
 });
 $('#c7').editable({
-       url: 'Form_No2.html',
-       type: 'text',
-       pk: 1,
-       name: 'communication',
-       title: 'ให้บริการครอบคลุมร้อยละ'
-});
-$('#c8').editable({
        url: 'Form_No2.html',
        type: 'text',
        pk: 1,

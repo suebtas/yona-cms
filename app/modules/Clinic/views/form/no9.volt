@@ -56,7 +56,7 @@
                         <li>
                           <a href="#step-2">
                             <span class="step_no">9.3</span>
-                            <span class="step_descr">โครงสร้างและอัตรากำลัง<br>ในการบริหารงาน<br />
+                            <span class="step_descr">รายรับ-รายจ่าย<br>ขององค์กรปกครองส่วนท้องถิ่น<br />
                             </span>
                           </a>
                         </li>
@@ -182,7 +182,7 @@
                                 ภาษีบำรุงท้องที่
                               </td>
                               <td width="10%">
-                                <a href="#" id="ic1" data-type="text" data-pk="1" data-title="Enter username" class="income"> 214420.79 </a>
+                                <a href="#" id="ic1" data-type="text" data-pk="1" data-title="Enter username" class="income"> 214,420.79 </a>
                               </td>
                               <td>
                                 บาท
@@ -193,7 +193,7 @@
                                 ภาษีโรงเรือนและที่ดิน
                               </td>
                               <td width="10%">
-                                <a href="#" id="ic2" data-type="text" data-pk="1" data-title="Enter username" class="income"> 242193.67 </a>
+                                <a href="#" id="ic2" data-type="text" data-pk="1" data-title="Enter username" class="income"> 242,193.67 </a>
                               </td>
                               <td>
                                 บาท
@@ -204,7 +204,7 @@
                                 ภาษีป้าย
                               </td>
                               <td width="10%">
-                                  <a href="#" id="ic3" data-type="text" data-pk="1" data-title="Enter username" class="income"> 128222.00 </a>
+                                  <a href="#" id="ic3" data-type="text" data-pk="1" data-title="Enter username" class="income"> 128,222.00 </a>
                               </td>
                               <td>
                                 บาท
@@ -240,7 +240,7 @@
 
                           <center>
                           <button type="button" class="btn btn-default" id="update4">
-                            update sum income
+                            update
                           </button>
                         </center>
                           </div>
@@ -373,8 +373,14 @@
                         var ic2 = $('#ic2').text();
                         var ic3 = $('#ic3').text();
                         var ic4 = $('#ic4').text();
-                        var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
-                        $('#sumall').html(sum);
+                        var reic1 = ic1.replace(/,/g,"");
+                        var reic2 = ic2.replace(/,/g,"");
+                        var reic3 = ic3.replace(/,/g,"");
+                        var reic4 = ic4.replace(/,/g,"");
+                        var sum = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
+
+                        var sums = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                        $('#sumall').html(sums);
                       };
                       startUp();
                     </script>

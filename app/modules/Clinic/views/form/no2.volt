@@ -80,6 +80,11 @@
   <div id="step-1">
     <form class="form-horizontal form-label-left">
       <div class="form-group">
+        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
+          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+          <span id="sumroad"></span>
+          </label>
+            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
         <table id="road" class="table table-striped table-bordered" style="clear: both">
           <tbody>
             <thead>
@@ -115,15 +120,9 @@
               </tr>
           </tbody>
         </table>
-
-        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
-          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-          <span id="sumroad"></span>
-          </label>
-            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สะพาน</label>
               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                5
+                <a href="#" id="bridge" data-type="text" data-pk="1" data-title="Enter username">5</a>
               </label>
                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label>
 
@@ -229,21 +228,10 @@
       </tr>
       <tr>
         <td>
-          ให้บริการครอบคลุมร้อยละ
-        </td>
-        <td>
-          <a href="#" id="c7" data-type="text" data-pk="1" data-title="Enter username">40</a>
-        </td>
-        <td>
-          ของพื้นที่ทั้งหมด
-        </td>
-      </tr>
-      <tr>
-        <td>
           หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่
         </td>
         <td>
-          <a href="#" id="c8" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="c7" data-type="text" data-pk="1" data-title="Enter username">0</a>
         </td>
         <td>
           แห่ง
@@ -265,7 +253,7 @@
               ครัวเรือนที่ใช้ไฟฟ้า
             </td>
             <td>
-              <a href="#" id="e1" data-type="text" data-pk="1" data-title="Enter username">2657</a>
+              <a href="#" id="e1" data-type="text" data-pk="1" data-title="Enter username">2,657</a>
             </td>
             <td>
               ครัวเรือน
@@ -290,7 +278,7 @@
               <a href="#" id="e3" data-type="text" data-pk="1" data-title="Enter username">500</a>
             </td>
             <td>
-              ไร่
+              จุด
             </td>
           </tr>
           <tr>
@@ -321,7 +309,7 @@
             พื้นที่พักอาศัย
           </td>
           <td>
-            <a href="#" id="p1" data-type="text" data-pk="1" data-title="Enter username">5000.00</a>
+            <a href="#" id="p1" data-type="text" data-pk="1" data-title="Enter username">5,000.00</a>
           </td>
           <td>
             ไร่
@@ -332,7 +320,7 @@
             พื้นที่พาณิชยกรรม
           </td>
           <td>
-            <a href="#" id="p2" data-type="text" data-pk="1" data-title="Enter username">1000.00</a>
+            <a href="#" id="p2" data-type="text" data-pk="1" data-title="Enter username">1,000.00</a>
           </td>
           <td>
             ไร่
@@ -365,7 +353,7 @@
             พื้นที่เกษตรกรรม
           </td>
           <td>
-            <a href="#" id="p5" data-type="text" data-pk="1" data-title="Enter username">80000.00</a>
+            <a href="#" id="p5" data-type="text" data-pk="1" data-title="Enter username">80,000.00</a>
           </td>
           <td>
             ไร่
@@ -387,12 +375,24 @@
             พื้นที่ว่าง
           </td>
           <td>
-            <a href="#" id="p7" data-type="text" data-pk="1" data-title="Enter username">5000.00</a>
+            <a href="#" id="p7" data-type="text" data-pk="1" data-title="Enter username">5,000.00</a>
           </td>
           <td>
             ไร่
           </td>
         </tr>
+        <tfoot>
+          <td>
+            <b>พื้นที่ทั้งหมด</b>
+          </td>
+          <td>
+            <b><span id="sumrai"></span></b>
+          </td>
+          <td>
+              <b>ไร่</b>
+          </td>
+        </tfoot>
+
       </table>
     </form>
       </div>
@@ -450,8 +450,27 @@
                           var r2 = $('#r2').text();
                           var r3 = $('#r3').text();
                           var r4 = $('#r4').text();
-                          var sum = parseFloat(r1) + parseFloat(r2) + parseFloat(r3) + parseFloat(r4);
-                          $('#sumroad').html(sum);
+                          var sumr = parseFloat(r1) + parseFloat(r2) + parseFloat(r3) + parseFloat(r4);
+                          $('#sumroad').html(sumr);
+
+                          var p1 = $('#p1').text();
+                          var p2 = $('#p2').text();
+                          var p3 = $('#p3').text();
+                          var p4 = $('#p4').text();
+                          var p5 = $('#p5').text();
+                          var p6 = $('#p6').text();
+                          var p7 = $('#p7').text();
+                           var rep1 = p1.replace(/,/g,"");
+                           var rep2 = p2.replace(/,/g,"");
+                           var rep3 = p3.replace(/,/g,"");
+                           var rep4 = p4.replace(/,/g,"");
+                           var rep5 = p5.replace(/,/g,"");
+                           var rep6 = p6.replace(/,/g,"");
+                           var rep7 = p7.replace(/,/g,"");
+                          var sumpn = parseFloat(rep1) + parseFloat(rep2) + parseFloat(rep3) + parseFloat(rep4) + parseFloat(rep5) + parseFloat(rep6) + parseFloat(rep7);
+
+                          var sump = sumpn.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+                          $('#sumrai').html(sump);
                         }
                         startUp();
                     </script>

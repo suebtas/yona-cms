@@ -56,7 +56,7 @@
     <li>
       <a href="#step-2">
         <span class="step_no">3.3</span>
-        <span class="step_descr">สถานประกอบเทศพาณิชย์<br />
+        <span class="step_descr">สถานประกอบการพาณิชย์<br />
         </span>
       </a>
     </li>
@@ -87,7 +87,7 @@
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <center>
-        <p>รายได้เฉลี่ยประชากร <a href="#" id="mn" data-type="text" data-pk="1" data-title="Enter username"> 78756.00 </a> บาท /คน/ปี</p></center>
+        <p>รายได้เฉลี่ยประชากร <a href="#" id="mn" data-type="text" data-pk="1" data-title="Enter username"> 78,756.00 </a> บาท /คน/ปี</p></center>
 
       <table class="table table-striped table-bordered">
         <thead>
@@ -150,7 +150,7 @@
         <table class="table table-striped table-bordered">
           <thead>
             <th colspan="3">
-              <center>สถานประกอบเทศพาณิชย์</center>
+              <center>สถานประกอบเการพาณิชย์</center>
             </th>
           </thead>
           <tr>

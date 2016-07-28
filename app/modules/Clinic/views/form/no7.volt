@@ -73,7 +73,7 @@
                         <form class="form-horizontal form-label-left">
                           <div class="form-group">
                             <center>
-                            สถิติเพลิงไหม้ในรอบปี (1 ม.ค. - 31 ธ.ค.) จำนวน <a href="#" id="f1" data-type="text" data-pk="1" data-title="Enter username" class="income"> 0 </a> บาท ครั้ง
+                            สถิติเพลิงไหม้ในรอบปี (1 ม.ค. - 31 ธ.ค.) จำนวน <a href="#" id="f1" data-type="text" data-pk="1" data-title="Enter username"> 0 </a> ครั้ง
                             </center><br>
                             <table id="road" class="table table-striped table-bordered" style="clear: both">
                               <tbody>
