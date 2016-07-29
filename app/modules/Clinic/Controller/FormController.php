@@ -255,29 +255,6 @@ class FormController extends Controller
             $answer = $this->request->getPost("no1_2_1_2");
             $this->updateAnswer($option, 8, $answer, $user->officeid,  $this->discovery_surveyid);
 
-
-            $answer = $this->request->getPost("no1_2_1_2");
-            if($answer){
-                if($option=='add'){
-
-                    $modelT = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>8,
-                                2=>$this->surveyid)));
-                    if(!$modelT)
-                        $modelT = new Answer();
-
-                    $modelT->officeid = $user->officeid;
-                    $modelT->discovery_surveyid = $this->discovery_surveyid;
-                    $modelT->questionid = 8;
-                    $modelT->answer = $answer;
-                    if($modelT->save()==false)
-                        echo 'error';
-                    else
-                        echo 'ok';
-                }
-            }
         }
 
         
