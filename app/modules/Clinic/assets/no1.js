@@ -421,6 +421,7 @@ $(document).ready(function() {
       ic4=0;
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
     $('#male').html(sum);
+    alert('ok'+sum);
   }
   callPopulation();
 });
