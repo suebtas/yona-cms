@@ -2,7 +2,7 @@
 
 namespace Clinic\Model;
 
-class Session extends \Phalcon\Mvc\Model
+class GroupSession extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -22,10 +22,7 @@ class Session extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Approval', 'sessionid', array('alias' => 'Approval'));
         $this->hasMany('id', 'Comment', 'sessionid', array('alias' => 'Comment'));
-        $this->hasMany('id', 'Question', 'sessionid', array('alias' => 'Question'));
-        $this->belongsTo('group_sessionid', 'GroupSession', 'id', array('alias' => 'GroupSession'));
     }
 
     /**
@@ -35,7 +32,7 @@ class Session extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'session';
+        return 'group_session';
     }
 
     /**
