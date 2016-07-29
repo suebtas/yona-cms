@@ -217,51 +217,34 @@ $(document).ready(function() {
 
     $.fn.editable.defaults.mode = 'inline';
 
-    $('#no_1_2_6_1').editable({
+    $('#no1_2_6_1').editable({
+           type: 'text',
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_6_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+    $('#no1_2_6_2').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#no_1_2_6_2').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-    $('#no_1_2_7_1').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-
-    $('#no_1_2_7_2').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-    $('#no_1_2_8_1').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-
-    $('#no_1_2_8_2').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-    $('#no_1_2_9_1').editable({
+    $('#no1_2_7_1').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
@@ -269,56 +252,72 @@ $(document).ready(function() {
            title: 'จำนวนผู้หญิง'
     });
 
-    $('#no_1_2_9_2').editable({
+    $('#no1_2_7_2').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#no_1_2_10').editable({
+    $('#no1_2_8_1').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#no_1_2_11').editable({
+
+    $('#no1_2_8_2').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#no_1_2_12').editable({
+    $('#no1_2_9_1').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#no_1_2_13').editable({
+
+    $('#no1_2_9_2').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    /*
-    $('#female').editable({
+    $('#no1_2_10').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
            name: 'female',
            title: 'จำนวนผู้หญิง'
     });
-    $('#male').editable({
+    $('#no1_2_11').editable({
            url: 'Form_No1.html',
            type: 'text',
            pk: 1,
-           name: 'male',
-           title: 'จำนวนผู้ชาย'
-    });*/
+           name: 'female',
+           title: 'จำนวนผู้หญิง'
+    });
+    $('#no1_2_12').editable({
+           url: 'Form_No1.html',
+           type: 'text',
+           pk: 1,
+           name: 'female',
+           title: 'จำนวนผู้หญิง'
+    });
+    $('#no1_2_13').editable({
+           url: 'Form_No1.html',
+           type: 'text',
+           pk: 1,
+           name: 'female',
+           title: 'จำนวนผู้หญิง'
+    });
+
     $('#no1_2_2_1').editable({
            type: 'text',
            title: 'จำนวนเด็กชาย'
@@ -507,7 +506,23 @@ $(document).ready(function() {
       ic4=0;
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
     $('#no1_2_1_1').html(sum);
-
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_2_1_1:sum,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+    
     var id1 = $('#no1_2_2_2').text();
     if(id1==''||id1=='Empty')
       id1=0;
@@ -522,6 +537,23 @@ $(document).ready(function() {
       icd4=0;
     var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
     $('#no1_2_1_2').html(sumd);
+
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_2_1_2:sumd,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+    
   }
-  callPopulation();
 });

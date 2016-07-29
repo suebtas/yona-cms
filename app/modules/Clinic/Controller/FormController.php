@@ -93,6 +93,19 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>2,
                                 2=>$this->surveyid)))->answer;
+       $no1_2_1_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>7,
+                                2=>$this->surveyid)))->answer;
+        $this->view->no1_2_1_1 = $no1_2_1_1;
+
+        $no1_2_1_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>8,
+                                2=>$this->surveyid)))->answer;
+        $this->view->no1_2_1_2 = $no1_2_1_2;
 
         $no1_2_2_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -101,33 +114,19 @@ class FormController extends Controller
                                 2=>$this->surveyid)))->answer;
         $this->view->no1_2_2_1 = $no1_2_2_1;
 
-        $no1_2_3_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>11,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_3_1 = $no1_2_3_1;
-
-        $no1_2_4_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>13,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_4_1 = $no1_2_4_1;
-
-        $no1_2_5_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>15,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_5_1 = $no1_2_5_1;
-
         $no1_2_2_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
                                 1=>10,
                                 2=>$this->surveyid)))->answer;
         $this->view->no1_2_2_2 = $no1_2_2_2;
+
+        $no1_2_3_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>11,
+                                2=>$this->surveyid)))->answer;
+        $this->view->no1_2_3_1 = $no1_2_3_1;
 
         $no1_2_3_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -136,12 +135,27 @@ class FormController extends Controller
                                 2=>$this->surveyid)))->answer;
         $this->view->no1_2_3_2 = $no1_2_3_2;
 
+        $no1_2_4_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>13,
+                                2=>$this->surveyid)))->answer;
+        $this->view->no1_2_4_1 = $no1_2_4_1;
+
         $no1_2_4_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
                                 1=>14,
                                 2=>$this->surveyid)))->answer;
         $this->view->no1_2_4_2 = $no1_2_4_2;
+
+        $no1_2_5_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>15,
+                                2=>$this->surveyid)))->answer;
+        $this->view->no1_2_5_1 = $no1_2_5_1;
+
         
         $no1_2_5_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -301,6 +315,12 @@ class FormController extends Controller
                 }
             }
 
+            $answer = $this->request->getPost("no1_2_1_1");
+            $this->updateAnswer($option, 7, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_1_2");
+            $this->updateAnswer($option, 8, $answer, $user->officeid,  $this->discovery_surveyid);
+
             $answer = $this->request->getPost("no1_2_2_1");
             $this->updateAnswer($option, 9, $answer, $user->officeid,  $this->discovery_surveyid);
 
@@ -324,6 +344,30 @@ class FormController extends Controller
 
             $answer = $this->request->getPost("no1_2_5_2");
             $this->updateAnswer($option, 16, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_6_1");
+            $this->updateAnswer($option, 17, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_6_2");
+            $this->updateAnswer($option, 18, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_6_3");
+            $this->updateAnswer($option, 19, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_6_4");
+            $this->updateAnswer($option, 20, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_7_1");
+            $this->updateAnswer($option, 21, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_7_2");
+            $this->updateAnswer($option, 22, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_7_3");
+            $this->updateAnswer($option, 23, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no1_2_8");
+            $this->updateAnswer($option, 24, $answer, $user->officeid,  $this->discovery_surveyid);
 
         }
 
