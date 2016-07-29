@@ -161,7 +161,7 @@
         </th>
       </thead>
       <tr>
-        <td>
+        <td width="50%">
           ที่ทำการไปรษณีย์
         </td>
         <td>
@@ -249,7 +249,7 @@
       <div class="form-group">
         <table class="table table-striped table-bordered">
           <tr>
-            <td>
+            <td width="50%">
               ครัวเรือนที่ใช้ไฟฟ้า
             </td>
             <td>
@@ -305,7 +305,7 @@
       <div class="form-group">
       <table class="table table-striped table-bordered">
         <tr>
-          <td>
+          <td width="50%">
             พื้นที่พักอาศัย
           </td>
           <td>

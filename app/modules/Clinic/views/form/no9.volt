@@ -178,7 +178,7 @@
 
                           <table class="table table-striped table-bordered ">
                             <tr>
-                              <td width="30%">
+                              <td width="50%">
                                 ภาษีบำรุงท้องที่
                               </td>
                               <td width="10%">
@@ -189,7 +189,7 @@
                               </td>
                             </tr>
                             <tr>
-                              <td width="30%" >
+                              <td width="50%" >
                                 ภาษีโรงเรือนและที่ดิน
                               </td>
                               <td width="10%">
@@ -200,7 +200,7 @@
                               </td>
                             </tr>
                             <tr>
-                              <td width="30%">
+                              <td width="50%">
                                 ภาษีป้าย
                               </td>
                               <td width="10%">
@@ -211,7 +211,7 @@
                               </td>
                             </tr>
                             <tr>
-                              <td width="30%" >
+                              <td width="50%" >
                                 อื่นๆ
                               </td>
                               <td width="10%">
@@ -226,7 +226,7 @@
                           <div class="form-group">
                             <table class="table table-striped table-bordered">
                               <tr>
-                                <td width="30%">
+                                <td width="50%">
                                   การจัดเก็บรายได้ของท้องถิ่น ทั้งหมด
                                 </td>
                                 <td width="10%" class="info">
