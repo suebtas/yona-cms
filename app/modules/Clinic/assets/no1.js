@@ -407,7 +407,7 @@ $(document).ready(function() {
 
 
   function callPopulation(){
-    var ic1 = $('#child_male').text();
+    var ic1 = $('#no1_2_1_2').text();
     if(ic1==''||ic1=='Empty')
       ic1=0;
     var ic2 = $('#mature_male').text();
