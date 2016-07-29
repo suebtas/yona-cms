@@ -19,11 +19,9 @@ class FormController extends Controller
     {
 
         $this->session->set('surveyid', 1);
-        $this->session->set('discovery_surveyid', 1);
         $this->setClinicEnvironment();
         $this->view->languages_disabled = true;
         $this->surveyid = $this->session->get('surveyid');
-        $this->discovery_surveyid = $this->session->get('discovery_surveyid');
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
             ->addFilter(new \Application\Assets\Filter\Less())
@@ -49,28 +47,6 @@ class FormController extends Controller
         $this->view->office =  Office::findFirst($user->officeid);
     }
 
-    public function updateAnswer($option,$questionid, $answer, $officeid, $discovery_surveyid){
-      if($answer!=""){
-          if($option=='add'){
-              $modelT = Answer::findFirst(
-                  array("questionid=?1 and discovery_surveyid=?2",
-                      "bind"=>array(
-                          1=>$questionid,
-                          2=>$discovery_surveyid)));
-              if(!$modelT)
-                  $modelT = new Answer();
-
-              $modelT->officeid = $officeid;
-              $modelT->discovery_surveyid = $discovery_surveyid;
-              $modelT->questionid = $questionid;
-              $modelT->answer = $answer;
-              if($modelT->save()==false)
-                  echo 'error';
-              else
-                  echo 'ok';
-          }
-      }
-    }
     public function no1Action()
     {
         // no1 JS Assets
@@ -93,14 +69,11 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>2,
                                 2=>$this->surveyid)))->answer;
-
         $no1_2_1_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
                                 1=>8,
                                 2=>$this->surveyid)))->answer;
-        $this->view->no1_2_1_2 = $no1_2_1_2;
-
         $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
                     array("owner_officeid = ?1 and boundaryid = 1",
                         "bind" => array(
@@ -137,6 +110,7 @@ class FormController extends Controller
                 'no1_1_3_3' => $no1_3_3,
                 'no1_1_3_4' => $no1_3_4,
             );
+        $this->view->no1_2_1_2 = $no1_2_1_2;
 
         $form->setEntity($obj);
         $this->view->form = $form;
@@ -145,11 +119,30 @@ class FormController extends Controller
             $this->view->disable();
             $post = $this->request->getPost();
 
-
             $option = $this->request->getPost("option");
             $answer = $this->request->getPost("no1_1_2");
-            $this->updateAnswer($option, 2, $answer, $user->officeid,  $this->discovery_surveyid);
+            if($answer){
+                if($option=='add'){
 
+                    $modelT = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>2,
+                                2=>$this->surveyid)));
+                    if(!$modelT)
+                        $modelT = new Answer();
+
+                    $modelT->surveyid = $this->surveyid;
+                    $modelT->officeid = $user->officeid;
+                    $modelT->discovery_surveyid = 1;
+                    $modelT->questionid = 2;
+                    $modelT->answer = $answer;
+                    if($modelT->save()==false)
+                        echo 'error';
+                    else
+                        echo 'ok';
+                }
+            }
 
             $option = $this->request->getPost("option");
             $officeID = $this->request->getPost("no1_1_3_1");
@@ -252,9 +245,6 @@ class FormController extends Controller
                 }
             }
 
-            $answer = $this->request->getPost("no1_2_1_2");
-            $this->updateAnswer($option, 8, $answer, $user->officeid,  $this->discovery_surveyid);
-
 
             $answer = $this->request->getPost("no1_2_1_2");
             if($answer){
@@ -268,8 +258,9 @@ class FormController extends Controller
                     if(!$modelT)
                         $modelT = new Answer();
 
+                    $modelT->surveyid = $this->surveyid;
                     $modelT->officeid = $user->officeid;
-                    $modelT->discovery_surveyid = $this->discovery_surveyid;
+                    $modelT->discovery_surveyid = 1;
                     $modelT->questionid = 8;
                     $modelT->answer = $answer;
                     if($modelT->save()==false)
