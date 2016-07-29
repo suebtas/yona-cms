@@ -319,17 +319,15 @@ $(document).ready(function() {
            name: 'male',
            title: 'จำนวนผู้ชาย'
     });*/
-    $('#no1_2_1_2').editable({
-           url: '/clinic/form/no1',
+    $('#no1_2_2_1').editable({
            type: 'text',
            title: 'จำนวนเด็กชาย'
-    });
-    $('#no1_2_1_2').on('save', function(e, params) {
+    }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
             data : {
-              no1_2_1_2:params.newValue,
+              no1_2_2_1:params.newValue,
               option:'add'
             },
             success: function(data, textStatus, jqXHR)
@@ -342,86 +340,188 @@ $(document).ready(function() {
             }
         });
     });
-    /*
-    $('#child_male').editable({
-           url: 'Form_No1.html',
+    
+    $('#no1_2_2_2').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
-           title: 'จำนวนผู้ชาย',
-           
-    }).on('save', function(e, params) {
-      callPopulation();
-    });*/
-    $('#mature_female').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'male',
            title: 'จำนวนผู้ชาย'
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_2_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
     }); 
-    $('#mature_male').editable({
-           url: 'Form_No1.html',
+    $('#no1_2_3_1').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
            title: 'จำนวนผู้ชาย'
     }).on('save', function(e, params) {
-      callPopulation();
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_3_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
     });
-    $('#teenager_female').editable({
-           url: 'Form_No1.html',
+    $('#no1_2_3_2').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
-           title: 'จำนวนผู้ชาย'
-    });
-    $('#teenager_male').editable({
-           url: 'Form_No1.html',
+           title: 'จำนวนผู้หญิง'
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_3_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    }); 
+    $('#no1_2_4_1').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
            title: 'จำนวนผู้ชาย'
     }).on('save', function(e, params) {
-      callPopulation();
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_4_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
     });
-    $('#elder_female').editable({
-           url: 'Form_No1.html',
+    $('#no1_2_4_2').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
+           title: 'จำนวนผู้หญิง',
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_4_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    }); 
+    $('#no1_2_5_1').editable({
+           type: 'text',
            title: 'จำนวนผู้ชาย'
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_5_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
     });
-    $('#elder_male').editable({
-           url: '/clinic/form/no1',
+
+
+    $('#no1_2_5_2').editable({
            type: 'text',
-           pk: 1,
-           name: 'male',
-           title: 'จำนวนผู้ชาย',
-           validate: function(value) {
-           },
-           success: function(e, params) {
-              callPopulation();
-           }
+           title: 'จำนวนผู้หญิง'
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_5_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulation();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
     });
 
 
   function callPopulation(){
-    var ic1 = $('#no1_2_1_2').text();
+    var ic1 = $('#no1_2_2_1').text();
     if(ic1==''||ic1=='Empty')
       ic1=0;
-    var ic2 = $('#mature_male').text();
-    if(ic2==''||ic2=='Empty')
+    var ic2 = $('#no1_2_3_1').text();
+    if(ic2==''||ic3=='Empty')
       ic2=0;
-    var ic3 = $('#teenager_male').text();
-    if(ic3==''||ic3=='Empty')
+    var ic3 = $('#no1_2_4_1').text();
+    if(ic3==''||ic2=='Empty')
       ic3=0;
-    var ic4 = $('#elder_male').text();
+    var ic4 = $('#no1_2_5_1').text();
     if(ic4==''||ic4=='Empty')
       ic4=0;
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
-    $('#male').html(sum);
-    alert('ok'+sum);
+    $('#no1_2_1_1').html(sum);
+
+    var id1 = $('#no1_2_2_2').text();
+    if(id1==''||id1=='Empty')
+      id1=0;
+    var id2 = $('#no1_2_3_2').text();
+    if(id2==''||id2=='Empty')
+      id2=0;
+    var id3 = $('#no1_2_4_2').text();
+    if(id3==''||id3=='Empty')
+      id3=0;
+    var id4 = $('#no1_2_5_2').text();
+    if(id4==''||id4=='Empty')
+      icd4=0;
+    var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
+    $('#no1_2_1_2').html(sumd);
   }
   callPopulation();
 });

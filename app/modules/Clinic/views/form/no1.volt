@@ -132,33 +132,33 @@
                             <tbody>
                                 <tr>
                                     <td width="40%">ชาย</td>
-                                    <td width="10%"><a href="#" id="male" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_1_1" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
                                     <td width="40%">หญิง</td>
-                                    <td width="10%"><a href="#" id="female" data-type="text" data-pk="1" data-title="Enter username">2407</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_1_2" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
                                 </tr>
                                 <tr>
                                     <td width="40%">เด็ก (ทารก - 17 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_2}}</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_1}}</a> คน</td>
                                     <td width="40%">เด็ก (ทารก - 17 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="child_female" data-type="text" data-pk="1" data-title="Enter username">487</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_2}}</a> คน</td>
                                 </tr>
                                 <tr>
                                     <td width="40%">วัยรุ่น (18 - 25 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="teenager_male" data-type="text" data-pk="1" data-title="Enter username">522</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_1}}</a> คน</td>
                                     <td width="40%">วัยรุ่น (18 - 25 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="teenager_female" data-type="text" data-pk="1" data-title="Enter username">487</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_2}}</a> คน</td>
                                 </tr>
                                 <tr>
                                     <td width="40%">ผู้ใหญ่ (26 - 60 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="mature_male" data-type="text" data-pk="1" data-title="Enter username">1258</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_1}}</a> คน</td>
                                     <td width="40%">ผู้ใหญ่ (26 - 60 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="mature_female" data-type="text" data-pk="1" data-title="Enter username">1318</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_2}}</a> คน</td>
                                 </tr>
                                 <tr>
                                     <td width="40%">คนชรา (60 ปี ขึ้นไป) ชาย</td>
-                                    <td width="10%"><a href="#" id="elder_male" data-type="text" data-pk="1" data-title="Enter username">311</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_1}}</a> คน</td>
                                     <td width="40%">คนชรา (60 ปี ขึ้นไป) หญิง</td>
-                                    <td width="10%"><a href="#" id="elder_female" data-type="text" data-pk="1" data-title="Enter username">417</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_2}}</a> คน</td>
                                 </tr>
                             </tbody>
                           </table>
