@@ -68,7 +68,16 @@ class FormController extends Controller
                   echo 'error';
               else
                   echo 'ok';
-          }
+          }elseif($answer=='delete' && $option=='delete'){
+              $modelT = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>$questionid,
+                          2=>$discovery_surveyid)));
+              $modelT->delete();
+              echo 'delete';
+
+            }
       }
     }
     public function no1Action()
@@ -81,130 +90,130 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no1.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $no1_3_1 = $no1_3_2 = $no1_3_3 = $no1_3_4 = [];
+
+            $no1_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>2,
+                                    2=>$this->surveyid)))->answer;
+           $no1_2_1_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>7,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_1_1 = $no1_2_1_1;
+
+            $no1_2_1_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>8,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_1_2 = $no1_2_1_2;
+
+            $no1_2_2_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>9,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_2_1 = $no1_2_2_1;
+
+            $no1_2_2_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>10,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_2_2 = $no1_2_2_2;
+
+            $no1_2_3_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>11,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_3_1 = $no1_2_3_1;
+
+            $no1_2_3_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>12,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_3_2 = $no1_2_3_2;
+
+            $no1_2_4_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>13,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_4_1 = $no1_2_4_1;
+
+            $no1_2_4_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>14,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_4_2 = $no1_2_4_2;
+
+            $no1_2_5_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>15,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_5_1 = $no1_2_5_1;
+
             
-        $form = new No1Form();
-        $auth = $this->session->get('auth');
-        $user = AdminUser::findFirst($auth->id);
+            $no1_2_5_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>16,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_5_2 = $no1_2_5_2;
 
-        $no1_3_1 = $no1_3_2 = $no1_3_3 = $no1_3_4 = [];
-
-        $no1_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>2,
-                                2=>$this->surveyid)))->answer;
-       $no1_2_1_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>7,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_1_1 = $no1_2_1_1;
-
-        $no1_2_1_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>8,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_1_2 = $no1_2_1_2;
-
-        $no1_2_2_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>9,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_2_1 = $no1_2_2_1;
-
-        $no1_2_2_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>10,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_2_2 = $no1_2_2_2;
-
-        $no1_2_3_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>11,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_3_1 = $no1_2_3_1;
-
-        $no1_2_3_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>12,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_3_2 = $no1_2_3_2;
-
-        $no1_2_4_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>13,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_4_1 = $no1_2_4_1;
-
-        $no1_2_4_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>14,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_4_2 = $no1_2_4_2;
-
-        $no1_2_5_1 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>15,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_5_1 = $no1_2_5_1;
-
-        
-        $no1_2_5_2 = Answer::findFirst(
-                        array("questionid=?1 and discovery_surveyid=?2",
-                            "bind"=>array(
-                                1=>16,
-                                2=>$this->surveyid)))->answer;
-        $this->view->no1_2_5_2 = $no1_2_5_2;
-
-        $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
-                    array("owner_officeid = ?1 and boundaryid = 1",
-                        "bind" => array(
-                            1=>$user->officeid
+            $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
+                        array("owner_officeid = ?1 and boundaryid = 1",
+                            "bind" => array(
+                                1=>$user->officeid
+                                )
                             )
-                        )
-                    );
-        $no1_3_2 = BoundaryOffice::toArrayCloseOfficeID(
-                    array("owner_officeid = ?1 and boundaryid = 2",
-                        "bind" => array(
-                            1=>$user->officeid
+                        );
+            $no1_3_2 = BoundaryOffice::toArrayCloseOfficeID(
+                        array("owner_officeid = ?1 and boundaryid = 2",
+                            "bind" => array(
+                                1=>$user->officeid
+                                )
                             )
-                        )
-                    );
-        $no1_3_3 = BoundaryOffice::toArrayCloseOfficeID(
-                    array("owner_officeid = ?1 and boundaryid = 3",
-                        "bind" => array(
-                            1=>$user->officeid
+                        );
+            $no1_3_3 = BoundaryOffice::toArrayCloseOfficeID(
+                        array("owner_officeid = ?1 and boundaryid = 3",
+                            "bind" => array(
+                                1=>$user->officeid
+                                )
                             )
-                        )
-                    );
-        $no1_3_4 = BoundaryOffice::toArrayCloseOfficeID(
-                    array("owner_officeid = ?1 and boundaryid = 4",
-                        "bind" => array(
-                            1=>$user->officeid
+                        );
+            $no1_3_4 = BoundaryOffice::toArrayCloseOfficeID(
+                        array("owner_officeid = ?1 and boundaryid = 4",
+                            "bind" => array(
+                                1=>$user->officeid
+                                )
                             )
-                        )
-                    );
-        $obj = (object) array(
-                'no1_1_2'   => $no1_2,
-                'no1_2_2_1' => $no1_2_2_1,
-                'no1_1_3_1' => $no1_3_1,
-                'no1_1_3_2' => $no1_3_2,
-                'no1_1_3_3' => $no1_3_3,
-                'no1_1_3_4' => $no1_3_4,
-            );
+                        );
+            $obj = (object) array(
+                    'no1_1_2'   => $no1_2,
+                    'no1_2_2_1' => $no1_2_2_1,
+                    'no1_1_3_1' => $no1_3_1,
+                    'no1_1_3_2' => $no1_3_2,
+                    'no1_1_3_3' => $no1_3_3,
+                    'no1_1_3_4' => $no1_3_4,
+                );
 
-        $form->setEntity($obj);
-        $this->view->form = $form;
+            $form->setEntity($obj);
+            $this->view->form = $form;
 
-        if ($this->request->isPost()) {
+        }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
 
