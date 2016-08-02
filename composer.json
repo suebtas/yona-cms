@@ -36,6 +36,8 @@
     "robmorgan/phinx": "dev-master",
     "michelf/php-markdown": "*",
     "mandrill/mandrill": "1.*",
-    "mobiledetect/mobiledetectlib": "^2.8"
+    "mobiledetect/mobiledetectlib": "^2.8",
+    "dompdf/dompdf": "*",
+    "phpoffice/phpword": "dev-master"
   }
 }
