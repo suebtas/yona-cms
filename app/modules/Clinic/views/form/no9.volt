@@ -308,8 +308,6 @@
 
                         <textarea id="no9_6" name="name" class="form-control" rows="8" cols="40" >{{no9_6}}</textarea>
                           <p> การประชุมประชาคมเพื่อระดมความคิดเห็นในการจัดทำแผน พัฒนาสามปีและการแก้ปัญหาในชุมชน  </p>
-
-                          <span>{{no9_6}}</span>
                       </center>
 
                         </div>

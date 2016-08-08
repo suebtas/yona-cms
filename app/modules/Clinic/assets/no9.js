@@ -2,7 +2,10 @@ $.fn.editable.defaults.mode = 'inline';
 //step 1 9.1 - 9.2
 $('#no9_1').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -23,7 +26,10 @@ $('#no9_1').editable({
 });
 $('#no9_2').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -46,7 +52,10 @@ $('#no9_2').editable({
 //step 2 9.3
 $('#no9_3_1').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -67,7 +76,10 @@ $('#no9_3_1').editable({
 });
 $('#no9_3_2').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -90,7 +102,10 @@ $('#no9_3_2').editable({
 //step 3 9.4
 $('#no9_4_1').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -111,7 +126,10 @@ $('#no9_4_1').editable({
 });
 $('#no9_4_2').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -132,7 +150,10 @@ $('#no9_4_2').editable({
 });
 $('#no9_4_3').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -153,7 +174,10 @@ $('#no9_4_3').editable({
 });
 $('#no9_4_4').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -193,7 +217,10 @@ $('#no9_5_1').on('blur', function(e, params) {
 });
 $('#no9_5_2').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
@@ -214,7 +241,10 @@ $('#no9_5_2').editable({
 });
 $('#no9_5_3').editable({
        type: 'text',
-       title: ' '
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
