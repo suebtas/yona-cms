@@ -3,7 +3,10 @@ $.fn.editable.defaults.mode = 'inline';
 //step 1 2.1
 $('#no2_1_2_1').editable({
        type: 'text',
-       title: 'จำนวน 1'
+       title: 'จำนวน 1',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
 }).on('save', function(e, params) {
     $.ajax({
         url : "/clinic/form/no2",
@@ -24,7 +27,10 @@ $('#no2_1_2_1').editable({
 });
 $('#no2_1_2_2').editable({
        type: 'text',
-       title: 'ระยะทางถนนลูกรัง'
+       title: 'ระยะทางถนนลูกรัง',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -45,7 +51,10 @@ $('#no2_1_2_2').editable({
 });
 $('#no2_1_3_1').editable({
        type: 'text',
-       title: 'จำนวนถนนลาดยาง'
+       title: 'จำนวนถนนลาดยาง',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -66,7 +75,10 @@ $('#no2_1_3_1').editable({
 });
 $('#no2_1_3_2').editable({
   type: 'text',
-  title: 'ระยะทางถนนลาดยาง'
+  title: 'ระยะทางถนนลาดยาง',
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
 }).on('save', function(e, params) {
     $.ajax({
         url : "/clinic/form/no2",
@@ -87,7 +99,10 @@ $('#no2_1_3_2').editable({
 });
 $('#no2_1_4_1').editable({
        type: 'text',
-       title: 'จำนวนถนนคอนกรีต'
+       title: 'จำนวนถนนคอนกรีต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -108,7 +123,10 @@ $('#no2_1_4_1').editable({
 });
 $('#no2_1_4_2').editable({
        type: 'text',
-       title: 'ระยะทางถนนคอนกรีต'
+       title: 'ระยะทางถนนคอนกรีต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -129,7 +147,10 @@ $('#no2_1_4_2').editable({
 });
 $('#no2_1_5_1').editable({
        type: 'text',
-       title: 'จำนวนถนนคอนกรีต'
+       title: 'จำนวนถนนคอนกรีต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -150,7 +171,10 @@ $('#no2_1_5_1').editable({
 });
 $('#no2_1_5_2').editable({
        type: 'text',
-       title: 'จำนวนถนนคอนกรีต'
+       title: 'จำนวนถนนคอนกรีต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -171,7 +195,10 @@ $('#no2_1_5_2').editable({
 });
 $('#no2_1_5_3').editable({
        type: 'text',
-       title: 'ระยะทางถนนคอนกรีต'
+       title: 'ระยะทางถนนคอนกรีต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -192,7 +219,10 @@ $('#no2_1_5_3').editable({
 });
 $('#no2_1_6').editable({
        type: 'text',
-       title: 'สะพาน'
+       title: 'สะพาน',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -214,7 +244,10 @@ $('#no2_1_6').editable({
 //step 2 2.2
 $('#no2_2_1').editable({
        type: 'text',
-       title: 'รถโดยสารที่ให้บริการจำนวน'
+       title: 'รถโดยสารที่ให้บริการจำนวน',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -235,7 +268,10 @@ $('#no2_2_1').editable({
 });
 $('#no2_2_2').editable({
        type: 'text',
-       title: 'รถโดยสารที่ให้บริการจำนวน'
+       title: 'รถโดยสารที่ให้บริการจำนวน',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -258,7 +294,10 @@ $('#no2_2_2').editable({
 //step 2 2.3
 $('#no2_3_1').editable({
        type: 'text',
-       title: 'ที่ทำการไปรษณีย์'
+       title: 'ที่ทำการไปรษณีย์',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -279,7 +318,10 @@ $('#no2_3_1').editable({
 });
 $('#no2_3_2').editable({
        type: 'text',
-       title: 'สถานีวิทยุกระจายเสียง'
+       title: 'สถานีวิทยุกระจายเสียง',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -300,7 +342,10 @@ $('#no2_3_2').editable({
 });
 $('#no2_3_3').editable({
        type: 'text',
-       title: 'สถานีวิทยุโทรทัศน์'
+       title: 'สถานีวิทยุโทรทัศน์',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -321,7 +366,10 @@ $('#no2_3_3').editable({
 });
 $('#no2_3_4').editable({
        type: 'text',
-       title: 'สื่อมวลชนในพื้นที่/หนังสือพิมพ์'
+       title: 'สื่อมวลชนในพื้นที่/หนังสือพิมพ์',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -342,7 +390,10 @@ $('#no2_3_4').editable({
 });
 $('#no2_3_5').editable({
        type: 'text',
-       title: 'การให้บริการอินเตอร์เน็ต'
+       title: 'การให้บริการอินเตอร์เน็ต',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -363,7 +414,10 @@ $('#no2_3_5').editable({
 });
 $('#no2_3_6').editable({
        type: 'text',
-       title: 'ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่'
+       title: 'ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -384,7 +438,10 @@ $('#no2_3_6').editable({
 });
 $('#no2_3_7').editable({
        type: 'text',
-       title: 'หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่communication'
+       title: 'หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่communication',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -407,7 +464,10 @@ $('#no2_3_7').editable({
 //step 3 2.4
 $('#no2_4_1').editable({
        type: 'text',
-       title: 'ครัวเรือนที่ใช้ไฟฟ้า'
+       title: 'ครัวเรือนที่ใช้ไฟฟ้า',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -428,7 +488,10 @@ $('#no2_4_1').editable({
 });
 $('#no2_4_2').editable({
        type: 'text',
-       title: 'พื้นที่ที่ได้รับบริการไฟฟ้า ร้อยละ'
+       title: 'พื้นที่ที่ได้รับบริการไฟฟ้า ร้อยละ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -449,7 +512,10 @@ $('#no2_4_2').editable({
 });
 $('#no2_4_3').editable({
        type: 'text',
-       title: 'ไฟฟ้าส่องสว่างสารธารณะ จำนวน'
+       title: 'ไฟฟ้าส่องสว่างสารธารณะ จำนวน',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -470,7 +536,10 @@ $('#no2_4_3').editable({
 });
 $('#no2_4_4').editable({
        type: 'text',
-       title: 'จุด/ครอบคลุมถนน'
+       title: 'จุด/ครอบคลุมถนน',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -493,7 +562,10 @@ $('#no2_4_4').editable({
 //step 4 2.5
 $('#no2_5_1').editable({
        type: 'text',
-       title: 'พื้นที่พักอาศัย '
+       title: 'พื้นที่พักอาศัย ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -514,7 +586,10 @@ $('#no2_5_1').editable({
 });
 $('#no2_5_2').editable({
        type: 'text',
-       title: 'พื้นที่พาณิชยกรรม '
+       title: 'พื้นที่พาณิชยกรรม ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -535,7 +610,10 @@ $('#no2_5_2').editable({
 });
 $('#no2_5_3').editable({
        type: 'text',
-       title: 'พื้นที่ตั้งหน่วยงานของรัฐ '
+       title: 'พื้นที่ตั้งหน่วยงานของรัฐ ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -556,7 +634,10 @@ $('#no2_5_3').editable({
 });
 $('#no2_5_4').editable({
        type: 'text',
-       title: 'สวนสาธารณะ/นันทนาการ '
+       title: 'สวนสาธารณะ/นันทนาการ ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -577,7 +658,10 @@ $('#no2_5_4').editable({
 });
 $('#no2_5_5').editable({
        type: 'text',
-       title: 'พื้นที่เกษตรกรรม '
+       title: 'พื้นที่เกษตรกรรม ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -598,7 +682,10 @@ $('#no2_5_5').editable({
 });
 $('#no2_5_6').editable({
        type: 'text',
-       title: 'พื้นที่ตั้งสถานศึกษา'
+       title: 'พื้นที่ตั้งสถานศึกษา',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",
@@ -619,7 +706,10 @@ $('#no2_5_6').editable({
 });
 $('#no2_5_7').editable({
        type: 'text',
-       title: 'พื้นที่ว่าง'
+       title: 'พื้นที่ว่าง',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
      }).on('save', function(e, params) {
          $.ajax({
              url : "/clinic/form/no2",

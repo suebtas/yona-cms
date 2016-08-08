@@ -101,7 +101,7 @@
               <tr>
                   <td>1.ถนนลูกรัง</td>
                   <td><a href="#" id="no2_1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_2_1}}</a></td>
-                  <td><a href="#" id="no2_1_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_2_2}}</a></td>
+                  <td><a href="#" id="no2_1_2_2" data-type="text" data-pk="1" data-title="Enter username" onblur="">{{no2_1_2_2}}</a></td>
               </tr>
               <tr>
                   <td>2.ถนนลาดยาง</td>
@@ -449,6 +449,7 @@
 
                         }
                         startUp();
+                        
                     </script>
                     <!-- /jQuery Smart Wizard -->
 
