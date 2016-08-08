@@ -60,7 +60,7 @@
                   <a href="#step-2">
                     <span class="step_no" Id="Id2">8.2-8.3</span>
                     <span class="step_descr">
-                        ปริมาณน้ำฝนสูงสุด - ต่ำสุด<br />
+                        ปริมาณน้ำฝนต่ำสุด - สูงสุด<br />
                     </span>
                   </a>
                 </li>
@@ -104,23 +104,23 @@
                     <tbody>
                         <tr>
                             <td width="40%">อุณหภูมิสูงสุด </td>
-                            <td width="30%"><a href="#" id="t1" data-type="text" data-pk="1" data-title="Enter username">00</a> องศาเซลเซียส</td>
+                            <td width="30%"><a href="#" id="no8_1_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_1_1_1}}</a> องศาเซลเซียส</td>
                         </tr>
                         <tr>
                             <td width="40%">อุณหภูมิต่ำสุด </td>
-                            <td width="30%"><a href="#" id="t2" data-type="text" data-pk="1" data-title="Enter username">00</a> องศาเซลเซียส</td>
+                            <td width="30%"><a href="#" id="no8_1_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_1_1_2}}</a> องศาเซลเซียส</td>
                         </tr>
                         <tr>
                             <td width="40%">อุณหภูมิเฉลี่ยต่อเดือน มี.ค. - มิ.ย. </td>
-                            <td width="30%"><a href="#" id="t3" data-type="text" data-pk="1" data-title="Enter username">00</a> องศาเซลเซียส</td>
+                            <td width="30%"><a href="#" id="no8_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_1_2}}</a> องศาเซลเซียส</td>
                         </tr>
                         <tr>
                             <td width="40%">อุณหภูมิเฉลี่ยต่อเดือน ก.ค. - ต.ค. </td>
-                            <td width="30%"><a href="#" id="t4" data-type="text" data-pk="1" data-title="Enter username">00</a> องศาเซลเซียส</td>
+                            <td width="30%"><a href="#" id="no8_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_1_3}}</a> องศาเซลเซียส</td>
                         </tr>
                         <tr>
                             <td width="40%">อุณหภูมิเฉลี่ยต่อเดือน พ.ย. - ก.พ. </td>
-                            <td width="30%"><a href="#" id="t5" data-type="text" data-pk="1" data-title="Enter username">00</a> องศาเซลเซียส</td>
+                            <td width="30%"><a href="#" id="no8_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no8_1_4}}</a> องศาเซลเซียส</td>
                         </tr>
                     </tbody>
                   </table>
@@ -130,32 +130,71 @@
               <div id="step-2">
                 <form class="form-horizontal form-label-left">
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. 
-                    </label>
+                    
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
+                        <input type="text" id="no8_2_1_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_1}}>
                     </div>
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> สูงสุด 
-                    </label>
+                    
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <label> ต่ำสุด </label>
+                        <input type="text" id="no8_2_1_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_2}}>
+                        <label > (ลบ.ม.) </label>
                     </div>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> ลบ.ม. </label>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. 
-                    </label>
+                    
+                    
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <label > สูงสุด </label>
+                        <input type="text" id="no8_2_1_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_3}}>
+                        <label> (ลบ.ม.) </label>
                     </div>
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ต่ำสุด 
-                    </label>
-                    <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
-                    </div>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> ลบ.ม. </label>
+                    
                   </div>
 
+                  <div class="form-group">
+                    
+                    <div class="col-md-2">
+                        <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
+                        <input type="text" id="no8_2_2_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_1}}>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <label> ต่ำสุด </label>
+                        <input type="text" id="no8_2_2_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_2}}>
+                        <label > (ลบ.ม.) </label>
+                    </div>
+                    
+                    
+                    <div class="col-md-2">
+                        <label > สูงสุด </label>
+                        <input type="text" id="no8_2_2_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_3}}>
+                        <label> (ลบ.ม.) </label>
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-group">
+                    
+                    <div class="col-md-2">
+                        <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
+                        <input type="text" id="no8_2_3_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_1}}>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <label> ต่ำสุด </label>
+                        <input type="text" id="no8_2_3_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_2}}>
+                        <label > (ลบ.ม.) </label>
+                    </div>
+                    
+                    
+                    <div class="col-md-2">
+                        <label > สูงสุด </label>
+                        <input type="text" id="no8_2_3_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_3}}>
+                        <label> (ลบ.ม.) </label>
+                    </div>
+                    
+                  </div>
+                  
                 </form>
               </div>
 
@@ -165,7 +204,7 @@
                     <label class="control-label col-md-2 col-sm-3 col-xs-12" for="map"> 
                     คลอง ลำธาร ห้วย จำนวน </label>
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <input type="text" id="no8_4" required="required" class="form-control col-md-3 col-xs-6" value={{no8_4}}>
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง ได้แก่ </label>
                   </div>       
@@ -174,33 +213,33 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_1}}></td>
                           <td width="5%">6.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_6}}></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_2}}></td>
                           <td width="5%">7.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_7}}></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_3}}></td>
                           <td width="5%">8.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_8}}></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_4}}></td>
                           <td width="5%">9.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_9}}></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_5}}></td>
                           <td width="5%">10.</td>
-                          <td width="40%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="40%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_10}}></td>
                         </tr>
                     </tbody>
                   </table>
@@ -212,17 +251,17 @@
                     <tbody>
                         <tr>
                             <td width="40%">พื้นที่น้ำท่วมถึง คิดเป็นร้อยละ </td>
-                            <td width="30%"><a href="#" id="f1" data-type="text" data-pk="1" data-title="Enter username">00</a> ของพื้นที่ทั้งหมด</td>
+                            <td width="30%"><a href="#" id="no8_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_5_1}}</a> ของพื้นที่ทั้งหมด</td>
                         </tr>
                         <tr>
                             <td width="40%">ระยะเวลาเฉลี่ยที่น้ำท่วมขังนานที่สุด </td>
-                            <td width="30%"><a href="#" id="f2" data-type="text" data-pk="1" data-title="Enter username">00</a> วัน</td>
+                            <td width="30%"><a href="#" id="no8_5_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_5_2_1}}</a> วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ประมาณช่วงเดือน </td>
-                            <td width="30%">
+                            <td width="40%">
                               <div class="form-group">
-                                <div class="col-md-3 col-sm-2 col-xs-12">
+                                <div class="col-md-4 col-sm-2 col-xs-12">
                                   <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
@@ -239,7 +278,7 @@
                                   </select>
                                 </div>
                                 <label class="control-label col-md-1 col-sm-2 col-xs-12" for="map"> ถึง </label>
-                                <div class="col-md-3 col-sm-2 col-xs-12">
+                                <div class="col-md-4 col-sm-2 col-xs-12">
                                   <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
@@ -260,11 +299,11 @@
                         </tr>
                         <tr>
                             <td width="40%">เครื่องสูบน้ำ เครื่องที่ 1 เส้นผ่านศูนย์กลาง </td>
-                            <td width="30%"><a href="#" id="f3" data-type="text" data-pk="1" data-title="Enter username">00</a> นิ้ว</td>
+                            <td width="30%"><a href="#" id="no8_5_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_5_3}}</a> นิ้ว</td>
                         </tr>
                         <tr>
                             <td width="40%">เครื่องสูบน้ำ เครื่องที่ 2 เส้นผ่านศูนย์กลาง </td>
-                            <td width="30%"><a href="#" id="f4" data-type="text" data-pk="1" data-title="Enter username">00</a> นิ้ว</td>
+                            <td width="30%"><a href="#" id="no8_5_4" data-type="text" data-pk="1" data-title="Enter username">{{no8_5_4}}</a> นิ้ว</td>
                         </tr>
                     </tbody>
                   </table>
@@ -277,21 +316,21 @@
                     <tbody>
                         <tr>
                             <td width="40%">ปริมาณน้ำเสีย </td>
-                            <td width="30%"><a href="#" id="r1" data-type="text" data-pk="1" data-title="Enter username">00</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_1}}</a> ลบ.ม./วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ระบบบำบัดน้ำเสียที่ใช้ (ระบุ) 
-                            <textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>
-                            <td width="30%">รวม <a href="#" id="r2" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <textarea id="no8_6_2_1" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_6_2_1}}</textarea></td>
+                            <td width="30%">รวม <a href="#" id="no8_6_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_2_2}}</a> แห่ง</td>
                         </tr>
                         
                         <tr>
                             <td width="40%">น้ำเสียที่บำบัดได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="r3" data-type="text" data-pk="1" data-title="Enter username">00</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_6_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_3}}</a> ลบ.ม./วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ค่าอินทรีย์สาร (BOD) ในคลอง/ทางระบายน้ำสายหลัก </td>
-                            <td width="30%"><a href="#" id="r4" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
+                            <td width="30%"><a href="#" id="no8_6_4" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_4}}</a></td>
                         </tr>
                     </tbody>
                   </table>

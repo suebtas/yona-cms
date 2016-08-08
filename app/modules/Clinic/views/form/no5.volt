@@ -98,22 +98,22 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
-                            <td width="50%">คลินิกเอกชน </td>
-                            <td width="10%">จำนวน <a href="#" id="h1" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="30%">คลินิกเอกชน </td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_1_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
-                            <td width="20%">จำนวน <a href="#" id="h2" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_1_2}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="40%">สังกัดเอกชน </td>
-                            <td width="10%">จำนวน <a href="#" id="h3" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="30%">สังกัดเอกชน </td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_2_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
-                            <td width="20%">จำนวน <a href="#" id="h4" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_2_2}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="40%">สังกัดกระทรวงสาธารณสุข </td>
-                            <td width="10%">จำนวน <a href="#" id="h5" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="30%">สังกัดกระทรวงสาธารณสุข </td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
-                            <td width="20%">จำนวน <a href="#" id="h6" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_2}}</a> คน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -126,7 +126,7 @@
                     <tbody>
                         <tr>
                             <td width="50%">คลินิกเอกชน</td>
-                            <td width="50%">จำนวน <a href="#" id="h7" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="50%">จำนวน <a href="#" id="no5_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_2}}</a> แห่ง</td>
                         </tr>
                     </tbody>
                   </table>
@@ -143,43 +143,43 @@
                     <tbody>
                         <tr>
                             <td width="40%">แพทย์ </td>
-                            <td width="40%">จำนวน <a href="#" id="d1" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">พยาบาล </td>
-                            <td width="40%">จำนวน <a href="#" id="d2" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">ทันตแพทย์  </td>
-                            <td width="40%">จำนวน <a href="#" id="d3" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">เภสัชกร </td>
-                            <td width="40%">จำนวน <a href="#" id="d4" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">เจ้าพนักงานส่งเสริมสาธารณสุข </td>
-                            <td width="40%">จำนวน <a href="#" id="d5" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_5}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">พนักงานอนามัย </td>
-                            <td width="40%">จำนวน <a href="#" id="d6" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_6" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_6}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">เจ้าพนักงานสุขาภิบาล </td>
-                            <td width="40%">จำนวน <a href="#" id="d7" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_7" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_7}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">เจ้าพนักงานสาธารณสุขชุมชน </td>
-                            <td width="40%">จำนวน <a href="#" id="d8" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_8" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_8}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="40%">อสม </td>
-                            <td width="40%">จำนวน <a href="#" id="d9" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_9" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_9}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="40%">อื่นๆ </td>
-                            <td width="40%">จำนวน <a href="#" id="d10" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="40%">อื่นๆ <textarea rows="4" cols="50" id="no5_3_10_1" class="form-control col-md-2 col-xs-6">{{no5_3_10_1}}</textarea></td>
+                            <td width="40%">จำนวน <a href="#" id="no5_3_10_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_10_2}}</a> คน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -194,31 +194,31 @@
                     <tbody>
                         <tr>
                             <td width="20%">ท้องถิ่น </td>
-                            <td width="10%"><a href="#" id="p11" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
-                            <td width="10%"><a href="#" id="p12" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_2}}</a> คน</td>
                             <td width="20%">ผู้ป่วยนอก </td>
-                            <td width="10%"><a href="#" id="p13" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_3}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="20%">เอกชน </td>
-                            <td width="10%"><a href="#" id="p21" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
-                            <td width="10%"><a href="#" id="p22" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_2}}</a> คน</td>
                             <td width="20%">ผู้ป่วยนอก </td>
-                            <td width="10%"><a href="#" id="p23" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_3}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="20%">กระทรวงสาธารณสุข </td>
-                            <td width="10%"><a href="#" id="p31" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
-                            <td width="10%"><a href="#" id="p32" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_2}}</a> คน</td>
                             <td width="20%">ผู้ป่วยนอก </td>
-                            <td width="10%"><a href="#" id="p33" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_3}}</a> คน</td>
                         </tr>
                         <tr>
                             <td width="20%">คลินิกเอกชน </td>
-                            <td width="10%"><a href="#" id="p41" data-type="text" data-pk="1" data-title="Enter username">00</a> คน</td>
+                            <td width="10%"><a href="#" id="no5_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_4}}</a> คน</td>
                             <td width="20%"></td>
                             <td width="10%"></td>
                             <td width="20%"></td>
@@ -238,15 +238,15 @@
                     <tbody>
                         <tr>
                             <td width="40%">อุบัติเหตุ </td>
-                            <td width="10%"><a href="#" id="b11" data-type="text" data-pk="1" data-title="Enter username">00</a> ครั้ง/ปี</td>
+                            <td width="10%"><a href="#" id="no5_5_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_5_1_1}}</a> ครั้ง/ปี</td>
                             <td width="40%">คิดเป็นงบประมาณในการรักษาทั้งสิ้น </td>
-                            <td width="10%"><a href="#" id="b12" data-type="text" data-pk="1" data-title="Enter username">00</a> บาท</td>
+                            <td width="10%"><a href="#" id="no5_5_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_5_1_2}}</a> บาท</td>
                         </tr>
                         <tr>
                             <td width="40%">สาเหตุอื่น </td>
-                            <td width="10%"><a href="#" id="b21" data-type="text" data-pk="1" data-title="Enter username">00</a> ครั้ง/ปี</td>
+                            <td width="10%"><a href="#" id="no5_5_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_5_2_1}}</a> ครั้ง/ปี</td>
                             <td width="40%">คิดเป็นงบประมาณในการรักษาทั้งสิ้น </td>
-                            <td width="10%"><a href="#" id="b22" data-type="text" data-pk="1" data-title="Enter username">00</a> บาท</td>
+                            <td width="10%"><a href="#" id="no5_5_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_5_2_2}}</a> บาท</td>
                         </tr>
                     </tbody>
                   </table>
@@ -268,23 +268,23 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="50%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="50%"><input type="text" id="no5_6_1" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_1}}></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="50%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="50%"><input type="text" id="no5_6_2" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_2}}></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="50%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="50%"><input type="text" id="no5_6_3" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_3}}></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="50%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="50%"><input type="text" id="no5_6_4" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_4}}></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="50%"><input type="text" id="area-rai" required="required" class="form-control col-md-4 col-xs-6"></td>
+                          <td width="50%"><input type="text" id="no5_6_5" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_5}}></td>
                         </tr>
                     </tbody>
                   </table>

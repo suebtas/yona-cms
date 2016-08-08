@@ -72,47 +72,47 @@
                         <tr>
                             <td width="5%">6.1 </td>
                             <td width="50%">คดีเด็กและเยาวชนที่ถูกดำเนินคดี </td>
-                            <td width="20%">จำนวน <a href="#" id="c61" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_1" data-type="text" data-pk="1" data-title="Enter username">{{no6_1}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.2 </td>
                             <td width="50%">คดีอุกฉกรรจ์และสะเทือนขวัญ </td>
-                            <td width="20%">จำนวน <a href="#" id="c62" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_2" data-type="text" data-pk="1" data-title="Enter username">{{no6_2}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.3 </td>
                             <td width="50%">คดีชีวิต  ร่างกายและเพศ  </td>
-                            <td width="20%">จำนวน <a href="#" id="c63" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_3" data-type="text" data-pk="1" data-title="Enter username">{{no6_3}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.4 </td>
                             <td width="50%">คดียาเสพติด </td>
-                            <td width="20%">จำนวน <a href="#" id="c64" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_4" data-type="text" data-pk="1" data-title="Enter username">{{no6_4}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.5 </td>
                             <td width="50%">คดีเกี่ยวกับปราบปรามการค้าประเวณี </td>
-                            <td width="20%">จำนวน <a href="#" id="c65" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_5" data-type="text" data-pk="1" data-title="Enter username">{{no6_5}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.6 </td>
                             <td width="50%">คดีการมีและเผยแพร่วัตถุลามก </td>
-                            <td width="20%">จำนวน <a href="#" id="c66" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_6" data-type="text" data-pk="1" data-title="Enter username">{{no6_6}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.7 </td>
                             <td width="50%">อุบัติเหตุบนท้องถนน </td>
-                            <td width="20%">จำนวน <a href="#" id="c67" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_7" data-type="text" data-pk="1" data-title="Enter username">{{no6_7}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.8 </td>
                             <td width="50%">ผู้ประสบอันตรายหรือเจ็บป่วยเนื่องจากการทำงาน </td>
-                            <td width="20%">จำนวน <a href="#" id="c68" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_8" data-type="text" data-pk="1" data-title="Enter username">{{no6_8}}</a> คดี/ปี</td>
                         </tr>
                         <tr>
                             <td width="5%">6.9 </td>
                             <td width="50%">ผู้ประสบภัยที่เป็นนักท่องเที่ยวต่างชาติ </td>
-                            <td width="20%">จำนวน <a href="#" id="c69" data-type="text" data-pk="1" data-title="Enter username">00</a> คดี/ปี</td>
+                            <td width="20%">จำนวน <a href="#" id="no6_9" data-type="text" data-pk="1" data-title="Enter username">{{no6_9}}</a> คดี/ปี</td>
                         </tr>
                     </tbody>
                   </table>

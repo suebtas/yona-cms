@@ -96,7 +96,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ชุมชน จำนวน 
                     </label>
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <input type="text" id="no4_1" required="required" class="form-control col-md-3 col-xs-6" value={{no4_1}}>
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง  </label>
                   </div>
@@ -104,7 +104,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ครัวเรือน จำนวน 
                     </label>
                     <div class="col-md-2">
-                        <input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6">
+                        <input type="text" id="no4_2" required="required" class="form-control col-md-3 col-xs-6" value={{no4_2}}>
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> ครัวเรือน  </label>
                   </div>
@@ -117,42 +117,42 @@
                     <tbody>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาพุทธ </td>
-                            <td width="40%">ร้อยละ <a href="#" id="p1" data-type="text" data-pk="1" data-title="Enter username">000</a> ของจำนวนประชากรทั้งหมด</td>
+                            <td width="40%">ร้อยละ <a href="#" id="no4_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_1}}</a> ของจำนวนประชากรทั้งหมด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">วัด </td>
-                            <td width="40%">จำนวน <a href="#" id="p2" data-type="text" data-pk="1" data-title="Enter username">000</a> วัด</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_2}}</a> วัด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาอิสลาม </td>
-                            <td width="40%">ร้อยละ <a href="#" id="p3" data-type="text" data-pk="1" data-title="Enter username">000</a> ของจำนวนประชากรทั้งหมด</td>
+                            <td width="40%">ร้อยละ <a href="#" id="no4_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_3}}</a> ของจำนวนประชากรทั้งหมด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">มัสยิด </td>
-                            <td width="40%">จำนวน <a href="#" id="p4" data-type="text" data-pk="1" data-title="Enter username">000</a> มัสยิด</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_4}}</a> มัสยิด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาคริสต์ </td>
-                            <td width="40%">ร้อยละ <a href="#" id="p5" data-type="text" data-pk="1" data-title="Enter username">000</a> ของจำนวนประชากรทั้งหมด</td>
+                            <td width="40%">ร้อยละ <a href="#" id="no4_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_5}}</a> ของจำนวนประชากรทั้งหมด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">โบสถ์ทางคริสต์ศาสนา </td>
-                            <td width="40%">จำนวน <a href="#" id="p6" data-type="text" data-pk="1" data-title="Enter username">000</a> โบสถ์</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_3_6" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_6}}</a> โบสถ์</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาอื่นๆ </td>
-                            <td width="40%">ร้อยละ <a href="#" id="p7" data-type="text" data-pk="1" data-title="Enter username">000</a> ของจำนวนประชากรทั้งหมด</td>
+                            <td width="40%">ร้อยละ <a href="#" id="no4_3_7" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_7}}</a> ของจำนวนประชากรทั้งหมด</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">ผู้ไม่นับถือศาสนาใดเลย </td>
-                            <td width="40%">ร้อยละ <a href="#" id="p8" data-type="text" data-pk="1" data-title="Enter username">000</a> ของจำนวนประชากรทั้งหมด</td>
+                            <td width="40%">ร้อยละ <a href="#" id="no4_3_8" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_8}}</a> ของจำนวนประชากรทั้งหมด</td>
                             
                         </tr>
                     </tbody>
@@ -176,11 +176,11 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="25%"><input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
+                          <td width="25%"><input type="text" id="no4_4_1_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_1_1}}></td>
                             <td width="20%">
                               <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select class="select2_single form-control" id="no4_4_1_2" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
                                     <option value="mar" selected>มีนาคม</option>
@@ -197,16 +197,16 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_1_3" class="form-control col-md-2 col-xs-6">{{no4_4_1_3}}</textarea></td>
                             
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="25%"><input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
+                          <td width="25%"><input type="text" id="no4_4_2_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_2_1}}></td>
                             <td width="20%">
                               <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select class="select2_single form-control" id="no4_4_2_2" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
                                     <option value="mar" selected>มีนาคม</option>
@@ -223,15 +223,16 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>                                    
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_2_3" class="form-control col-md-2 col-xs-6">{{no4_4_2_3}}</textarea></td>                                    
                         </tr>
                         <tr>
+                          <tr>
                           <td width="5%">3.</td>
-                          <td width="25%"><input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
+                          <td width="25%"><input type="text" id="no4_4_3_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_3_1}}></td>
                             <td width="20%">
                               <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select class="select2_single form-control" id="no4_4_3_2" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
                                     <option value="mar" selected>มีนาคม</option>
@@ -248,15 +249,16 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>                                    
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_3_3" class="form-control col-md-2 col-xs-6">{{no4_4_3_3}}</textarea></td>                                    
                         </tr>
                         <tr>
+                          <tr>
                           <td width="5%">4.</td>
-                          <td width="25%"><input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
+                          <td width="25%"><input type="text" id="no4_4_4_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_4_1}}></td>
                             <td width="20%">
                               <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select class="select2_single form-control" id="no4_4_4_2" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
                                     <option value="mar" selected>มีนาคม</option>
@@ -273,15 +275,16 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>                                    
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_4_3" class="form-control col-md-2 col-xs-6">{{no4_4_4_3}}</textarea></td>                                    
                         </tr>
                         <tr>
+                          <tr>
                           <td width="5%">5.</td>
-                          <td width="25%"><input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
+                          <td width="25%"><input type="text" id="no4_4_5_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_5_1}}></td>
                             <td width="20%">
                               <div class="form-group">
                                 <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select class="select2_single form-control" id="no4_4_5_2" tabindex="-1" placeholder: "Select a state">
                                     <option value="jan">มกราคม</option>
                                     <option value="feb">กุมภาพันธ์</option>
                                     <option value="mar" selected>มีนาคม</option>
@@ -298,7 +301,7 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>                                    
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_5_3" class="form-control col-md-2 col-xs-6">{{no4_4_5_3}}</textarea></td>                                    
                         </tr>
                         
                     </tbody>
@@ -324,35 +327,35 @@
                     <tbody>
                       <tr>
                           <td width="25%">1.จำนวนโรงเรียน </td>
-                          <td width="15%"><a href="#" id="e111" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e112" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e113" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e114" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_1_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_1_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_1_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_1_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_1_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_1_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_1_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">2.จำนวนห้องเรียน  </td>
-                          <td width="15%"><a href="#" id="e121" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e122" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e123" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e124" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_2_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_2_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_2_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_2_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_2_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_2_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_2_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">3.จำนวนนักเรียน </td>
-                          <td width="15%"><a href="#" id="e131" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e132" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e133" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e134" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_1_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_3_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_3_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_3_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_3_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_3_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">4.จำนวนครู อาจารย์ </td>
-                          <td width="15%"><a href="#" id="e141" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e142" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e143" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e144" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_1_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_4_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_4_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_4_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_4_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_1_4_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_1_4_5}}</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -375,35 +378,35 @@
                     <tbody>
                       <tr>
                           <td width="25%">1.จำนวนโรงเรียน </td>
-                          <td width="15%"><a href="#" id="e211" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e212" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e213" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e214" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_2_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_1_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_1_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_1_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_1_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_1_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_1_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">2.จำนวนห้องเรียน  </td>
-                          <td width="15%"><a href="#" id="e221" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e222" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e223" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e224" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_2_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_2_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_2_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_2_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_2_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_2_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_2_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_2_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">3.จำนวนนักเรียน </td>
-                          <td width="15%"><a href="#" id="e231" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e232" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e233" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e234" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_2_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_3_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_3_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_3_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_3_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_3_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">4.จำนวนครู อาจารย์ </td>
-                          <td width="15%"><a href="#" id="e241" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e242" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e243" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e244" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_2_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_4_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_4_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_4_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_4_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_2_4_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_2_4_5}}</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -426,35 +429,35 @@
                     <tbody>
                       <tr>
                           <td width="25%">1.จำนวนโรงเรียน </td>
-                          <td width="15%"><a href="#" id="e311" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e312" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e313" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e314" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_3_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_1_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_1_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_1_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_1_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_1_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_1_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">2.จำนวนห้องเรียน  </td>
-                          <td width="15%"><a href="#" id="e321" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e322" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e323" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e324" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_3_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_2_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_2_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_2_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_2_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_2_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_2_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_2_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">3.จำนวนนักเรียน </td>
-                          <td width="15%"><a href="#" id="e331" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e332" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e333" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e334" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_3_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_3_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_3_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_3_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_3_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_3_5}}</a></td>
                       </tr>
                       <tr>
                           <td width="25%">4.จำนวนครู อาจารย์ </td>
-                          <td width="15%"><a href="#" id="e341" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e342" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e343" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%"><a href="#" id="e344" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                          <td width="15%">000</td>
+                          <td width="15%"><a href="#" id="no4_5_3_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_4_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_4_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_4_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_4_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_3_4_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_3_4_5}}</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -476,37 +479,37 @@
                       </thead>
                       <tbody>
                         <tr>
-                            <td width="25%">1.จำนวนโรงเรียน </td>
-                            <td width="15%"><a href="#" id="e411" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e412" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e413" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e414" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%">000</td>
-                        </tr>
-                        <tr>
-                            <td width="25%">2.จำนวนห้องเรียน  </td>
-                            <td width="15%"><a href="#" id="e421" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e422" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e423" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e424" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%">000</td>
-                        </tr>
-                        <tr>
-                            <td width="25%">3.จำนวนนักเรียน </td>
-                            <td width="15%"><a href="#" id="e431" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e432" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e433" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e434" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%">000</td>
-                        </tr>
-                        <tr>
-                            <td width="25%">4.จำนวนครู อาจารย์ </td>
-                            <td width="15%"><a href="#" id="e441" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e442" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e443" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%"><a href="#" id="e444" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
-                            <td width="15%">000</td>
-                        </tr>
+                          <td width="25%">1.จำนวนโรงเรียน </td>
+                          <td width="15%"><a href="#" id="no4_5_4_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_1_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_1_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_1_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_1_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_1_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_1_5}}</a></td>
+                      </tr>
+                      <tr>
+                          <td width="25%">2.จำนวนห้องเรียน  </td>
+                          <td width="15%"><a href="#" id="no4_5_4_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_2_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_2_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_2_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_2_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_2_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_2_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_2_5}}</a></td>
+                      </tr>
+                      <tr>
+                          <td width="25%">3.จำนวนนักเรียน </td>
+                          <td width="15%"><a href="#" id="no4_5_4_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_3_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_3_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_3_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_3_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_3_5}}</a></td>
+                      </tr>
+                      <tr>
+                          <td width="25%">4.จำนวนครู อาจารย์ </td>
+                          <td width="15%"><a href="#" id="no4_5_4_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_4_1}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_4_2}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_4_3}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_4_4}}</a></td>
+                          <td width="15%"><a href="#" id="no4_5_4_4_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_5_4_4_5}}</a></td>
+                      </tr>
                       </tbody>
                     </table>
 
@@ -517,42 +520,42 @@
                     <tbody>
                         <tr>
                             <td width="40%">สนามกีฬาอเนกประสงค์ </td>
-                            <td width="40%">จำนวน <a href="#" id="s1" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_1}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">สนามฟุตบอล </td>
-                            <td width="40%">จำนวน <a href="#" id="s2" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_2}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">สนามบาสเกตบอล </td>
-                            <td width="40%">จำนวน <a href="#" id="s3" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_3}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">สนามตะกร้อ </td>
-                            <td width="40%">จำนวน <a href="#" id="s4" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_4}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">สระว่ายน้ำ </td>
-                            <td width="40%">จำนวน <a href="#" id="s5" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_5}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">ห้องสมุดประชาชน </td>
-                            <td width="40%">จำนวน <a href="#" id="s6" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_6" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_6}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
                             <td width="40%">สนามเด็กเล่น </td>
-                            <td width="40%">จำนวน <a href="#" id="s7" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_7" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_7}}</a> แห่ง</td>
                             
                         </tr>
                         <tr>
-                            <td width="40%">อื่นๆ (ระบุ) </td>
-                            <td width="40%">จำนวน <a href="#" id="s8" data-type="text" data-pk="1" data-title="Enter username">00</a> แห่ง</td>
+                            <td width="40%">อื่นๆ (ระบุ) <textarea rows="4" cols="50" id="no4_6_8_1" class="form-control col-md-2 col-xs-6">{{no4_6_8_1}}</textarea></td>
+                            <td width="40%">จำนวน <a href="#" id="no4_6_8_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_8_2}}</a> แห่ง</td>
                             
                         </tr>
                     </tbody>
