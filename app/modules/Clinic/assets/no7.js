@@ -109,15 +109,12 @@ $('#no7_3_1_1').editable({
       }
   });
 });
-$('#no7_3_1_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_3_1_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_3_1_2:params.newValue,
+        no7_3_1_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -193,15 +190,12 @@ $('#no7_3_2_1').editable({
       }
   });
 });
-$('#no7_3_2_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_3_2_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_3_2_2:params.newValue,
+        no7_3_2_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -277,15 +271,12 @@ $('#no7_3_3_1').editable({
       }
   });
 });
-$('#no7_3_3_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_3_3_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_3_3_2:params.newValue,
+        no7_3_3_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -361,15 +352,12 @@ $('#no7_3_4_1').editable({
       }
   });
 });
-$('#no7_3_4_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_3_4_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_3_4_2:params.newValue,
+        no7_3_4_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -445,15 +433,12 @@ $('#no7_3_5_1').editable({
       }
   });
 });
-$('#no7_3_5_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_3_5_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_3_5_2:params.newValue,
+        no7_3_5_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -530,15 +515,12 @@ $('#no7_4_1_1').editable({
       }
   });
 });
-$('#no7_4_1_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_4_1_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_4_1_2:params.newValue,
+        no7_4_1_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -614,15 +596,12 @@ $('#no7_4_2_1').editable({
       }
   });
 });
-$('#no7_4_2_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_4_2_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_4_2_2:params.newValue,
+        no7_4_2_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -698,15 +677,12 @@ $('#no7_4_3_1').editable({
       }
   });
 });
-$('#no7_4_3_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_4_3_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_4_3_2:params.newValue,
+        no7_4_3_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -782,15 +758,12 @@ $('#no7_4_4_1').editable({
       }
   });
 });
-$('#no7_4_4_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_4_4_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_4_4_2:params.newValue,
+        no7_4_4_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -866,15 +839,12 @@ $('#no7_4_5_1').editable({
       }
   });
 });
-$('#no7_4_5_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_4_5_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_4_5_2:params.newValue,
+        no7_4_5_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -952,15 +922,12 @@ $('#no7_5_1_1').editable({
       }
   });
 });
-$('#no7_5_1_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_5_1_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_5_1_2:params.newValue,
+        no7_5_1_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1036,15 +1003,12 @@ $('#no7_5_2_1').editable({
       }
   });
 });
-$('#no7_5_2_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_5_2_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_5_2_2:params.newValue,
+        no7_5_2_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1120,15 +1084,12 @@ $('#no7_5_3_1').editable({
       }
   });
 });
-$('#no7_5_3_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_5_3_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_5_3_2:params.newValue,
+        no7_5_3_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1204,15 +1165,12 @@ $('#no7_5_4_1').editable({
       }
   });
 });
-$('#no7_5_4_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_5_4_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_5_4_2:params.newValue,
+        no7_5_4_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1288,15 +1246,12 @@ $('#no7_5_5_1').editable({
       }
   });
 });
-$('#no7_5_5_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_5_5_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_5_5_2:params.newValue,
+        no7_5_5_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1374,15 +1329,12 @@ $('#no7_6_1_1').editable({
       }
   });
 });
-$('#no7_6_1_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_6_1_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_6_1_2:params.newValue,
+        no7_6_1_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1458,15 +1410,12 @@ $('#no7_6_2_1').editable({
       }
   });
 });
-$('#no7_6_2_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_6_2_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_6_2_2:params.newValue,
+        no7_6_2_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1542,15 +1491,12 @@ $('#no7_6_3_1').editable({
       }
   });
 });
-$('#no7_6_3_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_6_3_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_6_3_2:params.newValue,
+        no7_6_3_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1626,15 +1572,12 @@ $('#no7_6_4_1').editable({
       }
   });
 });
-$('#no7_6_4_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_6_4_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_6_4_2:params.newValue,
+        no7_6_4_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
@@ -1710,15 +1653,12 @@ $('#no7_6_5_1').editable({
       }
   });
 });
-$('#no7_6_5_2').editable({
-       type: 'text',
-       title: ' '
-     }).on('save', function(e, params) {
+$('#no7_6_5_2').on('blur', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
       type: "POST",
       data : {
-        no7_6_5_2:params.newValue,
+        no7_6_5_2:this.value,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)
