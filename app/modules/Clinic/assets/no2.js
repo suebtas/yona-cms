@@ -661,7 +661,7 @@ function cal(){
       },
       success: function(data, textStatus, jqXHR)
       {
-
+          $('#no2_1_1').html(no2_1_1);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -709,13 +709,12 @@ function cal(){
       },
       success: function(data, textStatus, jqXHR)
       {
-
+        $('#no2_5_8').html(no2_5_8);
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
 
       }
   });
-
 }
 cal();
