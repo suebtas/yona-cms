@@ -741,7 +741,12 @@ function cal(){
   var no2_1_5_2 = $('#no2_1_5_2').text();
   if(no2_1_5_2==''||no2_1_5_2=='Empty')
       no2_1_5_2=0;
-  var no2_1_1 = parseFloat(no2_1_2_1) + parseFloat(no2_1_3_1) + parseFloat(no2_1_4_1) + parseFloat(no2_1_5_2);
+      var rep1 = no2_1_2_1.replace(/,/g,"");
+      var rep2 = no2_1_3_1.replace(/,/g,"");
+      var rep3 = no2_1_4_1.replace(/,/g,"");
+      var rep4 = no2_1_5_2.replace(/,/g,"");
+  var sumpn = parseFloat(rep1) + parseFloat(rep2) + parseFloat(rep3) + parseFloat(rep4);
+    var no2_1_1 = sumpn.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
