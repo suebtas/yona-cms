@@ -1,4 +1,4 @@
-# ************************************************************
+`question`# ************************************************************
 # Sequel Pro SQL dump
 # Version 4096
 #
@@ -26,18 +26,18 @@
 DROP TABLE IF EXISTS `admin_user`;
 
 CREATE TABLE `admin_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `officeid` int(11) DEFAULT NULL,
-  `role` enum('journalist','editor','admin','cc-user','cc-admin','cc-approver') NOT NULL DEFAULT 'journalist',
-  `login` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `officeid` INT(11) DEFAULT NULL,
+  `role` ENUM('journalist','editor','admin','cc-user','cc-admin','cc-approver') NOT NULL DEFAULT 'journalist',
+  `login` VARCHAR(50) DEFAULT NULL,
+  `email` VARCHAR(50) DEFAULT NULL,
+  `name` VARCHAR(50) DEFAULT NULL,
+  `password` VARCHAR(255) DEFAULT NULL,
+  `active` TINYINT(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `work on` (`officeid`),
   CONSTRAINT `work on` FOREIGN KEY (`officeid`) REFERENCES `office` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `admin_user` WRITE;
 /*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
@@ -58,8 +58,8 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `amphur`;
 
 CREATE TABLE `amphur` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

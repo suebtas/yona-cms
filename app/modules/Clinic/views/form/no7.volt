@@ -73,7 +73,7 @@
                         <form class="form-horizontal form-label-left">
                           <div class="form-group">
                             <center>
-                            สถิติเพลิงไหม้ในรอบปี (1 ม.ค. - 31 ธ.ค.) จำนวน <a href="#" id="f1" data-type="text" data-pk="1" data-title="Enter username"> 0 </a> ครั้ง
+                            สถิติเพลิงไหม้ในรอบปี (1 ม.ค. - 31 ธ.ค.) จำนวน <a href="#" id="no7_1" data-type="text" data-pk="1" data-title="Enter username"> {{no7_1}} </a> ครั้ง
                             </center><br>
                             <table id="road" class="table table-striped table-bordered" style="clear: both">
                               <tbody>
@@ -87,7 +87,7 @@
                                     คิดเป็นผู้เสียชีวิต
                                   </td>
                                   <td>
-                                    <a href="#" id="f2" data-type="text" data-pk="1" data-title="Enter username"> 0 </a> คน
+                                    <a href="#" id="no7_2_1" data-type="text" data-pk="1" data-title="Enter username"> {{no7_2_1}} </a> คน
                                   </td>
                                 </tr>
                                 <tr>
@@ -95,7 +95,7 @@
                                   บาดเจ็บ
                                   </td>
                                   <td>
-                                    <a href="#" id="f3" data-type="text" data-pk="1" data-title="Enter username"> 0 </a> คน
+                                    <a href="#" id="no7_2_2" data-type="text" data-pk="1" data-title="Enter username"> {{no7_2_2}} </a> คน
                                   </td>
                                 </tr>
                                 <tr>
@@ -103,7 +103,7 @@
                                   ทรัพย์สินมูลค่า
                                   </td>
                                   <td>
-                                    <a href="#" id="f4" data-type="text" data-pk="1" data-title="Enter username"> 0 </a> บาท
+                                    <a href="#" id="no7_2_3" data-type="text" data-pk="1" data-title="Enter username"> {{no7_2_3}} </a> บาท
                                   </td>
                                 </tr>
                               </tbody>
@@ -145,16 +145,16 @@
                                   1
                                 </td>
                                 <td>
-                                  <a href="#" id="f5" data-type="text" data-pk="1" data-title="Enter username" > 10.00 </a>
+                                  <a href="#" id="no7_3_1_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_1_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_3_1_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_1_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f6" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_3_1_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3_1_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f7" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_3_1_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_1_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -162,16 +162,16 @@
                                   2
                                 </td>
                                 <td>
-                                  <a href="#" id="f8" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_3_2_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_2_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_3_2_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_2_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f9" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_3_2_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3_2_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f10" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_3_2_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_2_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -179,16 +179,16 @@
                                   3
                                 </td>
                                 <td>
-                                  <a href="#" id="f11" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_3_3_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_3_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_3_3_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_3_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f12" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_3_3_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3_3_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f13" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_3_3_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_3_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -196,16 +196,16 @@
                                   4
                                 </td>
                                 <td>
-                                  <a href="#" id="f14" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_3_4_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_4_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_3_4_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_4_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f15" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_3_4_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3_4_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f16" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_3_4_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_4_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -213,16 +213,16 @@
                                   5
                                 </td>
                                 <td>
-                                  <a href="#" id="f17" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_3_5_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_5_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_3_5_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_5_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f18" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_3_5_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3_5_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f19" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_3_5_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_3_5_4}} </a>
                                 </td>
                               </tr>
                             </tbody>
@@ -258,16 +258,16 @@
                                   1
                                 </td>
                                 <td>
-                                  <a href="#" id="f20" data-type="text" data-pk="1" data-title="Enter username" > 10 </a>
+                                  <a href="#" id="no7_4_1_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_1_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_4_1_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_1_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f21" data-type="text" data-pk="1" data-title="Enter username" > 2549 </a>
+                                  <a href="#" id="no7_4_1_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4_1_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f22" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_4_1_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_1_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -275,16 +275,16 @@
                                   2
                                 </td>
                                 <td>
-                                  <a href="#" id="f23" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_4_2_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_2_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_4_2_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_2_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f24" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_4_2_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4_2_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f25" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_4_2_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_2_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -292,16 +292,16 @@
                                   3
                                 </td>
                                 <td>
-                                  <a href="#" id="f26" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_4_3_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_3_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_4_3_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_3_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f27" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_4_3_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4_3_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f28" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_4_3_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_3_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -309,16 +309,16 @@
                                   4
                                 </td>
                                 <td>
-                                  <a href="#" id="f29" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_4_4_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_4_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_4_4_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_4_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f30" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_4_4_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4_4_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f31" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_4_4_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_4_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -326,16 +326,16 @@
                                   5
                                 </td>
                                 <td>
-                                  <a href="#" id="f32" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_4_5_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_5_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_4_5_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_5_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f33" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_4_5_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4_5_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f34" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_4_5_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_4_5_4}} </a>
                                 </td>
                               </tr>
                             </tbody>
@@ -371,16 +371,16 @@
                                   1
                                 </td>
                                 <td>
-                                  <a href="#" id="f35" data-type="text" data-pk="1" data-title="Enter username" > 10.00 </a>
+                                  <a href="#" id="no7_5_1_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_1_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_5_1_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_1_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f36" data-type="text" data-pk="1" data-title="Enter username" > 2553 </a>
+                                  <a href="#" id="no7_5_1_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5_1_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f37" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_5_1_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_1_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -388,16 +388,16 @@
                                   2
                                 </td>
                                 <td>
-                                  <a href="#" id="f38" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_5_2_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_2_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_5_2_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_2_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f39" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_5_2_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5_2_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f40" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_5_2_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_2_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -405,16 +405,16 @@
                                   3
                                 </td>
                                 <td>
-                                  <a href="#" id="f41" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_5_3_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_3_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_5_3_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_3_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f42" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_5_3_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5_3_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f43" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_5_3_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_3_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -422,16 +422,16 @@
                                   4
                                 </td>
                                 <td>
-                                  <a href="#" id="f44" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_5_4_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_4_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_5_4_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_4_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f45" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_5_4_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5_4_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f46" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_5_4_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_4_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -439,16 +439,16 @@
                                   5
                                 </td>
                                 <td>
-                                  <a href="#" id="f47" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_5_5_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_5_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_5_5_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_5_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f48" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_5_5_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5_5_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f49" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_5_5_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_5_5_4}} </a>
                                 </td>
                               </tr>
                             </tbody>
@@ -484,16 +484,16 @@
                                   1
                                 </td>
                                 <td>
-                                  <a href="#" id="f50" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_6_1_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_1_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_6_1_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_1_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f51" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_6_1_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6_1_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f52" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_6_1_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_1_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -501,16 +501,16 @@
                                   2
                                 </td>
                                 <td>
-                                  <a href="#" id="f53" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_6_2_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_2_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_6_2_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_2_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f54" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_6_2_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6_2_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f55" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_6_2_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_2_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -518,16 +518,16 @@
                                   3
                                 </td>
                                 <td>
-                                  <a href="#" id="f56" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_6_3_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_3_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_6_3_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_3_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f57" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_6_3_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6_3_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f58" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_6_3_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_3_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -535,16 +535,16 @@
                                   4
                                 </td>
                                 <td>
-                                  <a href="#" id="f59" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_6_4_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_4_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_6_4_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_4_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f60" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_6_4_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6_4_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f61" data-type="text" data-pk="1" data-title="Enter username"> 0.00 </a>
+                                  <a href="#" id="no7_6_4_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_4_4}} </a>
                                 </td>
                               </tr>
                               <tr>
@@ -552,16 +552,16 @@
                                   5
                                 </td>
                                 <td>
-                                  <a href="#" id="f62" data-type="text" data-pk="1" data-title="Enter username"> 0 </a>
+                                  <a href="#" id="no7_6_5_1" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_5_1}}</a>
                                 </td>
                                 <td>
-                                  <input type="text" name="name" value="" class="form-control">
+                                  <a href="#" id="no7_6_5_2" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_5_2}}</a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f63" data-type="text" data-pk="1" data-title="Enter username" > 0 </a>
+                                  <a href="#" id="no7_6_5_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6_5_3}} </a>
                                 </td>
                                 <td>
-                                  <a href="#" id="f64" data-type="text" data-pk="1" data-title="Enter username" > 0.00 </a>
+                                  <a href="#" id="no7_6_5_4" data-type="text" data-pk="1" data-title="Enter username" >{{no7_6_5_4}} </a>
                                 </td>
                               </tr>
                             </tbody>
@@ -578,7 +578,7 @@
                                    เรือยนต์ดับเพลิง จำนวน
                                 </td>
                                 <td>
-                                  <a href="#" id="f65" data-type="text" data-pk="1" data-title="Enter username" > 0 </a> ลำ
+                                  <a href="#" id="no7_7" data-type="text" data-pk="1" data-title="Enter username" > {{no7_7}} </a>  ลำ
                                 </td>
                               </tr>
                               <tr>
@@ -586,7 +586,7 @@
                                    เครื่องดับเพลิงชนิดหาบหาม จำนวน
                                 </td>
                                 <td>
-                                  <a href="#" id="f66" data-type="text" data-pk="1" data-title="Enter username" > 0 </a> เครื่อง
+                                  <a href="#" id="no7_8" data-type="text" data-pk="1" data-title="Enter username" > {{no7_8}} </a>  เครื่อง
                                 </td>
                               </tr>
                               <tr>
@@ -594,7 +594,7 @@
                                    พนักงานดับเพลิง จำนวน
                                 </td>
                                 <td>
-                                  <a href="#" id="f67" data-type="text" data-pk="1" data-title="Enter username" > 4 </a> คน
+                                  <a href="#" id="no7_9" data-type="text" data-pk="1" data-title="Enter username" > {{no7_9}} </a> คน
                                 </td>
                               </tr>
                               <tr>
@@ -602,7 +602,7 @@
                                    อาสาสมัครป้องกัน และบรรเทาสาธารณภัย จำนวน
                                 </td>
                                 <td>
-                                  <a href="#" id="f68" data-type="text" data-pk="1" data-title="Enter username" > 105 </a> คน
+                                  <a href="#" id="no7_10" data-type="text" data-pk="1" data-title="Enter username" > {{no7_10}} </a> คน
                                 </td>
                               </tr>
                               <tr>
@@ -610,7 +610,7 @@
                                    ผู้ฝึกซ้อมบรรเทาสาธารณภัยปีที่ผ่านมา จำนวน
                                 </td>
                                 <td>
-                                  <a href="#" id="f69" data-type="text" data-pk="1" data-title="Enter username" > 0 </a> คน
+                                  <a href="#" id="no7_11" data-type="text" data-pk="1" data-title="Enter username" > {{no7_11}} </a> คน
                                 </td>
                               </tr>
                             </table>

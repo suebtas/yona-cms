@@ -101,7 +101,7 @@
                            <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศใต้ ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              
+
                              {{ form.render('no1_1_3_2') }}
                             </div>
                           </div>
@@ -190,7 +190,7 @@
                                     <td width="40%">ความหนาแน่นของประชากร </td>
                                     <td width="10%"><a href="#" id="no1_2_9_1" data-type="text" data-pk="1" data-title="Enter username">48.00</a> คน/ตร.กม.</td>
                                     <td width="50%"><a href="#" id="no1_2_9_1" data-type="text" data-pk="1" data-title="Enter username"></a> </td>
-                                </tr>                               
+                                </tr>
                             </tbody>
                           </table>
 
@@ -212,7 +212,7 @@
                                 <tr>
                                     <td width="40%">ประชากรที่ประกอบอาชีพอื่นจำนวน  </td>
                                     <td width="60%"><a href="#" id="no1_2_12" data-type="text" data-pk="1" data-title="Enter username">500</a> คน</td>
-                                </tr>                               
+                                </tr>
                             </tbody>
                           </table>
 
@@ -223,7 +223,7 @@
                                 <tr>
                                     <td width="40%">สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน</td>
                                     <td width="60%"><a href="#" id="no1_2_13" data-type="text" data-pk="1" data-title="Enter username">2</a> แห่ง</td>
-                                </tr>                            
+                                </tr>
                             </tbody>
                           </table>
                         </form>
@@ -231,7 +231,7 @@
 
                     </div>
                     <!-- End SmartWizard Content -->
-                    
+
                   </div>
                 </div>
               </div>

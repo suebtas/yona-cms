@@ -1,497 +1,1882 @@
 $.fn.editable.defaults.mode = 'inline';
 //step 1 7.1
-$('#f1').editable({
-       url: 'Form_No7.html',
+$('#no7_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 7.2
-$('#f2').editable({
-       url: 'Form_No7.html',
+$('#no7_2_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f3').editable({
-       url: 'Form_No7.html',
+$('#no7_2_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f4').editable({
-       url: 'Form_No7.html',
+$('#no7_2_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 7.3
-$('#f5').editable({
-       url: 'Form_No7.html',
+$('#no7_3_1_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f6').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f7').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f8').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f9').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f10').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f11').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f12').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f13').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f14').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f15').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f16').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f17').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f18').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
-$('#f19').editable({
-       url: 'Form_No7.html',
-       type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
-});
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_1_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
 
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_1_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_1_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_1_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_1_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_1_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_1_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_2_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_2_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_2_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_2_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_2_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_3_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_3_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_3_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_3_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_3_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_3_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_4_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_4_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_4_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_4_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_5_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_5_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_5_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_5_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_5_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_3_5_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3_5_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 //step 1 7.4
-$('#f20').editable({
-       url: 'Form_No7.html',
+$('#no7_4_1_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_1_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f21').editable({
-       url: 'Form_No7.html',
+$('#no7_4_1_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_1_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f22').editable({
-       url: 'Form_No7.html',
+$('#no7_4_1_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_1_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f23').editable({
-       url: 'Form_No7.html',
+$('#no7_4_1_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_1_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f24').editable({
-       url: 'Form_No7.html',
+$('#no7_4_2_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f25').editable({
-       url: 'Form_No7.html',
+$('#no7_4_2_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f26').editable({
-       url: 'Form_No7.html',
+$('#no7_4_2_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f27').editable({
-       url: 'Form_No7.html',
+$('#no7_4_2_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_2_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f28').editable({
-       url: 'Form_No7.html',
+$('#no7_4_3_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f29').editable({
-       url: 'Form_No7.html',
+$('#no7_4_3_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f30').editable({
-       url: 'Form_No7.html',
+$('#no7_4_3_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_3_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f31').editable({
-       url: 'Form_No7.html',
+$('#no7_4_3_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_3_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f32').editable({
-       url: 'Form_No7.html',
+$('#no7_4_4_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f33').editable({
-       url: 'Form_No7.html',
+$('#no7_4_4_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f34').editable({
-       url: 'Form_No7.html',
+$('#no7_4_4_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_4_4_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_4_5_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_5_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_4_5_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_4_5_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_5_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_4_5_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4_5_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 7.5
-$('#f35').editable({
-       url: 'Form_No7.html',
+$('#no7_5_1_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_1_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f36').editable({
-       url: 'Form_No7.html',
+$('#no7_5_1_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_1_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f37').editable({
-       url: 'Form_No7.html',
+$('#no7_5_1_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_1_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f38').editable({
-       url: 'Form_No7.html',
+$('#no7_5_1_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_1_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f39').editable({
-       url: 'Form_No7.html',
+$('#no7_5_2_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f40').editable({
-       url: 'Form_No7.html',
+$('#no7_5_2_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f41').editable({
-       url: 'Form_No7.html',
+$('#no7_5_2_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f42').editable({
-       url: 'Form_No7.html',
+$('#no7_5_2_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_2_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f43').editable({
-       url: 'Form_No7.html',
+$('#no7_5_3_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f44').editable({
-       url: 'Form_No7.html',
+$('#no7_5_3_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f45').editable({
-       url: 'Form_No7.html',
+$('#no7_5_3_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_3_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f46').editable({
-       url: 'Form_No7.html',
+$('#no7_5_3_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_3_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f47').editable({
-       url: 'Form_No7.html',
+$('#no7_5_4_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f48').editable({
-       url: 'Form_No7.html',
+$('#no7_5_4_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f49').editable({
-       url: 'Form_No7.html',
+$('#no7_5_4_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_5_4_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_5_5_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_5_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_5_5_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_5_5_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_5_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_5_5_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5_5_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 7.6
-$('#f50').editable({
-       url: 'Form_No7.html',
+$('#no7_6_1_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_1_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f51').editable({
-       url: 'Form_No7.html',
+$('#no7_6_1_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_1_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f52').editable({
-       url: 'Form_No7.html',
+$('#no7_6_1_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_1_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f53').editable({
-       url: 'Form_No7.html',
+$('#no7_6_1_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_1_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f54').editable({
-       url: 'Form_No7.html',
+$('#no7_6_2_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f55').editable({
-       url: 'Form_No7.html',
+$('#no7_6_2_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f56').editable({
-       url: 'Form_No7.html',
+$('#no7_6_2_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f57').editable({
-       url: 'Form_No7.html',
+$('#no7_6_2_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_2_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f58').editable({
-       url: 'Form_No7.html',
+$('#no7_6_3_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f59').editable({
-       url: 'Form_No7.html',
+$('#no7_6_3_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f60').editable({
-       url: 'Form_No7.html',
+$('#no7_6_3_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_3_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f61').editable({
-       url: 'Form_No7.html',
+$('#no7_6_3_4').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_3_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f62').editable({
-       url: 'Form_No7.html',
+$('#no7_6_4_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f63').editable({
-       url: 'Form_No7.html',
+$('#no7_6_4_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f64').editable({
-       url: 'Form_No7.html',
+$('#no7_6_4_3').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_6_4_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_6_5_1').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_5_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_6_5_2').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_6_5_3').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_5_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no7_6_5_4').editable({
+       type: 'text',
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6_5_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 7.7-7.11
-$('#f65').editable({
-       url: 'Form_No7.html',
+$('#no7_7').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_7:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f66').editable({
-       url: 'Form_No7.html',
+$('#no7_8').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_8:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f67').editable({
-       url: 'Form_No7.html',
+$('#no7_9').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_9:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f68').editable({
-       url: 'Form_No7.html',
+$('#no7_10').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_10:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#f69').editable({
-       url: 'Form_No7.html',
+$('#no7_11').editable({
        type: 'text',
-       pk: 1,
-       name: 'fire',
-       title: ''
+       title: ' '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_11:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });

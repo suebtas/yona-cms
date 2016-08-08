@@ -1,131 +1,369 @@
 $.fn.editable.defaults.mode = 'inline';
 //step 1 3.1
-$('#mn').editable({
-       url: 'Form_No3.html',
+$('#no3_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'money',
        title: 'รายได้เฉลี่ยประชากร '
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 3.2
-$('#lc1').editable({
-  url: 'Form_No3.html',
+$('#no3_2_1').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'สถานีบริการน้ำมัน'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc2').editable({
-  url: 'Form_No3.html',
+$('#no3_2_2').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'ศูนย์การค้า/ห้างสรรพสินค้า'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc3').editable({
-  url: 'Form_No3.html',
+$('#no3_2_3').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'ตลาดสด'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc4').editable({
-  url: 'Form_No3.html',
+$('#no3_2_4').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'ร้านค้าทั่วไป'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 3.3
-$('#lc5').editable({
-  url: 'Form_No3.html',
+$('#no3_3_1').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'สถานธนานุบาล'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc6').editable({
-  url: 'Form_No3.html',
+$('#no3_3_2').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'ท่าเทียบเรือ'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc7').editable({
-  url: 'Form_No3.html',
+$('#no3_3_3').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'โรงฆ่าสัตว์'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_3_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 3.4
-$('#lc8').editable({
-  url: 'Form_No3.html',
+$('#no3_4_1').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'โรงแรม'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc9').editable({
-  url: 'Form_No3.html',
+$('#no3_4_2').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'ธนาคาร'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc10').editable({
-  url: 'Form_No3.html',
+$('#no3_4_3').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'โรงภาพยนตร์'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc11').editable({
-  url: 'Form_No3.html',
+$('#no3_4_4').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'สถานที่จำหน่ายอาหาร ตาม พ.ร.บ. สาธารณสุข'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 3.5
-$('#lc12').editable({
-  url: 'Form_No3.html',
+$('#no3_5_1').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'โรงงาน จำนวน '
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_5_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc13').editable({
-  url: 'Form_No3.html',
+$('#no3_5_2').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'แรงงาน จำนวน'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
 //step 1 3.6
-$('#lc14').editable({
-  url: 'Form_No3.html',
+$('#no3_6_1').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'แหล่งท่องเที่ยว จำนวน'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_6_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc15').editable({
-  url: 'Form_No3.html',
+$('#no3_6_2').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'นักท่องเที่ยว จำนวน'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_6_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#lc16').editable({
-  url: 'Form_No3.html',
+$('#no3_6_3').editable({
   type: 'text',
-  pk: 1,
-  name: 'location',
   title:'รายได้จากการท่องเที่ยว จำนวน'
+}).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_6_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
