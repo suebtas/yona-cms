@@ -322,6 +322,7 @@ $(document).ready(function() {
            type: 'text',
            title: 'จำนวนเด็กชาย'
     }).on('save', function(e, params) {
+      if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -331,18 +332,36 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationMale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
          
             }
         });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_2_1:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                callPopulationMale();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
     
     $('#no1_2_2_2').editable({
            type: 'text',
-           title: 'จำนวนผู้ชาย'
+           title: 'จำนวนผู้หญิง'
     }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
@@ -353,7 +372,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationFemale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -374,7 +393,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationMale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -395,7 +414,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationFemale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -416,7 +435,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationMale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -437,7 +456,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationFemale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -458,7 +477,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationMale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -481,7 +500,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-                callPopulation();
+                callPopulationFemale();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -491,15 +510,15 @@ $(document).ready(function() {
     });
 
 
-  function callPopulation(){
+  function callPopulationMale(){
     var ic1 = $('#no1_2_2_1').text();
     if(ic1==''||ic1=='Empty')
       ic1=0;
     var ic2 = $('#no1_2_3_1').text();
-    if(ic2==''||ic3=='Empty')
+    if(ic2==''||ic2=='Empty')
       ic2=0;
     var ic3 = $('#no1_2_4_1').text();
-    if(ic3==''||ic2=='Empty')
+    if(ic3==''||ic3=='Empty')
       ic3=0;
     var ic4 = $('#no1_2_5_1').text();
     if(ic4==''||ic4=='Empty')
@@ -522,7 +541,8 @@ $(document).ready(function() {
      
         }
     });
-    
+  }
+  function callPopulationFemale(){
     var id1 = $('#no1_2_2_2').text();
     if(id1==''||id1=='Empty')
       id1=0;
@@ -534,7 +554,7 @@ $(document).ready(function() {
       id3=0;
     var id4 = $('#no1_2_5_2').text();
     if(id4==''||id4=='Empty')
-      icd4=0;
+      id4=0;
     var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
     $('#no1_2_1_2').html(sumd);
 
