@@ -343,28 +343,28 @@
                     <tbody>
                         <tr>
                             <td width="40%">ปริมาณขยะ </td>
-                            <td width="30%"><a href="#" id="y1" data-type="text" data-pk="1" data-title="Enter username">00</a> ตัน/วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_1}}</a> ตัน/วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">รถยนต์ที่ใช้จัดเก็บขยะ รวม </td>
-                            <td width="30%"><a href="#" id="y2" data-type="text" data-pk="1" data-title="Enter username">00</a> คัน แยกเป็น (แยกตามขนาดความจุขยะ)</td>
+                            <td width="30%"><a href="#" id="no8_7_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_2}}</a> คัน แยกเป็น (แยกตามขนาดความจุขยะ)</td>
                         </tr>
                         
                         <tr>
                             <td width="40%">รถเก็บขนขยะ ขนาดความจุ </td>
-                            <td width="30%"><a href="#" id="y3" data-type="text" data-pk="1" data-title="Enter username">00</a></td>
+                            <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a></td>
                         </tr>
                         <tr>
                             <td width="40%">ได้มาเมื่อ พ.ศ.  </td>
-                            <td width="30%"><input type="text" id="area-rai" required="required" class="form-control col-md-3 col-xs-6"></td>
+                            <td width="30%"><input type="text" id="no8_7_4" required="required" class="form-control col-md-3 col-xs-6" value={{no8_7_4}}></td>
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่เก็บขนได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="y4" data-type="text" data-pk="1" data-title="Enter username">00</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_5" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_5}}</a> ลบ.ม./วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่กำจัดได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="y5" data-type="text" data-pk="1" data-title="Enter username">00</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_6" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_6}}</a> ลบ.ม./วัน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -379,7 +379,7 @@
                             <td width="40%">กองบนพื้น </td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select id="no8_7_7" class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="feb">ใช้</option>
                                     <option value="mar" selected>ไม่ใช้</option>
                                   </select>
@@ -390,7 +390,7 @@
                             <td width="40%">กองบนพื้นแล้วเผา </td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select id="no8_7_8" class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="feb">ใช้</option>
                                     <option value="mar" selected>ไม่ใช้</option>
                                   </select>
@@ -401,7 +401,7 @@
                             <td width="40%">หมักทำปุ๋ย </td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select id="no8_7_9" class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="feb">ใช้</option>
                                     <option value="mar" selected>ไม่ใช้</option>
                                   </select>
@@ -412,7 +412,7 @@
                             <td width="40%">ฝังกลบอย่างถูกสุขลักษณะ </td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select id="no8_7_10" class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="feb">ใช้</option>
                                     <option value="mar" selected>ไม่ใช้</option>
                                   </select>
@@ -423,7 +423,7 @@
                             <td width="40%">เผาในเตาขยะ </td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
+                                  <select id="no8_7_11" class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
                                     <option value="feb">ใช้</option>
                                     <option value="mar" selected>ไม่ใช้</option>
                                   </select>
@@ -431,7 +431,7 @@
                               </td>
                         </tr>
                         <tr>
-                            <td width="40%">อื่นๆ (ระบุ) <textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>
+                            <td width="40%">อื่นๆ (ระบุ) <textarea id="no8_7_12" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_7_12}}</textarea></td>
                             <td width="30%">
                                 <div class="col-md-3 col-sm-2 col-xs-12">
                                   <select class="select2_single form-control" tabindex="-1" placeholder: "Select a state">
@@ -443,23 +443,23 @@
                         </tr>
                         <tr>
                             <td width="40%">ที่ดินสำหรับกำจัดขยะที่กำลังใช้ทั้งหมด จำนวน </td>
-                            <td width="30%"><a href="#" id="y6" data-type="text" data-pk="1" data-title="Enter username">00</a> ไร่</td>
+                            <td width="30%"><a href="#" id="no8_7_13_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_13_1}}</a> ไร่</td>
                         </tr>
                         <tr>
-                            <td width="40%">ตั้งอยู่ที่<textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>
+                            <td width="40%">ตั้งอยู่ที่<textarea id="no8_7_13_2" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_7_13_2}}</textarea></td>
                             <td width="30%"></td>
                         </tr>
                         <tr>
                             <td width="40%">ห่างจากเขตชุมชนเป็นระยะทาง </td>
-                            <td width="30%"><a href="#" id="y7" data-type="text" data-pk="1" data-title="Enter username">00</a> กม.</td>
+                            <td width="30%"><a href="#" id="no8_7_14" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_14}}</a> กม.</td>
                         </tr>
                         <tr>
                             <td width="40%">ที่ดินสำหรับกำจัดขยะที่ใช้ไปแล้ว จำนวน </td>
-                            <td width="30%"><a href="#" id="y8" data-type="text" data-pk="1" data-title="Enter username">00</a> ไร่</td>
+                            <td width="30%"><a href="#" id="no8_7_15" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_15}}</a> ไร่</td>
                         </tr>
                         <tr>
                             <td width="40%">คาดว่าสามารถกำจัดขยะได้อีก จำนวน </td>
-                            <td width="30%"><a href="#" id="y9" data-type="text" data-pk="1" data-title="Enter username">00</a> ไร่</td>
+                            <td width="30%"><a href="#" id="no8_7_16" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_16}}</a> ไร่</td>
                         </tr>
                     </tbody>
                   </table>
@@ -471,25 +471,25 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
-                            <td width="40%">ท้องถิ่นจัดซื้อเองเมื่อ พ.ศ. <input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
-                            <td width="30%">ราคา <a href="#" id="y10" data-type="text" data-pk="1" data-title="Enter username">00</a> บาท</td>
+                            <td width="40%">ท้องถิ่นจัดซื้อเองเมื่อ พ.ศ. <input type="text" id="no8_7_17_1_1" required="required" class="form-control col-md-2 col-xs-6" value={{no8_7_17_1_1}}></td>
+                            <td width="30%">ราคา <a href="#" id="no8_7_17_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_17_1_2}}</a> บาท</td>
                         </tr>
                         <tr>
-                            <td width="40%">เช่าที่ดินเอกชน ตั้งแต่ พ.ศ. <input type="text" id="area-rai" required="required" class="form-control col-md-2 col-xs-6"></td>
-                            <td width="30%">ปัจจุบันเช่าปีละ <a href="#" id="y11" data-type="text" data-pk="1" data-title="Enter username">00</a> บาท</td>
+                            <td width="40%">เช่าที่ดินเอกชน ตั้งแต่ พ.ศ. <input type="text" id="no8_7_17_2_1" required="required" class="form-control col-md-2 col-xs-6" value={{no8_7_17_2_1}}></td>
+                            <td width="30%">ปัจจุบันเช่าปีละ <a href="#" id="no8_7_17_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_17_2_2}}</a> บาท</td>
                         </tr>
                         
                         <tr>
-                            <td width="40%">อื่นๆ (ระบุ)<textarea rows="4" cols="50" class="form-control col-md-2 col-xs-6"></textarea></td>
+                            <td width="40%">อื่นๆ (ระบุ)<textarea id="no8_7_18" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_7_18}}</textarea></td>
                             <td width="30%"></td>
                         </tr>
                         <tr>
                             <td width="40%">ที่ดินสำรองที่เตรียมไว้สำหรับกำจัดขยะ จำนวน </td>
-                            <td width="30%"><a href="#" id="y12" data-type="text" data-pk="1" data-title="Enter username">00</a> ไร่</td>
+                            <td width="30%"><a href="#" id="no8_7_19" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_19}}</a> ไร่</td>
                         </tr>
                         <tr>
                             <td width="40%">ที่ตั้งสำรองที่เตรียมไว้สำหรับกำจัดขยะห่างจากท้องถิ่นเป็นระยะทาง </td>
-                            <td width="30%"><a href="#" id="y13" data-type="text" data-pk="1" data-title="Enter username">00</a> กม.</td>
+                            <td width="30%"><a href="#" id="no8_7_20" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_20}}</a> กม.</td>
                         </tr>
                         
                     </tbody>
