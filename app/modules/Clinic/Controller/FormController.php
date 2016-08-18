@@ -912,6 +912,13 @@ class FormController extends Controller
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_4_1_1 = $no4_4_1_1;
 
+            $no4_4_1_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>85,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no4_4_1_2 = $no4_4_1_2;
+
             $no4_4_1_3 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
@@ -925,6 +932,13 @@ class FormController extends Controller
                                     1=>87,
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_4_2_1 = $no4_4_2_1;
+
+            $no4_4_2_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>88,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no4_4_2_2 = $no4_4_2_2;
 
             $no4_4_2_3 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
@@ -940,6 +954,13 @@ class FormController extends Controller
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_4_3_1 = $no4_4_3_1;
 
+            $no4_4_3_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>91,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no4_4_3_2 = $no4_4_3_2;
+
             $no4_4_3_3 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
@@ -954,6 +975,13 @@ class FormController extends Controller
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_4_4_1 = $no4_4_4_1;
 
+            $no4_4_4_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>94,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no4_4_4_2 = $no4_4_4_2;
+
             $no4_4_4_3 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
@@ -967,6 +995,13 @@ class FormController extends Controller
                                     1=>96,
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_4_5_1 = $no4_4_5_1;
+
+            $no4_4_5_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>97,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no4_4_5_2 = $no4_4_5_2;
 
             $no4_4_5_3 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
@@ -1640,11 +1675,17 @@ class FormController extends Controller
             $answer = $this->request->getPost("no4_4_1_1");
             $this->updateAnswer($option, 84, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
+            $answer = $this->request->getPost("no4_4_1_2");
+            $this->updateAnswer($option, 85, $answer, $this->user->officeid,  $this->discovery_surveyid);
+
             $answer = $this->request->getPost("no4_4_1_3");
             $this->updateAnswer($option, 86, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no4_4_2_1");
             $this->updateAnswer($option, 87, $answer, $this->user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no4_4_2_2");
+            $this->updateAnswer($option, 88, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no4_4_2_3");
             $this->updateAnswer($option, 89, $answer, $this->user->officeid,  $this->discovery_surveyid);
@@ -1652,17 +1693,26 @@ class FormController extends Controller
             $answer = $this->request->getPost("no4_4_3_1");
             $this->updateAnswer($option, 90, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
+            $answer = $this->request->getPost("no4_4_3_2");
+            $this->updateAnswer($option, 91, $answer, $this->user->officeid,  $this->discovery_surveyid);
+
             $answer = $this->request->getPost("no4_4_3_3");
             $this->updateAnswer($option, 92, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no4_4_4_1");
             $this->updateAnswer($option, 93, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
+            $answer = $this->request->getPost("no4_4_4_2");
+            $this->updateAnswer($option, 94, $answer, $this->user->officeid,  $this->discovery_surveyid);
+
             $answer = $this->request->getPost("no4_4_4_3");
             $this->updateAnswer($option, 95, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no4_4_5_1");
             $this->updateAnswer($option, 96, $answer, $this->user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no4_4_5_2");
+            $this->updateAnswer($option, 97, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no4_4_5_3");
             $this->updateAnswer($option, 98, $answer, $this->user->officeid,  $this->discovery_surveyid);
@@ -2570,6 +2620,20 @@ class FormController extends Controller
                               2=>$this->surveyid)))->answer;
               $this->view->no8_5_2_1 = $no8_5_2_1;
 
+              $no8_5_2_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>340,
+                              2=>$this->surveyid)))->answer;
+              $this->view->no8_5_2_2 = $no8_5_2_2;
+
+              $no8_5_2_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>341,
+                              2=>$this->surveyid)))->answer;
+              $this->view->no8_5_2_3 = $no8_5_2_3;
+
               $no8_5_3 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -2698,12 +2762,19 @@ class FormController extends Controller
                               2=>$this->surveyid)))->answer;
               $this->view->no8_7_11 = $no8_7_11;
 
-              $no8_7_12 = Answer::findFirst(
+              $no8_7_12_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
                               1=>360,
                               2=>$this->surveyid)))->answer;
-              $this->view->no8_7_12 = $no8_7_12;
+              $this->view->no8_7_12_1 = $no8_7_12_1;
+
+              $no8_7_12_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>396,
+                              2=>$this->surveyid)))->answer;
+              $this->view->no8_7_12_2 = $no8_7_12_2;
 
               $no8_7_13_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
@@ -2879,6 +2950,12 @@ class FormController extends Controller
               $answer = $this->request->getPost("no8_5_2_1");
               $this->updateAnswer($option, 339, $answer, $user->officeid,  $this->discovery_surveyid);
 
+              $answer = $this->request->getPost("no8_5_2_2");
+              $this->updateAnswer($option, 340, $answer, $user->officeid,  $this->discovery_surveyid);
+
+              $answer = $this->request->getPost("no8_5_2_3");
+              $this->updateAnswer($option, 341, $answer, $user->officeid,  $this->discovery_surveyid);
+
               $answer = $this->request->getPost("no8_5_3");
               $this->updateAnswer($option, 342, $answer, $user->officeid,  $this->discovery_surveyid);
 
@@ -2935,8 +3012,11 @@ class FormController extends Controller
               $answer = $this->request->getPost("no8_7_11");
               $this->updateAnswer($option, 359, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_12");
+              $answer = $this->request->getPost("no8_7_12_1");
               $this->updateAnswer($option, 360, $answer, $user->officeid,  $this->discovery_surveyid);
+
+              $answer = $this->request->getPost("no8_7_12_2");
+              $this->updateAnswer($option, 396, $answer, $user->officeid,  $this->discovery_surveyid);
 
               $answer = $this->request->getPost("no8_7_13_1");
               $this->updateAnswer($option, 361, $answer, $user->officeid,  $this->discovery_surveyid);

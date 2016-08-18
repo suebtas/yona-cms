@@ -1,17 +1,4 @@
 $(document).ready(function() {
-  $(".select2_single").select2({
-    placeholder: "Select a state",
-    allowClear: true
-  });
-  $(".select2_group").select2({});
-  $(".select2_multiple").select2({
-    maximumSelectionLength: 4,
-    placeholder: "With Max Selection limit 4",
-    allowClear: true
-  });
-});
-
-$(document).ready(function() {
 
   $.fn.editable.defaults.mode = 'inline';
 
@@ -406,6 +393,27 @@ $(document).ready(function() {
     });
   });   
 
+  $("#no4_4_1_2").on('blur',function(e){
+    //alert('Changed!');
+
+    $.ajax({
+        url : "/clinic/form/no4",
+        type: "POST",
+        data : {
+          no4_4_1_2: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
   $("#no4_4_1_3").on('blur',function(e){
     //alert('Changed!');
 
@@ -435,6 +443,27 @@ $(document).ready(function() {
         type: "POST",
         data : {
           no4_4_2_1: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
+  $("#no4_4_2_2").on('blur',function(e){
+    //alert('Changed!');
+
+    $.ajax({
+        url : "/clinic/form/no4",
+        type: "POST",
+        data : {
+          no4_4_2_2: this.value,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
@@ -490,6 +519,27 @@ $(document).ready(function() {
     });
   });
 
+  $("#no4_4_3_2").on('blur',function(e){
+    //alert('Changed!');
+
+    $.ajax({
+        url : "/clinic/form/no4",
+        type: "POST",
+        data : {
+          no4_4_3_2: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
   $("#no4_4_3_3").on('blur',function(e){
     //alert('Changed!');
 
@@ -532,6 +582,27 @@ $(document).ready(function() {
     });
   });
 
+  $("#no4_4_4_2").on('blur',function(e){
+    //alert('Changed!');
+
+    $.ajax({
+        url : "/clinic/form/no4",
+        type: "POST",
+        data : {
+          no4_4_4_2: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
   $("#no4_4_4_3").on('blur',function(e){
     //alert('Changed!');
 
@@ -561,6 +632,27 @@ $(document).ready(function() {
         type: "POST",
         data : {
           no4_4_5_1: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
+  $("#no4_4_5_2").on('blur',function(e){
+    //alert('Changed!');
+
+    $.ajax({
+        url : "/clinic/form/no4",
+        type: "POST",
+        data : {
+          no4_4_5_2: this.value,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)

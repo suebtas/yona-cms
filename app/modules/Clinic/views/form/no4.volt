@@ -177,22 +177,71 @@
                         <tr>
                           <td width="5%">1.</td>
                           <td width="25%"><input type="text" id="no4_4_1_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_1_1}}></td>
-                            <td width="20%">
-                              <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" id="no4_4_1_2" tabindex="-1" placeholder: "Select a state">
-                                    <option value="jan">มกราคม</option>
-                                    <option value="feb">กุมภาพันธ์</option>
-                                    <option value="mar" selected>มีนาคม</option>
-                                    <option value="apr">เมษายน</option>
-                                    <option value="may">พฤษภาคม</option>
-                                    <option value="jun">มิถุนายน</option>
-                                    <option value="jul">กรกฎาคม</option>
-                                    <option value="aug">สิงหาคม</option>
-                                    <option value="sep">กันยายน</option>
-                                    <option value="oct">ตุลาคม</option>
-                                    <option value="nov">พฤศจิกายน</option>
-                                    <option value="dec">ธันวาคม</option>
+                          <td width="20%">
+                            <div class="form-group">
+                              <div class="col-md-4 col-sm-2 col-xs-12">
+                                <select id="no4_4_1_2" tabindex="-1" placeholder: "Select a state">
+                                    <option value="month">เลือกเดือน</option>
+                                    {%if no4_4_1_2 == "jan" %}
+                                      <option value="jan" selected>มกราคม</option>
+                                    {% else %}
+                                      <option value="jan">มกราคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "feb" %}
+                                      <option value="feb" selected>กุมภาพันธ์</option>
+                                    {% else %}
+                                      <option value="feb">กุมภาพันธ์</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "mar" %}
+                                      <option value="mar" selected>มีนาคม</option>
+                                    {% else %}
+                                      <option value="mar">มีนาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "apr" %}
+                                      <option value="apr" selected>เมษายน</option>
+                                    {% else %}
+                                      <option value="apr">เมษายน</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "may" %}
+                                      <option value="may" selected>พฤษภาคม</option>
+                                    {% else %}
+                                      <option value="may">พฤษภาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "jun" %}
+                                      <option value="jun" selected>มิถุนายน</option>
+                                    {% else %}
+                                      <option value="jun">มิถุนายน</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "jul" %}
+                                      <option value="jul" selected>กรกฎาคม</option>
+                                    {% else %}
+                                      <option value="jul">กรกฎาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "aug" %}
+                                      <option value="aug" selected>สิงหาคม</option>
+                                    {% else %}
+                                      <option value="aug">สิงหาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "sep" %}
+                                      <option value="sep" selected>กันยายน</option>
+                                    {% else %}
+                                      <option value="sep">กันยายน</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "oct" %}
+                                      <option value="oct" selected>ตุลาคม</option>
+                                    {% else %}
+                                      <option value="oct">ตุลาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "nov" %}
+                                      <option value="nov" selected>พฤศจิกายน</option>
+                                    {% else %}
+                                      <option value="nov">พฤศจิกายน</option>
+                                    {% endif %}
+                                    {%if no4_4_1_2 == "dec" %}
+                                      <option value="dec" selected>ธันวาคม</option>
+                                    {% else %}
+                                      <option value="dec">ธันวาคม</option>
+                                    {% endif %}
                                   </select>
                                 </div>
                               </div>
@@ -205,20 +254,69 @@
                           <td width="25%"><input type="text" id="no4_4_2_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_2_1}}></td>
                             <td width="20%">
                               <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" id="no4_4_2_2" tabindex="-1" placeholder: "Select a state">
-                                    <option value="jan">มกราคม</option>
-                                    <option value="feb">กุมภาพันธ์</option>
-                                    <option value="mar" selected>มีนาคม</option>
-                                    <option value="apr">เมษายน</option>
-                                    <option value="may">พฤษภาคม</option>
-                                    <option value="jun">มิถุนายน</option>
-                                    <option value="jul">กรกฎาคม</option>
-                                    <option value="aug">สิงหาคม</option>
-                                    <option value="sep">กันยายน</option>
-                                    <option value="oct">ตุลาคม</option>
-                                    <option value="nov">พฤศจิกายน</option>
-                                    <option value="dec">ธันวาคม</option>
+                                <div class="col-md-4 col-sm-2 col-xs-12">
+                                  <select id="no4_4_2_2" tabindex="-1" placeholder: "Select a state">
+                                    <option value="month">เลือกเดือน</option>
+                                    {%if no4_4_2_2 == "jan" %}
+                                      <option value="jan" selected>มกราคม</option>
+                                    {% else %}
+                                      <option value="jan">มกราคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "feb" %}
+                                      <option value="feb" selected>กุมภาพันธ์</option>
+                                    {% else %}
+                                      <option value="feb">กุมภาพันธ์</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "mar" %}
+                                      <option value="mar" selected>มีนาคม</option>
+                                    {% else %}
+                                      <option value="mar">มีนาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "apr" %}
+                                      <option value="apr" selected>เมษายน</option>
+                                    {% else %}
+                                      <option value="apr">เมษายน</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "may" %}
+                                      <option value="may" selected>พฤษภาคม</option>
+                                    {% else %}
+                                      <option value="may">พฤษภาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "jun" %}
+                                      <option value="jun" selected>มิถุนายน</option>
+                                    {% else %}
+                                      <option value="jun">มิถุนายน</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "jul" %}
+                                      <option value="jul" selected>กรกฎาคม</option>
+                                    {% else %}
+                                      <option value="jul">กรกฎาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "aug" %}
+                                      <option value="aug" selected>สิงหาคม</option>
+                                    {% else %}
+                                      <option value="aug">สิงหาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "sep" %}
+                                      <option value="sep" selected>กันยายน</option>
+                                    {% else %}
+                                      <option value="sep">กันยายน</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "oct" %}
+                                      <option value="oct" selected>ตุลาคม</option>
+                                    {% else %}
+                                      <option value="oct">ตุลาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "nov" %}
+                                      <option value="nov" selected>พฤศจิกายน</option>
+                                    {% else %}
+                                      <option value="nov">พฤศจิกายน</option>
+                                    {% endif %}
+                                    {%if no4_4_2_2 == "dec" %}
+                                      <option value="dec" selected>ธันวาคม</option>
+                                    {% else %}
+                                      <option value="dec">ธันวาคม</option>
+                                    {% endif %}
                                   </select>
                                 </div>
                               </div>
@@ -231,20 +329,69 @@
                           <td width="25%"><input type="text" id="no4_4_3_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_3_1}}></td>
                             <td width="20%">
                               <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" id="no4_4_3_2" tabindex="-1" placeholder: "Select a state">
-                                    <option value="jan">มกราคม</option>
-                                    <option value="feb">กุมภาพันธ์</option>
-                                    <option value="mar" selected>มีนาคม</option>
-                                    <option value="apr">เมษายน</option>
-                                    <option value="may">พฤษภาคม</option>
-                                    <option value="jun">มิถุนายน</option>
-                                    <option value="jul">กรกฎาคม</option>
-                                    <option value="aug">สิงหาคม</option>
-                                    <option value="sep">กันยายน</option>
-                                    <option value="oct">ตุลาคม</option>
-                                    <option value="nov">พฤศจิกายน</option>
-                                    <option value="dec">ธันวาคม</option>
+                                <div class="col-md-4 col-sm-2 col-xs-12">
+                                  <select id="no4_4_3_2" tabindex="-1" placeholder: "Select a state">
+                                    <option value="month">เลือกเดือน</option>
+                                    {%if no4_4_3_2 == "jan" %}
+                                      <option value="jan" selected>มกราคม</option>
+                                    {% else %}
+                                      <option value="jan">มกราคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "feb" %}
+                                      <option value="feb" selected>กุมภาพันธ์</option>
+                                    {% else %}
+                                      <option value="feb">กุมภาพันธ์</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "mar" %}
+                                      <option value="mar" selected>มีนาคม</option>
+                                    {% else %}
+                                      <option value="mar">มีนาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "apr" %}
+                                      <option value="apr" selected>เมษายน</option>
+                                    {% else %}
+                                      <option value="apr">เมษายน</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "may" %}
+                                      <option value="may" selected>พฤษภาคม</option>
+                                    {% else %}
+                                      <option value="may">พฤษภาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "jun" %}
+                                      <option value="jun" selected>มิถุนายน</option>
+                                    {% else %}
+                                      <option value="jun">มิถุนายน</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "jul" %}
+                                      <option value="jul" selected>กรกฎาคม</option>
+                                    {% else %}
+                                      <option value="jul">กรกฎาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "aug" %}
+                                      <option value="aug" selected>สิงหาคม</option>
+                                    {% else %}
+                                      <option value="aug">สิงหาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "sep" %}
+                                      <option value="sep" selected>กันยายน</option>
+                                    {% else %}
+                                      <option value="sep">กันยายน</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "oct" %}
+                                      <option value="oct" selected>ตุลาคม</option>
+                                    {% else %}
+                                      <option value="oct">ตุลาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "nov" %}
+                                      <option value="nov" selected>พฤศจิกายน</option>
+                                    {% else %}
+                                      <option value="nov">พฤศจิกายน</option>
+                                    {% endif %}
+                                    {%if no4_4_3_2 == "dec" %}
+                                      <option value="dec" selected>ธันวาคม</option>
+                                    {% else %}
+                                      <option value="dec">ธันวาคม</option>
+                                    {% endif %}
                                   </select>
                                 </div>
                               </div>
@@ -257,20 +404,69 @@
                           <td width="25%"><input type="text" id="no4_4_4_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_4_1}}></td>
                             <td width="20%">
                               <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" id="no4_4_4_2" tabindex="-1" placeholder: "Select a state">
-                                    <option value="jan">มกราคม</option>
-                                    <option value="feb">กุมภาพันธ์</option>
-                                    <option value="mar" selected>มีนาคม</option>
-                                    <option value="apr">เมษายน</option>
-                                    <option value="may">พฤษภาคม</option>
-                                    <option value="jun">มิถุนายน</option>
-                                    <option value="jul">กรกฎาคม</option>
-                                    <option value="aug">สิงหาคม</option>
-                                    <option value="sep">กันยายน</option>
-                                    <option value="oct">ตุลาคม</option>
-                                    <option value="nov">พฤศจิกายน</option>
-                                    <option value="dec">ธันวาคม</option>
+                                <div class="col-md-4 col-sm-2 col-xs-12">
+                                  <select id="no4_4_4_2" tabindex="-1" placeholder: "Select a state">
+                                    <option value="month">เลือกเดือน</option>
+                                    {%if no4_4_4_2 == "jan" %}
+                                      <option value="jan" selected>มกราคม</option>
+                                    {% else %}
+                                      <option value="jan">มกราคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "feb" %}
+                                      <option value="feb" selected>กุมภาพันธ์</option>
+                                    {% else %}
+                                      <option value="feb">กุมภาพันธ์</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "mar" %}
+                                      <option value="mar" selected>มีนาคม</option>
+                                    {% else %}
+                                      <option value="mar">มีนาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "apr" %}
+                                      <option value="apr" selected>เมษายน</option>
+                                    {% else %}
+                                      <option value="apr">เมษายน</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "may" %}
+                                      <option value="may" selected>พฤษภาคม</option>
+                                    {% else %}
+                                      <option value="may">พฤษภาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "jun" %}
+                                      <option value="jun" selected>มิถุนายน</option>
+                                    {% else %}
+                                      <option value="jun">มิถุนายน</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "jul" %}
+                                      <option value="jul" selected>กรกฎาคม</option>
+                                    {% else %}
+                                      <option value="jul">กรกฎาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "aug" %}
+                                      <option value="aug" selected>สิงหาคม</option>
+                                    {% else %}
+                                      <option value="aug">สิงหาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "sep" %}
+                                      <option value="sep" selected>กันยายน</option>
+                                    {% else %}
+                                      <option value="sep">กันยายน</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "oct" %}
+                                      <option value="oct" selected>ตุลาคม</option>
+                                    {% else %}
+                                      <option value="oct">ตุลาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "nov" %}
+                                      <option value="nov" selected>พฤศจิกายน</option>
+                                    {% else %}
+                                      <option value="nov">พฤศจิกายน</option>
+                                    {% endif %}
+                                    {%if no4_4_4_2 == "dec" %}
+                                      <option value="dec" selected>ธันวาคม</option>
+                                    {% else %}
+                                      <option value="dec">ธันวาคม</option>
+                                    {% endif %}
                                   </select>
                                 </div>
                               </div>
@@ -283,20 +479,69 @@
                           <td width="25%"><input type="text" id="no4_4_5_1" required="required" class="form-control col-md-2 col-xs-6" value={{no4_4_5_1}}></td>
                             <td width="20%">
                               <div class="form-group">
-                                <div class="col-md-2 col-sm-2 col-xs-12">
-                                  <select class="select2_single form-control" id="no4_4_5_2" tabindex="-1" placeholder: "Select a state">
-                                    <option value="jan">มกราคม</option>
-                                    <option value="feb">กุมภาพันธ์</option>
-                                    <option value="mar" selected>มีนาคม</option>
-                                    <option value="apr">เมษายน</option>
-                                    <option value="may">พฤษภาคม</option>
-                                    <option value="jun">มิถุนายน</option>
-                                    <option value="jul">กรกฎาคม</option>
-                                    <option value="aug">สิงหาคม</option>
-                                    <option value="sep">กันยายน</option>
-                                    <option value="oct">ตุลาคม</option>
-                                    <option value="nov">พฤศจิกายน</option>
-                                    <option value="dec">ธันวาคม</option>
+                                <div class="col-md-4 col-sm-2 col-xs-12">
+                                  <select id="no4_4_5_2" tabindex="-1" placeholder: "Select a state">
+                                    <option value="month">เลือกเดือน</option>
+                                    {%if no4_4_5_2 == "jan" %}
+                                      <option value="jan" selected>มกราคม</option>
+                                    {% else %}
+                                      <option value="jan">มกราคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "feb" %}
+                                      <option value="feb" selected>กุมภาพันธ์</option>
+                                    {% else %}
+                                      <option value="feb">กุมภาพันธ์</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "mar" %}
+                                      <option value="mar" selected>มีนาคม</option>
+                                    {% else %}
+                                      <option value="mar">มีนาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "apr" %}
+                                      <option value="apr" selected>เมษายน</option>
+                                    {% else %}
+                                      <option value="apr">เมษายน</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "may" %}
+                                      <option value="may" selected>พฤษภาคม</option>
+                                    {% else %}
+                                      <option value="may">พฤษภาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "jun" %}
+                                      <option value="jun" selected>มิถุนายน</option>
+                                    {% else %}
+                                      <option value="jun">มิถุนายน</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "jul" %}
+                                      <option value="jul" selected>กรกฎาคม</option>
+                                    {% else %}
+                                      <option value="jul">กรกฎาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "aug" %}
+                                      <option value="aug" selected>สิงหาคม</option>
+                                    {% else %}
+                                      <option value="aug">สิงหาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "sep" %}
+                                      <option value="sep" selected>กันยายน</option>
+                                    {% else %}
+                                      <option value="sep">กันยายน</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "oct" %}
+                                      <option value="oct" selected>ตุลาคม</option>
+                                    {% else %}
+                                      <option value="oct">ตุลาคม</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "nov" %}
+                                      <option value="nov" selected>พฤศจิกายน</option>
+                                    {% else %}
+                                      <option value="nov">พฤศจิกายน</option>
+                                    {% endif %}
+                                    {%if no4_4_5_2 == "dec" %}
+                                      <option value="dec" selected>ธันวาคม</option>
+                                    {% else %}
+                                      <option value="dec">ธันวาคม</option>
+                                    {% endif %}
                                   </select>
                                 </div>
                               </div>
