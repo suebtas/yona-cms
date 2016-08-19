@@ -45,6 +45,8 @@ class FormController extends Controller
 
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
+        if($this->user->role=='cc-admin')            
+            return $this->redirect($this->url->get() . 'clinic/review/no1');
         $this->view->user = $this->user;
         $this->view->office =  Office::findFirst($this->user->officeid);
     }
@@ -91,10 +93,10 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
 
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
             $form = new No1Form();
-            $auth = $this->session->get('auth');
-            $user = AdminUser::findFirst($auth->id);
 
             $no1_3_1 = $no1_3_2 = $no1_3_3 = $no1_3_4 = [];
 
@@ -225,7 +227,7 @@ class FormController extends Controller
 
 
             $option = $this->request->getPost("option");
-            $officeID = $this->request->getPost("no1_1_3_3");
+            $officeID = $this->request->getPost("no1_1_3_1");
             if($officeID){
                 if($option=='add'){
                     echo 'add';
@@ -337,7 +339,7 @@ class FormController extends Controller
             $answer = $this->request->getPost("no1_2_2_2");
             $this->updateAnswer($option, 10, $answer, $user->officeid,  $this->discovery_surveyid);
 
-            $answer = $this->request->getPost("no1_2_3_3");
+            $answer = $this->request->getPost("no1_2_3_1");
             $this->updateAnswer($option, 11, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no1_2_3_2");

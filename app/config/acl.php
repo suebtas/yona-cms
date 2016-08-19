@@ -55,26 +55,31 @@ return [
         'tree/admin'         => '*',
         'clinic/index'       => '*',
         'clinic/form'        => '*',
+        'clinic/review'        => '*',
     ],
     'clinic-center'      => [
         'admin/index'   => '*',
         'clinic/index'   => '*',
         'clinic/form'   => '*',
+        'clinic/review' => '*',
     ],
     'cc-user'      => [
         'admin/index'   => '*',
         'clinic/index'   => '*',
         'clinic/form'   => '*',
+        'clinic/review' => '*',
     ],
     'cc-approver'      => [
         'admin/index'   => '*',
         'clinic/index'   => '*',
         'clinic/form'   => '*',
+        'clinic/review' => '*',
     ],
     'cc-admin'      => [
         'admin/index'   => '*',
         'admin/admin-user'   => '*',
         'clinic/index'   => '*',
         'clinic/form'   => '*',
+        'clinic/review' => '*',
     ],
 ];

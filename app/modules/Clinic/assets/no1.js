@@ -1,4 +1,14 @@
 $(document).ready(function() {
+  function calculateAreaRaiToKmSquare(value){
+    return 1.6*value;
+  }
+
+  function calculateAreaKmSquareToRai(value){
+    return value/1.6;
+  }
+  //โหลดค่าพื้นที่
+  $("#area-kgm").val(calculateAreaRaiToKmSquare($("#no1_1_2").val()));
+
   $(".select2_single").select2({
     placeholder: "Select a state",
     allowClear: true
@@ -54,11 +64,33 @@ $(document).ready(function() {
   $("#no1_1_2").on('blur',function(e){
     //alert('Changed!');
 
+    $("#area-kgm").val(calculateAreaRaiToKmSquare(this.value));
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
         data : {
           no1_1_2: this.value,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        }
+    });
+  });
+
+  $("#area-kgm").on('blur',function(e){
+    //alert('Changed!');
+    $("#no1_1_2").val(calculateAreaKmSquareToRai(this.value));
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_1_2: calculateAreaKmSquareToRai(this.value),
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
@@ -217,6 +249,80 @@ $(document).ready(function() {
 
     $.fn.editable.defaults.mode = 'inline';
 
+    $('#note_session_1').editable({
+        showbuttons : 'bottom'       
+        //showbuttons : (App.isRTL() ? 'left' : 'right')
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+              session_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+
+    $('#pencil_session_1').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note_session_1').editable('toggle');
+    });
+
+
+    $('#note_session_2').editable({
+        showbuttons : 'bottom'       
+        //showbuttons : (App.isRTL() ? 'left' : 'right')
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+              session_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+
+    $("#approval").click(function () {
+      $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+              group_session_1:$('input:radio[name=approve]:checked').val(),
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+    $('#pencil_session_2').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note_session_2').editable('toggle');
+    });
     $('#no1_2_6_1').editable({
            type: 'text',
     }).on('save', function(e, params) {
@@ -576,4 +682,7 @@ $(document).ready(function() {
     });
     
   }
+
+
 });
+

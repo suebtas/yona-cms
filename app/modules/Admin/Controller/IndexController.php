@@ -66,9 +66,12 @@ class IndexController extends Controller
                                 if ($user->role=='admin') {
                                     $this->flash->success($this->helper->translate("Welcome to the administrative control panel!"));
                                     return $this->redirect($this->url->get() . 'admin');
+                                }else if($user->role=='cc-approver'){
+                                    return $this->redirect($this->url->get() . 'clinic/review/no1');
+                                }else if($user->role=='cc-user'){
+                                    return $this->redirect($this->url->get() . 'clinic/form/no1');
                                 }else if($user->role=='cc-admin'){
                                     return $this->redirect($this->url->get() . 'clinic/index');
-
                                 }
                                 
                             } else {

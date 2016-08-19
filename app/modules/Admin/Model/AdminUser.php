@@ -47,7 +47,7 @@ class AdminUser extends \Phalcon\Mvc\Model
 
     public function validation()
     {
-        $this->validate(new Uniqueness(
+        /*$this->validate(new Uniqueness(
             [
                 "field"   => "login",
                 "message" => $this->getDi()->get('helper')->translate("The Login must be unique")
@@ -59,7 +59,7 @@ class AdminUser extends \Phalcon\Mvc\Model
                 "field"   => "email",
                 "message" => $this->getDi()->get('helper')->translate("The Email must be unique")
             ]
-        ));
+        ));*/
 
         return $this->validationHasFailed() != true;
 

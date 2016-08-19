@@ -43,6 +43,8 @@
                   </div>
                   <div class="x_content">
                     <!-- Smart Wizard -->
+                    {% block review %}
+                    {% endblock %}
                     <p>ส่วนพื้นที่แสดงข้อความอธิบายการกรอกข้อมูล</p>
                     <div id="wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps">
@@ -64,6 +66,8 @@
                       </ul>
 
                       <div id="step-1">
+                        {% block comment_tab1 %}
+                        {% endblock %}             
                         <form class="form-horizontal form-label-left">
 
                           <div class="form-group">
@@ -126,6 +130,9 @@
                       </div>
 
                       <div id="step-2">
+
+                        {% block comment_tab2 %}
+                        {% endblock %}                      
                         <form class="form-horizontal form-label-left">
 
                           <table id="user" class="table table-bordered table-striped" style="clear: both">
@@ -278,3 +285,6 @@
         <!-- /jQuery Smart Wizard -->
 
         {{ assets.outputJs('modules-clinic-no1-js') }}
+
+    {% block script %}
+    {% endblock %}
