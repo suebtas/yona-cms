@@ -16,5 +16,6 @@ return array(
     'Menu',
     'Tree',
     'Sitemap',
-    'Clinic'
+    'Clinic',
+    'ClinicAdmin',
 );

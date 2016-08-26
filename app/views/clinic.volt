@@ -60,10 +60,10 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลพื้นฐาน  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">จัดการผู้ใช้งานและสิทธิ์</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/admin-user">จัดการผู้ใช้งานและสิทธิ์</a></li>
                       <li><a href="media_gallery.html">จัดการกำหนดการกรอกข้อมูล</a></li>
                       <li><a href="typography.html">จัดการข่าวสาร</a></li>
-                      <li><a href="icons.html">จัดการเขตพื้นที่</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/office">จัดการเขตพื้นที่</a></li><li><a href="{{ url.get() }}clinic-admin/amphur">จัดการข้อมูลอำเภอ</a></li>
                       <li><a href="glyphicons.html">จัดการสถานะและสัญลักษณ์ข้อมูล </a></li>
                     </ul>
                   </li>

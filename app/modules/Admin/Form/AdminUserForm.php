@@ -31,15 +31,6 @@ class AdminUserForm extends Form
         );
 
         $this->add(
-            (new Select('office', Office::find(), array(
-                    'using' => array(
-                        'id',
-                        'name'
-                    ))))
-            ->setLabel('Office')
-        );
-
-        $this->add(
             (new Email('email', [
                 'required' => true,
             ]))

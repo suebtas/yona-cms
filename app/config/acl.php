@@ -81,5 +81,8 @@ return [
         'clinic/index'   => '*',
         'clinic/form'   => '*',
         'clinic/review' => '*',
+        'clinic-admin/admin-user'   => '*',
+        'clinic-admin/amphur'   => '*',
+        'clinic-admin/office'   => '*',
     ],
 ];

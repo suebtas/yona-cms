@@ -18,7 +18,6 @@ class AdminUser extends \Phalcon\Mvc\Model
     }
 
     public $id;
-    public $officeid;
     public $role;
     public $login;
     public $email;
@@ -30,9 +29,6 @@ class AdminUser extends \Phalcon\Mvc\Model
         'journalist' => 'Journalist',
         'editor'     => 'Editor',
         'admin'      => 'Admin',
-        'cc-user' => 'Clinic Center User',
-        'cc-approver' => 'Clinic Center Approver',
-        'cc-admin' => 'Clinic Center Admin'
     ];
 
     public function initialize()
@@ -68,17 +64,6 @@ class AdminUser extends \Phalcon\Mvc\Model
     public function getId()
     {
         return $this->id;
-    }
-
-
-    public function getOffice()
-    {
-        return $this->officeid;
-    }
-
-    public function setOffice($officeid)
-    {
-        $this->officeid = $officeid;
     }
     
     public function getLogin()

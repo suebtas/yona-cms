@@ -58,5 +58,6 @@ class Controller extends \Phalcon\Mvc\Controller
     {
         $this->view->setMainView(MAIN_VIEW_PATH . 'clinic');
         $this->view->setLayout(null);
+        
     }
 }

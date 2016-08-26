@@ -2,6 +2,7 @@
 
 namespace Clinic\Model;
 
+use Clinic\Model\Amphur;
 class Office extends \Phalcon\Mvc\Model
 {
 
@@ -28,11 +29,11 @@ class Office extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'AdminUser', 'officeid', array('alias' => 'AdminUser'));
-        $this->hasMany('id', 'BoundaryOffice', 'owner_officeid', array('alias' => 'BoundaryOffice'));
-        $this->hasMany('id', 'BoundaryOffice', 'close_officeid', array('alias' => 'BoundaryOffice'));
-        $this->hasMany('id', 'DiscoverySurvey', 'officeid', array('alias' => 'DiscoverySurvey'));
-        $this->belongsTo('amphurid', 'Amphur', 'id', array('alias' => 'Amphur'));
+        $this->hasMany('id', 'Clinic\Model\AdminUser', 'officeid', array('alias' => 'AdminUser'));
+        $this->hasMany('id', 'Clinic\Model\BoundaryOffice', 'owner_officeid', array('alias' => 'BoundaryOffice'));
+        $this->hasMany('id', 'Clinic\Model\BoundaryOffice', 'close_officeid', array('alias' => 'BoundaryOffice'));
+        $this->hasMany('id', 'Clinic\Model\DiscoverySurvey', 'officeid', array('alias' => 'DiscoverySurvey'));
+        $this->belongsTo('amphurid', 'Clinic\Model\Amphur', 'id', array('alias' => 'Amphur'));
     }
 
     /**
@@ -67,4 +68,23 @@ class Office extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getAmphur()
+    {
+        return $this->amphurid;
+    }
+
+    public function setAmphur($amphurid)
+    {
+        $this->amphurid = $amphurid;
+    }
 }
