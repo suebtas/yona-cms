@@ -43,8 +43,6 @@
                   </div>
                   <div class="x_content">
                     <!-- Smart Wizard -->
-                    {% block review %}
-                    {% endblock %}
                     <p>ส่วนพื้นที่แสดงข้อความอธิบายการกรอกข้อมูล</p>
                     <div id="wizard" class="form_wizard wizard_horizontal">
                       <ul class="wizard_steps">
@@ -134,7 +132,6 @@
                             </div>
                           </div>
                         </form>
-
                       </div>
 
                       <div id="step-2">
@@ -188,17 +185,17 @@
                                 </tr>
                                 <tr>
                                     <td width="40%">ประชากรแฝงจำนวน</td>
-                                    <td width="10%"><a href="#" id="no1_2_6_1" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_6_1}}</a> คน</td>
                                     <td width="50%"><a href="#" id="no1_2_6_2" data-type="text" data-pk="1" data-title="Enter username"></a></td>
                                 </tr>
                                 <tr>
                                     <td width="40%">ประชากรแฝง(ต่างด้าว)</td>
-                                    <td width="10%"><a href="#" id="no1_2_7_1" data-type="text" data-pk="1" data-title="Enter username">0</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_7_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_7_1}}</a> คน</td>
                                     <td width="50%"><a href="#" id="no1_2_7_2" data-type="text" data-pk="1" data-title="Enter username"></a></td>
                                 </tr>
                                 <tr>
                                     <td width="40%">ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน </td>
-                                    <td width="10%"><a href="#" id="no1_2_8_1" data-type="text" data-pk="1" data-title="Enter username">104</a> คน</td>
+                                    <td width="10%"><a href="#" id="no1_2_8_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_8_1}}</a> คน</td>
                                     <td width="50%"><a href="#" id="no1_2_8_2" data-type="text" data-pk="1" data-title="Enter username"></a> </td>
                                 </tr>
                                 <tr>
@@ -244,10 +241,97 @@
                         </form>
                       </div>
                       <div id="step-3">
-                      ข้อมูลสรุป
-                      ผลการพิจารณา
-                      </div>
 
+                        {% block review %}
+                        {% endblock %}
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                              <h2>ยืนยันข้อมูล <small>ยื่นพิจารณา</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="form-group">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="text-center">
+                                      <a id="btnFinish" class="btn btn-app">
+                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok"></i> เสร็จสิ้นการสำรวจข้อมูล
+                                      </a> 
+                                    </div>
+                                  </div>
+                                </div> 
+                            </div>
+                          </div>
+                        </div>
+                                                
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                              <h2>ข้อมูลสรุป <small>ผลการพิจารณา</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <ul class="list-unstyled timeline">
+
+                            {% for comment in comments %}
+                                <li  style="padding-left:10px;">
+                                  <div class="block">
+                                    <div class="tags" style="width:auto !important">
+                                      <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
+                                        <span>{{ comment.Session.label }} {{ comment.Session.name }}</span>
+                                      </a>
+                                    </div>
+                                    <div class="block_content">
+                                      <h2 class="title">
+                                                      <a>คำแนะนำ</a>
+                                                  </h2>
+                                      <div class="byline">
+                                        <span>{{ comment.date}}</span> by <a>{{ comment.AdminUser.name }}</a>
+                                      </div>
+                                      <pre class="excerpt">{{ comment.description }}
+                                      </pre>
+                                    </div>
+                                  </div>
+                                </li>        
+                            {% endfor %}
+                              </ul>
+
+                            </div>
+                          </div>
+                        </div>                        
+                        
+                      </div>
                     </div>
                     <!-- End SmartWizard Content -->
                     
@@ -280,8 +364,11 @@
         <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
         <!-- jQuery Smart Wizard -->
         <script>
+          var keyNavigation = true;
           $(document).ready(function() {
             $('#wizard').smartWizard({
+              //keyNavigation : false,
+              onLeaveStep: onLeaveStep,
               transitionEffect: 'slide'
             });
 
@@ -292,6 +379,10 @@
             $('.buttonNext').addClass('btn btn-success');
             $('.buttonPrevious').addClass('btn btn-primary');
             $('.buttonFinish').addClass('btn btn-default');
+            function onLeaveStep(){
+                if(keyNavigation)
+                  return true;
+            } 
           });
         </script>
         <!-- /jQuery Smart Wizard -->

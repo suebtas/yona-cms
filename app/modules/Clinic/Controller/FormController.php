@@ -7,8 +7,9 @@ use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
 use Clinic\Model\BoundaryOffice;
-use Clinic\Model\DiscoverSurvey;
+use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Answer;
+use Clinic\Model\Comment;
 use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
 
@@ -176,6 +177,31 @@ class FormController extends Controller
                                     2=>$this->surveyid)))->answer;
             $this->view->no1_2_5_2 = $no1_2_5_2;
 
+            $no1_2_6_1 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>17,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_6_1 = $no1_2_6_1;
+
+            $no1_2_6_2 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>18,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_6_2 = $no1_2_6_2;
+            $no1_2_6_3 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>19,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_6_3 = $no1_2_6_3;
+            $no1_2_6_4 = Answer::findFirst(
+                            array("questionid=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>20,
+                                    2=>$this->surveyid)))->answer;
+            $this->view->no1_2_6_4 = $no1_2_6_4;
             $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
                         array("owner_officeid = ?1 and boundaryid = 1",
                             "bind" => array(
@@ -381,7 +407,16 @@ class FormController extends Controller
             $answer = $this->request->getPost("no1_2_8");
             $this->updateAnswer($option, 24, $answer, $user->officeid,  $this->discovery_surveyid);
 
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
+
         }
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
     public function no2Action()
     {

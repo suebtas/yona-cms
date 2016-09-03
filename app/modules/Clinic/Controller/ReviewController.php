@@ -237,6 +237,8 @@ class ReviewController extends Controller
             }
             
         }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
     public function updateApprove($option, $sessionid, $approve,$level, $admin_userid, $discovery_surveyid){

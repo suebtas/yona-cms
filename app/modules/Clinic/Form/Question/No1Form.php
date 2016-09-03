@@ -8,8 +8,7 @@ use Clinic\Model\Office;
 use Phalcon\Validation\Validator\PresenceOf;
 
 class No1Form extends \Phalcon\Forms\Form
-{
-
+{    
     public function initialize()
     {
         $no1_1_2 = new Text('no1_1_2', array(
@@ -63,12 +62,12 @@ class No1Form extends \Phalcon\Forms\Form
         $this->add($no1_1_3_3);
 
         $no1_1_3_4 = new Select('no1_1_3_4', 
-            Office::find(),
-            array(
-                'using' => array(
-                    'id',
-                    'name'
-                ),
+                Office::find(),
+                array(
+                    'using' => array(
+                        'id',
+                        'name'
+                    ),
                 'class'=>"select2_multiple form-control",
                 'placeholder'=> "Select a state",
                 'multiple'=>"multiple"
@@ -76,7 +75,24 @@ class No1Form extends \Phalcon\Forms\Form
             );
         $this->add($no1_1_3_4);
 
-
+        $title = '<i id="btnFinishStatus" class="glyphicon glyphicon-ok"></i> เสร็จสิ้นการสำรวจข้อมูล';
+        $buttonFinish = new LinkTo('test', array('#', $title, 'id'=>'btnFinish', 'class'=>'btn btn-app', 'local'=>false));
+        $this->add($buttonFinish);
     }
 
+}
+
+
+
+use Phalcon\Forms\Element;
+use Phalcon\Forms\ElementInterface;
+use Phalcon\Tag;
+
+class LinkTo extends Element implements ElementInterface
+{
+    
+    public function render($attributes = false)
+    {
+        return Tag::linkTo($this->prepareAttributes($attributes));
+    }
 }

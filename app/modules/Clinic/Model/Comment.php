@@ -34,15 +34,21 @@ class Comment extends \Phalcon\Mvc\Model
      * @var integer
      */
     public $sessionid;
+    
+    /**
+     *
+     * @var date
+     */
+    public $date;
 
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->belongsTo('sessionid', 'Session', 'id', array('alias' => 'Session'));
-        $this->belongsTo('discovery_surveyid', 'DiscoverySurvey', 'id', array('alias' => 'DiscoverySurvey'));
-        $this->belongsTo('admin_userid', 'AdminUser', 'id', array('alias' => 'AdminUser'));
+        $this->belongsTo('sessionid', 'Clinic\Model\Session', 'id', array('alias' => 'Session'));
+        $this->belongsTo('discovery_surveyid', 'Clinic\Model\DiscoverySurvey', 'id', array('alias' => 'DiscoverySurvey'));
+        $this->belongsTo('admin_userid', 'Clinic\Model\AdminUser', 'id', array('alias' => 'AdminUser'));
     }
 
     /**

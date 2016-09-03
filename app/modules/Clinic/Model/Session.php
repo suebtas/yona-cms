@@ -18,6 +18,11 @@ class Session extends \Phalcon\Mvc\Model
     public $name;
 
     /**
+     *
+     * @var string
+     */
+    public $label;
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -58,6 +63,11 @@ class Session extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    public function getStep(){
+        $step = explode('-',$this->label);
+        return str_replace('.','_',$step[0]);
     }
 
 }
