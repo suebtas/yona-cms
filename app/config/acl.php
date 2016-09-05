@@ -84,5 +84,7 @@ return [
         'clinic-admin/admin-user'   => '*',
         'clinic-admin/amphur'   => '*',
         'clinic-admin/office'   => '*',
+        'clinic-admin/session'   => '*',
+        'clinic-admin/surveystatus'   => '*',
     ],
 ];

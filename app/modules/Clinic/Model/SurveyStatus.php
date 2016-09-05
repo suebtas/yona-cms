@@ -2,7 +2,7 @@
 
 namespace Clinic\Model;
 
-class Session extends \Phalcon\Mvc\Model
+class SurveyStatus extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -17,15 +17,14 @@ class Session extends \Phalcon\Mvc\Model
      */
     public $name;
 
+    public $status;
+
     /**
      * Initialize method for model.
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Approval', 'sessionid', array('alias' => 'Approval'));
-        $this->hasMany('id', 'Comment', 'sessionid', array('alias' => 'Comment'));
-        $this->hasMany('id', 'Question', 'sessionid', array('alias' => 'Question'));
-        $this->belongsTo('group_sessionid', 'GroupSession', 'id', array('alias' => 'GroupSession'));
+
     }
 
     /**
@@ -35,14 +34,14 @@ class Session extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'session';
+        return 'survey_status';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Session[]
+     * @return SurveyStatus[]
      */
     public static function find($parameters = null)
     {
@@ -53,7 +52,7 @@ class Session extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Session
+     * @return SurveyStatus
      */
     public static function findFirst($parameters = null)
     {
@@ -68,6 +67,11 @@ class Session extends \Phalcon\Mvc\Model
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 
 }
