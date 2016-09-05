@@ -367,7 +367,7 @@
           var keyNavigation = true;
           $(document).ready(function() {
             $('#wizard').smartWizard({
-              //keyNavigation : false,
+              keyNavigation : false,
               onLeaveStep: onLeaveStep,
               transitionEffect: 'slide'
             });

@@ -67,7 +67,7 @@ $(document).ready(function() {
   });
   $("#btnFinish").on('click', function(){
     //$('#wizard').smartWizard.keyNavigation = keyNavigation;
-    //keyNavigation = false;
+    keyNavigation = false;
 
     $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
     $.ajax({

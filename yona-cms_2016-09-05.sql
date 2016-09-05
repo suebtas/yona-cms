@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.14)
 # Database: yona-cms
-# Generation Time: 2016-08-22 08:48:46 +0000
+# Generation Time: 2016-09-05 10:53:46 +0000
 # ************************************************************
 
 
@@ -46,9 +46,9 @@ INSERT INTO `admin_user` (`id`, `officeid`, `role`, `login`, `email`, `name`, `p
 VALUES
 	(1,3,'admin','admin','web@wezoom.net','Admin Name','$2y$10$rX2C0Ak2deW430Wzlud8HeoNe0pFl.8yYwOwyI/xCKIENd0vKmEgm',1),
 	(2,2,'admin','yona','yona@wezoom.net','Yona CMS User','$2y$10$2UUYmTf4f13el.b5K69WmeijY6E/nY4.hRYaokNe/lfyfvJ3Bz05O',1),
-	(3,3,'cc-approver','suebtas','suebtas@gmail.com','Suebtas Limsaihua','$2y$10$6yMVLafmoxHojlKzzxsw5ukWN4voCqXJ/ZK.nFg7.ojK5.6ISScZ2',1),
-	(4,3,'cc-admin','Sayan','sayan@mut.ac.th','Sayan Riwtong','$2y$10$6yMVLafmoxHojlKzzxsw5ukWN4voCqXJ/ZK.nFg7.ojK5.6ISScZ2',1),
-	(5,3,'cc-user','User','user@gmail.com','User ...','$2y$10$6yMVLafmoxHojlKzzxsw5ukWN4voCqXJ/ZK.nFg7.ojK5.6ISScZ2',1);
+	(3,3,'cc-approver','Approver1','approver1@gmail.com','Suebtas Limsaihua','$2y$10$cnpmEXOYkcGLVEEe4xkIpet.eqVej0drzXyELH4uYrB4N/nu63Dtq',1),
+	(4,3,'cc-admin','Admin1','admin@gmail.com','Admin Clinic Center1','$2y$10$FcZKX6fmqNAcGluNkzbMoOTTpHf6FNCxtWshA6aR5K/TJQpHDg/lm',1),
+	(5,3,'cc-user','User1','user1@gmail.com','User Clinic Center1','$2y$10$d6uI7D1p414ifBpO16SIxOemGzlYhz9mIJxD4FqTmVrArVsrcJUTq',1);
 
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -115,7 +115,8 @@ VALUES
 	(14,'1',1,12),
 	(15,'2',1,14),
 	(16,'3',1,16),
-	(17,'2',1,11);
+	(17,'2',1,11),
+	(18,'100',1,17);
 
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -150,7 +151,8 @@ LOCK TABLES `approval` WRITE;
 
 INSERT INTO `approval` (`id`, `sessionid`, `approve_date`, `level`, `order`, `comment`, `status`, `discovery_surveyid`, `admin_userid`)
 VALUES
-	(1,1,'2016-08-19',1,13,NULL,1,1,3);
+	(1,1,'2016-09-05',1,16,NULL,2,1,3),
+	(2,1,'2016-08-22',2,3,NULL,2,1,4);
 
 /*!40000 ALTER TABLE `approval` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -278,6 +280,8 @@ CREATE TABLE `comment` (
   `discovery_surveyid` int(11) NOT NULL,
   `admin_userid` int(11) NOT NULL,
   `sessionid` int(11) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index comment on` (`discovery_surveyid`),
   KEY `index user comment on` (`admin_userid`),
@@ -290,10 +294,11 @@ CREATE TABLE `comment` (
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
 
-INSERT INTO `comment` (`id`, `description`, `discovery_surveyid`, `admin_userid`, `sessionid`)
+INSERT INTO `comment` (`id`, `description`, `discovery_surveyid`, `admin_userid`, `sessionid`, `date`, `status`)
 VALUES
-	(2,'ที่ตั้งไม่ถูกต้อง\n1.oo\n2.oo\n3.pp\n',1,3,1),
-	(3,'จำนวนประชากรไม่ถูกต้อง\n1.u\nu\no\n',1,3,2);
+	(2,'ที่ตั้งไม่ถูกต้อง\n1.พื้นที่จำนวนผิด\n2.oo\n3.pp',1,3,1,'2016-09-02 17:06:49',1),
+	(3,'จำนวนประชากรไม่ถูกต้อง\n1.u\nu\no\n',1,3,2,'2016-09-02 17:06:49',1),
+	(4,'ไม่ผ่าน\nเพราะข้อมูลผิดพลาด',1,4,1,'2016-09-02 17:06:49',1);
 
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -322,7 +327,7 @@ LOCK TABLES `discovery_survey` WRITE;
 
 INSERT INTO `discovery_survey` (`id`, `officeid`, `surveyid`, `description`, `status`)
 VALUES
-	(1,3,1,NULL,1);
+	(1,3,1,NULL,2);
 
 /*!40000 ALTER TABLE `discovery_survey` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -934,19 +939,19 @@ VALUES
 	(81,13,'4.3.6','โบสถ์ทางคริสต์ศาสนา จำนวน',1),
 	(82,13,'4.3.7','ผู้นับถือศาสนาอื่นๆ ร้อยละ',1),
 	(83,13,'4.3.8','ผู้ไม่นับถือศาสนาใดเลย ร้อยละ',1),
-	(84,14,'4.4.1.1','ชุื่อประเพณี 1',1),
+	(84,14,'4.4.1.1','ชื่อประเพณี 1',1),
 	(85,14,'4.4.1.2','เดือน',1),
 	(86,14,'4.4.1.3','กิจกรรมโดยสังเขป',1),
-	(87,14,'4.4.2.1','ชุื่อประเพณี 2',1),
+	(87,14,'4.4.2.1','ชื่อประเพณี 2',1),
 	(88,14,'4.4.2.2','เดือน',1),
 	(89,14,'4.4.2.3','กิจกรรมโดยสังเขป',1),
-	(90,14,'4.4.3.1','ชุื่อประเพณี 3',1),
+	(90,14,'4.4.3.1','ชื่อประเพณี 3',1),
 	(91,14,'4.4.3.2','เดือน',1),
 	(92,14,'4.4.3.3','กิจกรรมโดยสังเขป',1),
-	(93,14,'4.4.4.1','ชุื่อประเพณี 4',1),
+	(93,14,'4.4.4.1','ชื่อประเพณี 4',1),
 	(94,14,'4.4.4.2','เดือน',1),
 	(95,14,'4.4.4.3','กิจกรรมโดยสังเขป',1),
-	(96,14,'4.4.5.1','ชุื่อประเพณี 5',1),
+	(96,14,'4.4.5.1','ชื่อประเพณี 5',1),
 	(97,14,'4.4.5.2','เดือน',1),
 	(98,14,'4.4.5.3','กิจกรรมโดยสังเขป',1),
 	(99,15,'4.5.1.1.1','จำนวนโรงเรียน ท้องถิ่น',1),
