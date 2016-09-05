@@ -1,3 +1,8 @@
+
+function jump(str){
+  array = str.split("_");
+  $('#wizard').smartWizard('goToStep',array[1]);
+}
 $(document).ready(function() {
   function calculateAreaRaiToKmSquare(value){
     return 1.6*value;
@@ -60,7 +65,31 @@ $(document).ready(function() {
       }
       console.log(e);
   });
+  $("#btnFinish").on('click', function(){
+    //$('#wizard').smartWizard.keyNavigation = keyNavigation;
+    keyNavigation = false;
 
+    $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_finish: 'finish',
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+            //data - response from server
+            $("#btnFinishStatus").removeClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+            $("#btnFinishStatus").addClass("glyphicon glyphicon-ok green");
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+     
+        },
+
+    });
+  });
   $("#no1_1_2").on('blur',function(e){
     //alert('Changed!');
 
