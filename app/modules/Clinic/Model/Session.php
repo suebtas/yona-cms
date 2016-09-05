@@ -17,6 +17,8 @@ class Session extends \Phalcon\Mvc\Model
      */
     public $name;
 
+    public $status;
+
     /**
      * Initialize method for model.
      */
@@ -69,5 +71,10 @@ class Session extends \Phalcon\Mvc\Model
     {
         return $this->name;
     }
+
+    /*public function getStatus()
+    {
+        return $this->status;
+    }*/
 
 }
