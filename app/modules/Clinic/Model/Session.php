@@ -61,6 +61,11 @@ class Session extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
+    
+    public function getStep(){
+        $step = explode('-',$this->label);
+        return str_replace('.','_',$step[0]);
+    }
 
     public function getId()
     {
