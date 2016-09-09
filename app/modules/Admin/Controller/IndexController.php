@@ -21,7 +21,6 @@ class IndexController extends Controller
     {
         $this->setAdminEnvironment();
         $this->view->languages_disabled = true;
-
         $auth = $this->session->get('auth');
         if (!$auth || !isset($auth->admin_session) || !$auth->admin_session) {
             $this->flash->notice($this->helper->at('Log in please'));

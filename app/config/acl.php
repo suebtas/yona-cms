@@ -86,5 +86,6 @@ return [
         'clinic-admin/office'   => '*',
         'clinic-admin/session'   => '*',
         'clinic-admin/surveystatus'   => '*',
+        'clinic-admin/exportword'   => '*',
     ],
 ];
