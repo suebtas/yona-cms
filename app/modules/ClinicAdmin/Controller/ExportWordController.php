@@ -8,10 +8,7 @@
 
 namespace ClinicAdmin\Controller;
 
-use Michelf\Markdown;
 use Application\Mvc\Controller;
-use ClinicAdmin\Form\SurveyStatusForm;
-use Clinic\Model\SurveyStatus;
 use PhpOffice\PhpWord;
 
 class ExportWordController extends Controller
@@ -21,7 +18,6 @@ class ExportWordController extends Controller
     {
         
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('SurveyStatus');
         $this->view->languages_disabled = true;
     }
 
@@ -100,5 +96,29 @@ class ExportWordController extends Controller
 		//echo $this->write($phpWord, basename(__FILE__, '.php'), $writers);
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 		$objWriter->save('helloWorld.docx');
+		$this->converttowordtemplate('test','helloWorld.docx');
     }
+    	
+	public function converttowordtemplate($name,$temp_file){		
+		// Save file
+		$fname = $name. date("d.m.Y-H.i") . ".docx";
+		$response = new \Phalcon\Http\Response();
+
+		// Redirect output to a client’s web browser (Excel2007)
+		$response->setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		$response->setHeader('Content-Disposition', 'attachment;filename="' . $fname . '"');
+		$response->setHeader('Cache-Control', 'max-age=0');
+
+		// If you're serving to IE 9, then the following may be needed
+		$response->setHeader('Cache-Control', 'max-age=1');
+
+		//Set the content of the response
+		$response->setContent(file_get_contents($temp_file));
+		// delete temp file
+		unlink($temp_file);
+
+		$response->setStatusCode(200, "OK");
+		//Return the response
+		$response->send();
+	}
 }
