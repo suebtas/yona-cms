@@ -87,5 +87,7 @@ return [
         'clinic-admin/session'   => '*',
         'clinic-admin/surveystatus'   => '*',
         'clinic-admin/exportword'   => '*',
+        'clinic-admin/newstype'   => '*',
+        'clinic-admin/newslevel'   => '*',
     ],
 ];
