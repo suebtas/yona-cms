@@ -87,7 +87,7 @@
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <center>
-        <p>รายได้เฉลี่ยประชากร <a href="#" id="mn" data-type="text" data-pk="1" data-title="Enter username"> 78,756.00 </a> บาท /คน/ปี</p></center>
+        <p>รายได้เฉลี่ยประชากร <a href="#" id="no3_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_1}} </a> บาท /คน/ปี</p></center>
 
       <table class="table table-striped table-bordered">
         <thead>
@@ -100,7 +100,7 @@
             สถานีบริการน้ำมัน
           </td>
           <td width="10%">
-            <a href="#" id="lc1" data-type="text" data-pk="1" data-title="Enter username"> 2</a>
+            <a href="#" id="no3_2_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_1}} </a>
           </td>
           <td>
             แห่ง
@@ -111,7 +111,7 @@
             ศูนย์การค้า/ห้างสรรพสินค้า
           </td>
           <td width="10%">
-            <a href="#" id="lc2" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_2_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_2}} </a>
           </td>
           <td>
             แห่ง
@@ -122,7 +122,7 @@
             ตลาดสด
           </td>
           <td width="10%">
-            <a href="#" id="lc3" data-type="text" data-pk="1" data-title="Enter username"> 1</a>
+            <a href="#" id="no3_2_3" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_3}} </a>
           </td>
           <td>
             แห่ง
@@ -133,7 +133,7 @@
             ร้านค้าทั่วไป
           </td>
           <td width="10%">
-            <a href="#" id="lc4" data-type="text" data-pk="1" data-title="Enter username"> 65</a>
+            <a href="#" id="no3_2_4" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_4}} </a>
           </td>
           <td>
             แห่ง
@@ -158,7 +158,7 @@
               สถานธนานุบาล
             </td>
             <td width="10%">
-              <a href="#" id="lc5" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_3_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_3_1}} </a>
             </td>
             <td>
               แห่ง
@@ -169,7 +169,7 @@
               ท่าเทียบเรือ
             </td>
             <td width="10%">
-            <a href="#" id="lc6" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+            <a href="#" id="no3_3_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_3_2}} </a>
             </td>
             <td>
               แห่ง
@@ -180,7 +180,7 @@
               โรงฆ่าสัตว์
             </td>
             <td width="10%">
-              <a href="#" id="lc7" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_3_3" data-type="text" data-pk="1" data-title="Enter username"> {{no3_3_3}} </a>
             </td>
             <td>
               แห่ง
@@ -205,7 +205,7 @@
               โรงแรม
             </td>
             <td width="10%">
-              <a href="#" id="lc8" data-type="text" data-pk="1" data-title="Enter username">1</a>
+              <a href="#" id="no3_4_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_1}} </a>
             </td>
             <td>
               แห่ง
@@ -216,7 +216,7 @@
               ธนาคาร
             </td>
             <td width="10%">
-              <a href="#" id="lc9" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_4_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_2}} </a>
             </td>
             <td>
               แห่ง
@@ -227,7 +227,7 @@
               โรงภาพยนตร์
             </td>
             <td width="10%">
-              <a href="#" id="lc10" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_4_3" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_3}} </a>
             </td>
             <td>
               แห่ง
@@ -238,7 +238,7 @@
               สถานที่จำหน่ายอาหาร ตาม พ.ร.บ. สาธารณสุข
             </td>
             <td width="10%">
-              <a href="#" id="lc11" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+              <a href="#" id="no3_4_4" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_4}} </a>
             </td>
             <td>
               แห่ง
@@ -263,7 +263,7 @@
               โรงงาน จำนวน
             </td>
             <td width="10%">
-              <a href="#" id="lc12" data-type="text" data-pk="1" data-title="Enter username"> 2</a>
+            <a href="#" id="no3_5_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_5_1}} </a>
             </td>
             <td>
               แห่ง
@@ -274,7 +274,7 @@
               แรงงาน จำนวน
             </td>
             <td width="10%">
-              <a href="#" id="lc13" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+            <a href="#" id="no3_5_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_5_2}} </a>
             </td>
             <td>
               คน
@@ -299,7 +299,7 @@
               แหล่งท่องเที่ยว จำนวน
             </td>
             <td width="10%">
-              <a href="#" id="lc14" data-type="text" data-pk="1" data-title="Enter username"> 2</a>
+              <a href="#" id="no3_6_1" data-type="text" data-pk="1" data-title="Enter username"> {{no3_6_1}} </a>
             </td>
             <td>
               แห่ง
@@ -310,7 +310,7 @@
               นักท่องเที่ยว จำนวน
             </td>
             <td width="10%">
-              <a href="#" id="lc15" data-type="text" data-pk="1" data-title="Enter username"> 0</a>
+            <a href="#" id="no3_6_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_6_2}} </a>
             </td>
             <td>
               คน/ปี
@@ -321,7 +321,7 @@
               รายได้จากการท่องเที่ยว จำนวน
             </td>
             <td width="10%">
-              <a href="#" id="lc16" data-type="text" data-pk="1" data-title="Enter username"> 0.00</a>
+              <a href="#" id="no3_6_3" data-type="text" data-pk="1" data-title="Enter username"> {{no3_6_3}} </a>
             </td>
             <td>
               บาท/ปี
