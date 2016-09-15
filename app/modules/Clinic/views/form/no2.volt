@@ -82,7 +82,7 @@
       <div class="form-group">
         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-          <span id="sumroad"></span>
+          <span id="no2_1_1"></span>
           </label>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
         <table id="road" class="table table-striped table-bordered" style="clear: both">
@@ -100,29 +100,29 @@
             </thead>
               <tr>
                   <td>1.ถนนลูกรัง</td>
-                  <td><a href="#" id="r1" data-type="text" data-pk="1" data-title="Enter username">68</a></td>
-                  <td><a href="#" id="dt1" data-type="text" data-pk="1" data-title="Enter username">78</a></td>
+                  <td><a href="#" id="no2_1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_2_1}}</a></td>
+                  <td><a href="#" id="no2_1_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_2_2}}</a></td>
               </tr>
               <tr>
                   <td>2.ถนนลาดยาง</td>
-                  <td><a href="#" id="r2" data-type="text" data-pk="1" data-title="Enter username">20</a></td>
-                  <td><a href="#" id="dt2" data-type="text" data-pk="1" data-title="Enter username">57</a></td>
+                  <td><a href="#" id="no2_1_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_3_1}}</a></td>
+                  <td><a href="#" id="no2_1_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_3_2}}</a></td>
               </tr>
               <tr>
                   <td>3.ถนนคอนกรีต</td>
-                  <td><a href="#" id="r3" data-type="text" data-pk="1" data-title="Enter username">15</a></td>
-                  <td><a href="#" id="dt3" data-type="text" data-pk="1" data-title="Enter username">14</a></td>
+                  <td><a href="#" id="no2_1_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_4_1}}</a></td>
+                  <td><a href="#" id="no2_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_4_2}}</a></td>
               </tr>
               <tr>
                   <td>4.อื่นๆ(ระบุ) <input type="text" name="name" value="" class="btn btn-default"></td>
-                  <td><a href="#" id="r4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
-                  <td><a href="#" id="dt4" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
+                  <td><a href="#" id="no2_1_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_1}}</a></td>
+                  <td><a href="#" id="no2_1_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_2}}</a></td>
               </tr>
           </tbody>
         </table>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สะพาน</label>
               <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                <a href="#" id="bridge" data-type="text" data-pk="1" data-title="Enter username">5</a>
+                <td><a href="#" id="no2_1_6" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_6}}</a></td>
               </label>
                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label>
 
@@ -140,14 +140,14 @@
         </thead>
             <tr>
                 <td width="50%">รถโดยสารที่ให้บริการจำนวน</td>
-                <td width="25%"><a href="#" id="bus1" data-type="text" data-pk="1" data-title="Enter username">1</a></td>
+                <td width="25%"><a href="#" id="no2_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_2_1}}</a></td>
                 <td width="25%">เส้นทาง</td>
             </tr>
             <tr>
               <td width="50%">
                 อื่นๆ
               </td>
-              <td width="25%"><a href="#" id="bus2" data-type="text" data-pk="1" data-title="Enter username">0</a></td>
+              <td width="25%"><a href="#" id="no2_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_2_2}}</a></td>
               <td width="25%">เส้นทาง</td>
             </tr>
       </table>
@@ -165,7 +165,7 @@
           ที่ทำการไปรษณีย์
         </td>
         <td>
-          <a href="#" id="c1" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_1}}</a>
         </td>
         <td>
           แห่ง
@@ -176,7 +176,7 @@
           สถานีวิทยุกระจายเสียง
         </td>
         <td>
-          <a href="#" id="c2" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_2}}</a>
         </td>
         <td>
           สถานี
@@ -187,7 +187,7 @@
           สถานีวิทยุโทรทัศน์
         </td>
         <td>
-          <a href="#" id="c3" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_3}}</a>
         </td>
         <td>
           สถานี
@@ -198,7 +198,7 @@
           สื่อมวลชนในพื้นที่/หนังสือพิมพ์
         </td>
         <td>
-          <a href="#" id="c4" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_4}}</a>
         </td>
         <td>
           ฉบับ
@@ -209,7 +209,7 @@
         การให้บริการอินเตอร์เน็ต
         </td>
         <td>
-          <a href="#" id="c5" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_5}}</a>
         </td>
         <td>
           แหง
@@ -220,7 +220,7 @@
           ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่
         </td>
         <td>
-          <a href="#" id="c6" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_6" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_6}}</a>
         </td>
         <td>
           แห่ง
@@ -231,7 +231,7 @@
           หน่วยงานที่มีข่ายวิทยุสื่อสารในพื้นที่
         </td>
         <td>
-          <a href="#" id="c7" data-type="text" data-pk="1" data-title="Enter username">0</a>
+          <a href="#" id="no2_3_7" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_7}}</a>
         </td>
         <td>
           แห่ง
@@ -253,7 +253,7 @@
               ครัวเรือนที่ใช้ไฟฟ้า
             </td>
             <td>
-              <a href="#" id="e1" data-type="text" data-pk="1" data-title="Enter username">2,657</a>
+              <a href="#" id="no2_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_4_1}}</a>
             </td>
             <td>
               ครัวเรือน
@@ -264,7 +264,7 @@
               พื้นที่ที่ได้รับบริการไฟฟ้า ร้อยละ
             </td>
             <td>
-                <a href="#" id="e2" data-type="text" data-pk="1" data-title="Enter username">98.00</a>
+                <a href="#" id="no2_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_4_2}}</a>
             </td>
             <td>
             ของพื้นที่
@@ -275,7 +275,7 @@
               ไฟฟ้าส่องสว่างสารธารณะ จำนวน
             </td>
             <td>
-              <a href="#" id="e3" data-type="text" data-pk="1" data-title="Enter username">500</a>
+              <a href="#" id="no2_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no2_4_3}}</a>
             </td>
             <td>
               จุด
@@ -286,7 +286,7 @@
               จุด/ครอบคลุมถนน
             </td>
             <td>
-                <a href="#" id="e4" data-type="text" data-pk="1" data-title="Enter username">20.00</a>
+                <a href="#" id="no2_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no2_4_4}}</a>
             </td>
             <td>
               สาย
@@ -309,7 +309,7 @@
             พื้นที่พักอาศัย
           </td>
           <td>
-            <a href="#" id="p1" data-type="text" data-pk="1" data-title="Enter username">5,000.00</a>
+            <a href="#" id="no2_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_1}}</a>
           </td>
           <td>
             ไร่
@@ -320,7 +320,7 @@
             พื้นที่พาณิชยกรรม
           </td>
           <td>
-            <a href="#" id="p2" data-type="text" data-pk="1" data-title="Enter username">1,000.00</a>
+            <a href="#" id="no2_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_2}}</a>
           </td>
           <td>
             ไร่
@@ -331,7 +331,7 @@
             พื้นที่ตั้งหน่วยงานของรัฐ
           </td>
           <td>
-            <a href="#" id="p3" data-type="text" data-pk="1" data-title="Enter username">5.00</a>
+            <a href="#" id="no2_5_3" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_3}}</a>
           </td>
           <td>
             ไร่
@@ -342,7 +342,7 @@
             สวนสาธารณะ/นันทนาการ
           </td>
           <td>
-            <a href="#" id="p4" data-type="text" data-pk="1" data-title="Enter username">20.00</a>
+              <a href="#" id="no2_5_4" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_4}}</a>
           </td>
           <td>
             ไร่
@@ -353,7 +353,7 @@
             พื้นที่เกษตรกรรม
           </td>
           <td>
-            <a href="#" id="p5" data-type="text" data-pk="1" data-title="Enter username">80,000.00</a>
+            <a href="#" id="no2_5_5" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_5}}</a>
           </td>
           <td>
             ไร่
@@ -364,7 +364,7 @@
             พื้นที่ตั้งสถานศึกษา
           </td>
           <td>
-            <a href="#" id="p6" data-type="text" data-pk="1" data-title="Enter username">100.00</a>
+              <a href="#" id="no2_5_6" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_6}}</a>
           </td>
           <td>
             ไร่
@@ -375,7 +375,7 @@
             พื้นที่ว่าง
           </td>
           <td>
-            <a href="#" id="p7" data-type="text" data-pk="1" data-title="Enter username">5,000.00</a>
+            <a href="#" id="no2_5_7" data-type="text" data-pk="1" data-title="Enter username">{{no2_5_7}}</a>
           </td>
           <td>
             ไร่
@@ -386,7 +386,7 @@
             <b>พื้นที่ทั้งหมด</b>
           </td>
           <td class="info">
-            <b><span id="sumrai"></span></b>
+            <b><span id="no2_5_8"></span></b>
           </td>
           <td>
               <b>ไร่</b>

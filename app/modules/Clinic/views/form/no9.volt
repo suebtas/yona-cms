@@ -92,7 +92,7 @@
                             </p>
                             </td>
                             <td width="10%">
-                               <input type="text" class="input-sm" name="name" placeholder="กรุณากรอกจำนวนสมาชิก" class="btn btn-default">
+                               <input type="text" id="no9_1" name="name" value="{{no9_1}}" class="form-control">
                             </td>
                             <td>
                               คน
@@ -105,7 +105,7 @@
                             </p>
                             </td>
                             <td width="10%">
-                               <input type="text" class="input-sm" name="name" placeholder="กรุณากรอกจำนวนทั้งหมด">
+                               <input type="text" id="no9_2" name="name" value="{{no9_2}}" class="form-control">
                             </td>
                             <td>
                               คน
@@ -162,8 +162,8 @@
                                   </tr>
                                   <tr>
                                       <td>2559(ค่าประมาณการ)</td>
-                                      <td>  <a href="#" id="ir1" data-type="text" data-pk="1" data-title="Enter username"> 37,000,000,000.00 </a> </td>
-                                      <td> <a href="#" id="or1" data-type="text" data-pk="1" data-title="Enter username"> 37,000,000,000.00 </a></td>
+                                      <td>  <a href="#" id="no9_3_1" data-type="text" data-pk="1" data-title="Enter username"> {{no9_3_1}} </a> </td>
+                                      <td> <a href="#" id="no9_3_2" data-type="text" data-pk="1" data-title="Enter username"> {{no9_3_2}} </a></td>
                                   </tr>
                               </tbody>
                             </table>
@@ -182,7 +182,7 @@
                                 ภาษีบำรุงท้องที่
                               </td>
                               <td width="10%">
-                                <a href="#" id="ic1" data-type="text" data-pk="1" data-title="Enter username" class="income"> 214,420.79 </a>
+                                <a href="#" id="no9_4_1" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_4_1}} </a>
                               </td>
                               <td>
                                 บาท
@@ -193,7 +193,7 @@
                                 ภาษีโรงเรือนและที่ดิน
                               </td>
                               <td width="10%">
-                                <a href="#" id="ic2" data-type="text" data-pk="1" data-title="Enter username" class="income"> 242,193.67 </a>
+                                <a href="#" id="no9_4_2" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_4_2}} </a>
                               </td>
                               <td>
                                 บาท
@@ -204,7 +204,7 @@
                                 ภาษีป้าย
                               </td>
                               <td width="10%">
-                                  <a href="#" id="ic3" data-type="text" data-pk="1" data-title="Enter username" class="income"> 128,222.00 </a>
+                                  <a href="#" id="no9_4_3" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_4_3}} </a>
                               </td>
                               <td>
                                 บาท
@@ -215,7 +215,7 @@
                                 อื่นๆ
                               </td>
                               <td width="10%">
-                                <a href="#" id="ic4" data-type="text" data-pk="1" data-title="Enter username" class="income"> 0.00 </a>
+                                <a href="#" id="no9_4_4" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_4_4}}</a>
                               </td>
                               <td>
                                 บาท
@@ -230,19 +230,13 @@
                                   การจัดเก็บรายได้ของท้องถิ่น ทั้งหมด
                                 </td>
                                 <td width="10%" class="info">
-                                  <span id="sumall"></span>
+                                  <span id="no9_4_5"></span>
                                 </td>
                                 <td>
                                   บาท
                                 </td>
                               </tr>
                             </table>
-
-                          <center>
-                          <button type="button" class="btn btn-default" id="update4">
-                            update
-                          </button>
-                        </center>
                           </div>
 
                         </form>
@@ -264,7 +258,7 @@
                                 ชื่อผลิตภัณฑ์
                               </td>
                               <td>
-                                <input type="text" name="name" value="" class="form-control">
+                                <input type="text" id="no9_5_1" name="name" value="{{no9_5_1}}" class="form-control">
                               </td>
                               <td>
                                 ในองค์กรปกครองส่วนท้องถิ่น
@@ -275,7 +269,7 @@
                                 จำนวน
                               </td>
                               <td width="30%">
-                                <center><a href="#" id="cp1" data-type="text" data-pk="1" data-title="Enter username" class="income"> 0 </a></center>
+                                <center><a href="#" id="no9_5_2" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_5_2}} </a></center>
                               </td>
                               <td>
                                 ผลผลิต
@@ -286,7 +280,7 @@
                                 ผลผลิตจาก
                               </td>
                               <td >
-                                <center><a href="#" id="cp2" data-type="text" data-pk="1" data-title="Enter username" class="income"> 0 </a></center>
+                                <center><a href="#" id="no9_5_3" data-type="text" data-pk="1" data-title="Enter username" class="income"> {{no9_5_3}} </a></center>
                               </td>
                               <td>
                                 ชุมชน
@@ -312,7 +306,7 @@
                       <center>
                         <p> บทบาท/การมีส่วนร่วมของประชาชนในกิจกรรมทางการเมืองและการบริหารอื่นๆ เช่นการวางแผนพัฒนาท้องถิ่น การส่งเสริมการเลือกตั้งในเขตพื้นที่ การร่วมทำกิจกรรมสังคม ในโอกาสต่างๆ (ให้เขียนบรรยายตามความเป็นจริง) </p>
 
-                        <textarea name="name" class="form-control" rows="8" cols="40"></textarea>
+                        <textarea name="name" id="no9_6" class="form-control" rows="8" cols="40">{{no9_6}}</textarea>
                           <p> การประชุมประชาคมเพื่อระดมความคิดเห็นในการจัดทำแผน พัฒนาสามปีและการแก้ปัญหาในชุมชน  </p>
                       </center>
 
@@ -369,18 +363,6 @@
                       });
                       function startUp(){
                         $('#st1').width("60px");
-                        var ic1 = $('#ic1').text();
-                        var ic2 = $('#ic2').text();
-                        var ic3 = $('#ic3').text();
-                        var ic4 = $('#ic4').text();
-                        var reic1 = ic1.replace(/,/g,"");
-                        var reic2 = ic2.replace(/,/g,"");
-                        var reic3 = ic3.replace(/,/g,"");
-                        var reic4 = ic4.replace(/,/g,"");
-                        var sum = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
-
-                        var sums = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-                        $('#sumall').html(sums);
                       };
                       startUp();
                     </script>

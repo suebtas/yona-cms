@@ -1,61 +1,317 @@
 $.fn.editable.defaults.mode = 'inline';
+//step 1 9.1
+$('#no9_1').on('blur', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_1:this.value,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+//step 1 9.2
+$('#no9_2').on('blur', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_2:this.value,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 //step 2 9.3
-$('#ir1').editable({
-       url: 'Form_No9.html',
+$('#no9_3_1').editable({
        type: 'text',
-       pk: 1,
-       name: 'inreal',
-       title: 'รายได้เฉลี่ยประชากร '
-});
-$('#or1').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'outreal',
-       title: 'รายได้เฉลี่ยประชากร '
-});
-//step 3 9.4
-$('#ic1').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'income',
-       title: 'รายได้เฉลี่ยประชากร '
-});
-$('#ic2').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'income',
-       title: 'รายได้เฉลี่ยประชากร '
-});
-$('#ic3').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'income',
-       title: 'รายได้เฉลี่ยประชากร '
-});
-$('#ic4').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'income',
-       title: 'รายได้เฉลี่ยประชากร'
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_3_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
 
+$('#no9_3_2').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_3_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+//step 3 9.4
+$('#no9_4_1').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_4_1:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+        Cal();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+
+$('#no9_4_2').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_4_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+        Cal();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+
+$('#no9_4_3').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_4_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+        Cal();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no9_4_4').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+        Cal();
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 //step 4 9.5
-$('#cp1').editable({
-       url: 'Form_No9.html',
-       type: 'text',
-       pk: 1,
-       name: 'income',
-       title: ''
+$('#no9_5_1').on('blur', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_5_1:this.value,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
-$('#cp2').editable({
-       url: 'Form_No9.html',
+
+$('#no9_5_2').editable({
        type: 'text',
-       pk: 1,
-       name: 'income',
-       title: ''
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_5_2:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
 });
+
+$('#no9_5_3').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_5_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+
+//step 9.6
+$('#no9_6').on('blur', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_6:this.value,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+
+function Cal(){
+  var id1 = $('#no9_4_1').text();
+  if(id1==''||id1=='Empty')
+    id1=0;
+  var id2 = $('#no9_4_2').text();
+  if(id2==''||id2=='Empty')
+    id2=0;
+  var id3 = $('#no9_4_3').text();
+  if(id3==''||id3=='Empty')
+    id3=0;
+  var id4 = $('#no9_4_4').text();
+  if(id4==''||id4=='Empty')
+    id4=0;
+    var reic1 = id1.replace(/,/g,"");
+    var reic2 = id2.replace(/,/g,"");
+    var reic3 = id3.replace(/,/g,"");
+    var reic4 = id4.replace(/,/g,"");
+  var sumall = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
+  var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  $('#no9_4_5').html(sumall);
+
+  $.ajax({
+      url : "/clinic/form/no9",
+      type: "POST",
+      data : {
+        no9_4_5:sumall,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+          //data - response from server
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+}
+Cal();

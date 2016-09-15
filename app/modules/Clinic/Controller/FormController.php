@@ -46,7 +46,7 @@ class FormController extends Controller
 
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
-        if($this->user->role=='cc-admin')            
+        if($this->user->role=='cc-admin')
             return $this->redirect($this->url->get() . 'clinic/review/no1');
         $this->view->user = $this->user;
         $this->view->office =  Office::findFirst($this->user->officeid);
@@ -465,7 +465,7 @@ class FormController extends Controller
                 $this->updateAnswer($option, 36, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no2_2_2");
                 $this->updateAnswer($option, 37, $answer, $user->officeid,  $this->discovery_surveyid);
-                $answer = $this->request->getPost("no2_3_3");
+                $answer = $this->request->getPost("no2_3_1");
                 $this->updateAnswer($option, 38, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no2_3_2");
                 $this->updateAnswer($option, 39, $answer, $user->officeid,  $this->discovery_surveyid);
@@ -730,7 +730,7 @@ class FormController extends Controller
               $this->updateAnswer($option, 60, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no3_2_4");
               $this->updateAnswer($option, 61, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_3_3");
+              $answer = $this->request->getPost("no3_3_1");
               $this->updateAnswer($option, 62, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no3_3_2");
               $this->updateAnswer($option, 63, $answer, $user->officeid,  $this->discovery_surveyid);
@@ -748,7 +748,7 @@ class FormController extends Controller
               $this->updateAnswer($option, 69, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no3_5_2");
               $this->updateAnswer($option, 70, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_6_1");
+                $answer = $this->request->getPost("no3_6_1");
               $this->updateAnswer($option, 71, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no3_6_2");
               $this->updateAnswer($option, 72, $answer, $user->officeid,  $this->discovery_surveyid);
@@ -870,7 +870,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js');
 
-        if (!$this->request->isPost()) 
+        if (!$this->request->isPost())
         {
             $no4_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
@@ -1673,7 +1673,7 @@ class FormController extends Controller
                                     2=>$this->surveyid)))->answer;
             $this->view->no4_6_8_2 = $no4_6_8_2;
 
-        
+
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -1776,8 +1776,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 107, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_1_2_5");
             $this->updateAnswer($option, 108, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_1_3_1");
             $this->updateAnswer($option, 109, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_1_3_2");
@@ -1788,8 +1786,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 112, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_1_3_5");
             $this->updateAnswer($option, 113, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_1_4_1");
             $this->updateAnswer($option, 114, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_1_4_2");
@@ -1823,8 +1819,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 127, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_2_2_5");
             $this->updateAnswer($option, 128, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_2_3_1");
             $this->updateAnswer($option, 129, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_2_3_2");
@@ -1835,8 +1829,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 132, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_2_3_5");
             $this->updateAnswer($option, 133, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_2_4_1");
             $this->updateAnswer($option, 134, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_2_4_2");
@@ -1870,8 +1862,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 147, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_3_2_5");
             $this->updateAnswer($option, 148, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_3_3_1");
             $this->updateAnswer($option, 149, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_3_3_2");
@@ -1882,8 +1872,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 152, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_3_3_5");
             $this->updateAnswer($option, 153, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_3_4_1");
             $this->updateAnswer($option, 154, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_3_4_2");
@@ -1917,8 +1905,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 167, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_4_2_5");
             $this->updateAnswer($option, 168, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_4_3_1");
             $this->updateAnswer($option, 169, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_4_3_2");
@@ -1929,8 +1915,6 @@ class FormController extends Controller
             $this->updateAnswer($option, 172, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_4_3_5");
             $this->updateAnswer($option, 173, $answer, $this->user->officeid,  $this->discovery_surveyid);
-            
-
             $answer = $this->request->getPost("no4_5_4_4_1");
             $this->updateAnswer($option, 174, $answer, $this->user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no4_5_4_4_2");
@@ -1962,7 +1946,7 @@ class FormController extends Controller
             $answer = $this->request->getPost("no4_6_8_2");
             $this->updateAnswer($option, 187, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
-            
+
         }
 
     }
@@ -2484,6 +2468,729 @@ class FormController extends Controller
           ->setTargetUri('assets/modules-clinic-no7.js')
           ->join(true)
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js');
+          $auth = $this->session->get('auth');
+          $user = AdminUser::findFirst($auth->id);
+
+if ($this->request->isPost()) {
+    $option = $this->request->getPost("option");
+    $this->view->disable();
+    $post = $this->request->getPost();
+
+    $answer = $this->request->getPost("no7_1");
+    $this->updateAnswer($option, 234, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_2_1");
+    $this->updateAnswer($option, 235, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_2_2");
+    $this->updateAnswer($option, 236, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_2_3");
+    $this->updateAnswer($option, 237, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_1_1");
+    $this->updateAnswer($option, 238, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_1_2");
+    $this->updateAnswer($option, 239, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_1_3");
+    $this->updateAnswer($option, 240, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_1_4");
+    $this->updateAnswer($option, 241, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_2_1");
+    $this->updateAnswer($option, 242, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_2_2");
+    $this->updateAnswer($option, 243, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_2_3");
+    $this->updateAnswer($option, 244, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_2_4");
+    $this->updateAnswer($option, 245, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_3_1");
+    $this->updateAnswer($option, 246, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_3_2");
+    $this->updateAnswer($option, 247, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_3_3");
+    $this->updateAnswer($option, 248, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_3_4");
+    $this->updateAnswer($option, 249, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_4_1");
+    $this->updateAnswer($option, 250, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_4_2");
+    $this->updateAnswer($option, 251, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_4_3");
+    $this->updateAnswer($option, 252, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_4_4");
+    $this->updateAnswer($option, 253, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_5_1");
+    $this->updateAnswer($option, 254, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_5_2");
+    $this->updateAnswer($option, 255, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_5_3");
+    $this->updateAnswer($option, 256, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_3_5_4");
+    $this->updateAnswer($option, 257, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_1_1");
+    $this->updateAnswer($option, 258, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_1_2");
+    $this->updateAnswer($option, 259, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_1_3");
+    $this->updateAnswer($option, 260, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_1_4");
+    $this->updateAnswer($option, 261, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_2_1");
+    $this->updateAnswer($option, 262, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_2_2");
+    $this->updateAnswer($option, 263, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_2_3");
+    $this->updateAnswer($option, 264, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_2_4");
+    $this->updateAnswer($option, 265, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_3_1");
+    $this->updateAnswer($option, 266, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_3_2");
+    $this->updateAnswer($option, 267, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_3_3");
+    $this->updateAnswer($option, 268, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_3_4");
+    $this->updateAnswer($option, 269, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_4_1");
+    $this->updateAnswer($option, 270, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_4_2");
+    $this->updateAnswer($option, 271, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_4_3");
+    $this->updateAnswer($option, 272, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_4_4");
+    $this->updateAnswer($option, 273, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_5_1");
+    $this->updateAnswer($option, 274, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_5_2");
+    $this->updateAnswer($option, 275, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_5_3");
+    $this->updateAnswer($option, 276, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_4_5_4");
+    $this->updateAnswer($option, 277, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_1_1");
+    $this->updateAnswer($option, 278, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_1_2");
+    $this->updateAnswer($option, 279, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_1_3");
+    $this->updateAnswer($option, 280, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_1_4");
+    $this->updateAnswer($option, 281, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_2_1");
+    $this->updateAnswer($option, 282, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_2_2");
+    $this->updateAnswer($option, 283, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_2_3");
+    $this->updateAnswer($option, 284, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_2_4");
+    $this->updateAnswer($option, 285, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_3_1");
+    $this->updateAnswer($option, 286, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_3_2");
+    $this->updateAnswer($option, 287, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_3_3");
+    $this->updateAnswer($option, 288, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_3_4");
+    $this->updateAnswer($option, 289, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_4_1");
+    $this->updateAnswer($option, 290, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_4_2");
+    $this->updateAnswer($option, 291, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_4_3");
+    $this->updateAnswer($option, 292, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_4_4");
+    $this->updateAnswer($option, 293, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_5_1");
+    $this->updateAnswer($option, 294, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_5_2");
+    $this->updateAnswer($option, 295, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_5_3");
+    $this->updateAnswer($option, 296, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_5_5_4");
+    $this->updateAnswer($option, 297, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_1_1");
+    $this->updateAnswer($option, 298, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_1_2");
+    $this->updateAnswer($option, 299, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_1_3");
+    $this->updateAnswer($option, 300, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_1_4");
+    $this->updateAnswer($option, 301, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_2_1");
+    $this->updateAnswer($option, 302, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_2_2");
+    $this->updateAnswer($option, 303, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_2_3");
+    $this->updateAnswer($option, 304, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_2_4");
+    $this->updateAnswer($option, 305, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_3_1");
+    $this->updateAnswer($option, 306, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_3_2");
+    $this->updateAnswer($option, 307, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_3_3");
+    $this->updateAnswer($option, 308, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_3_4");
+    $this->updateAnswer($option, 309, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_4_1");
+    $this->updateAnswer($option, 310, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_4_2");
+    $this->updateAnswer($option, 311, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_4_3");
+    $this->updateAnswer($option, 312, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_4_4");
+    $this->updateAnswer($option, 313, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_5_1");
+    $this->updateAnswer($option, 314, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_5_2");
+    $this->updateAnswer($option, 315, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_5_3");
+    $this->updateAnswer($option, 316, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_6_5_4");
+    $this->updateAnswer($option, 317, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_7");
+    $this->updateAnswer($option, 318, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_8");
+    $this->updateAnswer($option, 319, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_9");
+    $this->updateAnswer($option, 320, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_10");
+    $this->updateAnswer($option, 321, $answer, $user->officeid,  $this->discovery_surveyid);
+    $answer = $this->request->getPost("no7_11");
+    $this->updateAnswer($option, 322, $answer, $user->officeid,  $this->discovery_surveyid);
+}
+else {
+  $no7_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>234,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_1 = $no7_1;
+  $no7_2_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>235,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_2_1 = $no7_2_1;
+  $no7_2_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>236,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_2_2 = $no7_2_2;
+  $no7_2_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>237,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_2_3 = $no7_2_3;
+  $no7_3_1_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>238,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_1_1 = $no7_3_1_1;
+  $no7_3_1_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>239,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_1_2 = $no7_3_1_2;
+  $no7_3_1_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>240,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_1_3 = $no7_3_1_3;
+  $no7_3_1_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>241,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_1_4 = $no7_3_1_4;
+  $no7_3_2_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>242,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_2_1 = $no7_3_2_1;
+  $no7_3_2_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>243,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_2_2 = $no7_3_2_2;
+  $no7_3_2_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>244,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_2_3 = $no7_3_2_3;
+  $no7_3_2_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>245,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_2_4 = $no7_3_2_4;
+  $no7_3_3_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>246,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_3_1 = $no7_3_3_1;
+  $no7_3_3_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>247,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_3_2 = $no7_3_3_2;
+  $no7_3_3_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>248,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_3_3 = $no7_3_3_3;
+  $no7_3_3_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>249,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_3_4 = $no7_3_3_4;
+  $no7_3_4_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>250,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_4_1 = $no7_3_4_1;
+  $no7_3_4_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>251,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_4_2 = $no7_3_4_2;
+  $no7_3_4_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>252,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_4_3 = $no7_3_4_3;
+  $no7_3_4_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>253,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_4_4 = $no7_3_4_4;
+  $no7_3_5_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>254,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_5_1 = $no7_3_5_1;
+  $no7_3_5_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>255,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_5_2 = $no7_3_5_2;
+  $no7_3_5_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>256,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_5_3 = $no7_3_5_3;
+  $no7_3_5_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>257,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_3_5_4 = $no7_3_5_4;
+  $no7_4_1_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>258,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_1_1 = $no7_4_1_1;
+  $no7_4_1_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>259,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_1_2 = $no7_4_1_2;
+  $no7_4_1_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>260,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_1_3 = $no7_4_1_3;
+  $no7_4_1_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>261,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_1_4 = $no7_4_1_4;
+  $no7_4_2_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>262,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_2_1 = $no7_4_2_1;
+  $no7_4_2_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>263,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_2_2 = $no7_4_2_2;
+  $no7_4_2_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>264,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_2_3 = $no7_4_2_3;
+  $no7_4_2_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>265,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_2_4 = $no7_4_2_4;
+  $no7_4_3_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>266,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_3_1 = $no7_4_3_1;
+  $no7_4_3_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>267,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_3_2 = $no7_4_3_2;
+  $no7_4_3_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>268,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_3_3 = $no7_4_3_3;
+  $no7_4_3_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>269,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_3_4 = $no7_4_3_4;
+  $no7_4_4_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>270,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_4_1 = $no7_4_4_1;
+  $no7_4_4_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>271,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_4_2 = $no7_4_4_2;
+  $no7_4_4_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>272,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_4_3 = $no7_4_4_3;
+  $no7_4_4_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>273,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_4_4 = $no7_4_4_4;
+  $no7_4_5_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>274,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_5_1 = $no7_4_5_1;
+  $no7_4_5_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>275,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_5_2 = $no7_4_5_2;
+  $no7_4_5_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>276,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_5_3 = $no7_4_5_3;
+  $no7_4_5_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>277,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_4_5_4 = $no7_4_5_4;
+  $no7_5_1_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>278,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_1_1 = $no7_5_1_1;
+  $no7_5_1_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>279,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_1_2 = $no7_5_1_2;
+  $no7_5_1_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>280,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_1_3 = $no7_5_1_3;
+  $no7_5_1_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>281,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_1_4 = $no7_5_1_4;
+  $no7_5_2_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>282,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_2_1 = $no7_5_2_1;
+  $no7_5_2_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>283,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_2_2 = $no7_5_2_2;
+  $no7_5_2_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>284,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_2_3 = $no7_5_2_3;
+  $no7_5_2_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>285,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_2_4 = $no7_5_2_4;
+  $no7_5_3_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>286,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_3_1 = $no7_5_3_1;
+  $no7_5_3_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>287,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_3_2 = $no7_5_3_2;
+  $no7_5_3_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>288,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_3_3 = $no7_5_3_3;
+  $no7_5_3_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>289,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_3_4 = $no7_5_3_4;
+  $no7_5_4_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>290,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_4_1 = $no7_5_4_1;
+  $no7_5_4_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>291,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_4_2 = $no7_5_4_2;
+  $no7_5_4_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>292,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_4_3 = $no7_5_4_3;
+  $no7_5_4_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>293,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_4_4 = $no7_5_4_4;
+  $no7_5_5_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>294,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_5_1 = $no7_5_5_1;
+  $no7_5_5_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>295,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_5_2 = $no7_5_5_2;
+  $no7_5_5_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>296,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_5_3 = $no7_5_5_3;
+  $no7_5_5_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>297,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_5_5_4 = $no7_5_5_4;
+  $no7_6_1_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>298,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_1_1 = $no7_6_1_1;
+  $no7_6_1_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>299,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_1_2 = $no7_6_1_2;
+  $no7_6_1_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>300,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_1_3 = $no7_6_1_3;
+  $no7_6_1_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>301,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_1_4 = $no7_6_1_4;
+  $no7_6_2_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>302,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_2_1 = $no7_6_2_1;
+  $no7_6_2_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>303,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_2_2 = $no7_6_2_2;
+  $no7_6_2_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>304,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_2_3 = $no7_6_2_3;
+  $no7_6_2_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>305,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_2_4 = $no7_6_2_4;
+  $no7_6_3_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>306,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_3_1 = $no7_6_3_1;
+  $no7_6_3_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>307,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_3_2 = $no7_6_3_2;
+  $no7_6_3_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>308,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_3_3 = $no7_6_3_3;
+  $no7_6_3_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>309,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_3_4 = $no7_6_3_4;
+  $no7_6_4_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>310,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_4_1 = $no7_6_4_1;
+  $no7_6_4_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>311,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_4_2 = $no7_6_4_2;
+  $no7_6_4_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>312,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_4_3 = $no7_6_4_3;
+  $no7_6_4_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>313,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_4_4 = $no7_6_4_4;
+  $no7_6_5_1 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>314,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_5_1 = $no7_6_5_1;
+  $no7_6_5_2 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>315,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_5_2 = $no7_6_5_2;
+  $no7_6_5_3 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>316,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_5_3 = $no7_6_5_3;
+  $no7_6_5_4 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>317,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_6_5_4 = $no7_6_5_4;
+  $no7_7 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>318,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_7 = $no7_7;
+  $no7_8 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>319,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_8 = $no7_8;
+  $no7_9 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>320,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_9 = $no7_9;
+  $no7_10 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>321,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_10 = $no7_10;
+  $no7_11 = Answer::findFirst(
+                  array("questionid=?1 and discovery_surveyid=?2",
+                      "bind"=>array(
+                          1=>322,
+                          2=>$this->surveyid)))->answer;
+  $this->view->no7_11 = $no7_11;
+}
     }
     public function no8Action()
     {
