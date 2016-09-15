@@ -27,6 +27,7 @@
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
+              <li><a href="{{ url.get() }}clinic-admin/exportword/printformno3" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <ul class="dropdown-menu" role="menu">
@@ -56,7 +57,7 @@
     <li>
       <a href="#step-2">
         <span class="step_no">3.3</span>
-        <span class="step_descr">สถานประกอบเทศพาณิชย์ ์<br />
+        <span class="step_descr">สถานประกอบเทศพาณิชย์<br />
         </span>
       </a>
     </li>

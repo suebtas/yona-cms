@@ -68,12 +68,14 @@ return [
         'clinic/index'   => '*',
         'clinic/form'   => '*',
         'clinic/review' => '*',
+        'clinic-admin/exportword'   => '*',
     ],
     'cc-approver'      => [
         'admin/index'   => '*',
         'clinic/index'   => '*',
         'clinic/form'   => '*',
         'clinic/review' => '*',
+        'clinic-admin/exportword'   => '*',
     ],
     'cc-admin'      => [
         'admin/index'   => '*',

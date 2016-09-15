@@ -702,6 +702,29 @@ $('#no2_5_7').editable({
   });
 });
 
+$("#btnFinish").on('click', function(){
+  $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+  $.ajax({
+      url : "/clinic/form/no1",
+      type: "POST",
+      data : {
+        no1_finish: 'finish',
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+          //data - response from server
+          $("#btnFinishStatus").removeClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+          $("#btnFinishStatus").addClass("glyphicon glyphicon-ok green");
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+   
+      },
+
+  });
+});
+  
 function Cal1(){
   var id1 = $('#no2_1_2_1').text();
   if(id1==''||id1=='Empty')
@@ -715,7 +738,6 @@ function Cal1(){
   var id4 = $('#no2_1_5_1').text();
   if(id4==''||id4=='Empty')
     id4=0;
-<<<<<<< HEAD
 
   if(!id1) id1="0";
   if(!id2) id2="0";
@@ -727,10 +749,6 @@ function Cal1(){
   var reic4 = id4.replace(/,/g,"");
   var sumall = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
   var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-=======
-  var sumall = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
-  sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
->>>>>>> origin/clinic-center
   $('#no2_1_1').html(sumall);
 
   $.ajax({
