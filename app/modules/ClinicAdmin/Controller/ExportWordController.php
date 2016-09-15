@@ -890,6 +890,296 @@ class ExportWordController extends Controller
 		
     }
 
+    public function PrintFormNo5Action()
+    {
+    	$surveyid = $this->session->get('surveyid');
+    	$discovery_surveyid = $this->session->get('discovery_surveyid');
+    	//echo $surveyid."--".$discovery_surveyid;
+
+    	$year = Survey::findFirst("id = {$surveyid}")->no;
+
+		$no5_1_1_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>188,
+                                2=>$surveyid)))->answer;
+
+        $no5_1_1_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>189,
+                                2=>$surveyid)))->answer;
+
+        $no5_1_2_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>190,
+                                2=>$surveyid)))->answer;
+
+        $no5_1_2_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>191,
+                                2=>$surveyid)))->answer;
+
+        $no5_1_3_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>192,
+                                2=>$surveyid)))->answer;
+
+        $no5_1_3_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>193,
+                                2=>$surveyid)))->answer;
+
+        $no5_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>194,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>195,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>196,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>197,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>198,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_5 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>199,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_6 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>200,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_7 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>201,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_8 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>202,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_9 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>203,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_10_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>204,
+                                2=>$surveyid)))->answer;
+
+        $no5_3_10_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>205,
+                                2=>$surveyid)))->answer;
+//no5_4
+        $no5_4_1_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>206,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_1_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>207,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_1_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>208,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_2_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>209,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_2_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>210,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_2_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>211,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_3_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>212,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_3_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>213,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_3_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>214,
+                                2=>$surveyid)))->answer;
+
+        $no5_4_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>215,
+                                2=>$surveyid)))->answer;
+//no5_5
+        $no5_5_1_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>216,
+                                2=>$surveyid)))->answer;
+
+        $no5_5_1_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>217,
+                                2=>$surveyid)))->answer;
+
+        $no5_5_2_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>218,
+                                2=>$surveyid)))->answer;
+
+        $no5_5_2_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>219,
+                                2=>$surveyid)))->answer;
+//no5_6
+        $no5_6_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>220,
+                                2=>$surveyid)))->answer;
+
+        $no5_6_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>221,
+                                2=>$surveyid)))->answer;
+
+        $no5_6_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>222,
+                                2=>$surveyid)))->answer;
+
+        $no5_6_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>223,
+                                2=>$surveyid)))->answer;
+
+        $no5_6_5 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>224,
+                                2=>$surveyid)))->answer;
+    	
+    	//die();
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        
+		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo5.docx');
+		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo5.docx');
+		//var_dump(($document));die();
+		date_default_timezone_set('Asia/Bangkok');
+
+		$document->setValue('{year}', $year);
+		$document->setValue('{no5_1_1_1}', $no5_1_1_1);
+		$document->setValue('{no5_1_1_2}', $no5_1_1_2);
+		$document->setValue('{no5_1_2_1}', $no5_1_2_1);
+		$document->setValue('{no5_1_2_2}', $no5_1_2_2);
+		$document->setValue('{no5_1_3_1}', $no5_1_3_1);
+		$document->setValue('{no5_1_3_2}', $no5_1_3_2);
+
+		$document->setValue('{no5_2}', $no5_2);
+
+		$document->setValue('{no5_3_1}', $no5_3_1);
+		$document->setValue('{no5_3_2}', $no5_3_2);
+		$document->setValue('{no5_3_3}', $no5_3_3);
+		$document->setValue('{no5_3_4}', $no5_3_4);
+		$document->setValue('{no5_3_5}', $no5_3_5);
+		$document->setValue('{no5_3_6}', $no5_3_6);
+		$document->setValue('{no5_3_7}', $no5_3_7);
+		$document->setValue('{no5_3_8}', $no5_3_8);
+		$document->setValue('{no5_3_9}', $no5_3_9);
+		$document->setValue('{no5_3_10_1}', $no5_3_10_1);
+		$document->setValue('{no5_3_10_2}', $no5_3_10_2);
+
+		$document->setValue('{no5_4_1_1}', $no5_4_1_1);
+		$document->setValue('{no5_4_1_2}', $no5_4_1_2);
+		$document->setValue('{no5_4_1_3}', $no5_4_1_3);
+		$document->setValue('{no5_4_2_1}', $no5_4_2_1);
+		$document->setValue('{no5_4_2_2}', $no5_4_2_2);
+		$document->setValue('{no5_4_2_3}', $no5_4_2_3);
+		$document->setValue('{no5_4_3_1}', $no5_4_3_1);
+		$document->setValue('{no5_4_3_2}', $no5_4_3_2);
+		$document->setValue('{no5_4_3_3}', $no5_4_3_3);
+		$document->setValue('{no5_4_4}', $no5_4_4);
+
+		$document->setValue('{no5_5_1_1}', $no5_5_1_1);
+		$document->setValue('{no5_5_1_2}', $no5_5_1_2);
+		$document->setValue('{no5_5_2_1}', $no5_5_2_1);
+		$document->setValue('{no5_5_2_2}', $no5_5_2_2);
+
+		$document->setValue('{no5_6_1}', $no5_6_1);
+		$document->setValue('{no5_6_2}', $no5_6_2);
+		$document->setValue('{no5_6_3}', $no5_6_3);
+		$document->setValue('{no5_6_4}', $no5_6_4);
+		$document->setValue('{no5_6_5}', $no5_6_5);
+
+		$tmp_file = 'FormNoTMP.docx';
+		$result = $document->saveAs($tmp_file);   
+		//die($result);
+	 	$this->converttowordtemplate('FormNo5_',$tmp_file);
+
+		//die();
+    }
+
     public function PrintFormNo6Action()
     {
     	$surveyid = $this->session->get('surveyid');
