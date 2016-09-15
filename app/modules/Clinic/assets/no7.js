@@ -1,3 +1,7 @@
+function jump(str){
+  array = str.split("_");
+  $('#wizard').smartWizard('goToStep',array[1]);
+}
 $.fn.editable.defaults.mode = 'inline';
 //step 1 7.1
 $('#no7_1').editable({

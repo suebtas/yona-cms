@@ -309,17 +309,18 @@
                               <ul class="list-unstyled timeline">
 
                             {% for comment in comments %}
-                                <li  style="padding-left:10px;">
+                                <li style="padding-left:10px;">
                                   <div class="block">
-                                    <div class="tags" style="width:auto !important">
+                                    <div class="tags" style="width:auto !important">                                    
                                       <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
-                                        <span>{{ comment.Session.label }} {{ comment.Session.name }}</span>
+                                        <span>คำแนะนำ {{ comment.Session.label }}</span>
                                       </a>
+                                      {%if comment.status==2%}<span class="label label-success" ><i class="fa fa-check"></i></span>{%endif%}
                                     </div>
                                     <div class="block_content">
                                       <h2 class="title">
-                                                      <a>คำแนะนำ</a>
-                                                  </h2>
+                                          <a>{{ comment.Session.label }} {{ comment.Session.name }}</a>
+                                      </h2>
                                       <div class="byline">
                                         <span>{{ comment.date}}</span> by <a>{{ comment.AdminUser.name }}</a>
                                       </div>
