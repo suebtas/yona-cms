@@ -85,8 +85,8 @@ class AdminUser extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Approval', 'admin_userid', array('alias' => 'Approval'));
-        $this->hasMany('id', 'Comment', 'admin_userid', array('alias' => 'Comment'));
+        $this->hasMany('id', 'Clinic\Model\Approval', 'admin_userid', array('alias' => 'Approval'));
+        $this->hasMany('id', 'Clinic\Model\Comment', 'admin_userid', array('alias' => 'Comment'));
         $this->belongsTo('officeid', 'Office', 'id', array('alias' => 'Office'));
     }
 

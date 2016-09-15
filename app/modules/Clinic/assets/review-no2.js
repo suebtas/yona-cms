@@ -24,16 +24,15 @@ $('#no1_2_11').editable('option', 'disabled', true);
 $('#no1_2_12').editable('option', 'disabled', true);
 $('#no1_2_13').editable('option', 'disabled', true);
 
-$(document).ready(function() {
 
-    $.fn.editable.defaults.mode = 'inline';
+$(document).ready(function() {
 
     $('#note_session_1').editable({
         showbuttons : 'bottom'       
         //showbuttons : (App.isRTL() ? 'left' : 'right')
     }).on('save', function(e, params) {
         $.ajax({
-            url : "/clinic/review/no1",
+            url : "/clinic/review/no2",
             type: "POST",
             data : {
               session_1:params.newValue,
@@ -62,7 +61,7 @@ $(document).ready(function() {
         //showbuttons : (App.isRTL() ? 'left' : 'right')
     }).on('save', function(e, params) {
         $.ajax({
-            url : "/clinic/review/no1",
+            url : "/clinic/review/no2",
             type: "POST",
             data : {
               session_2:params.newValue,
@@ -79,9 +78,71 @@ $(document).ready(function() {
         });
     });
 
+    $('#pencil_session_2').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note_session_2').editable('toggle');
+    });
+
+
+    $('#note_session_3').editable({
+        showbuttons : 'bottom'       
+        //showbuttons : (App.isRTL() ? 'left' : 'right')
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/review/no2",
+            type: "POST",
+            data : {
+              session_3:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+
+    $('#pencil_session_3').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note_session_3').editable('toggle');
+    });
+
+    $('#note_session_4').editable({
+        showbuttons : 'bottom'       
+        //showbuttons : (App.isRTL() ? 'left' : 'right')
+    }).on('save', function(e, params) {
+        $.ajax({
+            url : "/clinic/review/no2",
+            type: "POST",
+            data : {
+              session_4:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+    });
+
+    $('#pencil_session_4').click(function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('#note_session_4').editable('toggle');
+    });
     $("#approval").click(function () {
       $.ajax({
-            url : "/clinic/review/no1",
+            url : "/clinic/review/no2",
             type: "POST",
             data : {
               group_session_1:$('input:radio[name=approve]:checked').val(),
@@ -96,10 +157,5 @@ $(document).ready(function() {
          
             }
         });
-    });
-    $('#pencil_session_2').click(function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        $('#note_session_2').editable('toggle');
     });
 });

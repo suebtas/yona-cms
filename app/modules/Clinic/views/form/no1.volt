@@ -244,6 +244,7 @@
 
                         {% block review %}
                         {% endblock %}
+                            {% if(user.role =='cc-user') %}
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <div class="x_panel">
                             <div class="x_title">
@@ -265,21 +266,24 @@
                               </ul>
                               <div class="clearfix"></div>
                             </div>
+
                             <div class="x_content">
 
                                 <div class="form-group">
                                   <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="text-center">
-                                      <a id="btnFinish" class="btn btn-app">
-                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok"></i> เสร็จสิ้นการสำรวจข้อมูล
+                                      <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
+                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
                                       </a> 
                                     </div>
                                   </div>
                                 </div> 
                             </div>
+
                           </div>
                         </div>
-                                                
+                            {% endif %}
+                                             
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <div class="x_panel">
                             <div class="x_title">
@@ -364,25 +368,16 @@
         <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
         <!-- jQuery Smart Wizard -->
         <script>
-          var keyNavigation = true;
           $(document).ready(function() {
             $('#wizard').smartWizard({
               keyNavigation : false,
-              onLeaveStep: onLeaveStep,
               transitionEffect: 'slide'
             });
 
-            $('#wizard_verticle').smartWizard({
-              transitionEffect: 'slide'
-            });
 
             $('.buttonNext').addClass('btn btn-success');
             $('.buttonPrevious').addClass('btn btn-primary');
             $('.buttonFinish').addClass('btn btn-default');
-            function onLeaveStep(){
-                if(keyNavigation)
-                  return true;
-            } 
           });
         </script>
         <!-- /jQuery Smart Wizard -->

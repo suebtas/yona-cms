@@ -25,6 +25,7 @@ class FormController extends Controller
         $this->view->languages_disabled = true;
         $this->surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
+        $this->discoverySurvey = DiscoverySurvey::findFirst($this->discovery_surveyid);
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
             ->addFilter(new \Application\Assets\Filter\Less())
@@ -48,8 +49,10 @@ class FormController extends Controller
         $this->user = AdminUser::findFirst($auth->id);
         if($this->user->role=='cc-admin')
             return $this->redirect($this->url->get() . 'clinic/review/no1');
+        //กำหนดค่าใน view
         $this->view->user = $this->user;
-        $this->view->office =  Office::findFirst($this->user->officeid);
+        $this->view->office =  Office::findFirst($this->user->officeid);        
+        $this->view->status = $this->discoverySurvey->status;
     }
 
     public function updateAnswer($option,$questionid, $answer, $officeid, $discovery_surveyid){
@@ -85,6 +88,8 @@ class FormController extends Controller
     }
     public function no1Action()
     {
+        if(in_array($this->user->role, ['cc-admin','cc-approver']))
+            return $this->redirect($this->url->get() . 'clinic/review/no1');
         // no1 JS Assets
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
@@ -242,6 +247,7 @@ class FormController extends Controller
 
             $form->setEntity($obj);
             $this->view->form = $form;
+            $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 1 and 2","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
 
         }elseif ($this->request->isPost()) {
             $this->view->disable();
@@ -416,11 +422,12 @@ class FormController extends Controller
             }
 
         }
-        $this->view->comments = Comment::find(array("discovery_surveyid=?0","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+
     }
     public function no2Action()
     {
-
+        if(in_array($this->user->role, ['cc-admin','cc-approver']))
+            return $this->redirect($this->url->get() . 'clinic/review/no2');
         // no2 JS Assets
         $this->assets->collection('modules-clinic-no2-js')
             ->setLocal(true)
@@ -699,6 +706,8 @@ class FormController extends Controller
                                       1=>56,
                                       2=>$this->surveyid)))->answer;
               $this->view->no2_5_8 = $no2_5_8;
+              
+              $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 3 and 5","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
             }
 
     }

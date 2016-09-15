@@ -74,10 +74,20 @@
                             </span>
                           </a>
                         </li>
+                        <li>
+                          <a href="#step-5">
+                            <span class="step_no">สรุป</span>
+                            <span class="step_descr">
+                                ยืนยันข้อมูล<br />
+                            </span>
+                          </a>
+                        </li>
                       </ul>
 
 
   <div id="step-1">
+    {% block comment_tab1 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
@@ -130,6 +140,8 @@
     </form>
   </div>
   <div id="step-2">
+    {% block comment_tab2 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
       <table class="table table-striped table-bordered" style="clear: both">
@@ -244,6 +256,8 @@
   </div>
 
   <div id="step-3">
+    {% block comment_tab3 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
 
       <div class="form-group">
@@ -299,6 +313,8 @@
 
 
   <div id="step-4">
+    {% block comment_tab4 %}
+    {% endblock %}   
 
     <form class="form-horizontal form-label-left">
 
@@ -392,11 +408,106 @@
               <b>ไร่</b>
           </td>
         </tfoot>
-
-      </table>
-    </form>
+        </table>
       </div>
-</div>
+    </form>
+  </div>
+  <div id="step-5">
+
+    {% block review %}
+    {% endblock %}
+        {% if(user.role =='cc-user') %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>ยืนยันข้อมูล <small>ยื่นพิจารณา</small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Settings 1</a>
+                </li>
+                <li><a href="#">Settings 2</a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="x_content">
+
+            <div class="form-group">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="text-center">
+                  <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
+                    <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
+                  </a> 
+                </div>
+              </div>
+            </div> 
+        </div>
+
+      </div>
+    </div>
+        {% endif %}
+                         
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="x_panel">
+        <div class="x_title">
+          <h2>ข้อมูลสรุป <small>ผลการพิจารณา</small></h2>
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Settings 1</a>
+                </li>
+                <li><a href="#">Settings 2</a>
+                </li>
+              </ul>
+            </li>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+          <ul class="list-unstyled timeline">
+
+        {% for comment in comments %}
+            <li  style="padding-left:10px;">
+              <div class="block">
+                <div class="tags" style="width:auto !important">
+                  <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
+                    <span>{{ comment.Session.label }} {{ comment.Session.name }}</span>
+                  </a>
+                </div>
+                <div class="block_content">
+                  <h2 class="title">
+                                  <a>คำแนะนำ</a>
+                              </h2>
+                  <div class="byline">
+                    <span>{{ comment.date}}</span> by <a>{{ comment.AdminUser.name }}</a>
+                  </div>
+                  <pre class="excerpt">{{ comment.description }}
+                  </pre>
+                </div>
+              </div>
+            </li>        
+        {% endfor %}
+          </ul>
+
+        </div>
+      </div>
+    </div>                        
+    
+  </div>
 </div>
 <!-- End SmartWizard Content -->
 
@@ -431,10 +542,12 @@
                     <script>
                       $(document).ready(function() {
                         $('#wizard').smartWizard({
+                          keyNavigation : false,
                           transitionEffect: 'slide'
                         });
 
                         $('#wizard_verticle').smartWizard({
+                          keyNavigation : false,
                           transitionEffect: 'slide'
                         });
 
@@ -477,3 +590,6 @@
                     <!-- /jQuery Smart Wizard -->
 
                     {{ assets.outputJs('modules-clinic-no2-js') }}
+
+    {% block script %}
+    {% endblock %}

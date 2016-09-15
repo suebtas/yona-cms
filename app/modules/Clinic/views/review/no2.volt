@@ -1,6 +1,6 @@
-{# app/modules/Clinic/views/review/no1.volt #}
+{# app/modules/Clinic/views/review/no2.volt #}
 
-{% extends "form/no1.volt" %}
+{% extends "form/no2.volt" %}
 
 {% block review %}
 
@@ -48,6 +48,7 @@
         </button>
         <div id="note_session_1" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_1}}</div>
     </div>
+
 		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
@@ -57,19 +58,49 @@
 {% endblock%}
 {% block comment_tab2 %}
 		<div class="ln_solid"></div>
-		<div class="alert alert-warning alert-dismissible fade in" role="alert">
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
         </button>
         <div id="note_session_2" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_2}}</div>
     </div>
 
-                  
 		<a href="#" id="pencil_session_2"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
 
 		<br />
 		<div class="ln_solid"></div>
+{% endblock %}
+{% block comment_tab3 %}
+    <div class="ln_solid"></div>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        <div id="note_session_3" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_3}}</div>
+    </div>
+
+    <a href="#" id="pencil_session_3"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+    <span class="text-muted"> <br>
+     ตรวจสอบข้อมูล</span>
+
+    <br />
+    <div class="ln_solid"></div>
+{% endblock %}
+
+{% block comment_tab4 %}
+    <div class="ln_solid"></div>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        <div id="note_session_4" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_4}}</div>
+    </div>
+
+    <a href="#" id="pencil_session_4"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+    <span class="text-muted"> <br>
+     ตรวจสอบข้อมูล</span>
+
+    <br />
+    <div class="ln_solid"></div>
 {% endblock %}
 
 {% block script %}

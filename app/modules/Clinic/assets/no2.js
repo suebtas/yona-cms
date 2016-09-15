@@ -1,3 +1,7 @@
+function jump(str){
+  array = str.split("_");
+  $('#wizard').smartWizard('goToStep',array[1]);
+}
 $.fn.editable.defaults.mode = 'inline';
 //step 1 2.1
 $('#no2_1_2_1').editable({
@@ -744,10 +748,15 @@ function Cal1(){
   var id4 = $('#no2_1_5_1').text();
   if(id4==''||id4=='Empty')
     id4=0;
-    var reic1 = id1.replace(/,/g,"");
-    var reic2 = id2.replace(/,/g,"");
-    var reic3 = id3.replace(/,/g,"");
-    var reic4 = id4.replace(/,/g,"");
+
+  if(!id1) id1="0";
+  if(!id2) id2="0";
+  if(!id3) id3="0";
+  if(!id4) id4="0";
+  var reic1 = id1.replace(/,/g,"");
+  var reic2 = id2.replace(/,/g,"");
+  var reic3 = id3.replace(/,/g,"");
+  var reic4 = id4.replace(/,/g,"");
   var sumall = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
   var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_1_1').html(sumall);
@@ -791,15 +800,24 @@ function Cal2(){
   if(i6==''||i6=='Empty')
     i6=0;
   var i7 = $('#no2_5_7').text();
+
   if(i7==''||i7=='Empty')
     i7=0;
-    var rei1 = i1.replace(/,/g,"");
-    var rei2 = i2.replace(/,/g,"");
-    var rei3 = i3.replace(/,/g,"");
-    var rei4 = i4.replace(/,/g,"");
-    var rei5 = i5.replace(/,/g,"");
-    var rei6 = i6.replace(/,/g,"");
-    var rei7 = i7.replace(/,/g,"");
+  
+  if(!i1) i1="0";
+  if(!i2) i2="0";
+  if(!i3) i3="0";
+  if(!i4) i4="0";
+  if(!i5) i5="0";
+  if(!i6) i6="0";
+  if(!i7) i7="0";
+  var rei1 = i1.replace(/,/g,"");
+  var rei2 = i2.replace(/,/g,"");
+  var rei3 = i3.replace(/,/g,"");
+  var rei4 = i4.replace(/,/g,"");
+  var rei5 = i5.replace(/,/g,"");
+  var rei6 = i6.replace(/,/g,"");
+  var rei7 = i7.replace(/,/g,"");
   var sums = parseFloat(rei1) + parseFloat(rei2) + parseFloat(rei3) + parseFloat(rei4) +parseFloat(rei5) + parseFloat(rei6) + parseFloat(rei7);
   var sums = sums.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_5_8').html(sums);

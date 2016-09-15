@@ -87,6 +87,14 @@
                     </span>
                   </a>
                 </li>
+                <li>
+                  <a href="#step-7">
+                    <span class="step_no">สรุป</span>
+                    <span class="step_descr">
+                        ยืนยันข้อมูล<br />
+                    </span>
+                  </a>
+                </li>
               </ul>
 
               <div id="step-1">
@@ -843,10 +851,12 @@
   <script>
     $(document).ready(function() {
       $('#wizard').smartWizard({
+        keyNavigation : false,
         transitionEffect: 'slide'
       });
 
       $('#wizard_verticle').smartWizard({
+        keyNavigation : false,
         transitionEffect: 'slide'
       });
 

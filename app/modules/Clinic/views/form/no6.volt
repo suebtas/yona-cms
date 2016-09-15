@@ -56,6 +56,14 @@
                     </span>
                   </a>
                 </li>
+                <li>
+                  <a href="#step-2">
+                    <span class="step_no">สรุป</span>
+                    <span class="step_descr">
+                        ยืนยันข้อมูล<br />
+                    </span>
+                  </a>
+                </li>
                 
               </ul>
 
@@ -156,6 +164,7 @@
   <script>
     $(document).ready(function() {
       $('#wizard').smartWizard({
+        keyNavigation : false,
         transitionEffect: 'slide'
       });
 
