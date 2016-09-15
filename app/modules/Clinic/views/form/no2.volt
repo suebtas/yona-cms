@@ -445,32 +445,6 @@
                       function startUp() {
                           $("#st2").width("60px");
                           $("div").removeClass("stepContainer");
-
-                          var r1 = $('#r1').text();
-                          var r2 = $('#r2').text();
-                          var r3 = $('#r3').text();
-                          var r4 = $('#r4').text();
-                          var sumr = parseFloat(r1) + parseFloat(r2) + parseFloat(r3) + parseFloat(r4);
-                          $('#sumroad').html(sumr);
-
-                          var p1 = $('#p1').text();
-                          var p2 = $('#p2').text();
-                          var p3 = $('#p3').text();
-                          var p4 = $('#p4').text();
-                          var p5 = $('#p5').text();
-                          var p6 = $('#p6').text();
-                          var p7 = $('#p7').text();
-                           var rep1 = p1.replace(/,/g,"");
-                           var rep2 = p2.replace(/,/g,"");
-                           var rep3 = p3.replace(/,/g,"");
-                           var rep4 = p4.replace(/,/g,"");
-                           var rep5 = p5.replace(/,/g,"");
-                           var rep6 = p6.replace(/,/g,"");
-                           var rep7 = p7.replace(/,/g,"");
-                          var sumpn = parseFloat(rep1) + parseFloat(rep2) + parseFloat(rep3) + parseFloat(rep4) + parseFloat(rep5) + parseFloat(rep6) + parseFloat(rep7);
-
-                          var sump = sumpn.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-                          $('#sumrai').html(sump);
                         }
                         startUp();
                     </script>
