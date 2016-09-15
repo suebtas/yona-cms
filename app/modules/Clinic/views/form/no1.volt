@@ -73,7 +73,7 @@
 
                       <div id="step-1">
                         {% block comment_tab1 %}
-                        {% endblock %}             
+                        {% endblock %}
                         <form class="form-horizontal form-label-left">
 
                           <div class="form-group">
@@ -111,7 +111,7 @@
                            <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">อาณาเขตทางทิศใต้ ติดต่อกับ</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              
+
                              {{ form.render('no1_1_3_2') }}
                             </div>
                           </div>
@@ -137,7 +137,7 @@
                       <div id="step-2">
 
                         {% block comment_tab2 %}
-                        {% endblock %}                      
+                        {% endblock %}
                         <form class="form-horizontal form-label-left">
 
                           <table id="user" class="table table-bordered table-striped" style="clear: both">
@@ -202,7 +202,7 @@
                                     <td width="40%">ความหนาแน่นของประชากร </td>
                                     <td width="10%"><a href="#" id="no1_2_9_1" data-type="text" data-pk="1" data-title="Enter username">48.00</a> คน/ตร.กม.</td>
                                     <td width="50%"><a href="#" id="no1_2_9_1" data-type="text" data-pk="1" data-title="Enter username"></a> </td>
-                                </tr>                               
+                                </tr>
                             </tbody>
                           </table>
 
@@ -224,7 +224,7 @@
                                 <tr>
                                     <td width="40%">ประชากรที่ประกอบอาชีพอื่นจำนวน  </td>
                                     <td width="60%"><a href="#" id="no1_2_12" data-type="text" data-pk="1" data-title="Enter username">500</a> คน</td>
-                                </tr>                               
+                                </tr>
                             </tbody>
                           </table>
 
@@ -235,7 +235,7 @@
                                 <tr>
                                     <td width="40%">สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน</td>
                                     <td width="60%"><a href="#" id="no1_2_13" data-type="text" data-pk="1" data-title="Enter username">2</a> แห่ง</td>
-                                </tr>                            
+                                </tr>
                             </tbody>
                           </table>
                         </form>
@@ -272,14 +272,14 @@
                                     <div class="text-center">
                                       <a id="btnFinish" class="btn btn-app">
                                         <i id="btnFinishStatus" class="glyphicon glyphicon-ok"></i> เสร็จสิ้นการสำรวจข้อมูล
-                                      </a> 
+                                      </a>
                                     </div>
                                   </div>
-                                </div> 
+                                </div>
                             </div>
                           </div>
                         </div>
-                                                
+
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <div class="x_panel">
                             <div class="x_title">
@@ -323,18 +323,18 @@
                                       </pre>
                                     </div>
                                   </div>
-                                </li>        
+                                </li>
                             {% endfor %}
                               </ul>
 
                             </div>
                           </div>
-                        </div>                        
-                        
+                        </div>
+
                       </div>
                     </div>
                     <!-- End SmartWizard Content -->
-                    
+
                   </div>
                 </div>
               </div>
@@ -382,7 +382,7 @@
             function onLeaveStep(){
                 if(keyNavigation)
                   return true;
-            } 
+            }
           });
         </script>
         <!-- /jQuery Smart Wizard -->

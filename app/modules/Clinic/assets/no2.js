@@ -3,9 +3,6 @@ $.fn.editable.defaults.mode = 'inline';
 $('#no2_1_2_1').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -53,9 +50,6 @@ $('#no2_1_2_2').editable({
 $('#no2_1_3_1').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -102,9 +96,6 @@ $('#no2_1_3_2').editable({
 $('#no2_1_4_1').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -150,9 +141,6 @@ $('#no2_1_4_2').editable({
 $('#no2_1_5_1').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -565,9 +553,6 @@ $('#no2_4_4').editable({
 $('#no2_5_1').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -589,9 +574,6 @@ $('#no2_5_1').editable({
 $('#no2_5_2').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -613,9 +595,6 @@ $('#no2_5_2').editable({
 $('#no2_5_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -637,9 +616,6 @@ $('#no2_5_3').editable({
 $('#no2_5_4').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -661,9 +637,6 @@ $('#no2_5_4').editable({
 $('#no2_5_5').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -685,9 +658,6 @@ $('#no2_5_5').editable({
 $('#no2_5_6').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -709,9 +679,6 @@ $('#no2_5_6').editable({
 $('#no2_5_7').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
@@ -744,12 +711,8 @@ function Cal1(){
   var id4 = $('#no2_1_5_1').text();
   if(id4==''||id4=='Empty')
     id4=0;
-    var reic1 = id1.replace(/,/g,"");
-    var reic2 = id2.replace(/,/g,"");
-    var reic3 = id3.replace(/,/g,"");
-    var reic4 = id4.replace(/,/g,"");
-  var sumall = parseFloat(reic1) + parseFloat(reic2) + parseFloat(reic3) + parseFloat(reic4);
-  var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  var sumall = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
+  sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_1_1').html(sumall);
 
   $.ajax({
@@ -769,7 +732,6 @@ function Cal1(){
       }
   });
 }
-Cal1();
 
 function Cal2(){
   var i1 = $('#no2_5_1').text();
@@ -793,14 +755,7 @@ function Cal2(){
   var i7 = $('#no2_5_7').text();
   if(i7==''||i7=='Empty')
     i7=0;
-    var rei1 = i1.replace(/,/g,"");
-    var rei2 = i2.replace(/,/g,"");
-    var rei3 = i3.replace(/,/g,"");
-    var rei4 = i4.replace(/,/g,"");
-    var rei5 = i5.replace(/,/g,"");
-    var rei6 = i6.replace(/,/g,"");
-    var rei7 = i7.replace(/,/g,"");
-  var sums = parseFloat(rei1) + parseFloat(rei2) + parseFloat(rei3) + parseFloat(rei4) +parseFloat(rei5) + parseFloat(rei6) + parseFloat(rei7);
+  var sums = parseFloat(i1) + parseFloat(i2) + parseFloat(i3) + parseFloat(i4) +parseFloat(i5) + parseFloat(i6) + parseFloat(i7);
   var sums = sums.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_5_8').html(sums);
 
@@ -821,4 +776,3 @@ function Cal2(){
       }
   });
 }
-Cal2();

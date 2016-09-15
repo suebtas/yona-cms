@@ -82,7 +82,7 @@
       <div class="form-group">
         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
           <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-          <span id="no2_1_1"></span>
+          <a href="#" id="no2_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_1}}</a>
           </label>
             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">สาย</label><br><br>
         <table id="road" class="table table-striped table-bordered" style="clear: both">
