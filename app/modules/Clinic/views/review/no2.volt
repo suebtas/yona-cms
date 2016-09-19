@@ -55,7 +55,7 @@
 
 		<br />
 		<div class="ln_solid"></div>
-{% endblock%}
+{% endblock %}
 {% block comment_tab2 %}
 		<div class="ln_solid"></div>
     <div class="alert alert-warning alert-dismissible fade in" role="alert">

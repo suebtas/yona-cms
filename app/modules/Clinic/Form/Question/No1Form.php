@@ -5,6 +5,7 @@ namespace Clinic\Form\Question;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Select;
 use Clinic\Model\Office;
+use Clinic\Model\Tambon;
 use Phalcon\Validation\Validator\PresenceOf;
 
 class No1Form extends \Phalcon\Forms\Form
@@ -19,7 +20,7 @@ class No1Form extends \Phalcon\Forms\Form
         $this->add($no1_1_2);
 
         $no1_1_3_1 = new Select('no1_1_3_1', 
-            Office::find(),
+            Tambon::find(),
             array(
                 'using' => array(
                     'id',
@@ -34,7 +35,7 @@ class No1Form extends \Phalcon\Forms\Form
 
 
         $no1_1_3_2 = new Select('no1_1_3_2', 
-            Office::find(),
+            Tambon::find(),
             array(
                 'using' => array(
                     'id',
@@ -48,7 +49,7 @@ class No1Form extends \Phalcon\Forms\Form
         $this->add($no1_1_3_2);
 
         $no1_1_3_3 = new Select('no1_1_3_3', 
-            Office::find(),
+            Tambon::find(),
             array(
                 'using' => array(
                     'id',
@@ -62,7 +63,7 @@ class No1Form extends \Phalcon\Forms\Form
         $this->add($no1_1_3_3);
 
         $no1_1_3_4 = new Select('no1_1_3_4', 
-                Office::find(),
+                Tambon::find(),
                 array(
                     'using' => array(
                         'id',

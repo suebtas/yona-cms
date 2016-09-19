@@ -7,6 +7,7 @@ use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
 use Clinic\Model\BoundaryOffice;
+use Clinic\Model\BoundaryTambon;
 use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Answer;
 use Clinic\Model\Comment;
@@ -207,28 +208,28 @@ class FormController extends Controller
                                     1=>20,
                                     2=>$this->surveyid)))->answer;
             $this->view->no1_2_6_4 = $no1_2_6_4;
-            $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
+            $no1_3_1 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 1",
                             "bind" => array(
                                 1=>$user->officeid
                                 )
                             )
                         );
-            $no1_3_2 = BoundaryOffice::toArrayCloseOfficeID(
+            $no1_3_2 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 2",
                             "bind" => array(
                                 1=>$user->officeid
                                 )
                             )
                         );
-            $no1_3_3 = BoundaryOffice::toArrayCloseOfficeID(
+            $no1_3_3 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 3",
                             "bind" => array(
                                 1=>$user->officeid
                                 )
                             )
                         );
-            $no1_3_4 = BoundaryOffice::toArrayCloseOfficeID(
+            $no1_3_4 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 4",
                             "bind" => array(
                                 1=>$user->officeid
@@ -259,13 +260,13 @@ class FormController extends Controller
 
 
             $option = $this->request->getPost("option");
-            $officeID = $this->request->getPost("no1_1_3_1");
-            if($officeID){
+            $tambonID = $this->request->getPost("no1_1_3_1");
+            if($tambonID){
                 if($option=='add'){
                     echo 'add';
-                    $modelT = new BoundaryOffice();
+                    $modelT = new BoundaryTambon();
                     $modelT->owner_officeid = $user->officeid;
-                    $modelT->close_officeid = $officeID;
+                    $modelT->close_tambonid = $tambonID;
                     $modelT->boundaryid = 1;
                     if($modelT->save()==false)
                         echo 'error';
@@ -273,10 +274,10 @@ class FormController extends Controller
                         echo 'ok';
                 }else if($option=='delete'){
                     echo 'delete';
-                    $modelT = BoundaryOffice::find(
-                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 1",
+                    $modelT = BoundaryTambon::find(
+                        array("close_tambonid = ?1 and owner_officeid = ?2 and boundaryid = 1",
                             "bind"=>array(
-                                1=>$officeID,
+                                1=>$tambonID,
                                 2=>$user->officeid)
                             )
                         );
@@ -284,13 +285,13 @@ class FormController extends Controller
                 }
             }
 
-            $officeID = $this->request->getPost("no1_1_3_2");
-            if($officeID){
+            $tambonID = $this->request->getPost("no1_1_3_2");
+            if($tambonID){
                 if($option=='add'){
                     echo 'add';
-                    $modelT = new BoundaryOffice();
+                    $modelT = new BoundaryTambon();
                     $modelT->owner_officeid = $user->officeid;
-                    $modelT->close_officeid = $officeID;
+                    $modelT->close_tambonid = $tambonID;
                     $modelT->boundaryid = 2;
                     if($modelT->save()==false)
                         echo 'error';
@@ -298,10 +299,10 @@ class FormController extends Controller
                         echo 'ok';
                 }else if($option=='delete'){
                     echo 'delete';
-                    $modelT = BoundaryOffice::find(
-                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 2",
+                    $modelT = BoundaryTambon::find(
+                        array("close_tambonid = ?1 and owner_officeid = ?2 and boundaryid = 2",
                             "bind"=>array(
-                                1=>$officeID,
+                                1=>$tambonID,
                                 2=>$user->officeid)
                             )
                         );
@@ -309,13 +310,13 @@ class FormController extends Controller
                 }
             }
 
-            $officeID = $this->request->getPost("no1_1_3_3");
-            if($officeID){
+            $tambonID = $this->request->getPost("no1_1_3_3");
+            if($tambonID){
                 if($option=='add'){
                     echo 'add';
-                    $modelT = new BoundaryOffice();
+                    $modelT = new BoundaryTambon();
                     $modelT->owner_officeid = $user->officeid;
-                    $modelT->close_officeid = $officeID;
+                    $modelT->close_tambonid = $tambonID;
                     $modelT->boundaryid = 3;
                     if($modelT->save()==false)
                         echo 'error';
@@ -323,10 +324,10 @@ class FormController extends Controller
                         echo 'ok';
                 }else if($option=='delete'){
                     echo 'delete';
-                    $modelT = BoundaryOffice::find(
-                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 3",
+                    $modelT = BoundaryTambon::find(
+                        array("close_tambonid = ?1 and owner_officeid = ?2 and boundaryid = 3",
                             "bind"=>array(
-                                1=>$officeID,
+                                1=>$tambonID,
                                 2=>$user->officeid)
                             )
                         );
@@ -334,13 +335,13 @@ class FormController extends Controller
                 }
             }
 
-            $officeID = $this->request->getPost("no1_1_3_4");
-            if($officeID){
+            $tambonID = $this->request->getPost("no1_1_3_4");
+            if($tambonID){
                 if($option=='add'){
                     echo 'add';
-                    $modelT = new BoundaryOffice();
+                    $modelT = new BoundaryTambon();
                     $modelT->owner_officeid = $user->officeid;
-                    $modelT->close_officeid = $officeID;
+                    $modelT->close_tambonid = $tambonID;
                     $modelT->boundaryid = 4;
                     if($modelT->save()==false)
                         echo 'error';
@@ -348,10 +349,10 @@ class FormController extends Controller
                         echo 'ok';
                 }else if($option=='delete'){
                     echo 'delete';
-                    $modelT = BoundaryOffice::find(
-                        array("close_officeid = ?1 and owner_officeid = ?2 and boundaryid = 4",
+                    $modelT = BoundaryTambon::find(
+                        array("close_tambonid = ?1 and owner_officeid = ?2 and boundaryid = 4",
                             "bind"=>array(
-                                1=>$officeID,
+                                1=>$tambonID,
                                 2=>$user->officeid)
                             )
                         );

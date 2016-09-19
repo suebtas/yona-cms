@@ -58,6 +58,7 @@
                       <li><a href="{{ url.get() }}clinic/index">Dashboard</a></li>
                     </ul>
                   </li>
+                  <!--
                   <li><a><i class="fa fa-desktop"></i> จัดการข้อมูลพื้นฐาน  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url.get() }}clinic-admin/admin-user">จัดการผู้ใช้งานและสิทธิ์</a></li>
@@ -67,6 +68,7 @@
                       <li><a href="glyphicons.html">จัดการสถานะและสัญลักษณ์ข้อมูล </a></li>
                     </ul>
                   </li>
+                  -->
                   <li><a><i class="fa fa-edit"></i> การสำรวจข้อมูลขั้นพื้นฐาน <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{ url.get() }}clinic/form/no1">1.ด้านสภาพทั่วไป</a></li>
@@ -80,7 +82,7 @@
                       <li><a href="{{ url.get() }}clinic/form/no9">9.ด้านการเมือง การบริหาร</a></li>
                     </ul>
                   </li>
-                  
+                  <!--
                   <li><a><i class="fa fa-table"></i> การกรอกข้อมูลประจำปี <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">แจ้งเตือนการกรอกข้อมูล</a></li>
@@ -103,7 +105,7 @@
                       <li><a href="fixed_footer.html">ส่งออกข้อมูล (Export Data)</a></li>
                     </ul>
                   </li>
-
+                  -->
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">ส่งข่าวสาร</a></li>
