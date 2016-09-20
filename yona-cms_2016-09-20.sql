@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.14)
 # Database: yona-cms
-# Generation Time: 2016-09-05 10:53:46 +0000
+# Generation Time: 2016-09-20 00:39:54 +0000
 # ************************************************************
 
 
@@ -105,18 +105,62 @@ LOCK TABLES `answer` WRITE;
 
 INSERT INTO `answer` (`id`, `answer`, `discovery_surveyid`, `questionid`)
 VALUES
-	(7,'1000.625',1,2),
+	(7,'1000.621',1,2),
 	(8,'1117',1,8),
 	(9,'1111',1,10),
-	(10,'10',1,9),
-	(11,'19',1,7),
-	(12,'3',1,13),
+	(10,'10333',1,9),
+	(11,'10705',1,7),
+	(12,'366',1,13),
 	(13,'4',1,15),
 	(14,'1',1,12),
 	(15,'2',1,14),
 	(16,'3',1,16),
 	(17,'2',1,11),
-	(18,'100',1,17);
+	(18,'100',1,17),
+	(19,'666',1,108),
+	(20,'1110',1,118),
+	(21,'0',1,133),
+	(22,'0',1,138),
+	(23,'0',1,128),
+	(24,'0',1,123),
+	(25,'0',1,153),
+	(26,'0',1,143),
+	(27,'0',1,148),
+	(28,'0',1,158),
+	(29,'666',1,103),
+	(30,'0',1,173),
+	(31,'588',1,113),
+	(32,'0',1,168),
+	(33,'0',1,163),
+	(34,'0',1,178),
+	(35,'empty',1,355),
+	(36,'0',1,56),
+	(37,'10,116',1,25),
+	(38,'0',1,381),
+	(39,'10000',1,26),
+	(40,'2',1,28),
+	(41,'3',1,30),
+	(42,'1',1,27),
+	(43,'111',1,32),
+	(44,'3',1,74),
+	(45,'3',1,75),
+	(46,'33',1,76),
+	(47,'333',1,80),
+	(48,'333',1,83),
+	(49,'1',1,84),
+	(50,'111',1,86),
+	(51,'jan',1,85),
+	(52,'111',1,104),
+	(53,'111',1,99),
+	(54,'33',1,109),
+	(55,'555',1,114),
+	(56,'555',1,100),
+	(57,'555',1,105),
+	(58,'555',1,110),
+	(59,'555',1,115),
+	(60,'66',1,225),
+	(61,'55',1,228),
+	(62,'888',1,227);
 
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -207,16 +251,31 @@ LOCK TABLES `boundary_office` WRITE;
 
 INSERT INTO `boundary_office` (`id`, `close_officeid`, `boundaryid`, `owner_officeid`)
 VALUES
-	(31,3,1,3),
-	(33,6,3,3),
-	(34,17,4,3),
-	(36,3,2,3),
-	(37,4,2,3),
-	(38,2,1,3),
-	(39,4,1,3);
+	(48,2,1,3);
 
 /*!40000 ALTER TABLE `boundary_office` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table boundary_tambon
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `boundary_tambon`;
+
+CREATE TABLE `boundary_tambon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `close_tambonid` int(11) unsigned NOT NULL,
+  `boundaryid` int(11) NOT NULL,
+  `owner_officeid` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index set boundary tambon with` (`boundaryid`),
+  KEY `index owner office by` (`owner_officeid`),
+  KEY `index is close tambol on` (`close_tambonid`),
+  CONSTRAINT `boundary_tambon_ibfk_1` FOREIGN KEY (`owner_officeid`) REFERENCES `office` (`id`),
+  CONSTRAINT `boundary_tambon_ibfk_2` FOREIGN KEY (`close_tambonid`) REFERENCES `tambon` (`id`),
+  CONSTRAINT `boundary_tambon_ibfk_3` FOREIGN KEY (`boundaryid`) REFERENCES `boundary` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 # Dump of table cms_configuration
@@ -296,9 +355,13 @@ LOCK TABLES `comment` WRITE;
 
 INSERT INTO `comment` (`id`, `description`, `discovery_surveyid`, `admin_userid`, `sessionid`, `date`, `status`)
 VALUES
-	(2,'ที่ตั้งไม่ถูกต้อง\n1.พื้นที่จำนวนผิด\n2.oo\n3.pp',1,3,1,'2016-09-02 17:06:49',1),
-	(3,'จำนวนประชากรไม่ถูกต้อง\n1.u\nu\no\n',1,3,2,'2016-09-02 17:06:49',1),
-	(4,'ไม่ผ่าน\nเพราะข้อมูลผิดพลาด',1,4,1,'2016-09-02 17:06:49',1);
+	(2,'eeee\n\n\nhhh\n\njjjj',1,3,1,'2016-09-02 17:06:49',2),
+	(3,'abc\n123yy\nuuuuu',1,3,2,'2016-09-02 17:06:49',1),
+	(4,'ไม่ผ่าน\nเพราะข้อมูลผิดพลาด',1,4,1,'2016-09-02 17:06:49',1),
+	(5,'2.1',1,3,3,'2016-09-15 11:30:52',2),
+	(6,'2.2-2.3',1,3,4,'2016-09-15 11:42:36',1),
+	(7,'2.4',1,3,5,'2016-09-15 12:03:15',1),
+	(8,'2.5',1,3,6,'2016-09-15 12:03:21',1);
 
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -431,6 +494,20 @@ CREATE TABLE `menu_translate` (
   PRIMARY KEY (`id`),
   KEY `foreign_id` (`foreign_id`),
   CONSTRAINT `menu_translate_ibfk_1` FOREIGN KEY (`foreign_id`) REFERENCES `menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table newstype
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `newstype`;
+
+CREATE TABLE `newstype` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -1370,6 +1447,59 @@ VALUES
 	(1,'1/2559','dd','2016-01-01','2016-12-31');
 
 /*!40000 ALTER TABLE `survey` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table survey_status
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `survey_status`;
+
+CREATE TABLE `survey_status` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `status` int(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table tambon
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `tambon`;
+
+CREATE TABLE `tambon` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `amphurid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKAmphur` (`amphurid`),
+  CONSTRAINT `FKAmphur` FOREIGN KEY (`amphurid`) REFERENCES `amphur` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `tambon` WRITE;
+/*!40000 ALTER TABLE `tambon` DISABLE KEYS */;
+
+INSERT INTO `tambon` (`id`, `name`, `amphurid`)
+VALUES
+	(1,'ท่าประดู่',1),
+	(2,'เชิงเนิน',1),
+	(3,'ตะพง',1),
+	(4,'ปากน้ำ',1),
+	(5,'เพ',1),
+	(6,'แกลง',1),
+	(7,'บ้านแลง',1),
+	(8,'นาตาขวัญ',1),
+	(9,'เนินพระ',1),
+	(10,'กะเฉด',1),
+	(11,'ทับมา',1),
+	(12,'น้ำคอก',1),
+	(13,'ห้วยโป่ง',1),
+	(14,'มาบตาพุด',1),
+	(15,'สำนักทอง',1);
+
+/*!40000 ALTER TABLE `tambon` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
