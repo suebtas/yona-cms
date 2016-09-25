@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.14)
 # Database: yona-cms
-# Generation Time: 2016-09-20 00:39:54 +0000
+# Generation Time: 2016-09-25 08:18:25 +0000
 # ************************************************************
 
 
@@ -45,10 +45,10 @@ LOCK TABLES `admin_user` WRITE;
 INSERT INTO `admin_user` (`id`, `officeid`, `role`, `login`, `email`, `name`, `password`, `active`)
 VALUES
 	(1,3,'admin','admin','web@wezoom.net','Admin Name','$2y$10$rX2C0Ak2deW430Wzlud8HeoNe0pFl.8yYwOwyI/xCKIENd0vKmEgm',1),
-	(2,2,'admin','yona','yona@wezoom.net','Yona CMS User','$2y$10$2UUYmTf4f13el.b5K69WmeijY6E/nY4.hRYaokNe/lfyfvJ3Bz05O',1),
 	(3,3,'cc-approver','Approver1','approver1@gmail.com','Suebtas Limsaihua','$2y$10$cnpmEXOYkcGLVEEe4xkIpet.eqVej0drzXyELH4uYrB4N/nu63Dtq',1),
 	(4,3,'cc-admin','Admin1','admin@gmail.com','Admin Clinic Center1','$2y$10$FcZKX6fmqNAcGluNkzbMoOTTpHf6FNCxtWshA6aR5K/TJQpHDg/lm',1),
-	(5,3,'cc-user','User1','user1@gmail.com','User Clinic Center1','$2y$10$d6uI7D1p414ifBpO16SIxOemGzlYhz9mIJxD4FqTmVrArVsrcJUTq',1);
+	(5,3,'cc-user','User1','user1@gmail.com','User Clinic Center1','$2y$10$d6uI7D1p414ifBpO16SIxOemGzlYhz9mIJxD4FqTmVrArVsrcJUTq',1),
+	(6,9,'cc-user','user2','user2@test.com','user2','$2y$10$WyZ3r3GidjJggsXWSNWppujgfgtzWqzeXYm1aWxp9FfI5i1Dtf.Lm',1);
 
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -105,7 +105,7 @@ LOCK TABLES `answer` WRITE;
 
 INSERT INTO `answer` (`id`, `answer`, `discovery_surveyid`, `questionid`)
 VALUES
-	(7,'1000.621',1,2),
+	(7,'1000',1,2),
 	(8,'1117',1,8),
 	(9,'1111',1,10),
 	(10,'10333',1,9),
@@ -135,14 +135,14 @@ VALUES
 	(34,'0',1,178),
 	(35,'empty',1,355),
 	(36,'0',1,56),
-	(37,'10,116',1,25),
+	(37,'138',1,25),
 	(38,'0',1,381),
-	(39,'10000',1,26),
+	(39,'22',1,26),
 	(40,'2',1,28),
 	(41,'3',1,30),
 	(42,'1',1,27),
 	(43,'111',1,32),
-	(44,'3',1,74),
+	(44,'5',1,74),
 	(45,'3',1,75),
 	(46,'33',1,76),
 	(47,'333',1,80),
@@ -160,7 +160,45 @@ VALUES
 	(59,'555',1,115),
 	(60,'66',1,225),
 	(61,'55',1,228),
-	(62,'888',1,227);
+	(62,'888',1,227),
+	(63,'1',1,58),
+	(64,'1',1,59),
+	(65,'1',1,77),
+	(66,'1',2,2),
+	(67,'1',2,28),
+	(68,'7',2,25),
+	(69,'1',2,26),
+	(70,'2',2,30),
+	(71,'3',2,32),
+	(72,'2',2,27),
+	(73,'2',2,29),
+	(74,'2',2,31),
+	(75,'2',2,33),
+	(76,'1',2,9),
+	(77,'2',2,7),
+	(78,'1',2,11),
+	(79,'1',2,10),
+	(80,'2',2,8),
+	(81,'1',2,12),
+	(82,'1',3,2),
+	(83,'1',1,60),
+	(84,'1',1,61),
+	(85,'122',1,57),
+	(93,'เชิงเนิน',1,3),
+	(95,'แกลง',1,4),
+	(96,'ปากน้ำ',1,5),
+	(97,'เชิงเนิน',1,6),
+	(98,'เพ',1,3),
+	(99,'11',1,21),
+	(100,'12',1,22),
+	(101,'13',1,23),
+	(102,'14',1,24),
+	(103,'มหาดไทย',1,397),
+	(104,'มหาดไทย',1,398),
+	(105,'111',1,18),
+	(106,'มหาดไทย',1,399),
+	(107,'122',1,20),
+	(108,'123',1,19);
 
 /*!40000 ALTER TABLE `answer` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -246,15 +284,6 @@ CREATE TABLE `boundary_office` (
   CONSTRAINT `set boundary office with` FOREIGN KEY (`boundaryid`) REFERENCES `boundary` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `boundary_office` WRITE;
-/*!40000 ALTER TABLE `boundary_office` DISABLE KEYS */;
-
-INSERT INTO `boundary_office` (`id`, `close_officeid`, `boundaryid`, `owner_officeid`)
-VALUES
-	(48,2,1,3);
-
-/*!40000 ALTER TABLE `boundary_office` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table boundary_tambon
@@ -276,6 +305,23 @@ CREATE TABLE `boundary_tambon` (
   CONSTRAINT `boundary_tambon_ibfk_3` FOREIGN KEY (`boundaryid`) REFERENCES `boundary` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `boundary_tambon` WRITE;
+/*!40000 ALTER TABLE `boundary_tambon` DISABLE KEYS */;
+
+INSERT INTO `boundary_tambon` (`id`, `close_tambonid`, `boundaryid`, `owner_officeid`)
+VALUES
+	(5,6,1,9),
+	(6,6,2,9),
+	(7,7,3,9),
+	(8,5,4,9),
+	(17,2,1,3),
+	(19,6,2,3),
+	(20,4,3,3),
+	(21,2,4,3),
+	(22,5,1,3);
+
+/*!40000 ALTER TABLE `boundary_tambon` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table cms_configuration
@@ -390,7 +436,9 @@ LOCK TABLES `discovery_survey` WRITE;
 
 INSERT INTO `discovery_survey` (`id`, `officeid`, `surveyid`, `description`, `status`)
 VALUES
-	(1,3,1,NULL,2);
+	(1,3,1,NULL,2),
+	(2,4,1,NULL,0),
+	(3,9,1,NULL,0);
 
 /*!40000 ALTER TABLE `discovery_survey` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -950,13 +998,13 @@ VALUES
 	(15,2,'1.2.5.1','คนชรา (60 ปี ขึ้นไป) ชาย',1),
 	(16,2,'1.2.5.2','คนชรา (60 ปี ขึ้นไป) หญิง',1),
 	(17,2,'1.2.6.1','ประชากรแฝงจำนวน',1),
-	(18,2,'1.2.6.2','ประชากรแฝง(ต่างด้าว)',1),
-	(19,2,'1.2.6.3','ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน',1),
-	(20,2,'1.2.6.4','ความหนาแน่นของประชากร',1),
-	(21,2,'1.2.7.1','ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน',1),
-	(22,2,'1.2.7.2','ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน',1),
-	(23,2,'1.2.7.3','ประชากรที่ประกอบอาชีพอื่นจำนวน',1),
-	(24,2,'1.2.8','สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน',1),
+	(18,2,'1.2.7.1','ประชากรแฝง(ต่างด้าว)',1),
+	(19,2,'1.2.8.1','ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน',1),
+	(20,2,'1.2.9','ความหนาแน่นของประชากร',1),
+	(21,2,'1.2.10','ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน',1),
+	(22,2,'1.2.11','ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน',1),
+	(23,2,'1.2.12','ประชากรที่ประกอบอาชีพอื่นจำนวน',1),
+	(24,2,'1.2.13','สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน',1),
 	(25,3,'2.1.1','ถนนจำนวน',1),
 	(26,3,'2.1.2.1','จำนวน 1',1),
 	(27,3,'2.1.2.2','ระยะทาง 1',1),
@@ -1328,7 +1376,10 @@ VALUES
 	(393,28,'8.4.8','คลอง ลำธาร ห้วย 8',1),
 	(394,28,'8.4.9','คลอง ลำธาร ห้วย 9',1),
 	(395,28,'8.4.10','คลอง ลำธาร ห้วย 10',1),
-	(396,31,'8.7.12.2','วิธี',1);
+	(396,31,'8.7.12.2','วิธี',1),
+	(397,2,'1.2.6.2','ที่มาของข้อมูลของประชากรแฝงจำนวน',1),
+	(398,2,'1.2.7.2','ที่มาของข้อมูลของประชากรแฝง(ต่างด้าว)',1),
+	(399,2,'1.2.8.2','ที่มาของข้อมูลของประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน',1);
 
 /*!40000 ALTER TABLE `question` ENABLE KEYS */;
 UNLOCK TABLES;

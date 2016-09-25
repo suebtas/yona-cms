@@ -34,9 +34,9 @@ class BoundaryTambon extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->belongsTo('owner_officeid', 'Office', 'id', array('alias' => 'Office'));
-        $this->belongsTo('close_tambonid', 'Tambon', 'id', array('alias' => 'Tambon'));
-        $this->belongsTo('boundaryid', 'Boundary', 'id', array('alias' => 'Boundary'));
+        $this->belongsTo('owner_officeid', 'Clinic\Model\Office', 'id', array('alias' => 'Office'));
+        $this->belongsTo('close_tambonid', 'Clinic\Model\Tambon', 'id', array('alias' => 'Tambon'));
+        $this->belongsTo('boundaryid', 'Clinic\Model\Boundary', 'id', array('alias' => 'Boundary'));
     }
 
     /**

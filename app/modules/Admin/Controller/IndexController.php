@@ -101,6 +101,8 @@ class IndexController extends Controller
         if ($this->request->isPost()) {
             if ($this->security->checkToken()) {
                 $this->session->remove('auth');
+                $this->session->remove('discovery_surveyid');
+                $this->session->remove('surveyid');
             } else {
                 $this->flash->error("Security errors");
             }

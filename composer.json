@@ -37,6 +37,7 @@
     "michelf/php-markdown": "*",
     "mandrill/mandrill": "1.*",
     "mobiledetect/mobiledetectlib": "^2.8",
-    "phpoffice/phpword": "v0.13.*"
+    "phpoffice/phpword": "v0.13.*",
+     "nesbot/carbon": ">=1.21"
   }
 }

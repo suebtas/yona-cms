@@ -2,9 +2,9 @@
 
 namespace Clinic\Model;
 
+use Clinic\Helpers\Helper;
 class Survey extends \Phalcon\Mvc\Model
 {
-
     /**
      *
      * @var integer
@@ -75,4 +75,11 @@ class Survey extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function getDateOfStartSurvey(){
+        return Helper::dateOfThaiBuddha($this->start);
+    }
+
+    public function getDateOfEndSurvey(){
+        return Helper::dateOfThaiBuddha($this->end);
+    }
 }

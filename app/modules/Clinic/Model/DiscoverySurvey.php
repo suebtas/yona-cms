@@ -5,6 +5,7 @@ namespace Clinic\Model;
 class DiscoverySurvey extends \Phalcon\Mvc\Model
 {
 
+    static $statusName = ['อยู่ระหว่างสำรวจ','พิจารณาปรับแก้ข้อมูล','สำรวจสำเร็จ'];
     /**
      *
      * @var integer
@@ -40,11 +41,11 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Answer', 'discovery_surveyid', array('alias' => 'Answer'));
-        $this->hasMany('id', 'Approval', 'discovery_surveyid', array('alias' => 'Approval'));
-        $this->hasMany('id', 'Comment', 'discovery_surveyid', array('alias' => 'Comment'));
-        $this->belongsTo('officeid', 'Office', 'id', array('alias' => 'Office'));
-        $this->belongsTo('surveyid', 'Survey', 'id', array('alias' => 'Survey'));
+        $this->hasMany('id', 'Clinic\Model\Answer', 'discovery_surveyid', array('alias' => 'Answer'));
+        $this->hasMany('id', 'Clinic\Model\Approval', 'discovery_surveyid', array('alias' => 'Approval'));
+        $this->hasMany('id', 'Clinic\Model\Comment', 'discovery_surveyid', array('alias' => 'Comment'));
+        $this->belongsTo('officeid', 'Clinic\Model\Office', 'id', array('alias' => 'Office'));
+        $this->belongsTo('surveyid', 'Clinic\Model\Survey', 'id', array('alias' => 'Survey'));
     }
 
     /**
@@ -79,4 +80,8 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function getStatusName(){
+        if($this->status!=null)
+            return DiscoverySurvey::$statusName[$this->status];
+    }
 }

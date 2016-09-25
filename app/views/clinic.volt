@@ -117,20 +117,20 @@
               
             </div>
             <!-- /sidebar menu -->
-
+            {% if user.role=='cc-admin' %}
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
               {{ link_to("admin/index", '<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>',"data-toggle":"tooltip","data-placement":"top","title":"Settings") }} 
               <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Logout" onclick="document.getElementById('logout-form').submit()">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                </a>
-
-              <form action="{{ url.get() }}admin/index/logout" method="post" style="display: none;" id="logout-form">
-                  <input type="hidden" name="{{ security.getTokenKey() }}"
-                         value="{{ security.getToken() }}">
-              </form>
             </div>
             <!-- /menu footer buttons -->
+            {% endif %}
+            <form action="{{ url.get() }}admin/index/logout" method="post" style="display: none;" id="logout-form">
+              <input type="hidden" name="{{ security.getTokenKey() }}"
+                         value="{{ security.getToken() }}">
+            </form>
           </div>
         </div>
 

@@ -1,9 +1,9 @@
 <?php
 
 namespace Clinic\Controller;
-
 use Application\Mvc\Controller;
 use Clinic\Model\AdminUser;
+use Clinic\Model\DiscoverySurvey;
 
 class IndexController extends Controller
 {
@@ -29,6 +29,7 @@ class IndexController extends Controller
             ->setTargetPath(ROOT . '/assets/modules-clinic.js')
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/index.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
         $auth = $this->session->get('auth');
         $this->view->user = AdminUser::findFirst($auth->id);
@@ -45,6 +46,7 @@ class IndexController extends Controller
             ->setTargetUri('assets/modules-clinic-dashboard.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/dashboard.js');
+        $this->view->listDiscoverySurvey = DiscoverySurvey::find();
     }
 
 }

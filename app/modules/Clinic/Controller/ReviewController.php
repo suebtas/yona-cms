@@ -20,8 +20,10 @@ class ReviewController extends Controller
     public function initialize()
     {
 
-        $this->session->set('surveyid', 1);
-        $this->session->set('discovery_surveyid', 1);
+        if(!$this->session->has('surveyid')){
+            $this->session->set('surveyid', 1);
+            $this->session->set('discovery_surveyid', 1);
+        }
         $this->setClinicEnvironment();
         $this->view->languages_disabled = true;
         $this->surveyid = $this->session->get('surveyid');
@@ -58,7 +60,7 @@ class ReviewController extends Controller
         $this->user = AdminUser::findFirst($auth->id);
         //กำหนดค่าใน view
         $this->view->user = $this->user;
-        $this->view->office =  Office::findFirst($this->user->officeid);    
+        $this->view->office =  Office::findFirst($this->discoverySurvey->officeid);    
         $this->view->status = $this->discoverySurvey->status;
     }
     public function no1Action(){

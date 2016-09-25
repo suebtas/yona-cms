@@ -276,7 +276,9 @@ $(document).ready(function() {
     $.fn.editable.defaults.mode = 'inline';
     $('#no1_2_6_1').editable({
            type: 'text',
+           title: 'ประชากรแฝงจำนวน'
     }).on('save', function(e, params) {
+      if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -286,93 +288,417 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-              
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
          
             }
         });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_6_1:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
     $('#no1_2_6_2').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ที่มาของข้อมูลประชากรแฝง(ต่างด้าว)'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_6_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_6_2:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
     $('#no1_2_7_1').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_7_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_7_1:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
 
     $('#no1_2_7_2').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ที่มาของข้อมูลความหนาแน่นของประชากร'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_7_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_7_2:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
+    
     $('#no1_2_8_1').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ความหนาแน่นของประชากร'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_8_1:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_8_1:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
 
     $('#no1_2_8_2').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
-    });
-    $('#no1_2_9_1').editable({
-           url: 'Form_No1.html',
-           type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ที่มาของข้อมูลความหนาแน่นของประชากร'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_8_2:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_8_2:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
 
-    $('#no1_2_9_2').editable({
-           url: 'Form_No1.html',
+    $('#no1_2_9').editable({
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ความหนาแน่นของประชากร'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_9:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_9:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
+
     $('#no1_2_10').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_10:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_10:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
+
     $('#no1_2_11').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_11:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_11:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
+
     $('#no1_2_12').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'ประชากรที่ประกอบอาชีพอื่นจำนวน'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_12:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_12:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
+
     $('#no1_2_13').editable({
-           url: 'Form_No1.html',
            type: 'text',
-           pk: 1,
-           name: 'female',
-           title: 'จำนวนผู้หญิง'
+           title: 'สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_13:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              no1_2_13:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+         
+            }
+        });
+      }
     });
 
     $('#no1_2_2_1').editable({
