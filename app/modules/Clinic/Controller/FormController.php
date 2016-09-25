@@ -22,8 +22,9 @@ class FormController extends Controller
 
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
-        if($this->user->role=='cc-admin')
-            return $this->redirect($this->url->get() . 'clinic/review/no1');
+
+        if(in_array($this->user->role, ['cc-admin','cc-approver'])) //ถ้า เป็น cc-admin และ cc-approver ให้ไปหน้า review
+            return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
 
         if(!$this->session->has('discovery_surveyid')){
             $discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
@@ -299,7 +300,7 @@ class FormController extends Controller
                                     1=>24,
                                     2=>$this->discovery_surveyid)))->answer;
             $this->view->no1_2_13 = $no1_2_13;
-            
+
             $no1_3_1 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 1",
                             "bind" => array(
