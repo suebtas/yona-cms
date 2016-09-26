@@ -313,7 +313,7 @@
                                 <div class="form-group">
                                   <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="text-center">
-                                      <a  href="{{ url.get() }}clinic-admin/exportword/printformno4" id="btnPrint" class="btn btn-app" >
+                                      <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
                                         <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
                                       </a> 
                                     </div>
