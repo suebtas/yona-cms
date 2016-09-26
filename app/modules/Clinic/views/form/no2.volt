@@ -125,9 +125,9 @@
                   <td><a href="#" id="no2_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_4_2}}</a></td>
               </tr>
               <tr>
-                  <td>4.อื่นๆ(ระบุ) <input type="text" name="name" value="" class="btn btn-default"></td>
-                  <td><a href="#" id="no2_1_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_1}}</a></td>
+                  <td>4.อื่นๆ(ระบุ) <a href="#" id="no2_1_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_1}}</a></td>
                   <td><a href="#" id="no2_1_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_2}}</a></td>
+                  <td><a href="#" id="no2_1_5_3" data-type="text" data-pk="1" data-title="Enter username">{{no2_1_5_3}}</a></td>
               </tr>
           </tbody>
         </table>
@@ -403,7 +403,7 @@
             <b>พื้นที่ทั้งหมด</b>
           </td>
           <td class="info">
-            <b><span id="no2_5_8"></span></b>
+            <b><span id="no2_5_8">{{no2_5_8}}</span></b>
           </td>
           <td>
               <b>ไร่</b>

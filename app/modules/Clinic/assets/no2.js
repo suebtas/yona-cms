@@ -155,7 +155,6 @@ $('#no2_1_5_1').editable({
       },
       success: function(data, textStatus, jqXHR)
       {
-        Cal1();
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -179,7 +178,7 @@ $('#no2_1_5_2').editable({
       },
       success: function(data, textStatus, jqXHR)
       {
-
+        Cal1();
       },
       error: function (jqXHR, textStatus, errorThrown)
       {
@@ -735,7 +734,7 @@ function Cal1(){
   var id3 = $('#no2_1_4_1').text();
   if(id3==''||id3=='Empty')
     id3=0;
-  var id4 = $('#no2_1_5_1').text();
+  var id4 = $('#no2_1_5_2').text();
   if(id4==''||id4=='Empty')
     id4=0;
 
@@ -808,7 +807,6 @@ function Cal2(){
   var rei6 = i6.replace(/,/g,"");
   var rei7 = i7.replace(/,/g,"");
   var sums = parseFloat(rei1) + parseFloat(rei2) + parseFloat(rei3) + parseFloat(rei4) +parseFloat(rei5) + parseFloat(rei6) + parseFloat(rei7);
-
   var sums = sums.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_5_8').html(sums);
 

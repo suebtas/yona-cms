@@ -14,20 +14,36 @@ use Clinic\Model\Answer;
 use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
 
-class ReviewController extends Controller
+class ReviewController extends FormController
 {
 
     public function initialize()
     {
-
+        /*
         if(!$this->session->has('surveyid')){
             $this->session->set('surveyid', 1);
             $this->session->set('discovery_surveyid', 1);
+        }*/
+
+        $auth = $this->session->get('auth');
+        $this->user = AdminUser::findFirst($auth->id);
+
+        if(!$this->session->has('discovery_surveyid')){
+            $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
+            if($this->discoverySurvey==null){
+                echo 'error';             
+            }
+            $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
+            $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
         }
-        $this->setClinicEnvironment();
-        $this->view->languages_disabled = true;
         $this->surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
+        
+
+        $this->setClinicEnvironment();
+        $this->view->languages_disabled = true;
+        //$this->surveyid = $this->session->get('surveyid');
+        //$this->discovery_surveyid = $this->session->get('discovery_surveyid');
         $this->discoverySurvey = DiscoverySurvey::findFirst($this->discovery_surveyid);
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
@@ -74,149 +90,41 @@ class ReviewController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
 
         if (!$this->request->isPost()) {
-            $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>1,
-                                    2=>$this->surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_1 = $comment_session_1;
-
-            $comment_session_2 = Comment::findFirst(
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            if(!$comment)
+              $detail = null;
+            else
+              $detail = $comment->description;
+              $this->view->comment_session_1 = $detail;
+            unset($comment);
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>2,
-                                    2=>$this->surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_2 = $comment_session_2;
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            if(!$comment)
+              $detail = null;
+            else
+              $detail = $comment->description;
+              $this->view->comment_session_2 = $detail;
 
-            $no1_3_1 = $no1_3_2 = $no1_3_3 = $no1_3_4 = [];
+            parent::createViewNo1();
 
-            $no1_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>2,
-                                    2=>$this->surveyid)))->answer;
-           $no1_2_1_1 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>7,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_1_1 = $no1_2_1_1;
-
-            $no1_2_1_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>8,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_1_2 = $no1_2_1_2;
-
-            $no1_2_2_1 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>9,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_2_1 = $no1_2_2_1;
-
-            $no1_2_2_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>10,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_2_2 = $no1_2_2_2;
-
-            $no1_2_3_1 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>11,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_3_1 = $no1_2_3_1;
-
-            $no1_2_3_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>12,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_3_2 = $no1_2_3_2;
-
-            $no1_2_4_1 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>13,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_4_1 = $no1_2_4_1;
-
-            $no1_2_4_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>14,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_4_2 = $no1_2_4_2;
-
-            $no1_2_5_1 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>15,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_5_1 = $no1_2_5_1;
-
-
-            $no1_2_5_2 = Answer::findFirst(
-                            array("questionid=?1 and discovery_surveyid=?2",
-                                "bind"=>array(
-                                    1=>16,
-                                    2=>$this->surveyid)))->answer;
-            $this->view->no1_2_5_2 = $no1_2_5_2;
-
-            $no1_3_1 = BoundaryOffice::toArrayCloseOfficeID(
-                        array("owner_officeid = ?1 and boundaryid = 1",
-                            "bind" => array(
-                                1=>$user->officeid
-                                )
-                            )
-                        );
-            $no1_3_2 = BoundaryOffice::toArrayCloseOfficeID(
-                        array("owner_officeid = ?1 and boundaryid = 2",
-                            "bind" => array(
-                                1=>$user->officeid
-                                )
-                            )
-                        );
-            $no1_3_3 = BoundaryOffice::toArrayCloseOfficeID(
-                        array("owner_officeid = ?1 and boundaryid = 3",
-                            "bind" => array(
-                                1=>$user->officeid
-                                )
-                            )
-                        );
-            $no1_3_4 = BoundaryOffice::toArrayCloseOfficeID(
-                        array("owner_officeid = ?1 and boundaryid = 4",
-                            "bind" => array(
-                                1=>$user->officeid
-                                )
-                            )
-
-                        );
-            $obj = (object) array(
-                    'no1_1_2'   => $no1_2,
-                    'no1_2_2_1' => $no1_2_2_1,
-                    'no1_1_3_1' => $no1_3_1,
-                    'no1_1_3_2' => $no1_3_2,
-                    'no1_1_3_3' => $no1_3_3,
-                    'no1_1_3_4' => $no1_3_4,
-                );
-
-            $form->setEntity($obj);
-            $this->view->form = $form;
-
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost())
+        {            
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -243,7 +151,7 @@ class ReviewController extends Controller
             
         }
 
-        $this->view->comments = Comment::find(array("discovery_surveyid=?0","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 1 and 2","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
     public function no2Action(){
@@ -257,7 +165,8 @@ class ReviewController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
@@ -268,7 +177,7 @@ class ReviewController extends Controller
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>3,
-                                    2=>$this->surveyid,
+                                    2=>$this->discovery_surveyid,
                                     3=>$user->id)))->description;
             $this->view->comment_session_1 = $comment_session_1;
 
@@ -276,7 +185,7 @@ class ReviewController extends Controller
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>4,
-                                    2=>$this->surveyid,
+                                    2=>$this->discovery_surveyid,
                                     3=>$user->id)))->description;
             $this->view->comment_session_2 = $comment_session_2;
 
@@ -284,7 +193,7 @@ class ReviewController extends Controller
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>5,
-                                    2=>$this->surveyid,
+                                    2=>$this->discovery_surveyid,
                                     3=>$user->id)))->description;
             $this->view->comment_session_3 = $comment_session_3;
 
@@ -292,7 +201,7 @@ class ReviewController extends Controller
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>6,
-                                    2=>$this->surveyid,
+                                    2=>$this->discovery_surveyid,
                                     3=>$user->id)))->description;
             $this->view->comment_session_4 = $comment_session_4;
             $no2_1_1 = Answer::findFirst(

@@ -1,4 +1,4 @@
-$('#no1_2_1_1').editable('option', 'disabled', true);
+/*$('#no1_2_1_1').editable('option', 'disabled', true);
 $('#no1_2_1_2').editable('option', 'disabled', true);
 $('#no1_2_2_1').editable('option', 'disabled', true);
 $('#no1_2_2_2').editable('option', 'disabled', true);
@@ -23,8 +23,37 @@ $('#no1_2_10').editable('option', 'disabled', true);
 $('#no1_2_11').editable('option', 'disabled', true);
 $('#no1_2_12').editable('option', 'disabled', true);
 $('#no1_2_13').editable('option', 'disabled', true);
+*/
 
-$(document).ready(function() {
+$(document).ready(function() {/*
+    var elems = document.body.getElementsByTagName("*");
+    for (var i=0; i < elems.length; i++) {
+        var elementId = elems[i].id;
+        console.log("id: " + elementId+elems[i].tagName);
+        if(elementId.substring(0, 2)=="no"){
+            if(elems[i].tagName=='a')
+                $("#"+elementId).editable('option', 'disabled', true);
+            else
+                $("#"+elementId).prop("disabled", true);
+        }
+    }*/
+    /*
+    var elems = document.body.getElementsByClassName("select2_multiple form-control");
+    for (var i=0; i < elems.length; i++) {
+        //$("#"+elems[i].id).editable('option', 'disabled', true);
+        $("#"+elems[i].id).prop("disabled", true);
+    }
+    var elems = document.body.getElementsByTagName("input");
+    for (var i=0; i < elems.length; i++) {
+        //$("#"+elems[i].id).editable('option', 'disabled', true);
+        $("#"+elems[i].id).attr("disabled", "disabled");
+    }
+    var elems = document.body.getElementsByClassName("editable editable-click");
+    for (var i=0; i < elems.length; i++) {
+        //$("#"+elems[i].id).editable('option', 'disabled', true);
+        $("#"+elems[i].id).editable('option', 'disabled', true);
+    }
+    */
 
     $.fn.editable.defaults.mode = 'inline';
 

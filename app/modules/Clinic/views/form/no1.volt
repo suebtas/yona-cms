@@ -89,15 +89,15 @@
                           <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> พื้นที่
                             </label>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-3 col-xs-12">
                                {{ form.render('no1_1_2') }}
 
                             </div>
-                            <span class="col-md-1">ไร่ หรือ</span>
+                            <span class="control-label col-md-1 col-sm-1 col-xs-12">ไร่ หรือ</span>
                             <div class="col-md-2 col-sm-3 col-xs-12">
                                 <input type="text" id="area-kgm" name="area-kgm" required="required" class="form-control col-md-2 col-xs-12">
                             </div>
-                            <span class="control-label">ตร.กม</span>
+                            <span class="control-label col-md-1 col-sm-1 col-xs-12">ตร.กม</span>
                           </div>
 
 
