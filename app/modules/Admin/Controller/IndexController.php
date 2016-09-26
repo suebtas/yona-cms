@@ -109,7 +109,8 @@ class IndexController extends Controller
         } else {
             $this->flash->error("Security errors");
         }
-        $this->redirect($this->url->get());
+        //$this->redirect($this->url->get());
+		$this->redirect('/admin/index/login');
     }
 
 }

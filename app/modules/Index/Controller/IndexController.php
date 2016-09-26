@@ -11,6 +11,8 @@ class IndexController extends Controller
 
     public function indexAction()
     {
+	
+		$this->redirect('/admin/index/login');
         $this->view->bodyClass = 'home';
 
         $page = Page::findCachedBySlug('index');

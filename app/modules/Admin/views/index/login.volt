@@ -24,7 +24,7 @@
     <body>
         <div class="container">
             <form class="ui form segment" method="post" action="{{ url.get() }}admin/index/login">
-                <h1>Admin panel</h1>
+                <h1>ระบบ Clinic Center</h1>
                 {{ flash.output() }}
                 <div class="required field">
                     <label>Login</label>
