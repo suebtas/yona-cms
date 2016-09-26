@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.14)
 # Database: yona-cms
-# Generation Time: 2016-09-26 06:19:21 +0000
+# Generation Time: 2016-09-26 10:34:57 +0000
 # ************************************************************
 
 
@@ -48,7 +48,75 @@ VALUES
 	(3,3,'cc-approver','Approver1','approver1@gmail.com','Suebtas Limsaihua','$2y$10$cnpmEXOYkcGLVEEe4xkIpet.eqVej0drzXyELH4uYrB4N/nu63Dtq',1),
 	(4,3,'cc-admin','Admin1','admin@gmail.com','Admin Clinic Center1','$2y$10$FcZKX6fmqNAcGluNkzbMoOTTpHf6FNCxtWshA6aR5K/TJQpHDg/lm',1),
 	(5,3,'cc-user','User1','user1@gmail.com','User Clinic Center1','$2y$10$d6uI7D1p414ifBpO16SIxOemGzlYhz9mIJxD4FqTmVrArVsrcJUTq',1),
-	(6,9,'cc-user','user2','user2@test.com','user2','$2y$10$WyZ3r3GidjJggsXWSNWppujgfgtzWqzeXYm1aWxp9FfI5i1Dtf.Lm',1);
+	(6,9,'cc-user','user2','user2@test.com','user2','$2y$10$WyZ3r3GidjJggsXWSNWppujgfgtzWqzeXYm1aWxp9FfI5i1Dtf.Lm',1),
+	(8,1,'cc-user','user01',NULL,'เจ้าหน้าที่องค์การบริหารส่วนจังหวัดระยอง','$2y$10$YaAG1mnnTU9ynhIKtL14BOTOnPydqfmX8Y676X/igxXjV1CkttHse',1),
+	(9,2,'cc-user','user02',NULL,'เจ้าหน้าที่เทศบาลนครระยอง','$2y$10$TyXczEknWvvgdr1N37d.q.vASdEJxG1D0XOwkfV.UqY4/nR807PNu',1),
+	(10,3,'cc-user','user03',NULL,'เจ้าหน้าที่เทศบาลเมืองมาบตาพุด','$2y$10$6hx5wIt0uf2tE61Wy2LOzuNIn2BMFzzTmI5q6qMLGB4YRjX8HncQG',1),
+	(11,4,'cc-user','user04',NULL,'เจ้าหน้าที่เทศบาลตำบลแกลงกะเฉด','$2y$10$rtGTbBnkBSkwSJS3jbaXfu2WF98p0NfiVSCHFufSbAQt7akoNRCdW',1),
+	(12,5,'cc-user','user05',NULL,'เจ้าหน้าที่เทศบาลตำบลทับมา','$2y$10$YJ6JE9jQBN3jKmaQRgoaGO4V3RZU08jM/k0HEGv0HHZT7nwsP.aNe',1),
+	(13,6,'cc-user','user06',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านเพ','$2y$10$mxC3ea4h0dRwf96JcxyqN.eO34RmGKovA.FWc3tevfI4uJQW3QSs6',1),
+	(14,7,'cc-user','user07',NULL,'เจ้าหน้าที่เทศบาลตำบลน้ำคอก','$2y$10$27OLx8V5N9YBo9xUtl0ZAe.jdjSgQXQGdZP0RQ7eots0kP/utUWbW',1),
+	(15,8,'cc-user','user08',NULL,'เจ้าหน้าที่เทศบาลตำบลเนินพระ','$2y$10$WXKgrxjFd/0ROb.Lz0HB2Owf8205qPn5bs5zFON4HTN/4XWhTzFG.',1),
+	(16,9,'cc-user','user09',NULL,'เจ้าหน้าที่เทศบาลตำบลเชิงเนิน','$2y$10$0ZSg6q9I1OPHfGSSpAKtl.fHCD1PsfU.S/t1tHEpIotARDZSCRa8a',1),
+	(17,10,'cc-user','user10',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลนาตาขวัญ','$2y$10$ZhnUZ7pJ5iGl1fk6No3QF.co4ED2NivADXfaxEEIMQNRRh6sBz2T6',1),
+	(18,11,'cc-user','user11',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลบ้านแลง','$2y$10$uy3RM3qOJ9PLicscrJYIdegJv1HvIDVu6GX4651gKa/.jBZHJwLQ.',1),
+	(19,12,'cc-user','user12',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลสำนักทอง','$2y$10$Sa23trRB14V/iykMW3M7GON1MtaNSFpGbQP1MK1yQ1aMBg97xWM8e',1),
+	(20,13,'cc-user','user13',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลกะเฉด','$2y$10$lxG/OrkP8Ngy2AZeM5aGfeXj53ZxMl3Jmkwkq4puec6L6ACCO5hhi',1),
+	(21,14,'cc-user','user14',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลแกลง','$2y$10$DwNxoJwu6UbuyaURnjfybuoHOaei.5ugNmONbfBpsEKi92ASzS/OK',1),
+	(22,15,'cc-user','user15',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลตะพง','$2y$10$E67HuM4PJSkrEz1MrNQ3Q.cyXBirzGZuOAuwF5lOI0gPEYEvVI0uS',1),
+	(23,16,'cc-user','user16',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลเพ','$2y$10$swcWFhUi775uDyRfuQqH7.cIa7zeLHU9A0Hy9G0kL/yuXTIlRENUG',1),
+	(24,17,'cc-user','user17',NULL,'เจ้าหน้าที่เทศบาลตำบลกองดิน','$2y$10$AVpAzm8Mub01.RchgHSBWuInvmcLhs5EUlB2Ab/21lXeKvL.jBSlW',1),
+	(25,18,'cc-user','user18',NULL,'เจ้าหน้าที่เทศบาลตำบลทุ่งควายกิน','$2y$10$pv15tyKo8MRKjKlJ0gu6fuL4LR7rT3X2aKTX42zWIdMm.QZpI76rK',1),
+	(26,19,'cc-user','user19',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านนา','$2y$10$hxM7nrE1u7xvDsvIZtukFe00gy5t2jSgeCU8.GDrvsX3LMBMvZk8C',1),
+	(27,20,'cc-user','user20',NULL,'เจ้าหน้าที่เทศบาลตำบลเมืองแกลง','$2y$10$Xp7vJ5N2ORX244bu0F55KupNyZDaOGaORhty41wAFHtWdixqdP5Wm',1),
+	(28,21,'cc-user','user21',NULL,'เจ้าหน้าที่เทศบาลตำบลเนินฆ้อ','$2y$10$vG89mFFukQxqroHlRndLfemPDBiQtViPOrIXCiVmwq9DOe2XmNDoK',1),
+	(29,22,'cc-user','user22',NULL,'เจ้าหน้าที่เทศบาลตำบลสองสลึง','$2y$10$ecNg6UIbXlSCKIMpe4J2g.qehdSrpFif6RG86YM1Ozk8.OVDieWn.',1),
+	(30,23,'cc-user','user23',NULL,'เจ้าหน้าที่เทศบาลตำบลปากน้ำประแส','$2y$10$iJ6Z4Zwt0Bj4Mm8cLPTepOXJWhVOKNAty/tom4PEmmEJ22dnio28G',1),
+	(31,24,'cc-user','user24',NULL,'เจ้าหน้าที่เทศบาลตำบลสุนทรภู่','$2y$10$Dakrr.bXqSGK/Cfq8YHbsOwPTS/TtpCUGSXhBBWJPauEo7yUAqBki',1),
+	(32,25,'cc-user','user25',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลกระแสบน','$2y$10$Rlfn6PQc2BevdQfL9csPweM0fLFPRYV/Cmy1Dzbzxtp4lWo6zZGZ.',1),
+	(33,26,'cc-user','user26',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลชากโดน','$2y$10$bLVAX4.TWM0PvzNKjC2qZeUayARk9MZXb9Z1MTxaMgCGbn.tYu9mi',1),
+	(34,27,'cc-user','user27',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลทางเกวียน','$2y$10$e83fug6ZOu8nim1TYGi0T.4Wx5ei5wAvBhDVS9fkBfa1a503i1kG2',1),
+	(35,28,'cc-user','user28',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลทุ่งควายกิน','$2y$10$e2aRmTeoakQ6/UfK8a4ho.2xu6rTq0/UHeenJFrRmz4OL1OTMipPK',1),
+	(36,29,'cc-user','user29',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลพังราด','$2y$10$.6Jbuh3b0Pnqnx83QyjdTum6uhg.jAmVK.TuSY1LEchMLMlZ/73Ay',1),
+	(37,30,'cc-user','user30',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลวังหว้า','$2y$10$9Uj5sO44msQezo/Cv6EteOb.yTRUuLemE0eP0scMDkRex4Jlay7iq',1),
+	(38,31,'cc-user','user31',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลคลองปูน','$2y$10$TPDvVjOStLvO8k8NsN.tb.QQP98aDtRYCim75fXPxn3/G6YcuANcG',1),
+	(39,32,'cc-user','user32',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลกองดิน','$2y$10$yuFXsR12/ApRFg7FW1kqHOolyBPOTvurLg691U4kwVvsxQSX9iXIm',1),
+	(40,33,'cc-user','user33',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลห้วยยาง','$2y$10$JzZTtkk/kLubFsFIFGdsBOVKiPwZeiV1XJaOY/nX16oGDYYIi3dW.',1),
+	(41,34,'cc-user','user34',NULL,'เจ้าหน้าที่เทศบาลตำบลมาบข่า','$2y$10$8ttV.LL95vtDNKQQ1UAKY.Ln07dXPuy3IQSQhM8/WZx3q27/ZU9TC',1),
+	(42,35,'cc-user','user35',NULL,'เจ้าหน้าที่เทศบาลตำบลมะขามคู่','$2y$10$Gik308j0S6yGtQkBUPN6/OYakaf/3NlyPEjBtn.U9u/h7kURfdyE2',1),
+	(43,36,'cc-user','user36',NULL,'เจ้าหน้าที่เทศบาลตำบลมาบข่าพัฒนา','$2y$10$GwKOxd042QF.3s09aD3FZ..LarUj2fLNjezVrivYDFRH3P3uz02X.',1),
+	(44,37,'cc-user','user37',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลนิคมพัฒนา','$2y$10$f3TFsiu07yQjNZRW3nXiVOHTDJ0gz1HkhNVCa08WX4ocXskUkHt0a',1),
+	(45,38,'cc-user','user38',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลพนานิคม','$2y$10$0Ra2FqRTjvltL76qfATg3egZ8.slH6RVpLXG4yhrGb9st/L4.2YTa',1),
+	(46,39,'cc-user','user39',NULL,'เจ้าหน้าที่เทศบาลตำบลชำฆ้อ','$2y$10$fhmlg.fi7SkWcIN5rmdlLOWdaZ6wUTDDUeOqveVrOpwVdo/3NUy.K',1),
+	(47,40,'cc-user','user40',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลเขาชะเมา','$2y$10$RZcNKA70srdfwmN8h7uk..VykZAJdNLMDufPYJpae65WTCvNn4Rh6',1),
+	(48,41,'cc-user','user41',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลเขาน้อย','$2y$10$BP1crnE556ZXGLc6C4PMmOlu4qFZolhw0pjuiVEHOSTBlpB4Q/IKu',1),
+	(49,42,'cc-user','user42',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลน้ำเป็น','$2y$10$8VsjNynMYbQslnZ6Y5i7NudtFDRYQU.4pRxCRmVNXMkSqEN.8HZf2',1),
+	(50,43,'cc-user','user43',NULL,'เจ้าหน้าที่เทศบาลตำบลชุมแสง','$2y$10$UFNXvSmFkSXRvr2RLk40SuQwhgOqzQSgucZrdJz4uYlUs45MsoCU6',1),
+	(51,44,'cc-user','user44',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลชุมแสง','$2y$10$RlZtdHHacOsoKqnsMSPSiOxEIIP1OTdM41L054YgABR.OcGaw1rl.',1),
+	(52,45,'cc-user','user45',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลป่ายุบใน','$2y$10$2Xqy0RnVy1XNCF1tc6u/jewdExP8Jt5/yxilwLKTNlWfCis.kAL.y',1),
+	(53,46,'cc-user','user46',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลวังจันทร์','$2y$10$DUlggxXiwLbmH1OVYI9kluQ78hDumTlJx9indxHyXkgqTlZo6/X0O',1),
+	(54,47,'cc-user','user47',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลพลงตาเอี่ยม','$2y$10$9zO1xbGYmXezEqmikEAbwekPTN440N8Gf6RbYSpJpqvXwQNCBri3e',1),
+	(55,48,'cc-user','user48',NULL,'เจ้าหน้าที่เทศบาลเมืองบ้านฉาง','$2y$10$DyyqEyxBz5UXg9g9k7yEo.CxENpjOsHzZEiAVFY9It1zpUYE03V42',1),
+	(56,49,'cc-user','user49',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านฉาง','$2y$10$WxDCe9M9F6nNW.o98bA/k.7YknN8L3Zs/5RR/cMXUKRtatQWIz.Uq',1),
+	(57,50,'cc-user','user50',NULL,'เจ้าหน้าที่เทศบาลตำบลพลา','$2y$10$rtw.dCTwz81JusFDj3wHkug36ydJ3kOfJ6VD4CEpHA2xSRdf/B1oC',1),
+	(58,51,'cc-user','user51',NULL,'เจ้าหน้าที่เทศบาลตำบลสำนักท้อน','$2y$10$V7qtuzlHAmojkaAM93V6ZOkabyIXL.RB./7Ica2IEZj54svb2LvSC',1),
+	(59,52,'cc-user','user52',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลสำนักท้อน','$2y$10$n/We/9877s2XwZsW4HloOOmpf7xwpRGpOr44IdifMeF1Eg7Sh/uBC',1),
+	(60,53,'cc-user','user53',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านปลวกแดง','$2y$10$YqDqmMzkBtbr3OYVjfWdcekE3D4X13ooSQNAbRRYcs9v4Jr0oTN42',1),
+	(61,54,'cc-user','user54',NULL,'เจ้าหน้าที่เทศบาลตำบลจอมพลเจ้าพระยา','$2y$10$.DzszPCr10LFEj6bpjanZem/byitqiTHRX5ucEm8gcBj.7Hof/f8y',1),
+	(62,55,'cc-user','user55',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลปลวกแดง','$2y$10$iqbUZ3iOyD3ZymNWRZddBeG9sNBu1Aqllt94GnBCNNV8MloQ.QLG6',1),
+	(63,56,'cc-user','user56',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลตาสิทธิ์','$2y$10$EmVKrOtTaIzpZbQkFqgdReulsVbqOyyBrMtu/aR93G6B7i/Pwg75i',1),
+	(64,57,'cc-user','user57',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลละหาร','$2y$10$WrMIozb/x6evQ1k9MBWdnu/QB6l3f66pXNfqRjz44LlUtBhsU4LhW',1),
+	(65,58,'cc-user','user58',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลแม่น้ำคู้','$2y$10$NvYTDtPbx0Y7fcicUazFYO9rZfubpflE4/nWR3V9rDq9d1m4upt/u',1),
+	(66,59,'cc-user','user59',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลมาบยางพร','$2y$10$qybfSjcZR4y3fRNfPnTwf.lwxDqehfwVasNUOHqwu9mMg6Mn06FXO',1),
+	(67,60,'cc-user','user60',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองไร่','$2y$10$4I4oMGVN1yANgCr1H/4Z3ucfSnr0EwsQB0kGfRt4XTD7OVhLM75cm',1),
+	(68,61,'cc-user','user61',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านค่าย','$2y$10$aS.5XYmfiAM/RGvSmp15V.8rdKmoLokW9Aul5q.2UnlY/3XEJL1Z.',1),
+	(69,62,'cc-user','user62',NULL,'เจ้าหน้าที่เทศบาลตำบลบ้านค่ายพัฒนา','$2y$10$OCr8XhD4IbcKsewyOD8AXOZbYmgHw0R.Bs6BTa5FxlUPJ77D2RIRm',1),
+	(70,63,'cc-user','user63',NULL,'เจ้าหน้าที่เทศบาลตำบลชากบก','$2y$10$keA7.Yt024i4ZhCvnggz0uua5CLFUx3/WOR6yOXkc.w22JSt1RJl2',1),
+	(71,64,'cc-user','user64',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลตาขัน','$2y$10$xygn2Oh/dUsQ/R/4.gsBPOGIjqKt9gXhu5EN5GZ.uKfOFY5IB/7Vi',1),
+	(72,65,'cc-user','user65',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองตะพาน','$2y$10$a0OyDElBQKFufJAbBxWa9u.84rjHTQ4RB6KAipuATFhGZT6IBq9KK',1),
+	(73,66,'cc-user','user66',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองละลอก','$2y$10$GxExRz9I4qRQFnaJQxznyehH3y2onLOqmgZYe30VzoiCDUDIIBCpm',1),
+	(74,67,'cc-user','user67',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองบัว','$2y$10$YXUXjyIjIDmoyI5diIVcrebfPKtew0MP02IpiBE9WRES1cAzDigCm',1),
+	(75,68,'cc-user','user68',NULL,'เจ้าหน้าที่องค์การบริหารส่วนตำบลบางบุตร','$2y$10$CaaWJ9HcFZ1mlHTKYEbq1OTiQbKCUv846KtNAeh9Zrae4XrvWGlX6',1);
 
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -671,7 +739,8 @@ INSERT INTO `discovery_survey` (`id`, `officeid`, `surveyid`, `description`, `st
 VALUES
 	(1,3,1,NULL,2),
 	(2,4,1,NULL,0),
-	(3,9,1,NULL,0);
+	(3,9,1,NULL,0),
+	(4,1,1,NULL,0);
 
 /*!40000 ALTER TABLE `discovery_survey` ENABLE KEYS */;
 UNLOCK TABLES;
