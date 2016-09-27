@@ -11,7 +11,7 @@ namespace ClinicAdmin\Controller;
 use Application\Mvc\Controller;
 use PhpOffice\PhpWord;
 use Clinic\Model\Answer;
-use Clinic\Model\Survey;
+use Clinic\Model\DiscoverySurvey;
 
 class ExportWordController extends Controller
 {
@@ -23,6 +23,86 @@ class ExportWordController extends Controller
         $this->view->languages_disabled = true;
 
 
+    }
+
+    public function PrintFormNo1Action()
+    {
+    	$surveyid = $this->session->get('surveyid');
+    	$discovery_surveyid = $this->session->get('discovery_surveyid');
+    	//echo $surveyid."--".$discovery_surveyid;
+
+    	$year = Survey::findFirst("id = {$surveyid}")->no;
+
+    	$no6_1 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>225,
+                        2=>$surveyid)))->answer;
+    	$no6_2 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>226,
+                        2=>$surveyid)))->answer;
+    	$no6_3 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>227,
+                        2=>$surveyid)))->answer;
+    	$no6_4 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>228,
+                        2=>$surveyid)))->answer;
+    	$no6_5 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>229,
+                        2=>$surveyid)))->answer;
+    	$no6_6 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>230,
+                        2=>$surveyid)))->answer;
+    	$no6_7 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>231,
+                        2=>$surveyid)))->answer;
+    	$no6_8 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>232,
+                        2=>$surveyid)))->answer;
+    	$no6_9 = Answer::findFirst(
+                array("questionid=?1 and discovery_surveyid=?2",
+                    "bind"=>array(
+                        1=>233,
+                        2=>$surveyid)))->answer;
+        //die($no6_9);
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        
+		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo6.docx');
+		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
+		//var_dump(($document));die();
+		date_default_timezone_set('Asia/Bangkok');
+
+		$document->setValue('{year}', $year);
+		$document->setValue('{no6_1}', $no6_1);
+		$document->setValue('{no6_2}', $no6_2);
+		$document->setValue('{no6_3}', $no6_3);
+		$document->setValue('{no6_4}', $no6_4);
+		$document->setValue('{no6_5}', $no6_5);
+		$document->setValue('{no6_6}', $no6_6);
+		$document->setValue('{no6_7}', $no6_7);
+		$document->setValue('{no6_8}', $no6_8);
+		$document->setValue('{no6_9}', $no6_9);
+
+		$tmp_file = 'FormNoTMP.docx';
+		$result = $document->saveAs($tmp_file);   
+		//die($result);
+	 	$this->converttowordtemplate('FormNo6_',$tmp_file);
+
+		
     }
 
     public function PrintFormNo4Action()
@@ -1185,7 +1265,8 @@ class ExportWordController extends Controller
     	$discovery_surveyid = $this->session->get('discovery_surveyid');
     	//echo $surveyid."--".$discovery_surveyid;
 
-    	$year = Survey::findFirst("id = {$surveyid}")->no;
+    	$discoverySurvey =  DiscoverySurvey::findFirst("id = {$discovery_surveyid}");
+    	$year = $discoverySurvey->Survey->no;
 
     	$no6_1 = Answer::findFirst(
                 array("questionid=?1 and discovery_surveyid=?2",
@@ -1241,6 +1322,7 @@ class ExportWordController extends Controller
 		date_default_timezone_set('Asia/Bangkok');
 
 		$document->setValue('{year}', $year);
+		$document->setValue('{office}', $discoverySurvey->Office->name);
 		$document->setValue('{no6_1}', $no6_1);
 		$document->setValue('{no6_2}', $no6_2);
 		$document->setValue('{no6_3}', $no6_3);

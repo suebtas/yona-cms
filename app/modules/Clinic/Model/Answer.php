@@ -34,8 +34,8 @@ class Answer extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->belongsTo('questionid', 'Question', 'id', array('alias' => 'Question'));
-        $this->belongsTo('discovery_surveyid', 'Discovery survey', 'id', array('alias' => 'Discovery survey'));
+        $this->belongsTo('questionid', 'Clinic\Model\Question', 'id', array('alias' => 'Question'));
+        $this->belongsTo('discovery_surveyid', 'Clinic\Model\DiscoverySurvey', 'id', array('alias' => 'DiscoverySurvey'));
     }
 
     /**
