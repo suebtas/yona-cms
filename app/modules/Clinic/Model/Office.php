@@ -25,6 +25,24 @@ class Office extends \Phalcon\Mvc\Model
     public $amphurid;
 
     /**
+     *
+     * @var blob
+     */
+    public $map;
+
+    /**
+     *
+     * @var string
+     */
+    public $maptype;
+
+    /**
+     *
+     * @var string
+     */
+    public $mapsize;
+
+    /**
      * Initialize method for model.
      */
     public function initialize()

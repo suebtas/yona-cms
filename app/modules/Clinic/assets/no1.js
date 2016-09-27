@@ -4,6 +4,54 @@ function jump(str){
   $('#wizard').smartWizard('goToStep',array[1]);
 }
 $(document).ready(function() {
+
+
+  Dropzone.options.dropzone = {
+    no1_1: "file",
+    url: "/clinic/form/no1",
+    paramName: "no1_1", // The name that will be used to transfer the file
+    maxFilesize: 3, // MB
+    maxFiles: 1,
+
+    thumbnailWidth: null,
+    thumbnailHeight: null,
+    accept: function(file, done) {
+      if (file.name == "justinbieber.jpg") {
+        done("Naha, you don't.");
+      }
+      else { done(); }
+    },
+
+    init: function () {
+/*
+          var mockFile = { name: "myimage.jpg", size: 32000, type: 'image/jpeg' };       
+          this.options.addedfile.call(this, mockFile);
+          this.options.thumbnail.call(this, mockFile, "/clinic/form/displayofficemap");
+          mockFile.previewElement.classList.add('dz-success');
+          mockFile.previewElement.classList.add('dz-complete'); 
+          $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
+*/
+
+        // Add server images
+        var myDropzone = this;
+
+        $.get('/clinic/form/displayofficemap', function(data) {
+
+            //$.each(data.images, function (key, value) {
+              if(data!=''){
+                  var file = {name: 'value.original', size: 12};
+                  myDropzone.options.addedfile.call(myDropzone, file);
+                  myDropzone.options.thumbnail.call(this, file, "/clinic/form/displayofficemap");
+                  $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
+                  //myDropzone.options.thumbnail.call(myDropzone, data, 'images/icon_size/' + value.server);
+                  myDropzone.emit("complete", file);
+              }
+                //photo_counter++;
+                //$("#photoCounter").text( "(" + photo_counter + ")");
+            //});
+        });
+    }
+  };
   function calculateAreaRaiToKmSquare(value){
     return 1.6*value;
   }

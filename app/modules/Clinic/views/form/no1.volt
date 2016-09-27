@@ -81,7 +81,15 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map">แผนที่แสดงอาณาเขตการปกครอง
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="file" id="map" class="form-control col-md-7 col-xs-12">
+                              <!--<input type="file" id="map" class="form-control col-md-7 col-xs-12">-->
+                              <div id="dropzone" class="dropzone">
+
+                                <div class="dz-message needsclick">
+                                  ลากไฟล์มาปล่อยตรงนี้ หรือคลิกเพื่ออัพโหลดไฟล์<br />
+                                  <span class="note needsclick">ส่วนแสดงผล</span>
+                                </div>
+
+                              </div> 
                             </div>
                           </div>
 
@@ -397,10 +405,14 @@
         <script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
         <!-- jQuery Smart Wizard -->
         <script src="{{ url.path() }}clinic/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+
+        <!-- Dropzone.js -->
+        <script src="{{ url.path() }}clinic/vendors/dropzone/dist/min/dropzone.min.js"></script>
         <!-- Custom Theme Scripts -->
         <!-- <script src="../build/js/custom.min.js"></script> -->
 
 
+        <link href="{{ url.path() }}clinic/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
         {{ assets.outputJs('modules-clinic-js') }}
 
         <!-- bootstrap3-editable -->
