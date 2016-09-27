@@ -27,7 +27,7 @@
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
-              <li><a href="{{ url.get() }}clinic-admin/exportword/printformno9" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
+              <li><a href="#{{ url.get() }}clinic-admin/exportword/printformno9" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <ul class="dropdown-menu" role="menu">
@@ -149,7 +149,7 @@
                                     จ่ายจริง(บาท)
                                   </th>
                                 </thead>
-                                  <tr>
+                                  <!--<tr>
                                       <td>2555</td>
                                       <td>31,569515.95</td>
                                       <td>23,784,183.59</td>
@@ -168,7 +168,7 @@
                                       <td>2558</td>
                                       <td>36,603,274.29</td>
                                       <td>31,851,913.78</td>
-                                  </tr>
+                                  </tr>-->
                                   <tr>
                                       <td>2559(ค่าประมาณการ)</td>
                                       <td>  <a href="#" id="no9_3_1" data-type="text" data-pk="1" data-title="Enter username"> {{no9_3_1}} </a> </td>
@@ -304,26 +304,165 @@
                           </div>
 
                         </form>
-                    </div>
+                      </div>
 
-                    <div id="step-5">
+                      <div id="step-5">
 
-                      <form class="form-horizontal form-label-left">
+                        <form class="form-horizontal form-label-left">
 
-                        <div class="form-group">
+                          <div class="form-group">
 
-                      <center>
-                        <p> บทบาท/การมีส่วนร่วมของประชาชนในกิจกรรมทางการเมืองและการบริหารอื่นๆ เช่นการวางแผนพัฒนาท้องถิ่น การส่งเสริมการเลือกตั้งในเขตพื้นที่ การร่วมทำกิจกรรมสังคม ในโอกาสต่างๆ (ให้เขียนบรรยายตามความเป็นจริง) </p>
+                            <center>
+                              <p> บทบาท/การมีส่วนร่วมของประชาชนในกิจกรรมทางการเมืองและการบริหารอื่นๆ เช่นการวางแผนพัฒนาท้องถิ่น การส่งเสริมการเลือกตั้งในเขตพื้นที่ การร่วมทำกิจกรรมสังคม ในโอกาสต่างๆ (ให้เขียนบรรยายตามความเป็นจริง) </p>
 
-                        <textarea name="name" id="no9_6" class="form-control" rows="8" cols="40">{{no9_6}}</textarea>
-                          <p> การประชุมประชาคมเพื่อระดมความคิดเห็นในการจัดทำแผน พัฒนาสามปีและการแก้ปัญหาในชุมชน  </p>
-                      </center>
+                              <textarea name="name" id="no9_6" class="form-control" rows="8" cols="40">{{no9_6}}</textarea>
+                                <p> การประชุมประชาคมเพื่อระดมความคิดเห็นในการจัดทำแผน พัฒนาสามปีและการแก้ปัญหาในชุมชน  </p>
+                            </center>
 
+                          </div>
+
+                        </form>
+                      </div>
+
+                      <div id="step-6">
+
+                        {% block review %}
+                        {% endblock %}
+                        {% if(user.role =='cc-user') %}
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                              <h2>ยืนยันข้อมูล <small>ยื่นพิจารณา</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+
+                            <div class="x_content">
+
+                                <div class="form-group">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="text-center">
+                                      <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
+                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
+                                      </a> 
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        {% endif %}
+                                      
+
+                        <!--
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                              <h2>สร้างไฟล์ <small>Microsoft Word</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <div class="form-group">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="text-center">
+                                      <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
+                                        <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
+                                      </a> 
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        -->
+
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="x_panel">
+                            <div class="x_title">
+                              <h2>ข้อมูลสรุป <small>ผลการพิจารณา</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                  </ul>
+                                </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <ul class="list-unstyled timeline">
+
+                            {% for comment in comments %}
+                                <li style="padding-left:10px;">
+                                  <div class="block">
+                                    <div class="tags" style="width:auto !important">                                    
+                                      <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
+                                        <span>คำแนะนำ {{ comment.Session.label }}</span>
+                                      </a>
+                                      {%if comment.status==2%}<span class="label label-success" ><i class="fa fa-check"></i></span>{%endif%}
+                                    </div>
+                                    <div class="block_content">
+                                      <h2 class="title">
+                                          <a>{{ comment.Session.label }} {{ comment.Session.name }}</a>
+                                      </h2>
+                                      <div class="byline">
+                                        <span>{{ comment.date}}</span> by <a>{{ comment.AdminUser.name }}</a>
+                                      </div>
+                                      <pre class="excerpt">{{ comment.description }}
+                                      </pre>
+                                    </div>
+                                  </div>
+                                </li>
+                            {% endfor %}
+                              </ul>
+
+                            </div>
+                          </div>
                         </div>
 
-                      </form>
-                  </div>
-                </div>
+                      </div>
+                    </div>
                     <!-- End SmartWizard Content -->
 
                   </div>

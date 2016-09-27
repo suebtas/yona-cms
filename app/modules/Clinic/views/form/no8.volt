@@ -28,7 +28,7 @@
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
-              <li><a href="{{ url.get() }}clinic-admin/exportword/printformno8" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
+              <li><a href="#{{ url.get() }}clinic-admin/exportword/printformno8" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <ul class="dropdown-menu" role="menu">
@@ -657,7 +657,147 @@
                   </table>
 
               </div>
+              
+              <div id="step-8">
 
+                {% block review %}
+                {% endblock %}
+                {% if(user.role =='cc-user') %}
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>ยืนยันข้อมูล <small>ยื่นพิจารณา</small></h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+
+                        <div class="form-group">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="text-center">
+                              <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
+                                <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
+                              </a> 
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+                {% endif %}
+                              
+
+                <!--
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>สร้างไฟล์ <small>Microsoft Word</small></h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                        <div class="form-group">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="text-center">
+                              <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
+                                <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
+                              </a> 
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+                -->
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>ข้อมูลสรุป <small>ผลการพิจารณา</small></h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <ul class="list-unstyled timeline">
+
+                    {% for comment in comments %}
+                        <li style="padding-left:10px;">
+                          <div class="block">
+                            <div class="tags" style="width:auto !important">                                    
+                              <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
+                                <span>คำแนะนำ {{ comment.Session.label }}</span>
+                              </a>
+                              {%if comment.status==2%}<span class="label label-success" ><i class="fa fa-check"></i></span>{%endif%}
+                            </div>
+                            <div class="block_content">
+                              <h2 class="title">
+                                  <a>{{ comment.Session.label }} {{ comment.Session.name }}</a>
+                              </h2>
+                              <div class="byline">
+                                <span>{{ comment.date}}</span> by <a>{{ comment.AdminUser.name }}</a>
+                              </div>
+                              <pre class="excerpt">{{ comment.description }}
+                              </pre>
+                            </div>
+                          </div>
+                        </li>
+                    {% endfor %}
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              
             </div>
             <!-- End SmartWizard Content -->
           </div>

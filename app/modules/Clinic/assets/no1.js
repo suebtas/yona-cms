@@ -53,11 +53,11 @@ $(document).ready(function() {
     }
   };
   function calculateAreaRaiToKmSquare(value){
-    return 1.6*value;
+    return value/625;
   }
 
   function calculateAreaKmSquareToRai(value){
-    return value/1.6;
+    return value*625;
   }
   //โหลดค่าพื้นที่
   $("#area-kgm").val(calculateAreaRaiToKmSquare($("#no1_1_2").val()));

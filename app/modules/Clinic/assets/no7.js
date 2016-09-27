@@ -149,9 +149,6 @@ $('#no7_3_1_2').on('blur', function(e, params) {
 $('#no7_3_1_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -239,9 +236,6 @@ $('#no7_3_2_2').on('blur', function(e, params) {
 $('#no7_3_2_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -329,9 +323,6 @@ $('#no7_3_3_2').on('blur', function(e, params) {
 $('#no7_3_3_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -419,9 +410,6 @@ $('#no7_3_4_2').on('blur', function(e, params) {
 $('#no7_3_4_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -509,9 +497,6 @@ $('#no7_3_5_2').on('blur', function(e, params) {
 $('#no7_3_5_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -600,9 +585,6 @@ $('#no7_4_1_2').on('blur', function(e, params) {
 $('#no7_4_1_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -690,9 +672,6 @@ $('#no7_4_2_2').on('blur', function(e, params) {
 $('#no7_4_2_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -780,9 +759,6 @@ $('#no7_4_3_2').on('blur', function(e, params) {
 $('#no7_4_3_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -870,9 +846,6 @@ $('#no7_4_4_2').on('blur', function(e, params) {
 $('#no7_4_4_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -960,9 +933,6 @@ $('#no7_4_5_2').on('blur', function(e, params) {
 $('#no7_4_5_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1052,9 +1022,6 @@ $('#no7_5_1_2').on('blur', function(e, params) {
 $('#no7_5_1_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1142,9 +1109,6 @@ $('#no7_5_2_2').on('blur', function(e, params) {
 $('#no7_5_2_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1232,9 +1196,6 @@ $('#no7_5_3_2').on('blur', function(e, params) {
 $('#no7_5_3_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1322,9 +1283,6 @@ $('#no7_5_4_2').on('blur', function(e, params) {
 $('#no7_5_4_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1412,9 +1370,6 @@ $('#no7_5_5_2').on('blur', function(e, params) {
 $('#no7_5_5_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1504,9 +1459,6 @@ $('#no7_6_1_2').on('blur', function(e, params) {
 $('#no7_6_1_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1594,9 +1546,6 @@ $('#no7_6_2_2').on('blur', function(e, params) {
 $('#no7_6_2_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1684,9 +1633,6 @@ $('#no7_6_3_2').on('blur', function(e, params) {
 $('#no7_6_3_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1774,9 +1720,6 @@ $('#no7_6_4_2').on('blur', function(e, params) {
 $('#no7_6_4_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
@@ -1864,9 +1807,6 @@ $('#no7_6_5_2').on('blur', function(e, params) {
 $('#no7_6_5_3').editable({
        type: 'text',
        title: ' ',
-       display: function(value) {
-         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-       },
      }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no7",
