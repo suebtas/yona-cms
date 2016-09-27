@@ -23,44 +23,33 @@ $(document).ready(function() {
     },
 
     init: function () {
-        /*var thisDropzone = this;
-        //Call the action method to load the images from the server
-        $.getJSON("/clinic/form/displayofficemap").done(function (data) {
-            alert(data);
-            if (data.Data != '') {
-                $.each(data.Data, function (index, item) {
-                        //// Create the mock file:
-                        var mockFile = {
-                            name: item.AttachmentID,
-                            size: 12345
-                        };
-
-                        // Call the default addedfile event handler
-                        thisDropzone.emit("addedfile", mockFile);
-
-                        // And optionally show the thumbnail of the file:
-                        thisDropzone.emit("thumbnail", mockFile, item.Path);
-
-                        // If you use the maxFiles option, make sure you adjust it to the
-                        // correct amount:
-                        //var existingFileCount = 1; // The number of files already uploaded
-                        //myDropzone.options.maxFiles = myDropzone.options.maxFiles - existingFileCount;
-                });
-            }
-
-        });*/
-
-      //$.load(function(){
-        //if ( $( this ).height() > 100) {
-
+/*
           var mockFile = { name: "myimage.jpg", size: 32000, type: 'image/jpeg' };       
           this.options.addedfile.call(this, mockFile);
           this.options.thumbnail.call(this, mockFile, "/clinic/form/displayofficemap");
           mockFile.previewElement.classList.add('dz-success');
           mockFile.previewElement.classList.add('dz-complete'); 
           $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
-        //}
-      //});
+*/
+
+        // Add server images
+        var myDropzone = this;
+
+        $.get('/clinic/form/displayofficemap', function(data) {
+
+            //$.each(data.images, function (key, value) {
+              if(data!=''){
+                  var file = {name: 'value.original', size: 12};
+                  myDropzone.options.addedfile.call(myDropzone, file);
+                  myDropzone.options.thumbnail.call(this, file, "/clinic/form/displayofficemap");
+                  $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
+                  //myDropzone.options.thumbnail.call(myDropzone, data, 'images/icon_size/' + value.server);
+                  myDropzone.emit("complete", file);
+              }
+                //photo_counter++;
+                //$("#photoCounter").text( "(" + photo_counter + ")");
+            //});
+        });
     }
   };
   function calculateAreaRaiToKmSquare(value){
