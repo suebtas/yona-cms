@@ -723,8 +723,7 @@ class ExportWordController extends Controller
     	
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        
-		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo4.docx');
+		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo4.docx');
 		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
 		//var_dump(($document));die();
 		date_default_timezone_set('Asia/Bangkok');
