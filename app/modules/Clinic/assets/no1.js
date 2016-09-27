@@ -4,6 +4,65 @@ function jump(str){
   $('#wizard').smartWizard('goToStep',array[1]);
 }
 $(document).ready(function() {
+
+
+  Dropzone.options.dropzone = {
+    no1_1: "file",
+    url: "/clinic/form/no1",
+    paramName: "no1_1", // The name that will be used to transfer the file
+    maxFilesize: 3, // MB
+    maxFiles: 1,
+
+    thumbnailWidth: null,
+    thumbnailHeight: null,
+    accept: function(file, done) {
+      if (file.name == "justinbieber.jpg") {
+        done("Naha, you don't.");
+      }
+      else { done(); }
+    },
+
+    init: function () {
+        /*var thisDropzone = this;
+        //Call the action method to load the images from the server
+        $.getJSON("/clinic/form/displayofficemap").done(function (data) {
+            alert(data);
+            if (data.Data != '') {
+                $.each(data.Data, function (index, item) {
+                        //// Create the mock file:
+                        var mockFile = {
+                            name: item.AttachmentID,
+                            size: 12345
+                        };
+
+                        // Call the default addedfile event handler
+                        thisDropzone.emit("addedfile", mockFile);
+
+                        // And optionally show the thumbnail of the file:
+                        thisDropzone.emit("thumbnail", mockFile, item.Path);
+
+                        // If you use the maxFiles option, make sure you adjust it to the
+                        // correct amount:
+                        //var existingFileCount = 1; // The number of files already uploaded
+                        //myDropzone.options.maxFiles = myDropzone.options.maxFiles - existingFileCount;
+                });
+            }
+
+        });*/
+
+      //$.load(function(){
+        //if ( $( this ).height() > 100) {
+
+          var mockFile = { name: "myimage.jpg", size: 32000, type: 'image/jpeg' };       
+          this.options.addedfile.call(this, mockFile);
+          this.options.thumbnail.call(this, mockFile, "/clinic/form/displayofficemap");
+          mockFile.previewElement.classList.add('dz-success');
+          mockFile.previewElement.classList.add('dz-complete'); 
+          $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
+        //}
+      //});
+    }
+  };
   function calculateAreaRaiToKmSquare(value){
     return 1.6*value;
   }

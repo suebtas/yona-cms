@@ -471,7 +471,19 @@ class FormController extends Controller
                 }
                 $this->updateAnswer($option, 6, $answer, $user->officeid,  $this->discovery_surveyid);
             }
+            if ($this->request->hasFiles() == true) {
+                echo 'ok';
 
+
+                // Print the real file names and sizes
+                foreach ($this->request->getUploadedFiles() as $file) {
+                    $office = $user->Office;
+                    $office->map = file_get_contents($file->getTempName());     
+                    $office->maptype = $file->getType();    
+                    $office->mapsize = $file->getSize();
+                    $office->save();
+                }
+            }
             $answer = $this->request->getPost("no1_2_1_1");
             $this->updateAnswer($option, 7, $answer, $user->officeid,  $this->discovery_surveyid);
 
@@ -544,6 +556,17 @@ class FormController extends Controller
 
         }
 
+    }
+    public function displayOfficeMapAction(){
+        $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+        $this->view->disable();
+        $response = new \Phalcon\Http\Response();
+        $response->setStatusCode(200, "OK");
+        //$response->setContentType('image/jpeg');
+        $response->setHeader("Content-Type", $discoverySurvey->Office->maptype);
+
+        $response->setContent($discoverySurvey->Office->map);
+        $response->send();
     }
     public function createViewNo2(){
         $no2_1_1 = Answer::findFirst(
