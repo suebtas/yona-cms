@@ -79,6 +79,8 @@
                       </ul>
 
                       <div id="step-1">
+                        {% block comment_tab1 %}
+                        {% endblock %}   
                         <form class="form-horizontal form-label-left">
                           <div class="form-group">
                               <center>
@@ -122,6 +124,8 @@
                       </div>
 
                       <div id="step-2">
+                          {% block comment_tab2 %}
+                          {% endblock %}   
                           <form class="form-horizontal form-label-left">
                             <div class="form-group">
                               <!-- table 7.3-->
@@ -579,6 +583,8 @@
                           </form>
                       </div>
                       <div id="step-3">
+                        {% block comment_tab3 %}
+                        {% endblock %}   
                         <form class="form-horizontal form-label-left">
                           <div class="form-group">
                             <table class="table table-bordered table-striped">

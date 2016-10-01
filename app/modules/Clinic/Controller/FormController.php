@@ -16,6 +16,9 @@ use Clinic\Form\Question\No1Form;
 
 class FormController extends Controller
 {
+    public $discoverySurvey;
+    public $discovery_surveyid;
+    public $surveyid;
 
     public function initialize()
     {
@@ -559,14 +562,18 @@ class FormController extends Controller
     }
     public function displayOfficeMapAction(){
         $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-        $this->view->disable();
-        $response = new \Phalcon\Http\Response();
-        $response->setStatusCode(200, "OK");
-        //$response->setContentType('image/jpeg');
-        $response->setHeader("Content-Type", $discoverySurvey->Office->maptype);
+        if($discoverySurvey){
+            $this->view->disable();
+            $response = new \Phalcon\Http\Response();
+            $response->setStatusCode(200, "OK");
+            //$response->setContentType('image/jpeg');
+            $response->setHeader("Content-Type", $discoverySurvey->Office->maptype);
 
-        $response->setContent($discoverySurvey->Office->map);
-        $response->send();
+            $response->setContent($discoverySurvey->Office->map);
+            $response->send();
+        }else{
+            echo 'error';
+        }
     }
     public function createViewNo2(){
         $no2_1_1 = Answer::findFirst(

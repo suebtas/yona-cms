@@ -93,6 +93,8 @@
   </ul>
 
   <div id="step-1">
+    {% block comment_tab1 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <center>
@@ -154,6 +156,8 @@
   </div>
 
   <div id="step-2">
+    {% block comment_tab2 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <table class="table table-striped table-bordered">
@@ -201,6 +205,8 @@
   </div>
 
   <div id="step-3">
+    {% block comment_tab3 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <table class="table table-striped table-bordered">
@@ -259,6 +265,8 @@
   </div>
 
   <div id="step-4">
+    {% block comment_tab4 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <table class="table table-striped table-bordered">
@@ -295,6 +303,8 @@
   </div>
 
   <div id="step-5">
+    {% block comment_tab5 %}
+    {% endblock %}   
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <table class="table table-striped table-bordered">
@@ -341,7 +351,6 @@
     </form>
   </div>
   <div id="step-6">
-
     {% block review %}
     {% endblock %}
     {% if(user.role =='cc-user') %}

@@ -69,6 +69,8 @@
               </ul>
 
               <div id="step-1">
+                {% block comment_tab1 %}
+                {% endblock %}   
                 <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <thead>
                       <tr>

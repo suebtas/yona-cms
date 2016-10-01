@@ -100,6 +100,8 @@
               </ul>
 
               <div id="step-1">
+                  {% block comment_tab1 %}
+                  {% endblock %}   
                   <div class="form-group">
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                     โรงพยาบาลในเขตพื้นที่ (ถ้ามี)</label>
@@ -144,6 +146,8 @@
 
               <div id="step-3">
 
+                {% block comment_tab3 %}
+                {% endblock %}   
                 <div class="form-group">
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                     บุคลากรทางการแพทย์ที่ปฏิบัติหน้าที่ในสถานพยาบาลทุกแห่ง ทุกสังกัดในเขตพื้นที่ </label>
@@ -195,6 +199,8 @@
               </div>
 
               <div id="step-4">
+                  {% block comment_tab4 %}
+                  {% endblock %}   
                   <div class="form-group">
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                     ผู้เข้ารับการรักษาในสถานพยาบาลสังกัด (จำนวนต่อปี)</label>
@@ -239,6 +245,8 @@
               </div>
 
               <div id="step-5">
+                  {% block comment_tab5 %}
+                  {% endblock %}   
                   <div class="form-group">
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                     สาเหตุการเจ็บป่วยที่เข้ารับการรักษาในโรงพยาบาลและศูนย์บริการทางสาธารณสุขทุกแห่ง</label>
@@ -263,6 +271,8 @@
               </div>
 
               <div id="step-6">
+                  {% block comment_tab6 %}
+                  {% endblock %}   
                   <div class="form-group">
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map"> ประเภทการเจ็บป่วยที่เข้ารับการรักษาในโรงพยาบาลและศูนย์บริการทางสาธารณสุข ทุกแห่ง 5 อันดับแรก</label>
                   </div>

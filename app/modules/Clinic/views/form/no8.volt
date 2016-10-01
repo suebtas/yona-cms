@@ -66,7 +66,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#step-4">
+                  <a href="#step-3">
                     <span class="step_no">8.4</span>
                     <span class="step_descr">
                         คลอง ลำธาร ห้วย <br />
@@ -74,7 +74,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#step-5">
+                  <a href="#step-4">
                     <span class="step_no">8.5</span>
                     <span class="step_descr">
                         การระบายน้ำ<br />
@@ -82,7 +82,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#step-6">
+                  <a href="#step-5">
                     <span class="step_no">8.6</span>
                     <span class="step_descr">
                         น้ำเสีย<br />
@@ -90,7 +90,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#step-7">
+                  <a href="#step-6">
                     <span class="step_no">8.7</span>
                     <span class="step_descr">
                         ขยะ<br />
@@ -98,7 +98,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#step-8">
+                  <a href="#step-7">
                     <span class="step_no">สรุป</span>
                     <span class="step_descr">
                         ยืนยันข้อมูล<br />
@@ -108,7 +108,8 @@
               </ul>
 
               <div id="step-1">
-
+                  {% block comment_tab1 %}
+                  {% endblock %}   
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -137,6 +138,8 @@
               </div>
 
               <div id="step-2">
+                {% block comment_tab2 %}
+                {% endblock %}   
                 <form class="form-horizontal form-label-left">
                   <div class="form-group">
                     
@@ -208,7 +211,9 @@
               </div>
 
 
-              <div id="step-4">
+              <div id="step-3">
+                {% block comment_tab3 %}
+                {% endblock %}   
                 <div class="form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-12" for="map"> 
                     คลอง ลำธาร ห้วย จำนวน </label>
@@ -254,8 +259,9 @@
                   </table>
               </div>
 
-              <div id="step-5">
-
+              <div id="step-4">
+                  {% block comment_tab4 %}
+                  {% endblock %}   
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -417,8 +423,9 @@
 
               </div>
 
-              <div id="step-6">
-
+              <div id="step-5">
+                  {% block comment_tab5 %}
+                  {% endblock %}   
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -444,7 +451,9 @@
 
               </div>
 
-              <div id="step-7">
+              <div id="step-6">
+                  {% block comment_tab6 %}
+                  {% endblock %}   
 
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
@@ -658,7 +667,7 @@
 
               </div>
               
-              <div id="step-8">
+              <div id="step-7">
 
                 {% block review %}
                 {% endblock %}

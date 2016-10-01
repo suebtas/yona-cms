@@ -204,198 +204,8 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)))->description;
             $this->view->comment_session_4 = $comment_session_4;
-            $no2_1_1 = Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>25,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_1 = $no2_1_1;
-              $no2_1_2_1 = Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>26,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_2_1 = $no2_1_2_1;
-              $no2_1_2_2 = Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>27,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_2_2 = $no2_1_2_2;
-              $no2_1_3_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>28,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_3_1 = $no2_1_3_1;
-              $no2_1_3_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>29,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_3_2 = $no2_1_3_2;
-              $no2_1_4_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>30,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_4_1 = $no2_1_4_1;
-              $no2_1_4_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>31,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_4_2 = $no2_1_4_2;
-              $no2_1_5_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>32,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_5_1 = $no2_1_5_1;
-              $no2_1_5_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>33,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_5_2 = $no2_1_5_2;
-              $no2_1_5_3= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>34,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_5_3 = $no2_1_5_3;
-              $no2_1_6= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>35,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_1_6 = $no2_1_6;
-              $no2_2_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>36,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_2_1 = $no2_2_1;
-              $no2_2_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>37,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_2_2 = $no2_2_2;
-              $no2_3_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>38,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_1 = $no2_3_1;
-              $no2_3_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>39,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_2 = $no2_3_2;
-              $no2_3_3= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>40,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_3 = $no2_3_3;
-              $no2_3_4= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>41,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_4 = $no2_3_4;
-              $no2_3_5= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>42,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_5 = $no2_3_5;
-              $no2_3_6= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>43,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_6 = $no2_3_6;
-              $no2_3_7= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>44,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_3_7 = $no2_3_7;
-              $no2_4_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>45,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_4_1 = $no2_4_1;
-              $no2_4_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>46,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_4_2 = $no2_4_2;
-              $no2_4_3= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>47,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_4_3 = $no2_4_3;
-              $no2_4_4= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>48,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_4_4 = $no2_4_4;
-              $no2_5_1= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>49,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_1 = $no2_5_1;
-              $no2_5_2= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>50,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_2 = $no2_5_2;
-              $no2_5_3= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>51,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_3 = $no2_5_3;
-              $no2_5_4= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>52,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_4 = $no2_5_4;
-              $no2_5_5= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>53,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_5 = $no2_5_5;
-              $no2_5_6= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>54,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_6 = $no2_5_6;
-              $no2_5_7= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>55,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_7 = $no2_5_7;
-              $no2_5_8= Answer::findFirst(
-                              array("questionid=?1 and discovery_surveyid=?2",
-                                  "bind"=>array(
-                                      1=>56,
-                                      2=>$this->surveyid)))->answer;
-              $this->view->no2_5_8 = $no2_5_8;
+            
+            parent::createViewNo2();
 
         }elseif($this->request->isPost()){            
             $this->view->disable();
@@ -433,6 +243,658 @@ class ReviewController extends FormController
         }
 
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 3 and 6","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no3Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no3-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no3.js')
+            ->setTargetUri('assets/modules-clinic-no3.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>7,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>8,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>9,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            $comment_session_4 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>10,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            
+            $comment_session_5 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>11,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            parent::createViewNo3();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 7, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 8, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 9, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_4");
+            if($comment){
+                $this->updateComment($option, 10, $comment, $user->id, $this->discovery_surveyid);
+            }            
+            $comment = $this->request->getPost("session_5");
+            if($comment){
+                $this->updateComment($option, 11, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 7 and 11","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no4Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no4-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no4.js')
+            ->setTargetUri('assets/modules-clinic-no4.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>12,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>13,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>14,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            $comment_session_4 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>15,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            
+            $comment_session_5 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>16,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            parent::createViewNo4();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 12, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 13, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 14, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_4");
+            if($comment){
+                $this->updateComment($option, 15, $comment, $user->id, $this->discovery_surveyid);
+            }            
+            $comment = $this->request->getPost("session_5");
+            if($comment){
+                $this->updateComment($option, 16, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 12 and 16","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no5Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no5-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no5.js')
+            ->setTargetUri('assets/modules-clinic-no5.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>17,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>18,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>19,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            $comment_session_4 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>20,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            
+            $comment_session_5 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>21,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            parent::createViewNo5();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 17, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 18, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 19, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_4");
+            if($comment){
+                $this->updateComment($option, 20, $comment, $user->id, $this->discovery_surveyid);
+            }            
+            $comment = $this->request->getPost("session_5");
+            if($comment){
+                $this->updateComment($option, 21, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 17 and 21","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no6Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no6-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no6.js')
+            ->setTargetUri('assets/modules-clinic-no6.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>22,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            parent::createViewNo6();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 22, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no7Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no7-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no7.js')
+            ->setTargetUri('assets/modules-clinic-no7.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>23,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>24,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>25,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            parent::createViewNo7();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 23, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 24, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 25, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 23 and 25","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+    public function no8Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no8-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no8.js')
+            ->setTargetUri('assets/modules-clinic-no8.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>26,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>27,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>28,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            $comment_session_4 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>29,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+
+            $comment_session_5 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>30,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+
+            parent::createViewNo8();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 26, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 27, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 28, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_4");
+            if($comment){
+                $this->updateComment($option, 29, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_5");
+            if($comment){
+                $this->updateComment($option, 30, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+    }
+
+
+    public function no9Action(){
+
+        // no3 JS Assets
+        $this->assets->collection('modules-clinic-no9-js')
+            ->setLocal(true)
+            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+            ->setTargetPath(ROOT . '/assets/modules-clinic-no9.js')
+            ->setTargetUri('assets/modules-clinic-no9.js')
+            ->join(true)
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+
+        if (!$this->request->isPost()) {
+            $form = new No1Form();
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+
+            $comment_session_1 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>32,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+
+            $comment_session_2 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>33,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+
+            $comment_session_3 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>34,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+
+            $comment_session_4 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>35,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+
+            $comment_session_5 = Comment::findFirst(
+                            array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                                "bind"=>array(
+                                    1=>36,
+                                    2=>$this->discovery_surveyid,
+                                    3=>$user->id)));
+            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+
+            parent::createViewNo9();
+
+        }elseif($this->request->isPost()){            
+            $this->view->disable();
+            $option = $this->request->getPost("option");
+
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
+            $comment = $this->request->getPost("session_1");
+            if($comment){
+                $this->updateComment($option, 32, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_2");
+            if($comment){
+                $this->updateComment($option, 33, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_3");
+            if($comment){
+                $this->updateComment($option, 34, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_4");
+            if($comment){
+                $this->updateComment($option, 35, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $comment = $this->request->getPost("session_5");
+            if($comment){
+                $this->updateComment($option, 36, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $approve = $this->request->getPost("group_session_1");
+            if($approve){
+                if($user->role=='cc-admin')
+                    $level = 2;
+                elseif($user->role=='cc-approver')
+                    $level = 1;
+                if($level!=null)
+                    $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
+            }
+            
+        }
+
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
     public function updateApprove($option, $sessionid, $approve,$level, $admin_userid, $discovery_surveyid){
       if($approve!=""){
