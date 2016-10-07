@@ -36,7 +36,7 @@ class FormController extends Controller
                 $this->discoverySurvey->officeid  = $this->user->officeid;
                 $this->discoverySurvey->surveyid  = 1;
                 $this->discoverySurvey->status    = 0;
-                $this->discoverySurvey->save();                
+                $this->discoverySurvey->save();
             }
             $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
             $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
@@ -71,7 +71,7 @@ class FormController extends Controller
 
         //กำหนดค่าใน view
         $this->view->user = $this->user;
-        $this->view->office =  Office::findFirst($this->user->officeid);        
+        $this->view->office =  Office::findFirst($this->user->officeid);
         $this->view->status = $this->discoverySurvey->status;
     }
 
@@ -144,13 +144,18 @@ class FormController extends Controller
                                 "bind"=>array(
                                     1=>2,
                                     2=>$this->discovery_surveyid)))->answer;
-           $no1_2_1_1 = Answer::findFirst(
+           $no1_2_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
-                                    1=>7,
+                                    1=>400,
                                     2=>$this->discovery_surveyid)))->answer;
-            $this->view->no1_2_1_1 = $no1_2_1_1;
-
+            $this->view->no1_2_1 = $no1_2_1;
+            $no1_2_1_1 = Answer::findFirst(
+                             array("questionid=?1 and discovery_surveyid=?2",
+                                 "bind"=>array(
+                                     1=>7,
+                                     2=>$this->discovery_surveyid)))->answer;
+             $this->view->no1_2_1_1 = $no1_2_1_1;
             $no1_2_1_2 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
@@ -481,12 +486,14 @@ class FormController extends Controller
                 // Print the real file names and sizes
                 foreach ($this->request->getUploadedFiles() as $file) {
                     $office = $user->Office;
-                    $office->map = file_get_contents($file->getTempName());     
-                    $office->maptype = $file->getType();    
+                    $office->map = file_get_contents($file->getTempName());
+                    $office->maptype = $file->getType();
                     $office->mapsize = $file->getSize();
                     $office->save();
                 }
             }
+            $answer = $this->request->getPost("no1_2_1");
+            $this->updateAnswer($option, 400, $answer, $user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no1_2_1_1");
             $this->updateAnswer($option, 7, $answer, $user->officeid,  $this->discovery_surveyid);
 
@@ -530,7 +537,7 @@ class FormController extends Controller
             $this->updateAnswer($option, 398, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no1_2_8_1");
-            $this->updateAnswer($option, 19, $answer, $user->officeid,  $this->discovery_surveyid);            
+            $this->updateAnswer($option, 19, $answer, $user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no1_2_8_2");
             $this->updateAnswer($option, 399, $answer, $user->officeid,  $this->discovery_surveyid);
 
@@ -859,7 +866,7 @@ class FormController extends Controller
 
             }
             else {
-              $this->createViewNo2();              
+              $this->createViewNo2();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 3 and 6","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
             }
     }

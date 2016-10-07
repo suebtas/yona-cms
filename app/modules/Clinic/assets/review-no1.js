@@ -2,7 +2,7 @@ $(document).ready(function() {
     $.fn.editable.defaults.mode = 'inline';
 
     $('#note_session_1').editable({
-        showbuttons : 'bottom'       
+        showbuttons : 'bottom'
         //showbuttons : (App.isRTL() ? 'left' : 'right')
     }).on('save', function(e, params) {
         $.ajax({
@@ -14,11 +14,11 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-              
+
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 
     $('#note_session_2').editable({
-        showbuttons : 'bottom'       
+        showbuttons : 'bottom'
         //showbuttons : (App.isRTL() ? 'left' : 'right')
     }).on('save', function(e, params) {
         $.ajax({
@@ -43,14 +43,20 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-              
+
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
+    $('.dropzone').dropzone({
+    init: function() {
+            $('.dropzone').removeClass('dz-clickable');
+            $('.dropzone')[0].removeEventListener('click', this.listeners[1].events.click);
+          }
+        });
 
     $("#approval").click(function () {
       $.ajax({
@@ -62,11 +68,11 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-              
+
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });

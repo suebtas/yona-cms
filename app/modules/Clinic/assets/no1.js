@@ -24,11 +24,11 @@ $(document).ready(function() {
 
     init: function () {
 /*
-          var mockFile = { name: "myimage.jpg", size: 32000, type: 'image/jpeg' };       
+          var mockFile = { name: "myimage.jpg", size: 32000, type: 'image/jpeg' };
           this.options.addedfile.call(this, mockFile);
           this.options.thumbnail.call(this, mockFile, "/clinic/form/displayofficemap");
           mockFile.previewElement.classList.add('dz-success');
-          mockFile.previewElement.classList.add('dz-complete'); 
+          mockFile.previewElement.classList.add('dz-complete');
           $('.dz-image').last().find('img').attr({width: '100%', height: '100%'});
 */
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -107,7 +107,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -130,7 +130,7 @@ $(document).ready(function() {
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-     
+
         },
 
     });
@@ -152,7 +152,7 @@ $(document).ready(function() {
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-     
+
         }
     });
   });
@@ -173,7 +173,7 @@ $(document).ready(function() {
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-     
+
         }
     });
   });
@@ -197,7 +197,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -217,7 +217,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -243,7 +243,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -263,7 +263,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -291,7 +291,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -311,21 +311,23 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
       console.log(e);
   });
 });
-
 $(document).ready(function() {
 
     $.fn.editable.defaults.mode = 'inline';
     $('#no1_2_6_1').editable({
            type: 'text',
-           title: 'ประชากรแฝงจำนวน'
-    }).on('save', function(e, params) {
+           title: 'ประชากรแฝงจำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -339,7 +341,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -355,7 +357,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -377,7 +379,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -393,15 +395,18 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
     });
     $('#no1_2_7_1').editable({
            type: 'text',
-           title: 'ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน'
-    }).on('save', function(e, params) {
+           title: 'ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -415,7 +420,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -431,7 +436,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -454,7 +459,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -470,16 +475,19 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
     });
-    
+
     $('#no1_2_8_1').editable({
            type: 'text',
-           title: 'ความหนาแน่นของประชากร'
-    }).on('save', function(e, params) {
+           title: 'ความหนาแน่นของประชากร',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -493,7 +501,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -509,7 +517,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -532,7 +540,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -548,7 +556,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -556,8 +564,11 @@ $(document).ready(function() {
 
     $('#no1_2_9').editable({
            type: 'text',
-           title: 'ความหนาแน่นของประชากร'
-    }).on('save', function(e, params) {
+           title: 'ความหนาแน่นของประชากร',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -571,7 +582,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -587,7 +598,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -595,8 +606,11 @@ $(document).ready(function() {
 
     $('#no1_2_10').editable({
            type: 'text',
-           title: 'ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน'
-    }).on('save', function(e, params) {
+           title: 'ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -610,7 +624,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -626,7 +640,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -634,8 +648,11 @@ $(document).ready(function() {
 
     $('#no1_2_11').editable({
            type: 'text',
-           title: 'ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน'
-    }).on('save', function(e, params) {
+           title: 'ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -649,7 +666,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -665,7 +682,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -673,8 +690,11 @@ $(document).ready(function() {
 
     $('#no1_2_12').editable({
            type: 'text',
-           title: 'ประชากรที่ประกอบอาชีพอื่นจำนวน'
-    }).on('save', function(e, params) {
+           title: 'ประชากรที่ประกอบอาชีพอื่นจำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -688,7 +708,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -704,7 +724,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -712,8 +732,11 @@ $(document).ready(function() {
 
     $('#no1_2_13').editable({
            type: 'text',
-           title: 'สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน'
-    }).on('save', function(e, params) {
+           title: 'สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -727,7 +750,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -743,7 +766,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -767,7 +790,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -784,12 +807,12 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
     });
-    
+
     $('#no1_2_2_2').editable({
            type: 'text',
            title: 'จำนวนผู้หญิง'
@@ -807,10 +830,10 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
-    }); 
+    });
     $('#no1_2_3_1').editable({
            type: 'text',
            title: 'จำนวนผู้ชาย'
@@ -828,7 +851,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
@@ -849,10 +872,10 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
-    }); 
+    });
     $('#no1_2_4_1').editable({
            type: 'text',
            title: 'จำนวนผู้ชาย'
@@ -870,7 +893,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
@@ -891,10 +914,10 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
-    }); 
+    });
     $('#no1_2_5_1').editable({
            type: 'text',
            title: 'จำนวนผู้ชาย'
@@ -912,7 +935,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
@@ -935,12 +958,40 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
     });
 
+    function callPopulationAll(){
+      var a1 = $('#no1_2_1_1').text();
+      if(a1==''||a1=='Empty')
+        a1=0;
+        var a2 = $('#no1_2_1_2').text();
+        if(a2==''||a2=='Empty')
+          a2=0;
+          var rea1 = a1.replace(/,/g,"");
+          var rea2 = a2.replace(/,/g,"");
+          var sume = parseFloat(rea1) + parseFloat(rea2)
+          var sumee = sume.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+          $('#no1_2_1').html(sumee);
+          $.ajax({
+              url : "/clinic/form/no1",
+              type: "POST",
+              data : {
+                no1_2_1:sumee,
+                option:'add'
+              },
+              success: function(data, textStatus, jqXHR)
+              {
+                  //data - response from server
+              },
+              error: function (jqXHR, textStatus, errorThrown)
+              {
 
+              }
+          });
+    }
   function callPopulationMale(){
     var ic1 = $('#no1_2_2_1').text();
     if(ic1==''||ic1=='Empty')
@@ -955,7 +1006,8 @@ $(document).ready(function() {
     if(ic4==''||ic4=='Empty')
       ic4=0;
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
-    $('#no1_2_1_1').html(sum);
+    var sums = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    $('#no1_2_1_1').html(sums);
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
@@ -965,11 +1017,11 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+            callPopulationAll();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-     
+
         }
     });
   }
@@ -987,7 +1039,8 @@ $(document).ready(function() {
     if(id4==''||id4=='Empty')
       id4=0;
     var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
-    $('#no1_2_1_2').html(sumd);
+    var sumg = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    $('#no1_2_1_2').html(sumg);
 
     $.ajax({
         url : "/clinic/form/no1",
@@ -998,16 +1051,15 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+            callPopulationAll();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-     
+
         }
     });
-    
+
   }
 
 
 });
-

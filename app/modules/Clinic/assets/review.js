@@ -15,4 +15,14 @@ $(document).ready(function() {
         //$("#"+elems[i].id).editable('option', 'disabled', true);
         $("#"+elems[i].id).editable('option', 'disabled', true);
     }
+    var elems = document.body.getElementsByClassName("dropzone");
+    $('.dropzone').dropzone({
+    maxFiles: 10,
+    init: function() {
+        this.on('maxfilesreached', function() {
+            $('.dropzone').removeClass('dz-clickable'); // remove cursor
+            $('.dropzone')[0].removeEventListener('click', this.listeners[1].events.click);
+        });
+    }
+});
 });
