@@ -109,7 +109,7 @@
 
               <div id="step-1">
                   {% block comment_tab1 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -139,121 +139,121 @@
 
               <div id="step-2">
                 {% block comment_tab2 %}
-                {% endblock %}   
+                {% endblock %}
                 <form class="form-horizontal form-label-left">
                   <div class="form-group">
-                    
+
                     <div class="col-md-2">
                         <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
                         <input type="text" id="no8_2_1_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_1}}>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <label> ต่ำสุด </label>
                         <input type="text" id="no8_2_1_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_2}}>
                         <label > (ลบ.ม.) </label>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <label > สูงสุด </label>
                         <input type="text" id="no8_2_1_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_1_3}}>
                         <label> (ลบ.ม.) </label>
                     </div>
-                    
+
                   </div>
 
                   <div class="form-group">
-                    
+
                     <div class="col-md-2">
                         <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
                         <input type="text" id="no8_2_2_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_1}}>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <label> ต่ำสุด </label>
                         <input type="text" id="no8_2_2_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_2}}>
                         <label > (ลบ.ม.) </label>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <label > สูงสุด </label>
                         <input type="text" id="no8_2_2_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_2_3}}>
                         <label> (ลบ.ม.) </label>
                     </div>
-                    
+
                   </div>
 
                   <div class="form-group">
-                    
+
                     <div class="col-md-2">
                         <label> ปริมาณน้ำฝนเฉลี่ย  พ.ศ. </label>
                         <input type="text" id="no8_2_3_1" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_1}}>
                     </div>
-                    
+
                     <div class="col-md-2">
                         <label> ต่ำสุด </label>
                         <input type="text" id="no8_2_3_2" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_2}}>
                         <label > (ลบ.ม.) </label>
                     </div>
-                    
-                    
+
+
                     <div class="col-md-2">
                         <label > สูงสุด </label>
                         <input type="text" id="no8_2_3_3" required="required" class="form-control col-md-3 col-xs-6" value={{no8_2_3_3}}>
                         <label> (ลบ.ม.) </label>
                     </div>
-                    
+
                   </div>
-                  
+
                 </form>
               </div>
 
 
               <div id="step-3">
                 {% block comment_tab3 %}
-                {% endblock %}   
+                {% endblock %}
                 <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="map"> 
+                    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="map">
                     คลอง ลำธาร ห้วย จำนวน </label>
                     <div class="col-md-2">
-                        <input type="text" id="no8_4" required="required" class="form-control col-md-3 col-xs-6" value={{no8_4}}>
+                        <input type="text" id="no8_4" required="required" class="form-control col-md-3 col-xs-6" tabindex="1" value={{no8_4}}>
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง ได้แก่ </label>
-                  </div>       
+                  </div>
 
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="40%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_1}}></td>
+                          <td width="40%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-6" tabindex="2" value={{no8_4_1}}></td>
                           <td width="5%">6.</td>
-                          <td width="40%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_6}}></td>
+                          <td width="40%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-6" tabindex="7" value={{no8_4_6}}></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="40%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_2}}></td>
+                          <td width="40%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-6" tabindex="3" value={{no8_4_2}}></td>
                           <td width="5%">7.</td>
-                          <td width="40%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_7}}></td>
+                          <td width="40%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-6" tabindex="8" value={{no8_4_7}}></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="40%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_3}}></td>
+                          <td width="40%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-6" tabindex="4" value={{no8_4_3}}></td>
                           <td width="5%">8.</td>
-                          <td width="40%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_8}}></td>
+                          <td width="40%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-6" tabindex="9" value={{no8_4_8}}></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="40%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_4}}></td>
+                          <td width="40%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-6" tabindex="5" value={{no8_4_4}}></td>
                           <td width="5%">9.</td>
-                          <td width="40%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_9}}></td>
+                          <td width="40%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-6" tabindex="10" value={{no8_4_9}}></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="40%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_5}}></td>
+                          <td width="40%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-6" tabindex="6" value={{no8_4_5}}></td>
                           <td width="5%">10.</td>
-                          <td width="40%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-6" value={{no8_4_10}}></td>
+                          <td width="40%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-6" tabindex="11" value={{no8_4_10}}></td>
                         </tr>
                     </tbody>
                   </table>
@@ -261,7 +261,7 @@
 
               <div id="step-4">
                   {% block comment_tab4 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -425,7 +425,7 @@
 
               <div id="step-5">
                   {% block comment_tab5 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -433,11 +433,11 @@
                             <td width="30%"><a href="#" id="no8_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_1}}</a> ลบ.ม./วัน</td>
                         </tr>
                         <tr>
-                            <td width="40%">ระบบบำบัดน้ำเสียที่ใช้ (ระบุ) 
+                            <td width="40%">ระบบบำบัดน้ำเสียที่ใช้ (ระบุ)
                             <textarea id="no8_6_2_1" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_6_2_1}}</textarea></td>
                             <td width="30%">รวม <a href="#" id="no8_6_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_2_2}}</a> แห่ง</td>
                         </tr>
-                        
+
                         <tr>
                             <td width="40%">น้ำเสียที่บำบัดได้ จำนวน </td>
                             <td width="30%"><a href="#" id="no8_6_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_6_3}}</a> ลบ.ม./วัน</td>
@@ -453,7 +453,7 @@
 
               <div id="step-6">
                   {% block comment_tab6 %}
-                  {% endblock %}   
+                  {% endblock %}
 
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
@@ -465,7 +465,7 @@
                             <td width="40%">รถยนต์ที่ใช้จัดเก็บขยะ รวม </td>
                             <td width="30%"><a href="#" id="no8_7_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_2}}</a> คัน แยกเป็น (แยกตามขนาดความจุขยะ)</td>
                         </tr>
-                        
+
                         <tr>
                             <td width="40%">รถเก็บขนขยะ ขนาดความจุ </td>
                             <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a></td>
@@ -648,7 +648,7 @@
                             <td width="40%">เช่าที่ดินเอกชน ตั้งแต่ พ.ศ. <input type="text" id="no8_7_17_2_1" required="required" class="form-control col-md-2 col-xs-6" value={{no8_7_17_2_1}}></td>
                             <td width="30%">ปัจจุบันเช่าปีละ <a href="#" id="no8_7_17_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_17_2_2}}</a> บาท</td>
                         </tr>
-                        
+
                         <tr>
                             <td width="40%">อื่นๆ (ระบุ)<textarea id="no8_7_18" rows="4" cols="50" class="form-control col-md-2 col-xs-6">{{no8_7_18}}</textarea></td>
                             <td width="30%"></td>
@@ -661,12 +661,12 @@
                             <td width="40%">ที่ตั้งสำรองที่เตรียมไว้สำหรับกำจัดขยะห่างจากท้องถิ่นเป็นระยะทาง </td>
                             <td width="30%"><a href="#" id="no8_7_20" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_20}}</a> กม.</td>
                         </tr>
-                        
+
                     </tbody>
                   </table>
 
               </div>
-              
+
               <div id="step-7">
 
                 {% block review %}
@@ -701,7 +701,7 @@
                             <div class="text-center">
                               <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
                                 <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
-                              </a> 
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -710,7 +710,7 @@
                   </div>
                 </div>
                 {% endif %}
-                              
+
 
                 <!--
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -741,7 +741,7 @@
                             <div class="text-center">
                               <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
                                 <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
-                              </a> 
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -779,7 +779,7 @@
                     {% for comment in comments %}
                         <li style="padding-left:10px;">
                           <div class="block">
-                            <div class="tags" style="width:auto !important">                                    
+                            <div class="tags" style="width:auto !important">
                               <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
                                 <span>คำแนะนำ {{ comment.Session.label }}</span>
                               </a>
@@ -806,7 +806,7 @@
 
               </div>
 
-              
+
             </div>
             <!-- End SmartWizard Content -->
           </div>
