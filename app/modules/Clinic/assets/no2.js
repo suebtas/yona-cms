@@ -590,9 +590,10 @@ $('#no2_4_4').editable({
 
 //step 4 2.5
 $('#no2_5_1').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+}).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -611,9 +612,10 @@ $('#no2_5_1').editable({
   });
 });
 $('#no2_5_2').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -632,9 +634,10 @@ $('#no2_5_2').editable({
   });
 });
 $('#no2_5_3').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -653,9 +656,10 @@ $('#no2_5_3').editable({
   });
 });
 $('#no2_5_4').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -674,9 +678,10 @@ $('#no2_5_4').editable({
   });
 });
 $('#no2_5_5').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -695,9 +700,10 @@ $('#no2_5_5').editable({
   });
 });
 $('#no2_5_6').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",
@@ -716,9 +722,10 @@ $('#no2_5_6').editable({
   });
 });
 $('#no2_5_7').editable({
-       type: 'text',
-       title: ' ',
-     }).on('save', function(e, params) {
+  display: function(value) {
+    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  },
+  }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no2",
       type: "POST",

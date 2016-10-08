@@ -774,8 +774,11 @@ $(document).ready(function() {
 
     $('#no1_2_2_1').editable({
            type: 'text',
-           title: 'จำนวนเด็กชาย'
-    }).on('save', function(e, params) {
+           title: 'จำนวนเด็กชาย',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
@@ -815,8 +818,11 @@ $(document).ready(function() {
 
     $('#no1_2_2_2').editable({
            type: 'text',
-           title: 'จำนวนผู้หญิง'
-    }).on('save', function(e, params) {
+           title: 'จำนวนผู้หญิง',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -836,8 +842,11 @@ $(document).ready(function() {
     });
     $('#no1_2_3_1').editable({
            type: 'text',
-           title: 'จำนวนผู้ชาย'
-    }).on('save', function(e, params) {
+           title: 'จำนวนผู้ชาย',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -857,8 +866,11 @@ $(document).ready(function() {
     });
     $('#no1_2_3_2').editable({
            type: 'text',
-           title: 'จำนวนผู้หญิง'
-    }).on('save', function(e, params) {
+           title: 'จำนวนผู้หญิง',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -878,8 +890,11 @@ $(document).ready(function() {
     });
     $('#no1_2_4_1').editable({
            type: 'text',
-           title: 'จำนวนผู้ชาย'
-    }).on('save', function(e, params) {
+           title: 'จำนวนผู้ชาย',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -900,7 +915,10 @@ $(document).ready(function() {
     $('#no1_2_4_2').editable({
            type: 'text',
            title: 'จำนวนผู้หญิง',
-    }).on('save', function(e, params) {
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -920,8 +938,11 @@ $(document).ready(function() {
     });
     $('#no1_2_5_1').editable({
            type: 'text',
-           title: 'จำนวนผู้ชาย'
-    }).on('save', function(e, params) {
+           title: 'จำนวนผู้ชาย',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -943,7 +964,11 @@ $(document).ready(function() {
 
     $('#no1_2_5_2').editable({
            type: 'text',
-           title: 'จำนวนผู้หญิง'
+           title: 'จำนวนผู้หญิง',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
     }).on('save', function(e, params) {
         $.ajax({
             url : "/clinic/form/no1",
@@ -1005,6 +1030,14 @@ $(document).ready(function() {
     var ic4 = $('#no1_2_5_1').text();
     if(ic4==''||ic4=='Empty')
       ic4=0;
+      if(!ic1) ic1="0";
+      if(!ic2) ic2="0";
+      if(!ic3) ic3="0";
+      if(!ic4) ic4="0";
+      var ic1 = ic1.replace(/,/g,"");
+      var ic2 = ic2.replace(/,/g,"");
+      var ic3 = ic3.replace(/,/g,"");
+      var ic4 = ic4.replace(/,/g,"");
     var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
     var sums = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     $('#no1_2_1_1').html(sums);
@@ -1038,6 +1071,14 @@ $(document).ready(function() {
     var id4 = $('#no1_2_5_2').text();
     if(id4==''||id4=='Empty')
       id4=0;
+      if(!id1) id1="0";
+      if(!id2) id2="0";
+      if(!id3) id3="0";
+      if(!id4) id4="0";
+      var id1 = id1.replace(/,/g,"");
+      var id2 = id2.replace(/,/g,"");
+      var id3 = id3.replace(/,/g,"");
+      var id4 = id4.replace(/,/g,"");
     var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
     var sumg = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     $('#no1_2_1_2').html(sumg);

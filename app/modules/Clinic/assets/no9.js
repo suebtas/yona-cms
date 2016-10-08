@@ -95,7 +95,10 @@ $('#no9_3_2').editable({
 $('#no9_4_1').editable({
        type: 'text',
        title: ' ',
-     }).on('save', function(e, params) {
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+       }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
       type: "POST",
@@ -117,7 +120,10 @@ $('#no9_4_1').editable({
 $('#no9_4_2').editable({
        type: 'text',
        title: ' ',
-     }).on('save', function(e, params) {
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+       }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
       type: "POST",
@@ -139,7 +145,10 @@ $('#no9_4_2').editable({
 $('#no9_4_3').editable({
        type: 'text',
        title: ' ',
-     }).on('save', function(e, params) {
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+       }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
       type: "POST",
@@ -160,7 +169,10 @@ $('#no9_4_3').editable({
 $('#no9_4_4').editable({
        type: 'text',
        title: ' ',
-     }).on('save', function(e, params) {
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+       }).on('save', function(e, params) {
   $.ajax({
       url : "/clinic/form/no9",
       type: "POST",
@@ -281,6 +293,14 @@ function Cal(){
   var id4 = $('#no9_4_4').text();
   if(id4==''||id4=='Empty')
     id4=0;
+    if(!id1) id1="0";
+    if(!id2) id2="0";
+    if(!id3) id3="0";
+    if(!id4) id4="0";
+    var id1 = id1.replace(/,/g,"");
+    var id2 = id2.replace(/,/g,"");
+    var id3 = id3.replace(/,/g,"");
+    var id4 = id4.replace(/,/g,"");
   var sumall = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
   var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no9_4_5').html(sumall);

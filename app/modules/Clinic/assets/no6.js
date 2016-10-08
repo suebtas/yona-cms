@@ -5,11 +5,14 @@ function jump(str){
 $(document).ready(function() {
 
     $.fn.editable.defaults.mode = 'inline';
-    
+
     $('#no6_1').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -24,7 +27,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -41,7 +44,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -49,8 +52,11 @@ $(document).ready(function() {
 
     $('#no6_2').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -65,7 +71,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -82,7 +88,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -90,8 +96,11 @@ $(document).ready(function() {
 
     $('#no6_3').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -106,7 +115,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -123,7 +132,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -131,8 +140,11 @@ $(document).ready(function() {
 
     $('#no6_4').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -147,7 +159,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -164,7 +176,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -172,8 +184,11 @@ $(document).ready(function() {
 
     $('#no6_5').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -188,7 +203,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -205,7 +220,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -213,8 +228,11 @@ $(document).ready(function() {
 
     $('#no6_6').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -229,7 +247,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -246,7 +264,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -254,8 +272,11 @@ $(document).ready(function() {
 
     $('#no6_7').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -270,7 +291,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -287,7 +308,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -295,8 +316,11 @@ $(document).ready(function() {
 
     $('#no6_8').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -311,7 +335,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -328,7 +352,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
@@ -336,8 +360,11 @@ $(document).ready(function() {
 
     $('#no6_9').editable({
            type: 'text',
-           title: ''
-    }).on('save', function(e, params) {
+           title: '',
+           display: function(value) {
+             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+           },
+           }).on('save', function(e, params) {
       if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no6",
@@ -352,7 +379,7 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }else if(params.newValue==''){
@@ -369,10 +396,10 @@ $(document).ready(function() {
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-         
+
             }
         });
       }
     });
-    
+
 });
