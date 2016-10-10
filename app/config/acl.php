@@ -103,5 +103,6 @@ return [
         'clinic-admin/exportword'   => '*',
         'clinic-admin/newstype'   => '*',
         'clinic-admin/newslevel'   => '*',
+        'clinic-admin/newsimportant'   => '*',
     ],
 ];

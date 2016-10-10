@@ -88,7 +88,7 @@
 
   <div id="step-1">
     {% block comment_tab1 %}
-    {% endblock %}   
+    {% endblock %}
     <form class="form-horizontal form-label-left">
       <div class="form-group">
         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">ถนนจำนวน</label>
@@ -142,7 +142,7 @@
   </div>
   <div id="step-2">
     {% block comment_tab2 %}
-    {% endblock %}   
+    {% endblock %}
     <form class="form-horizontal form-label-left">
       <div class="form-group">
       <table class="table table-striped table-bordered" style="clear: both">
@@ -258,7 +258,7 @@
 
   <div id="step-3">
     {% block comment_tab3 %}
-    {% endblock %}   
+    {% endblock %}
     <form class="form-horizontal form-label-left">
 
       <div class="form-group">
@@ -315,7 +315,7 @@
 
   <div id="step-4">
     {% block comment_tab4 %}
-    {% endblock %}   
+    {% endblock %}
 
     <form class="form-horizontal form-label-left">
 
@@ -447,16 +447,16 @@
                 <div class="text-center">
                   <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
                     <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
-                  </a> 
+                  </a>
                 </div>
               </div>
-            </div> 
+            </div>
         </div>
 
       </div>
     </div>
     {% endif %}
-    <!--                     
+    <!--
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
@@ -486,14 +486,14 @@
                 <div class="text-center">
                   <a  href="{{ url.get() }}clinic-admin/exportword/printformno2" id="btnPrint" class="btn btn-app" >
                     <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
-                  </a> 
+                  </a>
                 </div>
               </div>
             </div>
         </div>
 
       </div>
-    </div>            
+    </div>
     -->
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
@@ -538,14 +538,14 @@
                   </pre>
                 </div>
               </div>
-            </li>        
+            </li>
         {% endfor %}
           </ul>
 
         </div>
       </div>
-    </div>                        
-    
+    </div>
+
   </div>
 </div>
 <!-- End SmartWizard Content -->
@@ -578,6 +578,25 @@
                     <!-- Select2 -->
                     <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
                     <!-- jQuery Smart Wizard -->
+                    <script>
+                    $('body').on('keydown', 'input, select, textarea', function(e) {
+                    var self = $(this)
+                      , form = self.parents('form:eq(0)')
+                      , focusable
+                      , next
+                      ;
+                    if (e.keyCode == 13) {
+                        focusable = form.find('input,a,select,button,textarea').filter(':visible');
+                        next = focusable.eq(focusable.index(this)+1);
+                        if (next.length) {
+                            next.focus();
+                        } else {
+                            form.next();
+                        }
+                        return false;
+                    }
+                  });
+                    </script>
                     <script>
                       $(document).ready(function() {
                         $('#wizard').smartWizard({

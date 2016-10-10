@@ -100,11 +100,11 @@
 
               <div id="step-1">
                 {% block comment_tab1 %}
-                {% endblock %}   
+                {% endblock %}
                 <form class="form-horizontal form-label-left">
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ชุมชน จำนวน 
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ชุมชน จำนวน
                     </label>
                     <div class="col-md-2">
                         <input type="text" id="no4_1" required="required" class="form-control col-md-3 col-xs-6" value={{no4_1}}>
@@ -112,7 +112,7 @@
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง  </label>
                   </div>
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ครัวเรือน จำนวน 
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ครัวเรือน จำนวน
                     </label>
                     <div class="col-md-2">
                         <input type="text" id="no4_2" required="required" class="form-control col-md-3 col-xs-6" value={{no4_2}}>
@@ -125,57 +125,57 @@
 
               <div id="step-2">
                   {% block comment_tab2 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาพุทธ </td>
                             <td width="40%">ร้อยละ <a href="#" id="no4_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_1}}</a> ของจำนวนประชากรทั้งหมด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">วัด </td>
                             <td width="40%">จำนวน <a href="#" id="no4_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_2}}</a> วัด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาอิสลาม </td>
                             <td width="40%">ร้อยละ <a href="#" id="no4_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_3}}</a> ของจำนวนประชากรทั้งหมด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">มัสยิด </td>
                             <td width="40%">จำนวน <a href="#" id="no4_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_4}}</a> มัสยิด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาคริสต์ </td>
                             <td width="40%">ร้อยละ <a href="#" id="no4_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_5}}</a> ของจำนวนประชากรทั้งหมด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">โบสถ์ทางคริสต์ศาสนา </td>
                             <td width="40%">จำนวน <a href="#" id="no4_3_6" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_6}}</a> โบสถ์</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">ผู้นับถือศาสนาอื่นๆ </td>
                             <td width="40%">ร้อยละ <a href="#" id="no4_3_7" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_7}}</a> ของจำนวนประชากรทั้งหมด</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">ผู้ไม่นับถือศาสนาใดเลย </td>
                             <td width="40%">ร้อยละ <a href="#" id="no4_3_8" data-type="text" data-pk="1" data-title="Enter username">{{no4_3_8}}</a> ของจำนวนประชากรทั้งหมด</td>
-                            
+
                         </tr>
                     </tbody>
                   </table>
 
               </div>
-              
+
               <div id="step-3">
                 {% block comment_tab3 %}
-                {% endblock %}   
+                {% endblock %}
                 <div class="form-group">
                   <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map"> ประเพณีท้องถิ่นที่สำคัญ (เรียงตามลำดับความสำคัญมากที่สุดไปหาน้อยที่สุด)</label>
                 </div>
@@ -262,7 +262,7 @@
                             </div>
                           </td>
                           <td width="50%"><textarea rows="4" cols="50" id="no4_4_1_3" class="form-control col-md-2 col-xs-6">{{no4_4_1_3}}</textarea></td>
-                            
+
                         </tr>
                         <tr>
                             <td width="5%">2.</td>
@@ -336,7 +336,7 @@
                                 </div>
                               </div>
                             </td>
-                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_2_3" class="form-control col-md-2 col-xs-6">{{no4_4_2_3}}</textarea></td>                                    
+                            <td width="50%"><textarea rows="4" cols="50" id="no4_4_2_3" class="form-control col-md-2 col-xs-6">{{no4_4_2_3}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
@@ -410,7 +410,7 @@
                               </div>
                             </div>
                           </td>
-                          <td width="50%"><textarea rows="4" cols="50" id="no4_4_3_3" class="form-control col-md-2 col-xs-6">{{no4_4_3_3}}</textarea></td>                                    
+                          <td width="50%"><textarea rows="4" cols="50" id="no4_4_3_3" class="form-control col-md-2 col-xs-6">{{no4_4_3_3}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
@@ -484,7 +484,7 @@
                               </div>
                             </div>
                           </td>
-                          <td width="50%"><textarea rows="4" cols="50" id="no4_4_4_3" class="form-control col-md-2 col-xs-6">{{no4_4_4_3}}</textarea></td>                                    
+                          <td width="50%"><textarea rows="4" cols="50" id="no4_4_4_3" class="form-control col-md-2 col-xs-6">{{no4_4_4_3}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
@@ -559,16 +559,16 @@
                             </div>
                           </td>
                           <td width="50%"><textarea rows="4" cols="50" id="no4_4_5_3" class="form-control col-md-2 col-xs-6">{{no4_4_5_3}}</textarea>
-                          </td>                                    
+                          </td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
               </div>
 
               <div id="step-4">
                   {% block comment_tab4 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <div class="form-group">
                       <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                       ระดับก่อนประถมศึกษา</label>
@@ -775,48 +775,48 @@
 
               <div id="step-5">
                   {% block comment_tab5 %}
-                  {% endblock %}   
+                  {% endblock %}
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
                             <td width="40%">สนามกีฬาอเนกประสงค์ </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_1}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">สนามฟุตบอล </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_2}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">สนามบาสเกตบอล </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_3" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_3}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">สนามตะกร้อ </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_4" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_4}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">สระว่ายน้ำ </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_5" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_5}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">ห้องสมุดประชาชน </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_6" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_6}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">สนามเด็กเล่น </td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_7" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_7}}</a> แห่ง</td>
-                            
+
                         </tr>
                         <tr>
                             <td width="40%">อื่นๆ (ระบุ) <textarea rows="4" cols="50" id="no4_6_8_1" class="form-control col-md-2 col-xs-6">{{no4_6_8_1}}</textarea></td>
                             <td width="40%">จำนวน <a href="#" id="no4_6_8_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_6_8_2}}</a> แห่ง</td>
-                            
+
                         </tr>
                     </tbody>
                   </table>
@@ -858,7 +858,7 @@
                             <div class="text-center">
                               <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
                                 <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
-                              </a> 
+                              </a>
                             </div>
                           </div>
                         </div>
@@ -867,7 +867,7 @@
                   </div>
                 </div>
                 {% endif %}
-                              
+
 
                 <!--
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -897,7 +897,7 @@
                           <div class="text-center">
                             <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
                               <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
-                            </a> 
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -935,7 +935,7 @@
                         {% for comment in comments %}
                         <li style="padding-left:10px;">
                           <div class="block">
-                            <div class="tags" style="width:auto !important">                                    
+                            <div class="tags" style="width:auto !important">
                               <a onClick="jump('{{ comment.Session.getStep() }}')" class="tag">
                                 <span>คำแนะนำ {{ comment.Session.label }}</span>
                               </a>
@@ -996,6 +996,25 @@
   <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
   <!-- jQuery Smart Wizard -->
   <script>
+  $('body').on('keydown', 'input, select, textarea', function(e) {
+  var self = $(this)
+    , form = self.parents('form:eq(0)')
+    , focusable
+    , next
+    ;
+  if (e.keyCode == 13) {
+      focusable = form.find('input,a,select,button,textarea').filter(':visible');
+      next = focusable.eq(focusable.index(this)+1);
+      if (next.length) {
+          next.focus();
+      } else {
+          form.next();
+      }
+      return false;
+  }
+});
+  </script>
+  <script>
     $(document).ready(function() {
       $('#wizard').smartWizard({
         keyNavigation : false,
@@ -1019,4 +1038,3 @@
   <!-- /jQuery Smart Wizard -->
 
   {{ assets.outputJs('modules-clinic-no4-js') }}
-  
