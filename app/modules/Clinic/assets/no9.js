@@ -302,6 +302,7 @@ function Cal(){
     var id3 = id3.replace(/,/g,"");
     var id4 = id4.replace(/,/g,"");
   var sumall = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
+    sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
   var sumall = sumall.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no9_4_5').html(sumall);
 

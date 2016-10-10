@@ -428,6 +428,25 @@
         <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
         <!-- jQuery Smart Wizard -->
         <script>
+        $('body').on('keydown', 'input, select, textarea', function(e) {
+        var self = $(this)
+          , form = self.parents('form:eq(0)')
+          , focusable
+          , next
+          ;
+        if (e.keyCode == 13) {
+            focusable = form.find('input,a,select,button,textarea').filter(':visible');
+            next = focusable.eq(focusable.index(this)+1);
+            if (next.length) {
+                next.focus();
+            } else {
+                form.next();
+            }
+            return false;
+        }
+      });
+        </script>
+        <script>
           $(document).ready(function() {
             $('#wizard').smartWizard({
               keyNavigation : false,

@@ -1447,6 +1447,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_1_1_5').html(sum);
       $.ajax({
@@ -1490,6 +1491,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_1_2_5').html(sum);
       $.ajax({
@@ -1533,6 +1535,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_1_3_5').html(sum);
       $.ajax({
@@ -1576,6 +1579,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_1_4_5').html(sum);
       $.ajax({
@@ -2328,6 +2332,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_2_1_5').html(sum);
       $.ajax({
@@ -2371,6 +2376,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_2_2_5').html(sum);
       $.ajax({
@@ -2414,6 +2420,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_2_3_5').html(sum);
       $.ajax({
@@ -2457,6 +2464,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_2_4_5').html(sum);
       $.ajax({
@@ -3209,6 +3217,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_3_1_5').html(sum);
       $.ajax({
@@ -3252,6 +3261,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_3_2_5').html(sum);
       $.ajax({
@@ -3295,6 +3305,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_3_3_5').html(sum);
       $.ajax({
@@ -3338,6 +3349,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_3_4_5').html(sum);
       $.ajax({
@@ -4090,6 +4102,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_4_1_5').html(sum);
       $.ajax({
@@ -4133,6 +4146,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_4_2_5').html(sum);
       $.ajax({
@@ -4176,6 +4190,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_4_3_5').html(sum);
       $.ajax({
@@ -4219,6 +4234,7 @@ $(document).ready(function() {
         var ic3 = ic3.replace(/,/g,"");
         var ic4 = ic4.replace(/,/g,"");
       var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+        sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
         var sum = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
       $('#no4_5_4_4_5').html(sum);
       $.ajax({
