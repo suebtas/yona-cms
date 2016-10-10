@@ -18,6 +18,22 @@
             <a class="item{{ helper.activeMenu().activeClass('admin-office') }}" href="{{ url.get() }}clinic-admin/office">
                 {{ helper.at('จัดการเขตพื้นที่') }} <i class="pencil icon"></i>
             </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/session">
+                {{ helper.at('จัดการชื่อแบบฟอร์มอิเล็กทรอนิกส์') }} <i class="pencil icon"></i>
+            </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/surveystatus">
+                {{ helper.at('จัดการสถานะกรอกข้อมูล') }} <i class="pencil icon"></i>
+            </a>
+
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newslevel">
+                {{ helper.at('จัดการระดับความเร่งด่วนของข่าวสาร') }} <i class="pencil icon"></i>
+            </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newslevel">
+                {{ helper.at('จัดการระดับความสำคัญของข่าวสาร') }} <i class="pencil icon"></i>
+            </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newstype">
+                {{ helper.at('จัดการประเภทข่าวสาร') }} <i class="pencil icon"></i>
+            </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-amphur') }}" href="{{ url.get() }}clinic-admin/amphur">
                 {{ helper.at('จัดการข้อมูลอำเภอ') }} <i class="map icon"></i>
             </a>

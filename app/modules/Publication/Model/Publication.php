@@ -62,12 +62,12 @@ class Publication extends Model
 
     public function validation()
     {
-        $this->validate(new Uniqueness(
+        /*$this->validate(new Uniqueness(
             [
                 "field"   => "slug",
                 "message" => "Страница с такой транслитерацией = '" . $this->slug . "' уже существует"
             ]
-        ));
+        ));*/
 
         return $this->validationHasFailed() != true;
     }

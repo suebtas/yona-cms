@@ -2,7 +2,8 @@ $(document).ready(function() {
     $.fn.editable.defaults.mode = 'inline';
 
     $('#note_session_1').editable({
-        showbuttons : 'bottom'       
+        showbuttons : 'bottom',
+               
         //showbuttons : (App.isRTL() ? 'left' : 'right')
     }).on('save', function(e, params) {
         $.ajax({
@@ -26,7 +27,8 @@ $(document).ready(function() {
     $('#pencil_session_1').click(function (e) {
         e.stopPropagation();
         e.preventDefault();
-        $('#note_session_1').editable('toggle');
+        $('#note_session_1').editable(
+            'toggle');
     });
 
 
