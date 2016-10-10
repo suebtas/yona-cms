@@ -148,7 +148,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+          
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -169,7 +169,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -338,6 +338,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
+              callDensity();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -417,6 +418,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
+              callDensity();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -498,6 +500,7 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
+              callDensity();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -549,48 +552,6 @@ $(document).ready(function() {
             type: "POST",
             data : {
               no1_2_8_2:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no1_2_9').editable({
-           type: 'text',
-           title: 'ความหนาแน่นของประชากร',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              no1_2_9:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              no1_2_9:'delete',
               option:'delete'
             },
             success: function(data, textStatus, jqXHR)
@@ -995,6 +956,8 @@ $(document).ready(function() {
         var a2 = $('#no1_2_1_2').text();
         if(a2==''||a2=='Empty')
           a2=0;
+        if(!a1) a1="0";
+        if(!a2) a2="0";
           var rea1 = a1.replace(/,/g,"");
           var rea2 = a2.replace(/,/g,"");
           var sume = parseFloat(rea1) + parseFloat(rea2)
@@ -1009,7 +972,7 @@ $(document).ready(function() {
               },
               success: function(data, textStatus, jqXHR)
               {
-                  //data - response from server
+                callDensity();
               },
               error: function (jqXHR, textStatus, errorThrown)
               {
@@ -1101,6 +1064,54 @@ $(document).ready(function() {
     });
 
   }
+  function callDensity(){
+    var id1 = $('#no1_2_1').text();
+    if(id1==''||id1=='Empty')
+      id1=0;
+    var id2 = $('#no1_2_6_1').text();
+    if(id2==''||id2=='Empty')
+      id2=0;
+    var id3 = $('#no1_2_7_1').text();
+    if(id3==''||id3=='Empty')
+      id3=0;
+    var id4 = $('#no1_2_8_1').text();
+    if(id4==''||id4=='Empty')
+      id4=0;
+      var id5 = $('#no1_1_2').val();
+      if(id5==''||id5=='Empty')
+        id5=0;
+      if(!id1) id1="0";
+      if(!id2) id2="0";
+      if(!id3) id3="0";
+      if(!id4) id4="0";
+      if(!id5) id5="0";
+      var id1 = id1.replace(/,/g,"");
+      var id2 = id2.replace(/,/g,"");
+      var id3 = id3.replace(/,/g,"");
+      var id4 = id4.replace(/,/g,"");
+      var id5 = id5.replace(/,/g,"");
 
+    var sumd = (parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4)) / (parseFloat(id5)/625);
+    var sumg = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    $('#no1_2_9').html(sumg);
+
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          no1_2_9:sumd,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+
+  }
 
 });
