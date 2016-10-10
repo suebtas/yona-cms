@@ -13,14 +13,6 @@ class IndexController extends Controller
     {
 	
 		//$this->redirect('/admin/index/login');
-        $this->assets = $this->getDI()->get('assets');
-        $this->assets->collection('modules-index-css')->setLocal(true)
-            ->addFilter(new \Application\Assets\Filter\Less())
-            ->setTargetPath(ROOT . '/assets/carousel.css')
-            ->setTargetUri('assets/modules-index.css')
-            ->join(true)
-            ->addCss(APPLICATION_PATH . '/modules/Index/assets/carousel.css');
-
         $this->view->bodyClass = 'home';
 
         $page = Page::findCachedBySlug('index');
