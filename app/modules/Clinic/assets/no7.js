@@ -104,6 +104,30 @@ $('#no7_2_3').editable({
 });
 
 //step 1 7.3
+$('#no7_3').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_3:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 $('#no7_3_1_1').editable({
        type: 'text',
        title: ' ',
@@ -540,6 +564,30 @@ $('#no7_3_5_4').editable({
   });
 });
 //step 1 7.4
+$('#no7_4').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 $('#no7_4_1_1').editable({
        type: 'text',
        title: ' ',
@@ -977,6 +1025,30 @@ $('#no7_4_5_4').editable({
 });
 
 //step 1 7.5
+$('#no7_5').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_5:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 $('#no7_5_1_1').editable({
        type: 'text',
        title: ' ',
@@ -1414,6 +1486,30 @@ $('#no7_5_5_4').editable({
 });
 
 //step 1 7.6
+$('#no7_6').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no7",
+      type: "POST",
+      data : {
+        no7_6:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 $('#no7_6_1_1').editable({
        type: 'text',
        title: ' ',

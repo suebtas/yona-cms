@@ -133,7 +133,7 @@
                                 <tbody>
                                   <thead>
                                     <th colspan="5">
-                                      รถยนต์ดับเพลิง (แยกตามขนาดบรรจุน้ำ) จำนวน 1 คัน
+                                      รถยนต์ดับเพลิง (แยกตามขนาดบรรจุน้ำ) จำนวน <a href="#" id="no7_3" data-type="text" data-pk="1" data-title="Enter username" > {{no7_3}} </a> คัน
                                     </th>
                                   </thead>
                                   <thead>
@@ -246,7 +246,7 @@
                                 <tbody>
                                   <thead>
                                     <th colspan="5">
-                                      รถบรรทุกน้ำ (แยกตามขนาดบรรจุน้ำ) จำนวน 1 คัน
+                                      รถบรรทุกน้ำ (แยกตามขนาดบรรจุน้ำ) จำนวน <a href="#" id="no7_4" data-type="text" data-pk="1" data-title="Enter username" > {{no7_4}} </a> คัน
                                     </th>
                                   </thead>
                                   <thead>
@@ -359,7 +359,7 @@
                                 <tbody>
                                   <thead>
                                     <th colspan="5">
-                                       รถกระเช้า (แยกตามความสูง) จำนวน 1 คัน
+                                       รถกระเช้า (แยกตามความสูง) จำนวน <a href="#" id="no7_5" data-type="text" data-pk="1" data-title="Enter username" > {{no7_5}} </a> คัน
                                     </th>
                                   </thead>
                                   <thead>
@@ -472,7 +472,7 @@
                                 <tbody>
                                   <thead>
                                     <th colspan="5">
-                                       รถบันได (แยกตามความสูง) จำนวน 0 คัน
+                                       รถบันได (แยกตามความสูง) จำนวน <a href="#" id="no7_6" data-type="text" data-pk="1" data-title="Enter username" > {{no7_6}} </a> คัน
                                     </th>
                                   </thead>
                                   <thead>
