@@ -1101,7 +1101,7 @@ $(document).ready(function() {
         url : "/clinic/form/no1",
         type: "POST",
         data : {
-          no1_2_9:sumd,
+          no1_2_9:sumg,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
