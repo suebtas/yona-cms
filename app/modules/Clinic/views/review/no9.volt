@@ -49,7 +49,8 @@
         <div id="note_session_1" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_1}}</div>
     </div>
 
-		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_1" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_1}}"></a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
 
@@ -64,7 +65,8 @@
         <div id="note_session_2" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_2}}</div>
     </div>
 
-		<a href="#" id="pencil_session_2"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+		<a href="#" id="pencil_session_2"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_2" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_2}}"></a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
 
@@ -79,7 +81,8 @@
         <div id="note_session_3" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_3}}</div>
     </div>
 
-    <a href="#" id="pencil_session_3"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+    <a href="#" id="pencil_session_3"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_3" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_3}}"></a><br>
     <span class="text-muted"> <br>
      ตรวจสอบข้อมูล</span>
 
@@ -95,7 +98,8 @@
         <div id="note_session_4" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_4}}</div>
     </div>
 
-    <a href="#" id="pencil_session_4"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+    <a href="#" id="pencil_session_4"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_4" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_4}}"></a><br>
     <span class="text-muted"> <br>
      ตรวจสอบข้อมูล</span>
 
@@ -111,7 +115,8 @@
         <div id="note_session_5" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_5}}</div>
     </div>
 
-    <a href="#" id="pencil_session_5"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+    <a href="#" id="pencil_session_5"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_5" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_5}}"></a><br>
     <span class="text-muted"> <br>
      ตรวจสอบข้อมูล</span>
 

@@ -49,7 +49,8 @@
         <div id="note_session_1" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_1}}</div>
     </div>
 
-		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a><br>
+		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_1" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_1}}"></a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
 
