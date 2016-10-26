@@ -52,6 +52,7 @@ $(document).ready(function() {
         });
     }
   };
+  
   function calculateAreaRaiToKmSquare(value){
     return value/625;
   }

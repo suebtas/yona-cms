@@ -52,6 +52,7 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic.css')
             ->join(true)
             ->addCss(APPLICATION_PATH . '/modules/Clinic/assets/clinic.css');
+            //->addCss(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.css');
 
 
         // Clinic JS Assets
@@ -62,6 +63,7 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+            //->addJs(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.js');
 
 
         // Clinic JS Assets
@@ -90,8 +92,8 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
 
         if (!$this->request->isPost()) {
             $auth = $this->session->get('auth');
@@ -103,11 +105,16 @@ class ReviewController extends FormController
                                     1=>1,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            if(!$comment)
+            if(!$comment){
               $detail = null;
-            else
+              $status = null;
+            }
+            else{
               $detail = $comment->description;
-              $this->view->comment_session_1 = $detail;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1 = $status;
             unset($comment);
             $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
@@ -115,11 +122,16 @@ class ReviewController extends FormController
                                     1=>2,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            if(!$comment)
-              $detail = null;
-            else
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
               $detail = $comment->description;
-              $this->view->comment_session_2 = $detail;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2 = $status;
 
             parent::createViewNo1();
 
@@ -137,6 +149,14 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_2");
             if($comment){
                 $this->updateComment($option, 2, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 1, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 2, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
             $approve = $this->request->getPost("group_session_1");
@@ -165,45 +185,81 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>3,
                                     2=>$this->discovery_surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_1 = $comment_session_1;
+                                    3=>$user->id)));
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1 = $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>4,
                                     2=>$this->discovery_surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_2 = $comment_session_2;
+                                    3=>$user->id)));
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2 = $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>5,
                                     2=>$this->discovery_surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_3 = $comment_session_3;
+                                    3=>$user->id)));
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3 = $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>6,
                                     2=>$this->discovery_surveyid,
-                                    3=>$user->id)))->description;
-            $this->view->comment_session_4 = $comment_session_4;
+                                    3=>$user->id)));
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4 = $status;
             
             parent::createViewNo2();
 
@@ -228,6 +284,23 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_4");
             if($comment){
                 $this->updateComment($option, 6, $comment, $user->id, $this->discovery_surveyid);
+            }
+
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 3, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 4, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 5, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 6, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
             $approve = $this->request->getPost("group_session_1");
@@ -257,53 +330,98 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>7,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>8,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>9,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>10,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4= $status;
             
-            $comment_session_5 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>11,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_5 = $detail;
+            $this->view->status_comment_session_5= $status;
             parent::createViewNo3();
 
         }elseif($this->request->isPost()){            
@@ -333,6 +451,26 @@ class ReviewController extends FormController
                 $this->updateComment($option, 11, $comment, $user->id, $this->discovery_surveyid);
             }
 
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 7, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 8, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 9, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 10, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_5");
+            if($status_comment){
+                $this->updateStatusComment($option, 11, $status_comment, $user->id, $this->discovery_surveyid);
+            }
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -360,53 +498,98 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>12,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>13,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>14,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>15,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4= $status;
             
-            $comment_session_5 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>16,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_5 = $detail;
+            $this->view->status_comment_session_5= $status;
             parent::createViewNo4();
 
         }elseif($this->request->isPost()){            
@@ -436,6 +619,26 @@ class ReviewController extends FormController
                 $this->updateComment($option, 16, $comment, $user->id, $this->discovery_surveyid);
             }
 
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 12, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 13, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 14, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 15, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_5");
+            if($status_comment){
+                $this->updateStatusComment($option, 16, $status_comment, $user->id, $this->discovery_surveyid);
+            }
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -463,53 +666,98 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>17,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>18,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>19,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>20,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4= $status;
             
-            $comment_session_5 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>21,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_5 = $detail;
+            $this->view->status_comment_session_5= $status;
             parent::createViewNo5();
 
         }elseif($this->request->isPost()){            
@@ -539,6 +787,26 @@ class ReviewController extends FormController
                 $this->updateComment($option, 21, $comment, $user->id, $this->discovery_surveyid);
             }
 
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 17, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 18, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 19, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 20, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_5");
+            if($status_comment){
+                $this->updateStatusComment($option, 21, $status_comment, $user->id, $this->discovery_surveyid);
+            }
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -566,21 +834,30 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>22,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
             parent::createViewNo6();
 
@@ -593,6 +870,10 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_1");
             if($comment){
                 $this->updateComment($option, 22, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 22, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
             $approve = $this->request->getPost("group_session_1");
@@ -622,37 +903,64 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>23,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>24,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>25,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
             parent::createViewNo7();
 
@@ -673,6 +981,18 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_3");
             if($comment){
                 $this->updateComment($option, 25, $comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 23, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 24, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 25, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
             $approve = $this->request->getPost("group_session_1");
@@ -701,53 +1021,98 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>26,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>27,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>28,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>29,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4= $status;
 
-            $comment_session_5 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>30,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_5 = $detail;
+            $this->view->status_comment_session_5= $status;
 
             parent::createViewNo8();
 
@@ -778,6 +1143,26 @@ class ReviewController extends FormController
                 $this->updateComment($option, 30, $comment, $user->id, $this->discovery_surveyid);
             }
 
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 26, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 27, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 28, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 29, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_5");
+            if($status_comment){
+                $this->updateStatusComment($option, 30, $status_comment, $user->id, $this->discovery_surveyid);
+            }
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -805,53 +1190,98 @@ class ReviewController extends FormController
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
 
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
-            $comment_session_1 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>32,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_1 = $comment_session_1 != null ? $comment_session_1->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_1 = $detail;
+            $this->view->status_comment_session_1= $status;
 
-            $comment_session_2 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>33,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_2 = $comment_session_2 != null ? $comment_session_2->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_2 = $detail;
+            $this->view->status_comment_session_2= $status;
 
-            $comment_session_3 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>34,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_3 = $comment_session_3 != null ? $comment_session_3->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_3 = $detail;
+            $this->view->status_comment_session_3= $status;
 
-            $comment_session_4 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>35,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_4 = $comment_session_4 != null ? $comment_session_4->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_4 = $detail;
+            $this->view->status_comment_session_4= $status;
 
-            $comment_session_5 = Comment::findFirst(
+            $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
                                     1=>36,
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
-            $this->view->comment_session_5 = $comment_session_5 != null ? $comment_session_5->description: null;
+            if(!$comment){
+              $detail = null;              
+              $status = null;
+            }
+            else{
+              $detail = $comment->description;
+              $status = $comment->status;
+            }
+            $this->view->comment_session_5 = $detail;
+            $this->view->status_comment_session_5= $status;
 
             parent::createViewNo9();
 
@@ -882,6 +1312,26 @@ class ReviewController extends FormController
                 $this->updateComment($option, 36, $comment, $user->id, $this->discovery_surveyid);
             }
 
+            $status_comment = $this->request->getPost("status_session_1");
+            if($status_comment){
+                $this->updateStatusComment($option, 32, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_2");
+            if($status_comment){
+                $this->updateStatusComment($option, 33, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_3");
+            if($status_comment){
+                $this->updateStatusComment($option, 34, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_4");
+            if($status_comment){
+                $this->updateStatusComment($option, 35, $status_comment, $user->id, $this->discovery_surveyid);
+            }
+            $status_comment = $this->request->getPost("status_session_5");
+            if($status_comment){
+                $this->updateStatusComment($option, 36, $status_comment, $user->id, $this->discovery_surveyid);
+            }
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -965,5 +1415,38 @@ class ReviewController extends FormController
 
           }
       }
+    }
+    public function updateStatusComment($option, $sessionid, $status, $admin_userid, $discovery_surveyid){
+        if($status!=""){
+            if($option=='add'){
+              $modelT = Comment::findFirst(
+                  array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                      "bind"=>array(
+                          1=>$sessionid,
+                          2=>$discovery_surveyid,
+                          3=>$admin_userid)));
+              if(!$modelT)
+                  $modelT = new Comment();
+
+              $modelT->admin_userid = $admin_userid;
+              $modelT->discovery_surveyid = $discovery_surveyid;
+              $modelT->sessionid = $sessionid;
+              $modelT->status = $status;
+              if($modelT->save()==false)
+                  echo 'error';
+              else
+                  echo 'ok';
+            }elseif($comment=='delete' && $option=='delete'){
+              $modelT = Comment::findFirst(
+                  array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
+                      "bind"=>array(
+                          1=>$sessionid,
+                          2=>$discovery_surveyid,
+                          3=>$admin_userid)));
+              $modelT->delete();
+              echo 'delete';
+
+            }
+        }
     }
 }

@@ -1,0 +1,9 @@
+.editable-review {
+    display: block;
+    margin-bottom: 5px;  
+}
+
+.editable-review span {
+    width: 70px;  
+    display: inline-block;
+}

@@ -57,6 +57,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic.css')
             ->join(true)
             ->addCss(APPLICATION_PATH . '/modules/Clinic/assets/clinic.css');
+            //->addCss(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.css');;
 
 
         // Clinic JS Assets
@@ -67,6 +68,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+            //->addJs(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.js');
 
 
         //กำหนดค่าใน view
