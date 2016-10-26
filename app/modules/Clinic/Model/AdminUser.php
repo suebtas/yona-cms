@@ -121,5 +121,22 @@ class AdminUser extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
+    public function getUnreadNews(){
+        $userread = News::find("status = 1");
+        //die(count($userread));
+        if(count($userread) >0)
+        {
+            foreach($userread as $news)
+            {
+                //if($news->status == 1)
+                    $readIDs[] = $news->id;
+            }       
+            $readNewsIDs = implode(",",$readIDs);
+            //var_dump($NewsIDs);
+            //die();
+            $unread = NewsDetail::find("userid = {$this->id} AND status = 0 AND newsid in ($readNewsIDs)");
+        }
 
+        return count($unread);
+    }
 }

@@ -56,6 +56,13 @@ return [
         'clinic/index'       => '*',
         'clinic/form'        => '*',
         'clinic/review'      => '*',
+        'clinic/news' => '*',
+        'clinic/news/add' => '*',
+        'clinic/news/edit' => '*',
+        'clinic/news/delete' => '*',
+        'clinic/news/check' => '*',
+        'clinic/news/read' => '*',
+
     ],
     'clinic-center'      => [
         'admin/index'       => '*',
@@ -75,6 +82,9 @@ return [
         'clinic/form'   => '*',
         'clinic/review' => '*',
         'clinic-admin/exportword'   => '*',
+        'clinic/news' => '*',
+        'clinic/news/check' => '*',
+        'clinic/news/read' => '*',
     ],
     'cc-approver'      => [
         'admin/index'       => '*',
@@ -85,6 +95,9 @@ return [
         'clinic/form'   => '*',
         'clinic/review' => '*',
         'clinic-admin/exportword'   => '*',
+        'clinic/news' => '*',
+        'clinic/news/check' => '*',
+        'clinic/news/read' => '*',
     ],
     'cc-admin'      => [
         'admin/index'       => '*',
@@ -104,5 +117,11 @@ return [
         'clinic-admin/newstype'   => '*',
         'clinic-admin/newslevel'   => '*',
         'clinic-admin/newsimportant'   => '*',
+        'clinic/news' => '*',
+        'clinic/news/add' => '*',
+        'clinic/news/edit' => '*',
+        'clinic/news/delete' => '*',
+        'clinic/news/check' => '*',
+        'clinic/news/read' => '*',
     ],
 ];

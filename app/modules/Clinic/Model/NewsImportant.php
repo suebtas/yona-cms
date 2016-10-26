@@ -3,7 +3,7 @@
 namespace Clinic\Model;
 
 //use Clinic\Model\Amphur;
-class NewsLevel extends \Phalcon\Mvc\Model
+class NewsImportant extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -38,7 +38,7 @@ class NewsLevel extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'newslevel';
+        return 'newsimportant';
     }
 
     /**

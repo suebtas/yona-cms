@@ -2,7 +2,7 @@
 
 namespace Clinic\Model;
 
-use Clinic\Model\Amphur;
+//use Clinic\Model\Amphur;
 class NewsType extends \Phalcon\Mvc\Model
 {
 
