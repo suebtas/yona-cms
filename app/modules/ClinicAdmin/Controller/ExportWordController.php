@@ -236,7 +236,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-  		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo1.docx');
+  		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo1.docx');
   		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
   		//var_dump(($document));die();
   		date_default_timezone_set('Asia/Bangkok');
@@ -445,7 +445,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo2.docx');
+		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo2.docx');
 		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
 		//var_dump(($document));die();
 		date_default_timezone_set('Asia/Bangkok');
@@ -586,7 +586,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo3.docx');
+      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo3.docx');
       //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
       //var_dump(($document));die();
       date_default_timezone_set('Asia/Bangkok');
@@ -1707,7 +1707,7 @@ class ExportWordController extends Controller
     	//die();
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo5.docx');
+		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo5.docx');
 		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo5.docx');
 		//var_dump(($document));die();
 		date_default_timezone_set('Asia/Bangkok');
@@ -1817,7 +1817,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo6.docx');
+		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo6.docx');
 		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
 		//var_dump(($document));die();
 		date_default_timezone_set('Asia/Bangkok');
@@ -2294,7 +2294,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo7.docx');
+      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo7.docx');
       //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
       //var_dump(($document));die();
       date_default_timezone_set('Asia/Bangkok');
@@ -2784,7 +2784,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo8.docx');
+      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo8.docx');
       //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
       //var_dump(($document));die();
       date_default_timezone_set('Asia/Bangkok');
@@ -3002,7 +3002,7 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor('/var/www/phalcon/app/modules/ClinicAdmin/Form/FormNo9.docx');
+      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo9.docx');
       //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
       //var_dump(($document));die();
       date_default_timezone_set('Asia/Bangkok');
