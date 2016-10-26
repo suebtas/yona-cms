@@ -107,9 +107,9 @@
                   </li>
                   -->
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">ส่งข่าวสาร</a></li>
-                      <li><a href="fixed_footer.html">สถานะการรับข่าวสาร</a></li>
+                    <ul class="nav child_menu"> {% if user.role=='cc-admin' %}
+                      <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>{% endif %}
+                      <li><a href="{{ url.get() }}clinic/news/check">สถานะการรับข่าวสาร</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -164,7 +164,7 @@
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-green">6</span>
+                    <span class="badge bg-green">{{user.getUnreadNews()}}</span>
                   </a>
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>

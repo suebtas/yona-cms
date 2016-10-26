@@ -2,8 +2,10 @@
 
 namespace Clinic\Model;
 
-//use Clinic\Model\Amphur;
-class NewsLevel extends \Phalcon\Mvc\Model
+use Clinic\Model\AdminUser;
+use Clinic\Model\News;
+use Clinic\Model\Office;
+class NewsDetail extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -11,17 +13,8 @@ class NewsLevel extends \Phalcon\Mvc\Model
      * @var integer
      */
     public $id;
-
-    /**
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     *
-     * @var integer
-     */
+    public $newsid;
+    public $userid;
     public $status;
 
     /**
@@ -38,7 +31,7 @@ class NewsLevel extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'newslevel';
+        return 'newsdetail';
     }
 
     /**
@@ -68,13 +61,28 @@ class NewsLevel extends \Phalcon\Mvc\Model
         return $this->id;
     }
 
-    public function getName()
+    public function getNewsId()
     {
-        return $this->name;
+        return $this->newsid;
     }
 
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function getTHStatus()
+    {
+        if($this->status == 0)
+            return "ไม่อ่าน";
+        else
+            return "อ่าน";
+    }
+
+    public function getOffice()
+    {
+        $name = AdminUser::findFirst($this->userid);
+
+        return $name->Office->name;
     }
 }

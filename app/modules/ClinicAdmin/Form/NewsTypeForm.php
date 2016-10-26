@@ -12,7 +12,6 @@ use Application\Form\Form;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Validation\Validator\PresenceOf;
-use Clinic\Model\Amphur;
 
 class NewsTypeForm extends Form
 {
