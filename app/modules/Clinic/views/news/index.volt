@@ -8,9 +8,12 @@
     <table class="ui table very compact celled">
         <thead>
             <tr>
-                <div class="form-group">
-                    <input type="submit" value="Send News">
-                </div>
+                <td>
+                    <div class="form-group">
+                        <input type="submit" value="บันทึกข่าว" class="btn btn-success">
+                        <a href="{{url.get()}}clinic/news/check"  class="btn btn-info" role="button">ดูข่าวทั้งหมด</a>
+                    </div>
+                </td>
             </tr>
         </thead>
         <tbody>

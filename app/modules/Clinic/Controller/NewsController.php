@@ -69,12 +69,16 @@ class NewsController extends FormController
 
         $newstype = NewsType::find();
         $this->view->newstype = $newstype;
+        $this->tag->setDefault("NewsType", 1);
+
 
         $newslevel = NewsLevel::find();
         $this->view->newslevel = $newslevel;
+        $this->tag->setDefault("NewsLevel", 1);
 
         $newsimportant = NewsImportant::find();
         $this->view->newsimportant = $newsimportant;
+        $this->tag->setDefault("NewsImportant", 1);
     }
 
     public function addAction()
@@ -271,6 +275,8 @@ class NewsController extends FormController
 
         $newsimportant = NewsType::findFirst($news->newsimportant);
         $this->view->newsimportant = $newsimportant->name;
+
+         $this->view->userType = $user->role;
     }
 
     public function editAction($id)

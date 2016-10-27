@@ -1,7 +1,7 @@
 <!--controls-->
 <div class="right_col" role="main">
     <div class="ui segment">
-
+        <a href="{{url.get()}}clinic/news/check"  class="btn btn-info" role="button">ดูข่าวทั้งหมด</a>
     </div>
     <div class="ui segment">
         <table class="ui table very compact celled">

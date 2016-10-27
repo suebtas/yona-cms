@@ -13,39 +13,38 @@
                 </div>
             </tr>
         </thead>
-        <tbody>
-
+         <tbody>
             <tr>
                 <td>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <span class="control-label">ประเภทข่าวสาร</span>
-                        {{ select('NewsType', newstype, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@') }}
+                        {{ select('NewsType', newstype, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@','class':'form-control col-md-4 col-xs-12') }}
                     </div>
-                </td>
-                <td>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <span class="control-label">ระดับความเร่งด่วน</span>
-                        {{ select('NewsLevel', newslevel, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@') }}
+                        {{ select('NewsLevel', newslevel, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@','class':'form-control col-md-4 col-xs-12') }}
                     </div>
-                </td>
-                <td>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <span class="control-label">ระดับความสำคัญ</span>
-                        {{ select('NewsImportant', newsimportant, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@') }}
+                        {{ select('NewsImportant', newsimportant, 'using': ['id', 'name' ],'useEmpty': true, 'emptyText': 'กรุณาเลือก', 'emptyValue': '@','class':'form-control col-md-4 col-xs-12') }}
                     </div>
                 </td>
             </tr>
             <tr>
-                <span class="control-label col-md-1 col-sm-1 col-xs-12">หัวเรื่อง</span>
-                <div class="col-md-12 col-sm-3 col-xs-12">
-                    <input type="text" id="subject" name="subject" required="required" class="form-control col-md-2 col-xs-12" value={{subject}}>
-                </div>
+                <td>
+                    <span class="control-label col-md-1 col-sm-1 col-xs-12">หัวเรื่อง</span>
+                    <div class="col-md-12 col-sm-3 col-xs-12">
+                        <input type="text" id="subject" name="subject" required="required" class="form-control col-md-2 col-xs-12" value="{{subject}}">
+                    </div>
+                </td>
             </tr>
             <tr>
-                <span class="control-label col-md-1 col-sm-1 col-xs-12">เนื้อข่าว</span>
-                <div class="col-md-12 col-sm-3 col-xs-12">
-                    <textarea rows="10" cols="50" id="detail" name="detail" class="form-control col-md-2 col-xs-6">{{detail}}</textarea>
-                </div>
+                <td>
+                    <span class="control-label col-md-1 col-sm-1 col-xs-12">เนื้อข่าว</span>
+                    <div class="col-md-12 col-sm-3 col-xs-12">
+                        <textarea rows="10" cols="50" id="detail" name="detail" class="form-control col-md-2 col-xs-6">{{detail}}</textarea>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -1,8 +1,8 @@
 <!--controls-->
 <div class="right_col" role="main">
     <div class="ui segment">
-    {% if userType != "cc-admin" %}
-        <span class="control-label col-md-1 col-sm-1 col-xs-12">Unread News : {{unread}}</span>
+    {% if userType == "cc-admin" %}
+        <a href="{{url.get()}}clinic/news"  class="btn btn-info" role="submit">ส่งข่าวใหม่</a>
     {% endif %}
     </div>
     <div class="ui segment">
@@ -33,9 +33,9 @@
                         <td><a href="{{url.get()}}clinic/news/checklist/{{nw.id}}">{{nw.getRead2()}}/{{nw.getNewsRead2()}}</a></td>
                         <td><a href="{{url.get()}}clinic/news/checklist/{{nw.id}}">{{nw.getRead1()}}/{{nw.getNewsRead1()}}</a></td>
                         <td>{{nw.getNameStatus()}}</td>
-                        <td><a href="{{url.get()}}clinic/news/active/{{nw.id}}">เผยแพร่</a>/<a href="{{url.get()}}clinic/news/cancel/{{nw.id}}">ระงับ</a></td>
+                        <td><a href="{{url.get()}}clinic/news/active/{{nw.id}}">[เผยแพร่]</a>/<a href="{{url.get()}}clinic/news/cancel/{{nw.id}}">[ระงับ]</a></td>
                     {% else %}
-                        <td>{{nw.getStatusNewsUser(userid)}}</td>
+                        <td><img src="{{ url.path() }}images/{{nw.getStatusNewsUser(userid)}}.jpg" alt="..." class="img-circle" ></td>
                     {% endif %}
                 </tr>
             {% endfor %}
