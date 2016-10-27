@@ -7,7 +7,7 @@
     <form action="{{ url.get() }}clinic/news/edit/{{newsid}}" method="post">
         <div class="form-group">
             {% if userType == "cc-admin" %}
-                <a href="{{url.get()}}clinic/news/edit/{{newsid}}"  class="btn btn-info" role="submit">แก้ไขข่าว</a>
+                <a href="{{url.get()}}clinic/news/edit/{{newsid}}"  class="btn btn-success" role="submit">แก้ไขข่าว</a>
             {% endif %}
             <a href="{{url.get()}}clinic/news/check"  class="btn btn-info" role="button">ดูข่าวทั้งหมด</a>
         </div>

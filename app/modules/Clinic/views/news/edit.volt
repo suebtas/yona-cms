@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <div class="form-group">
-                    <input type="submit" value="Save News">
+                    <input type="submit" value="บันทึกข่าว" class="btn btn-success">
                 </div>
             </tr>
         </thead>
