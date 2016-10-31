@@ -48,14 +48,14 @@ class Type extends Model
 
     public function validation()
     {
-        $this->validate(new Uniqueness(
+        /*$this->validate(new Uniqueness(
             [
                 "field"   => "slug",
                 "message" => "Тип публикаций с таким URL раздела = '" . $this->slug . "' существует"
             ]
         ));
 
-        return $this->validationHasFailed() != true;
+        return $this->validationHasFailed() != true;*/
     }
 
     public function afterUpdate()
