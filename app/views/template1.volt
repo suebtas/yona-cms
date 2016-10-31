@@ -49,13 +49,13 @@
           <div class="navbar-collapse collapse" id="bs-navbar">
               <ul class="nav navbar-nav" >
                 <li>
-                    <a class="page-scroll" href="home.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+                    <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
+                    <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                    <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
@@ -64,7 +64,7 @@
                     <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อ</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+                    <a class="page-scroll" href="admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
                 </li>
                 <li>
                     <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
