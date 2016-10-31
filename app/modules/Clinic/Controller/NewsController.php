@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace Clinic\Controller;
 
@@ -386,7 +386,7 @@ class NewsController extends FormController
                 ));
         }
 
-        $this->flash->success(sprintf(self::$messageSuccess,"แก้ไข้อมูลข่าวสารสำเร็จ"));
+        //$this->flash->success(sprintf(self::$messageSuccess,"แก้ไข้อมูลข่าวสารสำเร็จ"));
 
         return $this->dispatcher->forward(array(
                     "controller" => "news",
