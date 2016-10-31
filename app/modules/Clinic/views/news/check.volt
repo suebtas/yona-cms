@@ -35,7 +35,7 @@
                         <td>{{nw.getNameStatus()}}</td>
                         <td><a href="{{url.get()}}clinic/news/active/{{nw.id}}">[เผยแพร่]</a>/<a href="{{url.get()}}clinic/news/cancel/{{nw.id}}">[ระงับ]</a></td>
                     {% else %}
-                        <td><img src="{{ url.path() }}images/{{nw.getStatusNewsUser(userid)}}.jpg" alt="..." class="img-circle" ></td>
+                        <td><a href="{{url.get()}}clinic/news/read/{{nw.id}}"><img src="{{ url.path() }}images/{{nw.getStatusNewsUser(userid)}}.jpg" alt="..." class="img-circle" ></a></td>
                     {% endif %}
                 </tr>
             {% endfor %}

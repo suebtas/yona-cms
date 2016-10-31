@@ -20,13 +20,14 @@
             <tr>
                 <td>
                     <div class="col-md-2 ">
-                        {{ check_field("allarea", "value" : "1") }}
+                        {{ check_field("allarea", "value" : "0") }}
                         <label for="HolidayOT" class="control-label">ส่งทุกเขตพื้นที่</label>
                     </div>
                     <div class="col-md-10 ">
                         <span class="control-label ">รายชื่อเขตพื้นที่</span>
+
                         <select id="listOffice" name="ListOffice[]"  multiple="multiple">
-                            <option>เลือกเขตพื้นที่</option>
+                            <option selected="1" value="0">เลือกส่งเฉพาะเขตพื้นที่</option>
                             {% for off in listoffices %}
                                 <option value="{{off.id}}">{{off.name}}</option>
                             {% endfor %}
@@ -62,7 +63,7 @@
                 <td>
                     <span class="control-label col-md-1 col-sm-1 col-xs-12">เนื้อข่าว</span>
                     <div class="col-md-12 col-sm-3 col-xs-12">
-                        <textarea rows="10" cols="50" id="detail" name="detail" class="form-control col-md-2 col-xs-6"></textarea>
+                        <textarea rows="10" cols="50" id="detail" name="detail" required="required" class="form-control col-md-2 col-xs-6"></textarea>
                     </div>
                 </td>
             </tr>

@@ -93,6 +93,10 @@ class NewsController extends FormController
         //$today = $date->format('Y-m-d-H-i-s');
 
         //die($today);
+        $allarea = $this->request->getPost("allarea");
+        $listOff = $this->request->getPost("ListOffice");
+        //var_dump($listOff);
+        //die($allarea);
 
         $news = new News();
 
@@ -121,45 +125,88 @@ class NewsController extends FormController
         }
         //echo $news->id."\n";
 
-        
-
-        $listuser = AdminUser::find("active=1");
-        foreach ($listuser as $user) 
+        if($allarea == "0")
         {
-            $level = 0;
-            if($user->role == "cc-user")
+            $listuser = AdminUser::find("active=1");
+            foreach ($listuser as $user) 
             {
-                $level = 1;
-            }
-            elseif($user->role == "cc-approver")
-            {
-                $level = 2;
-            }
+                $level = 0;
+                if($user->role == "cc-user")
+                {
+                    $level = 1;
+                }
+                elseif($user->role == "cc-approver")
+                {
+                    $level = 2;
+                }
 
-            if($level == 1 || $level == 2)
-            {
-                $newsdetail = new NewsDetail();
+                if($level == 1 || $level == 2)
+                {
+                    $newsdetail = new NewsDetail();
 
-                $newsdetail->newsid = $news->id;
-                $newsdetail->userid = $user->id;
-                $newsdetail->level = $level;
-                $newsdetail->status = 0;
+                    $newsdetail->newsid = $news->id;
+                    $newsdetail->userid = $user->id;
+                    $newsdetail->level = $level;
+                    $newsdetail->status = 0;
 
-                if (!$newsdetail->save()) {
-                    die("not save");
-                    foreach ($newsdetail->getMessages() as $message) {
-                        $this->flash->error(sprintf(self::$messageFail,$message));
+                    if (!$newsdetail->save()) {
+                        die("not save");
+                        foreach ($newsdetail->getMessages() as $message) {
+                            $this->flash->error(sprintf(self::$messageFail,$message));
+                        }
+
+                        return $this->dispatcher->forward(array(
+                                "controller" => "news",
+                                "action" => "index"
+                            ));
                     }
-
-                    return $this->dispatcher->forward(array(
-                            "controller" => "news",
-                            "action" => "index"
-                        ));
                 }
             }
+        }
+        else
+        {
+            foreach ($listOff as $off) 
+            {
+                $listuser = AdminUser::find("active = 1 AND officeid = {$off}");
+                if($listuser != null)
+                {
+                    foreach ($listuser as $user) 
+                    {
+                        $level = 0;
+                        if($user->role == "cc-user")
+                        {
+                            $level = 1;
+                        }
+                        elseif($user->role == "cc-approver")
+                        {
+                            $level = 2;
+                        }
 
+                        if($level == 1 || $level == 2)
+                        {
+                            $newsdetail = new NewsDetail();
 
-            
+                            $newsdetail->newsid = $news->id;
+                            $newsdetail->userid = $user->id;
+                            $newsdetail->level = $level;
+                            $newsdetail->status = 0;
+
+                            if (!$newsdetail->save()) {
+                                die("not save");
+                                foreach ($newsdetail->getMessages() as $message) {
+                                    $this->flash->error(sprintf(self::$messageFail,$message));
+                                }
+
+                                return $this->dispatcher->forward(array(
+                                        "controller" => "news",
+                                        "action" => "index"
+                                    ));
+                            }
+                        }
+                    }
+                }
+                
+            }
         }
 
         //die();
