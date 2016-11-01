@@ -62,6 +62,8 @@ return [
         'clinic/news/delete' => '*',
         'clinic/news/check' => '*',
         'clinic/news/read' => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
 
     ],
     'clinic-center'      => [
@@ -85,6 +87,8 @@ return [
         'clinic/news' => '*',
         'clinic/news/check' => '*',
         'clinic/news/read' => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
     ],
     'cc-approver'      => [
         'admin/index'       => '*',
@@ -98,6 +102,8 @@ return [
         'clinic/news' => '*',
         'clinic/news/check' => '*',
         'clinic/news/read' => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
     ],
     'cc-admin'      => [
         'admin/index'       => '*',
@@ -123,5 +129,7 @@ return [
         'clinic/news/delete' => '*',
         'clinic/news/check' => '*',
         'clinic/news/read' => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
     ],
 ];
