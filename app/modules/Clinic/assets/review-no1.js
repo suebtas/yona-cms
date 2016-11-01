@@ -56,7 +56,7 @@ $(document).ready(function() {
     $('#status_session_1').editable({  
         source: [
               {value: 1, text: 'แจ้งให้แก้ไข'},
-              {value: 2, text: 'ข้อมูลได้แก้ไขตามข้อคิดเห็นแล้ว'}
+              {value: 2, text: 'ผ่าน'}
            ]
     }).on('save', function(e, params) {
       $.ajax({
@@ -108,7 +108,7 @@ $(document).ready(function() {
     $('#status_session_2').editable({  
         source: [
               {value: 1, text: 'แจ้งให้แก้ไข'},
-              {value: 2, text: 'ข้อมูลได้แก้ไขตามข้อคิดเห็นแล้ว'}
+              {value: 2, text: 'ผ่าน'}
            ]
     }).on('save', function(e, params) {
       $.ajax({

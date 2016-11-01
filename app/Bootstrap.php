@@ -196,9 +196,9 @@ class Bootstrap
         $view = new \Phalcon\Mvc\View();
 
         define('MAIN_VIEW_PATH', '../../../views/');
-        $view->setMainView(MAIN_VIEW_PATH . 'main');
+        $view->setMainView(MAIN_VIEW_PATH . 'template1');
         $view->setLayoutsDir(MAIN_VIEW_PATH . '/layouts/');
-        $view->setLayout('main');
+        $view->setLayout('template1');
         $view->setPartialsDir(MAIN_VIEW_PATH . '/partials/');
 
         // Volt

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,15 +10,15 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/website/css/styles.css" />
     <style media="screen">
     @font-face {
     font-family: thfont;
-    src: url(../fonts/Cloud-Light.otf);
+    src: url(/website/fonts/Cloud-Light.otf);
       }
       @font-face {
         font-family: thfontb;
-        src: url(../fonts/Cloud-Bold.otf);
+        src: url(/website/fonts/Cloud-Bold.otf);
       }
 .thfontb{
         font-family: thfontb;
@@ -35,30 +36,35 @@
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix" style="background-color:white;">
       <div class="container-fluid">
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar">
+                <center>
+                MENU
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
+                </center>
               </button>
-
-          </div>
+            </div>
           <div class="navbar-collapse collapse" id="bs-navbar">
               <ul class="nav navbar-nav" >
                 <li>
-                    <a class="page-scroll" href="../index.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+                    <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="../news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
+                    <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="../event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                    <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="../doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                    <a class="page-scroll" href="doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+                    <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อ</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
                 </li>
                 <li>
                     <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
@@ -70,97 +76,71 @@
           </div>
       </div>
     </nav>
-    <header id="first" style="min-height:50%" >
-        <div class="header-content">
-            <div class="inner">
-                <h1 class="cursive thfontb wow bounceIn" style="color:rgb(255, 153, 0)">ศูนย์เครือข่ายเพื่อแก้ไขปัญหา</h1>
-                <h4 class="thfont wow bounceIn">และส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถื่น อบจ.ระยอง</h4>
-                <hr>
-                <a href="#one" class="btn btn-primary btn-xl page-scroll">slide</a>
-            </div>
-        </div>
-        <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background">
-            <source src="../img/Traffic-blurred2.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-        </video>
-    </header>
-
+    {{content()}}
     <section class="bg-primary" id="one">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12 text-center">
 
-                  <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">กิจกรรมและผลงาน</h2>
-                  <hr class="primary">
-              </div>
-          </div>
-      </div>
               <div class="container">
-                  <div class="row text-center">
-                    <center><img src="../img/outting.jpg" class="img-responsive"alt="" /></center>
-                      <p>
-                        คลิกเพื่อดาวน์โหลดภาพ Clinic Center ๘ อำเภอ คือ หนึ่งระยอง
-                      </p>
-                      <a href="#" class="btn btn-xl btn-info">Download</a>
+                  <div class="row">
+                      <div class="col-lg-12 text-center">
+                          <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">ข่าวประชาสัมพันธ์</h2>
+                          <hr class="primary">
+                      </div>
                   </div>
               </div>
-    </section>
-    <section id="two">
-      <div id="story" class="row">
-                        <div class="col-md-4 story-list">
-                <div class="body">
-                    <div class="img-box">
-                        <img src="http://www.mutlive.com/uploads/story/share/0e63cc35760b848c79c9b5c8148f8498.jpg" class="img-responsive">
-                    </div>
-                    <div class="title"><a href="http://www.mutlive.com/story/content/93-%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%A3%E0%B9%88%E0%B8%A7%E0%B8%A1%E0%B8%AA%E0%B8%B3%E0%B8%99%E0%B8%B6%E0%B8%81%E0%B9%83%E0%B8%99%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%93%E0%B8%B2%E0%B8%98%E0%B8%B4%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%AD%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%A1%E0%B8%B4%E0%B9%84%E0%B8%94%E0%B9%89%26%238230%3B">ขอน้อมร่วมสำนึกในพระมหากรุณาธิคุณอันหาที่สุดมิได้  คณะสัตวแพทยศาสตร์ มหาวิทยาลัยเทคโนโลยีมหานคร</a></div>
-                    <div class="detail ">
-                        น้อมเกล้าน้อมกระหม่อม สำนึกในพระมหากรุณาธิคุณ อย่างหาที่สุดมิได้เมื่อวันที่ 27 ตุลาคม ที่ผ่านมา คณะผู้บริหาร คณาจารย์ เจ้าหน้าที่ นักศึกษา ศิษย์เก่า-ศิษย์ปัจจุบัน&nbsp;คณะสัตวแพทยศาสตร์…                        <a href="http://www.mutlive.com/story/content/93-%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%A3%E0%B9%88%E0%B8%A7%E0%B8%A1%E0%B8%AA%E0%B8%B3%E0%B8%99%E0%B8%B6%E0%B8%81%E0%B9%83%E0%B8%99%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%93%E0%B8%B2%E0%B8%98%E0%B8%B4%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%AD%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%A1%E0%B8%B4%E0%B9%84%E0%B8%94%E0%B9%89%26%238230%3B" class="more">MORE</a> </div>
-                    <div class="social row">
-                        <div class="col-xs-6">
-                            <div class="social-list like">0</div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="social-list share">0</div>
+              <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 text-center">
+                        <div class="feature wow " >
+                          <a href="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="http://img.tarad.com/shop/l/logothailand/img-lib/spd_20140601103403_b.jpg">
+                    <img src="img/5_w_100.jpg"  class="img-responsive" alt="Image 1">
+                    <div class="gallery-box-caption">
+                        <div class="gallery-box-content">
+                            <div>
+                                <i class="icon-lg ion-ios-search"></i>
+                            </div>
                         </div>
                     </div>
+                </a>
+                            <a href="news/1.html"  class="text-info"><p>รายชื่อผู้มีสิทธิเข้ารับการสอบสัมภาษณ์</p></a>
+                            <i>วันที่ 20 ตุลาคม 2016</i>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="feature wow ">
+
+                          <a href="#galleryModal" style="width:70%" class="gallery-box " data-toggle="modal"  data-src="http://www.rayong-pao.go.th/home/wp-content/uploads/2016/10/จังหวัดระยองใหม่600.jpg">
+                    <img src="http://www.rayong-pao.go.th/home/wp-content/uploads/2016/10/จังหวัดระยองใหม่600.jpg" class="img-responsive" alt="Image 1">
+                    <div class="gallery-box-caption">
+                        <div class="gallery-box-content">
+                            <div>
+                                <i class="icon-lg ion-ios-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                            <a href="news/3.html" class="text-info"><p>จังหวัดระยองจัดพิธีบำเพ็ญพระราชกุศล</p></a>
+                            <i>วันที่ 18 ตุลาคม 2016</i>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="feature wow " >
+                          <a href="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="img/aaa.jpg">
+                    <img src="img/aaa.jpg" class="img-responsive" alt="Image 1">
+                    <div class="gallery-box-caption">
+                        <div class="gallery-box-content">
+                            <div>
+                                <i class="icon-lg ion-ios-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                            <a href="news/2.html" class="text-info"><p>ยุทธศาสตร์การพัฒนาขององค์กรปกครองส่วนท้องถิ่น</p></a>
+                            <i>วันที่ 19 ตุลาคม 2016</i>
+                        </div>
+                    </div><br>
+                    <center><a href="news" class="btn btn-xl btn-success">ดูข่าวสารทั้งหมด</a></center>
                 </div>
-            </div>
-                        <div class="col-md-4 story-list">
-                <div class="body">
-                    <div class="img-box">
-                        <img src="http://www.mutlive.com/uploads/story/share/9ea9e97bddc2177ebdf1808fd581a148.jpg" class="img-responsive">
-                    </div>
-                    <div class="title"><a href="http://www.mutlive.com/story/content/92-%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3-MUT-%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%AD%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%AA%E0%B8%B0%E0%B8%AD%E0%B8%B2%E0%B8%94">โครงการ MUT จิตอาสาสร้างเมืองของพ่อให้สะอาด</a></div>
-                    <div class="detail ">
-                        รวมภาพบรรยากาศ ชาวMUT จิตอาสา ทำดีเพื่อพ่อ ร่วมกันสร้างเมืองของพ่อให้สะอาด เมื่อวันพุธที่ 26 ตุลาคม 2559 ที่ผ่านมา ณ บริเวณท้องสนามหลวง&nbsp;#ทำดีเพื่อพ่อ&nbsp;#MUTจิตอาสา&nbsp;#MUT…                        <a href="http://www.mutlive.com/story/content/92-%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3-MUT-%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%AD%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%AD%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%AA%E0%B8%B0%E0%B8%AD%E0%B8%B2%E0%B8%94" class="more">MORE</a> </div>
-                    <div class="social row">
-                        <div class="col-xs-6">
-                            <div class="social-list like">0</div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="social-list share">0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                        <div class="col-md-4 story-list">
-                <div class="body">
-                    <div class="img-box">
-                        <img src="http://www.mutlive.com/uploads/story/share/f71d7c7e6b06eb6d18ad86dcde676240.jpg" class="img-responsive">
-                    </div>
-                    <div class="title"><a href="http://www.mutlive.com/story/content/90-%E0%B8%A5%E0%B9%89%E0%B8%B3-%21-%E0%B8%8A%E0%B8%A1%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C-iRis-%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C%E0%B8%8A%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%94%E0%B8%B9%E0%B9%81%E0%B8%A5%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%AD%E0%B8%9B%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%A5">ล้ำ ! ชมคอนเซ็ปต์ iRis หุ่นยนต์ช่วยดูแลบ้านของแอปเปิล</a></div>
-                    <div class="detail ">
-                        ชมคอนเซ็ปต์ iRis หุ่นยนต์ช่วยดูแลบ้านของแอปเปิล เป็นได้ทั้งกล้องวงจรปิด ลำโพง และเครื่องดูดฝุ่นเมื่อวันที่ 26 สิงหาคม 2559&nbsp;CURVED&nbsp;ได้เปิดเผยคอนเซปต์&nbsp;iRis&nbsp;หุ่นยนต์ผู้ช่วยของแอปเปิล…                        <a href="http://www.mutlive.com/story/content/90-%E0%B8%A5%E0%B9%89%E0%B8%B3-%21-%E0%B8%8A%E0%B8%A1%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%9B%E0%B8%95%E0%B9%8C-iRis-%E0%B8%AB%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%99%E0%B8%95%E0%B9%8C%E0%B8%8A%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%94%E0%B8%B9%E0%B9%81%E0%B8%A5%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%AD%E0%B8%9B%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%A5" class="more">MORE</a> </div>
-                    <div class="social row">
-                        <div class="col-xs-6">
-                            <div class="social-list like">0</div>
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="social-list share">0</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    </div>
+              </div>
     </section>
     <section id="last" class="bg-dark">
         <div class="container">
@@ -217,30 +197,32 @@
             </div>
         </div>
     </section>
-        <div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        	<div class="modal-body">
-        		<img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" />
-        		<p>
-        		    <br/>
-        		    <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
-        		</p>
-        	</div>
+            <div class="modal-body">
+            <center>
+                <img src="//placehold.it/1200x700/222?text=..." id="galleryImage" class="img-responsive" />
+                <p>
+                    <br/>
+                    <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">Close <i class="ion-android-close"></i></button>
+                </p>
+          </center>
+            </div>
         </div>
         </div>
     </div>
     <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
-        	<div class="modal-body" style="background-color:rgb(255, 255, 255)">
-        		<h1 class="text-info">Clinic center คืออะไร?</h1>
-        		<center>
-        		    <img src="../img/img01.bmp" class="img-responsive " alt="" />
-        		</center><br>
-        		<center>
-        		    <img src="../img/img02.bmp" class="img-responsive" alt="" />
-        		</center>
+            <div class="modal-body" style="background-color:rgb(255, 255, 255)">
+                <h1 class="text-info">Clinic center คืออะไร?</h1>
+                <center>
+                    <img src="img/img01.bmp" class="img-responsive " alt="" />
+                </center><br>
+                <center>
+                    <img src="img/img02.bmp" class="img-responsive" alt="" />
+                </center>
             <div class="bg-primary">
               <p style="color:rgb(0, 171, 255)">วัตถุประสงค์</p>
               <p style="color:rgb(143, 255, 0)">
@@ -275,55 +257,54 @@
 
             </div>
 
-        		<button class="btn btn-danger btn-lg center-block" data-dismiss="modal" aria-hidden="false"> close </button>
-        	</div>
+                <button class="btn btn-danger btn-lg center-block" data-dismiss="modal" aria-hidden="false"> close </button>
+            </div>
         </div>
         </div>
     </div>
     <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
         <div class="modal-content">
-        	<div class="modal-body">
-        		<h2 class="text-center text-success">ส่งข้อความสำเร็จ</h2>
-        		<p class="text-center">คลิกปุ่ม OK เพื่อกลับสู่หน้าหลัก</p>
-        		<br/>
-        		<button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
-        	</div>
+            <div class="modal-body">
+                <h2 class="text-center text-success">ส่งข้อความสำเร็จ</h2>
+                <p class="text-center">คลิกปุ่ม OK เพื่อกลับสู่หน้าหลัก</p>
+                <br/>
+                <button class="btn btn-primary btn-lg center-block" data-dismiss="modal" aria-hidden="true">OK <i class="ion-android-close"></i></button>
+            </div>
         </div>
         </div>
     </div>
     <div id="faqModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        	<div class="modal-body">
-        		<h2 class="text-center text-success">FAQ</h2>
-        		<p>1) Q: โหลดเอกสารได้อย่างไร <br><span style="margin-left:5%">A:เข้าสู่หน้าของการดาวน์โหลดเอกสารและคลิกที่ปุ่ม</span><button type="button" class="btn btn-success">Download</button></p>
-        		<br/>
+            <div class="modal-body">
+                <h2 class="text-center text-success">FAQ</h2>
+                <p>1) Q: โหลดเอกสารได้อย่างไร <br><span style="margin-left:5%">A:เข้าสู่หน้าของการดาวน์โหลดเอกสารและคลิกที่ปุ่ม</span><button type="button" class="btn btn-success">Download</button></p>
+                <br/>
             <p>2) Q:ดูข้อมูลติดต่อที่ไหน <br><span style="margin-left:5%">A:สามารถกดได้ที่เมนูติดต่อ</span></p>
 
-        		<br/>
+                <br/>
             <p>3) Q:สามารถเปิดwebsiteบนมือถือได้หรือไม่ <br><span style="margin-left:5%">A:websiteมีการออกแบบมาให้รองรับทุกอุปกรณ์ครับ</span></p>
-        		<br/>
+                <br/>
             <div class="text-center">
               <button class="btn btn-success btn-lg">Download FAQ <i class="ion-arrow-down-a"></i></button>
-          		<button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="true">close <i class="ion-android-close"></i></button>
+                <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="true">close <i class="ion-android-close"></i></button>
             </div>
-        	</div>
+            </div>
         </div>
         </div>
     </div>
-
     <!--scripts loaded here from cdn for performance -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="../js/scripts.js"></script>
-      <script src="../owl-carousel/owl.carousel.js"></script>
-      <link href="../owl-carousel/owl.carousel.css" rel="stylesheet"/>
-  <link href="../owl-carousel/owl.theme.css" rel="stylesheet"/>
-  <link href="./owl-carousel/owl.transitions.css" rel="stylesheet"/>
-  <script src="../js/table.js"></script>
+    <script src="/website/js/scripts.js"></script>
+      <script src="/website/owl-carousel/owl.carousel.js"></script>
+      <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
+  <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
+  <script src="/website/js/table.js"></script>
     <style>
     #owl-demo .owl-item div{
       padding:5px;

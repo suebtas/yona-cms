@@ -7,6 +7,32 @@
 ]) %}
 {% set link = helper.langUrl(['for':'publication', 'type':item.getTypeSlug(), 'slug':item.getSlug()]) %}
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
+
+
+<div class="col-lg-4 text-center">
+    <div class="feature wow  animated" style="visibility: visible;">
+        <a data-target="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="{{ image.originalRelPath() }}">
+            <img src="{{ image.originalRelPath() }}" class="img-responsive" alt="Image 1">
+            <div class="gallery-box-caption">
+                <div class="gallery-box-content">
+                    <div>
+                        <i class="icon-lg ion-ios-search"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="{{ link }}" class="text-info"><p>{{ helper.announce(item.getTitle(), 300) }}</p></a>
+        <i>วันที่ {{ item.getDate('d.m.Y') }}</i>
+    </div>
+</div>
+
+
+<?php
+/*
+
+
+
+
 <div class="item">
     {% if imageExists %}
         <a class="image" href="{{ link }}">{{ image.imageHTML() }}</a>
@@ -19,3 +45,5 @@
         <a href="{{ link }}" class="details">{{ helper.translate('Подробнее') }} &rarr;</a>
     </div>
 </div>
+*/
+?>

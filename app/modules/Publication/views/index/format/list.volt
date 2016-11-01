@@ -6,6 +6,7 @@
 ]) %}
 {% set link = helper.langUrl(['for':'publication', 'type':item.getTypeSlug(), 'slug':item.getSlug()]) %}
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
+
 <div class="item{% if imageExists %} with-image{% endif %}">
     {% if imageExists %}
         <a class="image" href="{{ link }}">{{ image.imageHTML() }}</a>
