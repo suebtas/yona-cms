@@ -22,14 +22,27 @@
 .thfontb{
         font-family: thfontb;
         font-size: 150%;
-        text-shadow: 2px 2px rgb(69, 69, 69);
             }
       .thfont{
         font-family: thfont;
-        font-size: 150%;
       }
       #csstd td{
         vertical-align:middle;
+      }
+      .bd {
+          background-color: rgb(255, 255, 255);
+          margin: 1%;
+          border-radius: 5px;
+          color: rgb(37, 37, 37);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          padding: 2%;
+
+      }
+      .text-blue{
+        color:rgb(0, 163, 255)
+      }
+      .text-dark{
+        color:rgb(62, 62, 62)
       }
     </style>
   </head>
@@ -43,39 +56,41 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
+
           </div>
           <div class="navbar-collapse collapse" id="bs-navbar">
-            <ul class="nav navbar-nav" >
-              <li>
-                  <a class="page-scroll" href="../index.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
-              </li>
-              <li>
-                  <a class="page-scroll" href="../news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
-              </li>
-              <li>
-                  <a class="page-scroll" href="../event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
-              </li>
-              <li>
-                  <a class="page-scroll" href="../doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
-              </li>
-              <li>
-                  <a class="page-scroll" href="../forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
-              </li>
-              <li>
-                  <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
-              </li>
-              <li>
-                  <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
-              </li>
-              <li>
-                  <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
-              </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right" style="background-color:rgba(125, 209, 0, 0.51)">
-              <li>
-                  <a class="page-scroll" href="../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
-              </li>
-          </ul>
+              <ul class="nav navbar-nav" >
+                <li>
+                    <a class="page-scroll" href="../index.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
+                </li>
+                <li>
+                    <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
+                </li>
+                <li>
+                    <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="background-color:rgba(125, 209, 0, 0.51)">
+                <li>
+                    <a class="page-scroll" href="../../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+                </li>
+            </ul>
+              </ul>
           </div>
       </div>
     </nav>
@@ -93,70 +108,46 @@
         </video>
     </header>
 
-    <section class="bg-primary" id="one">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">ข่าวประชาสัมพันธ์</h2>
-                <hr class="primary">
-            </div>
+    <section style="background-color:rgb(226, 226, 226);color:rgb(36, 36, 36)" id="one">
+      <div class="container thfont">
+        <div class="bd text-center" style="background-color:rgb(50, 50, 50);color:white">
+          <h1 class="thfontb" style="font-size:200%">ปรึกษาคลินิกเซ็นเตอร์ </h1>
         </div>
-      </div>
-      <div class="container" style="background-color:rgb(255, 255, 255);padding:2%;-webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;border-style: solid;
-    border-width: 2px;color:black;">
-        <div class="row">
-          <table class="table table-responsive table-list-search thfont" id="csstd" >
-            <tbody >
-              <tr>
-                <td >
-                  วันที่ <span style="color:red;font-size:24px">20</span> ตุลาคม 2016
-                </td>
-                <td>
-                  <img href="news/1.html" src="../img/5_w_100.jpg" class="img-responsive" style="max-width:200px" alt="Image 1">
-                </td>
-                <td>
-                  <a href="news/1.html"  class="text-dark" style="max-width:252px"><p>รายชื่อผู้มีสิทธิเข้ารับการสอบสัมภาษณ์</p></a>
-                </td>
-                <td>
-                  <a href="download/11.pdf" class="btn btn-success">download</a>
-                </td>
-              </tr >
-              <tr >
-                <td>
-                  วันที่ <span style="color:red;font-size:24px">18</span> ตุลาคม 2016
-                </td>
-                <td>
-                    <img href="news/1.html" src="http://www.rayong-pao.go.th/home/wp-content/uploads/2016/10/จังหวัดระยองใหม่600.jpg" style="max-width:200px" class="img-responsive" alt="Image 1">
-                </td>
-                <td>
-                  <a href="news/3.html" class="text-dark"><p>จังหวัดระยองจัดพิธีบำเพ็ญพระราชกุศล</p></a>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-success">download</a>
-                </td>
-              </tr>
-              <tr >
-                <td>
-                  วันที่ <span style="color:red;font-size:24px">19</span> ตุลาคม 2016
-                </td>
-                <td>
-                    <img href="news/1.html" src="../img/aaa.jpg" class="img-responsive" style="max-width:200px" alt="Image 1">
-                </td>
-                <td>
-                  <a href="news/2.html" class="text-dark"><p>ยุทธศาสตร์การพัฒนาขององค์กรปกครองส่วนท้องถิ่น</p></a>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-success">download</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div class="row  bd text-blue">
+              <div class="col-xs-1">
+                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
+              </div>
+              <div class="col-xs-11">
+                  <a href="1.html" class="text-blue"><h1 class="thfontb">ขอให้มาตรวจสอบถนนสายบ้านนา-ชำฆ้อด้วยครับ ชำรุดมาก</h1></a>
+                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 1 Answers</span>
+                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 1435 Views</span>
+                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 13-08-2554 10:08	โดย <a href="#">dosman</a> </small></p>
+              </div>
+          </div>
+          <div class="row  bd text-blue">
+              <div class="col-xs-1">
+                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
+              </div>
+              <div class="col-xs-11">
+                  <a href="2.html" class="text-blue"><h1 class="thfontb">เสนอแนะเกี่ยวกับที่จอดรถในเมืองระยอง</h1></a>
+                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 1 Answers</span>
+                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 1529 Views</span>
+                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 04-08-2554 00:08	โดย  <a href="#">พูนศักดิ์ สุขุมกาญจนะ</a> </small></p>
+              </div>
+          </div>
+          <div class="row  bd text-blue">
+              <div class="col-xs-1">
+                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
+              </div>
+              <div class="col-xs-11">
+                  <a href="3.html" class="text-blue"><h1 class="thfontb">ชี้แจงเกี่ยวกับการกรอกข้อมูลงบประมาณ</h1></a>
+                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 0 Answers</span>
+                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 8 Views</span>
+                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 22-02-2555 04:02	โดย <a href="#">จนท.คลินิกเซ็นเตอร์</a> </small></p>
+              </div>
+          </div>
       </div>
     </section>
-
 
     <section id="last" class="bg-dark">
         <div class="container">
@@ -187,7 +178,7 @@
                     </p>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row">
+                    <form class="contact-form row" >
                         <div class="col-md-6">
                             <label></label>
                             <input type="text" class="form-control" placeholder="กรุณาใส่ชื่อของท่าน">
