@@ -2,6 +2,7 @@
 namespace Clinic\Controller;
 use Application\Mvc\Controller;
 use Clinic\Model\AdminUser;
+use Clinic\Model\Answer;
 use Clinic\Model\DiscoverySurvey;
 
 class IndexController extends Controller
@@ -46,6 +47,52 @@ class IndexController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/dashboard.js');
         $this->view->listDiscoverySurvey = DiscoverySurvey::find();
+    }
+    public function dashboardAction(){
+        $this->view->disable();
+        $phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
+        $rows = $this->modelsManager->executeQuery($phql);
+        $data = [];
+        foreach ($rows as $row) {
+            $date = explode("-",$row["date"]);
+            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+        }
+        echo json_encode($data);
+        
+        //echo json_encode($data);
+        /*$request =$this->request;
+        if ($request->isPost()==true) {
+            if ($request->isAjax() == true) {
+
+                    echo $cname = $_POST["cname"];
+                }
+            }*/
+    }
+
+    public function serveyGroupSessionAction($no){
+        $this->view->disable();
+        $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count from Clinic\Model\Answer a,Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs where a.questionid = q.id and s.id=q.sessionid and gs.id = s.group_session_id and gs.id = '$no' GROUP BY gs.name, DATE(a.last_update_survey)";
+        //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
+        $rows = $this->modelsManager->executeQuery($phql);
+        if(!$rows)
+            return "";
+        $data = [];
+        foreach ($rows as $row) {
+            $date = explode("-",$row["date"]);            
+            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+        }
+
+        $data["label"] = $row["name"];
+        echo json_encode($data);
+        
+        //echo json_encode($data);
+        /*$request =$this->request;
+        if ($request->isPost()==true) {
+            if ($request->isAjax() == true) {
+
+                    echo $cname = $_POST["cname"];
+                }
+            }*/
     }
     public function generatePasswordAction(){
 
