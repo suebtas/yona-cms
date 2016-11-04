@@ -76,4 +76,14 @@ class Question extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function getName()
+    {
+        return $this->description;
+    }
+
 }

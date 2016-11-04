@@ -64,6 +64,8 @@ return [
         'clinic/news/read' => '*',
         'clinic/forum' => '*',
         'clinic/post' => '*',
+        'clinic/dataanaly' => '*',
+        'clinic/dataanaly/index' => '*',
 
     ],
     'clinic-center'      => [
@@ -131,5 +133,7 @@ return [
         'clinic/news/read' => '*',
         'clinic/forum' => '*',
         'clinic/post' => '*',
+        'clinic/dataanaly' => '*',
+        'clinic/dataanaly/index' => '*',
     ],
 ];

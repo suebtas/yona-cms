@@ -82,4 +82,14 @@ class Survey extends \Phalcon\Mvc\Model
     public function getDateOfEndSurvey(){
         return Helper::dateOfThaiBuddha($this->end);
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function getYear()
+    {
+        return $this->no;
+    }
 }
