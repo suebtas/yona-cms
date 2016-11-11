@@ -159,15 +159,23 @@
                     <div id="map" style="width:100%;height:200px;background:yellow"></div>
 
                     <script>
-                    function myMap() {
-                      var mapCanvas = document.getElementById("map");
-                      var mapOptions = {
-                        center: new google.maps.LatLng(12.6826348, 101.2272986), zoom: 15  };
-                      var map = new google.maps.Map(mapCanvas, mapOptions);
-                    }
-                    </script>
+                    						function initMap() {
+                    							var myLatLng = {lat: 12.6826348, lng: 101.2272986};
+                    							var map = new google.maps.Map(document.getElementById('map'), {
+                    							  zoom: 15,
+                    							  center: myLatLng
+                    							});
 
-                    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+                    							var marker = new google.maps.Marker({
+                    							  position: myLatLng,
+                    							  map: map,
+                    							  title: 'องค์การบริหารส่วนจังหวัดระยอง อำเภอเมืองระยอง ระยอง'
+                    							});
+                    						  }
+
+                      </script>
+                      <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='initMap()'>
+                    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
                     <p>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่นจังหวัดระยอง</p>
 
                     <p>
