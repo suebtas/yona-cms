@@ -5,10 +5,10 @@
      <div class="row-fluid">
         <div class="table-toolbar">
           <div class="btn-group">
-             {{ link_to("forum/index", 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }} 
+             {{ link_to("clinic/forum/index", 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }} 
           </div>
           <div class="btn-group">
-             {{ link_to("post/new", 'เพิ่ม <i class="icon-plus"></i>',"class":"btn") }}
+             {{ link_to("clinic/post/new", 'เพิ่ม <i class="icon-plus"></i>',"class":"btn") }}
           </div>
         </div>
         <div align="center">
@@ -43,7 +43,7 @@
                                 {% continue %}
                             {% endif %}
                             <tr>
-                                <td>{{ link_to("post/comment?topic="~post.ID, post.Title) }}</td>
+                                <td>{{ link_to("clinic/post/comment?topic="~post.ID, post.Title) }}</td>
                                 <td><span class="badge badge-info">{{post.counting-1}}</span></td>
                                 <td>{{ post.postdate }}</td>
                                 <td>{{ post.maxpostdate }}</td>
@@ -53,11 +53,11 @@
                                 <td>
                                     <!-- buton groups -->
                                     <div class="btn-group">
-                                    {{ link_to("post/edit/"~post.ID, "<i class='icon-pencil'></i> แก้ไข", "class":"btn")}}
+                                    {{ link_to("clinic/post/edit/"~post.ID, "<i class='icon-pencil'></i> แก้ไข", "class":"btn")}}
                                     <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                        <li>{{ link_to("post/edit/"~post.ID, "<i class='icon-pencil'></i> แก้ไข")}}</li>
-                                        <li>{{ link_to("post/delete/"~post.ID, "<i class='icon-remove'></i> ลบ") }}</li>
+                                        <li>{{ link_to("clinic/post/edit/"~post.ID, "<i class='icon-pencil'></i> แก้ไข")}}</li>
+                                        <li>{{ link_to("clinic/post/delete/"~post.ID, "<i class='icon-remove'></i> ลบ") }}</li>
                                         </ul>
                                     </div><!-- /btn-group -->
                                 </td>

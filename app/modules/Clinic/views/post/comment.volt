@@ -1,14 +1,12 @@
-
-{{ content() }}
-
- <div class="row-fluid">
+<div class="right_col" role="main">
+  <div class="row-fluid">
     <div class="table-toolbar">
       <div class="btn-group">
-         {{ link_to("post/search?forum="~forumId, 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }}
+         {{ link_to("clinic/post/search?forum="~forumId, 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }}
       </div>
       {% if headtopic.Status != 2 %}
       <div class="btn-group">
-         {{ link_to("post/newReply/"~topicId, 'ตอบกระทู้ <i class="icon-plus"></i>',"class":"btn") }}
+         {{ link_to("clinic/post/newReply/"~topicId, 'ตอบกระทู้ <i class="icon-plus"></i>',"class":"btn") }}
       </div>
       {% endif %}
     </div>
@@ -34,37 +32,37 @@
                             {{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }}
                             </b>
                           {% else %}
-                            {{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), headtopic.getFile(headtopic.getId())) }}</b>
+                            {#{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), headtopic.getFile(headtopic.getId())) }#} ไม่มี</b>
                           {% endif %}
                       {% endif %}
                       </div>
                       <div class="panel-footer">
                        <span>
-                         {{ image("post/imageprofile/"~headtopic.Personnel.ImageProfileID,"width":"35px","height":"35px") }}
+                         {#{ image("clinic/post/imageprofile/"~headtopic.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
                        </span>
                        <span>
                           <font size="1">
                           คุณ {{ headtopic.personnel.FnameTH }} {{ headtopic.personnel.LNameTH }} 
                           อีเมล: {{ headtopic.personnel.Email }}
-                          โพสเมื่อ: {{ headtopic.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %}
+                          โพสเมื่อ: {{ headtopic.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %}
                           </font>
                        </span>
                       </div>
                 </div>
-				{% set commentNumber = 1 %}
+  			{% set commentNumber = 1 %}
                 {% for post in page %}
                       <div class="panel panel-info">
                           <div class="panel-heading" id="comment{{post.getId()}}">ความเห็น #{{commentNumber}}</div>
                           <div class="panel-body">{{ post.getDetail() }}</div>
                           <div class="panel-footer">
                             <span>
-                               {{ image("post/imageprofile/"~post.Personnel.ImageProfileID,"width":"35px","height":"35px") }}
+                               {#{ image("post/imageprofile/"~post.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
                              </span>
                              <span>
                                 <font size="1">
                                   คุณ {{ post.personnel.FnameTH }} {{ post.personnel.LNameTH }} 
                                 อีเมล: {{ post.personnel.Email }}
-                                โพสเมื่อ: {{ post.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
+                                โพสเมื่อ: {{ post.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
                              </span>
                           </div>
@@ -78,28 +76,28 @@
                           </div>
                           <div class="panel-footer">
                             <span>
-                               {{ image("post/imageprofile/"~data.Personnel.ImageProfileID,"width":"35px","height":"35px") }}
+                               {#{ image("clinic/post/imageprofile/"~data.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
                              </span>
                              <span>
                                 <font size="1">
                                 คุณ {{ data.personnel.FnameTH }} {{ data.personnel.LNameTH }} 
                                 อีเมล: {{ data.personnel.Email }}
-                                โพสเมื่อ: {{ data.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("post/newReply/"~data.getId(), 'ตอบกลับ') }}{% endif %}
+                                โพสเมื่อ: {{ data.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~data.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
                              </span>
                           </div>
                           </div>
                       {% endfor %}
-					  
-					{% set commentNumber += 1 %}
-					
+  				  
+  				{% set commentNumber += 1 %}
+  				
                 {% endfor %}
              {% endif %}
         </div>
     </div>
 
+  </div>
 </div>
-
 <script>
 
 $(document).ready(function()

@@ -2,7 +2,6 @@
 
 namespace Clinic\Controller;
 
-use Application\Mvc\Controller;
 use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\News;
@@ -13,7 +12,7 @@ use Clinic\Model\NewsImportant;
 use Clinic\Model\Office;
 use Phalcon\Mvc\Model\Resultset;
 
-class NewsController extends FormController
+class NewsController extends ControllerBase
 {
     public function getTHDate(){
 

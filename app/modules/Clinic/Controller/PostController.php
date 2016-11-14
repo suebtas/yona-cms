@@ -5,7 +5,6 @@ namespace Clinic\Controller;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
-use Application\Mvc\Controller;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
 use Phalcon\Mvc\View;
@@ -13,7 +12,7 @@ use Clinic\Model\Post;
 use Clinic\Model\Forum;
 use Phalcon\Mvc\Model\Resultset;
 
-class PostController extends FormController
+class PostController extends ControllerBase
 {
     public function initialize()
     {
@@ -92,11 +91,15 @@ class PostController extends FormController
         }
 
         $phql = "SELECT p.ID, p.Title, p.Status, p.postdate, COUNT(reply.headPostID) AS counting, MAX(reply.postdate) AS maxpostdate
-                FROM Post p, Post AS reply 
-                WHERE p.replypostid IS NULL AND p.ID = reply.headpostID 
+                FROM Clinic\Model\Post p, Clinic\Model\Post AS reply 
+                WHERE p.replypostid IS NULL AND p.ID = reply.headpostID AND p.ForumID = 1
                 GROUP BY p.ID, p.Title, p.Status, p.postdate
                 ORDER BY MAX(reply.postdate) DESC";
         $post = $this->modelsManager->executeQuery($phql);
+
+        //$result_set = $this->db->query($phql);
+        //$result_set->setFetchMode(Phalcon\Db::FETCH_ASSOC);
+        //$post = $result_set->fetchAll($result_set);
 
         if (count($post) == 0) {
             $this->flash->notice(sprintf(self::$messageFail,"ไม่พบข้อมูล"));
@@ -150,7 +153,7 @@ class PostController extends FormController
         }
         
         $this->view->isAdmin = $this->isAdmin();
-        $this->view->MyID = $this->session->get("auth")['id'];
+        $this->view->MyID = $this->user->id; //$this->session->get("auth")['id'];
         $this->view->headtopic = $posttmp;
         $this->view->forumId = $posttmp->getForumid();
         $this->view->topicId = $topicID;
@@ -240,7 +243,7 @@ class PostController extends FormController
 
         $post = new Post();
 
-        $post->PersonnelID = $this->session->get("auth")['id'];
+        $post->PersonnelID = $this->user->id;
         $post->ReplyPostID = $this->request->getPost("ReplyPostID");
         $post->Title = $this->request->getPost("Title");
         $post->ForumID = $this->request->getPost("ForumID");
@@ -278,7 +281,7 @@ class PostController extends FormController
 
         $this->flash->success(sprintf(self::$messageSuccess,"บันทึกข้อมูลสำเร็จ"));
 
-        return $this->response->redirect("post/comment?topic={$post->HeadPostID}#{$post->ID}");
+        return $this->response->redirect("clinic/post/comment?topic={$post->HeadPostID}#{$post->ID}");
     }
 
     /**
@@ -427,14 +430,13 @@ class PostController extends FormController
 
     public function isAdmin()
     {
-        $ID = $this->session->get("auth")['privilegeId'];
-        
-        $data = Privilege::findFirstByID($ID);
-        if($data->RoleID == '1' && $data->SystemID == '7') {
-            return true;
+        if($this->user!=null){
+            if($this->user->role == "cc-admin") {
+                return true;
+            }
         }
-        
-        return false;
+        else
+            return false;
     }
 
     public function imageprofileAction($PersonnelID)

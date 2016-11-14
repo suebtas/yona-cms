@@ -103,9 +103,9 @@ class Post extends \Phalcon\Mvc\Model
      */
     public function setPersonnelid($PersonnelID)
     {
-        $this->PersonnelID = $PersonnelID;
+        //$this->PersonnelID = $PersonnelID;
 
-        return $this;
+        //return $this;
     }
 
     /**
@@ -203,7 +203,7 @@ class Post extends \Phalcon\Mvc\Model
      */
     public function getPersonnelid()
     {
-        return $this->PersonnelID;
+        //return $this->PersonnelID;
     }
 
     /**

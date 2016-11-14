@@ -4,14 +4,13 @@ namespace Clinic\Controller;
 use Phalcon\Mvc\Model\Criteria;
 use Phalcon\Paginator\Adapter\Model as Paginator;
 
-use Application\Mvc\Controller;
 use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Office;
 use Clinic\Model\Forum;
 use Phalcon\Mvc\Model\Resultset;
 
-class ForumController extends FormController
+class ForumController extends ControllerBase
 {
     public function initialize()
     {
