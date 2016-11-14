@@ -36,6 +36,16 @@ class Survey extends \Phalcon\Mvc\Model
     public $end;
 
     /**
+     *
+     * @var int
+     */
+    public $status;
+    /**
+     *
+     * @var int
+     */
+    public $notification;
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -88,6 +98,30 @@ class Survey extends \Phalcon\Mvc\Model
         return $this->id;
     }
     
+    public function getNo()
+    {
+        return $this->no;
+    }
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function getStart()
+    {
+        return $this->start;
+    }
+    public function getEnd()
+    {
+        return $this->end;
+    }
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function getNotification()
+    {
+        return $this->notification;
+    }
     public function getYear()
     {
         return $this->no;

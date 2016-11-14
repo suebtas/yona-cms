@@ -96,8 +96,8 @@ $(function() {
 	var options = {
 									    series: {
 									      lines: {
-									        show: true,
-									        fill: true
+									        show: false,
+									        fill: false
 									      },
 									      splines: {
 									        show: true,
@@ -119,7 +119,7 @@ $(function() {
 									      borderWidth: 1,
 									      //color: '#fff'
 									    },
-									    colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+									    //colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
 									    xaxis: {
 									      tickColor: "rgba(51, 51, 51, 0.06)",
 									      mode: "time",

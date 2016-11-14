@@ -121,6 +121,7 @@ return [
         'clinic-admin/office'   => '*',
         'clinic-admin/session'   => '*',
         'clinic-admin/surveystatus'   => '*',
+        'clinic-admin/survey'   => '*',
         'clinic-admin/exportword'   => '*',
         'clinic-admin/newstype'   => '*',
         'clinic-admin/newslevel'   => '*',
