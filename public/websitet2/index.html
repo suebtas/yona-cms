@@ -92,7 +92,7 @@
                       <a class="btn" href="../websitet1/index.html" style="background-color:rgb(59, 59, 59);border-radius:0px">1</a>
                   </li>
                   <li>
-                      <a class="btn" href="../website/index.html" style="background-color:rgb(255, 116, 233);border-radius:0px">D</a>
+                      <a class="btn" href="../website/index.html" style="background-color:rgb(0, 163, 255);border-radius:0px">D</a>
                   </li>
                   <li>
                       <a class="btn" href="../websitet3/index.html" style="background-color:rgb(255, 161, 0);border-radius:0px">3</a>
@@ -470,8 +470,8 @@
     <div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <div class="modal-body" style="background-color:rgb(255, 255, 255)">
-                    <h1 class="text-info">Clinic center คืออะไร?</h1>
+                <div class="modal-body bg-dark">
+                    <h1>Clinic center คืออะไร?</h1>
                     <center>
                         <img src="img/img01.bmp" class="img-responsive " alt="" />
                     </center><br>
@@ -521,7 +521,7 @@
     <div id="faqModal" class="modal fade" style="color:white" style="color:white" style="color:white" style="color:white" style="color:white" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-body">
+                <div class="modal-body bg-dark">
                     <h2 class="text-center text-success">FAQ</h2>
                     <p>1) Q: โหลดเอกสารได้อย่างไร <br><span style="margin-left:5%">A:เข้าสู่หน้าของการดาวน์โหลดเอกสารและคลิกที่ปุ่ม</span><button type="button" class="btn btn-success">Download</button></p>
                     <br/>
@@ -538,6 +538,17 @@
             </div>
         </div>
     </div>
+    <div id="popModal" class="modal fade " tabindex="-1" role="dialog" aria-hidden="True">
+      <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+              <div class="modal-body text-center bg-dark">
+                    <center><img src="img/44.jpg" class="img-responsive" alt="" /></cemter>
+                      <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
+                  </div>
+              </div>
+          </div>
+    </div>
+
     <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
@@ -662,6 +673,11 @@
             });
         });
         $("body").data("page", "frontpage");
+    </script>
+    <script type="text/javascript">
+    $(window).load(function(){
+        $('#popModal').modal('show');
+    });
     </script>
 </body>
 

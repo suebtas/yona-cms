@@ -22,27 +22,19 @@
 .thfontb{
         font-family: thfontb;
         font-size: 150%;
+        text-shadow: 2px 2px rgb(69, 69, 69);
             }
       .thfont{
         font-family: thfont;
+        font-size: 150%;
       }
       #csstd td{
         vertical-align:middle;
       }
-      .bd {
-          background-color: rgb(255, 255, 255);
-          margin: 1%;
-          border-radius: 5px;
-          color: rgb(37, 37, 37);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          padding: 2%;
-
-      }
-      .text-blue{
-        color:rgb(0, 163, 255)
-      }
-      .text-dark{
-        color:rgb(62, 62, 62)
+      html{
+        -webkit-filter: grayscale(100%);
+        /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
       }
     </style>
   </head>
@@ -56,41 +48,39 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-
           </div>
           <div class="navbar-collapse collapse" id="bs-navbar">
-              <ul class="nav navbar-nav" >
-                <li>
-                    <a class="page-scroll" href="../index.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
-                </li>
-                <li>
-                    <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="../about" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right" style="background-color:rgba(125, 209, 0, 0.51)">
-                <li>
-                    <a class="page-scroll" href="../../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
-                </li>
-            </ul>
-              </ul>
+            <ul class="nav navbar-nav" >
+              <li>
+                  <a class="page-scroll" href="../index.html" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="../news.html" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="../event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="../doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="../forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
+              </li>
+              <li>
+                  <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="../about" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" style="background-color:rgba(125, 209, 0, 0.51)">
+              <li>
+                  <a class="page-scroll" href="../admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+              </li>
+          </ul>
           </div>
       </div>
     </nav>
@@ -108,46 +98,65 @@
         </video>
     </header>
 
-    <section style="background-color:rgb(226, 226, 226);color:rgb(36, 36, 36)" id="one">
-      <div class="container thfont">
-        <div class="bd text-center" style="background-color:rgb(50, 50, 50);color:white">
-          <h1 class="thfontb" style="font-size:200%">ปรึกษาคลินิกเซ็นเตอร์ </h1>
+    <section style="background-color:rgb(240, 240, 240)" id="one">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">ประวัติ Clinic center</h2>
+                <hr class="primary">
+            </div>
         </div>
-          <div class="row  bd text-blue">
-              <div class="col-xs-1">
-                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
-              </div>
-              <div class="col-xs-11">
-                  <a href="1.html" class="text-blue"><h1 class="thfontb">ขอให้มาตรวจสอบถนนสายบ้านนา-ชำฆ้อด้วยครับ ชำรุดมาก</h1></a>
-                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 1 Answers</span>
-                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 1435 Views</span>
-                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 13-08-2554 10:08	โดย <a href="#">dosman</a> </small></p>
-              </div>
+      </div>
+      <div class="container" style="background-color:rgb(255, 255, 255);padding:2%;-webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;border-style: solid;
+    border-width: 2px;color:black;">
+        <div class="row">
+          <h1 class="text-info text-center">Clinic center คืออะไร?</h1>
+          <center>
+              <img src="../img/img01.bmp" class="img-responsive " alt="" />
+          </center><br>
+          <center>
+              <img src="../img/img02.bmp" class="img-responsive" alt="" />
+          </center>
+          <div class="bg-primary">
+              <p style="color:rgb(0, 171, 255)">วัตถุประสงค์</p>
+              <p style="color:rgb(143, 255, 0)">
+                  ประวัติความเป็นมา
+              </p>
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;องค์การบริหารส่วนจังหวัดระยอง ได้ดำเนินการจัดตั้งศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น Clinic Center ขององค์การบริหารส่วนจังหวัดระยอง โดยมีผู้แทนของภาคส่วนต่างๆ ในท้องถิ่น เข้าร่วมเป็นคณะกรรมการศูนย์เครือข่ายฯ
+                  เพื่อทำหน้าที่บริหารศูนย์เครื่อข่ายฯ ให้เป็นไปตามเจตนารมณ์ของคณะกรรมการการกระจายอำนาจให้แก่องค์กรปกครองส่วนท้องถิ่น สำนักนายกรัฐมนตรี</p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;ซึ่งองค์การบริหารส่วนจังหวัดระยอง ได้จัดตั้งศูนย์ Clinic Center เมื่อปี พ.ศ. 2550 เพื่อเป็นสื่อกลางในการที่จะช่วยเสริมสร้างความเข้าใจและความสัมพันธ์อันดีระหว่างองค์การบริหารส่วนจังหวัดระยอง องค์กรปกครองส่วนท้องถิ่น
+                  ส่วนราชการต่างๆ และประชาชนในจังหวัดระยอง โดยยึดหลักการมีส่วนร่วมเป็นสำคัญ ในการพัฒนาท้องถิ่นในจังหวัดระยอง</p>
+
+              <p style="color:rgb(143, 255, 0)">
+                  วัตถุประสงค์
+              </p>
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;1 เพื่อสร้างความเข้มแข็งให้กับองค์กรปกครองส่วนท้องถิ่น โดยเน้นการเรียนรู้ร่วมกันในท้องถิ่น</p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;2 เพื่อเป็นศูนย์กลางในการให้ข้อเสนอแนะและช่วยเหลือในการแก้ไขปัญหาและการพัฒนาท้องถิ่นในลักษณะเครือข่าย </p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;3 เพื่อเป็นศูนย์กลางความร่วมมือในการจัดทำแผนปฏิบัติการร่วมกันและประเมินผลการฏิบัติงานทุกภาคส่วนที่เกี่ยวข้อง</p>
+
+              <p style="color:rgb(143, 255, 0)">
+                  บทบาทและหน้าที่ของศูนย์เครือขายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น Clinic Center
+              </p>
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;1 ประสานงานระหว่างส่วนราชการและองค์กรปกครองส่วนท้องถิ่นในจังหวัด เพื่อการสนับสนุนและส่งเสริม ให้เกิดการประสานจัดทำแผนพัฒนาท้องถิ่นในจังหวัด </p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;2 ประสานการปฏิบัติงานขององค์กรปกครองส่วนท้องถิ่น เพ่อร่วมกันแก้ไขปัญหาของประชาชนและการพัฒนาท้องถิ่น </p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;3 จัดกิจกรรมและเวทีสาธารณะ เพื่อส่งเสริมการมีส่วนร่วมและแสดงความคิดเห็นในการพัฒนาท้องถิ่นเป็นประจำ </p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;4 สร้างแหล่งเรียนรู้แลเสริมสร้างความรู้แก่องค์กรปกครองส่วนท้องถิ่น ส่วนท้องถิ่นและประชาชนทุกภาคส่วน </p>
+
+              <p style="color:rgb(255, 255, 255)">&emsp;&emsp;5 ดำเนินการอื่นใดที่เป็นประโยชน์ส่งเสริมในการเพิ่มประสิทธิภาพ รวมทั้งส่งเสริมการกระจายอำนาจให้แก่องค์กรปกครองส่วนท้องถิ่น</p>
+
           </div>
-          <div class="row  bd text-blue">
-              <div class="col-xs-1">
-                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
-              </div>
-              <div class="col-xs-11">
-                  <a href="2.html" class="text-blue"><h1 class="thfontb">เสนอแนะเกี่ยวกับที่จอดรถในเมืองระยอง</h1></a>
-                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 1 Answers</span>
-                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 1529 Views</span>
-                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 04-08-2554 00:08	โดย  <a href="#">พูนศักดิ์ สุขุมกาญจนะ</a> </small></p>
-              </div>
-          </div>
-          <div class="row  bd text-blue">
-              <div class="col-xs-1">
-                  <img src="../img/forumi.png" style="max-width:40px" alt="" />
-              </div>
-              <div class="col-xs-11">
-                  <a href="3.html" class="text-blue"><h1 class="thfontb">ชี้แจงเกี่ยวกับการกรอกข้อมูลงบประมาณ</h1></a>
-                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i> 0 Answers</span>
-                    <span style="color:rgb(101, 156, 0);margin-right:1%"><i class="ion-icon ion-eye" style="font-size:25px"></i> 8 Views</span>
-                      <br><small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ 22-02-2555 04:02	โดย <a href="#">จนท.คลินิกเซ็นเตอร์</a> </small></p>
-              </div>
-          </div>
+        </div>
       </div>
     </section>
+
 
     <section id="last" class="bg-dark">
         <div class="container">
@@ -175,6 +184,7 @@
 
                       </script>
                       <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='initMap()'>
+
                     <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
                     <p>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่นจังหวัดระยอง</p>
 
@@ -186,7 +196,7 @@
                     </p>
                 </div>
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row" >
+                    <form class="contact-form row">
                         <div class="col-md-6">
                             <label></label>
                             <input type="text" class="form-control" placeholder="กรุณาใส่ชื่อของท่าน">
@@ -297,6 +307,5 @@
       });
     });
     </script>
-
   </body>
 </html>
