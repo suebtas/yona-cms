@@ -1,7 +1,7 @@
 
 {{ content() }}
 
-{{ form("post/search", "method":"post", "autocomplete" : "off","class" : "form-horizontal", "class" : "form-horizontal") }}
+{{ form("clinic/post/search", "method":"post", "autocomplete" : "off","class" : "form-horizontal", "class" : "form-horizontal") }}
 
 <div class="table-toolbar">
   {% if router.getActionName() != 'index' and router.getActionName()!=""%}

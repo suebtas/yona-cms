@@ -2,7 +2,7 @@
 <div class="right_col" role="main">
 
     <!--controls-->
-    
+    {{ content() }}
 
     <form action="{{ url.get() }}clinic/news/add" method="post">
     <table class="ui table very compact celled">

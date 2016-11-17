@@ -1,14 +1,11 @@
 
 <div class="right_col" role="main">
-
+    {{ content() }}
     <div class="row-fluid">
         <div class="table-toolbar">
-          <div class="btn-group">
-             {{ link_to("clinic/forum/index", 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }} 
-          </div>
           {% if isAdmin %}
           <div class="btn-group">
-             {{ link_to("clinic/forum/new", 'เพิ่ม <i class="icon-plus"></i>',"class":"btn") }}
+             {{ link_to("clinic/forum/new", 'เพิ่มหมวดหมู่',"class":"btn btn-success") }}
           </div>
           {% endif %}
         </div>
@@ -30,6 +27,7 @@
                                             
                 <th>ชื่อหมวดหมู่</th>
                 {% if isAdmin %}
+                    <th>สถานะ</th>
                     <th>จัดการ</th>
                 {% endif %}
 
@@ -40,12 +38,20 @@
                         {% for forum in page.items %}
                             <tr>
                                 
-                                <td>{{ link_to("clinic/post/search?forum="~forum.getId(), forum.Name) }}</td>
                                 
-                
+                                
+                            
                                 {% if isAdmin %}
+                                <td>{{ link_to("clinic/post/search?forum="~forum.getId(), forum.Name) }}</td>
                                 <td>
-                                    <!-- buton groups -->
+                                    {% if forum.Status == 0 %}
+                                       {{"ใช้งาน"}}
+                                    {% else %}
+                                        {{"ระงับใช้งาน"}}
+                                    {% endif %}
+                                    
+                                </td>
+                                <td>
                                     <div class="btn-group">
                                         {{ link_to("clinic/forum/edit/"~forum.ID, "<i class='icon-pencil'></i> แก้ไข", "class":"btn")}}
                                         <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
@@ -55,6 +61,10 @@
                                         </ul>
                                     </div><!-- /btn-group -->
                                 </td>
+                                {% else %}
+                                    {% if forum.Status == 0 %}
+                                        <td>{{ link_to("clinic/post/search?forum="~forum.getId(), forum.Name) }}</td>
+                                    {% endif %}
                                 {% endif %}
                                 
                             </tr>
@@ -67,3 +77,17 @@
         </div>
     </div>
 </div>
+
+<!-- jQuery -->
+<script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="{{ url.path() }}clinic/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
+<!-- Custom Theme Scripts -->
+<!-- <script src="../build/js/custom.min.js"></script> -->
+<script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
+
+{{ assets.outputJs('modules-clinic-js') }}

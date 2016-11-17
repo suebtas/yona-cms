@@ -5,10 +5,10 @@
      <div class="row-fluid">
         <div class="table-toolbar">
           <div class="btn-group">
-             {{ link_to("clinic/forum/index", 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }} 
+             {{ link_to("clinic/forum/index", 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn btn-info") }} 
           </div>
           <div class="btn-group">
-             {{ link_to("clinic/post/new", 'เพิ่ม <i class="icon-plus"></i>',"class":"btn") }}
+             {{ link_to("clinic/post/new", 'เพิ่ม <i class="icon-plus"></i>',"class":"btn  btn-success") }}
           </div>
         </div>
         <div align="center">
@@ -72,4 +72,18 @@
         </div>
     </div>
 </div>
+
+<!-- jQuery -->
+<script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="{{ url.path() }}clinic/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
+<!-- Custom Theme Scripts -->
+<!-- <script src="../build/js/custom.min.js"></script> -->
+<script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
+
+{{ assets.outputJs('modules-clinic-js') }}
 

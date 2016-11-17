@@ -72,7 +72,7 @@ class PostController extends ControllerBase
         }*/
         
         if(!isset($_GET['forum'])) {
-            return $this->response->redirect('forum/search');
+            return $this->response->redirect('clinic/forum/search');
         }
 
         $forumID = $_GET['forum'];
@@ -157,6 +157,8 @@ class PostController extends ControllerBase
         $this->view->headtopic = $posttmp;
         $this->view->forumId = $posttmp->getForumid();
         $this->view->topicId = $topicID;
+
+        $this->view->userName = $this->user->name;
 
         $this->view->page = $post;
     }
@@ -266,8 +268,8 @@ class PostController extends ControllerBase
 
         if ($this->request->hasFiles() == true) {
             foreach ($this->request->getUploadedFiles() as $file){
-                mkdir("./files/post/{$post->ID}/", 0777, true);
-                $file->moveTo("./files/post/{$post->ID}/" . $file->getName());
+                mkdir("./public/files/post/{$post->ID}/", 0777, true);
+                $file->moveTo("./public/files/post/{$post->ID}/" . $file->getName());
             }
         }
 
@@ -282,6 +284,7 @@ class PostController extends ControllerBase
         $this->flash->success(sprintf(self::$messageSuccess,"บันทึกข้อมูลสำเร็จ"));
 
         return $this->response->redirect("clinic/post/comment?topic={$post->HeadPostID}#{$post->ID}");
+
     }
 
     /**
@@ -310,7 +313,7 @@ class PostController extends ControllerBase
             ));
         }
 
-        $post->PersonnelID = Post::findFirstByID($ID)->PersonnelID;
+        $post->PersonnelID = $this->user->id;
         $post->ReplyPostID = $this->request->getPost("ReplyPostID");
         $post->ForumID = $this->request->getPost("ForumID");
         $post->Title = $this->request->getPost("Title");
@@ -340,7 +343,7 @@ class PostController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "post",
-            "action" => "index"
+            "action" => "search"
         ));
 
     }

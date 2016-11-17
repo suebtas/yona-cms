@@ -2,11 +2,11 @@
   <div class="row-fluid">
     <div class="table-toolbar">
       <div class="btn-group">
-         {{ link_to("clinic/post/search?forum="~forumId, 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn") }}
+         {{ link_to("clinic/post/search?forum="~forumId, 'ย้อนกลับ <i class="icon-arrow-left"></i>',"class":"btn btn-info") }}
       </div>
       {% if headtopic.Status != 2 %}
       <div class="btn-group">
-         {{ link_to("clinic/post/newReply/"~topicId, 'ตอบกระทู้ <i class="icon-plus"></i>',"class":"btn") }}
+         {{ link_to("clinic/post/newReply/"~topicId, 'ตอบกระทู้ <i class="icon-plus"></i>',"class":"btn btn-success") }}
       </div>
       {% endif %}
     </div>
@@ -29,7 +29,11 @@
                         <b>ไฟล์แนบ: 
                           {% if headtopic.isImageFromFile(headtopic.getFile(headtopic.getId())) %}
                             <br>
-                            {{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }}
+                            {#{ link_to("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }#}
+
+                            {{image_input("src": "../../public/files/post/39/user-management_3.jpg","width":"100px","height":"100px")}}
+
+
                             </b>
                           {% else %}
                             {#{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), headtopic.getFile(headtopic.getId())) }#} ไม่มี</b>
@@ -60,7 +64,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                  คุณ {{ post.personnel.FnameTH }} {{ post.personnel.LNameTH }} 
+                                  คุณ {{ userName }} 
                                 อีเมล: {{ post.personnel.Email }}
                                 โพสเมื่อ: {{ post.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
@@ -80,9 +84,9 @@
                              </span>
                              <span>
                                 <font size="1">
-                                คุณ {{ data.personnel.FnameTH }} {{ data.personnel.LNameTH }} 
+                                คุณ {{ userName }}  
                                 อีเมล: {{ data.personnel.Email }}
-                                โพสเมื่อ: {{ data.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~data.getId(), 'ตอบกลับ') }}{% endif %}
+                                โพสเมื่อ: {{ data.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
                              </span>
                           </div>
@@ -98,6 +102,8 @@
 
   </div>
 </div>
+
+
 <script>
 
 $(document).ready(function()
@@ -110,3 +116,17 @@ $(document).ready(function()
 });
 
 </script>
+
+<!-- jQuery -->
+<script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="{{ url.path() }}clinic/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="{{ url.path() }}clinic/vendors/nprogress/nprogress.js"></script>
+<!-- Custom Theme Scripts -->
+<!-- <script src="../build/js/custom.min.js"></script> -->
+<script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
+
+{{ assets.outputJs('modules-clinic-js') }}

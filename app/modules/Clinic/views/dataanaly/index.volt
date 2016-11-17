@@ -2,7 +2,6 @@
 <div class="right_col" role="main">
     <form action="{{ url.get() }}clinic/dataanaly" method="post">
     <div class="form-group">
-        <input name="Query" type="submit" value=">>Query<<" class="btn btn-success">
         <input name="Refrest" type="submit" value=">>Refresh<<" class="btn btn-info">
     </div>
         <table class="ui table very compact celled">
@@ -34,7 +33,7 @@
                     <td>
                         <select id="Sessiones" name="Sessiones"  class="form-control col-md-2 col-xs-12">
                             {% for Session in sessiones %}
-                                {% if Session.getId() == questid %}
+                                {% if Session.getId() == sessid %}
                                     <option value="{{Session.getId()}}"  selected="1">{{Session.getName()}}</option>
                                 {% else %}
                                     <option value="{{Session.getId()}}" >{{Session.getName()}}</option>
@@ -46,7 +45,11 @@
                         <select id="Questions" name="Questions"  class="form-control col-md-2 col-xs-12" >
                             <option selected="1" value="0">เลือกข้อคำถามย่อย</option>
                             {% for Question in questions %}
-                                <option value="{{Question.getId()}}">{{Question.getName()}}</option>
+                                {% if Question.getId() == questid %}
+                                    <option value="{{Question.getId()}}" selected="1">{{Question.getName()}}</option>
+                                {% else %}
+                                    <option value="{{Question.getId()}}">{{Question.getName()}}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                     </td>
@@ -65,26 +68,59 @@
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Condition1" name="Condition1" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกเงื่อนไข 1</option>
-                                <option value="1">=</option>
-                                <option value="2">!=</option>
-                                <option value="3">></option>
-                                <option value="4"><</option>
-                                <option value="5">>=</option>
-                                <option value="6"><=</option>
+                                {% if con1 == "=" %}
+                                    <option value="=" selected="1">=</option>
+                                {% else %}
+                                    <option value="=">=</option>
+                                {% endif %}
+                                {% if con1 == "!=" %}
+                                    <option value="!=" selected="1">!=</option>
+                                {% else %}
+                                    <option value="!=">!=</option>
+                                {% endif %}
+                                {% if con1 == ">" %}
+                                    <option value=">" selected="1">></option>
+                                {% else %}
+                                    <option value=">">></option>
+                                {% endif %}
+                                {% if con1 == "<" %}
+                                    <option value="<" selected="1"><</option>
+                                {% else %}
+                                    <option value="<"><</option>
+                                {% endif %}
+                                {% if con1 == ">=" %}
+                                    <option value=">=" selected="1">>=</option>
+                                {% else %}
+                                    <option value=">=">>=</option>
+                                {% endif %}
+                                {% if con1 == "<=" %}
+                                    <option value="<=" selected="1"><=</option>
+                                {% else %}
+                                    <option value="<="><=</option>
+                                {% endif %}
+
                             </select>
                         </div>
                     </td>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
-                            <input type="text" id="txtcon1" name="txtcon1"  class="form-control col-md-2 col-xs-12">
+                            <input type="text" id="txtcon1" name="txtcon1"  class="form-control col-md-2 col-xs-12" value="{{val1}}">
                         </div>
                     </td>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Logic1" name="Logic1" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกตรรกะเชื่อม 1</option>
-                                <option value="1">AND</option>
-                                <option value="2">OR</option>
+                                {% if logic1 == "AND" %}
+                                    <option value="AND" selected="1">AND</option>
+                                {% else %}
+                                    <option value="AND">AND</option>
+                                {% endif %}
+                                {% if logic1 == "OR" %}
+                                    <option value="OR" selected="1">OR</option>
+                                {% else %}
+                                    <option value="OR">OR</option>
+                                {% endif %}
                             </select>
                         </div>
                     </td>
@@ -94,26 +130,58 @@
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Condition2" name="Condition2" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกเงื่อนไข 2</option>
-                                <option value="1">=</option>
-                                <option value="2">!=</option>
-                                <option value="3">></option>
-                                <option value="4"><</option>
-                                <option value="5">>=</option>
-                                <option value="6"><=</option>
+                                {% if con2 == "=" %}
+                                    <option value="=" selected="1">=</option>
+                                {% else %}
+                                    <option value="=">=</option>
+                                {% endif %}
+                                {% if con2 == "!=" %}
+                                    <option value="!=" selected="1">!=</option>
+                                {% else %}
+                                    <option value="!=">!=</option>
+                                {% endif %}
+                                {% if con2 == ">" %}
+                                    <option value=">" selected="1">></option>
+                                {% else %}
+                                    <option value=">">></option>
+                                {% endif %}
+                                {% if con2 == "<" %}
+                                    <option value="<" selected="1"><</option>
+                                {% else %}
+                                    <option value="<"><</option>
+                                {% endif %}
+                                {% if con2 == ">=" %}
+                                    <option value=">=" selected="1">>=</option>
+                                {% else %}
+                                    <option value=">=">>=</option>
+                                {% endif %}
+                                {% if con2 == "<=" %}
+                                    <option value="<=" selected="1"><=</option>
+                                {% else %}
+                                    <option value="<="><=</option>
+                                {% endif %}
                             </select>
                         </div>
                     </td>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
-                            <input type="text" id="txtcon2" name="txtcon2" class="form-control col-md-2 col-xs-12">
+                            <input type="text" id="txtcon2" name="txtcon2" class="form-control col-md-2 col-xs-12" value="{{val2}}">
                         </div>
                     </td>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Logic2" name="Logic2" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกตรรกะเชื่อม 2</option>
-                                <option value="1">AND</option>
-                                <option value="2">OR</option>
+                                {% if logic2 == "AND" %}
+                                    <option value="AND" selected="1">AND</option>
+                                {% else %}
+                                    <option value="AND">AND</option>
+                                {% endif %}
+                                {% if logic2 == "OR" %}
+                                    <option value="OR" selected="1">OR</option>
+                                {% else %}
+                                    <option value="OR">OR</option>
+                                {% endif %}
                             </select>
                         </div>
                     </td>
@@ -121,38 +189,54 @@
                 <tr>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
-                            <select id="Condition2" name="Condition2" class="form-control col-md-2 col-xs-12" >
+                            <select id="Condition3" name="Condition3" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกเงื่อนไข 3</option>
-                                <option value="1">=</option>
-                                <option value="2">!=</option>
-                                <option value="3">></option>
-                                <option value="4"><</option>
-                                <option value="5">>=</option>
-                                <option value="6"><=</option>
+                                {% if con3 == "=" %}
+                                    <option value="=" selected="1">=</option>
+                                {% else %}
+                                    <option value="=">=</option>
+                                {% endif %}
+                                {% if con3 == "!=" %}
+                                    <option value="!=" selected="1">!=</option>
+                                {% else %}
+                                    <option value="!=">!=</option>
+                                {% endif %}
+                                {% if con3 == ">" %}
+                                    <option value=">" selected="1">></option>
+                                {% else %}
+                                    <option value=">">></option>
+                                {% endif %}
+                                {% if con3 == "<" %}
+                                    <option value="<" selected="1"><</option>
+                                {% else %}
+                                    <option value="<"><</option>
+                                {% endif %}
+                                {% if con3 == ">=" %}
+                                    <option value=">=" selected="1">>=</option>
+                                {% else %}
+                                    <option value=">=">>=</option>
+                                {% endif %}
+                                {% if con3 == "<=" %}
+                                    <option value="<=" selected="1"><=</option>
+                                {% else %}
+                                    <option value="<="><=</option>
+                                {% endif %}
                             </select>
                         </div>
                     </td>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
-                            <input type="text" id="txtcon3" name="txtcon3" class="form-control col-md-2 col-xs-12">
+                            <input type="text" id="txtcon3" name="txtcon3" class="form-control col-md-2 col-xs-12" value="{{val3}}">
                         </div>
                     </td>
                     <td>
-                        <div class="col-md-12 col-sm-3 col-xs-12">
-                            <select id="Logic3" name="Logic3" class="form-control col-md-2 col-xs-12" >
-                                <option selected="1" value="0">เลือกตรรกะเชื่อม 3</option>
-                                <option value="1">AND</option>
-                                <option value="2">OR</option>
-                            </select>
-                        </div>
+                        
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="form-group">
-            <input type="button" value=">> ผลลัพธ์ <<" class="btn btn-info">
-        </div>
+        <input name="Query" type="submit" value=">>ผลลัพธ์<<" class="btn btn-success">
         <table class="ui table very compact celled">
             <thead>
                 <tr>
@@ -162,12 +246,17 @@
                     <th>ข้อมูลปี ({{year2}})</th>
             </thead>
             <tbody>
+            {% set i=1 %}
+            {% if datas != null %}
+                {% for d in datas %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{i}}{% set i=i+1 %}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.answer}}</td>
                     <td></td>
                 </tr>
+                {% endfor %}
+            {% endif %}
             </tbody>
         </table>
     </form>

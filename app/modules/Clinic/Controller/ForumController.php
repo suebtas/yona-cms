@@ -73,8 +73,8 @@ class ForumController extends ControllerBase
         
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, "Forum", $_POST);
-            $this->persistent->parameters = $query->getParams();
+            //$query = Criteria::fromInput($this->di, "Forum", $_POST);
+            //$this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
         }
@@ -85,7 +85,7 @@ class ForumController extends ControllerBase
         }
 
         $parameters["order"] = "ID";
-        $parameters["conditions"] = "Status = 0";
+        //$parameters["conditions"] = "Status = 0";
 
         $forum = Forum::find($parameters);
         if (count($forum) == 0) {
@@ -146,6 +146,7 @@ class ForumController extends ControllerBase
             $this->init();
 
             $this->view->ID = $forum->ID;
+            $this->view->Name = $forum->Name;
 
             $this->tag->setDefault("ID", $forum->ID);
             $this->tag->setDefault("Name", $forum->Name);
@@ -243,7 +244,7 @@ class ForumController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "forum",
-            "action" => "index"
+            "action" => "search"
         ));
         
         

@@ -274,8 +274,8 @@ class Post extends \Phalcon\Mvc\Model
 
     public function getFile($postId)
     {
-        if(is_dir("./files/post/{$postId}")) {
-            $file = scandir("./files/post/{$postId}",1);
+        if(is_dir("./public/files/post/{$postId}")) {
+            $file = scandir("./public/files/post/{$postId}",1);
             return $file[0];
         }
 
