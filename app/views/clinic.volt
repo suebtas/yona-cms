@@ -106,10 +106,24 @@
                     </ul>
                   </li>
                   -->
+                  {% if user.role=='cc-admin' %}
+                  <li><a><i class="fa fa-list-alt"></i>วิเคราะห์ข้อมูล<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu"> 
+                      <li><a href="{{ url.get() }}clinic/dataanaly">ประมวลผลข้อมูล</a></li>
+                    </ul>
+                  </li>
+                  {% endif %}
+
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu"> {% if user.role=='cc-admin' %}
                       <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>{% endif %}
                       <li><a href="{{ url.get() }}clinic/news/check">สถานะการรับข่าวสาร</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-comment"></i>กระทู้<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu"> 
+                      <li><a href="{{ url.get() }}clinic/forum">ถาม-ตอบ กระทู้</a></li>
                     </ul>
                   </li>
                 </ul>
