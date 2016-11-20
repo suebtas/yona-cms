@@ -110,7 +110,7 @@
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Logic1" name="Logic1" class="form-control col-md-2 col-xs-12" >
-                                <option selected="1" value="0">เลือกตรรกะเชื่อม 1</option>
+                                <option selected="1" value="0">เลือกตรรกะเชื่อม</option>
                                 {% if logic1 == "AND" %}
                                     <option value="AND" selected="1">AND</option>
                                 {% else %}
@@ -169,59 +169,13 @@
                         </div>
                     </td>
                     <td>
-                        <div class="col-md-12 col-sm-3 col-xs-12">
-                            <select id="Logic2" name="Logic2" class="form-control col-md-2 col-xs-12" >
-                                <option selected="1" value="0">เลือกตรรกะเชื่อม 2</option>
-                                {% if logic2 == "AND" %}
-                                    <option value="AND" selected="1">AND</option>
-                                {% else %}
-                                    <option value="AND">AND</option>
-                                {% endif %}
-                                {% if logic2 == "OR" %}
-                                    <option value="OR" selected="1">OR</option>
-                                {% else %}
-                                    <option value="OR">OR</option>
-                                {% endif %}
-                            </select>
-                        </div>
+                        
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="col-md-12 col-sm-3 col-xs-12">
-                            <select id="Condition3" name="Condition3" class="form-control col-md-2 col-xs-12" >
-                                <option selected="1" value="0">เลือกเงื่อนไข 3</option>
-                                {% if con3 == "=" %}
-                                    <option value="=" selected="1">=</option>
-                                {% else %}
-                                    <option value="=">=</option>
-                                {% endif %}
-                                {% if con3 == "!=" %}
-                                    <option value="!=" selected="1">!=</option>
-                                {% else %}
-                                    <option value="!=">!=</option>
-                                {% endif %}
-                                {% if con3 == ">" %}
-                                    <option value=">" selected="1">></option>
-                                {% else %}
-                                    <option value=">">></option>
-                                {% endif %}
-                                {% if con3 == "<" %}
-                                    <option value="<" selected="1"><</option>
-                                {% else %}
-                                    <option value="<"><</option>
-                                {% endif %}
-                                {% if con3 == ">=" %}
-                                    <option value=">=" selected="1">>=</option>
-                                {% else %}
-                                    <option value=">=">>=</option>
-                                {% endif %}
-                                {% if con3 == "<=" %}
-                                    <option value="<=" selected="1"><=</option>
-                                {% else %}
-                                    <option value="<="><=</option>
-                                {% endif %}
-                            </select>
+                            <h2><label for="lbl" class="control-label">ค้นหาค่าข้อความ</label></h2>
                         </div>
                     </td>
                     <td>

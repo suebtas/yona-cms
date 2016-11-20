@@ -92,12 +92,10 @@ class DataanalyController extends FormController
                 $quest = $this->request->getPost("Questions");
                 $con1 = $this->request->getPost("Condition1");
                 $con2 = $this->request->getPost("Condition2");
-                $con3 = $this->request->getPost("Condition3");
                 $val1 = $this->request->getPost("txtcon1");
                 $val2 = $this->request->getPost("txtcon2");
                 $val3 = $this->request->getPost("txtcon3");
                 $logic1 = $this->request->getPost("Logic1");
-                $logic2 = $this->request->getPost("Logic2");
 
                 //die($con2);
 
@@ -120,21 +118,24 @@ class DataanalyController extends FormController
                     //die();
                     
                 }
-
-                if($logic1 == "0" AND $logic2 == "0")
+                
+                if($logic1 == "0")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND answer ".$con1." ".$val1." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
                     
                 }
-                elseif($logic1 != "0" AND $logic2 == "0")
+                elseif($logic1 != "0")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND answer ".$con1." ".$val1." ".$logic1." answer ".$con2." ".$val2." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
-                }
-                elseif($logic1 != "0" AND $logic2 != "0")
-                {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND (answer ".$con1." ".$val1." ".$logic1." answer ".$con2." ".$val2.") ".$logic2." answer ".$con3." ".$val3." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
                 }
                 //die($sql);
+                if($val3 != null AND $val3 != "")
+                {
+                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer LIKE '%".$val3."%' AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                }
+                
+                
+                
                 
                 //var_dump($data);
                 //die($con2);
@@ -157,13 +158,12 @@ class DataanalyController extends FormController
                 $this->view->val1 = $val1;
                 $this->view->con2 = $con2;
                 $this->view->val2 = $val2;
-                $this->view->con3 = $con3;
                 $this->view->val3 = $val3;
                 $this->view->logic1 = $logic1;
-                $this->view->logic2 = $logic2;
 
             }
             $this->view->datas = $data;
+            //$unpost("val3");
 
         }
         else
