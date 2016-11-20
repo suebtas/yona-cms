@@ -46,7 +46,7 @@
                        </span>
                        <span>
                           <font size="1">
-                          คุณ {{ headtopic.personnel.FnameTH }} {{ headtopic.personnel.LNameTH }} 
+                          คุณ {{ userName }} 
                           อีเมล: {{ headtopic.personnel.Email }}
                           โพสเมื่อ: {{ headtopic.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %}
                           </font>

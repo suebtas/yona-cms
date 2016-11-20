@@ -92,7 +92,7 @@ class PostController extends ControllerBase
 
         $phql = "SELECT p.ID, p.Title, p.Status, p.postdate, COUNT(reply.headPostID) AS counting, MAX(reply.postdate) AS maxpostdate
                 FROM Clinic\Model\Post p, Clinic\Model\Post AS reply 
-                WHERE p.replypostid IS NULL AND p.ID = reply.headpostID AND p.ForumID = 1
+                WHERE p.replypostid IS NULL AND p.ID = reply.headpostID AND p.ForumID = {$forumID}
                 GROUP BY p.ID, p.Title, p.Status, p.postdate
                 ORDER BY MAX(reply.postdate) DESC";
         $post = $this->modelsManager->executeQuery($phql);
