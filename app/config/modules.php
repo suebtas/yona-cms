@@ -18,4 +18,5 @@ return array(
     'Sitemap',
     'Clinic',
     'ClinicAdmin',
+    'Forum'
 );

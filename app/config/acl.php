@@ -10,6 +10,8 @@ return [
         'page/index'        => '*',
         'publication/index' => '*',
         'sitemap/index'     => '*',
+        'forum/index'       => '*',
+        'forum/index/search'       => '*',
     ],
     'member'     => [
         'index/index' => '*',
