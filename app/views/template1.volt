@@ -12,136 +12,108 @@
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="/website/css/styles.css" />
     <style media="screen">
-    @font-face {
-    font-family: thfont;
-    src: url(/website/fonts/Cloud-Light.otf);
+      @font-face {
+        font-family: thfont;
+        src: url(/website/fonts/Cloud-Light.otf);
       }
       @font-face {
         font-family: thfontb;
         src: url(/website/fonts/Cloud-Bold.otf);
       }
-.thfontb{
-        font-family: thfontb;
-        font-size: 150%;
-        text-shadow: 2px 2px rgb(69, 69, 69);
-            }
-      .thfont{
-        font-family: thfont;
-        font-size: 150%;
-        text-shadow: 2px 2px rgb(69, 69, 69);
+
+      .thfontb {
+          font-family: thfontb;
+          font-size: 200%;
       }
+
+      .thfont {
+          font-family: thfont;
+          font-size: 150%;
+      }
+
+      .bd {
+          background-color: rgb(255, 255, 255);
+          margin: 2%;
+          border-radius: 25px;
+          color: rgb(37, 37, 37);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          padding: 1%;
+      }
+
+      .line {
+          margin-top: 2%;
+          margin-bottom: 2%;
+          border-bottom: 5px solid rgb(51, 51, 51);
+      }
+
     </style>
   </head>
   <body>
+    {% block popup %}
+    {% endblock %}
+
+
     <nav id="topNav" class="navbar navbar-default navbar-fixed-top affix" style="background-color:white;">
-      <div class="container-fluid">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar">
-                <center>
-                MENU
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </center>
-              </button>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-          <div class="navbar-collapse collapse" id="bs-navbar">
-              <ul class="nav navbar-nav" >
-                <li>
-                    <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อ</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="admin" style="color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
-                </li>
-                <li>
-                    <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
-                </li>
+            <div class="navbar-collapse collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="page-scroll" href="#first" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/about" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+
                   <li>
-                      <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#aboutModal" style="color:rgb(47, 47, 47)">เกี่ยวกับ</a>
+                      <a class="btn" href="../websitet1/index.html" style="background-color:rgb(59, 59, 59);border-radius:0px">1</a>
                   </li>
-              </ul>
-          </div>
-      </div>
+                  <li>
+                      <a class="btn" href="../websitet2/index.html" style="background-color:rgb(0, 163, 255);border-radius:0px">2</a>
+                  </li>
+                  <li>
+                      <a class="btn" href="../websitet3/index.html" style="background-color:rgb(255, 161, 0);border-radius:0px;">3</a>
+                  </li>
+                    <li>
+                        <a class="page-scroll" href="admin" style="background-color:rgba(125, 209, 0, 0.51);color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+                    </li>
+                </ul>
+                </ul>
+            </div>
+        </div>
     </nav>
     {{content()}}
-    <section class="bg-primary" id="one">
-
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-12 text-center">
-                          <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">ข่าวประชาสัมพันธ์</h2>
-                          <hr class="primary">
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 text-center">
-                        <div class="feature wow " >
-                          <a href="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="http://img.tarad.com/shop/l/logothailand/img-lib/spd_20140601103403_b.jpg">
-                    <img src="img/5_w_100.jpg"  class="img-responsive" alt="Image 1">
-                    <div class="gallery-box-caption">
-                        <div class="gallery-box-content">
-                            <div>
-                                <i class="icon-lg ion-ios-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                            <a href="news/1.html"  class="text-info"><p>รายชื่อผู้มีสิทธิเข้ารับการสอบสัมภาษณ์</p></a>
-                            <i>วันที่ 20 ตุลาคม 2016</i>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="feature wow ">
-
-                          <a href="#galleryModal" style="width:70%" class="gallery-box " data-toggle="modal"  data-src="http://www.rayong-pao.go.th/home/wp-content/uploads/2016/10/จังหวัดระยองใหม่600.jpg">
-                    <img src="http://www.rayong-pao.go.th/home/wp-content/uploads/2016/10/จังหวัดระยองใหม่600.jpg" class="img-responsive" alt="Image 1">
-                    <div class="gallery-box-caption">
-                        <div class="gallery-box-content">
-                            <div>
-                                <i class="icon-lg ion-ios-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                            <a href="news/3.html" class="text-info"><p>จังหวัดระยองจัดพิธีบำเพ็ญพระราชกุศล</p></a>
-                            <i>วันที่ 18 ตุลาคม 2016</i>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="feature wow " >
-                          <a href="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="img/aaa.jpg">
-                    <img src="img/aaa.jpg" class="img-responsive" alt="Image 1">
-                    <div class="gallery-box-caption">
-                        <div class="gallery-box-content">
-                            <div>
-                                <i class="icon-lg ion-ios-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                            <a href="news/2.html" class="text-info"><p>ยุทธศาสตร์การพัฒนาขององค์กรปกครองส่วนท้องถิ่น</p></a>
-                            <i>วันที่ 19 ตุลาคม 2016</i>
-                        </div>
-                    </div><br>
-                    <center><a href="news" class="btn btn-xl btn-success">ดูข่าวสารทั้งหมด</a></center>
-                </div>
-              </div>
-    </section>
+    {% block content %}
+    {% endblock %}
+    {% block news %}
+    {% endblock %}
     <section id="last" class="bg-dark">
         <div class="container">
             <div class="row">
@@ -300,37 +272,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
     <script src="/website/js/scripts.js"></script>
-      <script src="/website/owl-carousel/owl.carousel.js"></script>
-      <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
-  <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
-  <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
-  <script src="/website/js/table.js"></script>
-    <style>
-    #owl-demo .owl-item div{
-      padding:5px;
-    }
-    #owl-demo .owl-item img{
-      display: block;
-      width: 100%;
-      height: auto;
-      -webkit-border-radius: 3px;
-      -moz-border-radius: 3px;
-      border-radius: 3px;
-    }
-    </style>
-    <script>
-    $(document).ready(function() {
-      $("#owl-demo").owlCarousel({
-        autoPlay : 3000,
-        stopOnHover : true,
-        navigation:true,
-        paginationSpeed : 1000,
-        goToFirstSpeed : 2000,
-        singleItem : true,
-        autoHeight : true,
-        transitionStyle:"fade"
-      });
-    });
-    </script>
+
+    <script src="/website/owl-carousel/owl.carousel.js"></script>
+    <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+    <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
+    <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
+
+    
+    {% block script %}
+    {% endblock %}
   </body>
 </html>

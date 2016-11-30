@@ -22,8 +22,20 @@ class IndexController extends Controller
         $this->helper->title()->append($page->getMetaTitle());
         $this->helper->meta()->set('description', $page->getMetaDescription());
         $this->helper->meta()->set('keywords', $page->getMetaKeywords());
-        $this->view->page = $page;
 
+
+        $qb = $this->modelsManager->createBuilder();
+        $qb->addFrom('Publication\Model\Publication', 'p');
+        $qb->leftJoin('Publication\Model\Type', null, 't');
+        $qb->andWhere('t.slug = :type:', ['type' => 'news']);
+        $qb->andWhere('p.date <= NOW()');
+        $qb->orderBy('p.date DESC');
+        $qb->limit($limit);
+
+        $entries = $qb->getQuery()->execute();
+        
+        $this->view->page = $page;
+        $this->view->entries = $entries;
         $this->helper->menu->setActive('index');
 
     }
