@@ -42,6 +42,8 @@ class Office extends \Phalcon\Mvc\Model
      */
     public $mapsize;
 
+    public $active;
+
     /**
      * Initialize method for model.
      */
@@ -104,5 +106,10 @@ class Office extends \Phalcon\Mvc\Model
     public function setAmphur($amphurid)
     {
         $this->amphurid = $amphurid;
+    }
+
+    public function getActive()
+    {
+        return $this->active;
     }
 }

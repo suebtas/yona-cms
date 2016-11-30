@@ -12,6 +12,11 @@ return [
         'sitemap/index'     => '*',
         'forum/index'       => '*',
         'forum/index/search'       => '*',
+        'post/index'       => '*',
+        'post/index/search'       => '*',
+        'post/index/comment'       => '*',
+        'webmessage/index'       => '*',
+        'webmessage/index/send'       => '*',
     ],
     'member'     => [
         'index/index' => '*',
@@ -138,5 +143,9 @@ return [
         'clinic/post' => '*',
         'clinic/dataanaly' => '*',
         'clinic/dataanaly/index' => '*',
+        'clinic/webmessage' => '*',
+        'clinic/webmessage/index' => '*',
+        'clinic/webmessage/search' => '*',
+        'clinic/webmessage/read' => '*',
     ],
 ];

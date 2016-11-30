@@ -73,6 +73,7 @@ class OfficeController extends Controller
 
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
+            $model->setCheckboxes($post);
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save() == true) {

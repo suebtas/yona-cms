@@ -21,6 +21,9 @@
             <div class="field">
                 {{ form.renderDecorated('name') }}
             </div>
+            <div class="field">
+                {{ form.renderDecorated('active') }}
+            </div>
         </div>
     </div>
 

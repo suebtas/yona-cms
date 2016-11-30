@@ -75,6 +75,13 @@ class SessionController extends Controller
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
+                $model->name = $post["name"];
+                if($post["active"] == 1)
+                    $model->active = 0;
+                else
+                    $model->active = 1;
+
+                //die($post["active"]);
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
                     return $this->redirect($this->url->get() . 'clinic-admin/session');

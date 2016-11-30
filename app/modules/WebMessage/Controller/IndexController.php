@@ -1,11 +1,11 @@
 <?php
 
-namespace Forum\Controller;
+namespace WebMessage\Controller;
 
 use Application\Mvc\Controller;
-use Clinic\Controller\ForumController;
+use Clinic\Controller\WebMessageController;
 
-class IndexController extends ForumController
+class IndexController extends WebMessageController
 {
 
     public function initialize()
@@ -21,10 +21,10 @@ class IndexController extends ForumController
 	   //$this->view->aaa = 'aaaa';
     }
 
-    public function searchAction()
+    public function sendAction()
     {
         //$this->view->disable();
-       parent::searchAction();
+       parent::sendAction();
         //$this->view->aaa = 'aaaa';
     }
 }

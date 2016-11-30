@@ -5,7 +5,7 @@
         <div class="table-toolbar">
           {% if isAdmin %}
           <div class="btn-group">
-             {{ link_to("clinic/forum/new", 'เพิ่มหมวดหมู่',"class":"btn btn-success") }}
+             {{ link_to("forum/index/new", 'เพิ่มหมวดหมู่',"class":"btn btn-success") }}
           </div>
           {% endif %}
         </div>
@@ -42,7 +42,7 @@
                                 
                             
                                 {% if isAdmin %}
-                                <td>{{ link_to("clinic/post/search?forum="~forum.getId(), forum.Name) }}</td>
+                                <td>{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</td>
                                 <td>
                                     {% if forum.Status == 0 %}
                                        {{"ใช้งาน"}}
@@ -53,17 +53,17 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        {{ link_to("clinic/forum/edit/"~forum.ID, "<i class='icon-pencil'></i> แก้ไข", "class":"btn")}}
+                                        {{ link_to("forum/index/edit/"~forum.ID, "<i class='icon-pencil'></i> แก้ไข", "class":"btn")}}
                                         <button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li>{{ link_to("clinic/forum/edit/"~forum.ID, "<i class='icon-pencil'></i> แก้ไข")}}</li>
-                                            <li>{{ link_to("clinic/forum/delete/"~forum.ID, "<i class='icon-remove'></i> ลบ") }}</li>
+                                            <li>{{ link_to("forum/index/edit/"~forum.ID, "<i class='icon-pencil'></i> แก้ไข")}}</li>
+                                            <li>{{ link_to("forum/index/delete/"~forum.ID, "<i class='icon-remove'></i> ลบ") }}</li>
                                         </ul>
                                     </div><!-- /btn-group -->
                                 </td>
                                 {% else %}
                                     {% if forum.Status == 0 %}
-                                        <td>{{ link_to("clinic/post/search?forum="~forum.getId(), forum.Name) }}</td>
+                                        <td>{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</td>
                                     {% endif %}
                                 {% endif %}
                                 

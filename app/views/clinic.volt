@@ -115,9 +115,14 @@
                   {% endif %}
 
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu"> {% if user.role=='cc-admin' %}
-                      <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>{% endif %}
+                    <ul class="nav child_menu"> 
+                    {% if user.role=='cc-admin' %}
+                      <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>
+                    {% endif %}
                       <li><a href="{{ url.get() }}clinic/news/check">สถานะการรับข่าวสาร</a></li>
+                    {% if user.role=='cc-admin' %}
+                      <li><a href="{{ url.get() }}clinic/webmessage">ข้อความ (Website)</a></li>
+                    {% endif %}
                     </ul>
                   </li>
 

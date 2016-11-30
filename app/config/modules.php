@@ -18,5 +18,7 @@ return array(
     'Sitemap',
     'Clinic',
     'ClinicAdmin',
-    'Forum'
+    'Forum',
+    'Post',
+    'WebMessage'
 );

@@ -11,6 +11,7 @@ use Clinic\Model\Question;
 use Clinic\Model\Survey;
 use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Office;
+use Clinic\Model\Amphur;
 use Phalcon\Mvc\Model\Resultset;
 
 class DataanalyController extends FormController
@@ -102,39 +103,43 @@ class DataanalyController extends FormController
                 $Survey = Survey::findFirst("no = '{$years}'");
                 $discovery_survey = DiscoverySurvey::find("surveyid = {$Survey->id}");
 
+                $Survey2 = Survey::findFirst("no = '1/{$year2}'");
+                if($Survey2 != null)
+                    $discovery_survey2 = DiscoverySurvey::find("surveyid = {$Survey2->id}");
+                else
+                    $discovery_survey2 = null;
+
                 //$office['id'][]=
 
                 if(count($discovery_survey) >0)
                 {
                     foreach($discovery_survey as $dis)
                     {
-                        //if($news->status == 1)
                             $readIDs[] = $dis->id;
-                            //$office['id'][] = $dis->id;
-                            //$office['name'][] = $dis->office->name;
                     }       
                     $readSurveyIDs = implode(",",$readIDs);
-                    //var_dump($office);
-                    //die();
                     
                 }
+
+                
                 
                 if($logic1 == "0")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+
+                    if($discovery_survey2 != null)
+                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid2 in ($readSurveyIDs) ORDER BY O.name";
                     
                 }
                 elseif($logic1 != "0")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
                 }
                 //die($sql);
                 if($val3 != null AND $val3 != "")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer LIKE '%".$val3."%' AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer LIKE '%".$val3."%' AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
                 }
-                
-                
                 
                 
                 //var_dump($data);
@@ -151,6 +156,11 @@ class DataanalyController extends FormController
                     ));
                     }*/
                 $data = $this->modelsManager->executeQuery($sql);
+
+                if($discovery_survey2 != null)
+                    $data2 = $this->modelsManager->executeQuery($sql);
+                else
+                    $data2 = null;
             
 
                 $this->view->questid = $quest;
@@ -162,7 +172,19 @@ class DataanalyController extends FormController
                 $this->view->logic1 = $logic1;
 
             }
+
+            $amphurs = Amphur::find();
+            foreach($data as $d)
+            {
+                $countAmphs[$d->amphurid]++;
+            }
+            //var_dump($countAmphs);
+            //die();
+
             $this->view->datas = $data;
+            $this->view->datas2 = $data2;
+            $this->view->amphurs = $amphurs;
+            $this->view->countAmphs = $countAmphs;
             //$unpost("val3");
 
         }

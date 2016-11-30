@@ -207,7 +207,39 @@
                     <td>{{i}}{% set i=i+1 %}</td>
                     <td>{{d.name}}</td>
                     <td>{{d.answer}}</td>
-                    <td></td>
+                    <td>
+                        {% if datas2 == null %}
+                            {{"NA"}}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+
+        <input name="Amphur" type="button" value=">>สถิติ<<" class="btn btn-success">
+        <table class="ui table very compact celled">
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>อำเภอ</th>
+                    <th>จำนวนเขตพื้นที่ ({{year1}})</th>
+                    <th>จำนวนเขตพื้นที่ ({{year2}})</th>
+            </thead>
+            <tbody>
+            {% set i=1 %}
+            {% if amphurs != null %}
+                {% for a in amphurs %}
+                <tr>
+                    <td>{{i}}{% set i=i+1 %}</td>
+                    <td>{{a.name}}</td>
+                    <td>{{countAmphs[a.id]}}</td>
+                    <td>
+                        {% if datas2 == null %}
+                            {{"NA"}}
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             {% endif %}

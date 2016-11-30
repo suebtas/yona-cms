@@ -11,9 +11,10 @@
 <table class="ui table very compact celled">
     <thead>
     <tr>
-        <th style="width: 100px"></th>
+        <th>{{ helper.at('Edit') }}</th>
         <th>{{ helper.at('Name') }}</th>
         <th>{{ helper.at('amphur') }}</th>
+        <th>{{ helper.at('Active') }}</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +24,7 @@
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
             <td>{{ office.getName() }}</td>
             <td>{{ office.amphur.getName() }}</td>
+            <td>{% if office.getActive() %}<i class="icon checkmark green"></i>{% endif %}</td>
         </tr>
     {% endfor %}
     </tbody>

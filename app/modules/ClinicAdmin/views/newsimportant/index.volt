@@ -11,8 +11,9 @@
 <table class="ui table very compact celled">
     <thead>
     <tr>
-        <th style="width: 100px"></th>
+        <th>{{ helper.at('Edit') }}</th>
         <th>{{ helper.at('Name') }}</th>
+        <th>{{ helper.at('Status') }}</th>
     </tr>
     </thead>
     <tbody>
