@@ -6,7 +6,8 @@
 
 namespace Admin\Model;
 
-use Phalcon\Mvc\Model\Validator\Uniqueness;
+use Phalcon\Validation;
+use Phalcon\Validation\Validator\Uniqueness;
 use stdClass;
 
 class AdminUser extends \Phalcon\Mvc\Model
@@ -43,20 +44,20 @@ class AdminUser extends \Phalcon\Mvc\Model
 
     public function validation()
     {
-        /*$this->validate(new Uniqueness(
+        $validator = new Validation();
+        $validator->add("login", new Uniqueness(
             [
-                "field"   => "login",
                 "message" => $this->getDi()->get('helper')->translate("The Login must be unique")
             ]
         ));
 
-        $this->validate(new Uniqueness(
+        $validator->add("email", new Uniqueness(
             [
-                "field"   => "email",
                 "message" => $this->getDi()->get('helper')->translate("The Email must be unique")
             ]
-        ));*/
+        ));
 
+        $this->validate($validator);
         return $this->validationHasFailed() != true;
 
     }

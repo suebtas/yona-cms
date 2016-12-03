@@ -19,7 +19,7 @@ class Routes
             'module'     => 'clinic',
             'controller' => 'index',
             'action'     => 'index',
-        ))->setName('clinic');
+        ))->setName('index');
 		
         return $router;
 

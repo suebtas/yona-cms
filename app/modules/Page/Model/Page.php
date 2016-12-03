@@ -1,10 +1,10 @@
 <?php
 
 namespace Page\Model;
-
+use Phalcon\Validation;
 use Application\Mvc\Model\Model;
-use Phalcon\Mvc\Model\Validator\Uniqueness;
-use Phalcon\Mvc\Model\Validator\PresenceOf;
+use Phalcon\Validation\Validator\Uniqueness;
+use Phalcon\Validation\Validator\PresenceOf;
 use Application\Localization\Transliterator;
 
 class Page extends Model
@@ -54,13 +54,16 @@ class Page extends Model
 
     public function validation()
     {
-        $this->validate(new Uniqueness(
-            array(
-                "field" => "slug",
-                "message" => "Page with slug is already exists"
+        $validator = new Validation();
+        $validator->add("slug" , 
+            new Uniqueness(
+                array(
+                    "message" => "Page with slug is already exists"
+                )
             )
-        ));
+        );        
 
+        $this->validate($validator);
         return $this->validationHasFailed() != true;
     }
 
