@@ -1,6 +1,46 @@
 
-<div class="right_col" role="main">
+<div class="right_col" role="main" style="background-color:rgb(233, 233, 233)">
     {{ content() }}
+    <style media="screen">
+    @font-face {
+    font-family: thfont;
+    src: url(assets/Cloud-Light.otf);
+      }
+      @font-face {
+        font-family: thfontb;
+        src: url(assets/fonts/Cloud-Bold.otf);
+      }
+      .thfontb{
+        font-family: thfontb;
+        font-size: 150%;
+            }
+      .thfont{
+        font-family: thfont;
+      }
+      #csstd td{
+        vertical-align:middle;
+      }
+      .bd {
+          background-color: rgb(255, 255, 255);
+          margin: 1%;
+          border-radius: 5px;
+          color: rgb(37, 37, 37);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          padding: 1%;
+
+      }
+      .text-blue{
+        color:rgb(0, 163, 255)
+      }
+      .text-dark{
+        color:rgb(62, 62, 62)
+      }
+      .line {
+          margin-top: 1%;
+          margin-bottom: 1%;
+          border-bottom: 2px solid rgb(51, 51, 51);
+      }
+    </style>
     <div class="row-fluid">
         <div class="table-toolbar">
           {% if isAdmin %}
@@ -9,7 +49,7 @@
           </div>
           {% endif %}
         </div>
-        
+
         <div align="center">
             <h1>หมวดหมู่กระทู้</h1>
         </div>
@@ -17,15 +57,20 @@
         <!-- block -->
         <div class="block">
             <div class="navbar navbar-inner block-header">
-                <div class="muted pull-left">รายละเอียดข้อมูล หมวดหมู่กระทู้</div>
+              <div class="bd  navbar navbar-inner block-header" style="background-color:rgb(50, 50, 50);color:white;margin:0">
+                <h1 class="thfontb" style="font-size:150%">รายละเอียดข้อมูล หมวดหมู่กระทู้</h1>
+              </div>
             </div>
             <div class="block-content collapse in">
                 <div class="span12">
                     <table class="table table-striped table-bordered" id="example">
                         <thead>
                             <tr>
-                                            
-                <th>ชื่อหมวดหมู่</th>
+
+                              <div class="bd  navbar navbar-inner block-header" style="background-color:rgb(0, 117, 238);color:white">
+                                <h1 class="thfontb" style="font-size:150%">ชื่อหมวดหมู่</h1>
+                              </div>
+
                 {% if isAdmin %}
                     <th>สถานะ</th>
                     <th>จัดการ</th>
@@ -37,10 +82,10 @@
                         {% if page.items is defined %}
                         {% for forum in page.items %}
                             <tr>
-                                
-                                
-                                
-                            
+
+
+
+
                                 {% if isAdmin %}
                                 <td>{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</td>
                                 <td>
@@ -49,7 +94,7 @@
                                     {% else %}
                                         {{"ระงับใช้งาน"}}
                                     {% endif %}
-                                    
+
                                 </td>
                                 <td>
                                     <div class="btn-group">
@@ -63,10 +108,19 @@
                                 </td>
                                 {% else %}
                                     {% if forum.Status == 0 %}
-                                        <td>{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</td>
+
+                                    <div class="row  bd text-blue">
+                                        <div class="col-xs-1">
+                                            <img src="{{ url.path() }}website/img/forumi.png" style="max-width:40px" alt="" />
+                                        </div>
+                                        <div class="col-xs-11">
+                                            <span class="text-blue"><h1 class="thfontb">{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</h1></span>
+                                        </div>
+                                      </div>
+                                        <!--{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}-->
                                     {% endif %}
                                 {% endif %}
-                                
+
                             </tr>
                         {% endfor %}
                         {% endif %}
