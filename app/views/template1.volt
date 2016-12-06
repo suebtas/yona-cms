@@ -66,7 +66,7 @@
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="page-scroll" href="#first" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
+                        <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
@@ -75,10 +75,10 @@
                         <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="doc" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                        <a class="page-scroll" href="/document.html" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="forum" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
+                        <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
@@ -87,7 +87,7 @@
                         <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/about" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                        <a class="page-scroll" href="/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -102,7 +102,7 @@
                       <a class="btn" href="../websitet3/index.html" style="background-color:rgb(255, 161, 0);border-radius:0px;">3</a>
                   </li>
                     <li>
-                        <a class="page-scroll" href="admin" style="background-color:rgba(125, 209, 0, 0.51);color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
+                        <a class="page-scroll" href="/admin" style="background-color:rgba(125, 209, 0, 0.51);color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
                     </li>
                 </ul>
                 </ul>

@@ -133,6 +133,7 @@ return [
         'clinic-admin/newstype'   => '*',
         'clinic-admin/newslevel'   => '*',
         'clinic-admin/newsimportant'   => '*',
+        'clinic-admin/printreport'   => '*',
         'clinic/news' => '*',
         'clinic/news/add' => '*',
         'clinic/news/edit' => '*',
