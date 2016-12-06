@@ -68,36 +68,14 @@
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Condition1" name="Condition1" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกเงื่อนไข 1</option>
-                                {% if con1 == "=" %}
-                                    <option value="=" selected="1">=</option>
-                                {% else %}
-                                    <option value="=">=</option>
-                                {% endif %}
-                                {% if con1 == "!=" %}
-                                    <option value="!=" selected="1">!=</option>
-                                {% else %}
-                                    <option value="!=">!=</option>
-                                {% endif %}
-                                {% if con1 == ">" %}
-                                    <option value=">" selected="1">></option>
-                                {% else %}
-                                    <option value=">">></option>
-                                {% endif %}
-                                {% if con1 == "<" %}
-                                    <option value="<" selected="1"><</option>
-                                {% else %}
-                                    <option value="<"><</option>
-                                {% endif %}
-                                {% if con1 == ">=" %}
-                                    <option value=">=" selected="1">>=</option>
-                                {% else %}
-                                    <option value=">=">>=</option>
-                                {% endif %}
-                                {% if con1 == "<=" %}
-                                    <option value="<=" selected="1"><=</option>
-                                {% else %}
-                                    <option value="<="><=</option>
-                                {% endif %}
+                                {% for con in conditions %}
+                                    {% if con1 == con.getName() %}
+                                        <option value="{{con.getName()}}" selected="1">{{con.getName()}}</option>
+                                    {% else %}
+                                        <option value="{{con.getName()}}">{{con.getName()}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                                
 
                             </select>
                         </div>
@@ -130,36 +108,13 @@
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <select id="Condition2" name="Condition2" class="form-control col-md-2 col-xs-12" >
                                 <option selected="1" value="0">เลือกเงื่อนไข 2</option>
-                                {% if con2 == "=" %}
-                                    <option value="=" selected="1">=</option>
-                                {% else %}
-                                    <option value="=">=</option>
-                                {% endif %}
-                                {% if con2 == "!=" %}
-                                    <option value="!=" selected="1">!=</option>
-                                {% else %}
-                                    <option value="!=">!=</option>
-                                {% endif %}
-                                {% if con2 == ">" %}
-                                    <option value=">" selected="1">></option>
-                                {% else %}
-                                    <option value=">">></option>
-                                {% endif %}
-                                {% if con2 == "<" %}
-                                    <option value="<" selected="1"><</option>
-                                {% else %}
-                                    <option value="<"><</option>
-                                {% endif %}
-                                {% if con2 == ">=" %}
-                                    <option value=">=" selected="1">>=</option>
-                                {% else %}
-                                    <option value=">=">>=</option>
-                                {% endif %}
-                                {% if con2 == "<=" %}
-                                    <option value="<=" selected="1"><=</option>
-                                {% else %}
-                                    <option value="<="><=</option>
-                                {% endif %}
+                                {% for con in conditions %}
+                                    {% if con2 == con.getName() %}
+                                        <option value="{{con.getName()}}" selected="1">{{con.getName()}}</option>
+                                    {% else %}
+                                        <option value="{{con.getName()}}">{{con.getName()}}</option>
+                                    {% endif %}
+                                {% endfor %}
                             </select>
                         </div>
                     </td>

@@ -71,11 +71,11 @@
                           </a>
                         </li>
                       </ul>
-
+                    
                       <div id="step-1">
                         {% block comment_tab1 %}
                         {% endblock %}
-
+                      {% if quests[0] == 1 %}
                         <form class="form-horizontal form-label-left">
 
                           <div class="form-group">
@@ -142,118 +142,122 @@
                             </div>
                           </div>
                         </form>
+                      {% endif %}
                       </div>
+                    
 
                       <div id="step-2">
 
                         {% block comment_tab2 %}
                         {% endblock %}
-                        <form class="form-horizontal form-label-left">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">จำนวนประชากรทั้งหมด</label>
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                            <a href="#" id="no1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1}}</a>
-                            </label>
-                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">คน</label><br><br>
-                          <table id="road" class="table table-striped table-bordered" style="clear: both">
-                          <table id="user" class="table table-bordered table-striped" style="clear: both">
-                            <tbody>
-                                <tr>
-                                    <td width="40%">ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_1}}</a> คน</td>
-                                    <td width="40%">หญิง</td>
-                                    <td width="10%"><a href="#" id="no1_2_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_2}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">เด็ก (ทารก - 17 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_1}}</a> คน</td>
-                                    <td width="40%">เด็ก (ทารก - 17 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="no1_2_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_2}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">วัยรุ่น (18 - 25 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_1}}</a> คน</td>
-                                    <td width="40%">วัยรุ่น (18 - 25 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="no1_2_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_2}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ผู้ใหญ่ (26 - 60 ปี) ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_1}}</a> คน</td>
-                                    <td width="40%">ผู้ใหญ่ (26 - 60 ปี) หญิง</td>
-                                    <td width="10%"><a href="#" id="no1_2_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_2}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">คนชรา (60 ปี ขึ้นไป) ชาย</td>
-                                    <td width="10%"><a href="#" id="no1_2_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_1}}</a> คน</td>
-                                    <td width="40%">คนชรา (60 ปี ขึ้นไป) หญิง</td>
-                                    <td width="10%"><a href="#" id="no1_2_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_2}}</a> คน</td>
-                                </tr>
-                            </tbody>
-                          </table>
+                        {% if quests[1] == 1 %}
+                          <form class="form-horizontal form-label-left">
+                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">จำนวนประชากรทั้งหมด</label>
+                              <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
+                              <a href="#" id="no1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1}}</a>
+                              </label>
+                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">คน</label><br><br>
+                            <table id="road" class="table table-striped table-bordered" style="clear: both">
+                            <table id="user" class="table table-bordered table-striped" style="clear: both">
+                              <tbody>
+                                  <tr>
+                                      <td width="40%">ชาย</td>
+                                      <td width="10%"><a href="#" id="no1_2_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_1}}</a> คน</td>
+                                      <td width="40%">หญิง</td>
+                                      <td width="10%"><a href="#" id="no1_2_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_1_2}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">เด็ก (ทารก - 17 ปี) ชาย</td>
+                                      <td width="10%"><a href="#" id="no1_2_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_1}}</a> คน</td>
+                                      <td width="40%">เด็ก (ทารก - 17 ปี) หญิง</td>
+                                      <td width="10%"><a href="#" id="no1_2_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_2_2}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">วัยรุ่น (18 - 25 ปี) ชาย</td>
+                                      <td width="10%"><a href="#" id="no1_2_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_1}}</a> คน</td>
+                                      <td width="40%">วัยรุ่น (18 - 25 ปี) หญิง</td>
+                                      <td width="10%"><a href="#" id="no1_2_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_3_2}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ผู้ใหญ่ (26 - 60 ปี) ชาย</td>
+                                      <td width="10%"><a href="#" id="no1_2_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_1}}</a> คน</td>
+                                      <td width="40%">ผู้ใหญ่ (26 - 60 ปี) หญิง</td>
+                                      <td width="10%"><a href="#" id="no1_2_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_4_2}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">คนชรา (60 ปี ขึ้นไป) ชาย</td>
+                                      <td width="10%"><a href="#" id="no1_2_5_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_1}}</a> คน</td>
+                                      <td width="40%">คนชรา (60 ปี ขึ้นไป) หญิง</td>
+                                      <td width="10%"><a href="#" id="no1_2_5_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_5_2}}</a> คน</td>
+                                  </tr>
+                              </tbody>
+                            </table>
 
 
-                          <table id="population" class="table table-bordered table-striped" style="clear: both">
-                            <tbody>
-                                <tr>
-                                  <th width="40%">ประเภทประชากร</th>
-                                  <th width="10%">จำนวน</th>
-                                  <th width="50%">ที่มาของข้อมูล</th>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรแฝงจำนวน</td>
-                                    <td width="10%"><a href="#" id="no1_2_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_6_1}}</a> คน</td>
-                                    <td width="50%"><a href="#" id="no1_2_6_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_6_2}}</a></td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรแฝง(ต่างด้าว)</td>
-                                    <td width="10%"><a href="#" id="no1_2_7_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_7_1}}</a> คน</td>
-                                    <td width="50%"><a href="#" id="no1_2_7_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_7_2}}</a></td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน </td>
-                                    <td width="10%"><a href="#" id="no1_2_8_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_8_1}}</a> คน</td>
-                                    <td width="50%"><a href="#" id="no1_2_8_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_8_2}}</a> </td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ความหนาแน่นของประชากร </td>
-                                    <td width="10%"><a href="#" id="no1_2_9" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_9}}</a> คน/ตร.กม.</td>
-                                    <td width="50%"> </td>
-                                </tr>
-                            </tbody>
-                          </table>
+                            <table id="population" class="table table-bordered table-striped" style="clear: both">
+                              <tbody>
+                                  <tr>
+                                    <th width="40%">ประเภทประชากร</th>
+                                    <th width="10%">จำนวน</th>
+                                    <th width="50%">ที่มาของข้อมูล</th>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรแฝงจำนวน</td>
+                                      <td width="10%"><a href="#" id="no1_2_6_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_6_1}}</a> คน</td>
+                                      <td width="50%"><a href="#" id="no1_2_6_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_6_2}}</a></td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรแฝง(ต่างด้าว)</td>
+                                      <td width="10%"><a href="#" id="no1_2_7_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_7_1}}</a> คน</td>
+                                      <td width="50%"><a href="#" id="no1_2_7_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_7_2}}</a></td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรที่พิการหรือทุพพลภาพหรือป่วยเรื้อรังในเขตพี้นที่ จำนวน </td>
+                                      <td width="10%"><a href="#" id="no1_2_8_1" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_8_1}}</a> คน</td>
+                                      <td width="50%"><a href="#" id="no1_2_8_2" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_8_2}}</a> </td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ความหนาแน่นของประชากร </td>
+                                      <td width="10%"><a href="#" id="no1_2_9" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_9}}</a> คน/ตร.กม.</td>
+                                      <td width="50%"> </td>
+                                  </tr>
+                              </tbody>
+                            </table>
 
 
-                          <table id="job" class="table table-bordered table-striped" style="clear: both">
-                            <tbody>
-                                <tr>
-                                  <th width="40%">ลักษณะอาชีพของประชากร </th>
-                                  <th width="10%">จำนวน</th>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน</td>
-                                    <td width="60%"><a href="#" id="no1_2_10" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_10}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน </td>
-                                    <td width="60%"><a href="#" id="no1_2_11" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_11}}</a> คน</td>
-                                </tr>
-                                <tr>
-                                    <td width="40%">ประชากรที่ประกอบอาชีพอื่นจำนวน  </td>
-                                    <td width="60%"><a href="#" id="no1_2_12" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_12}}</a> คน</td>
-                                </tr>
-                            </tbody>
-                          </table>
+                            <table id="job" class="table table-bordered table-striped" style="clear: both">
+                              <tbody>
+                                  <tr>
+                                    <th width="40%">ลักษณะอาชีพของประชากร </th>
+                                    <th width="10%">จำนวน</th>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรที่ประกอบอาชีพเกษตรกรรมจำนวน</td>
+                                      <td width="60%"><a href="#" id="no1_2_10" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_10}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรที่ประกอบอาชีพรับจ้างในโรงงานอุตสาหกรรมจำนวน </td>
+                                      <td width="60%"><a href="#" id="no1_2_11" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_11}}</a> คน</td>
+                                  </tr>
+                                  <tr>
+                                      <td width="40%">ประชากรที่ประกอบอาชีพอื่นจำนวน  </td>
+                                      <td width="60%"><a href="#" id="no1_2_12" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_12}}</a> คน</td>
+                                  </tr>
+                              </tbody>
+                            </table>
 
 
 
-                          <table id="travel" class="table table-bordered table-striped" style="clear: both">
-                            <tbody>
-                                <tr>
-                                    <td width="40%">สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน</td>
-                                    <td width="60%"><a href="#" id="no1_2_13" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_13}}</a> แห่ง</td>
-                                </tr>
-                            </tbody>
-                          </table>
-                        </form>
+                            <table id="travel" class="table table-bordered table-striped" style="clear: both">
+                              <tbody>
+                                  <tr>
+                                      <td width="40%">สถานที่ท่องเที่ยวที่สำคัญในเขตพื้นที่รับผิดชอบจำนวน</td>
+                                      <td width="60%"><a href="#" id="no1_2_13" data-type="text" data-pk="1" data-title="Enter username">{{no1_2_13}}</a> แห่ง</td>
+                                  </tr>
+                              </tbody>
+                            </table>
+                          </form>
+                        {% endif %}
                       </div>
                       <div id="step-3">
 

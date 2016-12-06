@@ -20,5 +20,5 @@ return array(
     'ClinicAdmin',
     'Forum',
     'Post',
-    'WebMessage'
+    'Message',
 );

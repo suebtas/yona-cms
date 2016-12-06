@@ -1,6 +1,6 @@
 <?php
 
-namespace WebMessage;
+namespace Message;
 
 class Module
 {
@@ -13,7 +13,7 @@ class Module
     public function registerServices($di)
     {
         $dispatcher = $di->get('dispatcher');
-        $dispatcher->setDefaultNamespace('WebMessage\Controller');
+        $dispatcher->setDefaultNamespace('Message\Controller');
         $di->set('dispatcher', $dispatcher);
 
         /**

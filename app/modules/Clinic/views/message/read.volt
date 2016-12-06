@@ -3,7 +3,7 @@
 
     <!--controls-->
     
-    <a href="{{url.get()}}clinic/webmessage"  class="btn btn-info" role="button">ดูข้อความทั้งหมด</a>
+    <a href="{{url.get()}}clinic/message"  class="btn btn-info" role="button">ดูข้อความทั้งหมด</a>
     <table class="ui table very compact celled">
         <thead>
         </thead>

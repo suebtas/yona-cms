@@ -4,10 +4,10 @@ namespace Clinic\Controller;
 
 use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
-use Clinic\Model\WebMessage;
+use Clinic\Model\Message;
 use Phalcon\Mvc\Model\Resultset;
 
-class WebMessageController extends ControllerBase
+class MessageController extends ControllerBase
 {
     public function getTHDate(){
 
@@ -62,77 +62,20 @@ class WebMessageController extends ControllerBase
         if (!$this->request->isPost())
         {
             return $this->dispatcher->forward(array(
-                    "controller" => "webmessage",
+                    "controller" => "message",
                     "action" => "search"
             ));
         }
     }
 
-    public function sendAction()
-    {
-
-    }
-
-    public function saveAction()
-    {
-        //die("AAAA");
-        $subject = $this->request->getPost("subject");
-        $detail = $this->request->getPost("detail");
-        $name = $this->request->getPost("name");
-        $email = $this->request->getPost("email");
-        $tel = $this->request->getPost("tel");
-
-        //var_dump($listOff);
-        //die($allarea);
-
-        $msg = new WebMessage();
-
-        $msg->subject = $subject;
-        $msg->detail = $detail;
-        $msg->datesent = $this->getTHDate();
-        $msg->name = $name;
-        $msg->email = $email;
-        $msg->tel = $tel;
-        $msg->status = 0;
-
-        //
-        //var_dump($news);
-        //die($this->getTHDate());
-        if (!$news->save()) {
-            //die("not save");
-            foreach ($news->getMessages() as $message) {
-                $this->flash->error(sprintf(self::$messageFail,$message));
-            }
-
-            /*return $this->dispatcher->forward(array(
-                    "controller" => "news",
-                    "action" => "index"
-                ));*/
-        }
-        //echo $news->id."\n";
-
-
-        //die();
-
-        //unset($_POST);
-        
-      // $this->flash->success(sprintf(self::$messageSuccess,"บันทึกข้อมูลข่าวสารสำเร็จ"));
-
-       /*return $this->dispatcher->forward(array(
-                    "controller" => "webmessage",
-                    "action" => "check"
-                ));*/
-
-        
-       
-    }
+    
 
     public function searchAction()
     {
         //die($id);
 
 
-        $messages = WebMessage::find([
+        $messages = Message::find([
                     "order" => "id DESC"
                 ]);
 
@@ -142,7 +85,7 @@ class WebMessageController extends ControllerBase
     public function readAction($id)
     {
         //die($id);
-        $msg = WebMessage::findFirst($id);
+        $msg = Message::findFirst($id);
 
         $this->view->subject = $msg->subject;
         $this->view->detail = $msg->detail;

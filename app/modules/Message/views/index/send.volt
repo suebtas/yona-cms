@@ -1,9 +1,9 @@
-
+<br><br><br><br><br>
 <div class="right_col" role="main">
     {{ content() }}
     <!--controls-->
     
-    <form action="{{ url.get() }}webmessage/index/save" method="post">
+    <form action="{{ url.get() }}message/index/save" method="post">
         <input type="submit" value="ส่งข้อความ" class="btn btn-success">
         <table class="ui table very compact celled">
             <thead>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <span class="control-label col-md-1 col-sm-1 col-xs-12">เนื้อข่าว</span>
+                        <span class="control-label col-md-1 col-sm-1 col-xs-12">เนื้อความ</span>
                         <div class="col-md-12 col-sm-3 col-xs-12">
                             <textarea rows="10" cols="50" id="detail" name="detail" class="form-control col-md-2 col-xs-6" required="required"></textarea>
                         </div>
