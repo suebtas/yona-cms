@@ -10,6 +10,7 @@ use Clinic\Model\BoundaryOffice;
 use Clinic\Model\BoundaryTambon;
 use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Answer;
+use Clinic\Model\Session;
 use Clinic\Model\Comment;
 use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
@@ -338,6 +339,13 @@ class FormController extends Controller
 
             $form->setEntity($obj);
             $this->view->form = $form;
+
+            $questions = Session::find();
+
+            foreach ($questions as $quest) {
+                $quests[] = $quest->active;
+            }
+            $this->view->quests = $quests;
     }
     public function no1Action()
     {

@@ -10,8 +10,9 @@
         <div class="ui positive submit button">
             <i class="save icon"></i> {{ helper.at('Save') }}
         </div>
-
-        {% if model.getId() %}
+        
+        {% if model is not empty %}
+            {% if model.getId() %}
 
             <a href="{{ url.get() }}page/admin/delete/{{ model.getId() }}?lang={{ constant('LANG') }}" class="ui button red">
                 <i class="icon trash"></i> {{ helper.at('Delete') }}
@@ -24,18 +25,21 @@
                 </a>
             {% endif %}
 
+            {% endif %}
         {% endif %}
 
     </div>
     <!--end controls-->
 
     <div class="ui segment">
+    {% if form is defined %}
         {{ form.renderDecorated('title') }}
         {{ form.renderDecorated('slug') }}
         {{ form.renderDecorated('meta_title') }}
         {{ form.renderDecorated('meta_description') }}
         {{ form.renderDecorated('meta_keywords') }}
         {{ form.renderDecorated('text') }}
+    {% endif %}
     </div>
 
 </form>

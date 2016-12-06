@@ -25,9 +25,7 @@ class AdminUserController extends Controller
 
     public function indexAction()
     {
-        $this->view->entries = AdminUser::find([
-            "order" => "id DESC"
-        ]);
+        $this->view->entries = AdminUser::find(['conditions'=>"role in ('cc-admin','cc-user','cc-approver')","order" => "id DESC"]);
 
         $this->helper->title($this->helper->at('Manage Users'), true);
     }

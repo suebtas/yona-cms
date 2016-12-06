@@ -6,47 +6,47 @@
  * @author Aleksandr Torosh <webtorua@gmail.com>
  */
 
-namespace Admin\Controller;
+namespace ClinicAdmin\Controller;
 
 use Application\Mvc\Controller;
-use Admin\Form\AdminUserForm;
-use Admin\Model\AdminUser;
+use ClinicAdmin\Form\ConditionForm;
+use Clinic\Model\Condition;
 
-class AdminUserController extends Controller
+class ConditionController extends Controller
 {
 
     public function initialize()
     {
-        $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('admin-user');
 
+        $this->setAdminEnvironment();
+        $this->helper->activeMenu()->setActive('Condition');
         $this->view->languages_disabled = true;
     }
 
     public function indexAction()
     {
-        $this->view->entries = AdminUser::find(["role in ('journalist','editor','admin')","order" => "id DESC"]);
+        $this->view->entries = Condition::find([
+            "order" => "id ASC"
+        ]);
 
-        $this->helper->title($this->helper->at('Manage Users'), true);
+        $this->helper->title($this->helper->at('Manage Condition'), true);
     }
 
     public function addAction()
     {
-        $this->view->pick(['admin-user/edit']);
+        $this->view->pick(['Condition/edit']);
 
-        $model = new AdminUser();
-        $form = new AdminUserForm();
-        $form->initAdding();
+        $model = new Condition();
+        $form = new ConditionForm();
 
         if ($this->request->isPost()) {
-            $model = new AdminUser();
+            $model = new Condition();
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
-                $model->setCheckboxes($post);
                 if ($model->save()) {
-                    $this->flash->success($this->helper->at('User created', ['name' => $model->getLogin()]));
-                    $this->redirect($this->url->get() . 'admin/admin-user');
+                    $this->flash->success($this->helper->at('Condition created', ['name' => $model->getName()]));
+                    $this->redirect($this->url->get() . 'clinic-admin/condition');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -64,21 +64,20 @@ class AdminUserController extends Controller
 
     public function editAction($id)
     {
-        $model = AdminUser::findFirst($id);
+        $model = Condition::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'admin/admin-user');
+            $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
-        $form = new AdminUserForm();
+        $form = new ConditionForm();
 
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
-                $model->setCheckboxes($post);
                 if ($model->save() == true) {
-                    $this->flash->success('User <b>' . $model->getLogin() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'admin/admin-user');
+                    $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
+                    return $this->redirect($this->url->get() . 'clinic-admin/condition');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -93,30 +92,25 @@ class AdminUserController extends Controller
         $this->view->form = $form;
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Manage Users'), true);
+        $this->helper->title($this->helper->at('Manage Condition'), true);
     }
 
     public function deleteAction($id)
     {
-        $model = AdminUser::findFirst($id);
+        $model = Condition::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'admin/admin-user');
-        }
-
-        if ($model->getLogin() == 'admin') {
-            $this->flash->error('Admin user cannot be deleted');
-            return $this->redirect($this->url->get() . 'admin/admin-user');
+            return $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
-            $this->flash->warning('Deleting user <b>' . $model->getLogin() . '</b>');
-            return $this->redirect($this->url->get() . 'admin/admin-user');
+            $this->flash->warning('Deleting Condition <b>' . $model->getName() . '</b>');
+            return $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete User'), true);
+        $this->helper->title($this->helper->at('Delete Condition'), true);
     }
 
 }

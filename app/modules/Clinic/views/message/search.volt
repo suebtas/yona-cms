@@ -15,9 +15,9 @@
             {% for msg in messages %}
                 <tr>
                     <td>{{i}}</td>{% set i = i+1 %}
-                    <td><a href="{{url.get()}}clinic/webmessage/read/{{msg.id}}">{{msg.subject}}</a></td>
+                    <td><a href="{{url.get()}}clinic/message/read/{{msg.id}}">{{msg.subject}}</a></td>
                     <td>{{msg.datesent}}</td>
-                    <td><a href="{{url.get()}}clinic/webmessage/read/{{msg.id}}"><img src="{{ url.path() }}images/{{msg.getStatus()}}.jpg" alt="..." class="img-circle" ></a></td>
+                    <td><a href="{{url.get()}}clinic/message/read/{{msg.id}}"><img src="{{ url.path() }}images/{{msg.getStatus()}}.jpg" alt="..." class="img-circle" ></a></td>
                 </tr>
             {% endfor %}
             </tbody>

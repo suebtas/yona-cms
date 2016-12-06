@@ -10,7 +10,7 @@
         <div class="ui positive submit button">
             <i class="save icon"></i> {{ helper.at('Save') }}
         </div>
-
+        {% if model is not empty %}
         {% if model.getId() %}
 
             <a href="{{ url.get() }}publication/admin/delete/{{ model.getId() }}?lang={{ constant('LANG') }}" class="ui button red">
@@ -25,11 +25,13 @@
             {% endif %}
 
         {% endif %}
+        {% endif %}
 
     </div>
     <!--end controls-->
 
     <div class="ui segment">
+        {% if form is not empty %}
         <div class="ui grid">
             <div class="twelve wide column">
                 {{ form.renderDecorated('title') }}
@@ -46,6 +48,7 @@
                 {{ form.renderDecorated('preview_inner') }}
             </div>
         </div>
+        {% endif %}
     </div>
 
 </form>

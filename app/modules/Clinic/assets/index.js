@@ -1,4 +1,28 @@
-$(document).ready(function() {$('#datatable').dataTable();});
+$(document).ready(function() {
+	$('#datatable').dataTable(
+		{
+			"columnDefs": [
+            { "visible": false, "targets": 1 }
+        ],
+			"order": [[ 1, 'asc' ]],
+			"drawCallback": function ( settings ) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(1, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                    );
+ 
+                    last = group;
+                }
+            } );
+        }
+		}
+	);
+});
 
 data = [];
 alreadyFetched = {};

@@ -172,7 +172,7 @@ class AdminController extends Controller
                     $resize_x = 1000;
                     $image = new \Phalcon\Image\Adapter\GD($file->getTempName());
                     if ($image->getWidth() > $resize_x) {
-                        $image->resize($resize_x);
+                        $image->resize($resize_x, $image->getHeight()*1000/$image->getWidth() );
                     }
                     $image->save($imageFilter->originalAbsPath());
 
