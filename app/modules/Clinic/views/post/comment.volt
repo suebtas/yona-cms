@@ -10,7 +10,7 @@
       </div>
       {% endif %}
     </div>
-    
+
     <div align="center">
         <h1>การตอบ กระทู้</h1>
     </div>
@@ -26,7 +26,7 @@
                       <div class="panel-body">{{ headtopic.getDetail() }}
                       {% if headtopic.getFile(headtopic.getId()) != NULL %}
                         <br>
-                        <b>ไฟล์แนบ: 
+                        <b>ไฟล์แนบ:
                           {% if headtopic.isImageFromFile(headtopic.getFile(headtopic.getId())) %}
                             <br>
                             {#{ link_to("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }#}
@@ -46,7 +46,7 @@
                        </span>
                        <span>
                           <font size="1">
-                          คุณ {{ userName }} 
+                          คุณ {{ userName }}
                           อีเมล: {{ headtopic.personnel.Email }}
                           โพสเมื่อ: {{ headtopic.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %}
                           </font>
@@ -64,16 +64,16 @@
                              </span>
                              <span>
                                 <font size="1">
-                                  คุณ {{ userName }} 
+                                  คุณ {{ userName }}
                                 อีเมล: {{ post.personnel.Email }}
                                 โพสเมื่อ: {{ post.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
                              </span>
                           </div>
                       </div>
-                    
+
                       {% for data in post.getReply(post.getId()) %}
-                        <div class="panel panel-success panel-left">
+                        <div class="panel panel-success panel-left" >
                           <div class="panel-heading" id="comment{{data.getId()}}">ความเห็น #{{commentNumber}}-{{loop.index}}</div>
                           <div class="panel-body">
                               {{ data.getDetail() }}
@@ -84,7 +84,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                คุณ {{ userName }}  
+                                คุณ {{ userName }}
                                 อีเมล: {{ data.personnel.Email }}
                                 โพสเมื่อ: {{ data.getPostdate() }} {% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %}
                                 </font>
@@ -92,9 +92,9 @@
                           </div>
                           </div>
                       {% endfor %}
-  				  
+
   				{% set commentNumber += 1 %}
-  				
+
                 {% endfor %}
              {% endif %}
         </div>

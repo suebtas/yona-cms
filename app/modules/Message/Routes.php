@@ -6,7 +6,7 @@
  * @author Aleksandr Torosh <webtorua@gmail.com>
  */
 
-namespace WebMessage;
+namespace Message;
 
 class Routes
 {

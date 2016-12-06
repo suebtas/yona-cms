@@ -5,6 +5,7 @@ namespace Clinic\Controller;
 use Application\Mvc\Controller;
 use Phalcon\Mvc\View;
 use Clinic\Model\AdminUser;
+use Clinic\Model\Condition;
 use Clinic\Model\Session;
 use Clinic\Model\Answer;
 use Clinic\Model\Question;
@@ -58,6 +59,12 @@ class DataanalyController extends FormController
         $this->view->sessiones = Session::find([
             "order" => "id ASC"
         ]);
+
+        $conditons = Condition::find("status = 1");
+        $this->view->conditions = $conditons;
+
+        //var_dump($conditons);
+        //die();
 
         if($this->request->isPost())
         {
@@ -134,11 +141,17 @@ class DataanalyController extends FormController
                 elseif($logic1 != "0")
                 {
                     $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+
+                    if($discovery_survey2 != null)
+                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND discovery_surveyid2 in ($readSurveyIDs) ORDER BY O.name";
                 }
                 //die($sql);
                 if($val3 != null AND $val3 != "")
                 {
                     $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer LIKE '%".$val3."%' AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+
+                    if($discovery_survey2 != null)
+                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer LIKE '%".$val3."%' AND discovery_surveyid2 in ($readSurveyIDs) ORDER BY O.name";
                 }
                 
                 
@@ -196,16 +209,17 @@ class DataanalyController extends FormController
             $this->view->year1 = "XXXX";
             $this->view->year2 = "YYYY";
             $this->view->year = 0;
+
         }
-       
+
+        
         //Question::find(["order" => "id ASC"  ]);
 
         $this->view->years = Survey::find([
             "order" => "id DESC"
         ]);
 
-        //var_dump($this->view->entries);
-        //die();
+        
     }
 
 }

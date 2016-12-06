@@ -80,6 +80,7 @@
                       <li><a href="{{ url.get() }}clinic/form/no7">7.ด้านการป้องกันและบรรเทาสาธารณภัย</a></li>
                       <li><a href="{{ url.get() }}clinic/form/no8">8.ด้านสิ่งแวดล้อมและทรัพยากรธรรมชาติ</a></li>
                       <li><a href="{{ url.get() }}clinic/form/no9">9.ด้านการเมือง การบริหาร</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/extend">10.คำถามเพิ่มเติม</a></li>
                     </ul>
                   </li>
                   <!--
@@ -120,15 +121,16 @@
                       <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>
                     {% endif %}
                       <li><a href="{{ url.get() }}clinic/news/check">สถานะการรับข่าวสาร</a></li>
-                    {% if user.role=='cc-admin' %}
-                      <li><a href="{{ url.get() }}clinic/webmessage">ข้อความ (Website)</a></li>
-                    {% endif %}
+                    
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-comment"></i>กระทู้<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-object-group"></i>Website<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu"> 
-                      <li><a href="{{ url.get() }}clinic/forum">ถาม-ตอบ กระทู้</a></li>
+                      <li><a href="{{ url.get() }}clinic/forum">กระทู้</a></li>
+                      {% if user.role=='cc-admin' OR user.role=='admin' %}
+                        <li><a href="{{ url.get() }}clinic/message">ข้อความ</a></li>
+                      {% endif %}
                     </ul>
                   </li>
                 </ul>

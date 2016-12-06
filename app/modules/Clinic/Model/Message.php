@@ -3,9 +3,9 @@
 namespace Clinic\Model;
 
 //use Clinic\Model\News;
-use Clinic\Model\WebMessage;
+use Clinic\Model\Message;
 
-class WebMessage extends \Phalcon\Mvc\Model
+class Message extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -34,7 +34,7 @@ class WebMessage extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'webmessage';
+        return 'message';
     }
 
     /**

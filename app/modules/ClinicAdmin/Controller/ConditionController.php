@@ -9,44 +9,44 @@
 namespace ClinicAdmin\Controller;
 
 use Application\Mvc\Controller;
-use ClinicAdmin\Form\SessionForm;
-use Clinic\Model\Session;
+use ClinicAdmin\Form\ConditionForm;
+use Clinic\Model\Condition;
 
-class SessionController extends Controller
+class ConditionController extends Controller
 {
 
     public function initialize()
     {
-        
+
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('Session');
+        $this->helper->activeMenu()->setActive('Condition');
         $this->view->languages_disabled = true;
     }
 
     public function indexAction()
     {
-        $this->view->entries = Session::find([
+        $this->view->entries = Condition::find([
             "order" => "id ASC"
         ]);
 
-        $this->helper->title($this->helper->at('Manage Session'), true);
+        $this->helper->title($this->helper->at('Manage Condition'), true);
     }
 
     public function addAction()
     {
-        $this->view->pick(['Session/edit']);
+        $this->view->pick(['Condition/edit']);
 
-        $model = new Session();
-        $form = new SessionForm();
+        $model = new Condition();
+        $form = new ConditionForm();
 
         if ($this->request->isPost()) {
-            $model = new Session();
+            $model = new Condition();
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save()) {
-                    $this->flash->success($this->helper->at('Session created', ['name' => $model->getName()]));
-                    $this->redirect($this->url->get() . 'clinic-admin/session');
+                    $this->flash->success($this->helper->at('Condition created', ['name' => $model->getName()]));
+                    $this->redirect($this->url->get() . 'clinic-admin/condition');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -64,23 +64,20 @@ class SessionController extends Controller
 
     public function editAction($id)
     {
-        $model = Session::findFirst($id);
+        $model = Condition::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'clinic-admin/session');
+            $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
-        $form = new SessionForm();
+        $form = new ConditionForm();
 
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
-                $model->name = $post["name"];
-                $model->active = isset($post["active"])? 1 : 0;
-                
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'clinic-admin/session');
+                    return $this->redirect($this->url->get() . 'clinic-admin/condition');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -95,25 +92,25 @@ class SessionController extends Controller
         $this->view->form = $form;
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Manage Session'), true);
+        $this->helper->title($this->helper->at('Manage Condition'), true);
     }
 
     public function deleteAction($id)
     {
-        $model = Session::findFirst($id);
+        $model = Condition::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'clinic-admin/session');
+            return $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
-            $this->flash->warning('Deleting Session <b>' . $model->getName() . '</b>');
-            return $this->redirect($this->url->get() . 'clinic-admin/session');
+            $this->flash->warning('Deleting Condition <b>' . $model->getName() . '</b>');
+            return $this->redirect($this->url->get() . 'clinic-admin/condition');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete Session'), true);
+        $this->helper->title($this->helper->at('Delete Condition'), true);
     }
 
 }
