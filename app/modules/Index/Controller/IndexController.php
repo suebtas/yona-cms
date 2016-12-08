@@ -26,11 +26,17 @@ class IndexController extends Controller
         $this->helper->meta()->set('keywords', $page->getMetaKeywords());
 
 
+        $auth = $this->session->get('auth');
+        $permission_member = '';
+        if($auth)
+            $permission_member = ',"private"';
+
         $qb = $this->modelsManager->createBuilder();
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
         $qb->andWhere('t.slug = :type:', ['type' => 'news']);
         $qb->andWhere('p.date <= NOW()');
+        $qb->andWhere("permission in ('public'$permission_member)");
         $qb->orderBy('p.date DESC');
         $qb->limit($limit);
 

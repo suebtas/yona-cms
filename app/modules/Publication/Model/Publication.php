@@ -11,6 +11,11 @@ use Application\Localization\Transliterator;
 class Publication extends Model
 {
 
+    public static $permissions = [
+        'public' => 'Public',
+        'private'     => 'Private',
+        'unpublic'     => 'Unpublic',
+    ];
     public function getSource()
     {
         return "publication";
@@ -35,6 +40,7 @@ class Publication extends Model
     private $date;
     private $preview_src;
     private $preview_inner;
+    private $permission;
 
     protected $title;
     protected $text;
@@ -236,6 +242,16 @@ class Publication extends Model
         return $this->type_id;
     }
 
+    public function setRole($role)
+    {
+        $this->role = $role;
+        return $this;
+    }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
     public function getTypeTitle()
     {
         if ($this->type_id) {

@@ -26,9 +26,13 @@ class IndexController extends Controller
             $paginatorLimit = 9999;
         }
         $page = $this->request->getQuery('page', 'int', 1);
+        $auth = $this->session->get('auth');
+        $permission_member = '';
+        if($auth)
+            $permission_member = ',"private"';
 
         $publications = Publication::find(array(
-            "type_id = {$typeModel->getId()}",
+            "permission in ('public'$permission_member) and type_id = {$typeModel->getId()}",
             "order" => "date DESC",
         ));
 

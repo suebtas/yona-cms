@@ -17,6 +17,7 @@ use Phalcon\Forms\Element\TextArea;
 use Phalcon\Forms\Element\Select;
 use \Phalcon\Forms\Element\File;
 use Publication\Model\Type;
+use Publication\Model\Publication;
 
 class PublicationForm extends Form
 {
@@ -65,6 +66,11 @@ class PublicationForm extends Form
         $image = new Image('preview_src');
         $image->setLabel('Thumbnail Image');
         $this->add($image);
+
+        $this->add(
+            (new Select('permission', Publication::$permissions))
+                ->setLabel('Public')
+        );
     }
 
 } 

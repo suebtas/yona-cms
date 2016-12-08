@@ -43,6 +43,7 @@
             </div>
             <div class="four wide column">
                 {{ form.renderDecorated('type_id') }}
+                {{ form.renderDecorated('permission') }}
                 {{ form.renderDecorated('date') }}
                 {{ form.renderDecorated('preview_src') }}
                 {{ form.renderDecorated('preview_inner') }}
