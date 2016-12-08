@@ -6,6 +6,7 @@ return [
     'guest'      => [
         'admin/index'       => '*',
         'index/index'       => '*',
+        'index/settemplate'       => '*',
         'index/error'       => '*',
         'page/index'        => '*',
         'publication/index' => '*',

@@ -4,7 +4,7 @@
 <section class="bg-primary" id="one">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
+            <div class="col-lg-12">
                 <article id="content" class="publication clearfix">
 
                     {% if helper.isAdminSession() %}
@@ -14,7 +14,7 @@
                         </p>
                     {% endif %}
 
-                    <h1>{{ publication.getTitle() }}</h1>
+                    <h1 >{{ publication.getTitle() }}</h1>
 
                     <section class="date">{{ publication.getDate('d.m.Y') }}</section>
 

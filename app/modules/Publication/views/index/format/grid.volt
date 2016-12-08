@@ -9,10 +9,10 @@
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
 
 
-<div class="col-lg-4 text-center">
-    <div class="feature wow  animated" style="visibility: visible;">
-        <a data-target="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="{{ image.originalRelPath() }}">
-            <img src="{{ image.originalRelPath() }}" class="img-responsive" alt="Image 1">
+<div class="col-md-4 text-center">
+                    <div class="feature wow ">
+          <a data-target="#galleryModal"  class="gallery-box" data-toggle="modal"  data-src="{{ image.originalRelPath() }}">
+            <center><img src="{{ image.cachedRelPath() }}"  class="img-responsive" alt="Image 1"></center>
             <div class="gallery-box-caption">
                 <div class="gallery-box-content">
                     <div>
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </a>
-        <a href="{{ link }}" class="text-info"><p>{{ helper.announce(item.getTitle(), 300) }}</p></a>
+        <a href="{{ link }}" class="text-info"><p>{{ helper.announce(item.getTitle(), 50) }}</p></a>
         <i>วันที่ {{ item.getDate('d.m.Y') }}</i>
     </div>
 </div>

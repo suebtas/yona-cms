@@ -45,7 +45,13 @@
           margin-bottom: 2%;
           border-bottom: 5px solid rgb(51, 51, 51);
       }
-
+      {%  if template == "1"  %}
+        /*html{
+          -webkit-filter: grayscale(100%);
+          /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+        }*/
+        {% endif %}
     </style>
   </head>
   <body>
@@ -121,17 +127,25 @@
                     <h2 class="margin-top-0 wow fadeIn">ติดต่อคลินิกเซ็นเตอร์ อบจ.ระยอง</h2>
                     <hr class="primary">
 
-                    <div id="map" style="width:100%;height:200px;background:yellow"></div>
+                    <div id="map" style="width:100%;height:500px;background:yellow"></div>
 
                     <script>
-                    function myMap() {
-                      var mapCanvas = document.getElementById("map");
-                      var mapOptions = {
-                        center: new google.maps.LatLng(12.6826348, 101.2272986), zoom: 15  };
-                      var map = new google.maps.Map(mapCanvas, mapOptions);
-                    }
-                    </script>
+                    						function myMap() {
+                    							var myLatLng = {lat:12.6826329, lng: 101.2294979};
+                    							var map = new google.maps.Map(document.getElementById('map'), {
+                    							  zoom: 17,
+                    							  center: myLatLng
+                    							});
 
+                    							var marker = new google.maps.Marker({
+                    							  position: myLatLng,
+                    							  map: map,
+                    							  title: 'องค์การบริหารส่วนจังหวัดระยอง อำเภอเมืองระยอง ระยอง'
+                    							});
+                    						  }
+
+                      </script>
+                    <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='initMap()'>
                     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
                     <p>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่นจังหวัดระยอง</p>
 
@@ -278,7 +292,7 @@
     <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
     <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
 
-    
+
     {% block script %}
     {% endblock %}
   </body>

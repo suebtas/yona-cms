@@ -16,14 +16,14 @@
 
                         {% if paginate.total_items > 0 %}
                             {% for item in paginate.items %}
-                                <div class="col-md-4 text-center">
+
                                 {{ helper.modulePartial('index/format/' ~ format, ['item':item]) }}
-                                </div>
+                              
                             {% endfor %}
                         {% else %}
                             <p>{{ helper.translate('Entries not found') }}</p>
                         {% endif %}
-                                
+
                         </div>
                     </div>
                 </section>

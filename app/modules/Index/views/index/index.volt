@@ -26,46 +26,7 @@
 {% endblock %}
 
 {% block news %}
-    <section class="bg-primary" id="zero">
 
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-12 text-center">
-                          <h2 class="margin-top-0 text-primary" style="color:rgb(255, 184, 0)">ข่าวประชาสัมพันธ์</h2>
-                          <hr class="primary">
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
-                <div class="row">    
-                    {% for item in entries %}   
-                      {% set url = helper.langUrl(['for':'publication','type':item.getTypeSlug(),'slug':item.getSlug() ]) %}
-                      {% set bigImage = helper.image(['id':item.getId(), 'type':'publication', 'width': 500, 'strategy': 'w'], ['alt':item.getTitle()|escape_attr]) %}
-                      {% set image = helper.image(['id':item.getId(),'type':'publication','width': 100, 'class':"img-responsive"], ['alt':item.getTitle()|escape_attr]) %}
-                
-                <div class="col-lg-4 text-center">
-                        <div class="feature wow " >
-
-                          <a href="#galleryModal" style="width:70%" class="gallery-box" data-toggle="modal" data-src="/img/cache/publication/0/5_w_500.jpg">
-                              {#<img src="website/img/5_w_100.jpg"  class="img-responsive" alt="Image 1">#}
-                              {{ image.imageHTML() }}
-                              <div class="gallery-box-caption">
-                                  <div class="gallery-box-content">
-                                      <div>
-                                          <i class="icon-lg ion-ios-search"></i>
-                                      </div>
-                                  </div>
-                              </div>
-                          </a>
-                          <a href="{{ url }}"  class="text-info"><p>{{ helper.announce(item.getTitle(), 130) }}</p></a>
-                            <i>{{ item.getDate('วันที่ d M Y') }}</i>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <center><a href="news" class="btn btn-xl btn-success">ดูข่าวสารทั้งหมด</a></center>
-              </div>
-    </section>
 
 
     <section id="one" style="background-color:rgb(224, 224, 224)">
@@ -104,11 +65,11 @@
                                   'for':'publication',
                                   'type':item.getTypeSlug(),
                                   'slug':item.getSlug()
-                                  ]) 
+                                  ])
                               %}
                               <div class="item" style="background:rgb(226, 226, 226);color:rgb(9, 94, 219)">
                                   {% if image.isExists() %}
-                                      {{ image.imageHTML() }}                                    
+                                      {{ image.imageHTML() }}
                                   {% endif %}
                                   <a href="{{url}}" class="text-info">
                                     <p>{{ helper.announce(item.getTitle(), 130) }}</p>
@@ -132,93 +93,28 @@
                                 <img src="website/img/act.png" class="img-responsive" alt="Touch">
                                 <h3>เลื่อนเพื่อดูกิจกรรมและผลงาน</h3>
                             </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Y4DNmMNQc54"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>กิจกรรมท้าให้อ่าน สายที่ 1</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/n8BiUIdXK4o"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>กิจกรรมท้าให้อ่าน สายที่ 2</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-Q0lvIFDxv8"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>กิจกรรมท้าให้อ่าน สายที่ 3</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5JArTNz9z00"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>กิจกรรมท้าให้อ่าน สายที่ 4</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Nl19OKJUbiA"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>กิจกรรมท้าให้อ่าน สายที่ 5</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YJOSxIY38Yw"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>ท้าให้อ่าน รอบชิงชนะเลิศ</h3>
-                            </div>
-                            <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                <div class="row">
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-8">
-                                        <div class="embed-responsive embed-responsive-4by3">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Ox7qs1ByCBY"></iframe>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3>ผลการแข่งขันท้าให้อ่าน รอบชิงชนะเลิศ</h3>
-                            </div>
+                            {% for item in videos %}
+                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive"]) %}
+
+                              {% set url = helper.langUrl([
+                                  'for':'publication',
+                                  'type':item.getTypeSlug(),
+                                  'slug':item.getSlug()
+                                  ])
+                              %}
+                              <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
+                                  {% if image.isExists() %}
+                                      {{ image.imageHTML() }}
+                                  {% endif %}
+                                  <div class="embed-responsive embed-responsive-4by3">
+                                    {{ item.getText() }}
+                                  </div>
+                                  <i>{{ item.getDate('วันที่ d M Y') }}</i>
+                              </div>
+
+                            {% endfor %}
+
                         </div>
-
-
                     </div>
                 </div>
 
@@ -315,13 +211,22 @@
 
 
 
-    </section>    
+    </section>
 {% endblock %}
 
 
 {% block popup%}
 <div>
-xxxxxx
+  <div id="popModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="True">
+          <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                  <div class="modal-body text-center">
+                        <center><img src="website/img/44.jpg" class="img-responsive" alt="" /></cemter>
+                          <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
+                      </div>
+                  </div>
+              </div>
+        </div>
 </div>
 {% endblock %}
 
