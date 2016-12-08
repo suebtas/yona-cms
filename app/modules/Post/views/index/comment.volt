@@ -59,11 +59,11 @@
                         <b>ไฟล์แนบ:
                           {% if headtopic.isImageFromFile(headtopic.getFile(headtopic.getId())) %}
                             <br>
-                            {#{ link_to("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }#}
+                             {#{image("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px") }#}
+                             
+                             <img src="../../public/files/post/{{headtopic.getId()}}/{{headtopic.getFile(headtopic.getId())}}" alt="{{headtopic.getFile(headtopic.getId())}}" height="100" width="100">
 
-                            {{image_input("src": "../../public/files/post/39/user-management_3.jpg","width":"100px","height":"100px")}}
-
-
+                            
                             </b>
                           {% else %}
                             {#{ link_to("./files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), headtopic.getFile(headtopic.getId())) }#} ไม่มี</b>
@@ -76,7 +76,7 @@
                        </span>
                        <span>
                           <font size="2">
-                          คุณ {{ userName }}
+                          คุณ {{ headtopic.getPersonnelName() }}
                           อีเมล: {{ headtopic.personnel.Email }}
                           โพสเมื่อ: {{ headtopic.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %#}
                           </font>
@@ -94,7 +94,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                  คุณ {{ userName }}
+                                  คุณ {{ headtopic.getPersonnelName() }}
                                 อีเมล: {{ post.personnel.Email }}
                                 โพสเมื่อ: {{ post.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
                                 </font>
@@ -114,7 +114,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                คุณ {{ userName }}
+                                คุณ {{ headtopic.getPersonnelName() }}
                                 อีเมล: {{ data.personnel.Email }}
                                 โพสเมื่อ: {{ data.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
                                 </font>

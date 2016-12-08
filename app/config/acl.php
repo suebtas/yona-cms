@@ -18,6 +18,7 @@ return [
         'post/index/comment'       => '*',
         'message/index'       => '*',
         'message/index/send'       => '*',
+        'public/files' => '*',
     ],
     'member'     => [
         'index/index' => '*',
@@ -102,6 +103,9 @@ return [
         'post/index'       => '*',
         'post/index/search'       => '*',
         'post/index/comment'       => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
+        'public/files' => '*',
     ],
     'cc-approver'      => [
         'admin/index'       => '*',
@@ -120,6 +124,8 @@ return [
         'post/index'       => '*',
         'post/index/search'       => '*',
         'post/index/comment'       => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
     ],
     'cc-admin'      => [
         'admin/index'       => '*',

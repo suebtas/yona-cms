@@ -1,6 +1,7 @@
 <?php
 namespace Clinic\Model;
 
+use Clinic\Model\AdminUser;
 class Post extends \Phalcon\Mvc\Model
 {
     static $StatusName = array(
@@ -201,9 +202,13 @@ class Post extends \Phalcon\Mvc\Model
      *
      * @return integer
      */
-    public function getPersonnelid()
+    public function getPersonnelName()
     {
         //return $this->PersonnelID;
+        $user = AdminUser::findFirst("id = {$this->PersonnelID}");
+
+        return $user->name;
+
     }
 
     /**
