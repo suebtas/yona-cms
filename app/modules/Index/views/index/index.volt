@@ -183,8 +183,8 @@
                         {% for item in posts %}
                         <div class="item" style="background:rgb(255, 233, 138);color:rgb(47, 47, 47)" >
                             <img src="website/img/forum.png" class="img-responsive" style="width:136px;height:120px;" alt="Touch">
-                            <a href="forum/1.html" ><h3>{{item.getTitle()}}</h3></a>
-                            <small>ตั้งหัวข้อเมื่อวันที่ {{item.getPostdate()}} โดย {#<a href="#">dosman</a>#}</small>
+                            <a href="post/index/comment?topic={{item.getId()}}" ><h3>{{item.getTitle()}}</h3></a>
+                            <small>ตั้งหัวข้อเมื่อวันที่ {{item.getPostdate()}} โดย {#<a href="{{#}}">dosman</a>#}</small>
                         </div>
                         {% endfor %}
                     </div>
