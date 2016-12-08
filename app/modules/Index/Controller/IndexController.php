@@ -3,6 +3,7 @@
 namespace Index\Controller;
 
 use Application\Mvc\Controller;
+use Clinic\Model\Visitweb;
 use Page\Model\Page;
 use Phalcon\Exception;
 
@@ -48,6 +49,12 @@ class IndexController extends Controller
         $this->view->entries = $entries;
         $this->view->posts = $posts;
         $this->helper->menu->setActive('index');
+
+        $visit = Visitweb::findFirst("id = 1");
+        $visit->amount = $visit->amount + 1;
+        $visit->save();
+        $this->view->visits = $visit->amount;
+       //die();
 
     }
 

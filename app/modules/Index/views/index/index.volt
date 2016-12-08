@@ -11,7 +11,7 @@
           <center><h1 class="thfont wow fadeInRightBig" style="font-size: 200%; color: rgb(34, 34, 34); visibility: visible; animation-name: fadeInRightBig;">(Clinic Center) <br> องค์การบริหารส่วนจังหวัดระยอง</h1>
             <div class="fh5co-counter-style-1" data-stellar-background-ratio="0.5">
                       <span class="thfont" style="color:rgb(0, 0, 0)">
-                        <i class="ion-icon ion-ios-person"></i> จำนวนผู้เข้าชม : 100
+                        <i class="ion-icon ion-ios-person"></i> จำนวนผู้เข้าชม : {{visits}}
                       </span>
             </div>
           <br>
