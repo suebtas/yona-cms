@@ -1,32 +1,38 @@
 {% extends "../../../views/template1.volt" %}
 
 {% block content %}
-<section class="bg-primary" id="one">
+<section class="bg-primary" id="one" style="background-color:rgb(70, 70, 70);color:black">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1>{{ title }}</h1>
+                <h1 style="color:white">{{ title }}</h1>
+                <div class="line">
+                        </div>
+                <style media="screen">
+                  .jumbotron{
 
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                  }
+                </style>
                 <!--<div class="publications {{ format }}">-->
 
-                <section class="bg-primary" id="one">
 
-                    <div class="container">
+                    <div class="jumbotron">
                         <div class="row">
-
+                        <center>
                         {% if paginate.total_items > 0 %}
                             {% for item in paginate.items %}
 
                                 {{ helper.modulePartial('index/format/' ~ format, ['item':item]) }}
-                              
+
                             {% endfor %}
                         {% else %}
                             <p>{{ helper.translate('Entries not found') }}</p>
                         {% endif %}
-
+                      </center>
                         </div>
                     </div>
-                </section>
+
 
                 <div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg">

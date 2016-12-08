@@ -14,9 +14,9 @@
                         </p>
                     {% endif %}
 
-                    <h1 >{{ publication.getTitle() }}</h1>
+                    <h1 class="jumbotron">{{ publication.getTitle() }}</h1>
 
-                    <section class="date">{{ publication.getDate('d.m.Y') }}</section>
+                    <span class="date">{{ publication.getDate('d.m.Y') }}</span>
 
                     {% if publication.preview_inner %}
                         {% set image = helper.image([
@@ -24,9 +24,10 @@
                         'type': 'publication',
                         'width': 300,
                         'strategy': 'w'
-                        ]) %}
+
+                        ],['class': 'img-responsive']) %}
                         <div class="image inner">
-                            {{ image.imageHTML() }}
+                          <center>  {{ image.imageHTML() }} </center>
                         </div>
                     {% endif %}
 
