@@ -78,10 +78,10 @@
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/articles" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                        <a class="page-scroll" href="/Event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/document.html" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                        <a class="page-scroll" href="/Document" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
@@ -145,7 +145,7 @@
                     						  }
 
                       </script>
-                    <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='initMap()'>
+                    <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='myMap()'>
                     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
                     <p>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่นจังหวัดระยอง</p>
 
@@ -156,30 +156,38 @@
                       <i class="ion-icon ion-android-print"></i> 038-011692
                     </p>
                 </div>
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <form class="contact-form row">
-                        <div class="col-md-6">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder="กรุณาใส่ชื่อของท่าน">
-                        </div>
-                        <div class="col-md-6">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder=" อีเมล ">
-                        </div>
-                        <div class="col-md-12">
-                            <label></label>
-                            <input type="text" class="form-control" placeholder=" หัวข้อข่าวสาร">
-                        </div>
-                        <div class="col-md-12">
-                            <label></label>
-                            <textarea class="form-control" rows="9" placeholder="ข้อความของท่าน"></textarea>
-                        </div>
-                        <div class="col-md-4 col-md-offset-4">
-                            <label></label>
-                            <button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
-                        </div>
-                    </form>
-                </div>
+                <form action="{{ url.get() }}message/index/save" method="post">
+                  <div class="col-lg-10 col-lg-offset-1 text-center">
+                      <form class="contact-form row">
+                          <div class="col-md-4">
+                              <label></label>
+                              <input type="text" id="name" name="name" class="form-control" placeholder="ชื่อผู้ส่ง" required="required">
+                          </div>
+                          <div class="col-md-4">
+                              <label></label>
+                              <input type="text" id="email" name="email" class="form-control" placeholder=" อีเมล " required="required">
+                          </div>
+                          <div class="col-md-4">
+                              <label></label>
+                              <input type="text" id="tel" name="tel" class="form-control" placeholder=" เบอร์โทรศัพท์ " required="required">
+                          </div>
+                          <div class="col-md-12">
+                              <label></label>
+                              <input type="text" id="subject" name="subject" class="form-control" placeholder=" หัวเรื่อง">
+                          </div>
+                          <div class="col-md-12">
+                              <label></label>
+                              <textarea class="form-control" id="detail" name="detail" rows="9" placeholder="เนื้อความ" required="required"></textarea>
+                          </div>
+                          <div class="col-md-4 col-md-offset-4">
+                              <label></label>
+                              <input type="submit" value="ส่งข้อความ" class="btn btn-lg btn-success btn-block thfont"  >
+                               {#data-toggle="modal" data-target="#alertModal"#}
+
+                          </div>
+                      </form>
+                  </div>
+                </form>
             </div>
         </div>
     </section>

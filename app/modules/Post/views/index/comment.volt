@@ -34,26 +34,38 @@
     .text-dark{
       color:rgb(62, 62, 62)
     }
+    .line {
+          margin-top: 1%;
+          margin-bottom: 1%;
+          border-bottom: 2px solid rgb(51, 51, 51);
+      }
+      .line-left {
+          border-left: 2px solid rgb(121, 121, 121);
+      }
   </style>
     <div align="center">
         <h1>การตอบ กระทู้</h1>
     </div>
     <!-- block -->
-    <a href="../../post/index/search?forum={{headtopic.getForumid()}}" class="btn btn-xl btn-success">ย้อนกลับ</a>
+
     <div class="block">
-        <div class="navbar navbar-inner block-header">
-          <div class="bd text-center navbar navbar-inner block-header" style="background-color:rgb(50, 50, 50);color:white">
-            <h1 class="thfontb" style="font-size:150%">รายละเอียดการตอบ กระทู้</h1>
+          <div class="bd" style="background-color:rgb(50, 50, 50);color:white">
+            <h1 class="thfontb" style="font-size:200%;margin-left:5%">หัวเรื่อง : {{ headtopic.getTitle() }} </h1>
           </div>
-        </div>
-        <div class="block-content collapse in">
+        <div class="row bd" >
+            <div class="col-xs-1">
+              <a href="../../post/index/search?forum={{headtopic.getForumid()}}" class="btn btn-danger">ย้อนกลับ</a>
+            </div>
+              <div class="col-xs-11 text-center">
+                  <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i>{{ post.counting-1 }}Answers</span>
+                      <small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ {{ headtopic.getPostdate() }}	โดย <a href="#">{{ userName }}</a> </small></p>
+              </div>
+          </div>
+
              {% if page is defined %}
 
-                <div class="panel panel-primary" style="color:rgb(54, 54, 54)">
-                  <div class="panel-heading navbar navbar-inner block-header" >
-                    <h1 class="thfontb" style="font-size:250%">{{ headtopic.getTitle() }}</h1>
-                  </div>
-                      <div class="panel-body navbar navbar-inner block-header thfont">{{ headtopic.getDetail() }}
+                <div class="row bd" style="color:rgb(54, 54, 54)">
+                      <div class="col-xs-10 thfont" style="height:100%">{{ headtopic.getDetail() }}
                       {% if headtopic.getFile(headtopic.getId()) != NULL %}
                         <br>
                         <b>ไฟล์แนบ:
@@ -70,19 +82,23 @@
                           {% endif %}
                       {% endif %}
                       </div>
-                      <div class="panel-footer thfont">
-                       <span>
-                         {#{ image("clinic/post/imageprofile/"~headtopic.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
-                       </span>
-                       <span>
+                      <div class="col-xs-2 text-center line-left thfont">
+
+                        <center><img src="/website/img/user.png" class="img-responsive" alt="" style="max-width:120px"/></center>
+                        คุณ {{ userName }} <br>
+                        อีเมล: {{ headtopic.personnel.Email }}
+                       {#<span>
+                         { image("clinic/post/imageprofile/"~headtopic.Personnel.ImageProfileID,"width":"35px","height":"35px") }
+                       </span>#}
+                       {#<span>
                           <font size="2">
-                          คุณ {{ userName }}
-                          อีเมล: {{ headtopic.personnel.Email }}
-                          โพสเมื่อ: {{ headtopic.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %#}
+
+                          โพสเมื่อ: {{ headtopic.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~headtopic.getId(), 'ตอบกลับ') }}{% endif %
                           </font>
-                       </span>
+                       </span>#}
                       </div>
                 </div>
+
   			{% set commentNumber = 1 %}
                 {% for post in page %}
                       <div class="panel panel-info thfont" style="color:rgb(54, 54, 54)">

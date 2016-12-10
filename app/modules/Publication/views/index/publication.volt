@@ -1,9 +1,9 @@
 {% extends "../../../views/template1.volt" %}
 
 {% block content %}
-<section class="bg-primary" id="one">
+<section class="bg-primary thfont" id="one">
     <div class="container">
-        <div class="row">
+        <div class="row bd">
             <div class="col-lg-12">
                 <article id="content" class="publication clearfix">
 
@@ -13,10 +13,9 @@
                             href="{{ url.get() }}publication/admin/edit/{{ publication.getId() }}?lang={{ constant('LANG') }}">{{ helper.at('Edit publication') }}</a>
                         </p>
                     {% endif %}
+                    <h1 class="jumbotron thfont text-dark bg-dark" style="color:white">{{ publication.getTitle() }}</h1>
 
-                    <h1 class="jumbotron">{{ publication.getTitle() }}</h1>
-
-                    <span class="date">{{ publication.getDate('d.m.Y') }}</span>
+                    <span class="jumbotron date col-lg-12 " style="font-size:80%"><i>วันที่ {{ publication.getDate('d/m/Y') }}</i> </span>
 
                     {% if publication.preview_inner %}
                         {% set image = helper.image([

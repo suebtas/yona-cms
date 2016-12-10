@@ -6,16 +6,41 @@
 ]) %}
 {% set link = helper.langUrl(['for':'publication', 'type':item.getTypeSlug(), 'slug':item.getSlug()]) %}
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
-
-<div class="item{% if imageExists %} with-image{% endif %}">
+<div class="thfont col-md-12" style="font-size:130%">
+<div style="background-color:rgb(203, 203, 203)" class="item{% if imageExists %} with-image{% endif %}">
     {% if imageExists %}
-        <a class="image" href="{{ link }}">{{ image.imageHTML() }}</a>
+        {# href="{{ link }}" #}
+        <div class="row jumbotron" style="background-color:rgb(198, 198, 198)">
+          <div class="col-md-6" style="background-color:rgb(119, 119, 119)">
+            <a data-target="#galleryModal" style="max-width:250px" class="gallery-box " data-toggle="modal"  data-src="{{ image.originalRelPath() }}">
+                <center><img src="{{ image.cachedRelPath() }}" class="img-responsive" alt="Image 1"></center>
+                <div class="gallery-box-caption">
+                    <div class="gallery-box-content">
+                        <div>
+                            <i class="icon-lg ion-ios-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+          </div>
+          <div class="col-md-6" align="left">
+            <blockquote class=" blockquote" >
+            <a href="{{ link }}" class="text-info"><h3 class="thfontb">{{ helper.announce(item.getTitle(), 50) }}</h3></a>
+            <i style="font-size:80%">วันที่ {{ item.getDate('d.m.Y') }}</i>
+            <p style="font-size:100%">{{ helper.announce(item.getText(), 200) }}</p></blockquote>
+
+          </div>
+        </div>
+
+
     {% endif %}
-    <div class="text">
+
+    {#<div class="text">
         <section class="date">{{ item.getDate('d.m.Y') }}</section>
         <a href="{{ link }}" class="title">{{ item.getTitle() }}</a>
         <section class="announce">{{ helper.announce(item.getText(), 300) }}</section>
 
         <a href="{{ link }}" class="details">{{ helper.translate('Подробнее') }} &rarr;</a>
-    </div>
+    </div>#}
+</div>
 </div>

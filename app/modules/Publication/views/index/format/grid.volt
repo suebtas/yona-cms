@@ -10,8 +10,8 @@
 
 
 <div class="thfont col-md-4 text-center" style="font-size:130%">
-                    <div class="feature wow ">
-          <a data-target="#galleryModal" class="gallery-box" data-toggle="modal"  data-src="{{ image.originalRelPath() }}">
+    <div class="feature wow ">
+        <a data-target="#galleryModal" class="gallery-box" data-toggle="modal"  data-src="{{ image.originalRelPath() }}">
             <center><img src="{{ image.cachedRelPath() }}" class="img-responsive" alt="Image 1"></center>
             <div class="gallery-box-caption">
                 <div class="gallery-box-content">

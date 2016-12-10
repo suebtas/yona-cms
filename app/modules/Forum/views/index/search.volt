@@ -116,7 +116,7 @@
                                         <div class="col-xs-11">
                                             <span class="text-blue"><h1 class="thfontb">{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}</h1></span>
                                         </div>
-                                      </div>
+                                    </div>
                                         <!--{{ link_to("post/index/search?forum="~forum.getId(), forum.Name) }}-->
                                     {% endif %}
                                 {% endif %}
