@@ -9,7 +9,6 @@ use Phalcon\Exception;
 
 class IndexController extends Controller
 {
-
     public function indexAction()
     {
 
@@ -81,11 +80,12 @@ class IndexController extends Controller
         $visit->amount = $visit->amount + 1;
         $visit->save();
         $this->view->visits = $visit->amount;
-       //die();
 
     }
-    public function setTemplateAction(){
-    #  $this->view->css = '';
+    public function setAction($id){        
+      $this->session->set('template', $id);
+      $this->redirect('/');
+
     }
 
 }

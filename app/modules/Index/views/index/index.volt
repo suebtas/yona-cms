@@ -1,4 +1,3 @@
-{% extends "../../../views/template1.volt" %}
 
 {% block content %}
 

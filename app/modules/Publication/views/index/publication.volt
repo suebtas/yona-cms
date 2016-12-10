@@ -1,5 +1,3 @@
-{% extends "../../../views/template1.volt" %}
-
 {% block content %}
 <section class="bg-primary" id="one">
     <div class="container">

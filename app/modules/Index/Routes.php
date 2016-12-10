@@ -8,6 +8,8 @@
 
 namespace Index;
 
+use Application\Mvc\Router\DefaultRouter;
+
 class Routes
 {
 
@@ -17,7 +19,15 @@ class Routes
             'module' => 'index',
             'controller' => 'index',
             'action' => 'index',
-        ), 'index');
+        ), 'index_index');
+
+
+
+        $router->addML('/set{type:1|2|3}', array(
+            'module' => 'index',
+            'controller' => 'index',
+            'action' => 'set'
+        ), 'index_set');
 
         return $router;
 
