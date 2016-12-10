@@ -58,7 +58,7 @@
           margin-bottom: 2%;
           border-bottom: 5px solid rgb(51, 51, 51);
       }
-      {%  if template == "1"  %}
+      {%  if session.get('template') == 1  %}
         html{
           -webkit-filter: grayscale(100%);
           /* Safari 6.0 - 9.0 */
