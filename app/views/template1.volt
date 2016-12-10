@@ -11,6 +11,19 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="/website/css/styles.css" />
+
+    <!--scripts loaded here from cdn for performance -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script src="/website/js/scripts.js"></script>
+
+    <script src="/website/owl-carousel/owl.carousel.js"></script>
+    <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+    <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
+    <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
+        
     <style media="screen">
       @font-face {
         font-family: thfont;
@@ -45,12 +58,12 @@
           margin-bottom: 2%;
           border-bottom: 5px solid rgb(51, 51, 51);
       }
-      {%  if template == "1"  %}
-        /*html{
+      {%  if session.get('template') == 1  %}
+        html{
           -webkit-filter: grayscale(100%);
           /* Safari 6.0 - 9.0 */
           filter: grayscale(100%);
-        }*/
+        }
         {% endif %}
     </style>
   </head>
@@ -99,13 +112,13 @@
                 <ul class="nav navbar-nav navbar-right">
 
                   <li>
-                      <a class="btn" href="../websitet1/index.html" style="background-color:rgb(59, 59, 59);border-radius:0px">1</a>
+                      <a class="btn" href="set1" style="background-color:rgb(59, 59, 59);border-radius:0px">1</a>
                   </li>
                   <li>
-                      <a class="btn" href="../websitet2/index.html" style="background-color:rgb(0, 163, 255);border-radius:0px">2</a>
+                      <a class="btn" href="set2" style="background-color:rgb(0, 163, 255);border-radius:0px">2</a>
                   </li>
                   <li>
-                      <a class="btn" href="../websitet3/index.html" style="background-color:rgb(255, 161, 0);border-radius:0px;">3</a>
+                      <a class="btn" href="set3" style="background-color:rgb(255, 161, 0);border-radius:0px;">3</a>
                   </li>
                     <li>
                         <a class="page-scroll" href="/admin" style="background-color:rgba(125, 209, 0, 0.51);color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>
@@ -288,19 +301,6 @@
         </div>
         </div>
     </div>
-    <!--scripts loaded here from cdn for performance -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="/website/js/scripts.js"></script>
-
-    <script src="/website/owl-carousel/owl.carousel.js"></script>
-    <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
-    <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
-    <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
-
-
     {% block script %}
     {% endblock %}
   </body>

@@ -1,5 +1,3 @@
-{% extends "../../../views/template1.volt" %}
-
 {% block content %}
 <section class="bg-primary" id="one">
     <div class="container">
@@ -8,7 +6,7 @@
                 <article>
                     {{ page.getText() }}
 
-                {%#
+                {#%
                     <br>
                     <br>
                     ---Edit this page---
@@ -22,7 +20,7 @@
                     </form>
                     <br>
                     ---Edit this page---
-                    #%}
+                    %#}
 
                 </article>
             </div>

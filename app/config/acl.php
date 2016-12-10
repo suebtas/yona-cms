@@ -6,7 +6,7 @@ return [
     'guest'      => [
         'admin/index'       => '*',
         'index/index'       => '*',
-        'index/settemplate'       => '*',
+        'index/set/'         => '*',
         'index/error'       => '*',
         'page/index'        => '*',
         'publication/index' => '*',
@@ -18,6 +18,7 @@ return [
         'post/index/comment'       => '*',
         'message/index'       => '*',
         'message/index/send'       => '*',
+        'public/files' => '*',
     ],
     'member'     => [
         'index/index' => '*',
@@ -86,6 +87,8 @@ return [
         'clinic/review' => '*',
     ],
     'cc-user'      => [
+        'publication/index' =>'*',
+        'page/index'        => '*',
         'admin/index'       => '*',
         'index/index'       => '*',
         'index/error'       => '*',
@@ -102,8 +105,13 @@ return [
         'post/index'       => '*',
         'post/index/search'       => '*',
         'post/index/comment'       => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
+        'public/files' => '*',
     ],
     'cc-approver'      => [
+        'publication/index' =>'*',
+        'page/index'        => '*',
         'admin/index'       => '*',
         'index/index'       => '*',
         'index/error'       => '*',
@@ -120,8 +128,12 @@ return [
         'post/index'       => '*',
         'post/index/search'       => '*',
         'post/index/comment'       => '*',
+        'clinic/forum' => '*',
+        'clinic/post' => '*',
     ],
     'cc-admin'      => [
+        'publication/index' =>'*',
+        'page/index'        => '*',
         'admin/index'       => '*',
         'index/index'       => '*',
         'index/error'       => '*',

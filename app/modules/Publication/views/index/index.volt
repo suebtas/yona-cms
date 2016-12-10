@@ -1,5 +1,3 @@
-{% extends "../../../views/template1.volt" %}
-
 {% block content %}
 <section class="bg-primary" id="one" style="background-color:rgb(70, 70, 70);color:black">
     <div class="container">
