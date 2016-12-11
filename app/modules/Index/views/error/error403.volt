@@ -1,14 +1,24 @@
-<div class="container">
+{% extends "../../../views/template1.volt" %}
+{% block content %}
 
-    <h1>403</h1>
+<section class="bg-primary" id="one">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
 
-    <p>Permission Denied</p>
+                <h1>403</h1>
 
-    {% if registry.cms['DEBUG_MODE'] %}
-        <p>--------------------------<br>Debug mode error details:</p>
-        {% if message %}
-            {{ message }}
-        {% endif %}
-    {% endif %}
+                <p>Permission Denied</p>
 
-</div>
+                {% if registry.cms['DEBUG_MODE'] %}
+                    <p>--------------------------<br>Debug mode error details:</p>
+                    {% if message %}
+                        {{ message }}
+                {% endif %}            
+                
+            </div>
+        </div>
+    </div>
+</session>
+
+{% endblock %}
