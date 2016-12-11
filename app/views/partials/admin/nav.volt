@@ -41,9 +41,11 @@
             </a>
         </div>
     </div>
-
+{% if session.get('auth').role =='cc-admin' %}
     {{ partial('clinicAdmin/nav') }}
+{% endif %}
 
+{% if session.get('auth').role =='admin' %}
     <div class="item">
         <div class="header">{{ helper.at('Admin') }} <i class="wrench icon"></i></div>
 
@@ -66,6 +68,7 @@
             </a>
         </div>
     </div>
+{% endif %}    
     <div class="item">
         <a href="{{ url.get() }}" class="ui primary tiny button" target="_blank">
             <i class="home icon"></i>{{ helper.at('View Site') }}

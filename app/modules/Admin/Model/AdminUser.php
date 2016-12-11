@@ -156,6 +156,7 @@ class AdminUser extends \Phalcon\Mvc\Model
         $authData = new stdClass();
         $authData->id = $this->getId();
         $authData->admin_session = true;
+        $authData->role = $this->getRole();
         $authData->login = $this->getLogin();
         $authData->email = $this->getEmail();
         $authData->name = $this->getName();
