@@ -49,7 +49,7 @@
     <!-- block -->
 
     <div class="block">
-          <div class="bd" style="background-color:rgb(50, 50, 50);color:white">
+          <div class="bd" style="background-color:rgb(50, 50, 50);color:white;margin-bottom:0">
             <a href="../../post/index/search?forum={{headtopic.getForumid()}}" class="btn btn-danger">ย้อนกลับ</a>
             <h1 class="thfontb" style="font-size:200%;margin-left:5%">หัวเรื่อง : {{ headtopic.getTitle() }} </h1>
 
@@ -63,7 +63,7 @@
 
              {% if page is defined %}
 
-                <div class="row bd" style="color:rgb(255, 255, 255);background-color:rgb(107, 107, 107)">
+                <div class="row bd" style="background-color:rgb(255, 255, 255);margin-top:0">
                       <div class="col-xs-10 thfont">{{ headtopic.getDetail() }}
                       {% if headtopic.getFile(headtopic.getId()) != NULL %}
                         <br>
