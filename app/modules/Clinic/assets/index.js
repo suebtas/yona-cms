@@ -211,3 +211,146 @@ $(function() {
 		});
 	}
 });
+
+
+
+// Stacked Bars Chart
+
+	$(function() {
+
+		var d1 = [];
+		for (var i = 0; i <= 10; i += 1) {
+			d1.push([i, parseInt(Math.random() * 30)]);
+		}
+
+		var d2 = [];
+		for (var i = 0; i <= 10; i += 1) {
+			d2.push([i, parseInt(Math.random() * 30)]);
+		}
+
+		var d3 = [];
+		for (var i = 0; i <= 10; i += 1) {
+			d3.push([i, parseInt(Math.random() * 30)]);
+		}
+
+		var stack = 0,
+			bars = true,
+			lines = false,
+			steps = false;
+
+		function plotWithOptions() {
+			$.plot("#myplaceholder2", [ d1, d2, d3 ], {
+				series: {
+					stack: stack,
+					lines: {
+						show: lines,
+						fill: true,
+						steps: steps
+					},
+					bars: {
+						show: bars,
+						barWidth: 0.6
+					}
+				}
+			});
+		}
+
+		plotWithOptions();
+
+		$(".stackControls button").click(function (e) {
+			e.preventDefault();
+			stack = $(this).text() == "With stacking" ? true : null;
+			plotWithOptions();
+		});
+
+
+		// Add the Flot version string to the footer
+
+		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+	});
+
+
+// Order
+	$(function () {
+
+            //some data
+            var d1 = [];
+            for (var i = 0; i <= 10; i += 1)
+                d1.push([i, parseInt(Math.random() * 30)]);
+         
+            var d2 = [];
+            for (var i = 0; i <= 10; i += 1)
+                d2.push([i, parseInt(Math.random() * 30)]);
+         
+            var d3 = [];
+            for (var i = 0; i <= 10; i += 1)
+                d3.push([i, parseInt(Math.random() * 30)]);
+         
+            var ds = new Array();
+         
+            ds.push({
+                label: "Data One",
+                data:d1,
+                bars: {order: 1}
+            });
+            ds.push({
+                label: "Data Two",
+                data:d2,
+                bars: {order: 2}
+            });
+            ds.push({
+                label: "Data Three",
+                data:d3,
+                bars: {order: 3}
+            });
+
+            var stack = 0, bars = false, lines = false, steps = false;
+
+            var options = {
+                    bars: {
+                        show:true,
+                        barWidth: 0.2,
+                        fill:1
+                    },
+                    grid: {
+                        show: true,
+                        aboveData: false,
+                        color: '#bfbfbf', //chartColours.gridColor,
+                        labelMargin: 5,
+                        axisMargin: 0, 
+                        borderWidth: 0,
+                        borderColor:null,
+                        minBorderMargin: 5 ,
+                        clickable: true, 
+                        hoverable: true,
+                        autoHighlight: false,
+                        mouseActiveRadius: 20
+                    },
+                    series: {
+                        stack: stack
+                    },
+                    legend: { 
+                        position: "ne", 
+                        margin: [0,-25], 
+                        noColumns: 0,
+                        labelBoxBorderColor: null,
+                        labelFormatter: function(label, series) {
+                            // just add some space to labes
+                            return '&nbsp;&nbsp;' + label + ' &nbsp;&nbsp;';
+                        },
+                        width: 30,
+                        height: 2
+                    },
+                    colors: ['#CFD8DC', '#607D8B', '#A5D6A7'],
+                    tooltip: true, //activate tooltip
+                    tooltipOpts: {
+                        content: "%s : %y.0",
+                        shifts: {
+                            x: -30,
+                            y: -50
+                        }
+                    }
+            };
+
+            $.plot($("#ordered-bars-chart"), ds, options);  
+        });

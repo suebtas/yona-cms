@@ -93,6 +93,29 @@
                 <div id="myplaceholder" class="demo-placeholder"></div>
             </div>
           </div>
+
+
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="myplaceholder2" class="demo-placeholder"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md12 col-sm-12 col-xs-12">
+            <!-- End .panel -->
+                <div class="panel panel-default panelToggle panelMove panelClose panelRefresh">
+                    <!-- Start .panel -->
+                    <div class="panel-heading">
+                        <h4 class="panel-title"><i class="fa fa-bar-chart"></i> Ordered Bars chart</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="ordered-bars-chart" class="mt10" style="width: 100%; height:250px;"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="dashboard_graph">
