@@ -59,32 +59,37 @@ class IndexController extends Controller
         $this->view->Faqs = $faqs;
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FaqsForm.docx');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/Sample_23_TemplateBlock.docx');
         date_default_timezone_set('Asia/Bangkok');
+
+        $document->cloneBlock('CLONEME', 3);
+
+        // Everything between ${tag} and ${/tag}, will be deleted/erased.
+        $document->deleteBlock('DELETEME');
         //var_dump($faqs);
         //die(__DIR__.'/../Form/FaqsForm.docx');
-        $i = 1;
+        /*$i = 1;
         $Faqsitems = array();
         $quests = "Question1";
         $answers = "Answer1";
-        /*foreach ($faqs as $value) 
+        foreach ($faqs as $value) 
         {
            
-            //$Faqsitems['index'][] = $i;
-            //$Faqsitems['quest'][] = $value->getTitle();
-            //$Faqsitems['ans'][] = $value->getText();
+            $Faqsitems['index'][] = $i;
+            $Faqsitems['quest'][] = $value->getTitle();
+            $Faqsitems['ans'][] = $value->getText();
 
-            $quests = $quests.$i.".".$value->getTitle();
-            $answers = $answers.$i.".".$value->getText();
+            //$quests = $quests.$i.".".$value->getTitle();
+            //$answers = $answers.$i.".".$value->getText();
 
             $i++;
-        }*/
+        }
         //var_dump($answers);
         //die();
-        //$document->cloneRow('F', $Faqsitems);
-        //$document->cloneRow('DinamicTable', $Faqsitems); 
-        $document->setValue('{questions}', $quests);
-        $document->setValue('{answers}', $answers);
+        $document->cloneRow('F', $Faqsitems);
+        $document->cloneRow('DinamicTable', $Faqsitems); 
+        //$document->setValue('{questions}', $quests);
+        //$document->setValue('{answers}', $answers);*/
 
         $tmp_file = 'FaqsTMP.docx';
         $result = $document->saveAs($tmp_file);   

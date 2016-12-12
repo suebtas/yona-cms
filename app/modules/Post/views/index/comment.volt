@@ -73,9 +73,10 @@
                         <b>ไฟล์แนบ:
                           {% if headtopic.isImageFromFile(headtopic.getFile(headtopic.getId())) %}
                             <br>
-                            {#{ link_to("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image("../../public/files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px")) }#}
 
-                            {{image_input("src": "../../public/files/post/39/user-management_3.jpg","width":"100px","height":"100px")}}
+                            {{ 
+      link_to("../../files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image_input("src":"../../files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px"),"target":"_blank" )}}
+
 
 
                             </b>
