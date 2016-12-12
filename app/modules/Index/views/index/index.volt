@@ -58,7 +58,7 @@
                             </div>
 
                             {% for item in entries %}
-                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive"]) %}
+                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive",'width':"200"]) %}
 
                               {% set url = helper.langUrl([
                                   'for':'publication',
@@ -92,24 +92,24 @@
                                 <img src="website/img/act.png" class="img-responsive" alt="Touch">
                                 <h3>เลื่อนเพื่อดูกิจกรรมและผลงาน</h3>
                             </div>
-                            {% for item in videos %}
-                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive"]) %}
+                            {% for item in Events %}
+                            {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive", 'width':'200']) %}
 
-                              {% set url = helper.langUrl([
-                                  'for':'publication',
-                                  'type':item.getTypeSlug(),
-                                  'slug':item.getSlug()
-                                  ])
-                              %}
-                              <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                  {% if image.isExists() %}
-                                      {{ image.imageHTML() }}
-                                  {% endif %}
-                                  <div class="embed-responsive embed-responsive-4by3">
-                                    {{ item.getText() }}
-                                  </div>
-                                  <i>{{ item.getDate('วันที่ d M Y') }}</i>
-                              </div>
+                            {% set url = helper.langUrl([
+                                'for':'publication',
+                                'type':item.getTypeSlug(),
+                                'slug':item.getSlug()
+                                ])
+                            %}
+                            <div class="item" style="background:rgb(226, 226, 226);color:rgb(9, 94, 219)">
+                                {% if image.isExists() %}
+                                    {{ image.imageHTML() }}
+                                {% endif %}
+                                <a href="{{url}}" class="text-info">
+                                  <p>{{ helper.announce(item.getTitle(), 130) }}</p>
+                                </a>
+                                <i>{{ item.getDate('วันที่ d M Y') }}</i>
+                            </div>
 
                             {% endfor %}
 

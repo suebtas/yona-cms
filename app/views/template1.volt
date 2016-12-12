@@ -23,7 +23,7 @@
     <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
     <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
     <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
-        
+
     <style media="screen">
       @font-face {
         font-family: thfont;
@@ -98,6 +98,9 @@
                     </li>
                     <li>
                         <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/Links" style="color:rgb(47, 47, 47)">Links</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
