@@ -23,7 +23,7 @@
     <link href="/website/owl-carousel/owl.carousel.css" rel="stylesheet"/>
     <link href="/website/owl-carousel/owl.theme.css" rel="stylesheet"/>
     <link href="/website/owl-carousel/owl.transitions.css" rel="stylesheet"/>
-        
+
     <style media="screen">
       @font-face {
         font-family: thfont;
@@ -100,13 +100,16 @@
                         <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="/Links" style="color:rgb(47, 47, 47)">Links</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
                     </li>
                     <li>
                         <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                        <a class="page-scroll" href="/About/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

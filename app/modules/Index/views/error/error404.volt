@@ -3,14 +3,17 @@
 {% block content %}
 <section class="bg-primary" id="one">
     <div class="container">
-        <div class="row">
+        <div class="row jumbotron text-dark thfont">
             <div class="col-lg-12 text-center">
-                <h1>404</h1>
+                <center><img src="https://cdn4.iconfinder.com/data/icons/rcons-application/32/application_form_error-512.png" class="img-responsive" style="max-width:100px" alt=""></center>
+                <h1 class="thfont" style="font-size:500%">404</h1>
 
-                <p>Page not found</p>
+                <p class="bd" style="background-color:rgb(255, 230, 3)">Page not found</p>
 
                 {% if registry.cms['DEBUG_MODE'] %}
-                    <p>--------------------------<br>Debug mode error details:</p>
+                  <div class="line">
+                  </div>
+                    <p>Debug mode error details:</p>
                     {% if e is defined %}
                         <p>{{ e.getMessage() }}</p>
                         <p>{{ e.getFile() }}::{{ e.getLine() }}</p>
@@ -20,7 +23,7 @@
                         {{ message }}
                     {% endif %}
                 {% endif %}
-                
+                <br><br><a href="/" class="btn btn-danger thfont">กลับสู่หน้าหลัก</a>
             </div>
         </div>
     </div>

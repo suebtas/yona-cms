@@ -58,7 +58,7 @@
                             </div>
 
                             {% for item in entries %}
-                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive"]) %}
+                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive",'width':"300"]) %}
 
                               {% set url = helper.langUrl([
                                   'for':'publication',
@@ -67,9 +67,9 @@
                                   ])
                               %}
                               <div class="item" style="background:rgb(226, 226, 226);color:rgb(9, 94, 219)">
-                                  {% if image.isExists() %}
-                                      {{ image.imageHTML() }}
-                                  {% endif %}
+
+                                      <img src="{{ image.cachedRelPath() }}"  class="img-responsive" style="width:300;max-height:210px" alt="">
+
                                   <a href="{{url}}" class="text-info">
                                     <p>{{ helper.announce(item.getTitle(), 130) }}</p>
                                   </a>
@@ -92,24 +92,25 @@
                                 <img src="website/img/act.png" class="img-responsive" alt="Touch">
                                 <h3>เลื่อนเพื่อดูกิจกรรมและผลงาน</h3>
                             </div>
-                            {% for item in videos %}
-                              {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive"]) %}
+                            {% for item in Events %}
+                            {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive", 'width':'300']) %}
 
-                              {% set url = helper.langUrl([
-                                  'for':'publication',
-                                  'type':item.getTypeSlug(),
-                                  'slug':item.getSlug()
-                                  ])
-                              %}
-                              <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
-                                  {% if image.isExists() %}
-                                      {{ image.imageHTML() }}
-                                  {% endif %}
-                                  <div class="embed-responsive embed-responsive-4by3">
-                                    {{ item.getText() }}
-                                  </div>
-                                  <i>{{ item.getDate('วันที่ d M Y') }}</i>
-                              </div>
+                            {% set url = helper.langUrl([
+                                'for':'publication',
+                                'type':item.getTypeSlug(),
+                                'slug':item.getSlug()
+                                ])
+                            %}
+                            <div class="item" style="background:rgb(226, 226, 226);color:rgb(9, 94, 219)">
+                                {#{% if image.isExists() %}
+                                    {{ image.imageHTML() }}
+                                {% endif %}#}
+                                <img src="{{ image.cachedRelPath() }}"  class="img-responsive" style="width:300;max-height:210px" alt="">
+                                <a href="{{url}}" class="text-info">
+                                  <p>{{ helper.announce(item.getTitle(), 130) }}</p>
+                                </a>
+                                <i>{{ item.getDate('วันที่ d M Y') }}</i>
+                            </div>
 
                             {% endfor %}
 
@@ -124,51 +125,21 @@
                     <div class="line">
                     </div>
                     <div id="owl-e" class="owl-carousel">
+                      {% for item in Docs %}
+                      {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive", 'width':'300']) %}
 
+                      {% set url = helper.langUrl([
+                          'for':'publication',
+                          'type':item.getTypeSlug(),
+                          'slug':item.getSlug()
+                          ])
+                      %}
                         <div class="item" style="background:rgb(59, 59, 59)">
                             <img src="website/img/doc.png" class="img-responsive" alt="Touch">
-                            <h3>คู่มือการใช้งานระบบฯ (Clinic Center) สำหรับผู้ปรับปรุงข้อมูล</h3>
-                            <a href="download/11.pdf" class="btn btn-success">download</a>
+                            <a href="{{url}}"><h3>{{ helper.announce(item.getTitle(), 130) }}</h3></a>
+                            <i>{{ item.getDate('วันที่ d M Y') }}</i>
                         </div>
-                        <div class="item" style="background:rgb(59, 59, 59)">
-                            <img src="website/img/doc.png" class="img-responsive" alt="Touch">
-                            <h3>คู่มือการใช้งานระบบฯ (Clinic Center) สำหรับผู้รับรองข้อมูล</h3>
-                            <a href="download/12.pdf" class="btn btn-success">download</a>
-                        </div>
-                        <div class="item" style="background:rgb(59, 59, 59)">
-                            <img src="website/img/doc.png" class="img-responsive" alt="Touch">
-                            <h3>วิธีการดูรายงานย้อนหลัง</h3>
-                            <a href="download/rayong.pdf" class="btn btn-success">download</a>
-                        </div>
-
-                        <div class="item" style="background:rgb(36, 36, 36)">
-                            <img src="website/img/report.png" class="img-responsive" alt="Touch">
-                            <h3>รายงานภาพรวมของ อปท. ในพื้นที่จังหวัดระยอง (ด้านรายได้)</h3>
-                            <a href="download/report-01.pdf" class="btn btn-success">download</a>
-                        </div>
-
-                        <div class="item" style="background:rgb(36, 36, 36)">
-                            <img src="website/img/report.png" class="img-responsive" alt="Touch">
-                            <h3>รายงานภาพรวมของ อปท. ในพื้นที่จังหวัดระยอง (ด้านพาณิชยกรรม)</h3>
-                            <a href="download/report-02.bmp" class="btn btn-success">download</a>
-                        </div>
-
-                        <div class="item" style="background:rgb(36, 36, 36)">
-                            <img src="website/img/report.png" class="img-responsive" alt="Touch">
-                            <h3>รายงานภาพรวมของ อปท. ในพื้นที่จังหวัดระยอง (รายงานรายได้จากเกษตรกรรม)</h3>
-                            <a href="download/report-03.bmp" class="btn btn-success">download</a>
-                        </div>
-                        <div class="item" style="background:rgb(36, 36, 36)">
-                            <img src="website/img/report.png" class="img-responsive" alt="Touch">
-                            <h3>รายงานภาพรวมของ อปท. ในพื้นที่จังหวัดระยอง (รายงานรายได้จากเกษตรกรรม)</h3>
-                            <a href="download/report-03.bmp" class="btn btn-success">download</a>
-                        </div>
-                        <div class="item" style="background:rgb(36, 36, 36)">
-                            <img src="website/img/report.png" class="img-responsive" alt="Touch">
-                            <h3>รายงานผลการดำเนินงานศูนย์เคลือข่ายเพื่อแก้ไชปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น</h3>
-                            <a href="download/report-04.pdf" class="btn btn-success" disabled>download</a>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xs-6">

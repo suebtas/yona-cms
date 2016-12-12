@@ -53,12 +53,12 @@ class IndexController extends Controller
         $qb = $this->modelsManager->createBuilder();
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
-        $qb->andWhere('t.slug = :type:', ['type' => 'video']);
+        $qb->andWhere('t.slug = :type:', ['type' => 'Event']);
         $qb->andWhere('p.date <= NOW()');
         $qb->orderBy('p.date DESC');
         $qb->limit($limit);
 
-        $videos = $qb->getQuery()->execute();
+        $Events = $qb->getQuery()->execute();
 
 
         $qb = $this->modelsManager->createBuilder();
@@ -66,13 +66,29 @@ class IndexController extends Controller
         $qb->orderBy('p.ID DESC');
         $qb->limit(5);
 
+        $qb = $this->modelsManager->createBuilder();
+        $qb->addFrom('Publication\Model\Publication', 'p');
+        $qb->leftJoin('Publication\Model\Type', null, 't');
+        $qb->andWhere('t.slug = :type:', ['type' => 'Document']);
+        $qb->andWhere('p.date <= NOW()');
+        $qb->orderBy('p.date DESC');
+        $qb->limit($limit);
+
+        $Docs = $qb->getQuery()->execute();
+
+
+        $qb = $this->modelsManager->createBuilder();
+        $qb->addFrom('Clinic\Model\Post', 'p');
+        $qb->orderBy('p.ID DESC');
+        $qb->limit(5);
 
         $posts = $qb->getQuery()->execute();
 
 
         $this->view->page = $page;
         $this->view->entries = $entries;
-        $this->view->videos = $videos;
+        $this->view->Events = $Events;
+        $this->view->Docs = $Docs;
         $this->view->posts = $posts;
         $this->helper->menu->setActive('index');
 
@@ -82,7 +98,7 @@ class IndexController extends Controller
         $this->view->visits = $visit->amount;
 
     }
-    public function setAction($id){        
+    public function setAction($id){
       $this->session->set('template', $id);
       $this->redirect('/');
 

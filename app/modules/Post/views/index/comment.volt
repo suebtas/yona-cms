@@ -49,7 +49,8 @@
     <!-- block -->
 
     <div class="block">
-          <div class="bd" style="background-color:rgb(50, 50, 50);color:white">
+          <div class="bd" style="background-color:rgb(50, 50, 50);color:white;margin-bottom:0">
+            <a href="../../post/index/search?forum={{headtopic.getForumid()}}" class="btn btn-danger">ย้อนกลับ</a>
             <h1 class="thfontb" style="font-size:200%;margin-left:5%">หัวเรื่อง : {{ headtopic.getTitle() }} </h1>
           </div>
         <div class="row bd" >
@@ -61,11 +62,12 @@
                       <small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ {{ headtopic.getPostdate() }}	โดย <a href="#">{{ headtopic.getPersonnelName() }}</a> </small></p>
               </div>
           </div>
+          </div>
 
              {% if page is defined %}
 
-                <div class="row bd" style="color:rgb(54, 54, 54)">
-                      <div class="col-xs-10 thfont" style="height:100%">{{ headtopic.getDetail() }}
+                <div class="row bd" style="background-color:rgb(255, 255, 255);margin-top:0">
+                      <div class="col-xs-10 thfont">{{ headtopic.getDetail() }}
                       {% if headtopic.getFile(headtopic.getId()) != NULL %}
                         <br>
                         <b>ไฟล์แนบ:
@@ -101,10 +103,15 @@
 
   			{% set commentNumber = 1 %}
                 {% for post in page %}
-                      <div class="panel panel-info thfont" style="color:rgb(54, 54, 54)">
-                          <div class="panel-heading thfontb" id="comment{{post.getId()}}">ความเห็น #{{commentNumber}}</div>
-                          <div class="panel-body">{{ post.getDetail() }}</div>
-                          <div class="panel-footer">
+                      <div class="row bd">
+                        <div class="col-xs-10 thfont" style="font-size:120%;color:rgb(51, 51, 51)">
+                          <div class="thfontb" id="comment{{post.getId()}}">ความเห็น #{{commentNumber}}</div>
+                          <small><i>โพสเมื่อ: {{ post.getPostdate() }}</i></small>
+                            <div class="line">
+
+                            </div>
+                          <div >{{ post.getDetail() }}</div>
+                          <div>
                             <span>
                                {#{ image("post/imageprofile/"~post.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
                              </span>
@@ -119,12 +126,20 @@
                       </div>
 
                       {% for data in post.getReply(post.getId()) %}
-                        <div class="panel panel-success panel-left thfont" style="color:rgb(54, 54, 54);font-size:95%">
-                          <div class="panel-heading thfontb" id="comment{{data.getId()}}">ความเห็น #{{commentNumber}}-{{loop.index}}</div>
-                          <div class="panel-body ">
+                      <div class="row bd" style="margin-left:4%;background-color:rgb(231, 231, 231)">
+
+                        <div class="col-xs-10  thfont" style="font-size:100%;color:rgb(64, 64, 64)">
+                          <i><div class="thfontb" id="comment{{data.getId()}}">Re: ความเห็น #{{commentNumber}}-{{loop.index}}</div></i>
+                          <small><i>โพสเมื่อ: {{ data.getPostdate() }}</i></small>
+                          <div class="line">
+
+                          </div>
+                          <div>
                               {{ data.getDetail() }}
                           </div>
-                          <div class="panel-footer">
+                        </div>
+
+                          <div class="col-xs-2 text-center line-left thfont" style="font-size:100%">
                             <span>
                                {#{ image("clinic/post/imageprofile/"~data.Personnel.ImageProfileID,"width":"35px","height":"35px") }#}
                              </span>
@@ -132,11 +147,10 @@
                                 <font size="1">
                                 คุณ {{ headtopic.getPersonnelName() }}
                                 อีเมล: {{ data.personnel.Email }}
-                                โพสเมื่อ: {{ data.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
-                                </font>
-                             </span>
+                                {#โพสเมื่อ: {{ data.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
                           </div>
-                          </div>
+
+                        </div>
                       {% endfor %}
 
   				{% set commentNumber += 1 %}
