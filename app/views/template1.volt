@@ -91,16 +91,16 @@
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/Event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                        <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/Document" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                        <a class="page-scroll" href="/document" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/Links" style="color:rgb(47, 47, 47)">Links</a>
+                        <a class="page-scroll" href="/links" style="color:rgb(47, 47, 47)">Links</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
@@ -109,7 +109,7 @@
                         <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/About/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                        <a class="page-scroll" href="/about/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
