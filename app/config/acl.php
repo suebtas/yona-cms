@@ -19,6 +19,8 @@ return [
         'message/index'       => '*',
         'message/index/send'       => '*',
         'public/files' => '*',
+        'printfile/index' => '*',
+        'printfile/index/faqs' => '*',
     ],
     'member'     => [
         'index/index' => '*',

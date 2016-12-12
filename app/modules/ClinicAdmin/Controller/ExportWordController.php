@@ -276,7 +276,7 @@ class ExportWordController extends Controller
   		$result = $document->saveAs($tmp_file);   
   		//die($result);
   	 	$this->converttowordtemplate('FormNo1_',$tmp_file);
-		
+		  die();
     }
 
     public function PrintFormNo2Action()

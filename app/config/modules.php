@@ -21,4 +21,5 @@ return array(
     'Forum',
     'Post',
     'Message',
+    'Printfile',
 );
