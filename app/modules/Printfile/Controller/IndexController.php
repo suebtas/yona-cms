@@ -65,20 +65,20 @@ class IndexController extends Controller
         //die(__DIR__.'/../Form/FaqsForm.docx');
         $i = 1;
         $Faqsitems = array();
-        $quests = "";
-        $answers = "";
-        foreach ($faqs as $value) 
+        $quests = "Question1";
+        $answers = "Answer1";
+        /*foreach ($faqs as $value) 
         {
            
-            /*$Faqsitems['index'][] = $i;
-            $Faqsitems['quest'][] = $value->getTitle();
-            $Faqsitems['ans'][] = $value->getText();*/
+            //$Faqsitems['index'][] = $i;
+            //$Faqsitems['quest'][] = $value->getTitle();
+            //$Faqsitems['ans'][] = $value->getText();
 
             $quests = $quests.$i.".".$value->getTitle();
             $answers = $answers.$i.".".$value->getText();
 
             $i++;
-        }
+        }*/
         //var_dump($answers);
         //die();
         //$document->cloneRow('F', $Faqsitems);
@@ -90,6 +90,53 @@ class IndexController extends Controller
         $result = $document->saveAs($tmp_file);   
         //var_dump($result);
         $this->converttowordtemplate('FaqsPrint_',$tmp_file);
+
+        die();//var/www/phalcon/app/modules/Printfile/Controller/../Form/FaqsForm.docx
+    }
+
+    public function linksAction()
+    {
+        //$this->view->disable();
+        //parent::searchAction();
+        
+
+        $type = Type::findFirst("slug = 'Links'");
+        $links = Publication::find("type_id = {$type->id}");
+
+        $this->view->Faqs = $faqs;
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/LinksForm.docx');
+        date_default_timezone_set('Asia/Bangkok');
+        //var_dump($faqs);
+        //die(__DIR__.'/../Form/FaqsForm.docx');
+        $i = 1;
+        $Linksitems = array();
+        $titles = "IST";
+        $urls = "www.it.mut.ac.th";
+        /*foreach ($links as $value) 
+        {
+           
+            //$Linksitems['index'][] = $i;
+            //$Linksitems['quest'][] = $value->getTitle();
+            //$Linksitems['ans'][] = $value->getText();
+
+            $titles = $titles.$i.".".$value->getTitle();
+            $urls = $urls.$i.".".$value->getText();
+
+            $i++;
+        }*/
+        //var_dump($answers);
+        //die();
+        //$document->cloneRow('F', $Linksitems);
+        //$document->cloneRow('DinamicTable', $Linksitems); 
+        $document->setValue('{titles}', $titles);
+        $document->setValue('{links}', $links);
+
+        $tmp_file = 'LinksTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //var_dump($result);
+        $this->converttowordtemplate('LinksPrint_',$tmp_file);
 
         die();//var/www/phalcon/app/modules/Printfile/Controller/../Form/FaqsForm.docx
     }

@@ -58,7 +58,7 @@
             </div>
               <div class="col-xs-11 text-center">
                   <p> <span style="color:rgb(223, 81, 81);margin-right:1%"><i class="ion-icon ion-chatbox-working" style="font-size:25px"></i>{{ post.counting-1 }}Answers</span>
-                      <small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ {{ headtopic.getPostdate() }}	โดย <a href="#">{{ userName }}</a> </small></p>
+                      <small class="text-dark" style="color:rgb(171, 171, 171);margin-right:1%">ตั้งหัวข้อเมื่อวันที่ {{ headtopic.getPostdate() }}	โดย <a href="#">{{ headtopic.getPersonnelName() }}</a> </small></p>
               </div>
           </div>
 
@@ -85,7 +85,7 @@
                       <div class="col-xs-2 text-center line-left thfont">
 
                         <center><img src="/website/img/user.png" class="img-responsive" alt="" style="max-width:120px"/></center>
-                        คุณ {{ userName }} <br>
+                        คุณ {{ headtopic.getPersonnelName() }} <br>
                         อีเมล: {{ headtopic.personnel.Email }}
                        {#<span>
                          { image("clinic/post/imageprofile/"~headtopic.Personnel.ImageProfileID,"width":"35px","height":"35px") }
@@ -110,7 +110,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                  คุณ {{ userName }}
+                                  คุณ {{ headtopic.getPersonnelName() }}
                                 อีเมล: {{ post.personnel.Email }}
                                 โพสเมื่อ: {{ post.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
                                 </font>
@@ -130,7 +130,7 @@
                              </span>
                              <span>
                                 <font size="1">
-                                คุณ {{ userName }}
+                                คุณ {{ headtopic.getPersonnelName() }}
                                 อีเมล: {{ data.personnel.Email }}
                                 โพสเมื่อ: {{ data.getPostdate() }} {#% if headtopic.Status != 2 %}| {{ link_to("clinic/post/newReply/"~post.getId(), 'ตอบกลับ') }}{% endif %#}
                                 </font>
