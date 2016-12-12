@@ -109,7 +109,7 @@
                         <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                        <a class="page-scroll" href="/About/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
