@@ -132,6 +132,18 @@
         </div>
     </nav>
     {{content()}}
+    {% block flash %}
+    <section id="message" class="bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                  {{flash.output()}}
+                </div>
+            </div>
+        </div>
+      </section>
+    {% endblock %}
+    
     {% block content %}
     {% endblock %}
     {% block news %}

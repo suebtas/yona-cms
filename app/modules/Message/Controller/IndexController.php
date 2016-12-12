@@ -73,7 +73,7 @@ class IndexController extends MessageController
 
         //unset($_POST);
         
-      $this->flash->success(sprintf(self::$messageSuccess,"ข้อความส่งสำเร็จ"));
+      $this->flash->success("ข้อความส่งสำเร็จ");
 
        /*return $this->dispatcher->forward(array(
                     "controller" => "webmessage",

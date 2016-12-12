@@ -17,6 +17,8 @@
                     <p>Debug mode error details:</p>
                     {% if message %}
                         {{ message }}
+
+                    {% endif %}
                 {% endif %}
               <br><br><a href="/" class="btn btn-danger thfont">กลับสู่หน้าหลัก</a>
             </div>

@@ -2,7 +2,7 @@
 <div class="right_col" role="main">
     {{ content() }}
     <!--controls-->
-    
+    {{flash.output()}}
     <form action="{{ url.get() }}message/index/save" method="post">
         <input type="submit" value="ส่งข้อความ" class="btn btn-success">
         <table class="ui table very compact celled">
