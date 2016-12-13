@@ -25,11 +25,9 @@
 {% endblock %}
 
 {% block news %}
-
-
-
     <section id="one" class="bgtmp1">
         <div class="row bd textmar">
+
             <div class="col-xs-12 text-center">
                 <h3 class="thfontb"><marquee BEHAVIOR=SLIDE>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น  (Clinic Center) องค์การบริหารส่วนจังหวัดระยอง</marquee></h3>
             </div>
@@ -84,8 +82,7 @@
                     </div>
                     <div class="col-xs-6 ">
                         <center><span class="thfont">กิจกรรมและผลงาน</span></center>
-                        <div class="line">
-                        </div>
+                        <div class="line"></div>
                         <div id="owl-d" class="owl-carousel">
 
                             <div class="item" style="background:rgb(249, 194, 0);color:rgb(28, 28, 28)">
@@ -119,11 +116,8 @@
                 </div>
 
                 <div class="col-xs-6">
-                    <center><span class="thfont">
-            รายงานและเอกสาร
-          </span></center>
-                    <div class="line">
-                    </div>
+                    <center><span class="thfont">รายงานและเอกสาร</span></center>
+                    <div class="line"></div>
                     <div id="owl-e" class="owl-carousel">
                       {% for item in Docs %}
                       {% set image = helper.image(['id':item.getId(), 'type':'publication', 'class':"img-responsive", 'width':'300']) %}
@@ -143,11 +137,8 @@
                     </div>
                 </div>
                 <div class="col-xs-6">
-                    <center><span class="thfont">
-                กระทู้ล่าสุด
-            </span></center>
-                    <div class="line">
-                    </div>
+                    <center><span class="thfont">กระทู้ล่าสุด</span></center>
+                    <div class="line"></div>
                     <div id="owl-f" class="owl-carousel" >
 
                         {% for item in posts %}
@@ -186,8 +177,7 @@
 
 
 {% block popup%}
-<div>
-  <div id="popModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="True">
+    <div id="popModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="True">
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-body text-center bg-dark">
@@ -196,8 +186,59 @@
                       </div>
                   </div>
               </div>
+          </div>
+    </div>
+{% endblock %}
+
+
+{% block dashboard %}
+    <session  id="dashboard" style="background-color:rgb(224, 224, 224)">
+
+        <div id="dashboard_test" class="bd">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                    <!-- End .panel -->
+                        <div class="panel panel-default panelToggle panelMove panelClose panelRefresh">
+                            <!-- Start .panel -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-bar-chart"></i> สถิติการตอบแบบสำรวจ</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div id="canvas_dahs" class="mt10" style="width: 100%; height:250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                    <!-- End .panel -->
+                        <div class="panel panel-default panelToggle panelMove panelClose panelRefresh">
+                            <!-- Start .panel -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-bar-chart"></i> สถิติการตอบแบบสำรวจในแต่ละด้าน</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div id="myplaceholder" class="mt10" style="width: 100%; height:250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                    <!-- End .panel -->
+                        <div class="panel panel-default panelToggle panelMove panelClose panelRefresh">
+                            <!-- Start .panel -->
+                            <div class="panel-heading">
+                                <h4 class="panel-title"><i class="fa fa-bar-chart"></i> สถานะการยืนยันข้อมูล</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div id="myplaceholder2" class="mt10" style="width: 100%; height:250px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-</div>
+    </session>
 {% endblock %}
 
 {% block script %}
@@ -308,6 +349,20 @@
         $('#popModal').modal('show');
     });
     </script>
+
+    <!-- Flot -->
+    <script src="{{ url.path() }}clinic/vendors/Flot/jquery.flot.js"></script>
+    <script src="{{ url.path() }}clinic/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="{{ url.path() }}clinic/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="{{ url.path() }}clinic/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="{{ url.path() }}clinic/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="{{ url.path() }}clinic/js/flot/jquery.flot.orderBars.js"></script>
+    <script src="{{ url.path() }}clinic/js/flot/date.js"></script>
+    <script src="{{ url.path() }}clinic/js/flot/jquery.flot.spline.js"></script>
+    <script src="{{ url.path() }}clinic/js/flot/curvedLines.js"></script>
+    {{ assets.outputJs('modules-index-js') }}
+
 {% endblock %}
 
 
