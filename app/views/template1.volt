@@ -106,7 +106,7 @@
                         <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
                     </li>
                     <li>
-                        <a class="page-scroll" data-toggle="modal" title="A free Bootstrap video landing theme" href="#faqModal" style="color:rgb(47, 47, 47)">FAQ</a>
+                        <a class="page-scroll"  href="/faqs" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/about/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
@@ -132,7 +132,7 @@
         </div>
     </nav>
     {{content()}}
-    {% block flash %}
+    {#{% block flash %}
     <section id="message" class="bg-primary">
         <div class="container">
             <div class="row jumbotron">
@@ -143,7 +143,7 @@
             </div>
         </div>
       </section>
-    {% endblock %}
+    {% endblock %}#}
 
     {% block content %}
     {% endblock %}
