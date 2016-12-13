@@ -133,17 +133,18 @@
     </nav>
     {{content()}}
     {% block flash %}
-    <section id="message" class="bg-dark">
+    <section id="message" class="bg-primary">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                  {{flash.output()}}
+            <div class="row jumbotron">
+                <div class="col-lg-12 text-center">
+                  <h1 class="thfontb" style="color:rgb(108, 175, 0)">{{flash.output()}}</h1><br>
+                  <a href="/" class="btn btn-xl btn-success">กดที่นี่เพื่อกลับสู่หน้าหลัก</a>
                 </div>
             </div>
         </div>
       </section>
     {% endblock %}
-    
+
     {% block content %}
     {% endblock %}
     {% block news %}
