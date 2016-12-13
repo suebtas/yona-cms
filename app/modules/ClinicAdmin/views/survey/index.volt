@@ -16,6 +16,7 @@
         <th>{{ helper.at('Description') }}</th>
         <th>{{ helper.at('Start') }}</th>
         <th>{{ helper.at('End') }}</th>
+        <th>Expired</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
             <td>{{ survey.getDescription() }}</td>
             <td>{{ survey.getStart() }}</td>
             <td>{{ survey.getEnd() }}</td>
+            <td><i class="{% if survey.isExpired() %}unlock alternate icon{% else %}unlock icon{% endif %}"></i></td>
         </tr>
     {% endfor %}
     </tbody>

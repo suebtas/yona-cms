@@ -38,11 +38,6 @@ class SurveyForm extends Form
                 'required' => true,
             ]))->setLabel('End')
         );
-        $this->add(
-            (new Text('end', [
-                'required' => true,
-            ]))->setLabel('End')
-        );
 
         $this->add(
             (new Select('status', array("A" => "Active", "I" => "Inactive")))

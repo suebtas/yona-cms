@@ -15,4 +15,5 @@ $(document).ready(function() {
         //$("#"+elems[i].id).editable('option', 'disabled', true);
         $("#"+elems[i].id).editable('option', 'disabled', true);
     }
+
 });

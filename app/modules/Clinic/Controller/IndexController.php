@@ -58,8 +58,10 @@ class IndexController extends Controller
         $rows = $this->modelsManager->executeQuery($phql);
         $data = [];
         foreach ($rows as $row) {
-            $date = explode("-",$row["date"]);
-            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            if($row["date"]!=null){
+                $date = explode("-",$row["date"]);
+                $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            }
         }
         echo json_encode($data);
         
@@ -92,8 +94,10 @@ class IndexController extends Controller
             return "";
         $data = [];
         foreach ($rows as $row) {
-            $date = explode("-",$row["date"]);            
-            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            if($row["date"]!=null){
+                $date = explode("-",$row["date"]);            
+                $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            }
         }
 
         $data["label"] = $row["name"];

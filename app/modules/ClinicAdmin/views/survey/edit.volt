@@ -37,9 +37,13 @@
                 {{ form.renderDecorated('end') }}
             </div>
         </div>
-        <div class="one fields">
+        <div class="two fields">
             <div class="field">
                 {{ form.renderDecorated('status') }}
+            </div>
+            <div class="field">
+                <label for="status">Expired icon</label>
+                <div><i class="{% if model.isExpired() %}unlock alternate icon{% else %}unlock icon{% endif %}"></i></div>
             </div>
         </div>
     </div>
