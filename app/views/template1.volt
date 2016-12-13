@@ -58,6 +58,13 @@
           margin-bottom: 2%;
           border-bottom: 5px solid rgb(51, 51, 51);
       }
+      .bgtmp1{
+        background-color:rgb(0, 156, 255);
+      }
+      .textmar{
+        background-color:rgb(98, 194, 255);
+        color:white;
+      }
       {%  if session.get('template') == 1  %}
         html{
           -webkit-filter: grayscale(100%);
@@ -65,6 +72,33 @@
           filter: grayscale(100%);
         }
         {% endif %}
+        {%  if session.get('template') == 2  %}
+          .bgtmp1{
+            background-color:rgb(0, 156, 255);
+          }
+          .bg-dark{
+            background-color: #0085ff;
+          }
+          .bg-primary{
+            background-color:rgb(0, 156, 255);
+          }
+          {% endif %}
+
+          {%  if session.get('template') == 3  %}
+            .bgtmp1{
+              background-color:rgb(255, 224, 177);
+            }
+            .bg-dark{
+                background-color:#a17800;
+            }
+            .bg-primary{
+              background-color:rgb(0, 156, 255);
+            }
+            .textmar{
+              background-color:#e3b100;
+              color:white ;
+            }
+            {% endif %}
     </style>
   </head>
   <body>
@@ -91,10 +125,16 @@
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรมและผลงาน</a>
+                        <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรม</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/document" style="color:rgb(47, 47, 47)">รายงานและเอกสาร</a>
+                        <a class="page-scroll" href="/portfolio" style="color:rgb(47, 47, 47)">ผลงาน</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/report" style="color:rgb(47, 47, 47)">รายงาน</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/document" style="color:rgb(47, 47, 47)">เอกสาร</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/forum/index/search" style="color:rgb(47, 47, 47)">เว็บบอร์ด</a>
@@ -113,7 +153,6 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-
                   <li>
                       <a class="btn" href="set1" style="background-color:rgb(59, 59, 59);border-radius:0px">1</a>
                   </li>
@@ -122,6 +161,9 @@
                   </li>
                   <li>
                       <a class="btn" href="set3" style="background-color:rgb(255, 161, 0);border-radius:0px;">3</a>
+                  </li>
+                  <li>
+                      <a class="btn" href="set4" style="background-color:rgb(196, 196, 196);border-radius:0px;">D</a>
                   </li>
                     <li>
                         <a class="page-scroll" href="/admin" style="background-color:rgba(125, 209, 0, 0.51);color:rgb(47, 47, 47)">เข้าสู่ระบบ</a>

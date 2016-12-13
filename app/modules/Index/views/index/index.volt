@@ -28,8 +28,8 @@
 
 
 
-    <section id="one" style="background-color:rgb(224, 224, 224)">
-        <div class="row bd " style="background-color:rgb(98, 194, 255);color:white;">
+    <section id="one" class="bgtmp1">
+        <div class="row bd textmar">
             <div class="col-xs-12 text-center">
                 <h3 class="thfontb"><marquee BEHAVIOR=SLIDE>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น  (Clinic Center) องค์การบริหารส่วนจังหวัดระยอง</marquee></h3>
             </div>
@@ -190,7 +190,7 @@
   <div id="popModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="True">
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
-                  <div class="modal-body text-center">
+                  <div class="modal-body text-center bg-dark">
                         <center><img src="website/img/44.jpg" class="img-responsive" alt="" /></cemter>
                           <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
                       </div>

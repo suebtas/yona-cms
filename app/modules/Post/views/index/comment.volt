@@ -54,7 +54,7 @@
             <h1 class="thfontb" style="font-size:200%;margin-left:5%">หัวเรื่อง : {{ headtopic.getTitle() }} </h1>
 
         <div class="row" >
-              <div class="col-xs-12" style="margin-left:5%">
+              <div class="col-xs-12">
                   <p>
                       <small class="text-dark" style="color:rgb(171, 171, 171)">ตั้งหัวข้อเมื่อวันที่ {{ headtopic.getPostdate() }}	โดย คุณ <a href="#">{{ headtopic.getPersonnelName() }}</a> </small></p>
               </div>
@@ -71,7 +71,7 @@
                           {% if headtopic.isImageFromFile(headtopic.getFile(headtopic.getId())) %}
                             <br>
 
-                            {{ 
+                            {{
       link_to("../../files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()), image_input("src":"../../files/post/"~headtopic.getId()~"/"~headtopic.getFile(headtopic.getId()),"width":"100px","height":"100px"),"target":"_blank" )}}
 
 
