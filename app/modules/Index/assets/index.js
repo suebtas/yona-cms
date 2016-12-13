@@ -74,7 +74,7 @@ function fetchData() {
 	// files, so we need to modify the URL.
 
 	$.ajax({
-		url: "http://localhost:8080/dashboard",
+		url: "/dashboard",
 		type: "GET",
 		dataType: "json",
 		success: onDataReceived
@@ -180,7 +180,7 @@ $(function() {
 	}
 	for(i = 1;i < 10; i++){
 		$.ajax({
-			url: "http://localhost:8080/serveygroupsession"+i,
+			url: "/serveygroupsession"+i,
 			type: "GET",
 			dataType: "json",
 			success: onDataReceived2
@@ -286,7 +286,7 @@ $(function() {
 		}		
 		for(i = 1;i < 37; i++){
 			$.ajax({
-				url: "http://localhost:8080/serveygroupcomment"+i,
+				url: "/serveygroupcomment"+i,
 				type: "GET",
 				dataType: "json",
 				success: onDataReceived3
