@@ -23,7 +23,7 @@ class Routes
 
 
 
-        $router->addML('/set{type:1|2|3}', array(
+        $router->addML('/set{type:1|2|3|4}', array(
             'module' => 'index',
             'controller' => 'index',
             'action' => 'set'

@@ -29,7 +29,7 @@ class FormController extends Controller
 
         if(in_array($this->user->role, ['cc-admin','cc-approver'])) //ถ้า เป็น cc-admin และ cc-approver ให้ไปหน้า review
             return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
-
+        
         if(!$this->session->has('discovery_surveyid')){
             $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
             if($this->discoverySurvey==null){
@@ -42,15 +42,16 @@ class FormController extends Controller
             $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
             $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
         }
-
         $this->surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
 
         $this->setClinicEnvironment();
         $this->view->languages_disabled = true;
         if(!isset($this->discoverySurvey)){
-            $this->discoverySurvey = DiscoverySurvey::findFirst($this->discovery_surveyid);
+            $this->discoverySurvey = DiscoverySurvey::findFirstById($this->discovery_surveyid);
         }
+
+        $this->view->discoverySurvey = $this->discoverySurvey;
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
             ->addFilter(new \Application\Assets\Filter\Less())
@@ -60,7 +61,7 @@ class FormController extends Controller
             ->addCss(APPLICATION_PATH . '/modules/Clinic/assets/clinic.css');
             //->addCss(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.css');;
 
-
+                
         // Clinic JS Assets
         $this->assets->collection('modules-clinic-js')
             ->setLocal(true)
@@ -70,7 +71,6 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
             //->addJs(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.js');
-
 
         //กำหนดค่าใน view
         $this->view->user = $this->user;
@@ -85,6 +85,7 @@ class FormController extends Controller
         $this->discovery_surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
         $this->discoverySurvey = DiscoverySurvey::findFirst($this->discovery_surveyid);
+        $this->view->discoverySurvey = $this->discoverySurvey;
         return $this->redirect($this->url->get() . 'clinic/form/no1');
     }
     public function updateAnswer($option,$questionid, $answer, $officeid, $discovery_surveyid){
@@ -352,6 +353,7 @@ class FormController extends Controller
         if(in_array($this->user->role, ['cc-admin','cc-approver']))
             return $this->redirect($this->url->get() . 'clinic/review/no1');
         // no1 JS Assets
+
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
@@ -360,6 +362,12 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no1-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
+        
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
@@ -495,7 +503,7 @@ class FormController extends Controller
 
                 // Print the real file names and sizes
                 foreach ($this->request->getUploadedFiles() as $file) {
-                    $office = $user->Office;
+                    $office = $this->discoverySurvey->Office;//$user->Office;
                     $office->map = file_get_contents($file->getTempName());
                     $office->maptype = $file->getType();
                     $office->mapsize = $file->getSize();
@@ -800,6 +808,11 @@ class FormController extends Controller
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js');
 
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no2-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
@@ -994,6 +1007,14 @@ class FormController extends Controller
           ->setTargetUri('assets/modules-clinic-no3.js')
           ->join(true)
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
+
+
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no3-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
+
           $auth = $this->session->get('auth');
           $user = AdminUser::findFirst($auth->id);
 
@@ -1853,6 +1874,11 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no4-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
         if (!$this->request->isPost())
         {
             $this->createViewNo4();
@@ -2406,6 +2432,11 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no5-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
         if (!$this->request->isPost()) {
                 $this->createViewNo5();
 
@@ -2602,6 +2633,11 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no6-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
         if (!$this->request->isPost()) {
             $this->createViewNo6();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -3209,6 +3245,13 @@ class FormController extends Controller
           ->setTargetUri('assets/modules-clinic-no7.js')
           ->join(true)
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js');
+
+
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no7-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
           $auth = $this->session->get('auth');
           $user = AdminUser::findFirst($auth->id);
 
@@ -3851,6 +3894,11 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no8-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
         if (!$this->request->isPost()) {
               $this->createViewNo8();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -4219,6 +4267,11 @@ class FormController extends Controller
                     $auth = $this->session->get('auth');
                     $user = AdminUser::findFirst($auth->id);
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no9-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+        }
           if ($this->request->isPost()) {
               $option = $this->request->getPost("option");
               $this->view->disable();

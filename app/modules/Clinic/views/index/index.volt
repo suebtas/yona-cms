@@ -38,7 +38,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Default Example <small>Users</small></h2>
+                    <h2>ข้อมูลการสำรวจ <small>Clinic Center</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -58,7 +58,7 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                      ข้อมูลการสำรวจ Clinic Center แยกตามปีที่จัดทำ 
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
@@ -68,6 +68,7 @@
                           <th>Start date</th>
                           <th>End date</th>
                           <th>สถานะ</th>
+                          <th>icon</th>
                         </tr>
                       </thead>
 
@@ -79,7 +80,8 @@
                           <td>{{discoverySurvey.Survey.description}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfStartSurvey()}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfEndSurvey()}}</td>
-                          <td>{{discoverySurvey.getStatusName()}}</td>
+                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commenting{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
+                          <td><i class="{% if discoverySurvey.Survey.isExpired() %}fa fa-lock{% else %}fa fa-unlock{% endif %}  fa-5x"></i></td>
                         </tr>
                         {% endfor %}
                       </tbody>

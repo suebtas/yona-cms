@@ -24,7 +24,6 @@ class ReviewController extends FormController
             $this->session->set('surveyid', 1);
             $this->session->set('discovery_surveyid', 1);
         }*/
-
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
 
@@ -35,7 +34,12 @@ class ReviewController extends FormController
             }
             $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
             $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
+        }else{
+            $this->discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->session->get('discovery_surveyid'))));
+            $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
+            $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
         }
+        $this->view->discoverySurvey = $this->discoverySurvey;
         $this->surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
         
@@ -44,7 +48,6 @@ class ReviewController extends FormController
         $this->view->languages_disabled = true;
         //$this->surveyid = $this->session->get('surveyid');
         //$this->discovery_surveyid = $this->session->get('discovery_surveyid');
-        $this->discoverySurvey = DiscoverySurvey::findFirst($this->discovery_surveyid);
         $this->assets = $this->getDI()->get('assets');
         $this->assets->collection('modules-clinic-css')->setLocal(true)
             ->addFilter(new \Application\Assets\Filter\Less())
@@ -78,11 +81,10 @@ class ReviewController extends FormController
         $this->user = AdminUser::findFirst($auth->id);
         //กำหนดค่าใน view
         $this->view->user = $this->user;
-        $this->view->office =  Office::findFirst($this->discoverySurvey->officeid);    
+        $this->view->office =  $this->discoverySurvey->Office;    
         $this->view->status = $this->discoverySurvey->status;
     }
     public function no1Action(){
-
         // no1 JS Assets
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
@@ -95,6 +97,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no1-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
@@ -188,6 +194,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no2-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -333,6 +343,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no3-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -501,6 +515,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no4-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -669,6 +687,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no5-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -837,6 +859,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no6-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -906,6 +932,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no7-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1024,6 +1054,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no8-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1193,6 +1227,10 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
 
+        if($this->discoverySurvey->Survey->isExpired()){
+            $this->assets->collection('modules-clinic-no9-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');

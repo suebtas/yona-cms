@@ -38,7 +38,7 @@ class IndexController extends Controller
         $permission_member = '';
         if($auth)
             $permission_member = ',"private"';
-
+        $limit = 10;
         $qb = $this->modelsManager->createBuilder();
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
@@ -132,8 +132,10 @@ class IndexController extends Controller
             return "";
         $data = [];
         foreach ($rows as $row) {
-            $date = explode("-",$row["date"]);            
-            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            if($row["date"]!=null){
+                $date = explode("-",$row["date"]);
+                $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            }
         }
 
         $data["label"] = $row["name"];
@@ -186,8 +188,10 @@ group by s.name ";
         $rows = $this->modelsManager->executeQuery($phql);
         $data = [];
         foreach ($rows as $row) {
-            $date = explode("-",$row["date"]);
-            $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            if($row["date"]!=null){
+                $date = explode("-",$row["date"]);
+                $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
+            }
         }
         echo json_encode($data);
         

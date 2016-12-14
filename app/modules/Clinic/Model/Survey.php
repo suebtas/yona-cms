@@ -126,4 +126,13 @@ class Survey extends \Phalcon\Mvc\Model
     {
         return $this->no;
     }
+    public function isExpired()
+    {
+        $now = new \DateTime(); // Today
+        //echo $now->format('d/m/Y'); // echos today! 
+        $dateBegin = new \DateTime($this->getStart());
+        $dateEnd  = new \DateTime($this->getEnd());
+
+        return !($now->getTimestamp() > $dateBegin->getTimestamp() && $now->getTimestamp() < $dateEnd->getTimestamp());
+    }
 }
