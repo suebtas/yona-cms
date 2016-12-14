@@ -16,6 +16,8 @@
         <th>{{ helper.at('Description') }}</th>
         <th>{{ helper.at('Start') }}</th>
         <th>{{ helper.at('End') }}</th>
+        <th>{{ helper.at('Notification') }}</th>
+        <th>{{ helper.at('Active') }}</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +29,8 @@
             <td>{{ survey.getDescription() }}</td>
             <td>{{ survey.getStart() }}</td>
             <td>{{ survey.getEnd() }}</td>
+            <td>{{ survey.getNotification() }}</td>
+            <td>{{ survey.getStatus() }}</td>
         </tr>
     {% endfor %}
     </tbody>

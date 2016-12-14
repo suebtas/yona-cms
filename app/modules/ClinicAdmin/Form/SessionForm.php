@@ -31,6 +31,10 @@ class SessionForm extends Form
             (new Check('active'))
                 ->setLabel('Active')
         );
+        $this->add(
+            (new Check('extend'))
+                ->setLabel('Extended')
+        );
         /*$this->add(
             (new Select('amphur', Amphur::find(), array(
                     'using' => array(

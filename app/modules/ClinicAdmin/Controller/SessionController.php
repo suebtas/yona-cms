@@ -44,6 +44,7 @@ class SessionController extends Controller
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
+                $model->extend = isset($post["extend"])? 1 : 0;
                 if ($model->save()) {
                     $this->flash->success($this->helper->at('Session created', ['name' => $model->getName()]));
                     $this->redirect($this->url->get() . 'clinic-admin/session');
@@ -77,7 +78,7 @@ class SessionController extends Controller
             if ($form->isValid()) {
                 $model->name = $post["name"];
                 $model->active = isset($post["active"])? 1 : 0;
-                
+                $model->extend = isset($post["extend"])? 1 : 0;
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
                     return $this->redirect($this->url->get() . 'clinic-admin/session');

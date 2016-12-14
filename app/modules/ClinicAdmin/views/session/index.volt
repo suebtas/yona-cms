@@ -13,6 +13,7 @@
     <tr>
         <th>{{ helper.at('Edit') }}</th>
         <th>{{ helper.at('Name') }}</th>
+        <th>{{ helper.at('Extened') }}</th>
         <th>{{ helper.at('Active') }}</th>
     </tr>
     </thead>
@@ -22,6 +23,7 @@
             {% set url = url.get() ~ 'clinic-admin/session/edit/' ~ Session.getId() %}
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
             <td>{{ Session.getName() }}</td>
+            <td>{% if Session.getExtend() %}<i class="icon checkmark green"></i>{% endif %}</td>
             <td>{% if Session.getActive() %}<i class="icon checkmark green"></i>{% endif %}</td>
         </tr>
     {% endfor %}

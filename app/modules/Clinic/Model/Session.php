@@ -18,6 +18,7 @@ class Session extends \Phalcon\Mvc\Model
     public $name;
 
     public $active;
+    public $extend;
     /**
      * Initialize method for model.
      */
@@ -79,6 +80,11 @@ class Session extends \Phalcon\Mvc\Model
     public function getActive()
     {
         return $this->active;
+    }
+
+    public function getExtend()
+    {
+        return $this->extend;
     }
 
 }

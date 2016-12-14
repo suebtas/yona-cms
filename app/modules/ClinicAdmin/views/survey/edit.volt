@@ -39,6 +39,11 @@
         </div>
         <div class="one fields">
             <div class="field">
+                {{ form.renderDecorated('notification') }}
+            </div>
+        </div>
+        <div class="one fields">
+            <div class="field">
                 {{ form.renderDecorated('status') }}
             </div>
         </div>
