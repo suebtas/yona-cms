@@ -99,6 +99,18 @@
               color:white ;
             }
             {% endif %}
+            {%  if session.get('template') == 4  %}
+              .bgtmp1{
+                background-color:rgb(224, 224, 224);
+              }
+              .bg-dark{
+                background-color: #222;
+              }
+              .bg-primary{
+                background-color:#333;
+              }
+              {% endif %}
+
     </style>
   </head>
   <body>
