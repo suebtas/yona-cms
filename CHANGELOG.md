@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.5
+
+- จัดการข้อมูล Clinic Center
+
 ## v0.4.2
 
 - Fixed underscore getters/setters on Page and Publication modules;

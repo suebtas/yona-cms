@@ -45,6 +45,7 @@ class SurveyController extends Controller
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save()) {
+                    $model->generateDiscoverySuryver();
                     $this->flash->success($this->helper->at('Survey created', ['no' => $model->getNo()]));
                     $this->redirect($this->url->get() . 'clinic-admin/survey');
                 } else {

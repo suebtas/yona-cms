@@ -68,6 +68,8 @@
                           <th>Start date</th>
                           <th>End date</th>
                           <th>สถานะการตอบคำถาม</th>
+                          <th>สถานะการยืนยันของท้องถิ่น</th>
+                          <th>สถานะการยืนยันของจังหวัด</th>
                           <th>icon</th>
                         </tr>
                       </thead>
@@ -78,6 +80,8 @@
                           <th>Start date</th>
                           <th>End date</th>
                           <th>สถานะการตอบคำถาม</th>
+                          <th>สถานะการยืนยันของท้องถิ่น</th>
+                          <th>สถานะการยืนยันของจังหวัด</th>
                           <th>icon</th>
                         </tr>
                       </tfoot>
@@ -90,8 +94,13 @@
                           <td>{{discoverySurvey.Survey.description}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfStartSurvey()}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfEndSurvey()}}</td>
-                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commenting{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
-                          <td><i class="{% if discoverySurvey.Survey.isExpired() %}fa fa-lock{% else %}fa fa-unlock{% endif %}  fa-5x"></i></td>
+                          <td>{{discoverySurvey.getStatusWithSymbol()}}</td>
+                          {% set adminApprove = discoverySurvey.getApproval(['level=2']) %}
+                          {% set approverApprove = discoverySurvey.getApproval(['level=1']) %}
+                          <td>{%if approverApprove!=null %} {{approverApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
+                          <td>{%if adminApprove!=null %} {{adminApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start  fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
+                          <td>{{discoverySurvey.Survey.getStatusWithSymbol()}}</td>
+
                         </tr>
                         {% endfor %}
                       </tbody>

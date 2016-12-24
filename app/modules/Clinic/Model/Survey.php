@@ -2,6 +2,9 @@
 
 namespace Clinic\Model;
 
+use Clinic\Model\Office;
+use Clinic\Model\DiscoverySurvey;
+
 use Clinic\Helpers\Helper;
 class Survey extends \Phalcon\Mvc\Model
 {
@@ -134,5 +137,25 @@ class Survey extends \Phalcon\Mvc\Model
         $dateEnd  = new \DateTime($this->getEnd());
 
         return !($now->getTimestamp() > $dateBegin->getTimestamp() && $now->getTimestamp() < $dateEnd->getTimestamp());
+    }
+    public function getStatusWithSymbol(){
+        $message = '<i class="';
+        if ($this->isExpired())
+            $message .= 'fa fa-lock';
+        else 
+            $message .= 'fa fa-unlock';
+        $message .= ' fa-2x"></i>';
+        return $message;
+    }
+    public function generateDiscoverySuryver(){
+
+        $offices = Office::find("active = 1");
+        foreach($offices as $office){
+            $discover = new DiscoverySurvey();
+            $discover->officeid = $office->id;
+            $discover->surveyid = $this->id;
+            $discover->status = 0;
+            $discover->save();
+        }
     }
 }

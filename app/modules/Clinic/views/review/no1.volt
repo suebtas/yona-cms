@@ -29,9 +29,10 @@
 
        <div class="form-group">
         <div class="col-md-12 col-sm-6 col-xs-12  col-md-offset-5">
+          {{discoverySurvey.getApprovalStatus(["level=:0:","bind":[user.getLevel()]])}}
           <div id="approval" class="btn-group" data-toggle="buttons">
-              <input type="radio" name="approve" value="1"> &nbsp; ผ่าน &nbsp;
-              <input type="radio" name="approve" value="2"> ไม่ผ่าน
+              <input type="radio" name="approve" value="1" {% if discoverySurvey.getApprovalStatus(["level=:0:","bind":[user.getLevel()]])==1 %}checked{%endif%}> &nbsp; ผ่าน &nbsp;
+              <input type="radio" name="approve" value="2" {% if discoverySurvey.getApprovalStatus(["level=:0:","bind":[user.getLevel()]])==2 %}checked{%endif%}> ไม่ผ่าน
           </div>
         </div>
       </div>

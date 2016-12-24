@@ -27,7 +27,7 @@ $(document).ready(function() {
         	},
 			"columnDefs": [
 				{ "visible": false, "targets": 1 },
-				{ "width": "10%", "targets": [4,5] }
+				{ "width": "10%", "targets": [4,5,6] }
         	],
 			"order": [[ 1, 'asc' ]],
 			"drawCallback": function ( settings ) {

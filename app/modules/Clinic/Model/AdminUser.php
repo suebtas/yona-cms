@@ -139,4 +139,12 @@ class AdminUser extends \Phalcon\Mvc\Model
 
         return count($unread);
     }
+    public function getLevel(){
+        $level = null;
+        if($this->role=='cc-admin')
+            $level = 2;
+        elseif($this->role=='cc-approver')
+            $level = 1;
+        return $level;
+    }
 }

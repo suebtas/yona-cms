@@ -5,6 +5,7 @@ namespace Clinic\Model;
 class Approval extends \Phalcon\Mvc\Model
 {
 
+    static $statusName = ['กำลังกรอกข้อมูล','ผ่าน','ไม่ผ่าน'];
     /**
      *
      * @var integer
@@ -101,4 +102,23 @@ class Approval extends \Phalcon\Mvc\Model
         return parent::findFirst($parameters);
     }
 
+    public function getStatusName(){
+        if($this->status!=null)
+            return Approval::$statusName[$this->status];
+        else 
+            return Approval::$statusName[0];
+
+    }
+
+    public function getStatusWithSymbol(){
+        $message =  '<i class="';
+        if($this->status == 0)
+            $message .= "fa fa-hourglass-start";
+        elseif($this->status == 1)
+            $message .="fa fa-check";
+        elseif($this->status == 2)
+            $message .="fa fa-times";
+        $message .=' fa-2x"></i>'. $this->getStatusName();
+        return $message;
+    }
 }
