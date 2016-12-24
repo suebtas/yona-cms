@@ -108,12 +108,20 @@
                   </li>
                   -->
                   {% if user.role=='cc-admin' %}
-                  <li><a><i class="fa fa-list-alt"></i>วิเคราะห์ข้อมูล<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-area-chart"></i>วิเคราะห์ข้อมูล<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu"> 
                       <li><a href="{{ url.get() }}clinic/dataanaly">ประมวลผลข้อมูล</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-list-alt"></i>รายงาน<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu"> 
+                      <li><a href="{{ url.get() }}printfile/index/user">รายงานผู้ใช้ระบบ</a></li>
+                      <li><a href="{{ url.get() }}printfile/index/report">รายงานประจำปี</a></li>
+                      <li><a href="{{ url.get() }}printfile/index/surveystatus">รายงานสถานะการกรอกข้อมูล</a></li>
+                    </ul>
+                  </li>
                   {% endif %}
+
 
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu"> 

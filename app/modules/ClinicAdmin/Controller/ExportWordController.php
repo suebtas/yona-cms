@@ -34,16 +34,17 @@ class ExportWordController extends Controller
       	$this->discoverySurvey =  DiscoverySurvey::findFirst("id = {$this->discoverySurveyid}");
       	$this->year = $this->discoverySurvey->Survey->no;
 
+       
         $auth = $this->session->get('auth');
-        $this->user = AdminUser::findFirst($auth->id);
+        $username = AdminUser::findFirst($auth->id);
+        $this->user = $username;
         $this->view->office =  Office::findFirst($this->user->officeid);
-
 
     }
 
     public function PrintFormNo1Action()
     {
-    	
+    	      $this->view->disable();
             $no1_3_1 = $no1_3_2 = $no1_3_3 = $no1_3_4 = [];
 
             $no1_2 = Answer::findFirst(
@@ -236,52 +237,57 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-  		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo1.docx');
-  		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-  		//var_dump(($document));die();
-  		date_default_timezone_set('Asia/Bangkok');
+    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo1.docx');
+    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+    		//var_dump(($document));die();
+    		date_default_timezone_set('Asia/Bangkok');
 
-  		$document->setValue('{year}', $this->year);
-  		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-  		$document->setValue('{no1_2}', $no1_2);
-      $document->setValue('{no1_3_1}', $north);
-      $document->setValue('{no1_3_2}', $south);
-      $document->setValue('{no1_3_3}', $west);
-      $document->setValue('{no1_3_4}', $east);
-      $document->setValue('{no1_3_4}', $east);
-      $document->setValue('{no1_2_1}', $no1_2_1);
-      //$document->setValue('{no1_2_2}', $no1_2_2);
-      $document->setValue('{no1_2_1_1}', $no1_2_1_1);
-      $document->setValue('{no1_2_1_2}', $no1_2_1_2);
-      $document->setValue('{no1_2_2_1}', $no1_2_2_1);
-      $document->setValue('{no1_2_2_2}', $no1_2_2_2);
-      $document->setValue('{no1_2_3_1}', $no1_2_3_1);
-      $document->setValue('{no1_2_3_2}', $no1_2_3_2);
-      $document->setValue('{no1_2_4_1}', $no1_2_4_1);
-      $document->setValue('{no1_2_4_2}', $no1_2_4_2);
-      $document->setValue('{no1_2_5_1}', $no1_2_5_1);
-      $document->setValue('{no1_2_5_2}', $no1_2_5_2);
-      $document->setValue('{no1_2_6_1}', $no1_2_6_1);
-      $document->setValue('{no1_2_6_2}', $no1_2_6_2);
-      $document->setValue('{no1_2_7_1}', $no1_2_7_1);
-      $document->setValue('{no1_2_7_2}', $no1_2_7_2);
-      $document->setValue('{no1_2_8_1}', $no1_2_8_1);
-      $document->setValue('{no1_2_9}', $no1_2_9);
-      $document->setValue('{no1_2_10}', $no1_2_10);
-      $document->setValue('{no1_2_11}', $no1_2_11);
-      $document->setValue('{no1_2_12}', $no1_2_12);
-      $document->setValue('{no1_2_13}', $no1_2_13);
+    		$document->setValue('{year}', $this->year);
+    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
+    		$document->setValue('{no1_2}', $no1_2);
+        $document->setValue('{calno1_2}', $no1_2/625);
+        $document->setValue('{no1_3_1}', $north);
+        $document->setValue('{no1_3_2}', $south);
+        $document->setValue('{no1_3_3}', $west);
+        $document->setValue('{no1_3_4}', $east);
+        $document->setValue('{no1_3_4}', $east);
+        $document->setValue('{no1_2_1}', $no1_2_1);
+        //$document->setValue('{no1_2_2}', $no1_2_2);
+        $document->setValue('{no1_2_1_1}', $no1_2_1_1);
+        $document->setValue('{no1_2_1_2}', $no1_2_1_2);
+        $document->setValue('{no1_2_2_1}', $no1_2_2_1);
+        $document->setValue('{no1_2_2_2}', $no1_2_2_2);
+        $document->setValue('{no1_2_3_1}', $no1_2_3_1);
+        $document->setValue('{no1_2_3_2}', $no1_2_3_2);
+        $document->setValue('{no1_2_4_1}', $no1_2_4_1);
+        $document->setValue('{no1_2_4_2}', $no1_2_4_2);
+        $document->setValue('{no1_2_5_1}', $no1_2_5_1);
+        $document->setValue('{no1_2_5_2}', $no1_2_5_2);
+        $document->setValue('{no1_2_6_1}', $no1_2_6_1);
+        $document->setValue('{no1_2_6_2}', $no1_2_6_2);
+        $document->setValue('{no1_2_7_1}', $no1_2_7_1);
+        $document->setValue('{no1_2_7_2}', $no1_2_7_2);
+        $document->setValue('{no1_2_8_1}', $no1_2_8_1);
+        $document->setValue('{no1_2_9}', $no1_2_9);
+        $document->setValue('{no1_2_10}', $no1_2_10);
+        $document->setValue('{no1_2_11}', $no1_2_11);
+        $document->setValue('{no1_2_12}', $no1_2_12);
+        $document->setValue('{no1_2_13}', $no1_2_13);
 
-  		$tmp_file = 'FormNoTMP.docx';
-  		$result = $document->saveAs($tmp_file);   
-  		//die($result);
-  	 	$this->converttowordtemplate('FormNo1_',$tmp_file);
-		  die();
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
+
+    		$tmp_file = 'FormNoTMP.docx';
+    		$result = $document->saveAs($tmp_file);   
+    		//die($result);
+    	 	$this->converttowordtemplate('FormNo1_',$tmp_file);
+  		  //die();
     }
 
     public function PrintFormNo2Action()
     {
-    	
+    	 $this->view->disable();
     	 $no2_1_1 = Answer::findFirst(
                     array("questionid=?1 and discovery_surveyid=?2",
                                   "bind"=>array(
@@ -445,58 +451,61 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo2.docx');
-		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-		//var_dump(($document));die();
-		date_default_timezone_set('Asia/Bangkok');
+    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo2.docx');
+    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+    		//var_dump(($document));die();
+    		date_default_timezone_set('Asia/Bangkok');
 
-		$document->setValue('{year}', $this->year);
-		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-		$document->setValue('{no2_1_1}', $no2_1_1);
-		$document->setValue('{no2_1_2_1}', $no2_1_2_1);
-		$document->setValue('{no2_1_2_2}', $no2_1_2_2);
-		$document->setValue('{no2_1_3_1}', $no2_1_3_1);
-		$document->setValue('{no2_1_3_2}', $no2_1_3_2);
-		$document->setValue('{no2_1_4_1}', $no2_1_4_1);
-		$document->setValue('{no2_1_4_2}', $no2_1_4_2);
-		$document->setValue('{no2_1_5_1}', $no2_1_5_1);
-		$document->setValue('{no2_1_5_2}', $no2_1_5_2);
-		$document->setValue('{no2_1_5_3}', $no2_1_5_3);
-    $document->setValue('{no2_1_6}', $no2_1_6);
-    $document->setValue('{no2_2_1}', $no2_2_1);
-    $document->setValue('{no2_2_2}', $no2_2_2);
-    $document->setValue('{no2_3_1}', $no2_3_1);
-    $document->setValue('{no2_3_2}', $no2_3_2);
-    $document->setValue('{no2_3_3}', $no2_3_3);
-    $document->setValue('{no2_3_4}', $no2_3_4);
-    $document->setValue('{no2_3_5}', $no2_3_5);
-    $document->setValue('{no2_3_6}', $no2_3_6);
-    $document->setValue('{no2_3_7}', $no2_3_7);
-    $document->setValue('{no2_4_1}', $no2_4_1);
-    $document->setValue('{no2_4_2}', $no2_4_2);
-    $document->setValue('{no2_4_3}', $no2_4_3);
-    $document->setValue('{no2_4_4}', $no2_4_4);
-    $document->setValue('{no2_5_1}', $no2_5_1);
-    $document->setValue('{no2_5_2}', $no2_5_2);
-    $document->setValue('{no2_5_3}', $no2_5_3);
-    $document->setValue('{no2_5_4}', $no2_5_4);
-    $document->setValue('{no2_5_5}', $no2_5_5);
-    $document->setValue('{no2_5_6}', $no2_5_6);
-    $document->setValue('{no2_5_7}', $no2_5_7);
+    		$document->setValue('{year}', $this->year);
+    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
+    		$document->setValue('{no2_1_1}', $no2_1_1);
+    		$document->setValue('{no2_1_2_1}', $no2_1_2_1);
+    		$document->setValue('{no2_1_2_2}', $no2_1_2_2);
+    		$document->setValue('{no2_1_3_1}', $no2_1_3_1);
+    		$document->setValue('{no2_1_3_2}', $no2_1_3_2);
+    		$document->setValue('{no2_1_4_1}', $no2_1_4_1);
+    		$document->setValue('{no2_1_4_2}', $no2_1_4_2);
+    		$document->setValue('{no2_1_5_1}', $no2_1_5_1);
+    		$document->setValue('{no2_1_5_2}', $no2_1_5_2);
+    		$document->setValue('{no2_1_5_3}', $no2_1_5_3);
+        $document->setValue('{no2_1_6}', $no2_1_6);
+        $document->setValue('{no2_2_1}', $no2_2_1);
+        $document->setValue('{no2_2_2}', $no2_2_2);
+        $document->setValue('{no2_3_1}', $no2_3_1);
+        $document->setValue('{no2_3_2}', $no2_3_2);
+        $document->setValue('{no2_3_3}', $no2_3_3);
+        $document->setValue('{no2_3_4}', $no2_3_4);
+        $document->setValue('{no2_3_5}', $no2_3_5);
+        $document->setValue('{no2_3_6}', $no2_3_6);
+        $document->setValue('{no2_3_7}', $no2_3_7);
+        $document->setValue('{no2_4_1}', $no2_4_1);
+        $document->setValue('{no2_4_2}', $no2_4_2);
+        $document->setValue('{no2_4_3}', $no2_4_3);
+        $document->setValue('{no2_4_4}', $no2_4_4);
+        $document->setValue('{no2_5_1}', $no2_5_1);
+        $document->setValue('{no2_5_2}', $no2_5_2);
+        $document->setValue('{no2_5_3}', $no2_5_3);
+        $document->setValue('{no2_5_4}', $no2_5_4);
+        $document->setValue('{no2_5_5}', $no2_5_5);
+        $document->setValue('{no2_5_6}', $no2_5_6);
+        $document->setValue('{no2_5_7}', $no2_5_7);
 
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
+    		$tmp_file = 'FormNoTMP.docx';
+    		$result = $document->saveAs($tmp_file);   
+    		//die($result);
+    	 	$this->converttowordtemplate('FormNo2_',$tmp_file);
 
-		$tmp_file = 'FormNoTMP.docx';
-		$result = $document->saveAs($tmp_file);   
-		//die($result);
-	 	$this->converttowordtemplate('FormNo2_',$tmp_file);
-
-		
+        //die();
+    		
     }
 
     public function PrintFormNo3Action()
     {
-      
+        $this->view->disable();
         $no3_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -586,42 +595,46 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo3.docx');
-      //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-      //var_dump(($document));die();
-      date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo3.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-      $document->setValue('{year}', $this->year);
-      $document->setValue('{office}', $this->discoverySurvey->Office->name);
-      $document->setValue('{no3_1}', $no3_1);
-      $document->setValue('{no3_2_1}', $no3_2_1);
-      $document->setValue('{no3_2_2}', $no3_2_2);
-      $document->setValue('{no3_2_3}', $no3_2_3);
-      $document->setValue('{no3_2_4}', $no3_2_4);
-      $document->setValue('{no3_3_1}', $no3_3_1);
-      $document->setValue('{no3_3_2}', $no3_3_2);
-      $document->setValue('{no3_3_3}', $no3_3_3);
-      $document->setValue('{no3_4_1}', $no3_4_1);
-      $document->setValue('{no3_4_2}', $no3_4_2);
-      $document->setValue('{no3_4_3}', $no3_4_3);
-      $document->setValue('{no3_4_4}', $no3_4_4);
-      $document->setValue('{no3_5_1}', $no3_5_1);
-      $document->setValue('{no3_5_2}', $no3_5_2);
-      $document->setValue('{no3_6_1}', $no3_6_1);
-      $document->setValue('{no3_6_2}', $no3_6_2);
-      $document->setValue('{no3_6_3}', $no3_6_3);
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no3_1}', $no3_1);
+        $document->setValue('{no3_2_1}', $no3_2_1);
+        $document->setValue('{no3_2_2}', $no3_2_2);
+        $document->setValue('{no3_2_3}', $no3_2_3);
+        $document->setValue('{no3_2_4}', $no3_2_4);
+        $document->setValue('{no3_3_1}', $no3_3_1);
+        $document->setValue('{no3_3_2}', $no3_3_2);
+        $document->setValue('{no3_3_3}', $no3_3_3);
+        $document->setValue('{no3_4_1}', $no3_4_1);
+        $document->setValue('{no3_4_2}', $no3_4_2);
+        $document->setValue('{no3_4_3}', $no3_4_3);
+        $document->setValue('{no3_4_4}', $no3_4_4);
+        $document->setValue('{no3_5_1}', $no3_5_1);
+        $document->setValue('{no3_5_2}', $no3_5_2);
+        $document->setValue('{no3_6_1}', $no3_6_1);
+        $document->setValue('{no3_6_2}', $no3_6_2);
+        $document->setValue('{no3_6_3}', $no3_6_3);
 
-      $tmp_file = 'FormNoTMP.docx';
-      $result = $document->saveAs($tmp_file);   
-      //die($result);
-      $this->converttowordtemplate('FormNo3_',$tmp_file);
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
-    
+        $tmp_file = 'FormNoTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //die($result);
+        $this->converttowordtemplate('FormNo3_',$tmp_file);
+
+        //die();
     }
 
     public function PrintFormNo4Action()
     {
-    	
+    	     $this->view->disable();
             $no4_1 = Answer::findFirst(
                     array("questionid=?1 and discovery_surveyid=?2",
                         "bind"=>array(
@@ -1312,177 +1325,183 @@ class ExportWordController extends Controller
     	
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo4.docx');
-		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
-		//var_dump(($document));die();
-		date_default_timezone_set('Asia/Bangkok');
+    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo4.docx');
+    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
+    		//var_dump(($document));die();
+    		date_default_timezone_set('Asia/Bangkok');
 
-		$document->setValue('{year}', $this->year);
-		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-		$document->setValue('{no4_1}', $no4_1);
-		$document->setValue('{no4_2}', $no4_2);
+    		$document->setValue('{year}', $this->year);
+    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
+    		$document->setValue('{no4_1}', $no4_1);
+    		$document->setValue('{no4_2}', $no4_2);
 
-		$document->setValue('{no4_3_1}', $no4_3_1);
-		$document->setValue('{no4_3_2}', $no4_3_2);
-		$document->setValue('{no4_3_3}', $no4_3_3);
-		$document->setValue('{no4_3_4}', $no4_3_4);
-		$document->setValue('{no4_3_5}', $no4_3_5);
-		$document->setValue('{no4_3_6}', $no4_3_6);
-		$document->setValue('{no4_3_7}', $no4_3_7);
-		$document->setValue('{no4_3_8}', $no4_3_8);
+    		$document->setValue('{no4_3_1}', $no4_3_1);
+    		$document->setValue('{no4_3_2}', $no4_3_2);
+    		$document->setValue('{no4_3_3}', $no4_3_3);
+    		$document->setValue('{no4_3_4}', $no4_3_4);
+    		$document->setValue('{no4_3_5}', $no4_3_5);
+    		$document->setValue('{no4_3_6}', $no4_3_6);
+    		$document->setValue('{no4_3_7}', $no4_3_7);
+    		$document->setValue('{no4_3_8}', $no4_3_8);
 
-		$document->setValue('{no4_4_1_1}', $no4_4_1_1);
-		$document->setValue('{no4_4_1_2}', $no4_4_1_2);
-		$document->setValue('{no4_4_1_3}', $no4_4_1_3);
-		$document->setValue('{no4_4_2_1}', $no4_4_2_1);
-		$document->setValue('{no4_4_2_2}', $no4_4_2_2);
-		$document->setValue('{no4_4_2_3}', $no4_4_2_3);
-		$document->setValue('{no4_4_3_1}', $no4_4_3_1);
-		$document->setValue('{no4_4_3_2}', $no4_4_3_2);
-		$document->setValue('{no4_4_3_3}', $no4_4_3_3);
-		$document->setValue('{no4_4_4_1}', $no4_4_4_1);
-		$document->setValue('{no4_4_4_2}', $no4_4_4_2);
-		$document->setValue('{no4_4_4_3}', $no4_4_4_3);
-		$document->setValue('{no4_4_5_1}', $no4_4_5_1);
-		$document->setValue('{no4_4_5_2}', $no4_4_5_2);
-		$document->setValue('{no4_4_5_3}', $no4_4_5_3);
+    		$document->setValue('{no4_4_1_1}', $no4_4_1_1);
+    		$document->setValue('{no4_4_1_2}', $no4_4_1_2);
+    		$document->setValue('{no4_4_1_3}', $no4_4_1_3);
+    		$document->setValue('{no4_4_2_1}', $no4_4_2_1);
+    		$document->setValue('{no4_4_2_2}', $no4_4_2_2);
+    		$document->setValue('{no4_4_2_3}', $no4_4_2_3);
+    		$document->setValue('{no4_4_3_1}', $no4_4_3_1);
+    		$document->setValue('{no4_4_3_2}', $no4_4_3_2);
+    		$document->setValue('{no4_4_3_3}', $no4_4_3_3);
+    		$document->setValue('{no4_4_4_1}', $no4_4_4_1);
+    		$document->setValue('{no4_4_4_2}', $no4_4_4_2);
+    		$document->setValue('{no4_4_4_3}', $no4_4_4_3);
+    		$document->setValue('{no4_4_5_1}', $no4_4_5_1);
+    		$document->setValue('{no4_4_5_2}', $no4_4_5_2);
+    		$document->setValue('{no4_4_5_3}', $no4_4_5_3);
 
-		//die($no4_5_1_1_5);
-		$no4_5_1_1_5 = $no4_5_1_1_1 + $no4_5_1_1_2 + $no4_5_1_1_3 + $no4_5_1_1_4;
-		$document->setValue('{no4_5_1_1_1}', $no4_5_1_1_1);
-		$document->setValue('{no4_5_1_1_2}', $no4_5_1_1_2);
-		$document->setValue('{no4_5_1_1_3}', $no4_5_1_1_3);
-		$document->setValue('{no4_5_1_1_4}', $no4_5_1_1_4);
-		$document->setValue('{no4_5_1_1_5}', $no4_5_1_1_5);
+    		//die($no4_5_1_1_5);
+    		$no4_5_1_1_5 = $no4_5_1_1_1 + $no4_5_1_1_2 + $no4_5_1_1_3 + $no4_5_1_1_4;
+    		$document->setValue('{no4_5_1_1_1}', $no4_5_1_1_1);
+    		$document->setValue('{no4_5_1_1_2}', $no4_5_1_1_2);
+    		$document->setValue('{no4_5_1_1_3}', $no4_5_1_1_3);
+    		$document->setValue('{no4_5_1_1_4}', $no4_5_1_1_4);
+    		$document->setValue('{no4_5_1_1_5}', $no4_5_1_1_5);
 
-		$no4_5_1_2_5 = $no4_5_1_2_1 + $no4_5_1_2_2 + $no4_5_1_2_3 + $no4_5_1_2_4;
-		$document->setValue('{no4_5_1_2_1}', $no4_5_1_2_1);
-		$document->setValue('{no4_5_1_2_2}', $no4_5_1_2_2);
-		$document->setValue('{no4_5_1_2_3}', $no4_5_1_2_3);
-		$document->setValue('{no4_5_1_2_4}', $no4_5_1_2_4);
-		$document->setValue('{no4_5_1_2_5}', $no4_5_1_2_5);
+    		$no4_5_1_2_5 = $no4_5_1_2_1 + $no4_5_1_2_2 + $no4_5_1_2_3 + $no4_5_1_2_4;
+    		$document->setValue('{no4_5_1_2_1}', $no4_5_1_2_1);
+    		$document->setValue('{no4_5_1_2_2}', $no4_5_1_2_2);
+    		$document->setValue('{no4_5_1_2_3}', $no4_5_1_2_3);
+    		$document->setValue('{no4_5_1_2_4}', $no4_5_1_2_4);
+    		$document->setValue('{no4_5_1_2_5}', $no4_5_1_2_5);
 
-		$no4_5_1_3_5 = $no4_5_1_3_1 + $no4_5_1_3_2 + $no4_5_1_3_3 + $no4_5_1_3_4;
-		$document->setValue('{no4_5_1_3_1}', $no4_5_1_3_1);
-		$document->setValue('{no4_5_1_3_2}', $no4_5_1_3_2);
-		$document->setValue('{no4_5_1_3_3}', $no4_5_1_3_3);
-		$document->setValue('{no4_5_1_3_4}', $no4_5_1_3_4);
-		$document->setValue('{no4_5_1_3_5}', $no4_5_1_3_5);
+    		$no4_5_1_3_5 = $no4_5_1_3_1 + $no4_5_1_3_2 + $no4_5_1_3_3 + $no4_5_1_3_4;
+    		$document->setValue('{no4_5_1_3_1}', $no4_5_1_3_1);
+    		$document->setValue('{no4_5_1_3_2}', $no4_5_1_3_2);
+    		$document->setValue('{no4_5_1_3_3}', $no4_5_1_3_3);
+    		$document->setValue('{no4_5_1_3_4}', $no4_5_1_3_4);
+    		$document->setValue('{no4_5_1_3_5}', $no4_5_1_3_5);
 
-		$no4_5_1_4_5 = $no4_5_1_4_1 + $no4_5_1_4_2 + $no4_5_1_4_3 + $no4_5_1_4_4;
-		$document->setValue('{no4_5_1_4_1}', $no4_5_1_4_1);
-		$document->setValue('{no4_5_1_4_2}', $no4_5_1_4_2);
-		$document->setValue('{no4_5_1_4_3}', $no4_5_1_4_3);
-		$document->setValue('{no4_5_1_4_4}', $no4_5_1_4_4);
-		$document->setValue('{no4_5_1_4_5}', $no4_5_1_4_5);
+    		$no4_5_1_4_5 = $no4_5_1_4_1 + $no4_5_1_4_2 + $no4_5_1_4_3 + $no4_5_1_4_4;
+    		$document->setValue('{no4_5_1_4_1}', $no4_5_1_4_1);
+    		$document->setValue('{no4_5_1_4_2}', $no4_5_1_4_2);
+    		$document->setValue('{no4_5_1_4_3}', $no4_5_1_4_3);
+    		$document->setValue('{no4_5_1_4_4}', $no4_5_1_4_4);
+    		$document->setValue('{no4_5_1_4_5}', $no4_5_1_4_5);
 
-		$no4_5_2_1_5 = $no4_5_2_1_1 + $no4_5_2_1_2 + $no4_5_2_1_3 + $no4_5_2_1_4;
-		$document->setValue('{no4_5_2_1_1}', $no4_5_2_1_1);
-		$document->setValue('{no4_5_2_1_2}', $no4_5_2_1_2);
-		$document->setValue('{no4_5_2_1_3}', $no4_5_2_1_3);
-		$document->setValue('{no4_5_2_1_4}', $no4_5_2_1_4);
-		$document->setValue('{no4_5_2_1_5}', $no4_5_1_1_5);
+    		$no4_5_2_1_5 = $no4_5_2_1_1 + $no4_5_2_1_2 + $no4_5_2_1_3 + $no4_5_2_1_4;
+    		$document->setValue('{no4_5_2_1_1}', $no4_5_2_1_1);
+    		$document->setValue('{no4_5_2_1_2}', $no4_5_2_1_2);
+    		$document->setValue('{no4_5_2_1_3}', $no4_5_2_1_3);
+    		$document->setValue('{no4_5_2_1_4}', $no4_5_2_1_4);
+    		$document->setValue('{no4_5_2_1_5}', $no4_5_1_1_5);
 
-		$no4_5_2_2_5 = $no4_5_2_2_1 + $no4_5_2_2_2 + $no4_5_2_2_3 + $no4_5_2_2_4;
-		$document->setValue('{no4_5_2_2_1}', $no4_5_2_2_1);
-		$document->setValue('{no4_5_2_2_2}', $no4_5_2_2_2);
-		$document->setValue('{no4_5_2_2_3}', $no4_5_2_2_3);
-		$document->setValue('{no4_5_2_2_4}', $no4_5_2_2_4);
-		$document->setValue('{no4_5_2_2_5}', $no4_5_1_2_5);
+    		$no4_5_2_2_5 = $no4_5_2_2_1 + $no4_5_2_2_2 + $no4_5_2_2_3 + $no4_5_2_2_4;
+    		$document->setValue('{no4_5_2_2_1}', $no4_5_2_2_1);
+    		$document->setValue('{no4_5_2_2_2}', $no4_5_2_2_2);
+    		$document->setValue('{no4_5_2_2_3}', $no4_5_2_2_3);
+    		$document->setValue('{no4_5_2_2_4}', $no4_5_2_2_4);
+    		$document->setValue('{no4_5_2_2_5}', $no4_5_1_2_5);
 
-		$no4_5_2_3_5 = $no4_5_2_3_1 + $no4_5_2_3_2 + $no4_5_2_3_3 + $no4_5_2_3_4;
-		$document->setValue('{no4_5_2_3_1}', $no4_5_2_3_1);
-		$document->setValue('{no4_5_2_3_2}', $no4_5_2_3_2);
-		$document->setValue('{no4_5_2_3_3}', $no4_5_2_3_3);
-		$document->setValue('{no4_5_2_3_4}', $no4_5_2_3_4);
-		$document->setValue('{no4_5_2_3_5}', $no4_5_1_3_5);
+    		$no4_5_2_3_5 = $no4_5_2_3_1 + $no4_5_2_3_2 + $no4_5_2_3_3 + $no4_5_2_3_4;
+    		$document->setValue('{no4_5_2_3_1}', $no4_5_2_3_1);
+    		$document->setValue('{no4_5_2_3_2}', $no4_5_2_3_2);
+    		$document->setValue('{no4_5_2_3_3}', $no4_5_2_3_3);
+    		$document->setValue('{no4_5_2_3_4}', $no4_5_2_3_4);
+    		$document->setValue('{no4_5_2_3_5}', $no4_5_1_3_5);
 
-		$no4_5_2_4_5 = $no4_5_2_4_1 + $no4_5_2_4_2 + $no4_5_2_4_3 + $no4_5_2_4_4;
-		$document->setValue('{no4_5_2_4_1}', $no4_5_2_4_1);
-		$document->setValue('{no4_5_2_4_2}', $no4_5_2_4_2);
-		$document->setValue('{no4_5_2_4_3}', $no4_5_2_4_3);
-		$document->setValue('{no4_5_2_4_4}', $no4_5_2_4_4);
-		$document->setValue('{no4_5_2_4_5}', $no4_5_1_4_5);
+    		$no4_5_2_4_5 = $no4_5_2_4_1 + $no4_5_2_4_2 + $no4_5_2_4_3 + $no4_5_2_4_4;
+    		$document->setValue('{no4_5_2_4_1}', $no4_5_2_4_1);
+    		$document->setValue('{no4_5_2_4_2}', $no4_5_2_4_2);
+    		$document->setValue('{no4_5_2_4_3}', $no4_5_2_4_3);
+    		$document->setValue('{no4_5_2_4_4}', $no4_5_2_4_4);
+    		$document->setValue('{no4_5_2_4_5}', $no4_5_1_4_5);
 
-		$no4_5_3_1_5 = $no4_5_3_1_1 + $no4_5_3_1_2 + $no4_5_3_1_3 + $no4_5_3_1_4;
-		$document->setValue('{no4_5_3_1_1}', $no4_5_3_1_1);
-		$document->setValue('{no4_5_3_1_2}', $no4_5_3_1_2);
-		$document->setValue('{no4_5_3_1_3}', $no4_5_3_1_3);
-		$document->setValue('{no4_5_3_1_4}', $no4_5_3_1_4);
-		$document->setValue('{no4_5_3_1_5}', $no4_5_3_1_5);
+    		$no4_5_3_1_5 = $no4_5_3_1_1 + $no4_5_3_1_2 + $no4_5_3_1_3 + $no4_5_3_1_4;
+    		$document->setValue('{no4_5_3_1_1}', $no4_5_3_1_1);
+    		$document->setValue('{no4_5_3_1_2}', $no4_5_3_1_2);
+    		$document->setValue('{no4_5_3_1_3}', $no4_5_3_1_3);
+    		$document->setValue('{no4_5_3_1_4}', $no4_5_3_1_4);
+    		$document->setValue('{no4_5_3_1_5}', $no4_5_3_1_5);
 
-		$no4_5_3_2_5 = $no4_5_3_2_1 + $no4_5_3_2_2 + $no4_5_3_2_3 + $no4_5_3_2_4;
-		$document->setValue('{no4_5_3_2_1}', $no4_5_3_2_1);
-		$document->setValue('{no4_5_3_2_2}', $no4_5_3_2_2);
-		$document->setValue('{no4_5_3_2_3}', $no4_5_3_2_3);
-		$document->setValue('{no4_5_3_2_4}', $no4_5_3_2_4);
-		$document->setValue('{no4_5_3_2_5}', $no4_5_3_2_5);
+    		$no4_5_3_2_5 = $no4_5_3_2_1 + $no4_5_3_2_2 + $no4_5_3_2_3 + $no4_5_3_2_4;
+    		$document->setValue('{no4_5_3_2_1}', $no4_5_3_2_1);
+    		$document->setValue('{no4_5_3_2_2}', $no4_5_3_2_2);
+    		$document->setValue('{no4_5_3_2_3}', $no4_5_3_2_3);
+    		$document->setValue('{no4_5_3_2_4}', $no4_5_3_2_4);
+    		$document->setValue('{no4_5_3_2_5}', $no4_5_3_2_5);
 
-		$no4_5_3_3_5 = $no4_5_3_3_1 + $no4_5_3_3_2 + $no4_5_3_3_3 + $no4_5_3_3_4;
-		$document->setValue('{no4_5_3_3_1}', $no4_5_3_3_1);
-		$document->setValue('{no4_5_3_3_2}', $no4_5_3_3_2);
-		$document->setValue('{no4_5_3_3_3}', $no4_5_3_3_3);
-		$document->setValue('{no4_5_3_3_4}', $no4_5_3_3_4);
-		$document->setValue('{no4_5_3_3_5}', $no4_5_3_3_5);
+    		$no4_5_3_3_5 = $no4_5_3_3_1 + $no4_5_3_3_2 + $no4_5_3_3_3 + $no4_5_3_3_4;
+    		$document->setValue('{no4_5_3_3_1}', $no4_5_3_3_1);
+    		$document->setValue('{no4_5_3_3_2}', $no4_5_3_3_2);
+    		$document->setValue('{no4_5_3_3_3}', $no4_5_3_3_3);
+    		$document->setValue('{no4_5_3_3_4}', $no4_5_3_3_4);
+    		$document->setValue('{no4_5_3_3_5}', $no4_5_3_3_5);
 
-		$no4_5_3_4_5 = $no4_5_3_4_1 + $no4_5_3_4_2 + $no4_5_3_4_3 + $no4_5_3_4_4;
-		$document->setValue('{no4_5_3_4_1}', $no4_5_3_4_1);
-		$document->setValue('{no4_5_3_4_2}', $no4_5_3_4_2);
-		$document->setValue('{no4_5_3_4_3}', $no4_5_3_4_3);
-		$document->setValue('{no4_5_3_4_4}', $no4_5_3_4_4);
-		$document->setValue('{no4_5_3_4_5}', $no4_5_3_4_5);
+    		$no4_5_3_4_5 = $no4_5_3_4_1 + $no4_5_3_4_2 + $no4_5_3_4_3 + $no4_5_3_4_4;
+    		$document->setValue('{no4_5_3_4_1}', $no4_5_3_4_1);
+    		$document->setValue('{no4_5_3_4_2}', $no4_5_3_4_2);
+    		$document->setValue('{no4_5_3_4_3}', $no4_5_3_4_3);
+    		$document->setValue('{no4_5_3_4_4}', $no4_5_3_4_4);
+    		$document->setValue('{no4_5_3_4_5}', $no4_5_3_4_5);
 
-		$no4_5_4_1_5 = $no4_5_4_1_1 + $no4_5_4_1_2 + $no4_5_4_1_3 + $no4_5_4_1_4;
-		$document->setValue('{no4_5_4_1_1}', $no4_5_4_1_1);
-		$document->setValue('{no4_5_4_1_2}', $no4_5_4_1_2);
-		$document->setValue('{no4_5_4_1_3}', $no4_5_4_1_3);
-		$document->setValue('{no4_5_4_1_4}', $no4_5_4_1_4);
-		$document->setValue('{no4_5_4_1_5}', $no4_5_4_1_5);
+    		$no4_5_4_1_5 = $no4_5_4_1_1 + $no4_5_4_1_2 + $no4_5_4_1_3 + $no4_5_4_1_4;
+    		$document->setValue('{no4_5_4_1_1}', $no4_5_4_1_1);
+    		$document->setValue('{no4_5_4_1_2}', $no4_5_4_1_2);
+    		$document->setValue('{no4_5_4_1_3}', $no4_5_4_1_3);
+    		$document->setValue('{no4_5_4_1_4}', $no4_5_4_1_4);
+    		$document->setValue('{no4_5_4_1_5}', $no4_5_4_1_5);
 
-		$no4_5_4_2_5 = $no4_5_4_2_1 + $no4_5_4_2_2 + $no4_5_4_2_3 + $no4_5_4_2_4;
-		$document->setValue('{no4_5_4_2_1}', $no4_5_4_2_1);
-		$document->setValue('{no4_5_4_2_2}', $no4_5_4_2_2);
-		$document->setValue('{no4_5_4_2_3}', $no4_5_4_2_3);
-		$document->setValue('{no4_5_4_2_4}', $no4_5_4_2_4);
-		$document->setValue('{no4_5_4_2_5}', $no4_5_4_2_5);
+    		$no4_5_4_2_5 = $no4_5_4_2_1 + $no4_5_4_2_2 + $no4_5_4_2_3 + $no4_5_4_2_4;
+    		$document->setValue('{no4_5_4_2_1}', $no4_5_4_2_1);
+    		$document->setValue('{no4_5_4_2_2}', $no4_5_4_2_2);
+    		$document->setValue('{no4_5_4_2_3}', $no4_5_4_2_3);
+    		$document->setValue('{no4_5_4_2_4}', $no4_5_4_2_4);
+    		$document->setValue('{no4_5_4_2_5}', $no4_5_4_2_5);
 
-		$no4_5_4_3_5 = $no4_5_4_3_1 + $no4_5_4_3_2 + $no4_5_4_3_3 + $no4_5_4_3_4;
-		$document->setValue('{no4_5_4_3_1}', $no4_5_4_3_1);
-		$document->setValue('{no4_5_4_3_2}', $no4_5_4_3_2);
-		$document->setValue('{no4_5_4_3_3}', $no4_5_4_3_3);
-		$document->setValue('{no4_5_4_3_4}', $no4_5_4_3_4);
-		$document->setValue('{no4_5_4_3_5}', $no4_5_4_3_5);
+    		$no4_5_4_3_5 = $no4_5_4_3_1 + $no4_5_4_3_2 + $no4_5_4_3_3 + $no4_5_4_3_4;
+    		$document->setValue('{no4_5_4_3_1}', $no4_5_4_3_1);
+    		$document->setValue('{no4_5_4_3_2}', $no4_5_4_3_2);
+    		$document->setValue('{no4_5_4_3_3}', $no4_5_4_3_3);
+    		$document->setValue('{no4_5_4_3_4}', $no4_5_4_3_4);
+    		$document->setValue('{no4_5_4_3_5}', $no4_5_4_3_5);
 
-		$no4_5_4_4_5 = $no4_5_4_4_1 + $no4_5_4_4_2 + $no4_5_4_4_3 + $no4_5_4_4_4;
-		$document->setValue('{no4_5_4_4_1}', $no4_5_4_4_1);
-		$document->setValue('{no4_5_4_4_2}', $no4_5_4_4_2);
-		$document->setValue('{no4_5_4_4_3}', $no4_5_4_4_3);
-		$document->setValue('{no4_5_4_4_4}', $no4_5_4_4_4);
-		$document->setValue('{no4_5_4_4_5}', $no4_5_4_4_5);
+    		$no4_5_4_4_5 = $no4_5_4_4_1 + $no4_5_4_4_2 + $no4_5_4_4_3 + $no4_5_4_4_4;
+    		$document->setValue('{no4_5_4_4_1}', $no4_5_4_4_1);
+    		$document->setValue('{no4_5_4_4_2}', $no4_5_4_4_2);
+    		$document->setValue('{no4_5_4_4_3}', $no4_5_4_4_3);
+    		$document->setValue('{no4_5_4_4_4}', $no4_5_4_4_4);
+    		$document->setValue('{no4_5_4_4_5}', $no4_5_4_4_5);
 
-		$document->setValue('{no4_6_1}', $no4_6_1);
-		$document->setValue('{no4_6_2}', $no4_6_2);
-		$document->setValue('{no4_6_3}', $no4_6_3);
-		$document->setValue('{no4_6_4}', $no4_6_4);
-		$document->setValue('{no4_6_5}', $no4_6_5);
-		$document->setValue('{no4_6_6}', $no4_6_6);
-		$document->setValue('{no4_6_7}', $no4_6_7);
-		$document->setValue('{no4_6_8_1}', $no4_6_8_1);
-		$document->setValue('{no4_6_8_2}', $no4_6_8_2);
-		//die();
+    		$document->setValue('{no4_6_1}', $no4_6_1);
+    		$document->setValue('{no4_6_2}', $no4_6_2);
+    		$document->setValue('{no4_6_3}', $no4_6_3);
+    		$document->setValue('{no4_6_4}', $no4_6_4);
+    		$document->setValue('{no4_6_5}', $no4_6_5);
+    		$document->setValue('{no4_6_6}', $no4_6_6);
+    		$document->setValue('{no4_6_7}', $no4_6_7);
+    		$document->setValue('{no4_6_8_1}', $no4_6_8_1);
+    		$document->setValue('{no4_6_8_2}', $no4_6_8_2);
+    		//die();
 
-		$tmp_file = 'FormNoTMP.docx';
-		$result = $document->saveAs($tmp_file);   
-		//die($result);
-	 	$this->converttowordtemplate('FormNo4_',$tmp_file);
+        $document->setValue('{user}',$this->user->name);
+          $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+          $document->setValue('{approver}',$approver->name);
 
+    		$tmp_file = 'FormNoTMP.docx';
+    		$result = $document->saveAs($tmp_file);   
+    		//die($result);
+    	 	$this->converttowordtemplate('FormNo4_',$tmp_file);
+
+        //die();
 		
     }
 
     public function PrintFormNo5Action()
     {
 
-		$no5_1_1_1 = Answer::findFirst(
+		    $this->view->disable();
+        $no5_1_1_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
                                 1=>188,
@@ -1707,68 +1726,72 @@ class ExportWordController extends Controller
     	//die();
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo5.docx');
-		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo5.docx');
-		//var_dump(($document));die();
-		date_default_timezone_set('Asia/Bangkok');
+    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo5.docx');
+    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo5.docx');
+    		//var_dump(($document));die();
+    		date_default_timezone_set('Asia/Bangkok');
 
-		$document->setValue('{year}', $this->year);
-		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-		$document->setValue('{no5_1_1_1}', $no5_1_1_1);
-		$document->setValue('{no5_1_1_2}', $no5_1_1_2);
-		$document->setValue('{no5_1_2_1}', $no5_1_2_1);
-		$document->setValue('{no5_1_2_2}', $no5_1_2_2);
-		$document->setValue('{no5_1_3_1}', $no5_1_3_1);
-		$document->setValue('{no5_1_3_2}', $no5_1_3_2);
+    		$document->setValue('{year}', $this->year);
+    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
+    		$document->setValue('{no5_1_1_1}', $no5_1_1_1);
+    		$document->setValue('{no5_1_1_2}', $no5_1_1_2);
+    		$document->setValue('{no5_1_2_1}', $no5_1_2_1);
+    		$document->setValue('{no5_1_2_2}', $no5_1_2_2);
+    		$document->setValue('{no5_1_3_1}', $no5_1_3_1);
+    		$document->setValue('{no5_1_3_2}', $no5_1_3_2);
 
-		$document->setValue('{no5_2}', $no5_2);
+    		$document->setValue('{no5_2}', $no5_2);
 
-		$document->setValue('{no5_3_1}', $no5_3_1);
-		$document->setValue('{no5_3_2}', $no5_3_2);
-		$document->setValue('{no5_3_3}', $no5_3_3);
-		$document->setValue('{no5_3_4}', $no5_3_4);
-		$document->setValue('{no5_3_5}', $no5_3_5);
-		$document->setValue('{no5_3_6}', $no5_3_6);
-		$document->setValue('{no5_3_7}', $no5_3_7);
-		$document->setValue('{no5_3_8}', $no5_3_8);
-		$document->setValue('{no5_3_9}', $no5_3_9);
-		$document->setValue('{no5_3_10_1}', $no5_3_10_1);
-		$document->setValue('{no5_3_10_2}', $no5_3_10_2);
+    		$document->setValue('{no5_3_1}', $no5_3_1);
+    		$document->setValue('{no5_3_2}', $no5_3_2);
+    		$document->setValue('{no5_3_3}', $no5_3_3);
+    		$document->setValue('{no5_3_4}', $no5_3_4);
+    		$document->setValue('{no5_3_5}', $no5_3_5);
+    		$document->setValue('{no5_3_6}', $no5_3_6);
+    		$document->setValue('{no5_3_7}', $no5_3_7);
+    		$document->setValue('{no5_3_8}', $no5_3_8);
+    		$document->setValue('{no5_3_9}', $no5_3_9);
+    		$document->setValue('{no5_3_10_1}', $no5_3_10_1);
+    		$document->setValue('{no5_3_10_2}', $no5_3_10_2);
 
-		$document->setValue('{no5_4_1_1}', $no5_4_1_1);
-		$document->setValue('{no5_4_1_2}', $no5_4_1_2);
-		$document->setValue('{no5_4_1_3}', $no5_4_1_3);
-		$document->setValue('{no5_4_2_1}', $no5_4_2_1);
-		$document->setValue('{no5_4_2_2}', $no5_4_2_2);
-		$document->setValue('{no5_4_2_3}', $no5_4_2_3);
-		$document->setValue('{no5_4_3_1}', $no5_4_3_1);
-		$document->setValue('{no5_4_3_2}', $no5_4_3_2);
-		$document->setValue('{no5_4_3_3}', $no5_4_3_3);
-		$document->setValue('{no5_4_4}', $no5_4_4);
+    		$document->setValue('{no5_4_1_1}', $no5_4_1_1);
+    		$document->setValue('{no5_4_1_2}', $no5_4_1_2);
+    		$document->setValue('{no5_4_1_3}', $no5_4_1_3);
+    		$document->setValue('{no5_4_2_1}', $no5_4_2_1);
+    		$document->setValue('{no5_4_2_2}', $no5_4_2_2);
+    		$document->setValue('{no5_4_2_3}', $no5_4_2_3);
+    		$document->setValue('{no5_4_3_1}', $no5_4_3_1);
+    		$document->setValue('{no5_4_3_2}', $no5_4_3_2);
+    		$document->setValue('{no5_4_3_3}', $no5_4_3_3);
+    		$document->setValue('{no5_4_4}', $no5_4_4);
 
-		$document->setValue('{no5_5_1_1}', $no5_5_1_1);
-		$document->setValue('{no5_5_1_2}', $no5_5_1_2);
-		$document->setValue('{no5_5_2_1}', $no5_5_2_1);
-		$document->setValue('{no5_5_2_2}', $no5_5_2_2);
+    		$document->setValue('{no5_5_1_1}', $no5_5_1_1);
+    		$document->setValue('{no5_5_1_2}', $no5_5_1_2);
+    		$document->setValue('{no5_5_2_1}', $no5_5_2_1);
+    		$document->setValue('{no5_5_2_2}', $no5_5_2_2);
 
-		$document->setValue('{no5_6_1}', $no5_6_1);
-		$document->setValue('{no5_6_2}', $no5_6_2);
-		$document->setValue('{no5_6_3}', $no5_6_3);
-		$document->setValue('{no5_6_4}', $no5_6_4);
-		$document->setValue('{no5_6_5}', $no5_6_5);
+    		$document->setValue('{no5_6_1}', $no5_6_1);
+    		$document->setValue('{no5_6_2}', $no5_6_2);
+    		$document->setValue('{no5_6_3}', $no5_6_3);
+    		$document->setValue('{no5_6_4}', $no5_6_4);
+    		$document->setValue('{no5_6_5}', $no5_6_5);
 
-		$tmp_file = 'FormNoTMP.docx';
-		$result = $document->saveAs($tmp_file);   
-		//die($result);
-	 	$this->converttowordtemplate('FormNo5_',$tmp_file);
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
-		//die();
+    		$tmp_file = 'FormNoTMP.docx';
+    		$result = $document->saveAs($tmp_file);   
+    		//die($result);
+    	 	$this->converttowordtemplate('FormNo5_',$tmp_file);
+
+    		//die();
     }
 
     public function PrintFormNo6Action()
     {
     	
-
+      $this->view->disable();
     	$no6_1 = Answer::findFirst(
                 array("questionid=?1 and discovery_surveyid=?2",
                     "bind"=>array(
@@ -1817,34 +1840,38 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo6.docx');
-		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
-		//var_dump(($document));die();
-		date_default_timezone_set('Asia/Bangkok');
+    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo6.docx');
+    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo6.docx');
+    		//var_dump(($document));die();
+    		date_default_timezone_set('Asia/Bangkok');
 
-		$document->setValue('{year}', $this->year);
-		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-		$document->setValue('{no6_1}', $no6_1);
-		$document->setValue('{no6_2}', $no6_2);
-		$document->setValue('{no6_3}', $no6_3);
-		$document->setValue('{no6_4}', $no6_4);
-		$document->setValue('{no6_5}', $no6_5);
-		$document->setValue('{no6_6}', $no6_6);
-		$document->setValue('{no6_7}', $no6_7);
-		$document->setValue('{no6_8}', $no6_8);
-		$document->setValue('{no6_9}', $no6_9);
+    		$document->setValue('{year}', $this->year);
+    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
+    		$document->setValue('{no6_1}', $no6_1);
+    		$document->setValue('{no6_2}', $no6_2);
+    		$document->setValue('{no6_3}', $no6_3);
+    		$document->setValue('{no6_4}', $no6_4);
+    		$document->setValue('{no6_5}', $no6_5);
+    		$document->setValue('{no6_6}', $no6_6);
+    		$document->setValue('{no6_7}', $no6_7);
+    		$document->setValue('{no6_8}', $no6_8);
+    		$document->setValue('{no6_9}', $no6_9);
 
-		$tmp_file = 'FormNoTMP.docx';
-		$result = $document->saveAs($tmp_file);   
-		//die($result);
-	 	$this->converttowordtemplate('FormNo6_',$tmp_file);
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
-		
+    		$tmp_file = 'FormNoTMP.docx';
+    		$result = $document->saveAs($tmp_file);   
+    		//die($result);
+    	 	$this->converttowordtemplate('FormNo6_',$tmp_file);
+
+    		//die();
     }
 
     public function PrintFormNo7Action()
     {
-      
+      $this->view->disable();
       $no7_1 = Answer::findFirst(
                 array("questionid=?1 and discovery_surveyid=?2",
                     "bind"=>array(
@@ -2294,124 +2321,126 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo7.docx');
-      //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-      //var_dump(($document));die();
-      date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo7.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-      $document->setValue('{year}', $this->year);
-      $document->setValue('{office}', $this->discoverySurvey->Office->name);
-      $document->setValue('{no7_1}', $no7_1);
-      $document->setValue('{no7_2_1}', $no7_2_1);
-      $document->setValue('{no7_2_2}', $no7_2_2);
-      $document->setValue('{no7_2_3}', $no7_2_3);
-      $document->setValue('{no7_3}', $no7_3);
-      $document->setValue('{no7_3_1_1}', $no7_3_1_1);
-      $document->setValue('{no7_3_1_2}', $no7_3_1_2);
-      $document->setValue('{no7_3_1_3}', $no7_3_1_3);
-      $document->setValue('{no7_3_1_4}', $no7_3_1_4);
-      $document->setValue('{no7_3_2_1}', $no7_3_2_1);
-      $document->setValue('{no7_3_2_2}', $no7_3_2_2);
-      $document->setValue('{no7_3_2_3}', $no7_3_2_3);
-      $document->setValue('{no7_3_2_4}', $no7_3_2_4);
-      $document->setValue('{no7_3_3_1}', $no7_3_3_1);
-      $document->setValue('{no7_3_3_2}', $no7_3_3_2);
-      $document->setValue('{no7_3_3_3}', $no7_3_3_3);
-      $document->setValue('{no7_3_3_4}', $no7_3_3_4);
-      $document->setValue('{no7_3_4_1}', $no7_3_4_1);
-      $document->setValue('{no7_3_4_2}', $no7_3_4_2);
-      $document->setValue('{no7_3_4_3}', $no7_3_4_3);
-      $document->setValue('{no7_3_4_4}', $no7_3_4_4);
-      $document->setValue('{no7_3_5_1}', $no7_3_5_1);
-      $document->setValue('{no7_3_5_2}', $no7_3_5_2);
-      $document->setValue('{no7_3_5_3}', $no7_3_5_3);
-      $document->setValue('{no7_3_5_4}', $no7_3_5_4);
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no7_1}', $no7_1);
+        $document->setValue('{no7_2_1}', $no7_2_1);
+        $document->setValue('{no7_2_2}', $no7_2_2);
+        $document->setValue('{no7_2_3}', $no7_2_3);
+        $document->setValue('{no7_3}', $no7_3);
+        $document->setValue('{no7_3_1_1}', $no7_3_1_1);
+        $document->setValue('{no7_3_1_2}', $no7_3_1_2);
+        $document->setValue('{no7_3_1_3}', $no7_3_1_3);
+        $document->setValue('{no7_3_1_4}', $no7_3_1_4);
+        $document->setValue('{no7_3_2_1}', $no7_3_2_1);
+        $document->setValue('{no7_3_2_2}', $no7_3_2_2);
+        $document->setValue('{no7_3_2_3}', $no7_3_2_3);
+        $document->setValue('{no7_3_2_4}', $no7_3_2_4);
+        $document->setValue('{no7_3_3_1}', $no7_3_3_1);
+        $document->setValue('{no7_3_3_2}', $no7_3_3_2);
+        $document->setValue('{no7_3_3_3}', $no7_3_3_3);
+        $document->setValue('{no7_3_3_4}', $no7_3_3_4);
+        $document->setValue('{no7_3_4_1}', $no7_3_4_1);
+        $document->setValue('{no7_3_4_2}', $no7_3_4_2);
+        $document->setValue('{no7_3_4_3}', $no7_3_4_3);
+        $document->setValue('{no7_3_4_4}', $no7_3_4_4);
+        $document->setValue('{no7_3_5_1}', $no7_3_5_1);
+        $document->setValue('{no7_3_5_2}', $no7_3_5_2);
+        $document->setValue('{no7_3_5_3}', $no7_3_5_3);
+        $document->setValue('{no7_3_5_4}', $no7_3_5_4);
 
-      $document->setValue('{no7_4}', $no7_4);
-      $document->setValue('{no7_4_1_1}', $no7_4_1_1);
-      $document->setValue('{no7_4_1_2}', $no7_4_1_2);
-      $document->setValue('{no7_4_1_3}', $no7_4_1_3);
-      $document->setValue('{no7_4_1_4}', $no7_4_1_4);
-      $document->setValue('{no7_4_2_1}', $no7_4_2_1);
-      $document->setValue('{no7_4_2_2}', $no7_4_2_2);
-      $document->setValue('{no7_4_2_3}', $no7_4_2_3);
-      $document->setValue('{no7_4_2_4}', $no7_4_2_4);
-      $document->setValue('{no7_4_3_1}', $no7_4_3_1);
-      $document->setValue('{no7_4_3_2}', $no7_4_3_2);
-      $document->setValue('{no7_4_3_3}', $no7_4_3_3);
-      $document->setValue('{no7_4_3_4}', $no7_4_3_4);
-      $document->setValue('{no7_4_4_1}', $no7_4_4_1);
-      $document->setValue('{no7_4_4_2}', $no7_4_4_2);
-      $document->setValue('{no7_4_4_3}', $no7_4_4_3);
-      $document->setValue('{no7_4_4_4}', $no7_4_4_4);
-      $document->setValue('{no7_4_5_1}', $no7_4_5_1);
-      $document->setValue('{no7_4_5_2}', $no7_4_5_2);
-      $document->setValue('{no7_4_5_3}', $no7_4_5_3);
-      $document->setValue('{no7_4_5_4}', $no7_4_5_4);
+        $document->setValue('{no7_4}', $no7_4);
+        $document->setValue('{no7_4_1_1}', $no7_4_1_1);
+        $document->setValue('{no7_4_1_2}', $no7_4_1_2);
+        $document->setValue('{no7_4_1_3}', $no7_4_1_3);
+        $document->setValue('{no7_4_1_4}', $no7_4_1_4);
+        $document->setValue('{no7_4_2_1}', $no7_4_2_1);
+        $document->setValue('{no7_4_2_2}', $no7_4_2_2);
+        $document->setValue('{no7_4_2_3}', $no7_4_2_3);
+        $document->setValue('{no7_4_2_4}', $no7_4_2_4);
+        $document->setValue('{no7_4_3_1}', $no7_4_3_1);
+        $document->setValue('{no7_4_3_2}', $no7_4_3_2);
+        $document->setValue('{no7_4_3_3}', $no7_4_3_3);
+        $document->setValue('{no7_4_3_4}', $no7_4_3_4);
+        $document->setValue('{no7_4_4_1}', $no7_4_4_1);
+        $document->setValue('{no7_4_4_2}', $no7_4_4_2);
+        $document->setValue('{no7_4_4_3}', $no7_4_4_3);
+        $document->setValue('{no7_4_4_4}', $no7_4_4_4);
+        $document->setValue('{no7_4_5_1}', $no7_4_5_1);
+        $document->setValue('{no7_4_5_2}', $no7_4_5_2);
+        $document->setValue('{no7_4_5_3}', $no7_4_5_3);
+        $document->setValue('{no7_4_5_4}', $no7_4_5_4);
 
-      $document->setValue('{no7_5}', $no7_5);
-      $document->setValue('{no7_5_1_1}', $no7_5_1_1);
-      $document->setValue('{no7_5_1_2}', $no7_5_1_2);
-      $document->setValue('{no7_5_1_3}', $no7_5_1_3);
-      $document->setValue('{no7_5_1_4}', $no7_5_1_4);
-      $document->setValue('{no7_5_2_1}', $no7_5_2_1);
-      $document->setValue('{no7_5_2_2}', $no7_5_2_2);
-      $document->setValue('{no7_5_2_3}', $no7_5_2_3);
-      $document->setValue('{no7_5_2_4}', $no7_5_2_4);
-      $document->setValue('{no7_5_3_1}', $no7_5_3_1);
-      $document->setValue('{no7_5_3_2}', $no7_5_3_2);
-      $document->setValue('{no7_5_3_3}', $no7_5_3_3);
-      $document->setValue('{no7_5_3_4}', $no7_5_3_4);
-      $document->setValue('{no7_5_4_1}', $no7_5_4_1);
-      $document->setValue('{no7_5_4_2}', $no7_5_4_2);
-      $document->setValue('{no7_5_4_3}', $no7_5_4_3);
-      $document->setValue('{no7_5_4_4}', $no7_5_4_4);
-      $document->setValue('{no7_5_5_1}', $no7_5_5_1);
-      $document->setValue('{no7_5_5_2}', $no7_5_5_2);
-      $document->setValue('{no7_5_5_3}', $no7_5_5_3);
-      $document->setValue('{no7_5_5_4}', $no7_5_5_4);
+        $document->setValue('{no7_5}', $no7_5);
+        $document->setValue('{no7_5_1_1}', $no7_5_1_1);
+        $document->setValue('{no7_5_1_2}', $no7_5_1_2);
+        $document->setValue('{no7_5_1_3}', $no7_5_1_3);
+        $document->setValue('{no7_5_1_4}', $no7_5_1_4);
+        $document->setValue('{no7_5_2_1}', $no7_5_2_1);
+        $document->setValue('{no7_5_2_2}', $no7_5_2_2);
+        $document->setValue('{no7_5_2_3}', $no7_5_2_3);
+        $document->setValue('{no7_5_2_4}', $no7_5_2_4);
+        $document->setValue('{no7_5_3_1}', $no7_5_3_1);
+        $document->setValue('{no7_5_3_2}', $no7_5_3_2);
+        $document->setValue('{no7_5_3_3}', $no7_5_3_3);
+        $document->setValue('{no7_5_3_4}', $no7_5_3_4);
+        $document->setValue('{no7_5_4_1}', $no7_5_4_1);
+        $document->setValue('{no7_5_4_2}', $no7_5_4_2);
+        $document->setValue('{no7_5_4_3}', $no7_5_4_3);
+        $document->setValue('{no7_5_4_4}', $no7_5_4_4);
+        $document->setValue('{no7_5_5_1}', $no7_5_5_1);
+        $document->setValue('{no7_5_5_2}', $no7_5_5_2);
+        $document->setValue('{no7_5_5_3}', $no7_5_5_3);
+        $document->setValue('{no7_5_5_4}', $no7_5_5_4);
 
-      $document->setValue('{no7_6}', $no7_6);
-      $document->setValue('{no7_6_1_1}', $no7_6_1_1);
-      $document->setValue('{no7_6_1_2}', $no7_6_1_2);
-      $document->setValue('{no7_6_1_3}', $no7_6_1_3);
-      $document->setValue('{no7_6_1_4}', $no7_6_1_4);
-      $document->setValue('{no7_6_2_1}', $no7_6_2_1);
-      $document->setValue('{no7_6_2_2}', $no7_6_2_2);
-      $document->setValue('{no7_6_2_3}', $no7_6_2_3);
-      $document->setValue('{no7_6_2_4}', $no7_6_2_4);
-      $document->setValue('{no7_6_3_1}', $no7_6_3_1);
-      $document->setValue('{no7_6_3_2}', $no7_6_3_2);
-      $document->setValue('{no7_6_3_3}', $no7_6_3_3);
-      $document->setValue('{no7_6_3_4}', $no7_6_3_4);
-      $document->setValue('{no7_6_4_1}', $no7_6_4_1);
-      $document->setValue('{no7_6_4_2}', $no7_6_4_2);
-      $document->setValue('{no7_6_4_3}', $no7_6_4_3);
-      $document->setValue('{no7_6_4_4}', $no7_6_4_4);
-      $document->setValue('{no7_6_5_1}', $no7_6_5_1);
-      $document->setValue('{no7_6_5_2}', $no7_6_5_2);
-      $document->setValue('{no7_6_5_3}', $no7_6_5_3);
-      $document->setValue('{no7_6_5_4}', $no7_6_5_4);
+        $document->setValue('{no7_6}', $no7_6);
+        $document->setValue('{no7_6_1_1}', $no7_6_1_1);
+        $document->setValue('{no7_6_1_2}', $no7_6_1_2);
+        $document->setValue('{no7_6_1_3}', $no7_6_1_3);
+        $document->setValue('{no7_6_1_4}', $no7_6_1_4);
+        $document->setValue('{no7_6_2_1}', $no7_6_2_1);
+        $document->setValue('{no7_6_2_2}', $no7_6_2_2);
+        $document->setValue('{no7_6_2_3}', $no7_6_2_3);
+        $document->setValue('{no7_6_2_4}', $no7_6_2_4);
+        $document->setValue('{no7_6_3_1}', $no7_6_3_1);
+        $document->setValue('{no7_6_3_2}', $no7_6_3_2);
+        $document->setValue('{no7_6_3_3}', $no7_6_3_3);
+        $document->setValue('{no7_6_3_4}', $no7_6_3_4);
+        $document->setValue('{no7_6_4_1}', $no7_6_4_1);
+        $document->setValue('{no7_6_4_2}', $no7_6_4_2);
+        $document->setValue('{no7_6_4_3}', $no7_6_4_3);
+        $document->setValue('{no7_6_4_4}', $no7_6_4_4);
+        $document->setValue('{no7_6_5_1}', $no7_6_5_1);
+        $document->setValue('{no7_6_5_2}', $no7_6_5_2);
+        $document->setValue('{no7_6_5_3}', $no7_6_5_3);
+        $document->setValue('{no7_6_5_4}', $no7_6_5_4);
 
-      $document->setValue('{no7_7}', $no7_7);
-      $document->setValue('{no7_8}', $no7_8);
-      $document->setValue('{no7_9}', $no7_9);
-      $document->setValue('{no7_10}', $no7_10);
-      $document->setValue('{no7_11}', $no7_11);
+        $document->setValue('{no7_7}', $no7_7);
+        $document->setValue('{no7_8}', $no7_8);
+        $document->setValue('{no7_9}', $no7_9);
+        $document->setValue('{no7_10}', $no7_10);
+        $document->setValue('{no7_11}', $no7_11);
 
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
+        $tmp_file = 'FormNoTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //die($result);
+        $this->converttowordtemplate('FormNo7_',$tmp_file);
 
-      $tmp_file = 'FormNoTMP.docx';
-      $result = $document->saveAs($tmp_file);   
-      //die($result);
-      $this->converttowordtemplate('FormNo7_',$tmp_file);
-
-    
+        //die();
     }
 
     public function PrintFormNo8Action()
     {
-      
+      $this->view->disable();
       $no8_1_1_1 = Answer::findFirst(
               array("questionid=?1 and discovery_surveyid=?2",
                   "bind"=>array(
@@ -2784,90 +2813,93 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo8.docx');
-      //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-      //var_dump(($document));die();
-      date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo8.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-      $document->setValue('{year}', $this->year);
-      $document->setValue('{office}', $this->discoverySurvey->Office->name);
-      $document->setValue('{no8_1_1_1}', $no8_1_1_1);
-      $document->setValue('{no8_1_1_2}', $no8_1_1_2);
-      $document->setValue('{no8_1_2}', $no8_1_2);
-      $document->setValue('{no8_1_3}', $no8_1_3);
-      $document->setValue('{no8_1_4}', $no8_1_4);
-      $document->setValue('{no8_2_1_1}', $no8_2_1_1);
-      $document->setValue('{no8_2_1_2}', $no8_2_1_2);
-      $document->setValue('{no8_2_1_3}', $no8_2_1_3);
-      $document->setValue('{no8_2_2_1}', $no8_2_3_1);
-      $document->setValue('{no8_2_2_2}', $no8_2_3_2);
-      $document->setValue('{no8_2_2_3}', $no8_2_3_3);
-      $document->setValue('{no8_2_3_1}', $no8_2_3_1);
-      $document->setValue('{no8_2_3_2}', $no8_2_3_2);
-      $document->setValue('{no8_2_3_3}', $no8_2_3_3);
-      $document->setValue('{no8_4}', $no8_4);
-      $document->setValue('{no8_4_1}', $no8_4_1);
-      $document->setValue('{no8_4_2}', $no8_4_2);
-      $document->setValue('{no8_4_3}', $no8_4_3);
-      $document->setValue('{no8_4_4}', $no8_4_4);
-      $document->setValue('{no8_4_5}', $no8_4_5);
-      $document->setValue('{no8_4_6}', $no8_4_6);
-      $document->setValue('{no8_4_7}', $no8_4_7);
-      $document->setValue('{no8_4_8}', $no8_4_8);
-      $document->setValue('{no8_4_9}', $no8_4_9);
-      $document->setValue('{no8_4_10}', $no8_4_10);
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no8_1_1_1}', $no8_1_1_1);
+        $document->setValue('{no8_1_1_2}', $no8_1_1_2);
+        $document->setValue('{no8_1_2}', $no8_1_2);
+        $document->setValue('{no8_1_3}', $no8_1_3);
+        $document->setValue('{no8_1_4}', $no8_1_4);
+        $document->setValue('{no8_2_1_1}', $no8_2_1_1);
+        $document->setValue('{no8_2_1_2}', $no8_2_1_2);
+        $document->setValue('{no8_2_1_3}', $no8_2_1_3);
+        $document->setValue('{no8_2_2_1}', $no8_2_3_1);
+        $document->setValue('{no8_2_2_2}', $no8_2_3_2);
+        $document->setValue('{no8_2_2_3}', $no8_2_3_3);
+        $document->setValue('{no8_2_3_1}', $no8_2_3_1);
+        $document->setValue('{no8_2_3_2}', $no8_2_3_2);
+        $document->setValue('{no8_2_3_3}', $no8_2_3_3);
+        $document->setValue('{no8_4}', $no8_4);
+        $document->setValue('{no8_4_1}', $no8_4_1);
+        $document->setValue('{no8_4_2}', $no8_4_2);
+        $document->setValue('{no8_4_3}', $no8_4_3);
+        $document->setValue('{no8_4_4}', $no8_4_4);
+        $document->setValue('{no8_4_5}', $no8_4_5);
+        $document->setValue('{no8_4_6}', $no8_4_6);
+        $document->setValue('{no8_4_7}', $no8_4_7);
+        $document->setValue('{no8_4_8}', $no8_4_8);
+        $document->setValue('{no8_4_9}', $no8_4_9);
+        $document->setValue('{no8_4_10}', $no8_4_10);
 
-      $document->setValue('{no8_5_1}', $no8_5_1);
-      $document->setValue('{no8_5_2_1}', $no8_5_2_1);
-      $document->setValue('{no8_5_2_2}', $no8_5_2_2);
-      $document->setValue('{no8_5_2_3}', $no8_5_2_3);
-      $document->setValue('{no8_5_3}', $no8_5_3);
-      $document->setValue('{no8_5_4}', $no8_5_4);
+        $document->setValue('{no8_5_1}', $no8_5_1);
+        $document->setValue('{no8_5_2_1}', $no8_5_2_1);
+        $document->setValue('{no8_5_2_2}', $no8_5_2_2);
+        $document->setValue('{no8_5_2_3}', $no8_5_2_3);
+        $document->setValue('{no8_5_3}', $no8_5_3);
+        $document->setValue('{no8_5_4}', $no8_5_4);
 
-      $document->setValue('{no8_6_1}', $no8_6_1);
-      $document->setValue('{no8_6_2_1}', $no8_6_2_1);
-      $document->setValue('{no8_6_2_2}', $no8_6_2_2);
-      $document->setValue('{no8_6_3}', $no8_6_3);
-      $document->setValue('{no8_6_4}', $no8_6_4);
+        $document->setValue('{no8_6_1}', $no8_6_1);
+        $document->setValue('{no8_6_2_1}', $no8_6_2_1);
+        $document->setValue('{no8_6_2_2}', $no8_6_2_2);
+        $document->setValue('{no8_6_3}', $no8_6_3);
+        $document->setValue('{no8_6_4}', $no8_6_4);
 
-      $document->setValue('{no8_7_1}', $no8_7_1);
-      $document->setValue('{no8_7_2}', $no8_7_2);
-      $document->setValue('{no8_7_3}', $no8_7_3);
-      $document->setValue('{no8_7_4}', $no8_7_4);
-      $document->setValue('{no8_7_5}', $no8_7_5);
-      $document->setValue('{no8_7_6}', $no8_7_6);
-      $document->setValue('{no8_7_7}', $no8_7_7);
-      $document->setValue('{no8_7_8}', $no8_7_8);
-      $document->setValue('{no8_7_9}', $no8_7_9);
-      $document->setValue('{no8_7_10}', $no8_7_10);
-      $document->setValue('{no8_7_11}', $no8_7_11);
-      $document->setValue('{no8_7_12_1}', $no8_7_12_1);
-      $document->setValue('{no8_7_12_2}', $no8_7_12_2);
-      $document->setValue('{no8_7_13_1}', $no8_7_13_1);
-      $document->setValue('{no8_7_13_2}', $no8_7_13_2);
-      $document->setValue('{no8_7_14}', $no8_7_14);
-      $document->setValue('{no8_7_15}', $no8_7_15);
-      $document->setValue('{no8_7_16}', $no8_7_16);
-      $document->setValue('{no8_7_17_1_1}', $no8_7_17_1_1);
-      $document->setValue('{no8_7_17_1_2}', $no8_7_17_1_2);
-      $document->setValue('{no8_7_17_2_1}', $no8_7_17_2_1);
-      $document->setValue('{no8_7_17_2_2}', $no8_7_17_2_2);
-      $document->setValue('{no8_7_18}', $no8_7_18);
-      $document->setValue('{no8_7_19}', $no8_7_19);
-      $document->setValue('{no8_7_20}', $no8_7_20);
-      
+        $document->setValue('{no8_7_1}', $no8_7_1);
+        $document->setValue('{no8_7_2}', $no8_7_2);
+        $document->setValue('{no8_7_3}', $no8_7_3);
+        $document->setValue('{no8_7_4}', $no8_7_4);
+        $document->setValue('{no8_7_5}', $no8_7_5);
+        $document->setValue('{no8_7_6}', $no8_7_6);
+        $document->setValue('{no8_7_7}', $no8_7_7);
+        $document->setValue('{no8_7_8}', $no8_7_8);
+        $document->setValue('{no8_7_9}', $no8_7_9);
+        $document->setValue('{no8_7_10}', $no8_7_10);
+        $document->setValue('{no8_7_11}', $no8_7_11);
+        $document->setValue('{no8_7_12_1}', $no8_7_12_1);
+        $document->setValue('{no8_7_12_2}', $no8_7_12_2);
+        $document->setValue('{no8_7_13_1}', $no8_7_13_1);
+        $document->setValue('{no8_7_13_2}', $no8_7_13_2);
+        $document->setValue('{no8_7_14}', $no8_7_14);
+        $document->setValue('{no8_7_15}', $no8_7_15);
+        $document->setValue('{no8_7_16}', $no8_7_16);
+        $document->setValue('{no8_7_17_1_1}', $no8_7_17_1_1);
+        $document->setValue('{no8_7_17_1_2}', $no8_7_17_1_2);
+        $document->setValue('{no8_7_17_2_1}', $no8_7_17_2_1);
+        $document->setValue('{no8_7_17_2_2}', $no8_7_17_2_2);
+        $document->setValue('{no8_7_18}', $no8_7_18);
+        $document->setValue('{no8_7_19}', $no8_7_19);
+        $document->setValue('{no8_7_20}', $no8_7_20);
+        
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
-      $tmp_file = 'FormNoTMP.docx';
-      $result = $document->saveAs($tmp_file);
-      //die($result);
-      $this->converttowordtemplate('FormNo8_',$tmp_file);
+        $tmp_file = 'FormNoTMP.docx';
+        $result = $document->saveAs($tmp_file);
+        //die($result);
+        $this->converttowordtemplate('FormNo8_',$tmp_file);
 
-    
+        //die();
     }
 
     public function PrintFormNo9Action()
     {
-      
+        $this->view->disable();
         $no9_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -3002,46 +3034,50 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-      $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo9.docx');
-      //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-      //var_dump(($document));die();
-      date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo9.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-      $document->setValue('{year}', $this->year);
-      $document->setValue('{office}', $this->discoverySurvey->Office->name);
-      $document->setValue('{no9_1}', $no9_1);
-      $document->setValue('{no9_2}', $no9_2);
-      $document->setValue('{no9_3_1_1}', $no9_3_1_1);
-      $document->setValue('{no9_3_1_2}', $no9_3_1_2);
-      $document->setValue('{no9_3_1_3}', $no9_3_1_3);
-      $document->setValue('{no9_3_2_1}', $no9_3_2_1);
-      $document->setValue('{no9_3_2_2}', $no9_3_2_2);
-      $document->setValue('{no9_3_2_3}', $no9_3_2_3);
-      $document->setValue('{no9_3_3_1}', $no9_3_3_1);
-      $document->setValue('{no9_3_3_2}', $no9_3_3_2);
-      $document->setValue('{no9_3_3_3}', $no9_3_3_3);
-      $document->setValue('{no9_3_4_1}', $no9_3_4_1);
-      $document->setValue('{no9_3_4_2}', $no9_3_4_2);
-      $document->setValue('{no9_3_4_3}', $no9_3_4_3);
-      $document->setValue('{no9_3_5_1}', $no9_3_5_1);
-      $document->setValue('{no9_3_5_2}', $no9_3_5_2);
-      $document->setValue('{no9_3_5_3}', $no9_3_5_3);
-      $document->setValue('{no9_4_1}', $no9_4_1);
-      $document->setValue('{no9_4_2}', $no9_4_2);
-      $document->setValue('{no9_4_3}', $no9_4_3);
-      $document->setValue('{no9_4_4}', $no9_4_4);
-      $document->setValue('{no9_4_5}', $no9_4_5);
-      $document->setValue('{no9_5_1}', $no9_5_1);
-      $document->setValue('{no9_5_2}', $no9_5_2);
-      $document->setValue('{no9_5_3}', $no9_5_3);
-      $document->setValue('{no9_6}', $no9_6);
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no9_1}', $no9_1);
+        $document->setValue('{no9_2}', $no9_2);
+        $document->setValue('{no9_3_1_1}', $no9_3_1_1);
+        $document->setValue('{no9_3_1_2}', $no9_3_1_2);
+        $document->setValue('{no9_3_1_3}', $no9_3_1_3);
+        $document->setValue('{no9_3_2_1}', $no9_3_2_1);
+        $document->setValue('{no9_3_2_2}', $no9_3_2_2);
+        $document->setValue('{no9_3_2_3}', $no9_3_2_3);
+        $document->setValue('{no9_3_3_1}', $no9_3_3_1);
+        $document->setValue('{no9_3_3_2}', $no9_3_3_2);
+        $document->setValue('{no9_3_3_3}', $no9_3_3_3);
+        $document->setValue('{no9_3_4_1}', $no9_3_4_1);
+        $document->setValue('{no9_3_4_2}', $no9_3_4_2);
+        $document->setValue('{no9_3_4_3}', $no9_3_4_3);
+        $document->setValue('{no9_3_5_1}', $no9_3_5_1);
+        $document->setValue('{no9_3_5_2}', $no9_3_5_2);
+        $document->setValue('{no9_3_5_3}', $no9_3_5_3);
+        $document->setValue('{no9_4_1}', $no9_4_1);
+        $document->setValue('{no9_4_2}', $no9_4_2);
+        $document->setValue('{no9_4_3}', $no9_4_3);
+        $document->setValue('{no9_4_4}', $no9_4_4);
+        $document->setValue('{no9_4_5}', $no9_4_5);
+        $document->setValue('{no9_5_1}', $no9_5_1);
+        $document->setValue('{no9_5_2}', $no9_5_2);
+        $document->setValue('{no9_5_3}', $no9_5_3);
+        $document->setValue('{no9_6}', $no9_6);
 
-      $tmp_file = 'FormNoTMP.docx';
-      $result = $document->saveAs($tmp_file);   
-      //die($result);
-      $this->converttowordtemplate('FormNo9_',$tmp_file);
+        $document->setValue('{user}',$this->user->name);
+        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
+        $document->setValue('{approver}',$approver->name);
 
-    
+        $tmp_file = 'FormNoTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //die($result);
+        $this->converttowordtemplate('FormNo9_',$tmp_file);
+
+        //die();
     }
 
     public function indexAction()

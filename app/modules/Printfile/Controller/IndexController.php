@@ -6,6 +6,10 @@ use Application\Mvc\Controller;
 use Clinic\Model\Visitweb;
 use Publication\Model\Publication;
 use Publication\Model\Type;
+use Clinic\Model\AdminUser;
+use Clinic\Model\Office;
+use Clinic\Model\DiscoverySurvey;
+use Clinic\Model\Survey;
 use Phalcon\Exception;
 use PhpOffice\PhpWord;
 
@@ -49,101 +53,192 @@ class IndexController extends Controller
 
     public function faqsAction()
     {
-        //$this->view->disable();
+        $this->view->disable();
         //parent::searchAction();
         
 
         $type = Type::findFirst("slug = 'FAQs'");
         $faqs = Publication::find("type_id = {$type->id}");
 
-        $this->view->Faqs = $faqs;
+        //$this->view->Faqs = $faqs;
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/Sample_23_TemplateBlock.docx');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FaqsForm.docx');
         date_default_timezone_set('Asia/Bangkok');
 
-        $document->cloneBlock('CLONEME', 3);
+        $document->cloneRow('index', count($faqs));
 
-        // Everything between ${tag} and ${/tag}, will be deleted/erased.
-        $document->deleteBlock('DELETEME');
-        //var_dump($faqs);
-        //die(__DIR__.'/../Form/FaqsForm.docx');
-        /*$i = 1;
-        $Faqsitems = array();
-        $quests = "Question1";
-        $answers = "Answer1";
+
+        $i = 1;
+
         foreach ($faqs as $value) 
         {
-           
-            $Faqsitems['index'][] = $i;
-            $Faqsitems['quest'][] = $value->getTitle();
-            $Faqsitems['ans'][] = $value->getText();
-
-            //$quests = $quests.$i.".".$value->getTitle();
-            //$answers = $answers.$i.".".$value->getText();
-
+            $document->setValue('index#'.$i, $i);
+            $document->setValue('quest#'.$i, $value->getTitle());
+            $answer = str_replace("<p>", "", $value->getText());
+            $answer2 = str_replace("</p>", "", $answer);
+            $document->setValue('answer#'.$i, $answer2);
+            //echo $answer2;
             $i++;
         }
+        $document->setValue('date',date("d.m.Y"));
         //var_dump($answers);
         //die();
-        $document->cloneRow('F', $Faqsitems);
-        $document->cloneRow('DinamicTable', $Faqsitems); 
-        //$document->setValue('{questions}', $quests);
-        //$document->setValue('{answers}', $answers);*/
 
         $tmp_file = 'FaqsTMP.docx';
         $result = $document->saveAs($tmp_file);   
         //var_dump($result);
         $this->converttowordtemplate('FaqsPrint_',$tmp_file);
 
-        die();//var/www/phalcon/app/modules/Printfile/Controller/../Form/FaqsForm.docx
     }
 
     public function linksAction()
     {
-        //$this->view->disable();
+        $this->view->disable();
         //parent::searchAction();
         
 
         $type = Type::findFirst("slug = 'Links'");
         $links = Publication::find("type_id = {$type->id}");
 
-        $this->view->Faqs = $faqs;
+        //var_dump($links);
+        
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/LinksForm.docx');
         date_default_timezone_set('Asia/Bangkok');
         //var_dump($faqs);
         //die(__DIR__.'/../Form/FaqsForm.docx');
+        $document->cloneRow('index', count($links));
+
+
         $i = 1;
-        $Linksitems = array();
-        $titles = "IST";
-        $urls = "www.it.mut.ac.th";
-        /*foreach ($links as $value) 
+
+        foreach ($links as $value) 
         {
-           
-            //$Linksitems['index'][] = $i;
-            //$Linksitems['quest'][] = $value->getTitle();
-            //$Linksitems['ans'][] = $value->getText();
-
-            $titles = $titles.$i.".".$value->getTitle();
-            $urls = $urls.$i.".".$value->getText();
-
+            $document->setValue('index#'.$i, $i);
+            $document->setValue('name#'.$i, $value->getTitle());
+            $answer = str_replace("<p>", "", $value->getText());
+            $answer2 = str_replace("</p>", "", $answer);
+            $document->setValue('url#'.$i, $answer2);
+            //echo $answer2;
             $i++;
-        }*/
-        //var_dump($answers);
+        }
+        $document->setValue('date',date("d.m.Y"));
         //die();
-        //$document->cloneRow('F', $Linksitems);
-        //$document->cloneRow('DinamicTable', $Linksitems); 
-        $document->setValue('{titles}', $titles);
-        $document->setValue('{links}', $links);
 
         $tmp_file = 'LinksTMP.docx';
         $result = $document->saveAs($tmp_file);   
         //var_dump($result);
         $this->converttowordtemplate('LinksPrint_',$tmp_file);
 
-        die();//var/www/phalcon/app/modules/Printfile/Controller/../Form/FaqsForm.docx
+    }
+
+    public function userAction()
+    {
+        $this->view->disable();
+        //parent::searchAction();
+        
+
+        $userAdmin = AdminUser::find();
+
+        //var_dump($links);
+        
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/UserForm.docx');
+        date_default_timezone_set('Asia/Bangkok');
+        //var_dump($faqs);
+        //die(__DIR__.'/../Form/FaqsForm.docx');
+        $document->cloneRow('index', count($userAdmin));
+
+
+        $i = 1;
+
+        foreach ($userAdmin as $value) 
+        {
+            $document->setValue('index#'.$i, $i);
+            $document->setValue('user#'.$i, $value->login);
+            $document->setValue('office#'.$i, $value->office->name);
+            if($value->active == 1)
+                $active = "ใช้งาน";
+            else
+                $active = "ระงับ";
+            $document->setValue('status#'.$i, $active);
+            //echo $answer2;
+            $i++;
+        }
+        $document->setValue('date',date("d.m.Y"));
+        //die();
+
+        $tmp_file = 'UserTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //var_dump($result);
+        $this->converttowordtemplate('UserPrint_',$tmp_file);
+
+    }
+
+    public function reportAction()
+    {
+        $this->view->disable();
+        //parent::searchAction();
+        
+
+        $userAdmin = AdminUser::find();
+
+        //var_dump($links);
+        
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/ReportForm.docx');
+        date_default_timezone_set('Asia/Bangkok');
+        
+
+        $tmp_file = 'ReportTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //var_dump($result);
+        $this->converttowordtemplate('ReportPrint_',$tmp_file);
+
+    }
+
+    public function surveystatusAction()
+    {
+        $this->view->disable();
+        //parent::searchAction();
+        
+
+        $survey = Survey::findFirst("status = 'A'");
+        $listDiscoverySurvey = DiscoverySurvey::find("surveyid = {$survey->id}");
+
+        //var_dump($links);
+        
+
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/SurveyStatusForm.docx');
+        date_default_timezone_set('Asia/Bangkok');
+        //var_dump($faqs);
+        //die(__DIR__.'/../Form/FaqsForm.docx');
+        $document->cloneRow('index', count($listDiscoverySurvey));
+
+
+        $i = 1;
+
+        foreach ($listDiscoverySurvey as $value) 
+        {
+            $document->setValue('index#'.$i, $i);
+            $document->setValue('office#'.$i, $value->office->name);
+            $document->setValue('status#'.$i, $value->getStatusName());
+            //echo $answer2;
+            $i++;
+        }
+        $document->setValue('date',date("d.m.Y"));
+        //die();
+
+        $tmp_file = 'SurveyStatusTMP.docx';
+        $result = $document->saveAs($tmp_file);   
+        //var_dump($result);
+        $this->converttowordtemplate('SurveyStatusPrint_',$tmp_file);
+
     }
 
 }

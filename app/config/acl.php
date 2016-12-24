@@ -20,7 +20,6 @@ return [
         'message/index/send'       => '*',
         'public/files' => '*',
         'printfile/index' => '*',
-        'printfile/index/faqs' => '*',
     ],
     'member'     => [
         'index/index' => '*',
@@ -77,6 +76,7 @@ return [
         'clinic/post' => '*',
         'clinic/dataanaly' => '*',
         'clinic/dataanaly/index' => '*',
+        'printfile/index' => '*',
 
     ],
     'clinic-center'      => [
@@ -170,5 +170,6 @@ return [
         'clinic/message/index' => '*',
         'clinic/message/search' => '*',
         'clinic/message/read' => '*',
+        'printfile/index' => '*',
     ],
 ];
