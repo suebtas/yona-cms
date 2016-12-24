@@ -154,14 +154,15 @@
                     <li>
                         <a class="page-scroll" href="/links" style="color:rgb(47, 47, 47)">Links</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
-                    </li>
+
                     <li>
                         <a class="page-scroll"  href="/faqs" style="color:rgb(47, 47, 47)">FAQ</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="/about/about.html" style="color:rgb(47, 47, 47)">ประวัติความเป็นมา</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#last" style="color:rgb(47, 47, 47)">ติดต่อเรา</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

@@ -16,8 +16,7 @@
         {{ form.renderDecorated('id') }}
     {% endif %}
     {{ form.renderDecorated('title') }}
-    {{ form.renderDecorated('html') }}
-
+    
     <div class="ui positive submit button">
         <i class="save icon"></i> Save
     </div>

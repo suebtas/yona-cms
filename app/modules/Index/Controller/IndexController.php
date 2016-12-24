@@ -6,6 +6,7 @@ use Application\Mvc\Controller;
 use Clinic\Model\Visitweb;
 use Page\Model\Page;
 use Phalcon\Exception;
+use Widget\Model\Widget;
 
 class IndexController extends Controller
 {
@@ -106,6 +107,9 @@ class IndexController extends Controller
         $visit->save();
         $this->view->visits = $visit->amount;
 
+        $message = Widget::findFirst();
+        $this->view->messages = $message->title;
+
     }
     public function setAction($id){
       $this->session->set('template', $id);
@@ -115,16 +119,16 @@ class IndexController extends Controller
 
     public function serveyGroupSessionAction($no){
         $this->view->disable();
-        $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count 
+        $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
-        Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs 
-        where a.discovery_surveyid = ds.id 
-        and ds.surveyid = 1 and 
-        a.questionid = q.id and 
-        s.id=q.sessionid and 
-        gs.id = s.group_session_id and 
+        Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs
+        where a.discovery_surveyid = ds.id
+        and ds.surveyid = 1 and
+        a.questionid = q.id and
+        s.id=q.sessionid and
+        gs.id = s.group_session_id and
         gs.id = '$no' and
-        ds.surveyid = 1 
+        ds.surveyid = 1
         GROUP BY gs.name, DATE(a.last_update_survey)";
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $rows = $this->modelsManager->executeQuery($phql);
@@ -140,18 +144,18 @@ class IndexController extends Controller
 
         $data["label"] = $row["name"];
         echo json_encode($data);
-        
+
     }
     public function serveyGroupCommentAction($no){
         $this->view->disable();
         $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(c.count_approver) as count_approver, sum(c.count_admin) as count_admin
-from session s 
-left join ( 
-	select c.sessionid, 
-	count(case u.role when 'cc-approver' then 1 end ) 'count_approver' , 
-	count(case u.role when 'cc-admin' then 1 end ) 'count_admin' 
-	from admin_user u, comment c , discovery_survey ds 
-	where c.discovery_surveyid = ds.id and ds.surveyid = :surveyid and c.admin_userid = u.id	group by c.sessionid ) c on (s.id = c.sessionid) 
+from session s
+left join (
+	select c.sessionid,
+	count(case u.role when 'cc-approver' then 1 end ) 'count_approver' ,
+	count(case u.role when 'cc-admin' then 1 end ) 'count_admin'
+	from admin_user u, comment c , discovery_survey ds
+	where c.discovery_surveyid = ds.id and ds.surveyid = :surveyid and c.admin_userid = u.id	group by c.sessionid ) c on (s.id = c.sessionid)
 left join (
 	select count(a.answer) c, q.sessionid from answer a,question q, discovery_survey ds where (q.id = a.questionid and ds.id = a.discovery_surveyid and ds.surveyid = :surveyid) group by q.sessionid ) as aq on (s.id = aq.sessionid)
 where s.active = 1 and s.id = :id
@@ -168,22 +172,22 @@ group by s.name ";
         if(!$rows)
             return "";
         $data = [];
-        foreach ($rows as $key=>$row) {   
+        foreach ($rows as $key=>$row) {
             //var_dump( $row );
-            //echo $row->name , $row->count_admin;      
+            //echo $row->name , $row->count_admin;
             $data["data"][] = ["count_answer"=>$row->count_answer,"count_approver"=>$row->count_approver,"count_admin"=>$row->count_admin];
         }
         $data["label"] = $row->name;
         echo json_encode($data);
-        
+
     }
 
     public function dashboardAction(){
         $this->view->disable();
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
-        $phql = "select DATE(a.last_update_survey) as date, count(*) as count 
-        from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds 
-        where a.discovery_surveyid = ds.id and ds.surveyid = 1  
+        $phql = "select DATE(a.last_update_survey) as date, count(*) as count
+        from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds
+        where a.discovery_surveyid = ds.id and ds.surveyid = 1
         GROUP BY DATE(a.last_update_survey)";
         $rows = $this->modelsManager->executeQuery($phql);
         $data = [];
@@ -194,7 +198,7 @@ group by s.name ";
             }
         }
         echo json_encode($data);
-        
+
         //echo json_encode($data);
         /*$request =$this->request;
         if ($request->isPost()==true) {

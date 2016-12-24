@@ -8,7 +8,7 @@
     <tr>
         <th style="width:150px">{{ helper.at('ID') }}</th>
         <th style="width: 200px">{{ helper.at('Title') }}</th>
-        <th>{{ helper.at('HTML') }}</th>
+
     </tr>
     </thead>
     <tbody>
@@ -17,7 +17,7 @@
         <tr>
             <td><a href="{{ link }}">{{ item.getId() }}</a></td>
             <td><a href="{{ link }}">{{ item.getTitle() }}</a></td>
-            <td><textarea>{{ item.getHtml() }}</textarea></td>
+            
         </tr>
     {% endfor %}
     </tbody>

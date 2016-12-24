@@ -29,7 +29,7 @@
         <div class="row bd textmar">
 
             <div class="col-xs-12 text-center">
-                <h3 class="thfontb"><marquee BEHAVIOR=SLIDE>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น  (Clinic Center) องค์การบริหารส่วนจังหวัดระยอง</marquee></h3>
+                <h3 class="thfontb"><marquee BEHAVIOR=SLIDE>{{messages}}</marquee></h3>
             </div>
         </div>
         <div class="container">
@@ -157,19 +157,6 @@
 
         </div>
 
-        <div class="container">
-            <div class="row bd">
-                <div class="col-lg-12 text-center">
-
-                    <br>
-                    <p class="text-info">
-                        ดาวโหลดวิธีการแก้ไขข้อมูลในระบบ Clinic Center กรณีรับรองข้อมูลเรียบร้อยแล้ว
-                    </p>
-                    <a href="download/update.pdf" class="btn btn-info btn-xl page-scroll">Download</a>
-                </div>
-            </div>
-        </div>
-
 
 
     </section>
@@ -181,7 +168,7 @@
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-body text-center bg-dark">
-                        <center><img src="website/img/44.jpg" class="img-responsive" alt="" /></cemter>
+                        <center><img src="/static/files/popup/popup_img.jpg" class="img-responsive" alt="" /></cemter>
                           <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
                       </div>
                   </div>
