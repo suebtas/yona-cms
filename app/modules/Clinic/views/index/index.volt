@@ -58,7 +58,7 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      ข้อมูลการสำรวจ Clinic Center แยกตามปีที่จัดทำ 
+                      ข้อมูลการสำรวจ Clinic Center แยกตามปีที่จัดทำ
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
@@ -90,7 +90,7 @@
                           <td>{{discoverySurvey.Survey.description}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfStartSurvey()}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfEndSurvey()}}</td>
-                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commentingข้{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
+                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commenting{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
                           <td><i class="{% if discoverySurvey.Survey.isExpired() %}fa fa-lock{% else %}fa fa-unlock{% endif %}  fa-5x"></i></td>
                         </tr>
                         {% endfor %}
@@ -674,7 +674,7 @@
                   </div>
                 </div>
                 <!-- End to do list -->
-                
+
                 <!-- start of weather widget -->
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
@@ -833,7 +833,7 @@
 
         {{ assets.outputJs('modules-clinic-dashboard-js') }}
 
-        
+
 	    <!-- jVectorMap -->
 	    <script src="{{ url.path() }}clinic/js/maps/jquery-jvectormap-world-mill-en.js"></script>
 	    <script src="{{ url.path() }}clinic/js/maps/jquery-jvectormap-us-aea-en.js"></script>
@@ -922,7 +922,7 @@
 	      });
 	    </script>
 	    <!-- /Doughnut Chart -->
-	    
+
 	    <!-- bootstrap-daterangepicker -->
 	    <script>
 	      $(document).ready(function() {
