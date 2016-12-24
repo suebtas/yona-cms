@@ -46,7 +46,10 @@ class IndexController extends Controller
             ->setTargetUri('assets/modules-clinic-dashboard.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/dashboard.js');
-        $this->view->listDiscoverySurvey = DiscoverySurvey::find();
+        if($this->view->user->role=='cc-admin')
+            $this->view->listDiscoverySurvey = DiscoverySurvey::find();
+        else
+            $this->view->listDiscoverySurvey = DiscoverySurvey::find(array("officeid=:0:","bind"=>[$this->view->user->officeid]));
     }
     public function dashboardAction(){
         $this->view->disable();
