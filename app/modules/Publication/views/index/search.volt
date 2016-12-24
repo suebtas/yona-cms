@@ -18,7 +18,9 @@
                     <div class="jumbotron">
                         <div class="row">
                         <center>
-                          <input type="text" class="form-control thfont" id="search" name="" value="" style="background-color:white"placeholder="ค้นหา..."><br>
+                        <form action="search">
+                          <input type="text" class="form-control thfont" id="search" name="keyword" value="" style="background-color:white"placeholder="ค้นหา..."><br>
+                        </form>
                         {% if paginate.total_items > 0 %}
                             {% for item in paginate.items %}
 
