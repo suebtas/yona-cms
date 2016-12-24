@@ -39,7 +39,7 @@ class IndexController extends Controller
             $this->view->changelog = $changelog_html;
         }
 
-        $this->helper->title($this->helper->at('YonaCms Admin Panel'), true);
+        $this->helper->title($this->helper->at('Clinic Center Admin Panel'), true);
 
         $this->helper->activeMenu()->setActive('admin-home');
 

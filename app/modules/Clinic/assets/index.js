@@ -3,7 +3,7 @@ $(document).ready(function() {
 		{	
 			// Filter
 			initComplete: function () {
-            this.api().columns([0]).each( function () {
+            	this.api().columns([0]).each( function () {
 					var column = this;
 					var select = $('<select><option value="">ไม่ระบุ</option></select>')
 						.appendTo( $(column.footer()).empty() )
@@ -22,6 +22,8 @@ $(document).ready(function() {
 						
 					} );
 				} );
+
+				
         	},
 			"columnDefs": [
 				{ "visible": false, "targets": 1 },
