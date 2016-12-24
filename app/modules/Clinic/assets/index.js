@@ -1,19 +1,42 @@
 $(document).ready(function() {
 	$('#datatable').dataTable(
-		{
+		{	
+			// Filter
+			initComplete: function () {
+            this.api().columns([0]).each( function () {
+					var column = this;
+					var select = $('<select><option value="">ไม่ระบุ</option></select>')
+						.appendTo( $(column.footer()).empty() )
+						.on( 'change', function () {
+							var val = $.fn.dataTable.util.escapeRegex(
+								$(this).val()
+							);
+	
+							$('#datatable').DataTable().columns([1])
+								.search( val ? '^'+val+'$' : '', true, false )
+								.draw();
+						} );
+	
+					column.cells('',  this.columns([1])).render('display').sort().unique().each( function ( d, j ){
+							select.append( '<option value="'+d+'">'+d+'</option>' )
+						
+					} );
+				} );
+        	},
 			"columnDefs": [
-            { "visible": false, "targets": 1 }
-        ],
+				{ "visible": false, "targets": 1 },
+				{ "width": "10%", "targets": [4,5] }
+        	],
 			"order": [[ 1, 'asc' ]],
 			"drawCallback": function ( settings ) {
             var api = this.api();
             var rows = api.rows( {page:'current'} ).nodes();
             var last=null;
- 
+			//Group Year
             api.column(1, {page:'current'} ).data().each( function ( group, i ) {
                 if ( last !== group ) {
                     $(rows).eq( i ).before(
-                        '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                        '<tr class="group"><td colspan="5"><h2>'+group+'</h2></td></tr>'
                     );
  
                     last = group;

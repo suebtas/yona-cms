@@ -71,6 +71,16 @@
                           <th>icon</th>
                         </tr>
                       </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Name</th>
+                          <th>Office</th>
+                          <th>Start date</th>
+                          <th>End date</th>
+                          <th>สถานะ</th>
+                          <th>icon</th>
+                        </tr>
+                      </tfoot>
 
 
                       <tbody>
@@ -80,7 +90,7 @@
                           <td>{{discoverySurvey.Survey.description}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfStartSurvey()}}</td>
                           <td>{{discoverySurvey.Survey.getDateOfEndSurvey()}}</td>
-                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commenting{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
+                          <td><i class="{% if discoverySurvey.status == 0 %}fa fa-edit{%elseif(discoverySurvey.status == 1)%}fa fa-commentingข้{%elseif(discoverySurvey.status == 2)%}fa fa-check{% endif %} fa-5x"></i> {{discoverySurvey.getStatusName()}}</td>
                           <td><i class="{% if discoverySurvey.Survey.isExpired() %}fa fa-lock{% else %}fa fa-unlock{% endif %}  fa-5x"></i></td>
                         </tr>
                         {% endfor %}
