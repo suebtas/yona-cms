@@ -3,6 +3,7 @@
     <div class="page-title">
       <div class="title_left">
                 <h3>{{ office.name }}</h3>
+                สถานะการยืนยันของท้องถิ่น <small>{{discoverySurvey.getApprovalStatusWithSymbol(["level=:0:","bind":[1]])}}</small> สถานะการยืนยันของจังหวัด <small>{{discoverySurvey.getApprovalStatusWithSymbol(["level=:0:","bind":[2]])}}</small>
       </div>
 
       <div class="title_right">

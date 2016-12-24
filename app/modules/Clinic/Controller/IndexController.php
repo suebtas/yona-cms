@@ -187,6 +187,82 @@ class IndexController extends Controller
         echo "insert into admin_user (officeid,role,login,name,password,active) values(66,'cc-user','user66','เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองละลอก','".password_hash('6666', PASSWORD_DEFAULT)."',1);"; "<br>";
         echo "insert into admin_user (officeid,role,login,name,password,active) values(67,'cc-user','user67','เจ้าหน้าที่องค์การบริหารส่วนตำบลหนองบัว','".password_hash('6767', PASSWORD_DEFAULT)."',1);"; "<br>";
         echo "insert into admin_user (officeid,role,login,name,password,active) values(68,'cc-user','user68','เจ้าหน้าที่องค์การบริหารส่วนตำบลบางบุตร','".password_hash('6868', PASSWORD_DEFAULT)."',1);"; "<br>";
-            }
+    }
+    public function generateAdminPasswordAction(){
+
+        require_once __DIR__ . '/../../../../vendor/password.php';
+
+        $this->view->disable();
+        //echo password_hash('approver01', PASSWORD_DEFAULT); echo "<br>";
+
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(1,'cc-approver','approver01','ผู้รับรององค์การบริหารส่วนจังหวัดระยอง','".password_hash('0101', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(2,'cc-approver','approver02','ผู้รับรองเทศบาลนครระยอง','".password_hash('0202', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(3,'cc-approver','approver03','ผู้รับรองเทศบาลเมืองมาบตาพุด','".password_hash('0303', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(4,'cc-approver','approver04','ผู้รับรองเทศบาลตำบลแกลงกะเฉด','".password_hash('0404', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(5,'cc-approver','approver05','ผู้รับรองเทศบาลตำบลทับมา','".password_hash('0505', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(6,'cc-approver','approver06','ผู้รับรองเทศบาลตำบลบ้านเพ','".password_hash('0606', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(7,'cc-approver','approver07','ผู้รับรองเทศบาลตำบลน้ำคอก','".password_hash('0707', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(8,'cc-approver','approver08','ผู้รับรองเทศบาลตำบลเนินพระ','".password_hash('0808', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(9,'cc-approver','approver09','ผู้รับรองเทศบาลตำบลเชิงเนิน','".password_hash('0909', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(10,'cc-approver','approver10','ผู้รับรององค์การบริหารส่วนตำบลนาตาขวัญ','".password_hash('1010', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(11,'cc-approver','approver11','ผู้รับรององค์การบริหารส่วนตำบลบ้านแลง','".password_hash('1111', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(12,'cc-approver','approver12','ผู้รับรององค์การบริหารส่วนตำบลสำนักทอง','".password_hash('1212', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(13,'cc-approver','approver13','ผู้รับรององค์การบริหารส่วนตำบลกะเฉด','".password_hash('1313', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(14,'cc-approver','approver14','ผู้รับรององค์การบริหารส่วนตำบลแกลง','".password_hash('1414', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(15,'cc-approver','approver15','ผู้รับรององค์การบริหารส่วนตำบลตะพง','".password_hash('1515', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(16,'cc-approver','approver16','ผู้รับรององค์การบริหารส่วนตำบลเพ','".password_hash('1616', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(17,'cc-approver','approver17','ผู้รับรองเทศบาลตำบลกองดิน','".password_hash('1717', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(18,'cc-approver','approver18','ผู้รับรองเทศบาลตำบลทุ่งควายกิน','".password_hash('1818', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(19,'cc-approver','approver19','ผู้รับรองเทศบาลตำบลบ้านนา','".password_hash('1919', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(20,'cc-approver','approver20','ผู้รับรองเทศบาลตำบลเมืองแกลง','".password_hash('2020', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(21,'cc-approver','approver21','ผู้รับรองเทศบาลตำบลเนินฆ้อ','".password_hash('2121', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(22,'cc-approver','approver22','ผู้รับรองเทศบาลตำบลสองสลึง','".password_hash('2222', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(23,'cc-approver','approver23','ผู้รับรองเทศบาลตำบลปากน้ำประแส','".password_hash('2323', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(24,'cc-approver','approver24','ผู้รับรองเทศบาลตำบลสุนทรภู่','".password_hash('2424', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(25,'cc-approver','approver25','ผู้รับรององค์การบริหารส่วนตำบลกระแสบน','".password_hash('2525', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(26,'cc-approver','approver26','ผู้รับรององค์การบริหารส่วนตำบลชากโดน','".password_hash('2626', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(27,'cc-approver','approver27','ผู้รับรององค์การบริหารส่วนตำบลทางเกวียน','".password_hash('2727', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(28,'cc-approver','approver28','ผู้รับรององค์การบริหารส่วนตำบลทุ่งควายกิน','".password_hash('2828', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(29,'cc-approver','approver29','ผู้รับรององค์การบริหารส่วนตำบลพังราด','".password_hash('2929', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(30,'cc-approver','approver30','ผู้รับรององค์การบริหารส่วนตำบลวังหว้า','".password_hash('3030', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(31,'cc-approver','approver31','ผู้รับรององค์การบริหารส่วนตำบลคลองปูน','".password_hash('3131', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(32,'cc-approver','approver32','ผู้รับรององค์การบริหารส่วนตำบลกองดิน','".password_hash('3232', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(33,'cc-approver','approver33','ผู้รับรององค์การบริหารส่วนตำบลห้วยยาง','".password_hash('3333', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(34,'cc-approver','approver34','ผู้รับรองเทศบาลตำบลมาบข่า','".password_hash('3434', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(35,'cc-approver','approver35','ผู้รับรองเทศบาลตำบลมะขามคู่','".password_hash('3535', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(36,'cc-approver','approver36','ผู้รับรองเทศบาลตำบลมาบข่าพัฒนา','".password_hash('3636', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(37,'cc-approver','approver37','ผู้รับรององค์การบริหารส่วนตำบลนิคมพัฒนา','".password_hash('3737', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(38,'cc-approver','approver38','ผู้รับรององค์การบริหารส่วนตำบลพนานิคม','".password_hash('3838', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(39,'cc-approver','approver39','ผู้รับรองเทศบาลตำบลชำฆ้อ','".password_hash('3939', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(40,'cc-approver','approver40','ผู้รับรององค์การบริหารส่วนตำบลเขาชะเมา','".password_hash('4040', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(41,'cc-approver','approver41','ผู้รับรององค์การบริหารส่วนตำบลเขาน้อย','".password_hash('4141', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(42,'cc-approver','approver42','ผู้รับรององค์การบริหารส่วนตำบลน้ำเป็น','".password_hash('4242', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(43,'cc-approver','approver43','ผู้รับรองเทศบาลตำบลชุมแสง','".password_hash('4343', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(44,'cc-approver','approver44','ผู้รับรององค์การบริหารส่วนตำบลชุมแสง','".password_hash('4444', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(45,'cc-approver','approver45','ผู้รับรององค์การบริหารส่วนตำบลป่ายุบใน','".password_hash('4545', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(46,'cc-approver','approver46','ผู้รับรององค์การบริหารส่วนตำบลวังจันทร์','".password_hash('4646', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(47,'cc-approver','approver47','ผู้รับรององค์การบริหารส่วนตำบลพลงตาเอี่ยม','".password_hash('4747', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(48,'cc-approver','approver48','ผู้รับรองเทศบาลเมืองบ้านฉาง','".password_hash('4848', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(49,'cc-approver','approver49','ผู้รับรองเทศบาลตำบลบ้านฉาง','".password_hash('4949', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(50,'cc-approver','approver50','ผู้รับรองเทศบาลตำบลพลา','".password_hash('5050', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(51,'cc-approver','approver51','ผู้รับรองเทศบาลตำบลสำนักท้อน','".password_hash('5151', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(52,'cc-approver','approver52','ผู้รับรององค์การบริหารส่วนตำบลสำนักท้อน','".password_hash('5252', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(53,'cc-approver','approver53','ผู้รับรองเทศบาลตำบลบ้านปลวกแดง','".password_hash('5353', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(54,'cc-approver','approver54','ผู้รับรองเทศบาลตำบลจอมพลเจ้าพระยา','".password_hash('5454', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(55,'cc-approver','approver55','ผู้รับรององค์การบริหารส่วนตำบลปลวกแดง','".password_hash('5555', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(56,'cc-approver','approver56','ผู้รับรององค์การบริหารส่วนตำบลตาสิทธิ์','".password_hash('5656', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(57,'cc-approver','approver57','ผู้รับรององค์การบริหารส่วนตำบลละหาร','".password_hash('5757', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(58,'cc-approver','approver58','ผู้รับรององค์การบริหารส่วนตำบลแม่น้ำคู้','".password_hash('5858', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(59,'cc-approver','approver59','ผู้รับรององค์การบริหารส่วนตำบลมาบยางพร','".password_hash('5959', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(60,'cc-approver','approver60','ผู้รับรององค์การบริหารส่วนตำบลหนองไร่','".password_hash('6060', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(61,'cc-approver','approver61','ผู้รับรองเทศบาลตำบลบ้านค่าย','".password_hash('6161', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(62,'cc-approver','approver62','ผู้รับรองเทศบาลตำบลบ้านค่ายพัฒนา','".password_hash('6262', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(63,'cc-approver','approver63','ผู้รับรองเทศบาลตำบลชากบก','".password_hash('6363', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(64,'cc-approver','approver64','ผู้รับรององค์การบริหารส่วนตำบลตาขัน','".password_hash('6464', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(65,'cc-approver','approver65','ผู้รับรององค์การบริหารส่วนตำบลหนองตะพาน','".password_hash('6565', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(66,'cc-approver','approver66','ผู้รับรององค์การบริหารส่วนตำบลหนองละลอก','".password_hash('6666', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(67,'cc-approver','approver67','ผู้รับรององค์การบริหารส่วนตำบลหนองบัว','".password_hash('6767', PASSWORD_DEFAULT)."',1);"; "<br>";
+        echo "insert into admin_user (officeid,role,login,name,password,active) values(68,'cc-approver','approver68','ผู้รับรององค์การบริหารส่วนตำบลบางบุตร','".password_hash('6868', PASSWORD_DEFAULT)."',1);"; "<br>";
+    }
 
 }

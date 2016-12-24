@@ -115,27 +115,35 @@ class IndexController extends Controller
         $this->view->messages = $message->title;
 
         $popup = Publication::findFirst("slug = 'popup'");
+        if($popup!=null)
         $this->view->popups = $popup->getPermission();
 
         $type = Type::findFirst("slug = 'news'");
+        if($type!=null)
         $this->view->news_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'event'");
+        if($type!=null)
         $this->view->event_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'portfolio'");
+        if($type!=null)
         $this->view->portfolio_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'report'");
+        if($type!=null)
         $this->view->report_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'document'");
+        if($type!=null)
         $this->view->document_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'links'");
+        if($type!=null)
         $this->view->links_display = $type->getDisplayDate();
 
         $type = Type::findFirst("slug = 'faqs'");
+        if($type!=null)
         $this->view->faqs_display = $type->getDisplayDate();
 
 

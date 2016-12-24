@@ -85,6 +85,16 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         return $status;
     }
 
+
+    public function getApprovalStatusWithSymbol($parameters = null)
+    {
+        $approval = $this->getApproval($parameters);
+        if($approval!=null)
+            $message = $approval->getStatusWithSymbol();
+        else
+            $message = "กำลังตรวจสอบข้อมูล";
+        return $message;
+    }
     /**
      * Allows to query the first record that match the specified conditions
      *
