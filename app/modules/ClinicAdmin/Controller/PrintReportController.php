@@ -45,6 +45,10 @@ class PrintReportController extends Controller
 
 
     }
+    public function indexAction(){
+        
+        $this->view->disable();
+    }
 
     public function No2Action(){
         $this->view->disable();
