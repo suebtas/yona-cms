@@ -58,13 +58,12 @@ class Controller extends \Phalcon\Mvc\Controller
     {
         $this->view->setMainView(MAIN_VIEW_PATH . 'clinic');
         $this->view->setLayout(null);
-        
+
     }
 
     public function setWebsiteEnvironment()
     {
         $this->view->setMainView(MAIN_VIEW_PATH . 'template1');
         $this->view->setLayout(null);
-        
-    }    
+    }
 }

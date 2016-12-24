@@ -70,6 +70,7 @@ class TypeController extends Controller
 
             if ($form->isValid()) {
                 $model->updateFields($post);
+                $model->display_date = isset($post["display_date"])? 1 : 0;
                 if ($model->update()) {
                     $this->flash->success('Type created');
                     return $this->redirect($this->url->get() . 'publication/type/edit/' . $model->getId() . '?lang=' . LANG);
@@ -106,4 +107,4 @@ class TypeController extends Controller
         $this->helper->title($this->helper->at('Delete Type'));
     }
 
-} 
+}

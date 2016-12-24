@@ -19,7 +19,7 @@
         </div>
       </div>
       <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg" id="video-background" style="visibility: visible; animation-name: fadeIn;">
-          <source src="website/img/Traffic-blurred2.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src="website/img/Traffic-blurred2.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.</source>
       </video>
   </header>
 {% endblock %}
@@ -164,18 +164,20 @@
 
 
 {% block popup%}
+{% if popups == "public" %}
     <div id="popModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="True">
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-body text-center bg-dark">
-                        <center><img src="/static/files/popup/popup_img.jpg" class="img-responsive" alt="" /></cemter>
+                        <center><img src="/static/files/popup/44.jpg" class="img-responsive" alt="" /></cemter>
                           <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
                       </div>
                   </div>
               </div>
           </div>
-    </div>
+{% endif %}
 {% endblock %}
+
 
 
 {% block dashboard %}

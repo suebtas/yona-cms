@@ -7,6 +7,8 @@ use Clinic\Model\Visitweb;
 use Page\Model\Page;
 use Phalcon\Exception;
 use Widget\Model\Widget;
+use Publication\Model\Publication;
+use Publication\Model\Type;
 
 class IndexController extends Controller
 {
@@ -44,6 +46,7 @@ class IndexController extends Controller
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
         $qb->andWhere('t.slug = :type:', ['type' => 'news']);
+        $qb->andWhere('t.display_date = "1"');
         $qb->andWhere('p.date <= NOW()');
         $qb->andWhere("permission in ('public'$permission_member)");
         $qb->orderBy('p.date DESC');
@@ -58,12 +61,13 @@ class IndexController extends Controller
         $qb->limit(5);
 
         //
-        $event = $qb->getQuery()->execute();
+        // $event = $qb->getQuery()->execute();
 
         $qb = $this->modelsManager->createBuilder();
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
-        $qb->andWhere('t.slug = :type:', ['type' => 'Event']);
+        $qb->andWhere('t.slug in ("Event","Portfolio")');
+        $qb->andWhere('t.display_date = "1"');
         $qb->andWhere('p.date <= NOW()');
         $qb->orderBy('p.date DESC');
         $qb->limit($limit);
@@ -79,7 +83,8 @@ class IndexController extends Controller
         $qb = $this->modelsManager->createBuilder();
         $qb->addFrom('Publication\Model\Publication', 'p');
         $qb->leftJoin('Publication\Model\Type', null, 't');
-        $qb->andWhere('t.slug = :type:', ['type' => 'Document']);
+        $qb->andWhere('t.slug in ("Report","Document")');
+        $qb->andWhere('t.display_date = "1"');
         $qb->andWhere('p.date <= NOW()');
         $qb->orderBy('p.date DESC');
         $qb->limit($limit);
@@ -106,9 +111,35 @@ class IndexController extends Controller
         $visit->amount = $visit->amount + 1;
         $visit->save();
         $this->view->visits = $visit->amount;
-
         $message = Widget::findFirst();
         $this->view->messages = $message->title;
+
+        $popup = Publication::findFirst("slug = 'popup'");
+        $this->view->popups = $popup->getPermission();
+
+        $type = Type::findFirst("slug = 'news'");
+        $this->view->news_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'event'");
+        $this->view->event_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'portfolio'");
+        $this->view->portfolio_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'report'");
+        $this->view->report_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'document'");
+        $this->view->document_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'links'");
+        $this->view->links_display = $type->getDisplayDate();
+
+        $type = Type::findFirst("slug = 'faqs'");
+        $this->view->faqs_display = $type->getDisplayDate();
+
+
+
 
     }
     public function setAction($id){

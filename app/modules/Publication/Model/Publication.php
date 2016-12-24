@@ -287,7 +287,10 @@ class Publication extends Model
     {
         return $this->preview_src;
     }
-
+    public function getPermission()
+    {
+        return $this->permission;
+    }
     public function setPreviewSrc($preview_src)
     {
         $this->preview_src = $preview_src;

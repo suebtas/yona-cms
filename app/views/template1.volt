@@ -133,9 +133,11 @@
                     <li>
                         <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                     </li>
+                    {% if news_display == "1"%}
                     <li>
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
+                    {% endif %}
                     <li>
                         <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรม</a>
                     </li>
@@ -208,7 +210,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="margin-top-0 wow fadeIn">ติดต่อคลินิกเซ็นเตอร์ อบจ.ระยอง</h2>
+                    <h2 class="margin-top-0 wow fadeIn">ติดต่อคลินิกเซ็นเตอร์ อบจ.ระยอง </h2>
                     <hr class="primary">
 
                     <div id="map" style="width:100%;height:500px;background:yellow"></div>
