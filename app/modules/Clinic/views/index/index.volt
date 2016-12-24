@@ -67,7 +67,7 @@
                           <th>Office</th>
                           <th>Start date</th>
                           <th>End date</th>
-                          <th>สถานะ</th>
+                          <th>สถานะการตอบคำถาม</th>
                           <th>icon</th>
                         </tr>
                       </thead>
@@ -77,7 +77,7 @@
                           <th>Office</th>
                           <th>Start date</th>
                           <th>End date</th>
-                          <th>สถานะ</th>
+                          <th>สถานะการตอบคำถาม</th>
                           <th>icon</th>
                         </tr>
                       </tfoot>
