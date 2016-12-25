@@ -56,7 +56,10 @@ class Survey extends \Phalcon\Mvc\Model
         $this->hasMany('id', 'Clinic\Model\DiscoverySurvey', 'surveyid', array('alias' => 'DiscoverySurvey'));
         $this->hasOne('status', 'Clinic\Model\SurveyStatus', 'id', array('alias' => 'SurveyStatus'));
     }
-
+    public function getDiscoverySurvey($parameters = null)
+    {
+        return $this->getRelated("DiscoverySurvey", $parameters);
+    }
     /**
      * Returns table name mapped in the model.
      *

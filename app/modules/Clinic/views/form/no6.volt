@@ -326,7 +326,8 @@
     $(document).ready(function() {
       $('#wizard').smartWizard({
         keyNavigation : false,
-        transitionEffect: 'slide'
+        transitionEffect: 'slide',
+        enableAllSteps: true
       });
 
       $('#wizard_verticle').smartWizard({

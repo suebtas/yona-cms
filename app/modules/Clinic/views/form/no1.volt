@@ -292,7 +292,7 @@
                                 <div class="form-group">
                                   <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="text-center">
-                                      <a id="btnFinish" class="btn btn-app" {% if(status==2) %}disabled{% endif %}>
+                                      <a id="btnFinish" class="btn btn-app btn-success buttonDisabled" {% if(status==2) %}disabled{% endif %}>
                                         <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
                                       </a>
                                     </div>
@@ -470,7 +470,8 @@
           $(document).ready(function() {
             $('#wizard').smartWizard({
               keyNavigation : false,
-              transitionEffect: 'slide'
+              transitionEffect: 'slide',
+              enableAllSteps: true
             });
             $('.buttonNext').addClass('btn btn-success');
             $('.buttonPrevious').addClass('btn btn-primary');
