@@ -15,7 +15,7 @@ use PhpOffice\PhpWord;
 
 class IndexController extends Controller
 {
-    public function converttowordtemplate($name,$temp_file){        
+    public function converttowordtemplate($name,$temp_file){
         // Save file
         $fname = $name. date("d.m.Y-H.i") . ".docx";
         $response = new \Phalcon\Http\Response();
@@ -55,7 +55,7 @@ class IndexController extends Controller
     {
         $this->view->disable();
         //parent::searchAction();
-        
+
 
         $type = Type::findFirst("slug = 'FAQs'");
         $faqs = Publication::find("type_id = {$type->id}");
@@ -71,7 +71,7 @@ class IndexController extends Controller
 
         $i = 1;
 
-        foreach ($faqs as $value) 
+        foreach ($faqs as $value)
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('quest#'.$i, $value->getTitle());
@@ -86,7 +86,7 @@ class IndexController extends Controller
         //die();
 
         $tmp_file = 'FaqsTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('FaqsPrint_',$tmp_file);
 
@@ -96,13 +96,13 @@ class IndexController extends Controller
     {
         $this->view->disable();
         //parent::searchAction();
-        
+
 
         $type = Type::findFirst("slug = 'Links'");
         $links = Publication::find("type_id = {$type->id}");
 
         //var_dump($links);
-        
+
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/LinksForm.docx');
@@ -114,7 +114,7 @@ class IndexController extends Controller
 
         $i = 1;
 
-        foreach ($links as $value) 
+        foreach ($links as $value)
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('name#'.$i, $value->getTitle());
@@ -128,7 +128,7 @@ class IndexController extends Controller
         //die();
 
         $tmp_file = 'LinksTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('LinksPrint_',$tmp_file);
 
@@ -138,12 +138,12 @@ class IndexController extends Controller
     {
         $this->view->disable();
         //parent::searchAction();
-        
+
 
         $userAdmin = AdminUser::find();
 
         //var_dump($links);
-        
+
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/UserForm.docx');
@@ -155,7 +155,7 @@ class IndexController extends Controller
 
         $i = 1;
 
-        foreach ($userAdmin as $value) 
+        foreach ($userAdmin as $value)
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('user#'.$i, $value->login);
@@ -172,7 +172,7 @@ class IndexController extends Controller
         //die();
 
         $tmp_file = 'UserTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('UserPrint_',$tmp_file);
 
@@ -182,20 +182,20 @@ class IndexController extends Controller
     {
         $this->view->disable();
         //parent::searchAction();
-        
+
 
         $userAdmin = AdminUser::find();
 
         //var_dump($links);
-        
+
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/ReportForm.docx');
         date_default_timezone_set('Asia/Bangkok');
-        
+
 
         $tmp_file = 'ReportTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('ReportPrint_',$tmp_file);
 
@@ -205,13 +205,13 @@ class IndexController extends Controller
     {
         $this->view->disable();
         //parent::searchAction();
-        
+
 
         $survey = Survey::findFirst("status = 'A'");
         $listDiscoverySurvey = DiscoverySurvey::find("surveyid = {$survey->id}");
 
         //var_dump($links);
-        
+
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/SurveyStatusForm.docx');
@@ -223,7 +223,7 @@ class IndexController extends Controller
 
         $i = 1;
 
-        foreach ($listDiscoverySurvey as $value) 
+        foreach ($listDiscoverySurvey as $value)
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('office#'.$i, $value->office->name);
@@ -235,7 +235,7 @@ class IndexController extends Controller
         //die();
 
         $tmp_file = 'SurveyStatusTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('SurveyStatusPrint_',$tmp_file);
 

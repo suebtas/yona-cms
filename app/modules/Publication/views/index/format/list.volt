@@ -5,6 +5,7 @@
 'strategy': 'w'
 ]) %}
 {% set link = helper.langUrl(['for':'publication', 'type':item.getTypeSlug(), 'slug':item.getSlug()]) %}
+<br><p style="text-align: center;"><a class="btn btn-xl btn-danger" href="/printfile/index/{{item.getTypeSlug()}}">Download {{item.getTypeSlug()}}</a></p>
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
 <div class="thfont col-md-12" style="font-size:130%">
 <div style="background-color:rgb(203, 203, 203)" class="item{% if imageExists %} with-image{% endif %}">
@@ -12,7 +13,7 @@
         {# href="{{ link }}" #}
         <div class="row jumbotron" style="background-color:rgb(198, 198, 198)">
           <div class="col-md-6" style="background-color:rgb(119, 119, 119)">
-            <a data-target="#galleryModal" style="max-width:250px" class="gallery-box " data-toggle="modal"  data-src="{{ image.originalRelPath() }}">
+            <a  style="max-width:250px" a href="{{ link }}"  class="gallery-box">
                 <center><img src="{{ image.cachedRelPath() }}" class="img-responsive" alt="Image 1"></center>
                 <div class="gallery-box-caption">
                     <div class="gallery-box-content">

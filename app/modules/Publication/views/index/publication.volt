@@ -6,9 +6,11 @@
                 <article id="content" class="publication clearfix">
 
                     {% if helper.isAdminSession() %}
-                        <p style="font-weight: bold;font-size:120%;">
-                            <a class="noajax"
-                            href="{{ url.get() }}publication/admin/edit/{{ publication.getId() }}?lang={{ constant('LANG') }}">{{ helper.at('Edit publication') }}</a>
+                        <p>
+                          <a href="{{ helper.langUrl(['for':'publications','type':publication.getTypeSlug()]) }}" class="back btn btn-xl btn-danger">&larr; {{ helper.translate('ย้อนกลับ') }}</a>
+                            <a class="noajax btn btn-info btn-xl"
+                            href="{{ url.get() }}publication/admin/edit/{{ publication.getId() }}?lang={{ constant('LANG') }}">{{ helper.at('แก้ไข') }}</a>
+
                         </p>
                     {% endif %}
                     <h1 class="jumbotron thfont text-dark bg-dark" style="color:white">{{ publication.getTitle() }}</h1>
@@ -30,7 +32,7 @@
 
                     {{ publication.getText() }}
 
-                    <a href="{{ helper.langUrl(['for':'publications','type':publication.getTypeSlug()]) }}" class="back">&larr; {{ helper.translate('Back to publications list') }}</a>
+
 
                 </article>
             </div>
