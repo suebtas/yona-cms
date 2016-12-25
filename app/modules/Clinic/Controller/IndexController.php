@@ -4,6 +4,7 @@ use Application\Mvc\Controller;
 use Clinic\Model\AdminUser;
 use Clinic\Model\Answer;
 use Clinic\Model\DiscoverySurvey;
+use Clinic\Model\Survey;
 
 class IndexController extends Controller
 {
@@ -37,6 +38,18 @@ class IndexController extends Controller
 
     public function indexAction()
     {
+        $this->view->summaryTotal = Survey::findFirst("id=1")->DiscoverySurvey->count();
+        $this->view->summarySurveyReady = Survey::findFirst("id=1")->getDiscoverySurvey(["status=2"])->count();
+        
+        
+        $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = 1 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 1";
+        $rows = $this->modelsManager->executeQuery($phql);
+        $this->view->summaryApprovalReady = $rows->getFirst()->c;
+
+
+        $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = 1 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 2";
+        $rows = $this->modelsManager->executeQuery($phql);
+        $this->view->summaryAdminReady = $rows->getFirst()->c;
 
         // Dashboard JS Assets
         $this->assets->collection('modules-clinic-dashboard-js')
