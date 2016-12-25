@@ -29,7 +29,7 @@ class FormController extends Controller
 
         if(in_array($this->user->role, ['cc-admin','cc-approver'])) //ถ้า เป็น cc-admin และ cc-approver ให้ไปหน้า review
             return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
-        
+
         if(!$this->session->has('discovery_surveyid')){
             $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
             if($this->discoverySurvey==null){
@@ -61,7 +61,7 @@ class FormController extends Controller
             ->addCss(APPLICATION_PATH . '/modules/Clinic/assets/clinic.css');
             //->addCss(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.css');;
 
-                
+
         // Clinic JS Assets
         $this->assets->collection('modules-clinic-js')
             ->setLocal(true)
@@ -367,7 +367,7 @@ class FormController extends Controller
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
         }
-        
+
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
@@ -4124,79 +4124,79 @@ class FormController extends Controller
         $no9_3_1_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>401,
+                                1=>400,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_1_3 = $no9_3_1_3;
         $no9_3_2_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>402,
+                                1=>401,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_2_1 = $no9_3_2_1;
         $no9_3_2_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>403,
+                                1=>402,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_2_2 = $no9_3_2_2;
         $no9_3_2_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>404,
+                                1=>403,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_2_3 = $no9_3_2_3;
         $no9_3_3_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>405,
+                                1=>404,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_3_1 = $no9_3_3_1;
         $no9_3_3_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>406,
+                                1=>405,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_3_2 = $no9_3_3_2;
         $no9_3_3_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>407,
+                                1=>406,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_3_3 = $no9_3_3_3;
         $no9_3_4_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>408,
+                                1=>407,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_4_1 = $no9_3_4_1;
         $no9_3_4_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>409,
+                                1=>408,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_4_2 = $no9_3_4_2;
         $no9_3_4_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>410,
+                                1=>409,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_4_3 = $no9_3_4_3;
         $no9_3_5_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>411,
+                                1=>410,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_5_1 = $no9_3_5_1;
         $no9_3_5_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>412,
+                                1=>411,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_5_2 = $no9_3_5_2;
         $no9_3_5_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>413,
+                                1=>412,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no9_3_5_3 = $no9_3_5_3;
         $no9_4_1 = Answer::findFirst(
@@ -4286,31 +4286,31 @@ class FormController extends Controller
               $answer = $this->request->getPost("no9_3_1_2");
               $this->updateAnswer($option, 376, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_1_3");
-              $this->updateAnswer($option, 401, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 400, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_2_1");
-              $this->updateAnswer($option, 402, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 401, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_2_2");
-              $this->updateAnswer($option, 403, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 402, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_2_3");
-              $this->updateAnswer($option, 404, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 403, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_3_1");
-              $this->updateAnswer($option, 405, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 404, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_3_2");
-              $this->updateAnswer($option, 406, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 405, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_3_3");
-              $this->updateAnswer($option, 407, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 406, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_4_1");
-              $this->updateAnswer($option, 408, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 407, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_4_2");
-              $this->updateAnswer($option, 409, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 408, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_4_3");
-              $this->updateAnswer($option, 410, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 409, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_5_1");
-              $this->updateAnswer($option, 411, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 410, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_5_2");
-              $this->updateAnswer($option, 412, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 411, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_3_5_3");
-              $this->updateAnswer($option, 413, $answer, $user->officeid,  $this->discovery_surveyid);
+              $this->updateAnswer($option, 412, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_4_1");
               $this->updateAnswer($option, 377, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_4_2");

@@ -805,9 +805,9 @@ function Cal2(){
   var rei5 = i5.replace(/,/g,"");
   var rei6 = i6.replace(/,/g,"");
   var rei7 = i7.replace(/,/g,"");
-  var sums = parseFloat(rei1) + parseFloat(rei2) + parseFloat(rei3) + parseFloat(rei4) +parseFloat(rei5) + parseFloat(rei6) + parseFloat(rei7);
+  var sumd = parseFloat(rei1) + parseFloat(rei2) + parseFloat(rei3) + parseFloat(rei4) +parseFloat(rei5) + parseFloat(rei6) + parseFloat(rei7);
     sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
-  var sums = sums.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  var sums = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   $('#no2_5_8').html(sums);
 
   $.ajax({

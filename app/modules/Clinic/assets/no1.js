@@ -52,7 +52,7 @@ $(document).ready(function() {
         });
     }
   };
-  
+
   function calculateAreaRaiToKmSquare(value){
     return value/625;
   }
@@ -736,12 +736,11 @@ $(document).ready(function() {
 
     $('#no1_2_2_1').editable({
            type: 'text',
-           title: 'จำนวนเด็กชาย',
+           title: 'จำนวนผู้ชาย',
            display: function(value) {
              $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
            },
            }).on('save', function(e, params) {
-      if(params.newValue!=''){
         $.ajax({
             url : "/clinic/form/no1",
             type: "POST",
@@ -758,24 +757,6 @@ $(document).ready(function() {
 
             }
         });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              no1_2_2_1:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                callPopulationMale();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
     });
 
     $('#no1_2_2_2').editable({
@@ -1002,15 +983,15 @@ $(document).ready(function() {
       var ic2 = ic2.replace(/,/g,"");
       var ic3 = ic3.replace(/,/g,"");
       var ic4 = ic4.replace(/,/g,"");
-    var sum = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
+    var sumd = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
       sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
-    var sums = sum.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    var sums = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     $('#no1_2_1_1').html(sums);
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
         data : {
-          no1_2_1_1:sum,
+          no1_2_1_1:sums,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
@@ -1067,6 +1048,7 @@ $(document).ready(function() {
     });
 
   }
+  callPopulationAll();
   function callDensity(){
     var id1 = $('#no1_2_1').text();
     if(id1==''||id1=='Empty')
@@ -1118,4 +1100,3 @@ $(document).ready(function() {
   }
 
 });
-

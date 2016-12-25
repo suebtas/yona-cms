@@ -1,3 +1,4 @@
+<br><p style="text-align: center;"><a class="btn btn-xl btn-danger" href="/printfile/index/{{item.getTypeSlug()}}">Download {{item.getTypeSlug()}}</a></p>
 {% set image = helper.image([
 'id': item.getId(),
 'type': 'publication',
@@ -5,7 +6,7 @@
 'strategy': 'w'
 ]) %}
 {% set link = helper.langUrl(['for':'publication', 'type':item.getTypeSlug(), 'slug':item.getSlug()]) %}
-<br><p style="text-align: center;"><a class="btn btn-xl btn-danger" href="/printfile/index/{{item.getTypeSlug()}}">Download {{item.getTypeSlug()}}</a></p>
+
 {% if image.isExists() %}{% set imageExists = true %}{% else %}{% set imageExists = false %}{% endif %}
 <div class="thfont col-md-12" style="font-size:130%">
 <div style="background-color:rgb(203, 203, 203)" class="item{% if imageExists %} with-image{% endif %}">
@@ -28,7 +29,7 @@
             <blockquote class=" blockquote" >
             <a href="{{ link }}" class="text-info"><h3 class="thfontb">{{ helper.announce(item.getTitle(), 50) }}</h3></a>
             <i style="font-size:80%">วันที่ {{ item.getDate('d.m.Y') }}</i>
-            <p style="font-size:100%">{{ helper.announce(item.getText(), 200) }}</p></blockquote>
+            <p style="font-size:100%">{{ helper.announce(item.getText(), 250) }}</p></blockquote>
 
           </div>
         </div>
