@@ -32,10 +32,11 @@ class AdminUserForm extends Form
 
         $this->add(
             (new Email('email', [
-                'required' => true,
+                'required' => false,
             ]))
                 ->addValidator(new ValidatorEmail([
                     'message' => 'Email format is invalid',
+                    'allowEmpty' => true,
                 ]))
                 ->setLabel('Email')
         );
@@ -68,7 +69,6 @@ class AdminUserForm extends Form
         $password->addValidator(new PresenceOf([
             'message' => 'Password is required',
         ]));
-
     }
 
 }
