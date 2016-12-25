@@ -75,9 +75,9 @@ class IndexController extends Controller
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('quest#'.$i, $value->getTitle());
-            $answer = str_replace("<p>", "", $value->getText());
-            $answer2 = str_replace("</p>", "", $answer);
-            $document->setValue('answer#'.$i, $answer2);
+            //$answer = str_replace("<p>", "", $value->getText());
+            //$answer2 = str_replace("</p>", "", $answer);
+            $document->setValue('answer#'.$i, $value->getMetaDescription());
             //echo $answer2;
             $i++;
         }
@@ -118,20 +118,20 @@ class IndexController extends Controller
         {
             $document->setValue('index#'.$i, $i);
             $document->setValue('name#'.$i, $value->getTitle());
-            $answer = str_replace("<p>", "", $value->getText());
-            $answer2 = str_replace("</p>", "", $answer);
-            $document->setValue('url#'.$i, $answer2);
+            //$answer = str_replace("<p>", "", $value->getText());
+            //$answer2 = str_replace("</p>", "", $answer);
+            $document->setValue('url#'.$i, $value->getMetaDescription());
             //echo $answer2;
             $i++;
         }
         $document->setValue('date',date("d.m.Y"));
-        //die();
+        
 
         $tmp_file = 'LinksTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('LinksPrint_',$tmp_file);
-
+        //die();
     }
 
     public function userAction()
