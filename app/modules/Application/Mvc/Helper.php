@@ -10,6 +10,7 @@ namespace Application\Mvc;
 
 use Application\Mvc\Router\DefaultRouter;
 use Cms\Model\Language;
+use Clinic\Model\AdminUser;
 
 class Helper extends \Phalcon\Mvc\User\Component
 {
@@ -98,7 +99,8 @@ class Helper extends \Phalcon\Mvc\User\Component
     {
         $session = $this->getDi()->get('session');
         $auth = $session->get('auth');
-        if ($auth) {
+        $user = AdminUser::findFirst($auth->id);
+        if ($user->role == 'admin') {
             if ($auth->admin_session == true) {
                 return true;
             }
