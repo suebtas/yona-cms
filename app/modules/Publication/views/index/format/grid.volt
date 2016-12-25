@@ -11,6 +11,7 @@
 
 <div class="thfont col-md-4 text-center" style="font-size:130%">
     <div class="feature wow ">
+        <a href="{{ link }}"  class="gallery-box" >
             <center><img src="{{ image.cachedRelPath() }}" class="img-responsive" alt="Image 1"></center>
             <div class="gallery-box-caption">
                 <div class="gallery-box-content">
