@@ -207,11 +207,11 @@
 
           <div class="row">
 
-
+          {%for key , item in summary %}
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
-                  <h2>Surver Summary 2559</h2>
+                  <h2>Surver Summary {{key}} </h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -230,23 +230,24 @@
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <h4>มีการทำแบบสำรวจจำนวน {{summaryTotal}} หน่วยงาน</h4>
+                  <h4>มีการทำแบบสำรวจจำนวน {{item["summaryTotal"]}} หน่วยงาน</h4>
                   <div class="widget_summary">
                     <div class="w_left w_25">
                       <span>กรอกข้อมูลเสร็จ</span>
                     </div>
                     <div class="w_center w_55">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{summarySurveyReady/summaryTotal*100}}%;">
-                          <span class="sr-only">{{summarySurveyReady/summaryTotal*100}}% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item["percentSurveyReady"]}}%;">
+                          <span class="sr-only">{{item["percentSurveyReady"]}}% Complete</span>
                         </div>
                       </div>
                     </div>
                     <div class="w_right w_20">
-                      <span>{{summarySurveyReady}}</span>
+                      <span>{{item["summarySurveyReady"]}}</span>
                     </div>
                     <div class="clearfix"></div>
                   </div>
+
 
                   <div class="widget_summary">
                     <div class="w_left w_25">
@@ -254,37 +255,42 @@
                     </div>
                     <div class="w_center w_55">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{summaryApprovalReady/summaryTotal*100}}%;">
-                          <span class="sr-only">{{summaryApprovalReady/summaryTotal*100}}% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{item["summaryApprovalReady"]}}%;">
+                          <span class="sr-only">{{item["percentApprovalReady"]}}% Complete</span>
                         </div>
                       </div>
                     </div>
                     <div class="w_right w_20">
-                      <span>{{summaryApprovalReady}}</span>
+                      <span>{{item["summaryApprovalReady"]}}</span>
                     </div>
                     <div class="clearfix"></div>
                   </div>
+
+
                   <div class="widget_summary">
                     <div class="w_left w_25">
                       <span>จังหวัดรับรองข้อมูล</span>
                     </div>
                     <div class="w_center w_55">
                       <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{summaryAdminReady/summaryTotal*100}}%;">
-                          <span class="sr-only">{{summaryAdminReady/summaryTotal*100}}% Complete</span>
+                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0"  aria-valuemax="100" style="width: {{item["summaryAdminReady"]}}%;">
+                          <span class="sr-only">{{item["percentAdminReady"]}}% Complete</span>
                         </div>
                       </div>
                     </div>
                     <div class="w_right w_20">
-                      <span>{{summaryAdminReady}}</span>
+                      <span>{{item["summaryAdminReady"]}}</span>
                     </div>
                     <div class="clearfix"></div>
                   </div>
+                
 
                 </div>
               </div>
             </div>
 
+          {%endfor%}
+        {#            
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
@@ -526,10 +532,9 @@
                 </div>
               </div>
             </div>
-
+        #}
           </div>
-
-
+        {#
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12">
               <div class="x_panel">
@@ -866,6 +871,7 @@
             </div>
           </div>
         </div>
+        #}        
         <!-- /page content -->
 
         <!-- jQuery -->

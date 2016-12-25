@@ -38,19 +38,37 @@ class IndexController extends Controller
 
     public function indexAction()
     {
-        $this->view->summaryTotal = Survey::findFirst("id=1")->DiscoverySurvey->count();
-        $this->view->summarySurveyReady = Survey::findFirst("id=1")->getDiscoverySurvey(["status=2"])->count();
-        
-        
-        $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = 1 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 1";
-        $rows = $this->modelsManager->executeQuery($phql);
-        $this->view->summaryApprovalReady = $rows->getFirst()->c;
+        $surveies = Survey::find(array("order"=>"no"));
+        $this->view->summaryTotal = [];
+        $this->view->summarySurveyReady = [];
+        $this->view->summaryApprovalReady = [];
+        $this->view->percentAdminReady=[];
+        $this->view->percentApprovalReady = [];
+        $result = [];
+        foreach($surveies as $survey){
+            $result[$survey->no]["summaryTotal"] = $survey->DiscoverySurvey->count();
+
+            $result[$survey->no]["summarySurveyReady"] = $survey->getDiscoverySurvey(["status=2"])->count();
+            
+            $result[$survey->no]["percentSurveyReady"] = $result[$survey->no]["summarySurveyReady"] /$result[$survey->no]["summaryTotal"] * 100;
 
 
-        $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = 1 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 2";
-        $rows = $this->modelsManager->executeQuery($phql);
-        $this->view->summaryAdminReady = $rows->getFirst()->c;
+            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 1";
+            $rows = $this->modelsManager->executeQuery($phql,[$survey->id]);
+            $result[$survey->no]["summaryApprovalReady"] = $rows->getFirst()->c;
 
+            $result[$survey->no]["percentApprovalReady"] = $result[$survey->no]["summaryApprovalReady"] /$result[$survey->no]["summaryTotal"] * 100;
+
+
+            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 2";
+            $rows = $this->modelsManager->executeQuery($phql,array($survey->id));
+            $result[$survey->no]["summaryAdminReady"] = $rows->getFirst()->c;
+            $result[$survey->no]["percentAdminReady"] = $result[$survey->no]["summaryAdminReady"] /$result[$survey->no]["summaryTotal"] * 100;
+        }
+        $this->view->summary = $result;
+        //var_dump($this->view->summaryTotal["summaryAdminReady"]["1/2559"]);
+        //var_dump($result);
+        //die();
         // Dashboard JS Assets
         $this->assets->collection('modules-clinic-dashboard-js')
             ->setLocal(true)
