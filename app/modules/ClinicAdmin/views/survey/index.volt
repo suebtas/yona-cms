@@ -30,7 +30,7 @@
             <td>{{ survey.getStart() }}</td>
             <td>{{ survey.getEnd() }}</td>
             <td>{{ survey.getNotification() }}</td>
-            <td>{{ survey.getStatus() }}</td>
+            <td>{{ survey.getStatusWithSymbol() }}</td>
         </tr>
     {% endfor %}
     </tbody>

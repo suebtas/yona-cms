@@ -12,6 +12,7 @@ use Application\Form\Form;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Validation\Validator\PresenceOf;
+use Clinic\Model\SurveyStatus;
 
 class SurveyForm extends Form
 {
@@ -39,11 +40,15 @@ class SurveyForm extends Form
             ]))->setLabel('End')
         );
 
+
         $this->add(
-            (new Select('status', array("A" => "Active", "I" => "Inactive")))
+            (new Select('status', SurveyStatus::find(), array(
+                    'using' => array(
+                        'id',
+                        'name'
+                    ))))
             ->setLabel('Status')
         );
-
         $this->add(
             (new Text('notification', [
                 'required' => true,

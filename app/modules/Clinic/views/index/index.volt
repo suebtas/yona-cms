@@ -64,9 +64,7 @@
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Office</th>
-                          <th>Start date</th>
-                          <th>End date</th>
+                          <th>ท้องถิ่น</th>
                           <th>สถานะการตอบคำถาม</th>
                           <th>สถานะการยืนยันของท้องถิ่น</th>
                           <th>สถานะการยืนยันของจังหวัด</th>
@@ -76,9 +74,7 @@
                       <tfoot>
                         <tr>
                           <th>Name</th>
-                          <th>Office</th>
-                          <th>Start date</th>
-                          <th>End date</th>
+                          <th>ท้องถิ่น</th>
                           <th>สถานะการตอบคำถาม</th>
                           <th>สถานะการยืนยันของท้องถิ่น</th>
                           <th>สถานะการยืนยันของจังหวัด</th>
@@ -91,9 +87,7 @@
                         {% for discoverySurvey in listDiscoverySurvey %}
                         <tr>
                           <td>{{link_to("clinic/form/showdiscoverysurvey/"~discoverySurvey.id,discoverySurvey.Office.name)}}</td>
-                          <td>{{discoverySurvey.Survey.description}}</td>
-                          <td>{{discoverySurvey.Survey.getDateOfStartSurvey()}}</td>
-                          <td>{{discoverySurvey.Survey.getDateOfEndSurvey()}}</td>
+                          <td>{{discoverySurvey.Survey.description}} ({{discoverySurvey.Survey.getDateOfStartSurvey()}} ถึง {{discoverySurvey.Survey.getDateOfEndSurvey()}})</td>                          
                           <td>{{discoverySurvey.getStatusWithSymbol()}}</td>
                           {% set adminApprove = discoverySurvey.getApproval(['level=2']) %}
                           {% set approverApprove = discoverySurvey.getApproval(['level=1']) %}

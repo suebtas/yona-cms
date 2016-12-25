@@ -53,7 +53,8 @@ class Survey extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'DiscoverySurvey', 'surveyid', array('alias' => 'DiscoverySurvey'));
+        $this->hasMany('id', 'Clinic\Model\DiscoverySurvey', 'surveyid', array('alias' => 'DiscoverySurvey'));
+        $this->hasOne('status', 'Clinic\Model\SurveyStatus', 'id', array('alias' => 'SurveyStatus'));
     }
 
     /**
@@ -144,7 +145,8 @@ class Survey extends \Phalcon\Mvc\Model
             $message .= 'fa fa-lock';
         else 
             $message .= 'fa fa-unlock';
-        $message .= ' fa-2x"></i>';
+        $message .= ' fa-2x"></i> ';
+        $message .= $this->SurveyStatus->name;
         return $message;
     }
     public function generateDiscoverySuryver(){
