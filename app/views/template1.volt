@@ -133,11 +133,11 @@
                     <li>
                         <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                     </li>
-                    {% if news_display == "1"%}
+                    
                     <li>
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
-                    {% endif %}
+                    
                     <li>
                         <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรม</a>
                     </li>

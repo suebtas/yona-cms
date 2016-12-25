@@ -146,6 +146,9 @@ class IndexController extends Controller
         if($type!=null)
         $this->view->faqs_display = $type->getDisplayDate();
 
+        $type = Type::findFirst("slug = 'about'");
+        $this->view->about_display = $type->getDisplayDate();
+
 
 
 

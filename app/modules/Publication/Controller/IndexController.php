@@ -72,7 +72,7 @@ class IndexController extends Controller
         $this->helper->title()->append($publication->getMetaTitle());
         $this->helper->meta()->set('description', $publication->getMetaDescription());
         $this->helper->meta()->set('keywords', $publication->getMetaKeywords());
-
+        $this->view->type = $type;
         $this->view->publication = $publication;
         $this->helper->menu->setActive($type);
 
@@ -82,7 +82,7 @@ class IndexController extends Controller
     public function searchAction()
     {
         $keyword = $this->request->getQuery('keyword', 'string', "");
-        
+
         $type = $this->dispatcher->getParam('type', 'string');
         $typeModel = Type::getCachedBySlug($type);
         if (!$typeModel) {
@@ -106,7 +106,7 @@ class IndexController extends Controller
             "permission in ('public'$permission_member) and type_id = {$typeModel->getId()}",
             "order" => "date DESC",
         ));*/
-        
+
 
         $phql = "select p.* from Publication\Model\Publication p,Publication\Model\Translate\PublicationTranslate pt where p.permission in ('public'$permission_member) and p.type_id = {$typeModel->getId()} and pt.foreign_id = p.id and key='title' and value like :keyword: order by date desc";
         $publications = $this->modelsManager->executeQuery($phql,["keyword" => "%$keyword%"]);

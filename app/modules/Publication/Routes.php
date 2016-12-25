@@ -43,7 +43,7 @@ class Routes
             'action' => 'publication'
         ), 'publication');
 
-        $router->addML('/{type:' . $types_regex . '}/search', array(
+        $router->addML('/{type:' . $types_regex . '}_search', array(
             'module' => 'publication',
             'controller' => 'index',
             'action' => 'search'
