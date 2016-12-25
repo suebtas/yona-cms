@@ -111,36 +111,16 @@ class DataanalyController extends FormController
                 //die($con2);
 
                 $Survey = Survey::findFirst("no = '{$years}'");
-                $discovery_survey = DiscoverySurvey::find("surveyid = {$Survey->id}");
 
                 $Survey2 = Survey::findFirst("no = '1/{$year2}'");
-                if($Survey2 != null)
-                    $discovery_survey2 = DiscoverySurvey::find("surveyid = {$Survey2->id}");
-                else
-                    $discovery_survey2 = null;
 
-                //$office['id'][]=
-
-                if(count($discovery_survey) >0)
-                {
-                    foreach($discovery_survey as $dis)
-                    {
-                            $readIDs[] = $dis->id;
-                    }       
-                    $readSurveyIDs = implode(",",$readIDs);
-                    
-                }
-
-                //$quest2 = Question::find("sessionid = {$session}");
-
-                
                 
                 if($logic1 == "0")
                 {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid in ($readSurveyIDs) ORDER BY O.name";
+                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey->id} ORDER BY O.name";
 
-                    if($discovery_survey2 != null)
-                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND discovery_surveyid2 in ($readSurveyIDs) ORDER BY O.name";
+                    if($Survey2 != null)
+                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey2->id} ORDER BY O.name";
                     
                 }
                 elseif($logic1 != "0")
@@ -162,25 +142,11 @@ class DataanalyController extends FormController
                     }
                     
                 }
-                
-                
-                //var_dump($data);
-                //die($con2);
-                /*if ($this->modelsManager->executeQuery($sql)) {
-                    //die("not save");
-                    foreach ($news->getMessages() as $message) {
-                        $this->flash->error(sprintf(self::$messageFail,$message));
-                    }
-
-                    return $this->dispatcher->forward(array(
-                        "controller" => "dataanaly",
-                        "action" => "index"
-                    ));
-                    }*/
+                                
                 $data = $this->modelsManager->executeQuery($sql);
 
-                if($discovery_survey2 != null)
-                    $data2 = $this->modelsManager->executeQuery($sql);
+                if($Survey2 != null)
+                    $data2 = $this->modelsManager->executeQuery($sql2);
                 else
                     $data2 = null;
             
@@ -194,20 +160,46 @@ class DataanalyController extends FormController
                 $this->view->logic1 = $logic1;
 
             }
+            $result = [];
+            foreach($data as $item){
+                //array['xxx1' => array[2559=>10,2558=>10]]
+                //array['xxx2' => array[2559=>10,2558=>10]]
+                //array['xxx1'][] = [2559=>10,2558=>10]
+                //array['xxx1'][] = [2559=>10,2558=>10]
+                $result[$item->name][$year1] = $item->answer;
+            }
 
+
+            foreach($data2 as $item){
+                //array['xxx1' => array[2559=>10,2558=>10]]
+                //array['xxx2' => array[2559=>10,2558=>10]]
+                //array['xxx1'][] = [2559=>10,2558=>10]
+                //array['xxx1'][] = [2559=>10,2558=>10]
+                $result[$item->name][$year2] = $item->answer;
+            }
+            
+            $this->view->test = $result;
             $amphurs = Amphur::find();
+            foreach($amphurs as $amphur){
+                $countAmphs[$amphur->id] = 0;
+                $countAmphs2[$amphur->id] = 0;
+            }
             foreach($data as $d)
             {
                 $countAmphs[$d->amphurid]++;
             }
-            //var_dump($countAmphs);
-            //die();
+
+
+            foreach($data2 as $d)
+            {
+                $countAmphs2[$d->amphurid]++;
+            }
 
             $this->view->datas = $data;
             $this->view->datas2 = $data2;
             $this->view->amphurs = $amphurs;
             $this->view->countAmphs = $countAmphs;
-            //$unpost("val3");
+            $this->view->countAmphs2 = $countAmphs2;
 
         }
         else

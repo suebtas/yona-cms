@@ -146,6 +146,7 @@
         </table>
 
         <input name="Query" type="submit" value=">>ผลลัพธ์<<" class="btn btn-success">
+
         <table class="ui table very compact celled">
             <thead>
                 <tr>
@@ -156,22 +157,21 @@
             </thead>
             <tbody>
             {% set i=1 %}
-            {% if datas != null %}
-                {% for d in datas %}
+            {% if test != null %}
+                {% for d, answer in test %}
                 <tr>
                     <td>{{i}}{% set i=i+1 %}</td>
-                    <td>{{d.name}}</td>
-                    <td>{{d.answer}}</td>
-                    <td>
-                        {% if datas2 == null %}
-                            {{"NA"}}
-                        {% endif %}
-                    </td>
+                    <td>{{d}}</td>
+                    <td>{{answer[year1]}}</td>
+                    <td>{{answer[year2]}}</td>
                 </tr>
                 {% endfor %}
             {% endif %}
             </tbody>
         </table>
+
+
+
 
         <input name="Amphur" type="button" value=">>สถิติ<<" class="btn btn-success">
         <table class="ui table very compact celled">
@@ -189,12 +189,8 @@
                 <tr>
                     <td>{{i}}{% set i=i+1 %}</td>
                     <td>{{a.name}}</td>
-                    <td>{{countAmphs[a.id]}}</td>
-                    <td>
-                        {% if datas2 == null %}
-                            {{"NA"}}
-                        {% endif %}
-                    </td>
+                    <td>{{countAmphs[a.id]}}</td>                    
+                    <td>{{countAmphs2[a.id]}}</td>
                 </tr>
                 {% endfor %}
             {% endif %}
