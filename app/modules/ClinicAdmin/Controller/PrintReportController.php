@@ -50,6 +50,95 @@ class PrintReportController extends Controller
         $this->view->disable();
     }
 
+    public function No3Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no3.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo3_',$tmp_file);
+    }
+
+
+    public function No4Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no4.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo4_',$tmp_file);
+    }
+
+    public function No5Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no5.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo5_',$tmp_file);
+    }
+
+    public function No6Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no6.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo6_',$tmp_file);
+    }
+
+
+    public function No7Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no7.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo7_',$tmp_file);
+    }
+
+    public function No8Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no8.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo8_',$tmp_file);
+    }
+
+    public function No9Action(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no9.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo9_',$tmp_file);
+    }
+
+    public function ExtendAction(){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_extend.xls');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save('FormNoTMP.xlsx');
+
+  		$tmp_file = 'FormNoTMP.xlsx';
+  	 	$this->converttoexceltemplate('FormNo_Extend_',$tmp_file);
+    }
     public function No2Action(){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
@@ -72,9 +161,129 @@ class PrintReportController extends Controller
                         a.questionid = 26
                     group by ds.surveyid, a.questionid, amp.name,q.description";
 
+
+        $phql = "select question.id, amphur.name,  sum(answer2558.answer) y2558,  sum(answer2559.answer) y2559 
+        from 
+            Clinic\Model\DiscoverySurvey discovery_survey 
+            left join Clinic\Model\Answer answer2558 on (answer2558.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = 3) 
+            left join Clinic\Model\Answer answer2559 on (answer2559.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = 1) 
+            join Clinic\Model\Question question on (question.id = answer2558.questionid or question.id = answer2559.questionid) 
+            left join Clinic\Model\Office office on (office.id = discovery_survey.officeid) 
+            left join Clinic\Model\Amphur amphur on (office.amphurid = amphur.id)
+        group by  question.id, amphur.name";
+       // where 
+       //     question.id = 26 
+
         $data = $this->modelsManager->executeQuery($phql);
+        $result = [];
+        foreach($data as $r => $dataRow) {
+            $result[$dataRow["id"]][$dataRow["name"]]['name'] =  $dataRow["name"];
+            $result[$dataRow["id"]][$dataRow["name"]]['y2558'] =  $dataRow["y2558"];
+            $result[$dataRow["id"]][$dataRow["name"]]['y2559'] =  $dataRow["y2559"];
+        }
+        //var_dump( $result );
+        //die();
         $baseRow = 7;
         $row = 0;
+        
+        
+        for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
+        }
+
+        $data = $result[26];
+
+        // var_dump( $data );
+        // die();
+
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('B'.$row, $dataRow["name"])
+                                        ->setCellValue('C'.$row, $dataRow["y2558"])
+                                        ->setCellValue('D'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+
+        $data = $result[28];
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('E'.$row, $dataRow["y2558"])
+                                        ->setCellValue('F'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+
+
+        $data = $result[30];
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('G'.$row, $dataRow["y2558"])
+                                        ->setCellValue('H'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+
+
+        $data = $result[32];
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('I'.$row, $dataRow["y2558"])
+                                        ->setCellValue('J'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+
+        //สะพาน
+        $data = $result[35];
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('K'.$row, $dataRow["y2558"])
+                                        ->setCellValue('L'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+        /*
+        $data = $result[36];
+        $baseRow = 7;
+        $row = 0;
+        $r=0;
+
+        foreach($data as  $dataRow) {
+        //for($r=0;$r<8;$r++) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('M'.$row, $dataRow["y2558"])
+                                        ->setCellValue('N'.$row, $dataRow["y2559"]);
+            $r+=1;
+        }
+        */
+        /*
         foreach($data as $r => $dataRow) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
@@ -83,7 +292,7 @@ class PrintReportController extends Controller
                                         ->setCellValue('C'.$row, $dataRow["y2558"])
                                         ->setCellValue('D'.$row, $dataRow["y2559"]);
         }
-
+        */
         $objPHPExcel->getActiveSheet()->removeRow($row+1,1);
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save('FormNoTMP.xlsx');
@@ -91,7 +300,8 @@ class PrintReportController extends Controller
   		$tmp_file = 'FormNoTMP.xlsx';
   	 	$this->converttoexceltemplate('FormNo2_',$tmp_file);
     }
-    public function No1Action()
+
+    public function TestNo1Action()
     {
         $this->view->disable();
         // New Word document
@@ -161,7 +371,7 @@ class PrintReportController extends Controller
 		
     }
 
-    public function indexAction()
+    public function index2Action()
     {
         
         $this->view->disable();
