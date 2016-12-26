@@ -6,7 +6,7 @@
   <header id="first">
       <div class="header-content">
         <div class="container fadeIn wow inner" style="margin-top: 10%; background-color: rgba(255, 255, 255, 0.498039); padding: 2%; visibility: visible; animation-name: fadeIn;">
-          <b><center><h1 class="thfontb wow fadeInLeftBig" style="font-size: 300%; color: rgb(66, 66, 66); visibility: visible; animation-name: fadeInLeftBig;">ศูนย์เครือข่ายเพื่อแก้ไขปัญหา <br> และส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถื่น</h1></center></b>
+          <b><center><h1 class="thfontb wow fadeInLeftBig" style="font-size: 300%; color: rgb(66, 66, 66); visibility: visible; animation-name: fadeInLeftBig;">ศูนย์เครือข่ายเพื่อแก้ไขปัญหา <br> และส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่น</h1></center></b>
           <center><h1 class="thfont wow fadeInRightBig" style="font-size: 200%; color: rgb(34, 34, 34); visibility: visible; animation-name: fadeInRightBig;">(Clinic Center) <br> องค์การบริหารส่วนจังหวัดระยอง</h1>
             <div class="fh5co-counter-style-1" data-stellar-background-ratio="0.5">
                       <span class="thfont" style="color:rgb(0, 0, 0)">

@@ -965,7 +965,7 @@
 	      });
 	    </script>
 	    <!-- /Skycons -->
-
+      {#
 	    <!-- Doughnut Chart -->
 	    <script>
 	      $(document).ready(function(){
@@ -1008,7 +1008,7 @@
 	      });
 	    </script>
 	    <!-- /Doughnut Chart -->
-
+      #}
 	    <!-- bootstrap-daterangepicker -->
 	    <script>
 	      $(document).ready(function() {
@@ -1082,7 +1082,7 @@
 	      });
 	    </script>
 	    <!-- /bootstrap-daterangepicker -->
-
+      {#
 	    <!-- gauge.js -->
 	    <script>
 	      var opts = {
@@ -1109,3 +1109,4 @@
 	      gauge.setTextField(document.getElementById("gauge-text"));
 	    </script>
 	    <!-- /gauge.js -->
+      #}
