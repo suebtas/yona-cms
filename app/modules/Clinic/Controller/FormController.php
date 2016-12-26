@@ -348,6 +348,12 @@ class FormController extends Controller
             }
             $this->view->quests = $quests;
     }
+    public function no10Action()
+    {
+        $questions = Session::find("active = 1 AND extend = 1");
+
+        $this->view->questions = $questions;
+    }
     public function no1Action()
     {
         if(in_array($this->user->role, ['cc-admin','cc-approver']))

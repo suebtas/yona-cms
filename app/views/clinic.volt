@@ -80,7 +80,7 @@
                       <li><a href="{{ url.get() }}clinic/form/no7">7.ด้านการป้องกันและบรรเทาสาธารณภัย</a></li>
                       <li><a href="{{ url.get() }}clinic/form/no8">8.ด้านสิ่งแวดล้อมและทรัพยากรธรรมชาติ</a></li>
                       <li><a href="{{ url.get() }}clinic/form/no9">9.ด้านการเมือง การบริหาร</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/extend">10.คำถามเพิ่มเติม</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no10">10.คำถามเพิ่มเติม</a></li>
                     </ul>
                   </li>
                   <!--
