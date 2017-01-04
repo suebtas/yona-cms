@@ -71,6 +71,7 @@ class AdminUserController extends Controller
 
         $form = new AdminUserForm();
 
+        $form->initSaving();
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
             $form->bind($post, $model);

@@ -44,6 +44,21 @@ class AdminUser extends \Phalcon\Mvc\Model
 
     public function validation()
     {
+        /*
+        $this->validate(new Uniqueness(array(
+          "field"   => "login",
+          "message" => "Value of field 'login' is already present in another record"
+        )));
+
+        $this->validate(new Uniqueness(array(
+          "field"   => "email",
+          "message" => "Value of field 'email' is already present in another record"
+        )));
+        if ($this->validationHasFailed() == true) {
+            return false;
+        }
+        return true;
+        */
         $validator = new Validation();
         $validator->add("login", new Uniqueness(
             [
@@ -53,7 +68,8 @@ class AdminUser extends \Phalcon\Mvc\Model
 
         $validator->add("email", new Uniqueness(
             [
-                "message" => $this->getDi()->get('helper')->translate("The Email must be unique")
+                "message" => $this->getDi()->get('helper')->translate("The Email must be unique"),
+                'allowEmpty' => true,
             ]
         ));
 
@@ -124,7 +140,7 @@ class AdminUser extends \Phalcon\Mvc\Model
 
     public function isActive()
     {
-        if ($this->active) {
+        if ($this->active == 1) {
             return true;
         }
     }

@@ -18,6 +18,7 @@ use Phalcon\Forms\Element\Check;
 use Phalcon\Validation\Validator\Email as ValidatorEmail;
 use Phalcon\Validation\Validator\PresenceOf;
 use Clinic\Model\Office;
+use Phalcon\Validation\Validator\Uniqueness;
 
 class AdminUserForm extends Form
 {
@@ -34,10 +35,11 @@ class AdminUserForm extends Form
             (new Email('email', [
                 'required' => false,
             ]))
-                ->addValidator(new ValidatorEmail([
+                ->addValidators([new ValidatorEmail([
                     'message' => 'Email format is invalid',
                     'allowEmpty' => true,
-                ]))
+                        ])
+                    ])
                 ->setLabel('Email')
         );
 
@@ -69,6 +71,16 @@ class AdminUserForm extends Form
         $password->addValidator(new PresenceOf([
             'message' => 'Password is required',
         ]));
-    }
 
+        $login  = $this->get('login');
+        $login->addValidator(new Uniqueness([
+            'model' => new AdminUser(),
+            'field' => "login",
+            'message' => "Value of field 'login' is already present in another record"
+        ]));
+    }
+    public function initSaving(){
+        $login  = $this->get('login');
+        $login->setAttributes(array("readonly"=>"readonly"));
+    }
 }

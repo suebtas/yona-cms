@@ -6,6 +6,7 @@
 
 namespace ClinicAdmin\Model;
 
+use Phalcon\Validation;
 use Phalcon\Mvc\Model\Validator\Uniqueness;
 use Admin\Model\AdminUser;
 use stdClass;
@@ -20,11 +21,16 @@ class ClinicAdminUser extends AdminUser
 
     public function initialize()
     {
-        self::$roles = array_merge(parent::$roles,[
+        /*self::$roles = array_merge(parent::$roles,[
                             'cc-user' => 'Clinic Center User',
                             'cc-approver' => 'Clinic Center Approver',
                             'cc-admin' => 'Clinic Center Admin'
-                            ]);
+                            ]);*/
+        self::$roles = [
+                            'cc-user' => 'Clinic Center User',
+                            'cc-approver' => 'Clinic Center Approver',
+                            'cc-admin' => 'Clinic Center Admin'
+                            ];
         parent::initialize();
     }
 
@@ -44,6 +50,8 @@ class ClinicAdminUser extends AdminUser
                 "message" => $this->getDi()->get('helper')->translate("The Email must be unique")
             ]
         ));*/
+
+        parent::validation();
 
         return $this->validationHasFailed() != true;
 
