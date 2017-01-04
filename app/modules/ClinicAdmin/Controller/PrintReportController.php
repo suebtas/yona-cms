@@ -31,13 +31,13 @@ class PrintReportController extends Controller
         
         $this->setAdminEnvironment();
         $this->view->languages_disabled = true;
-
+/*
         $this->surveyid = $this->session->get('surveyid');
       	$this->discoverySurveyid = $this->session->get('discovery_surveyid');
       	//echo $this->discoverySurvey->id."--".$discovery_surveyid;
 
-      	$this->discoverySurvey =  DiscoverySurvey::findFirst("id = {$this->discoverySurveyid}");
-      	$this->year = $this->discoverySurvey->Survey->no;
+      	$this->discoverySurvey =  DiscoverySurvey::findFirst($this->discoverySurveyid);
+      	$this->year = $this->discoverySurvey->Survey->no;*/
 
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
