@@ -19,7 +19,7 @@ class SurveyController extends Controller
     {
         
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('Survey');
+        $this->helper->activeMenu()->setActive('admin-schedule');
         $this->view->languages_disabled = true;
     }
 
