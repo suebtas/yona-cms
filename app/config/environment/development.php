@@ -6,7 +6,7 @@ return [
 
     'database'  => [
         'adapter'  => 'Mysql',
-        'host'     => 'localhost',
+        'host'     => '172.17.0.2',
         'username' => 'root',
         'password' => 'itlab',
         'dbname'   => 'yona-cms',
