@@ -19,7 +19,7 @@ class NewsLevelController extends Controller
     {
 
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('NewsLevel');
+        $this->helper->activeMenu()->setActive('admin-news-level');
         $this->view->languages_disabled = true;
     }
 
@@ -29,12 +29,12 @@ class NewsLevelController extends Controller
             "order" => "id ASC"
         ]);
 
-        $this->helper->title($this->helper->at('Manage NewsLevel'), true);
+        $this->helper->title($this->helper->at('Manage News Level'), true);
     }
 
     public function addAction()
     {
-        $this->view->pick(['NewsLevel/edit']);
+        $this->view->pick(['news-level/edit']);
 
         $model = new NewsLevel();
         $form = new NewsLevelForm();
@@ -45,8 +45,8 @@ class NewsLevelController extends Controller
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save()) {
-                    $this->flash->success($this->helper->at('NewsLevel created', ['name' => $model->getName()]));
-                    $this->redirect($this->url->get() . 'clinic-admin/newslevel');
+                    $this->flash->success($this->helper->at('News Level created', ['name' => $model->getName()]));
+                    $this->redirect($this->url->get() . 'clinic-admin/news-level');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -59,14 +59,14 @@ class NewsLevelController extends Controller
         $this->view->model = $model;
         $this->view->submitButton = $this->helper->at('Add New');
 
-        $this->helper->title($this->helper->at('Administrator'), true);
+        $this->helper->title($this->helper->at('Add News Level'), true);
     }
 
     public function editAction($id)
     {
         $model = NewsLevel::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'clinic-admin/newslevel');
+            $this->redirect($this->url->get() . 'clinic-admin/news-level');
         }
 
         $form = new NewsLevelForm();
@@ -77,7 +77,7 @@ class NewsLevelController extends Controller
             if ($form->isValid()) {
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'clinic-admin/newslevel');
+                    return $this->redirect($this->url->get() . 'clinic-admin/news-level');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -92,25 +92,25 @@ class NewsLevelController extends Controller
         $this->view->form = $form;
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Manage NewsLevel'), true);
+        $this->helper->title($this->helper->at('Manage News Level'), true);
     }
 
     public function deleteAction($id)
     {
         $model = NewsLevel::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'clinic-admin/newslevel');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-level');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
-            $this->flash->warning('Deleting NewsLevel <b>' . $model->getName() . '</b>');
-            return $this->redirect($this->url->get() . 'clinic-admin/newslevel');
+            $this->flash->warning('Deleting News Level <b>' . $model->getName() . '</b>');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-level');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete NewsLevel'), true);
+        $this->helper->title($this->helper->at('Delete News Level'), true);
     }
 
 }

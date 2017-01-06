@@ -19,7 +19,7 @@ class NewsTypeController extends Controller
     {
 
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('NewsType');
+        $this->helper->activeMenu()->setActive('admin-news-type');
         $this->view->languages_disabled = true;
     }
 
@@ -29,12 +29,12 @@ class NewsTypeController extends Controller
             "order" => "id ASC"
         ]);
 
-        $this->helper->title($this->helper->at('Manage NewsType'), true);
+        $this->helper->title($this->helper->at('Manage News Type'), true);
     }
 
     public function addAction()
     {
-        $this->view->pick(['NewsType/edit']);
+        $this->view->pick(['news-type/edit']);
 
         $model = new NewsType();
         $form = new NewsTypeForm();
@@ -45,8 +45,8 @@ class NewsTypeController extends Controller
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save()) {
-                    $this->flash->success($this->helper->at('NewsType created', ['name' => $model->getName()]));
-                    $this->redirect($this->url->get() . 'clinic-admin/newstype');
+                    $this->flash->success($this->helper->at('News Type created', ['name' => $model->getName()]));
+                    $this->redirect($this->url->get() . 'clinic-admin/news-type');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -59,14 +59,14 @@ class NewsTypeController extends Controller
         $this->view->model = $model;
         $this->view->submitButton = $this->helper->at('Add New');
 
-        $this->helper->title($this->helper->at('Administrator'), true);
+        $this->helper->title($this->helper->at('News Type'), true);
     }
 
     public function editAction($id)
     {
         $model = NewsType::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'clinic-admin/newstype');
+            $this->redirect($this->url->get() . 'clinic-admin/news-type');
         }
 
         $form = new NewsTypeForm();
@@ -77,7 +77,7 @@ class NewsTypeController extends Controller
             if ($form->isValid()) {
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'clinic-admin/newstype');
+                    return $this->redirect($this->url->get() . 'clinic-admin/news-type');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -92,25 +92,25 @@ class NewsTypeController extends Controller
         $this->view->form = $form;
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Manage NewsType'), true);
+        $this->helper->title($this->helper->at('Manage News Type'), true);
     }
 
     public function deleteAction($id)
     {
         $model = NewsType::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'clinic-admin/newstype');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-type');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
             $this->flash->warning('Deleting NewsType <b>' . $model->getName() . '</b>');
-            return $this->redirect($this->url->get() . 'clinic-admin/newstype');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-type');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete NewsType'), true);
+        $this->helper->title($this->helper->at('Delete News Type'), true);
     }
 
 }

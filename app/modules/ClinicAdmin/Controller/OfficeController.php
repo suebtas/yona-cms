@@ -19,7 +19,7 @@ class OfficeController extends Controller
     {
         
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('office');
+        $this->helper->activeMenu()->setActive('admin-office');
         $this->view->languages_disabled = true;
     }
 

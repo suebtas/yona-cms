@@ -19,7 +19,7 @@ class ConditionController extends Controller
     {
 
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('Condition');
+        $this->helper->activeMenu()->setActive('admin-condition');
         $this->view->languages_disabled = true;
     }
 

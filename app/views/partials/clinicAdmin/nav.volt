@@ -9,7 +9,7 @@
             <a class="item{{ helper.activeMenu().activeClass('admin-user') }}" href="{{ url.get() }}clinic-admin/admin-user">
                 {{ helper.at('จัดการผู้ใช้งานและสินธิ์') }} <i class="user icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-schedule') }}" href="{{ url.get() }}clinic-admin/survey">
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey') }}" href="{{ url.get() }}clinic-admin/survey">
                 {{ helper.at('จัดการกำหนดการกรอกข้อมูล') }} <i class="pencil icon"></i>
             </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-news') }}" href="#">
@@ -18,20 +18,20 @@
             <a class="item{{ helper.activeMenu().activeClass('admin-office') }}" href="{{ url.get() }}clinic-admin/office">
                 {{ helper.at('จัดการเขตพื้นที่') }} <i class="pencil icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/session">
+            <a class="item{{ helper.activeMenu().activeClass('admin-session') }}" href="{{ url.get() }}clinic-admin/session">
                 {{ helper.at('จัดการชื่อแบบฟอร์มอิเล็กทรอนิกส์') }} <i class="pencil icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/surveystatus">
+            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/survey-status">
                 {{ helper.at('จัดการสถานะกรอกข้อมูล') }} <i class="pencil icon"></i>
             </a>
 
-            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newslevel">
+            <a class="item{{ helper.activeMenu().activeClass('admin-news-important') }}" href="{{ url.get() }}clinic-admin/news-important">
                 {{ helper.at('จัดการระดับความเร่งด่วนของข่าวสาร') }} <i class="pencil icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newslevel">
+            <a class="item{{ helper.activeMenu().activeClass('admin-news-level') }}" href="{{ url.get() }}clinic-admin/news-level">
                 {{ helper.at('จัดการระดับความสำคัญของข่าวสาร') }} <i class="pencil icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-survey-status') }}" href="{{ url.get() }}clinic-admin/newstype">
+            <a class="item{{ helper.activeMenu().activeClass('admin-news-type') }}" href="{{ url.get() }}clinic-admin/news-type">
                 {{ helper.at('จัดการประเภทข่าวสาร') }} <i class="pencil icon"></i>
             </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-amphur') }}" href="{{ url.get() }}clinic-admin/amphur">

@@ -1,7 +1,7 @@
 <!--controls-->
 <div class="ui segment">
 
-    <a href="{{ url.get() }}clinic-admin/newsimportant/add" class="ui button positive">
+    <a href="{{ url.get() }}clinic-admin/survey-status/add" class="ui button positive">
         <i class="icon plus"></i> {{ helper.at('Add New') }}
     </a>
 
@@ -11,18 +11,18 @@
 <table class="ui table very compact celled">
     <thead>
     <tr>
-        <th>{{ helper.at('Edit') }}</th>
+        <th style="width: 100px"></th>
         <th>{{ helper.at('Name') }}</th>
         <th>{{ helper.at('Status') }}</th>
     </tr>
     </thead>
     <tbody>
-    {% for NewsImportant in entries %}
+    {% for surveystatus in entries %}
         <tr>
-            {% set url = url.get() ~ 'clinic-admin/newsimportant/edit/' ~ NewsImportant.getId() %}
+            {% set url = url.get() ~ 'clinic-admin/survey-status/edit/' ~ surveystatus.getId() %}
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
-            <td>{{ NewsImportant.getName() }}</td>
-            <td>{{ NewsImportant.getStatus() }}</td>
+            <td>{{ surveystatus.getName() }}</td>
+            <td>{{ surveystatus.getStatus() }}</td>
         </tr>
     {% endfor %}
     </tbody>

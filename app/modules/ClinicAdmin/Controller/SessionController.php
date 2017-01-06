@@ -19,7 +19,7 @@ class SessionController extends Controller
     {
         
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('Session');
+        $this->helper->activeMenu()->setActive('admin-session');
         $this->view->languages_disabled = true;
     }
 

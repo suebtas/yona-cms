@@ -19,7 +19,7 @@ class NewsImportantController extends Controller
     {
 
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('NewsImportant');
+        $this->helper->activeMenu()->setActive('admin-news-important');
         $this->view->languages_disabled = true;
     }
 
@@ -29,12 +29,12 @@ class NewsImportantController extends Controller
             "order" => "id ASC"
         ]);
 
-        $this->helper->title($this->helper->at('Manage NewsImportant'), true);
+        $this->helper->title($this->helper->at('Manage News Important'), true);
     }
 
     public function addAction()
     {
-        $this->view->pick(['NewsImportant/edit']);
+        $this->view->pick(['news-important/edit']);
 
         $model = new NewsImportant();
         $form = new NewsImportantForm();
@@ -45,8 +45,8 @@ class NewsImportantController extends Controller
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save()) {
-                    $this->flash->success($this->helper->at('NewsImportant created', ['name' => $model->getName()]));
-                    $this->redirect($this->url->get() . 'clinic-admin/newsimportant');
+                    $this->flash->success($this->helper->at('News Important created', ['name' => $model->getName()]));
+                    $this->redirect($this->url->get() . 'clinic-admin/news-important');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -66,7 +66,7 @@ class NewsImportantController extends Controller
     {
         $model = NewsImportant::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'clinic-admin/newsimportant');
+            $this->redirect($this->url->get() . 'clinic-admin/news-important');
         }
 
         $form = new NewsImportantForm();
@@ -77,7 +77,7 @@ class NewsImportantController extends Controller
             if ($form->isValid()) {
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'clinic-admin/newsimportant');
+                    return $this->redirect($this->url->get() . 'clinic-admin/news-important');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -92,25 +92,25 @@ class NewsImportantController extends Controller
         $this->view->form = $form;
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Manage NewsImportant'), true);
+        $this->helper->title($this->helper->at('Manage News Important'), true);
     }
 
     public function deleteAction($id)
     {
         $model = NewsImportant::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'clinic-admin/newsimportant');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-important');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
-            $this->flash->warning('Deleting NewsImportant <b>' . $model->getName() . '</b>');
-            return $this->redirect($this->url->get() . 'clinic-admin/newsimportant');
+            $this->flash->warning('Deleting News Important <b>' . $model->getName() . '</b>');
+            return $this->redirect($this->url->get() . 'clinic-admin/news-important');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete NewsImportant'), true);
+        $this->helper->title($this->helper->at('Delete News Important'), true);
     }
 
 }

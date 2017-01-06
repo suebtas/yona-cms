@@ -3,7 +3,7 @@
     <!--controls-->
     <div class="ui segment">
 
-        <a href="{{ url.get() }}clinic-admin/newslevel" class="ui button">
+        <a href="{{ url.get() }}clinic-admin/news-level" class="ui button">
             <i class="icon left arrow"></i> Back
         </a>
 
@@ -12,7 +12,7 @@
         </div>
 
         {% if model.getId() %}
-            <a href="{{ url.get() }}clinic-admin/newslevel/delete/{{ model.getId() }}" class="ui button red">
+            <a href="{{ url.get() }}clinic-admin/news-level/delete/{{ model.getId() }}" class="ui button red">
                 <i class="icon trash"></i> Delete
             </a>
         {% endif %}

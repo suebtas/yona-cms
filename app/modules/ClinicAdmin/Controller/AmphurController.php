@@ -18,7 +18,7 @@ class AmphurController extends Controller
     public function initialize()
     {
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('amphur');
+        $this->helper->activeMenu()->setActive('admin-amphur');
         $this->view->languages_disabled = true;
     }
 

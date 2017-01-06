@@ -19,7 +19,7 @@ class SurveyStatusController extends Controller
     {
         
         $this->setAdminEnvironment();
-        $this->helper->activeMenu()->setActive('SurveyStatus');
+        $this->helper->activeMenu()->setActive('admin-survey-status');
         $this->view->languages_disabled = true;
     }
 
@@ -34,7 +34,7 @@ class SurveyStatusController extends Controller
 
     public function addAction()
     {
-        $this->view->pick(['SurveyStatus/edit']);
+        $this->view->pick(['survey-status/edit']);
 
         $model = new SurveyStatus();
         $form = new SurveyStatusForm();
@@ -46,7 +46,7 @@ class SurveyStatusController extends Controller
             if ($form->isValid()) {
                 if ($model->save()) {
                     $this->flash->success($this->helper->at('SurveyStatus created', ['name' => $model->getName()]));
-                    $this->redirect($this->url->get() . 'clinic-admin/surveystatus');
+                    $this->redirect($this->url->get() . 'clinic-admin/survey-status');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -66,7 +66,7 @@ class SurveyStatusController extends Controller
     {
         $model = SurveyStatus::findFirst($id);
         if (!$model) {
-            $this->redirect($this->url->get() . 'clinic-admin/surveystatus');
+            $this->redirect($this->url->get() . 'clinic-admin/survey-status');
         }
 
         $form = new SurveyStatusForm();
@@ -77,7 +77,7 @@ class SurveyStatusController extends Controller
             if ($form->isValid()) {
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
-                    return $this->redirect($this->url->get() . 'clinic-admin/surveystatus');
+                    return $this->redirect($this->url->get() . 'clinic-admin/survey-status');
                 } else {
                     $this->flashErrors($model);
                 }
@@ -99,18 +99,18 @@ class SurveyStatusController extends Controller
     {
         $model = SurveyStatus::findFirst($id);
         if (!$model) {
-            return $this->redirect($this->url->get() . 'clinic-admin/surveystatus');
+            return $this->redirect($this->url->get() . 'clinic-admin/survey-status');
         }
 
         if ($this->request->isPost()) {
             $model->delete();
             $this->flash->warning('Deleting SurveyStatus <b>' . $model->getName() . '</b>');
-            return $this->redirect($this->url->get() . 'clinic-admin/surveystatus');
+            return $this->redirect($this->url->get() . 'clinic-admin/survey-status');
         }
 
         $this->view->model = $model;
 
-        $this->helper->title($this->helper->at('Delete SurveyStatus'), true);
+        $this->helper->title($this->helper->at('Delete Survey Status'), true);
     }
 
 }
