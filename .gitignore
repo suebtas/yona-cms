@@ -2,3 +2,4 @@
 composer.lock
 app/cache/*
 app/config/*
+app/config/environment/development.php
