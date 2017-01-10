@@ -44,6 +44,7 @@ class OfficeController extends Controller
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
+                $model->active = isset($post["active"])? 1 : 0;
                 if ($model->save()) {
                     $this->flash->success($this->helper->at('Office created', ['name' => $model->getName()]));
                     $this->redirect($this->url->get() . 'clinic-admin/office');
@@ -73,9 +74,10 @@ class OfficeController extends Controller
 
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
-            $model->setCheckboxes($post);
+            
             $form->bind($post, $model);
             if ($form->isValid()) {
+                $model->active = isset($post["active"])? 1 : 0;
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
                     return $this->redirect($this->url->get() . 'clinic-admin/office');

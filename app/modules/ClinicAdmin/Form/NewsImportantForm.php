@@ -11,8 +11,9 @@ namespace ClinicAdmin\Form;
 use Application\Form\Form;
 use Phalcon\Forms\Element\Select;
 use Phalcon\Forms\Element\Text;
+use Phalcon\Forms\Element\Check;
 use Phalcon\Validation\Validator\PresenceOf;
-use Clinic\Model\Amphur;
+
 
 class NewsImportantForm extends Form
 {
@@ -26,9 +27,8 @@ class NewsImportantForm extends Form
             ]))->setLabel('Name')
         );
         $this->add(
-            (new Text('status', [
-                'required' => true,
-            ]))->setLabel('Status')
+            (new Check('status'))
+                ->setLabel('Status')
         );
         /*$this->add(
             (new Select('amphur', Amphur::find(), array(

@@ -44,6 +44,7 @@ class SurveyStatusController extends Controller
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
+                 $model->status = isset($post["status"])? 1 : 0;
                 if ($model->save()) {
                     $this->flash->success($this->helper->at('SurveyStatus created', ['name' => $model->getName()]));
                     $this->redirect($this->url->get() . 'clinic-admin/survey-status');
@@ -75,6 +76,7 @@ class SurveyStatusController extends Controller
             $post = $this->request->getPost();
             $form->bind($post, $model);
             if ($form->isValid()) {
+                 $model->status = isset($post["status"])? 1 : 0;
                 if ($model->save() == true) {
                     $this->flash->success('User <b>' . $model->getName() . '</b> has been saved');
                     return $this->redirect($this->url->get() . 'clinic-admin/survey-status');

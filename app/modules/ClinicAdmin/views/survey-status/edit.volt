@@ -8,7 +8,7 @@
         </div>
 
         {% if model.getId() %}
-            <a href="{{ url.get() }}clinic-admin/surveystatus/delete/{{ model.getId() }}" class="ui button red">
+            <a href="{{ url.get() }}clinic-admin/survey-status/delete/{{ model.getId() }}" class="ui button red">
                 <i class="icon trash"></i> Delete
             </a>
         {% endif %}

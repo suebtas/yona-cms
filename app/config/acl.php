@@ -170,6 +170,6 @@ return [
         'clinic/message/index' => '*',
         'clinic/message/search' => '*',
         'clinic/message/read' => '*',
-        'printfile/index' => '*',
+        'printfile/index' => '*'
     ],
 ];

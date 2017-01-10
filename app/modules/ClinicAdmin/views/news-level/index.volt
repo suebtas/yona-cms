@@ -22,7 +22,7 @@
             {% set url = url.get() ~ 'clinic-admin/news-level/edit/' ~ NewsLevel.getId() %}
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
             <td>{{ NewsLevel.getName() }}</td>
-            <td>{{ NewsLevel.getStatus() }}</td>
+            <td>{% if NewsLevel.getStatus() %}<i class="icon checkmark green"></i>{% endif %}</td>
         </tr>
     {% endfor %}
     </tbody>

@@ -22,7 +22,7 @@
             {% set url = url.get() ~ 'clinic-admin/survey-status/edit/' ~ surveystatus.getId() %}
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
             <td>{{ surveystatus.getName() }}</td>
-            <td>{{ surveystatus.getStatus() }}</td>
+            <td>{% if surveystatus.getStatus() %}<i class="icon checkmark green"></i>{% endif %}</td>
         </tr>
     {% endfor %}
     </tbody>
