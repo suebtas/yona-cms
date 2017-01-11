@@ -1,4 +1,5 @@
 <div class="ui left fixed vertical pointing inverted menu">
+{% if session.get('auth').role =='admin' %}
     <a class="item{{ helper.activeMenu().activeClass('admin-home') }} header" href="{{ url(['for': 'admin']) }}">
         Clinic Center Admin
     </a>
@@ -41,6 +42,8 @@
             </a>
         </div>
     </div>
+{% endif %}
+
 {% if session.get('auth').role =='cc-admin' %}
     {{ partial('clinicAdmin/nav') }}
 {% endif %}
