@@ -34,7 +34,7 @@ class SurveyController extends Controller
 
     public function addAction()
     {
-        $this->view->pick(['Survey/edit']);
+        $this->view->pick(['survey/edit']);
 
         $model = new Survey();
         $form = new SurveyForm();
