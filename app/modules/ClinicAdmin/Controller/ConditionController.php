@@ -34,7 +34,7 @@ class ConditionController extends Controller
 
     public function addAction()
     {
-        $this->view->pick(['Condition/edit']);
+        $this->view->pick(['condition/edit']);
 
         $model = new Condition();
         $form = new ConditionForm();

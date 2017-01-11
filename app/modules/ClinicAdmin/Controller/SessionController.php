@@ -34,7 +34,7 @@ class SessionController extends Controller
 
     public function addAction()
     {
-        $this->view->pick(['Session/edit']);
+        $this->view->pick(['session/edit']);
 
         $model = new Session();
         $form = new SessionForm();
