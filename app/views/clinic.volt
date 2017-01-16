@@ -119,15 +119,15 @@
                       <li><a href="{{ url.get() }}printfile/index/report">รายงานประจำปี</a></li>
                       <li><a href="{{ url.get() }}printfile/index/surveystatus">รายงานสถานะการกรอกข้อมูล</a></li>
 
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no2">นำออกไฟล์ Excel คำถามด้านที่ 2</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no3">นำออกไฟล์ Excel คำถามด้านที่ 3</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no4">นำออกไฟล์ Excel คำถามด้านที่ 4</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no5">นำออกไฟล์ Excel คำถามด้านที่ 5</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no6">นำออกไฟล์ Excel คำถามด้านที่ 6</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no7">นำออกไฟล์ Excel คำถามด้านที่ 7</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no8">นำออกไฟล์ Excel คำถามด้านที่ 8</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no9">นำออกไฟล์ Excel คำถามด้านที่ 9</a></li>
-                      <li><a href="{{ url.get() }}clinic-admin/printreport/no2">นำออกไฟล์ Excel คำถามเพิ่มเติม</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no2">นำออกไฟล์ Excel คำถามด้านที่ 2</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no3">นำออกไฟล์ Excel คำถามด้านที่ 3</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no4">นำออกไฟล์ Excel คำถามด้านที่ 4</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no5">นำออกไฟล์ Excel คำถามด้านที่ 5</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no6">นำออกไฟล์ Excel คำถามด้านที่ 6</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no7">นำออกไฟล์ Excel คำถามด้านที่ 7</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no8">นำออกไฟล์ Excel คำถามด้านที่ 8</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no9">นำออกไฟล์ Excel คำถามด้านที่ 9</a></li>
+                      <li><a href="{{ url.get() }}clinic-admin/print-report/no2">นำออกไฟล์ Excel คำถามเพิ่มเติม</a></li>
                     </ul>
                   </li>
                   {% endif %}

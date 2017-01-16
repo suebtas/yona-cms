@@ -825,7 +825,7 @@
               </div>
 
 
-              <div id="step6">
+              <div id="step-6">
 
                 {% block review %}
                 {% endblock %}
