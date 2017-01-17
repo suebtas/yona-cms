@@ -67,13 +67,20 @@ class AdminController extends Controller
 
         if ($this->request->isPost()) {
             $post = $this->request->getPost();
+            if(isset($post['preview_inner']))
+                $post['preview_inner'] = 1;
+            else
+                $post['preview_inner'] = 0;
             $form->bind($post, $model);
 
             if ($form->isValid()) {
+                //var_dump($post);
+                //die();
                 if ($model->create()) {
                     $form->bind($post, $model);
                     $model->updateFields($post);
                     if ($model->update()) {
+                        $this->uploadImage($model);
                         $this->flash->success($this->helper->at('Publication created'));
                         return $this->redirect($this->url->get() . 'publication/admin/edit/' . $model->getId() . '?lang=' . LANG);
                     } else {
