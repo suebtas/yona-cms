@@ -25,10 +25,10 @@
                 {{ helper.at('จัดการสถานะกรอกข้อมูล') }} <i class="pencil icon"></i>
             </a>
 
-            <a class="item{{ helper.activeMenu().activeClass('admin-news-important') }}" href="{{ url.get() }}clinic-admin/news-important">
+            <a class="item{{ helper.activeMenu().activeClass('admin-news-level') }}" href="{{ url.get() }}clinic-admin/news-level">
                 {{ helper.at('จัดการระดับความเร่งด่วนของข่าวสาร') }} <i class="pencil icon"></i>
             </a>
-            <a class="item{{ helper.activeMenu().activeClass('admin-news-level') }}" href="{{ url.get() }}clinic-admin/news-level">
+            <a class="item{{ helper.activeMenu().activeClass('admin-news-important') }}" href="{{ url.get() }}clinic-admin/news-important">
                 {{ helper.at('จัดการระดับความสำคัญของข่าวสาร') }} <i class="pencil icon"></i>
             </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-news-type') }}" href="{{ url.get() }}clinic-admin/news-type">
