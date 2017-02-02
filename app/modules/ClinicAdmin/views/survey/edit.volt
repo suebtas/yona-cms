@@ -30,19 +30,15 @@
             </div>
         </div>
         <div class="two fields">
-            <div class="field">
                 {{ form.renderDecorated('start') }}
-            </div>
-            <div class="field">
                 {{ form.renderDecorated('end') }}
-            </div>
         </div>
         <div class="two fields">
             <div class="field">
                 {{ form.renderDecorated('notification') }}
             </div>
         </div>
-        <div class="one fields">
+        <div class="two fields">
             <div class="field">
                 {{ form.renderDecorated('status') }}
             </div>
@@ -55,6 +51,38 @@
 
 </form>
 
+
+
 <script>
     $('.ui.form').form({});
+</script>
+
+
+<link rel="stylesheet" href="{{ url.path() }}vendor/bootstrap/datetimepicker/bootstrap-datetimepicker.min.css">
+<script src="{{ url.path() }}vendor/bootstrap/datetimepicker/moment.js"></script>
+<script src="{{ url.path() }}vendor/bootstrap/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script>
+    $( document ).ready(function() {
+        $('#start').datetimepicker({
+            locale: 'en',
+            format: 'YYYY-MM-DD',
+            showClose: true
+        });
+        $('#end').datetimepicker({
+            locale: 'en',
+            format: 'YYYY-MM-DD',
+            showClose: true,
+            useCurrent: false, //Important! See issue #1075
+            widgetPositioning: {
+                horizontal: 'right',
+                vertical: 'bottom'
+            }
+        });
+        $("#start").on("dp.change", function (e) {
+            $('#end').data("DateTimePicker").minDate(e.date);
+        });
+        $("#end").on("dp.change", function (e) {
+            $('#start').data("DateTimePicker").maxDate(e.date);
+        });
+    });
 </script>

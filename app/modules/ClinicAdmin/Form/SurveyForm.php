@@ -13,6 +13,7 @@ use Phalcon\Forms\Element\Select;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Validation\Validator\PresenceOf;
 use Clinic\Model\SurveyStatus;
+use Phalcon\Forms\Element\Check;
 
 class SurveyForm extends Form
 {
@@ -50,9 +51,9 @@ class SurveyForm extends Form
             ->setLabel('Status')
         );
         $this->add(
-            (new Text('notification', [
+            (new Select('notification', [1,2,3,5,15,30],[
                 'required' => true,
-            ]))->setLabel('Notification')
+            ]))->setLabel('Notification: day')
         );
     }
 
