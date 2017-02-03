@@ -29,7 +29,7 @@
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
-              <li><a href="{{ url.get() }}clinic-admin/exportword/printformno5" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
+              <li><a href="{{ url.get() }}clinic-admin/export-word/printformno5" role="button" aria-expanded="false"><i class="fa fa-print"></i></a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                 <ul class="dropdown-menu" role="menu">
@@ -382,7 +382,7 @@
                         <div class="form-group">
                           <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="text-center">
-                              <a  href="{{ url.get() }}clinic-admin/exportword/printformno1" id="btnPrint" class="btn btn-app" >
+                              <a  href="{{ url.get() }}clinic-admin/export-word/printformno1" id="btnPrint" class="btn btn-app" >
                                 <i id="btnFinishStatus" class="glyphicon glyphicon-print"></i> พิมพ์แบบฟอร์มสำรวจ
                               </a>
                             </div>
