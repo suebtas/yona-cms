@@ -50,15 +50,15 @@ class PrintReportController extends Controller
         $this->view->disable();
     }
 
+    public $tmp_file = 'data/cache/FormNoTMP.xlsx';
+
     public function No3Action(){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no3.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('data/cache/FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo3_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo3_',$this->tmp_file);
     }
 
 
@@ -67,10 +67,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no4.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo4_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo4_',$this->tmp_file);
     }
 
     public function No5Action(){
@@ -78,10 +76,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no5.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo5_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo5_',$this->tmp_file);
     }
 
     public function No6Action(){
@@ -89,10 +85,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no6.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo6_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo6_',$this->tmp_file);
     }
 
 
@@ -101,10 +95,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no7.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo7_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo7_',$this->tmp_file);
     }
 
     public function No8Action(){
@@ -112,10 +104,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no8.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo8_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo8_',$this->tmp_file);
     }
 
     public function No9Action(){
@@ -123,10 +113,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no9.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo9_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo9_',$this->tmp_file);
     }
 
     public function ExtendAction(){
@@ -134,10 +122,8 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_extend.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo_Extend_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNoExtend_',$this->tmp_file);
     }
     public function No2Action(){
         $this->view->disable();
@@ -295,10 +281,8 @@ class PrintReportController extends Controller
         */
         $objPHPExcel->getActiveSheet()->removeRow($row+1,1);
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
-
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo2_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo2_',$this->tmp_file);
     }
 
     public function TestNo1Action()
@@ -364,10 +348,9 @@ class PrintReportController extends Controller
 
   		$tmp_file = 'FormNoTMP.docx';
         $objWriter = IOFactory::createWriter($phpWord, 'Word2007');
-        $objWriter->save($tmp_file);
 
-  		//die($result);
-  	 	$this->converttowordtemplate('FormNo1_',$tmp_file);
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo1_',$this->tmp_file);
 		
     }
 
