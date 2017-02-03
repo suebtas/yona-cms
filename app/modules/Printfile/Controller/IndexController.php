@@ -15,6 +15,7 @@ use PhpOffice\PhpWord;
 
 class IndexController extends Controller
 {
+
     public function converttowordtemplate($name,$temp_file){
         // Save file
         $fname = $name. date("d.m.Y-H.i") . ".docx";
@@ -85,7 +86,7 @@ class IndexController extends Controller
         //var_dump($answers);
         //die();
 
-        $tmp_file = 'FaqsTMP.docx';
+        $tmp_file = 'data/cache/FaqsTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('FaqsPrint_',$tmp_file);
@@ -127,7 +128,7 @@ class IndexController extends Controller
         $document->setValue('date',date("d.m.Y"));
         
 
-        $tmp_file = 'LinksTMP.docx';
+        $tmp_file = 'data/cache/LinksTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('LinksPrint_',$tmp_file);
@@ -171,7 +172,7 @@ class IndexController extends Controller
         $document->setValue('date',date("d.m.Y"));
         //die();
 
-        $tmp_file = 'UserTMP.docx';
+        $tmp_file = 'data/cache/UserTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('UserPrint_',$tmp_file);
@@ -194,7 +195,7 @@ class IndexController extends Controller
         date_default_timezone_set('Asia/Bangkok');
 
 
-        $tmp_file = 'ReportTMP.docx';
+        $tmp_file = 'data/cache/ReportTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('ReportPrint_',$tmp_file);
@@ -234,7 +235,7 @@ class IndexController extends Controller
         $document->setValue('date',date("d.m.Y"));
         //die();
 
-        $tmp_file = 'SurveyStatusTMP.docx';
+        $tmp_file = 'data/cache/SurveyStatusTMP.docx';
         $result = $document->saveAs($tmp_file);
         //var_dump($result);
         $this->converttowordtemplate('SurveyStatusPrint_',$tmp_file);
