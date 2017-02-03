@@ -191,7 +191,7 @@ class IndexController extends Controller
 
 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/ReportForm.docx');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/reportForm.docx');
         date_default_timezone_set('Asia/Bangkok');
 
 
