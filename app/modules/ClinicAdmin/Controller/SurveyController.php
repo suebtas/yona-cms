@@ -11,6 +11,7 @@ namespace ClinicAdmin\Controller;
 use Application\Mvc\Controller;
 use ClinicAdmin\Form\SurveyForm;
 use Clinic\Model\Survey;
+use Clinic\Model\DiscoverySurvey;
 
 class SurveyController extends Controller
 {
@@ -104,6 +105,21 @@ class SurveyController extends Controller
         }
 
         if ($this->request->isPost()) {
+            $data = DiscoverySurvey::find(array("conditions"=>"surveyid=?0","bind"=>array($model->id)));
+            foreach($data as $discoverySurvey){
+                foreach($discoverySurvey->Answer as $answer){
+                     $answer->delete();
+                }
+
+                foreach($discoverySurvey->Approval as $approval){
+                     $approval->delete();
+                }
+                foreach($discoverySurvey->Comment as $comment){
+                     $comment->delete();
+                }
+                $discoverySurvey->delete();
+            }
+            
             $model->delete();
             $this->flash->warning('Deleting Survey <b>' . $model->getNo() . '</b>');
             return $this->redirect($this->url->get() . 'clinic-admin/survey');

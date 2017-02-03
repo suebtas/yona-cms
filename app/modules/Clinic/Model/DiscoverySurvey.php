@@ -75,6 +75,21 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         return $this->getRelated("Approval", $parameters)->getFirst();
     }
 
+    public function getApprovals($parameters = null)
+    {
+        return $this->getRelated("Approval", $parameters);
+    }
+
+    public function getAnswers($parameters = null)
+    {
+        return $this->getRelated("Answer", $parameters);
+    }
+
+    public function getComments($parameters = null)
+    {
+        return $this->getRelated("Comment", $parameters);
+    }
+    
     public function getApprovalStatus($parameters = null)
     {
         $approval = $this->getApproval($parameters);

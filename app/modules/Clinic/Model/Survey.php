@@ -54,7 +54,17 @@ class Survey extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->hasMany('id', 'Clinic\Model\DiscoverySurvey', 'surveyid', array('alias' => 'DiscoverySurvey'));
-        $this->hasOne('status', 'Clinic\Model\SurveyStatus', 'id', array('alias' => 'SurveyStatus'));
+        //$this->hasOne('status', 'Clinic\Model\SurveyStatus', 'id', array('alias' => 'SurveyStatus','foreignKey' => true));
+        $this->belongsTo(
+            "status",
+            "Clinic\Model\SurveyStatus",
+            "id",
+            [
+                "foreignKey" => true,
+                'alias' => 'SurveyStatus'
+            ]
+        );
+
     }
     public function getDiscoverySurvey($parameters = null)
     {
