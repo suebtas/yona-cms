@@ -51,7 +51,7 @@ class SurveyForm extends Form
             ->setLabel('Status')
         );
         $this->add(
-            (new Select('notification', [1,2,3,5,15,30],[
+            (new Select('notification', [1=>1,2=>2,3=>3,5=>5,15=>15,30=>30],[
                 'required' => true,
             ]))->setLabel('Notification: day')
         );
