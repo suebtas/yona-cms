@@ -55,7 +55,7 @@ class PrintReportController extends Controller
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no3.xls');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
+        $objWriter->save('data/cache/FormNoTMP.xlsx');
 
   		$tmp_file = 'FormNoTMP.xlsx';
   	 	$this->converttoexceltemplate('FormNo3_',$tmp_file);
