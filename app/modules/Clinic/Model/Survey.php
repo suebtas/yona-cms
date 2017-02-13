@@ -159,9 +159,22 @@ class Survey extends \Phalcon\Mvc\Model
         else 
             $message .= 'fa fa-unlock';
         $message .= ' fa-2x"></i> ';
+        if($message==true)
         $message .= $this->SurveyStatus->name;
         return $message;
     }
+
+
+    public function getStatusOnlySymbol(){
+        $message = '<i class="';
+        if ($this->isExpired())
+            $message .= 'fa fa-lock';
+        else 
+            $message .= 'fa fa-unlock';
+        $message .= ' fa-2x"></i> ';
+        return $message;
+    }
+
     public function generateDiscoverySuryver(){
 
         $offices = Office::find("active = 1");
@@ -170,7 +183,17 @@ class Survey extends \Phalcon\Mvc\Model
             $discover->officeid = $office->id;
             $discover->surveyid = $this->id;
             $discover->status = 0;
+            $discover->enddate = $this->end;
             $discover->save();
+        }
+    }
+    public function updateDiscoverySuryver(){
+        $this->DiscoverySurvey;
+        foreach($this->DiscoverySurvey as $discover){
+            //if($discover->enddate < $this->end){
+            $discover->enddate = $this->end;
+            $discover->save();
+            //}
         }
     }
 }
