@@ -299,7 +299,7 @@
           </tr>
           <tr>
             <td>
-              จุด/ครอบคลุมถนน
+              ครอบคลุมถนน
             </td>
             <td>
                 <a href="#" id="no2_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no2_4_4}}</a>

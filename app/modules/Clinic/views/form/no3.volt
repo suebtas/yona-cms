@@ -120,6 +120,17 @@
         </tr>
         <tr>
           <td width="50%">
+            ปั๊มแก๊สหรือก๊าซธรรมชาติ
+          </td>
+          <td width="10%">
+            <a href="#" id="no3_2_5" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_5}} </a>
+          </td>
+          <td>
+            แห่ง
+          </td>
+        </tr>
+        <tr>
+          <td width="50%">
             ศูนย์การค้า/ห้างสรรพสินค้า
           </td>
           <td width="10%">
@@ -135,6 +146,17 @@
           </td>
           <td width="10%">
             <a href="#" id="no3_2_3" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_3}} </a>
+          </td>
+          <td>
+            แห่ง
+          </td>
+        </tr>
+        <tr>
+          <td width="50%">
+            ตลาดนัด
+          </td>
+          <td width="10%">
+            <a href="#" id="no3_2_6" data-type="text" data-pk="1" data-title="Enter username"> {{no3_2_6}} </a>
           </td>
           <td>
             แห่ง
@@ -229,10 +251,32 @@
           </tr>
           <tr>
             <td width="50%">
+              รีสอร์ท
+            </td>
+            <td width="10%">
+              <a href="#" id="no3_4_5" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_5}} </a>
+            </td>
+            <td>
+              แห่ง
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
               ธนาคาร
             </td>
             <td width="10%">
               <a href="#" id="no3_4_2" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_2}} </a>
+            </td>
+            <td>
+              แห่ง
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
+              ธนาคารหมู่บ้าน
+            </td>
+            <td width="10%">
+              <a href="#" id="no3_4_6" data-type="text" data-pk="1" data-title="Enter username"> {{no3_4_6}} </a>
             </td>
             <td>
               แห่ง
