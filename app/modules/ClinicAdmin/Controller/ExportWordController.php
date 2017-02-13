@@ -275,9 +275,17 @@ class ExportWordController extends Controller
         $document->setValue('{no1_2_13}', $no1_2_13);
 
         $document->setValue('{user}',$this->user->name);
-        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
-        $document->setValue('{approver}',$approver->name);
 
+        $approver = $this->discoverySurvey->getApproval();
+        $approver_name = "";
+        foreach ($approver as $key => $ap) {
+          if(($ap->status==1) && $ap->level==1){
+            $approver_name = $ap->AdminUser->name;
+          }
+
+        }
+
+          $document->setValue('{approver}',$approver_name);
     		$tmp_file = 'FormNoTMP.docx';
     		$result = $document->saveAs($tmp_file);   
     		//die($result);
