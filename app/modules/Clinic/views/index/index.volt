@@ -1,6 +1,7 @@
 <!-- page content -->
         <div class="right_col" role="main">
           <!-- top tiles -->
+<?php /*
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> สำรวจข้อมูลขั้นพื้นฐาน</span>
@@ -34,6 +35,7 @@
             </div>
           </div>
           <!-- /top tiles -->
+*/?>        
 <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
