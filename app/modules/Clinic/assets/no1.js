@@ -54,14 +54,19 @@ $(document).ready(function() {
   };
 
   function calculateAreaRaiToKmSquare(value){
-    return value/625;
+    var remove_comma = value.replace(/,/g,"");
+    return remove_comma/625;
   }
 
   function calculateAreaKmSquareToRai(value){
-    return value*625;
+    var remove_comma = value.replace(/,/g,"");
+    return remove_comma*625;
   }
   //โหลดค่าพื้นที่
-  $("#area-kgm").val(calculateAreaRaiToKmSquare($("#no1_1_2").val()));
+  var kgm = calculateAreaRaiToKmSquare($("#no1_1_2").val());
+  $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  var rai = $("#no1_1_2").val();
+  $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))
 
   $(".select2_single").select2({
     placeholder: "Select a state",
@@ -138,8 +143,8 @@ $(document).ready(function() {
   });
   $("#no1_1_2").on('blur',function(e){
     //alert('Changed!');
-
-    $("#area-kgm").val(calculateAreaRaiToKmSquare(this.value));
+    var kgm = calculateAreaRaiToKmSquare(this.value);
+    $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
@@ -156,11 +161,13 @@ $(document).ready(function() {
 
         }
     });
+    $("#no1_1_2").val(this.value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   });
 
   $("#area-kgm").on('blur',function(e){
     //alert('Changed!');
-    $("#no1_1_2").val(calculateAreaKmSquareToRai(this.value));
+    var rai = calculateAreaKmSquareToRai(this.value);
+    $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
@@ -177,6 +184,7 @@ $(document).ready(function() {
 
         }
     });
+    $("#area-kgm").val(this.value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   });
   // no1_1_3_2
   $("#no1_1_3_2").select2({
