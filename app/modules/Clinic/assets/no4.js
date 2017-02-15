@@ -6,19 +6,23 @@ $(document).ready(function() {
 
   $.fn.editable.defaults.mode = 'inline';
 
-  $("#no4_1").on('blur',function(e){
-    //alert('Changed!');
-
+  $('#no4_1').editable({
+    type: 'text',
+    title: ' ',
+    display: function(value) {
+      $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+    },
+  }).on('save', function(e, params) {
     $.ajax({
         url : "/clinic/form/no4",
         type: "POST",
         data : {
-          no4_1: this.value,
+          no4_1:params.newValue,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -27,19 +31,23 @@ $(document).ready(function() {
     });
   });
 
-  $("#no4_2").on('blur',function(e){
-    //alert('Changed!');
-
+  $('#no4_2').editable({
+    type: 'text',
+    title: ' ',
+    display: function(value) {
+      $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+    },
+  }).on('save', function(e, params) {
     $.ajax({
         url : "/clinic/form/no4",
         type: "POST",
         data : {
-          no4_2: this.value,
+          no4_2:params.newValue,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
         {
-            //data - response from server
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {

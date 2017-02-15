@@ -169,7 +169,7 @@
           <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-body text-center bg-dark">
-                        <center><img src="/static/files/popup/44.jpg" class="img-responsive" alt="" /></cemter>
+                        <center><img src="/static/files/popup/popup_img.jpg" class="img-responsive" alt="" /></cemter>
                           <button class="btn btn-danger btn-lg " data-dismiss="modal" aria-hidden="True">close <i class="ion-android-close"></i></button>
                       </div>
                   </div>

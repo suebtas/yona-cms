@@ -129,6 +129,54 @@ $('#no3_2_4').editable({
       }
   });
 });
+$('#no3_2_5').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_5:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no3_2_6').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_2_6:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 
 //step 1 3.3
 $('#no3_3_1').editable({
@@ -294,6 +342,54 @@ $('#no3_4_4').editable({
       type: "POST",
       data : {
         no3_4_4:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no3_4_5').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_5:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
+$('#no3_4_6').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no3",
+      type: "POST",
+      data : {
+        no3_4_6:params.newValue,
         option:'add'
       },
       success: function(data, textStatus, jqXHR)

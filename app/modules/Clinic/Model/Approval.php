@@ -67,7 +67,7 @@ class Approval extends \Phalcon\Mvc\Model
     {
         $this->belongsTo('discovery_surveyid', 'Discovery survey', 'id', array('alias' => 'Discovery survey'));
         $this->belongsTo('sessionid', 'GroupSession', 'id', array('alias' => 'GroupSession'));
-        $this->belongsTo('admin_userid', 'AdminUser', 'id', array('alias' => 'AdminUser'));
+        $this->belongsTo('admin_userid', 'Clinic\Model\AdminUser', 'id', array('alias' => 'AdminUser'));
     }
 
     /**

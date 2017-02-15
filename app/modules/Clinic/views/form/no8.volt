@@ -224,7 +224,12 @@
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง ได้แก่ </label>
                   </div>
 
-                  <table id="user" class="table table-bordered table-striped" style="clear: both">
+                  <table id="user" class="table table-bordered table-striped" style="clear: both" style="margin-top:1%">
+                    <thead>
+                      <tr>
+                        <th colspan="4">ธรรมชาติ</th>
+                      </tr>
+                    </thead>
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
@@ -255,6 +260,45 @@
                           <td width="40%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-6" tabindex="6" value={{no8_4_5}}></td>
                           <td width="5%">10.</td>
                           <td width="40%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-6" tabindex="11" value={{no8_4_10}}></td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <table id="user" class="table table-bordered table-striped" style="clear: both" style="margin-top:1%">
+                    <thead>
+                      <tr>
+                        <th colspan="4">ที่มนุษย์สร้างขึ้น</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                          <td width="5%">1.</td>
+                          <td width="40%"><input type="text" id="no8_4_11" required="required" class="form-control col-md-4 col-xs-6" tabindex="2" value={{no8_4_11}}></td>
+                          <td width="5%">6.</td>
+                          <td width="40%"><input type="text" id="no8_4_16" required="required" class="form-control col-md-4 col-xs-6" tabindex="7" value={{no8_4_16}}></td>
+                        </tr>
+                        <tr>
+                          <td width="5%">2.</td>
+                          <td width="40%"><input type="text" id="no8_4_12" required="required" class="form-control col-md-4 col-xs-6" tabindex="3" value={{no8_4_12}}></td>
+                          <td width="5%">7.</td>
+                          <td width="40%"><input type="text" id="no8_4_17" required="required" class="form-control col-md-4 col-xs-6" tabindex="8" value={{no8_4_17}}></td>
+                        </tr>
+                        <tr>
+                          <td width="5%">3.</td>
+                          <td width="40%"><input type="text" id="no8_4_13" required="required" class="form-control col-md-4 col-xs-6" tabindex="4" value={{no8_4_13}}></td>
+                          <td width="5%">8.</td>
+                          <td width="40%"><input type="text" id="no8_4_18" required="required" class="form-control col-md-4 col-xs-6" tabindex="9" value={{no8_4_18}}></td>
+                        </tr>
+                        <tr>
+                          <td width="5%">4.</td>
+                          <td width="40%"><input type="text" id="no8_4_14" required="required" class="form-control col-md-4 col-xs-6" tabindex="5" value={{no8_4_14}}></td>
+                          <td width="5%">9.</td>
+                          <td width="40%"><input type="text" id="no8_4_19" required="required" class="form-control col-md-4 col-xs-6" tabindex="10" value={{no8_4_19}}></td>
+                        </tr>
+                        <tr>
+                          <td width="5%">5.</td>
+                          <td width="40%"><input type="text" id="no8_4_15" required="required" class="form-control col-md-4 col-xs-6" tabindex="6" value={{no8_4_15}}></td>
+                          <td width="5%">10.</td>
+                          <td width="40%"><input type="text" id="no8_4_20" required="required" class="form-control col-md-4 col-xs-6" tabindex="11" value={{no8_4_20}}></td>
                         </tr>
                     </tbody>
                   </table>

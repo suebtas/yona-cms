@@ -110,22 +110,28 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
-                            <td width="30%">คลินิกเอกชน </td>
+                            <td width="30%">โรงพยาบาลประจำจังหวัด </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_1_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_1_2}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="30%">สังกัดเอกชน </td>
+                            <td width="30%">โรงพยาบาลประจำอำเภอ </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_2_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_2_2}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="30%">สังกัดกระทรวงสาธารณสุข </td>
+                            <td width="30%">โรงพยาบาลส่งเสริมสุขภาพตำบล </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
                             <td width="20%">จำนวน <a href="#" id="no5_1_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_2}}</a> คน</td>
+                        </tr>
+                        <tr>
+                            <td width="30%">โรงพยาบาลเอกชน </td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_1}}</a> แห่ง</td>
+                            <td width="30%">เตียงคนไข้ </td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_2}}</a> คน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -153,7 +159,83 @@
                     <label class="control-label col-md-12 col-sm-1 col-xs-12" for="map">
                     บุคลากรทางการแพทย์ที่ปฏิบัติหน้าที่ในสถานพยาบาลทุกแห่ง ทุกสังกัดในเขตพื้นที่ </label>
                 </div>
-                <table id="user" class="table table-bordered table-striped" style="clear: both">
+                <table id="user" class="table table-bordered table-striped" style="clear: both" >
+                  <thead>
+                    <tr>
+                      <th  class="text-center">ลำดับ</th>
+                      <th  class="text-center">โรงพยาบาล</th>
+                      <th  class="text-center">แพทย์</th>
+                      <th  class="text-center">พยาบาล</th>
+                      <th  class="text-center">ทันตกรรม</th>
+                      <th  class="text-center">เภสัช</th>
+                      <th  class="text-center">เจ้าหน้าที่่ส่งเสริมสาธารณสุข</th>
+                      <th  class="text-center">พนักงานอนามัย</th>
+                      <th  class="text-center">เจ้าหน้าที่สุขาภิบาล</th>
+                      <th  class="text-center">เจ้าหน้าที่ส่งเสริมสารธารณสุขชุมชน</th>
+                      <th  class="text-center">อสม.</th>
+                      <th  class="text-center">อื่นๆ</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1.</td>
+                      <td>โรงพยาบาลประจำจังหวัด</td>
+                      <td><a href="#" id="no5_3_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_1}}</a></td>
+                      <td><a href="#" id="no5_3_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_2}}</a></td>
+                      <td><a href="#" id="no5_3_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_3}}</a></td>
+                      <td><a href="#" id="no5_3_1_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_4}}</a></td>
+                      <td><a href="#" id="no5_3_1_5" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_5}}</a></td>
+                      <td><a href="#" id="no5_3_1_6" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_6}}</a></td>
+                      <td><a href="#" id="no5_3_1_7" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_7}}</a></td>
+                      <td><a href="#" id="no5_3_1_8" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_8}}</a></td>
+                      <td><a href="#" id="no5_3_1_9" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_9}}</a></td>
+                      <td><a href="#" id="no5_3_1_10" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_1_10}}</a></td>
+                    </tr>
+                    <tr>
+                      <td>2.</td>
+                      <td>โรงพยาบาลประจำอำเภอ</td>
+                      <td><a href="#" id="no5_3_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_1}}</a></td>
+                      <td><a href="#" id="no5_3_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_2}}</a></td>
+                      <td><a href="#" id="no5_3_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_3}}</a></td>
+                      <td><a href="#" id="no5_3_2_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_4}}</a></td>
+                      <td><a href="#" id="no5_3_2_5" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_5}}</a></td>
+                      <td><a href="#" id="no5_3_2_6" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_6}}</a></td>
+                      <td><a href="#" id="no5_3_2_7" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_7}}</a></td>
+                      <td><a href="#" id="no5_3_2_8" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_8}}</a></td>
+                      <td><a href="#" id="no5_3_2_9" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_9}}</a></td>
+                      <td><a href="#" id="no5_3_2_10" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_2_10}}</a></td>
+                    </tr>
+                    <tr>
+                      <td>3.</td>
+                      <td>โรงพยาบาลส่งเสริมสุขภาพ</td>
+                      <td><a href="#" id="no5_3_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_1}}</a></td>
+                      <td><a href="#" id="no5_3_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_2}}</a></td>
+                      <td><a href="#" id="no5_3_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_3}}</a></td>
+                      <td><a href="#" id="no5_3_3_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_4}}</a></td>
+                      <td><a href="#" id="no5_3_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_5}}</a></td>
+                      <td><a href="#" id="no5_3_3_6" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_6}}</a></td>
+                      <td><a href="#" id="no5_3_3_7" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_7}}</a></td>
+                      <td><a href="#" id="no5_3_3_8" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_8}}</a></td>
+                      <td><a href="#" id="no5_3_3_9" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_9}}</a></td>
+                      <td><a href="#" id="no5_3_3_10" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_3_10}}</a></td>
+                    </tr>
+                    <tr>
+                      <td>4.</td>
+                      <td>โรงพยาบาลเอกชน</td>
+                      <td><a href="#" id="no5_3_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_1}}</a></td>
+                      <td><a href="#" id="no5_3_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_2}}</a></td>
+                      <td><a href="#" id="no5_3_4_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_3}}</a></td>
+                      <td><a href="#" id="no5_3_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_4}}</a></td>
+                      <td><a href="#" id="no5_3_4_5" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_5}}</a></td>
+                      <td><a href="#" id="no5_3_4_6" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_6}}</a></td>
+                      <td><a href="#" id="no5_3_4_7" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_7}}</a></td>
+                      <td><a href="#" id="no5_3_4_8" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_8}}</a></td>
+                      <td><a href="#" id="no5_3_4_9" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_9}}</a></td>
+                      <td><a href="#" id="no5_3_4_10" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_4_10}}</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+                {#<table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
                             <td width="40%">แพทย์ </td>
@@ -196,7 +278,7 @@
                             <td width="40%">จำนวน <a href="#" id="no5_3_10_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_3_10_2}}</a> คน</td>
                         </tr>
                     </tbody>
-                  </table>
+                  </table>#}
               </div>
 
               <div id="step-4">
@@ -209,7 +291,7 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
-                            <td width="20%">ท้องถิ่น </td>
+                            <td width="20%">ประจำจังหวัด </td>
                             <td width="10%"><a href="#" id="no5_4_1_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
                             <td width="10%"><a href="#" id="no5_4_1_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_2}}</a> คน</td>
@@ -217,7 +299,7 @@
                             <td width="10%"><a href="#" id="no5_4_1_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_1_3}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="20%">เอกชน </td>
+                            <td width="20%">ประจำอำเภอ </td>
                             <td width="10%"><a href="#" id="no5_4_2_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
                             <td width="10%"><a href="#" id="no5_4_2_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_2}}</a> คน</td>
@@ -225,7 +307,7 @@
                             <td width="10%"><a href="#" id="no5_4_2_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_2_3}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="20%">กระทรวงสาธารณสุข </td>
+                            <td width="20%">ส่งเสริมสุขภาพตำบล </td>
                             <td width="10%"><a href="#" id="no5_4_3_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_1}}</a> คน</td>
                             <td width="20%">ผู้ป่วยใน </td>
                             <td width="10%"><a href="#" id="no5_4_3_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_2}}</a> คน</td>
@@ -233,7 +315,7 @@
                             <td width="10%"><a href="#" id="no5_4_3_3" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_3_3}}</a> คน</td>
                         </tr>
                         <tr>
-                            <td width="20%">คลินิกเอกชน </td>
+                            <td width="20%">เอกชน </td>
                             <td width="10%"><a href="#" id="no5_4_4" data-type="text" data-pk="1" data-title="Enter username">{{no5_4_4}}</a> คน</td>
                             <td width="20%"></td>
                             <td width="10%"></td>
