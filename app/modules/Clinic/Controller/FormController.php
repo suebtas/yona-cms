@@ -796,7 +796,7 @@ class FormController extends Controller
         $no2_5_8= Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>56,
+                             1=>56,
                               2=>$this->discovery_surveyid)))->answer;
         $this->view->no2_5_8 = $no2_5_8;
     }
