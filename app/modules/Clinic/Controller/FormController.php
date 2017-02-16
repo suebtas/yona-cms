@@ -368,7 +368,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
+        if($this->discoverySurvey->Survey->isExpired() && $this->discoverySurvey->isExpired()){
             $this->assets->collection('modules-clinic-no1-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
