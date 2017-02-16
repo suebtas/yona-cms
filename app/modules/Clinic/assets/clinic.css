@@ -3980,7 +3980,7 @@ ul.verticle_bars li {
   border-color: rgba(52, 152, 219, 0.88);
 }
 .alert-warning {
-  color: #E9EDEF;
+  /*color: #E9EDEF;*/
   background-color: rgba(243, 156, 18, 0.88);
   border-color: rgba(243, 156, 18, 0.88);
 }

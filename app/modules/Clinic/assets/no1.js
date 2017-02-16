@@ -1099,7 +1099,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-          callDensity();
+          //callDensity();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
