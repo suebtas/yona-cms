@@ -63,9 +63,10 @@ $(document).ready(function() {
     return remove_comma*625;
   }
   //โหลดค่าพื้นที่
-  var kgm = calculateAreaRaiToKmSquare($("#no1_1_2").val());
+  var kgm = parseFloat(calculateAreaRaiToKmSquare($("#no1_1_2").val())).toFixed(2);
+
   $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-  var rai = $("#no1_1_2").val();
+  var rai = parseFloat($("#no1_1_2").val()).toFixed(2);
   $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"))
 
   $(".select2_single").select2({
@@ -143,7 +144,7 @@ $(document).ready(function() {
   });
   $("#no1_1_2").on('blur',function(e){
     //alert('Changed!');
-    var kgm = calculateAreaRaiToKmSquare(this.value);
+    var kgm = parseFloat(calculateAreaRaiToKmSquare(this.value)).toFixed(2);
     $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $.ajax({
         url : "/clinic/form/no1",
@@ -154,7 +155,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-
+          callDensity();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -166,7 +167,7 @@ $(document).ready(function() {
 
   $("#area-kgm").on('blur',function(e){
     //alert('Changed!');
-    var rai = calculateAreaKmSquareToRai(this.value);
+    var rai = parseFloat(calculateAreaKmSquareToRai(this.value)).toFixed(2);
     $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     $.ajax({
         url : "/clinic/form/no1",
@@ -177,7 +178,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-
+          callDensity();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -203,6 +204,7 @@ $(document).ready(function() {
             success: function(data, textStatus, jqXHR)
             {
                 //data - response from server
+                callDensity();
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
@@ -1097,7 +1099,7 @@ $(document).ready(function() {
         },
         success: function(data, textStatus, jqXHR)
         {
-
+          callDensity();
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -1106,5 +1108,6 @@ $(document).ready(function() {
     });
 
   }
+  callDensity();
 
 });

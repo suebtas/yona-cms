@@ -151,7 +151,7 @@ class FormController extends Controller
            $no1_2_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
-                                    1=>400,
+                                    1=>553,
                                     2=>$this->discovery_surveyid)))->answer;
             $this->view->no1_2_1 = $no1_2_1;
             $no1_2_1_1 = Answer::findFirst(
@@ -517,7 +517,7 @@ class FormController extends Controller
                 }
             }
             $answer = $this->request->getPost("no1_2_1");
-            $this->updateAnswer($option, 400, $answer, $user->officeid,  $this->discovery_surveyid);
+            $this->updateAnswer($option, 553, $answer, $user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no1_2_1_1");
             $this->updateAnswer($option, 7, $answer, $user->officeid,  $this->discovery_surveyid);
 
