@@ -561,6 +561,47 @@ $('#no9_5_3').editable({
   });
 });
 
+$('#no9_6').editable({
+       type: 'text',
+       title: ' ',
+     }).on('save', function(e, params) {
+
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no9",
+            type: "POST",
+            data : {
+              no9_6:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no9",
+            type: "POST",
+            data : {
+              no9_6:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }
+  });
+     
 //step 9.6
 $('#no9_6').on('blur', function(e, params) {
   $.ajax({
