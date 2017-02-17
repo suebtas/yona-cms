@@ -565,11 +565,11 @@
     $(document).ready(function() {
         $('#no9_6').wysihtml5(
           {
-toolbar:        false,
-    useLineBreaks:  false
-
+            toolbar:        false,
+            useLineBreaks:  false
           }
         );
     });
     </script>
 {% endblock %}
+
