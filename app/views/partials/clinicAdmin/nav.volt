@@ -9,6 +9,9 @@
             <a class="item{{ helper.activeMenu().activeClass('admin-user') }}" href="{{ url.get() }}clinic-admin/admin-user">
                 {{ helper.at('จัดการผู้ใช้งานและสินธิ์') }} <i class="user icon"></i>
             </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-discovery-survey') }}" href="{{ url.get() }}clinic-admin/discovery-survey">
+                {{ helper.at('จัดการกำหนดการกรอกข้อมูลรายเขตพื้นที่') }} <i class="pencil icon"></i>
+            </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-survey') }}" href="{{ url.get() }}clinic-admin/survey">
                 {{ helper.at('จัดการกำหนดการกรอกข้อมูล') }} <i class="pencil icon"></i>
             </a>

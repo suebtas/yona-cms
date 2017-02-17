@@ -548,4 +548,28 @@
                     </script>
                     <!-- /jQuery Smart Wizard -->
 
-                    {{ assets.outputJs('modules-clinic-no9-js') }}
+{{ assets.outputJs('modules-clinic-no9-js') }}
+
+{% block script %}
+    <!-- bootstrap-wysiwyg -->
+
+    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet"> 
+    
+    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysiwyg-color.css" rel="stylesheet">  
+    <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
+
+
+    <script src="{{ url.path() }}clinic/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="{{ url.path() }}clinic/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#no9_6').wysihtml5(
+          {
+            toolbar:        false,
+            useLineBreaks:  false
+          }
+        );
+    });
+    </script>
+{% endblock %}
+

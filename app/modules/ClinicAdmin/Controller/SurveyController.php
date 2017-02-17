@@ -78,6 +78,7 @@ class SurveyController extends Controller
             $form->bind($post, $model);
             if ($form->isValid()) {
                 if ($model->save() == true) {
+                    $model->updateDiscoverySuryver();
                     $this->flash->success('User <b>' . $model->getNo() . '</b> has been saved');
                     return $this->redirect($this->url->get() . 'clinic-admin/survey');
                 } else {

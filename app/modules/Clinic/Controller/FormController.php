@@ -368,7 +368,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
+        if($this->discoverySurvey->Survey->isExpired() && $this->discoverySurvey->isExpired()){
             $this->assets->collection('modules-clinic-no1-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
@@ -796,7 +796,7 @@ class FormController extends Controller
         $no2_5_8= Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>56,
+                             1=>56,
                               2=>$this->discovery_surveyid)))->answer;
         $this->view->no2_5_8 = $no2_5_8;
     }

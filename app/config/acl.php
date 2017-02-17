@@ -149,6 +149,7 @@ return [
         'clinic-admin/office'   => '*',
         'clinic-admin/session'   => '*',
         'clinic-admin/survey-status'   => '*',
+        'clinic-admin/discovery-survey'   => '*',
         'clinic-admin/survey'   => '*',
         'clinic-admin/export-word'   => '*',
         'clinic-admin/news-type'   => '*',

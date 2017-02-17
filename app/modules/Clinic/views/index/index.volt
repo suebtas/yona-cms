@@ -93,7 +93,7 @@
                           {% set approverApprove = discoverySurvey.getApproval(['level=1']) %}
                           <td>{%if approverApprove!=null %} {{approverApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
                           <td>{%if adminApprove!=null %} {{adminApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start  fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
-                          <td>{{discoverySurvey.Survey.getStatusWithSymbol()}}</td>
+                          <td>{{discoverySurvey.getStatusWithEndDateSymbol()}} </td>
 
                         </tr>
                         {% endfor %}

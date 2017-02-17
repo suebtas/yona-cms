@@ -37,6 +37,11 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
     public $status;
 
     /**
+     *
+     * @var string
+     */
+    public $enddate;
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -134,6 +139,30 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         elseif($this->status == 2)
             $message .="fa fa-check";
         $message .=' fa-2x"></i> '. $this->getStatusName();
+        return $message;
+    }
+
+    public function getEndDate()
+    {
+        return $this->enddate;
+    }
+    public function isExpired()
+    {
+        $now = new \DateTime(); // Today
+        //echo $now->format('d/m/Y'); // echos today! 
+        $dateEnd  = new \DateTime($this->getEndDate());
+
+        return  $now->getTimestamp() > $dateEnd->getTimestamp();
+    }
+    
+    public function getStatusWithEndDateSymbol(){
+        $message = '<i class="';
+        if ($this->isExpired())
+            $message .= 'fa fa-lock';
+        else 
+            $message .= 'fa fa-unlock';
+        $message .= ' fa-2x"></i> ';
+        //$message .= $this->SurveyStatus->name;
         return $message;
     }
 }
