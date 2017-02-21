@@ -5313,7 +5313,18 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>375,
                                 2=>$this->discovery_surveyid)))->answer;
-        $this->view->no9_3_1_1 = $no9_3_1_1;
+        $year = split("/", $this->discoverySurvey->Survey->no);
+        $year1 = $year[1];
+        $year2 = $year[1]-1;
+        $year3 = $year[1]-2;
+        $year4 = $year[1]-3;
+        $year5 = $year[1]-4;
+
+        if($no9_3_1_1 != null)
+            $this->view->no9_3_1_1 = $no9_3_1_1;
+        else
+            $this->view->no9_3_1_1 = $year1;
+
         $no9_3_1_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -5331,7 +5342,12 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>401,
                                 2=>$this->discovery_surveyid)))->answer;
-        $this->view->no9_3_2_1 = $no9_3_2_1;
+
+        if($no9_3_2_1 != null)
+            $this->view->no9_3_2_1 = $no9_3_2_1;
+        else
+            $this->view->no9_3_2_1 = $year2;
+
         $no9_3_2_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -5349,7 +5365,13 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>404,
                                 2=>$this->discovery_surveyid)))->answer;
-        $this->view->no9_3_3_1 = $no9_3_3_1;
+
+
+        if($no9_3_3_1 != null)
+            $this->view->no9_3_3_1 = $no9_3_3_1;
+        else
+            $this->view->no9_3_3_1 = $year3;
+
         $no9_3_3_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -5367,7 +5389,12 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>407,
                                 2=>$this->discovery_surveyid)))->answer;
-        $this->view->no9_3_4_1 = $no9_3_4_1;
+
+        if($no9_3_4_1 != null)
+            $this->view->no9_3_4_1 = $no9_3_4_1;
+        else
+            $this->view->no9_3_4_1 = $year4;
+
         $no9_3_4_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -5385,7 +5412,11 @@ class FormController extends Controller
                             "bind"=>array(
                                 1=>410,
                                 2=>$this->discovery_surveyid)))->answer;
-        $this->view->no9_3_5_1 = $no9_3_5_1;
+        if($no9_3_5_1 != null)
+            $this->view->no9_3_5_1 = $no9_3_5_1;
+        else
+            $this->view->no9_3_5_1 = $year5;
+
         $no9_3_5_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(

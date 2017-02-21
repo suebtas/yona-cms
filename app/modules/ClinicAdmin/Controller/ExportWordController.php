@@ -85,7 +85,7 @@ class ExportWordController extends Controller
            $no1_2_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
-                                    1=>400,
+                                    1=>553,
                                     2=>$this->discoverySurvey->id)))->answer;
             $no1_2_1_1 = Answer::findFirst(
                              array("questionid=?1 and discovery_surveyid=?2",
@@ -281,7 +281,7 @@ class ExportWordController extends Controller
         $document->setValue('{no1_3_3}', $west);
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_3_4}', $east);
-        $document->setValue('{no1_2_1}', $no1_2_1);
+        $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1_1+$no1_2_1_2));
         //$document->setValue('{no1_2_2}', $no1_2_2);
         $document->setValue('{no1_2_1_1}', $this->toformatNumber2($no1_2_1_1));
         $document->setValue('{no1_2_1_2}', $this->toformatNumber2($no1_2_1_2));
@@ -578,6 +578,11 @@ class ExportWordController extends Controller
                             "bind"=>array(
                                 1=>61,
                                 2=>$this->discoverySurvey->id)))->answer;
+        $no3_2_6 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>494,
+                                2=>$this->discoverySurvey->id)))->answer;
         $no3_3_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -654,6 +659,7 @@ class ExportWordController extends Controller
         $document->setValue('{no3_2_2}', $this->toformatNumber2($no3_2_2));
         $document->setValue('{no3_2_3}', $this->toformatNumber2($no3_2_3));
         $document->setValue('{no3_2_4}', $this->toformatNumber2($no3_2_4));
+        $document->setValue('{no3_2_6}', $this->toformatNumber2($no3_2_6));
         $document->setValue('{no3_3_1}', $this->toformatNumber2($no3_3_1));
         $document->setValue('{no3_3_2}', $this->toformatNumber2($no3_3_2));
         $document->setValue('{no3_3_3}', $this->toformatNumber2($no3_3_3));
@@ -1597,6 +1603,17 @@ class ExportWordController extends Controller
                             "bind"=>array(
                                 1=>193,
                                 2=>$this->discoverySurvey->id)))->answer;
+        $no5_1_4_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>501,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_1_4_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>502,
+                                2=>$this->discoverySurvey->id)))->answer;
 
         $no5_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -1604,71 +1621,247 @@ class ExportWordController extends Controller
                                 1=>194,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_1 = Answer::findFirst(
+        $no5_3_1_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>195,
+                                1=>503,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_2 = Answer::findFirst(
+        $no5_3_1_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>196,
+                                1=>504,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_3 = Answer::findFirst(
+        $no5_3_1_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>197,
+                                1=>505,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_4 = Answer::findFirst(
+        $no5_3_1_4 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>198,
+                                1=>506,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_5 = Answer::findFirst(
+        $no5_3_1_5 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>199,
+                                1=>507,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_6 = Answer::findFirst(
+        $no5_3_1_6 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>200,
+                                1=>508,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_7 = Answer::findFirst(
+        $no5_3_1_7 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>201,
+                                1=>509,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_8 = Answer::findFirst(
+        $no5_3_1_8 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>202,
+                                1=>510,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_9 = Answer::findFirst(
+        $no5_3_1_9 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>203,
+                                1=>511,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_10_1 = Answer::findFirst(
+        $no5_3_1_10 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>204,
+                                1=>512,
                                 2=>$this->discoverySurvey->id)))->answer;
 
-        $no5_3_10_2 = Answer::findFirst(
+        $no5_3_2_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>205,
+                                1=>513,
                                 2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>514,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>515,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>516,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_5 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>517,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_6 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>518,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_7 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>519,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_8 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>520,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_9 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>521,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_2_10 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>522,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>523,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>524,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>525,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>526,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_5 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>527,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_6 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>528,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_7 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>529,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_8 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>530,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_9 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>531,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_3_10 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>532,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_1 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>533,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_2 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>534,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_3 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>535,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_4 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>536,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_5 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>537,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_6 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>538,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_7 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>539,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_8 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>540,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_9 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>541,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        $no5_3_4_10 = Answer::findFirst(
+                        array("questionid=?1 and discovery_surveyid=?2",
+                            "bind"=>array(
+                                1=>542,
+                                2=>$this->discoverySurvey->id)))->answer;
+
+        
 //no5_4
         $no5_4_1_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -1800,20 +1993,55 @@ class ExportWordController extends Controller
     		$document->setValue('{no5_1_2_2}', $no5_1_2_2);
     		$document->setValue('{no5_1_3_1}', $no5_1_3_1);
     		$document->setValue('{no5_1_3_2}', $no5_1_3_2);
+            $document->setValue('{no5_1_4_1}', $no5_1_4_1);
+            $document->setValue('{no5_1_4_2}', $no5_1_4_2);
 
     		$document->setValue('{no5_2}', $no5_2);
 
-    		$document->setValue('{no5_3_1}', $no5_3_1);
-    		$document->setValue('{no5_3_2}', $no5_3_2);
-    		$document->setValue('{no5_3_3}', $no5_3_3);
-    		$document->setValue('{no5_3_4}', $no5_3_4);
-    		$document->setValue('{no5_3_5}', $no5_3_5);
-    		$document->setValue('{no5_3_6}', $no5_3_6);
-    		$document->setValue('{no5_3_7}', $no5_3_7);
-    		$document->setValue('{no5_3_8}', $no5_3_8);
-    		$document->setValue('{no5_3_9}', $no5_3_9);
-    		$document->setValue('{no5_3_10_1}', $no5_3_10_1);
-    		$document->setValue('{no5_3_10_2}', $no5_3_10_2);
+    		$document->setValue('{no5311}', $no5_3_1_1);
+    		$document->setValue('{no5312}', $no5_3_1_2);
+    		$document->setValue('{no5313}', $no5_3_1_3);
+    		$document->setValue('{no5314}', $no5_3_1_4);
+    		$document->setValue('{no5315}', $no5_3_1_5);
+    		$document->setValue('{no5316}', $no5_3_1_6);
+    		$document->setValue('{no5317}', $no5_3_1_7);
+    		$document->setValue('{no5318}', $no5_3_1_8);
+    		$document->setValue('{no5319}', $no5_3_1_9);
+    		$document->setValue('{no53110}', $no5_3_1_10);
+
+            $document->setValue('{no5321}', $no5_3_2_1);
+            $document->setValue('{no5322}', $no5_3_2_2);
+            $document->setValue('{no5323}', $no5_3_2_3);
+            $document->setValue('{no5324}', $no5_3_2_4);
+            $document->setValue('{no5325}', $no5_3_2_5);
+            $document->setValue('{no5326}', $no5_3_2_6);
+            $document->setValue('{no5327}', $no5_3_2_7);
+            $document->setValue('{no5328}', $no5_3_2_8);
+            $document->setValue('{no5329}', $no5_3_2_9);
+            $document->setValue('{no53210}', $no5_3_2_10);
+
+            $document->setValue('{no5331}', $no5_3_3_1);
+            $document->setValue('{no5332}', $no5_3_3_2);
+            $document->setValue('{no5333}', $no5_3_3_3);
+            $document->setValue('{no5334}', $no5_3_3_4);
+            $document->setValue('{no5335}', $no5_3_3_5);
+            $document->setValue('{no5336}', $no5_3_3_6);
+            $document->setValue('{no5337}', $no5_3_3_7);
+            $document->setValue('{no5338}', $no5_3_3_8);
+            $document->setValue('{no5339}', $no5_3_3_9);
+            $document->setValue('{no53310}', $no5_3_3_10);
+
+            $document->setValue('{no5341}', $no5_3_4_1);
+            $document->setValue('{no5342}', $no5_3_4_2);
+            $document->setValue('{no5343}', $no5_3_4_3);
+            $document->setValue('{no5344}', $no5_3_4_4);
+            $document->setValue('{no5345}', $no5_3_4_5);
+            $document->setValue('{no5346}', $no5_3_4_6);
+            $document->setValue('{no5347}', $no5_3_4_7);
+            $document->setValue('{no5348}', $no5_3_4_8);
+            $document->setValue('{no5349}', $no5_3_4_9);
+            $document->setValue('{no53410}', $no5_3_4_10);
+    		
 
     		$document->setValue('{no5_4_1_1}', $this->toformatNumber2($no5_4_1_1));
     		$document->setValue('{no5_4_1_2}', $this->toformatNumber2($no5_4_1_2));
@@ -1963,22 +2191,22 @@ class ExportWordController extends Controller
       $no7_3 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>414,
+                              1=>497,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_4 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>415,
+                              1=>498,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_5 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>416,
+                              1=>495,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_6 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>417,
+                              1=>496,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_3_1_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
@@ -2080,6 +2308,108 @@ class ExportWordController extends Controller
                           "bind"=>array(
                               1=>257,
                               2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_6_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>413,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_6_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>414,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_6_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>415,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_6_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>416,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_7_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>417,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_7_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>418,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_7_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>419,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_7_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>420,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_8_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>421,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_8_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>422,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_8_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>423,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_8_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>424,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_9_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>425,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_9_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>426,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_9_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>427,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_9_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>428,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_10_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>429,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_10_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>430,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_10_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>431,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_3_10_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>432,
+                              2=>$this->discoverySurvey->id)))->answer;
+
+
       $no7_4_1_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -2180,6 +2510,107 @@ class ExportWordController extends Controller
                           "bind"=>array(
                               1=>277,
                               2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_6_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>433,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_6_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>434,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_6_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>435,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_6_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>436,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_7_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>437,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_7_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>438,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_7_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>439,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_7_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>440,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_8_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>441,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_8_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>442,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_8_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>443,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_8_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>444,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_9_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>445,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_9_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>446,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_9_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>447,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_9_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>448,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_10_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>449,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_10_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>450,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_10_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>451,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_4_10_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>452,
+                              2=>$this->discoverySurvey->id)))->answer;
+
       $no7_5_1_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -2280,6 +2711,107 @@ class ExportWordController extends Controller
                           "bind"=>array(
                               1=>297,
                               2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_6_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>453,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_6_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>454,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_6_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>455,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_6_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>456,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_7_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>457,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_7_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>458,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_7_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>459,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_7_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>460,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_8_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>461,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_8_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>462,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_8_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>463,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_8_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>464,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_9_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>465,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_9_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>466,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_9_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>467,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_9_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>468,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_10_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>469,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_10_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>470,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_10_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>471,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_5_10_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>472,
+                              2=>$this->discoverySurvey->id)))->answer;
+
       $no7_6_1_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -2380,6 +2912,107 @@ class ExportWordController extends Controller
                           "bind"=>array(
                               1=>317,
                               2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_6_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>473,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_6_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>474,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_6_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>475,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_6_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>476,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_7_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>477,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_7_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>478,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_7_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>479,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_7_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>480,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_8_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>481,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_8_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>482,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_8_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>483,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_8_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>484,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_9_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>485,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_9_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>486,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_9_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>487,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_9_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>488,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_10_1 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>489,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_10_2 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>490,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_10_3 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>491,
+                              2=>$this->discoverySurvey->id)))->answer;
+      $no7_6_10_4 = Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>492,
+                              2=>$this->discoverySurvey->id)))->answer;
+
       $no7_7 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -2421,92 +3054,172 @@ class ExportWordController extends Controller
         $document->setValue('{no7_2_2}', $no7_2_2);
         $document->setValue('{no7_2_3}', $no7_2_3);
         $document->setValue('{no7_3}', $no7_3);
-        $document->setValue('{no7_3_1_1}', $no7_3_1_1);
-        $document->setValue('{no7_3_1_2}', $no7_3_1_2);
-        $document->setValue('{no7_3_1_3}', $no7_3_1_3);
-        $document->setValue('{no7_3_1_4}', $this->toformatNumber($no7_3_1_4));
-        $document->setValue('{no7_3_2_1}', $no7_3_2_1);
-        $document->setValue('{no7_3_2_2}', $no7_3_2_2);
-        $document->setValue('{no7_3_2_3}', $no7_3_2_3);
-        $document->setValue('{no7_3_2_4}', $this->toformatNumber($no7_3_2_4));
-        $document->setValue('{no7_3_3_1}', $no7_3_3_1);
-        $document->setValue('{no7_3_3_2}', $no7_3_3_2);
-        $document->setValue('{no7_3_3_3}', $no7_3_3_3);
-        $document->setValue('{no7_3_3_4}', $this->toformatNumber($no7_3_3_4));
-        $document->setValue('{no7_3_4_1}', $no7_3_4_1);
-        $document->setValue('{no7_3_4_2}', $no7_3_4_2);
-        $document->setValue('{no7_3_4_3}', $no7_3_4_3);
-        $document->setValue('{no7_3_4_4}', $this->toformatNumber($no7_3_4_4));
-        $document->setValue('{no7_3_5_1}', $no7_3_5_1);
-        $document->setValue('{no7_3_5_2}', $no7_3_5_2);
-        $document->setValue('{no7_3_5_3}', $no7_3_5_3);
-        $document->setValue('{no7_3_5_4}', $this->toformatNumber($no7_3_5_4));
+        $document->setValue('{no7311}', $no7_3_1_1);
+        $document->setValue('{no7312}', $no7_3_1_2);
+        $document->setValue('{no7313}', $no7_3_1_3);
+        $document->setValue('{no7314}', $this->toformatNumber($no7_3_1_4));
+        $document->setValue('{no7321}', $no7_3_2_1);
+        $document->setValue('{no7322}', $no7_3_2_2);
+        $document->setValue('{no7323}', $no7_3_2_3);
+        $document->setValue('{no7324}', $this->toformatNumber($no7_3_2_4));
+        $document->setValue('{no7331}', $no7_3_3_1);
+        $document->setValue('{no7332}', $no7_3_3_2);
+        $document->setValue('{no7333}', $no7_3_3_3);
+        $document->setValue('{no7334}', $this->toformatNumber($no7_3_3_4));
+        $document->setValue('{no7341}', $no7_3_4_1);
+        $document->setValue('{no7342}', $no7_3_4_2);
+        $document->setValue('{no7343}', $no7_3_4_3);
+        $document->setValue('{no7344}', $this->toformatNumber($no7_3_4_4));
+        $document->setValue('{no7351}', $no7_3_5_1);
+        $document->setValue('{no7352}', $no7_3_5_2);
+        $document->setValue('{no7353}', $no7_3_5_3);
+        $document->setValue('{no7354}', $this->toformatNumber($no7_3_5_4));
+        $document->setValue('{no7361}', $no7_3_6_1);
+        $document->setValue('{no7362}', $no7_3_6_2);
+        $document->setValue('{no7363}', $no7_3_6_3);
+        $document->setValue('{no7364}', $this->toformatNumber($no7_3_6_4));
+        $document->setValue('{no7371}', $no7_3_7_1);
+        $document->setValue('{no7372}', $no7_3_7_2);
+        $document->setValue('{no7373}', $no7_3_7_3);
+        $document->setValue('{no7374}', $this->toformatNumber($no7_3_7_4));
+        $document->setValue('{no7381}', $no7_3_8_1);
+        $document->setValue('{no7382}', $no7_3_8_2);
+        $document->setValue('{no7383}', $no7_3_8_3);
+        $document->setValue('{no7384}', $this->toformatNumber($no7_3_8_4));
+        $document->setValue('{no7391}', $no7_3_9_1);
+        $document->setValue('{no7392}', $no7_3_9_2);
+        $document->setValue('{no7393}', $no7_3_9_3);
+        $document->setValue('{no7394}', $this->toformatNumber($no7_3_9_4));
+        $document->setValue('{no73101}', $no7_3_10_1);
+        $document->setValue('{no73102}', $no7_3_10_2);
+        $document->setValue('{no73103}', $no7_3_10_3);
+        $document->setValue('{no73104}', $this->toformatNumber($no7_3_10_4));
 
         $document->setValue('{no7_4}', $no7_4);
-        $document->setValue('{no7_4_1_1}', $no7_4_1_1);
-        $document->setValue('{no7_4_1_2}', $no7_4_1_2);
-        $document->setValue('{no7_4_1_3}', $no7_4_1_3);
-        $document->setValue('{no7_4_1_4}', $this->toformatNumber($no7_4_1_4));
-        $document->setValue('{no7_4_2_1}', $no7_4_2_1);
-        $document->setValue('{no7_4_2_2}', $no7_4_2_2);
-        $document->setValue('{no7_4_2_3}', $no7_4_2_3);
-        $document->setValue('{no7_4_2_4}', $this->toformatNumber($no7_4_2_4));
-        $document->setValue('{no7_4_3_1}', $no7_4_3_1);
-        $document->setValue('{no7_4_3_2}', $no7_4_3_2);
-        $document->setValue('{no7_4_3_3}', $no7_4_3_3);
-        $document->setValue('{no7_4_3_4}', $this->toformatNumber($no7_4_3_4));
-        $document->setValue('{no7_4_4_1}', $no7_4_4_1);
-        $document->setValue('{no7_4_4_2}', $no7_4_4_2);
-        $document->setValue('{no7_4_4_3}', $no7_4_4_3);
-        $document->setValue('{no7_4_4_4}', $this->toformatNumber($no7_4_4_4));
-        $document->setValue('{no7_4_5_1}', $no7_4_5_1);
-        $document->setValue('{no7_4_5_2}', $no7_4_5_2);
-        $document->setValue('{no7_4_5_3}', $no7_4_5_3);
-        $document->setValue('{no7_4_5_4}', $this->toformatNumber($no7_4_5_4));
+        $document->setValue('{no7411}', $no7_4_1_1);
+        $document->setValue('{no7412}', $no7_4_1_2);
+        $document->setValue('{no7413}', $no7_4_1_3);
+        $document->setValue('{no7414}', $this->toformatNumber($no7_4_1_4));
+        $document->setValue('{no7421}', $no7_4_2_1);
+        $document->setValue('{no7422}', $no7_4_2_2);
+        $document->setValue('{no7423}', $no7_4_2_3);
+        $document->setValue('{no7424}', $this->toformatNumber($no7_4_2_4));
+        $document->setValue('{no7431}', $no7_4_3_1);
+        $document->setValue('{no7432}', $no7_4_3_2);
+        $document->setValue('{no7433}', $no7_4_3_3);
+        $document->setValue('{no7434}', $this->toformatNumber($no7_4_3_4));
+        $document->setValue('{no7441}', $no7_4_4_1);
+        $document->setValue('{no7442}', $no7_4_4_2);
+        $document->setValue('{no7443}', $no7_4_4_3);
+        $document->setValue('{no7444}', $this->toformatNumber($no7_4_4_4));
+        $document->setValue('{no7451}', $no7_4_5_1);
+        $document->setValue('{no7452}', $no7_4_5_2);
+        $document->setValue('{no7453}', $no7_4_5_3);
+        $document->setValue('{no7454}', $this->toformatNumber($no7_4_5_4));
+        $document->setValue('{no7461}', $no7_4_6_1);
+        $document->setValue('{no7462}', $no7_4_6_2);
+        $document->setValue('{no7463}', $no7_4_6_3);
+        $document->setValue('{no7464}', $this->toformatNumber($no7_4_6_4));
+        $document->setValue('{no7471}', $no7_4_7_1);
+        $document->setValue('{no7472}', $no7_4_7_2);
+        $document->setValue('{no7473}', $no7_4_7_3);
+        $document->setValue('{no7474}', $this->toformatNumber($no7_4_7_4));
+        $document->setValue('{no7481}', $no7_4_8_1);
+        $document->setValue('{no7482}', $no7_4_8_2);
+        $document->setValue('{no7483}', $no7_4_8_3);
+        $document->setValue('{no7484}', $this->toformatNumber($no7_4_8_4));
+        $document->setValue('{no7491}', $no7_4_9_1);
+        $document->setValue('{no7492}', $no7_4_9_2);
+        $document->setValue('{no7493}', $no7_4_9_3);
+        $document->setValue('{no7494}', $this->toformatNumber($no7_4_9_4));
+        $document->setValue('{no74101}', $no7_4_10_1);
+        $document->setValue('{no74102}', $no7_4_10_2);
+        $document->setValue('{no74103}', $no7_4_10_3);
+        $document->setValue('{no74104}', $this->toformatNumber($no7_4_10_4));
 
         $document->setValue('{no7_5}', $no7_5);
-        $document->setValue('{no7_5_1_1}', $no7_5_1_1);
-        $document->setValue('{no7_5_1_2}', $no7_5_1_2);
-        $document->setValue('{no7_5_1_3}', $no7_5_1_3);
-        $document->setValue('{no7_5_1_4}', $this->toformatNumber($no7_5_1_4));
-        $document->setValue('{no7_5_2_1}', $no7_5_2_1);
-        $document->setValue('{no7_5_2_2}', $no7_5_2_2);
-        $document->setValue('{no7_5_2_3}', $no7_5_2_3);
-        $document->setValue('{no7_5_2_4}', $this->toformatNumber($no7_5_2_4));
-        $document->setValue('{no7_5_3_1}', $no7_5_3_1);
-        $document->setValue('{no7_5_3_2}', $no7_5_3_2);
-        $document->setValue('{no7_5_3_3}', $no7_5_3_3);
-        $document->setValue('{no7_5_3_4}', $this->toformatNumber($no7_5_3_4));
-        $document->setValue('{no7_5_4_1}', $no7_5_4_1);
-        $document->setValue('{no7_5_4_2}', $no7_5_4_2);
-        $document->setValue('{no7_5_4_3}', $no7_5_4_3);
-        $document->setValue('{no7_5_4_4}', $this->toformatNumber($no7_5_4_4));
-        $document->setValue('{no7_5_5_1}', $no7_5_5_1);
-        $document->setValue('{no7_5_5_2}', $no7_5_5_2);
-        $document->setValue('{no7_5_5_3}', $no7_5_5_3);
-        $document->setValue('{no7_5_5_4}', $this->toformatNumber($no7_5_5_4));
+        $document->setValue('{no7511}', $no7_5_1_1);
+        $document->setValue('{no7512}', $no7_5_1_2);
+        $document->setValue('{no7513}', $no7_5_1_3);
+        $document->setValue('{no7514}', $this->toformatNumber($no7_5_1_4));
+        $document->setValue('{no7521}', $no7_5_2_1);
+        $document->setValue('{no7522}', $no7_5_2_2);
+        $document->setValue('{no7523}', $no7_5_2_3);
+        $document->setValue('{no7524}', $this->toformatNumber($no7_5_2_4));
+        $document->setValue('{no7531}', $no7_5_3_1);
+        $document->setValue('{no7532}', $no7_5_3_2);
+        $document->setValue('{no7533}', $no7_5_3_3);
+        $document->setValue('{no7534}', $this->toformatNumber($no7_5_3_4));
+        $document->setValue('{no7541}', $no7_5_4_1);
+        $document->setValue('{no7542}', $no7_5_4_2);
+        $document->setValue('{no7543}', $no7_5_4_3);
+        $document->setValue('{no7544}', $this->toformatNumber($no7_5_4_4));
+        $document->setValue('{no7551}', $no7_5_5_1);
+        $document->setValue('{no7552}', $no7_5_5_2);
+        $document->setValue('{no7553}', $no7_5_5_3);
+        $document->setValue('{no7554}', $this->toformatNumber($no7_5_5_4));
+        $document->setValue('{no7561}', $no7_5_6_1);
+        $document->setValue('{no7562}', $no7_5_6_2);
+        $document->setValue('{no7563}', $no7_5_6_3);
+        $document->setValue('{no7564}', $this->toformatNumber($no7_5_6_4));
+        $document->setValue('{no7571}', $no7_5_7_1);
+        $document->setValue('{no7572}', $no7_5_7_2);
+        $document->setValue('{no7573}', $no7_5_7_3);
+        $document->setValue('{no7574}', $this->toformatNumber($no7_5_7_4));
+        $document->setValue('{no7581}', $no7_5_8_1);
+        $document->setValue('{no7582}', $no7_5_8_2);
+        $document->setValue('{no7583}', $no7_5_8_3);
+        $document->setValue('{no7584}', $this->toformatNumber($no7_5_8_4));
+        $document->setValue('{no7591}', $no7_5_9_1);
+        $document->setValue('{no7592}', $no7_5_9_2);
+        $document->setValue('{no7593}', $no7_5_9_3);
+        $document->setValue('{no7594}', $this->toformatNumber($no7_5_9_4));
+        $document->setValue('{no75101}', $no7_5_10_1);
+        $document->setValue('{no75102}', $no7_5_10_2);
+        $document->setValue('{no75103}', $no7_5_10_3);
+        $document->setValue('{no75104}', $this->toformatNumber($no7_5_10_4));
 
         $document->setValue('{no7_6}', $no7_6);
-        $document->setValue('{no7_6_1_1}', $no7_6_1_1);
-        $document->setValue('{no7_6_1_2}', $no7_6_1_2);
-        $document->setValue('{no7_6_1_3}', $no7_6_1_3);
-        $document->setValue('{no7_6_1_4}', $this->toformatNumber($no7_6_1_4));
-        $document->setValue('{no7_6_2_1}', $no7_6_2_1);
-        $document->setValue('{no7_6_2_2}', $no7_6_2_2);
-        $document->setValue('{no7_6_2_3}', $no7_6_2_3);
-        $document->setValue('{no7_6_2_4}', $this->toformatNumber($no7_6_2_4));
-        $document->setValue('{no7_6_3_1}', $no7_6_3_1);
-        $document->setValue('{no7_6_3_2}', $no7_6_3_2);
-        $document->setValue('{no7_6_3_3}', $no7_6_3_3);
-        $document->setValue('{no7_6_3_4}', $this->toformatNumber($no7_6_3_4));
-        $document->setValue('{no7_6_4_1}', $no7_6_4_1);
-        $document->setValue('{no7_6_4_2}', $no7_6_4_2);
-        $document->setValue('{no7_6_4_3}', $no7_6_4_3);
-        $document->setValue('{no7_6_4_4}', $this->toformatNumber($no7_6_4_4));
-        $document->setValue('{no7_6_5_1}', $no7_6_5_1);
-        $document->setValue('{no7_6_5_2}', $no7_6_5_2);
-        $document->setValue('{no7_6_5_3}', $no7_6_5_3);
-        $document->setValue('{no7_6_5_4}', $this->toformatNumber($no7_6_5_4));
+        $document->setValue('{no7611}', $no7_6_1_1);
+        $document->setValue('{no7612}', $no7_6_1_2);
+        $document->setValue('{no7613}', $no7_6_1_3);
+        $document->setValue('{no7614}', $this->toformatNumber($no7_6_1_4));
+        $document->setValue('{no7621}', $no7_6_2_1);
+        $document->setValue('{no7622}', $no7_6_2_2);
+        $document->setValue('{no7623}', $no7_6_2_3);
+        $document->setValue('{no7624}', $this->toformatNumber($no7_6_2_4));
+        $document->setValue('{no7631}', $no7_6_3_1);
+        $document->setValue('{no7632}', $no7_6_3_2);
+        $document->setValue('{no7633}', $no7_6_3_3);
+        $document->setValue('{no7634}', $this->toformatNumber($no7_6_3_4));
+        $document->setValue('{no7641}', $no7_6_4_1);
+        $document->setValue('{no7642}', $no7_6_4_2);
+        $document->setValue('{no7643}', $no7_6_4_3);
+        $document->setValue('{no7644}', $this->toformatNumber($no7_6_4_4));
+        $document->setValue('{no7651}', $no7_6_5_1);
+        $document->setValue('{no7652}', $no7_6_5_2);
+        $document->setValue('{no7653}', $no7_6_5_3);
+        $document->setValue('{no7654}', $this->toformatNumber($no7_6_5_4));
+        $document->setValue('{no7661}', $no7_6_6_1);
+        $document->setValue('{no7662}', $no7_6_6_2);
+        $document->setValue('{no7663}', $no7_6_6_3);
+        $document->setValue('{no7664}', $this->toformatNumber($no7_6_6_4));
+        $document->setValue('{no7671}', $no7_6_7_1);
+        $document->setValue('{no7672}', $no7_6_7_2);
+        $document->setValue('{no7673}', $no7_6_7_3);
+        $document->setValue('{no7674}', $this->toformatNumber($no7_6_7_4));
+        $document->setValue('{no7681}', $no7_6_8_1);
+        $document->setValue('{no7682}', $no7_6_8_2);
+        $document->setValue('{no7683}', $no7_6_8_3);
+        $document->setValue('{no7684}', $this->toformatNumber($no7_6_8_4));
+        $document->setValue('{no7691}', $no7_6_9_1);
+        $document->setValue('{no7692}', $no7_6_9_2);
+        $document->setValue('{no7693}', $no7_6_9_3);
+        $document->setValue('{no7694}', $this->toformatNumber($no7_6_9_4));
+        $document->setValue('{no76101}', $no7_6_10_1);
+        $document->setValue('{no76102}', $no7_6_10_2);
+        $document->setValue('{no76103}', $no7_6_10_3);
+        $document->setValue('{no76104}', $this->toformatNumber($no7_6_10_4));
 
         $document->setValue('{no7_7}', $no7_7);
         $document->setValue('{no7_8}', $no7_8);
@@ -2685,6 +3398,56 @@ class ExportWordController extends Controller
               array("questionid=?1 and discovery_surveyid=?2",
                   "bind"=>array(
                       1=>395,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_11 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>543,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_12 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>544,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_13 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>545,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_14 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>546,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_15 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>547,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_16 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>548,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_17 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>549,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_18 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>550,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_19 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>551,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_20 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>552,
                       2=>$this->discoverySurvey->id)))->answer;
 
       $no8_5_1 = Answer::findFirst(
@@ -2940,6 +3703,16 @@ class ExportWordController extends Controller
         $document->setValue('{no8_4_8}', $no8_4_8);
         $document->setValue('{no8_4_9}', $no8_4_9);
         $document->setValue('{no8_4_10}', $no8_4_10);
+        $document->setValue('{no8411}', $no8_4_11);
+        $document->setValue('{no8412}', $no8_4_12);
+        $document->setValue('{no8413}', $no8_4_13);
+        $document->setValue('{no8414}', $no8_4_14);
+        $document->setValue('{no8415}', $no8_4_15);
+        $document->setValue('{no8416}', $no8_4_16);
+        $document->setValue('{no8417}', $no8_4_17);
+        $document->setValue('{no8418}', $no8_4_18);
+        $document->setValue('{no8419}', $no8_4_19);
+        $document->setValue('{no8420}', $no8_4_20);
 
         $document->setValue('{no8_5_1}', $no8_5_1);
         $document->setValue('{no8_5_2_1}', $no8_5_2_1);
