@@ -68,6 +68,7 @@ class ExportWordController extends Controller
         case "oct" : return "ตุลาคม "; break;
         case "nov" : return "พฤศจิกายน "; break;
         case "dec" : return "ธันวาคม "; break;
+        default : return ""; break;
 
       }
     }
@@ -282,8 +283,10 @@ class ExportWordController extends Controller
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1_1+$no1_2_1_2));
-        //$document->setValue('{no1_2_2}', $no1_2_2);
+        
+        $no1_2_1_1 = $no1_2_2_1 + $no1_2_3_1 + $no1_2_4_1 + $no1_2_5_1;
         $document->setValue('{no1_2_1_1}', $this->toformatNumber2($no1_2_1_1));
+        $no1_2_1_2 = $no1_2_2_2 + $no1_2_3_2 + $no1_2_4_2 + $no1_2_5_2;
         $document->setValue('{no1_2_1_2}', $this->toformatNumber2($no1_2_1_2));
         $document->setValue('{no1_2_2_1}', $this->toformatNumber2($no1_2_2_1));
         $document->setValue('{no1_2_2_2}', $this->toformatNumber2($no1_2_2_2));
@@ -496,7 +499,7 @@ class ExportWordController extends Controller
 
     		$document->setValue('{year}', $this->year);
     		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-    		$document->setValue('{no2_1_1}', $this->toformatNumber($no2_1_1));
+    		$document->setValue('{no2_1_1}', $this->toformatNumber2($no2_1_1));
     		$document->setValue('{no2_1_2_1}', $this->toformatNumber2($no2_1_2_1));
     		$document->setValue('{no2_1_2_2}', $this->toformatNumber($no2_1_2_2));
     		$document->setValue('{no2_1_3_1}', $this->toformatNumber2($no2_1_3_1));
@@ -2054,10 +2057,10 @@ class ExportWordController extends Controller
     		$document->setValue('{no5_4_3_3}', $this->toformatNumber2($no5_4_3_3));
     		$document->setValue('{no5_4_4}', $this->toformatNumber2($no5_4_4));
 
-    		$document->setValue('{no5_5_1_1}', $no5_5_1_1);
-    		$document->setValue('{no5_5_1_2}', $no5_5_1_2);
-    		$document->setValue('{no5_5_2_1}', $no5_5_2_1);
-    		$document->setValue('{no5_5_2_2}', $no5_5_2_2);
+    		$document->setValue('{no5_5_1_1}', $this->toformatNumber2($no5_5_1_1));
+    		$document->setValue('{no5_5_1_2}', $this->toformatNumber($no5_5_1_2));
+    		$document->setValue('{no5_5_2_1}', $this->toformatNumber2($no5_5_2_1));
+    		$document->setValue('{no5_5_2_2}', $this->toformatNumber($no5_5_2_2));
 
     		$document->setValue('{no5_6_1}', $no5_6_1);
     		$document->setValue('{no5_6_2}', $no5_6_2);
@@ -3054,169 +3057,169 @@ class ExportWordController extends Controller
         $document->setValue('{no7_2_2}', $no7_2_2);
         $document->setValue('{no7_2_3}', $no7_2_3);
         $document->setValue('{no7_3}', $no7_3);
-        $document->setValue('{no7311}', $no7_3_1_1);
+        $document->setValue('{no7311}', $this->toformatNumber2($no7_3_1_1));
         $document->setValue('{no7312}', $no7_3_1_2);
         $document->setValue('{no7313}', $no7_3_1_3);
         $document->setValue('{no7314}', $this->toformatNumber($no7_3_1_4));
-        $document->setValue('{no7321}', $no7_3_2_1);
+        $document->setValue('{no7321}', $this->toformatNumber2($no7_3_2_1));
         $document->setValue('{no7322}', $no7_3_2_2);
         $document->setValue('{no7323}', $no7_3_2_3);
         $document->setValue('{no7324}', $this->toformatNumber($no7_3_2_4));
-        $document->setValue('{no7331}', $no7_3_3_1);
+        $document->setValue('{no7331}', $this->toformatNumber2($no7_3_3_1));
         $document->setValue('{no7332}', $no7_3_3_2);
         $document->setValue('{no7333}', $no7_3_3_3);
         $document->setValue('{no7334}', $this->toformatNumber($no7_3_3_4));
-        $document->setValue('{no7341}', $no7_3_4_1);
+        $document->setValue('{no7341}', $this->toformatNumber2($no7_3_4_1));
         $document->setValue('{no7342}', $no7_3_4_2);
         $document->setValue('{no7343}', $no7_3_4_3);
         $document->setValue('{no7344}', $this->toformatNumber($no7_3_4_4));
-        $document->setValue('{no7351}', $no7_3_5_1);
+        $document->setValue('{no7351}', $this->toformatNumber2($no7_3_5_1));
         $document->setValue('{no7352}', $no7_3_5_2);
         $document->setValue('{no7353}', $no7_3_5_3);
         $document->setValue('{no7354}', $this->toformatNumber($no7_3_5_4));
-        $document->setValue('{no7361}', $no7_3_6_1);
+        $document->setValue('{no7361}', $this->toformatNumber2($no7_3_6_1));
         $document->setValue('{no7362}', $no7_3_6_2);
         $document->setValue('{no7363}', $no7_3_6_3);
         $document->setValue('{no7364}', $this->toformatNumber($no7_3_6_4));
-        $document->setValue('{no7371}', $no7_3_7_1);
+        $document->setValue('{no7371}', $this->toformatNumber2($no7_3_7_1));
         $document->setValue('{no7372}', $no7_3_7_2);
         $document->setValue('{no7373}', $no7_3_7_3);
         $document->setValue('{no7374}', $this->toformatNumber($no7_3_7_4));
-        $document->setValue('{no7381}', $no7_3_8_1);
+        $document->setValue('{no7381}', $this->toformatNumber2($no7_3_8_1));
         $document->setValue('{no7382}', $no7_3_8_2);
         $document->setValue('{no7383}', $no7_3_8_3);
         $document->setValue('{no7384}', $this->toformatNumber($no7_3_8_4));
-        $document->setValue('{no7391}', $no7_3_9_1);
+        $document->setValue('{no7391}', $this->toformatNumber2($no7_3_9_1));
         $document->setValue('{no7392}', $no7_3_9_2);
         $document->setValue('{no7393}', $no7_3_9_3);
         $document->setValue('{no7394}', $this->toformatNumber($no7_3_9_4));
-        $document->setValue('{no73101}', $no7_3_10_1);
+        $document->setValue('{no73101}', $this->toformatNumber2($no7_3_10_1));
         $document->setValue('{no73102}', $no7_3_10_2);
         $document->setValue('{no73103}', $no7_3_10_3);
         $document->setValue('{no73104}', $this->toformatNumber($no7_3_10_4));
 
         $document->setValue('{no7_4}', $no7_4);
-        $document->setValue('{no7411}', $no7_4_1_1);
+        $document->setValue('{no7411}', $this->toformatNumber2($no7_4_1_1));
         $document->setValue('{no7412}', $no7_4_1_2);
         $document->setValue('{no7413}', $no7_4_1_3);
         $document->setValue('{no7414}', $this->toformatNumber($no7_4_1_4));
-        $document->setValue('{no7421}', $no7_4_2_1);
+        $document->setValue('{no7421}', $this->toformatNumber2($no7_4_2_1));
         $document->setValue('{no7422}', $no7_4_2_2);
         $document->setValue('{no7423}', $no7_4_2_3);
         $document->setValue('{no7424}', $this->toformatNumber($no7_4_2_4));
-        $document->setValue('{no7431}', $no7_4_3_1);
+        $document->setValue('{no7431}', $this->toformatNumber2($no7_4_3_1));
         $document->setValue('{no7432}', $no7_4_3_2);
         $document->setValue('{no7433}', $no7_4_3_3);
         $document->setValue('{no7434}', $this->toformatNumber($no7_4_3_4));
-        $document->setValue('{no7441}', $no7_4_4_1);
+        $document->setValue('{no7441}', $this->toformatNumber2($no7_4_4_1));
         $document->setValue('{no7442}', $no7_4_4_2);
         $document->setValue('{no7443}', $no7_4_4_3);
         $document->setValue('{no7444}', $this->toformatNumber($no7_4_4_4));
-        $document->setValue('{no7451}', $no7_4_5_1);
+        $document->setValue('{no7451}', $this->toformatNumber2($no7_4_5_1));
         $document->setValue('{no7452}', $no7_4_5_2);
         $document->setValue('{no7453}', $no7_4_5_3);
         $document->setValue('{no7454}', $this->toformatNumber($no7_4_5_4));
-        $document->setValue('{no7461}', $no7_4_6_1);
+        $document->setValue('{no7461}', $this->toformatNumber2($no7_4_6_1));
         $document->setValue('{no7462}', $no7_4_6_2);
         $document->setValue('{no7463}', $no7_4_6_3);
         $document->setValue('{no7464}', $this->toformatNumber($no7_4_6_4));
-        $document->setValue('{no7471}', $no7_4_7_1);
+        $document->setValue('{no7471}', $this->toformatNumber2($no7_4_7_1));
         $document->setValue('{no7472}', $no7_4_7_2);
         $document->setValue('{no7473}', $no7_4_7_3);
         $document->setValue('{no7474}', $this->toformatNumber($no7_4_7_4));
-        $document->setValue('{no7481}', $no7_4_8_1);
+        $document->setValue('{no7481}', $this->toformatNumber2($no7_4_8_1));
         $document->setValue('{no7482}', $no7_4_8_2);
         $document->setValue('{no7483}', $no7_4_8_3);
         $document->setValue('{no7484}', $this->toformatNumber($no7_4_8_4));
-        $document->setValue('{no7491}', $no7_4_9_1);
+        $document->setValue('{no7491}', $this->toformatNumber2($no7_4_9_1));
         $document->setValue('{no7492}', $no7_4_9_2);
         $document->setValue('{no7493}', $no7_4_9_3);
         $document->setValue('{no7494}', $this->toformatNumber($no7_4_9_4));
-        $document->setValue('{no74101}', $no7_4_10_1);
+        $document->setValue('{no74101}', $this->toformatNumber2($no7_4_10_1));
         $document->setValue('{no74102}', $no7_4_10_2);
         $document->setValue('{no74103}', $no7_4_10_3);
         $document->setValue('{no74104}', $this->toformatNumber($no7_4_10_4));
 
         $document->setValue('{no7_5}', $no7_5);
-        $document->setValue('{no7511}', $no7_5_1_1);
+        $document->setValue('{no7511}', $this->toformatNumber2($no7_5_1_1));
         $document->setValue('{no7512}', $no7_5_1_2);
         $document->setValue('{no7513}', $no7_5_1_3);
         $document->setValue('{no7514}', $this->toformatNumber($no7_5_1_4));
-        $document->setValue('{no7521}', $no7_5_2_1);
+        $document->setValue('{no7521}', $this->toformatNumber2($no7_5_2_1));
         $document->setValue('{no7522}', $no7_5_2_2);
         $document->setValue('{no7523}', $no7_5_2_3);
         $document->setValue('{no7524}', $this->toformatNumber($no7_5_2_4));
-        $document->setValue('{no7531}', $no7_5_3_1);
+        $document->setValue('{no7531}', $this->toformatNumber2($no7_5_3_1));
         $document->setValue('{no7532}', $no7_5_3_2);
         $document->setValue('{no7533}', $no7_5_3_3);
         $document->setValue('{no7534}', $this->toformatNumber($no7_5_3_4));
-        $document->setValue('{no7541}', $no7_5_4_1);
+        $document->setValue('{no7541}', $this->toformatNumber2($no7_5_4_1));
         $document->setValue('{no7542}', $no7_5_4_2);
         $document->setValue('{no7543}', $no7_5_4_3);
         $document->setValue('{no7544}', $this->toformatNumber($no7_5_4_4));
-        $document->setValue('{no7551}', $no7_5_5_1);
+        $document->setValue('{no7551}', $this->toformatNumber2($no7_5_5_1));
         $document->setValue('{no7552}', $no7_5_5_2);
         $document->setValue('{no7553}', $no7_5_5_3);
         $document->setValue('{no7554}', $this->toformatNumber($no7_5_5_4));
-        $document->setValue('{no7561}', $no7_5_6_1);
+        $document->setValue('{no7561}', $this->toformatNumber2($no7_5_6_1));
         $document->setValue('{no7562}', $no7_5_6_2);
         $document->setValue('{no7563}', $no7_5_6_3);
         $document->setValue('{no7564}', $this->toformatNumber($no7_5_6_4));
-        $document->setValue('{no7571}', $no7_5_7_1);
+        $document->setValue('{no7571}', $this->toformatNumber2($no7_5_7_1));
         $document->setValue('{no7572}', $no7_5_7_2);
         $document->setValue('{no7573}', $no7_5_7_3);
         $document->setValue('{no7574}', $this->toformatNumber($no7_5_7_4));
-        $document->setValue('{no7581}', $no7_5_8_1);
+        $document->setValue('{no7581}', $this->toformatNumber2($no7_5_8_1));
         $document->setValue('{no7582}', $no7_5_8_2);
         $document->setValue('{no7583}', $no7_5_8_3);
         $document->setValue('{no7584}', $this->toformatNumber($no7_5_8_4));
-        $document->setValue('{no7591}', $no7_5_9_1);
+        $document->setValue('{no7591}', $this->toformatNumber2($no7_5_9_1));
         $document->setValue('{no7592}', $no7_5_9_2);
         $document->setValue('{no7593}', $no7_5_9_3);
         $document->setValue('{no7594}', $this->toformatNumber($no7_5_9_4));
-        $document->setValue('{no75101}', $no7_5_10_1);
+        $document->setValue('{no75101}', $this->toformatNumber2($no7_5_10_1));
         $document->setValue('{no75102}', $no7_5_10_2);
         $document->setValue('{no75103}', $no7_5_10_3);
         $document->setValue('{no75104}', $this->toformatNumber($no7_5_10_4));
 
         $document->setValue('{no7_6}', $no7_6);
-        $document->setValue('{no7611}', $no7_6_1_1);
+        $document->setValue('{no7611}', $this->toformatNumber2($no7_6_1_1));
         $document->setValue('{no7612}', $no7_6_1_2);
         $document->setValue('{no7613}', $no7_6_1_3);
         $document->setValue('{no7614}', $this->toformatNumber($no7_6_1_4));
-        $document->setValue('{no7621}', $no7_6_2_1);
+        $document->setValue('{no7621}', $this->toformatNumber2($no7_6_2_1));
         $document->setValue('{no7622}', $no7_6_2_2);
         $document->setValue('{no7623}', $no7_6_2_3);
         $document->setValue('{no7624}', $this->toformatNumber($no7_6_2_4));
-        $document->setValue('{no7631}', $no7_6_3_1);
+        $document->setValue('{no7631}', $this->toformatNumber2($no7_6_3_1));
         $document->setValue('{no7632}', $no7_6_3_2);
         $document->setValue('{no7633}', $no7_6_3_3);
         $document->setValue('{no7634}', $this->toformatNumber($no7_6_3_4));
-        $document->setValue('{no7641}', $no7_6_4_1);
+        $document->setValue('{no7641}', $this->toformatNumber2($no7_6_4_1));
         $document->setValue('{no7642}', $no7_6_4_2);
         $document->setValue('{no7643}', $no7_6_4_3);
         $document->setValue('{no7644}', $this->toformatNumber($no7_6_4_4));
-        $document->setValue('{no7651}', $no7_6_5_1);
+        $document->setValue('{no7651}', $this->toformatNumber2($no7_6_5_1));
         $document->setValue('{no7652}', $no7_6_5_2);
         $document->setValue('{no7653}', $no7_6_5_3);
         $document->setValue('{no7654}', $this->toformatNumber($no7_6_5_4));
-        $document->setValue('{no7661}', $no7_6_6_1);
+        $document->setValue('{no7661}', $this->toformatNumber2($no7_6_6_1));
         $document->setValue('{no7662}', $no7_6_6_2);
         $document->setValue('{no7663}', $no7_6_6_3);
         $document->setValue('{no7664}', $this->toformatNumber($no7_6_6_4));
-        $document->setValue('{no7671}', $no7_6_7_1);
+        $document->setValue('{no7671}', $this->toformatNumber2($no7_6_7_1));
         $document->setValue('{no7672}', $no7_6_7_2);
         $document->setValue('{no7673}', $no7_6_7_3);
         $document->setValue('{no7674}', $this->toformatNumber($no7_6_7_4));
-        $document->setValue('{no7681}', $no7_6_8_1);
+        $document->setValue('{no7681}', $this->toformatNumber2($no7_6_8_1));
         $document->setValue('{no7682}', $no7_6_8_2);
         $document->setValue('{no7683}', $no7_6_8_3);
         $document->setValue('{no7684}', $this->toformatNumber($no7_6_8_4));
-        $document->setValue('{no7691}', $no7_6_9_1);
+        $document->setValue('{no7691}', $this->toformatNumber2($no7_6_9_1));
         $document->setValue('{no7692}', $no7_6_9_2);
         $document->setValue('{no7693}', $no7_6_9_3);
         $document->setValue('{no7694}', $this->toformatNumber($no7_6_9_4));
-        $document->setValue('{no76101}', $no7_6_10_1);
+        $document->setValue('{no76101}', $this->toformatNumber2($no7_6_10_1));
         $document->setValue('{no76102}', $no7_6_10_2);
         $document->setValue('{no76103}', $no7_6_10_3);
         $document->setValue('{no76104}', $this->toformatNumber($no7_6_10_4));
@@ -3716,8 +3719,8 @@ class ExportWordController extends Controller
 
         $document->setValue('{no8_5_1}', $no8_5_1);
         $document->setValue('{no8_5_2_1}', $no8_5_2_1);
-        $document->setValue('{no8_5_2_2}', $no8_5_2_2);
-        $document->setValue('{no8_5_2_3}', $no8_5_2_3);
+        $document->setValue('{no8_5_2_2}', $this->thaiMonth($no8_5_2_2));
+        $document->setValue('{no8_5_2_3}', $this->thaiMonth($no8_5_2_3));
         $document->setValue('{no8_5_3}', $no8_5_3);
         $document->setValue('{no8_5_4}', $no8_5_4);
 
@@ -3736,35 +3739,55 @@ class ExportWordController extends Controller
 
         if($no8_7_7 == "yes")
           $no8_7_7 = "ใช้";
-        else
+        else if($no8_7_7 == "no")
           $no8_7_7 = "ไม่ใช้";
+        else
+            $no8_7_7 = "";
+
         $document->setValue('{no8_7_7}', $no8_7_7);
+
         if($no8_7_8 == "yes")
           $no8_7_8 = "ใช้";
-        else
+        else if($no8_7_8 == "no")
           $no8_7_8 = "ไม่ใช้";
+        else
+            $no8_7_8 = "";
         $document->setValue('{no8_7_8}', $no8_7_8);
+
         if($no8_7_9 == "yes")
           $no8_7_9 = "ใช้";
-        else
+        else if($no8_7_9 == "no")
           $no8_7_9 = "ไม่ใช้";
+        else
+            $no8_7_9 = "";
         $document->setValue('{no8_7_9}', $no8_7_9);
+
         if($no8_7_10 == "yes")
           $no8_7_10 = "ใช้";
-        else
+        else if($no8_7_10 == "no")
           $no8_7_10 = "ไม่ใช้";
+        else
+            $no8_7_10 = "";
         $document->setValue('{no8_7_10}', $no8_7_10);
-         if($no8_7_11 == "yes")
+
+        if($no8_7_11 == "yes")
           $no8_7_11 = "ใช้";
-        else
+        else if($no8_7_11 == "no")
           $no8_7_11 = "ไม่ใช้";
-        $document->setValue('{no8_7_11}', $no8_7_11);
-        $document->setValue('{no8_7_12_1}', $no8_7_12_1);
-         if($no8_7_12_2 == "yes")
-          $no8_7_12_2 = "ใช้";
         else
+            $no8_7_11 = "";
+        $document->setValue('{no8_7_11}', $no8_7_11);
+
+        $document->setValue('{no8_7_12_1}', $no8_7_12_1);
+
+        if($no8_7_12_2 == "yes")
+          $no8_7_12_2 = "ใช้";
+        else if($no8_7_12_2 == "no")
           $no8_7_12_2 = "ไม่ใช่";
+        else
+            $no8_7_12_2 = "";
         $document->setValue('{no8_7_12_2}', $no8_7_12_2);
+
         $document->setValue('{no8_7_13_1}', $no8_7_13_1);
         $document->setValue('{no8_7_13_2}', $no8_7_13_2);
         $document->setValue('{no8_7_14}', $no8_7_14);
@@ -3868,7 +3891,7 @@ class ExportWordController extends Controller
         $no9_3_4_3 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
-                                1=>49,
+                                1=>409,
                                 2=>$this->discoverySurvey->id)))->answer;
         $no9_3_5_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",

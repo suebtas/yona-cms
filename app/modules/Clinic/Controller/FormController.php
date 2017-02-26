@@ -5323,7 +5323,7 @@ class FormController extends Controller
         if($no9_3_1_1 != null)
             $this->view->no9_3_1_1 = $no9_3_1_1;
         else
-            $this->view->no9_3_1_1 = $year1;
+            $this->view->no9_3_1_1 = $year5;
 
         $no9_3_1_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -5346,7 +5346,7 @@ class FormController extends Controller
         if($no9_3_2_1 != null)
             $this->view->no9_3_2_1 = $no9_3_2_1;
         else
-            $this->view->no9_3_2_1 = $year2;
+            $this->view->no9_3_2_1 = $year4;
 
         $no9_3_2_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -5393,7 +5393,7 @@ class FormController extends Controller
         if($no9_3_4_1 != null)
             $this->view->no9_3_4_1 = $no9_3_4_1;
         else
-            $this->view->no9_3_4_1 = $year4;
+            $this->view->no9_3_4_1 = $year2;
 
         $no9_3_4_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -5415,7 +5415,7 @@ class FormController extends Controller
         if($no9_3_5_1 != null)
             $this->view->no9_3_5_1 = $no9_3_5_1;
         else
-            $this->view->no9_3_5_1 = $year5;
+            $this->view->no9_3_5_1 = $year1;
 
         $no9_3_5_2 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
