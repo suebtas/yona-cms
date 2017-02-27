@@ -21,6 +21,7 @@ use Clinic\Model\Tambon;
 class ExportWordController extends Controller
 {
 
+    public $tmp_file = 'data/cache/FormNoTMP.xlsx';
     public function initialize()
     {
         
@@ -319,10 +320,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-    		$tmp_file = 'FormNoTMP.docx';
-    		$result = $document->saveAs($tmp_file);   
+    		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
-    	 	$this->converttowordtemplate('FormNo1_',$tmp_file);
+    	 	$this->converttowordtemplate('FormNo1_',$this->tmp_file);
   		  //die();
     }
 
@@ -544,10 +544,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-    		$tmp_file = 'FormNoTMP.docx';
-    		$result = $document->saveAs($tmp_file);   
+    		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
-    	 	$this->converttowordtemplate('FormNo2_',$tmp_file);
+    	 	$this->converttowordtemplate('FormNo2_',$this->tmp_file);
 
         //die();
     		
@@ -687,10 +686,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-        $tmp_file = 'FormNoTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($this->tmp_file);   
         //die($result);
-        $this->converttowordtemplate('FormNo3_',$tmp_file);
+        $this->converttowordtemplate('FormNo3_',$this->tmp_file);
 
         //die();
     }
@@ -1558,10 +1556,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-    		$tmp_file = 'FormNoTMP.docx';
-    		$result = $document->saveAs($tmp_file);   
+    		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
-    	 	$this->converttowordtemplate('FormNo4_',$tmp_file);
+    	 	$this->converttowordtemplate('FormNo4_',$this->tmp_file);
 
         //die();
 		
@@ -2072,10 +2069,9 @@ class ExportWordController extends Controller
         $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
         $document->setValue('{approver}',$approver->name);
 
-    		$tmp_file = 'FormNoTMP.docx';
-    		$result = $document->saveAs($tmp_file);   
+    		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
-    	 	$this->converttowordtemplate('FormNo5_',$tmp_file);
+    	 	$this->converttowordtemplate('FormNo5_',$this->tmp_file);
 
     		//die();
     }
@@ -2160,10 +2156,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-    		$tmp_file = 'FormNoTMP.docx';
-    		$result = $document->saveAs($tmp_file);   
+    		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
-    	 	$this->converttowordtemplate('FormNo6_',$tmp_file);
+    	 	$this->converttowordtemplate('FormNo6_',$this->tmp_file);
 
     		//die();
     }
@@ -3241,10 +3236,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-        $tmp_file = 'FormNoTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($this->tmp_file);   
         //die($result);
-        $this->converttowordtemplate('FormNo7_',$tmp_file);
+        $this->converttowordtemplate('FormNo7_',$this->tmp_file);
 
         //die();
     }
@@ -3812,10 +3806,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-        $tmp_file = 'FormNoTMP.docx';
-        $result = $document->saveAs($tmp_file);
+        $result = $document->saveAs($this->tmp_file);
         //die($result);
-        $this->converttowordtemplate('FormNo8_',$tmp_file);
+        $this->converttowordtemplate('FormNo8_',$this->tmp_file);
 
         //die();
     }
@@ -4003,10 +3996,9 @@ class ExportWordController extends Controller
         }
         $document->setValue('{approver}',$approver_name);
 
-        $tmp_file = 'FormNoTMP.docx';
-        $result = $document->saveAs($tmp_file);   
+        $result = $document->saveAs($this->tmp_file);   
         //die($result);
-        $this->converttowordtemplate('FormNo9_',$tmp_file);
+        $this->converttowordtemplate('FormNo9_',$this->tmp_file);
 
         //die();
     }

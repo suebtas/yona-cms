@@ -387,10 +387,9 @@ class PrintReportController extends Controller
         }
         $objPHPExcel->getActiveSheet()->removeRow($baseRow-1,1);
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save('FormNoTMP.xlsx');
+        $objWriter->save($this->tmp_file);
 
-  		$tmp_file = 'FormNoTMP.xlsx';
-  	 	$this->converttoexceltemplate('FormNo1_',$tmp_file);
+  	 	$this->converttoexceltemplate('FormNo1_',$this->tmp_file);
 
 
 		
