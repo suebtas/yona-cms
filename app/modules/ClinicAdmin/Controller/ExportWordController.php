@@ -283,7 +283,7 @@ class ExportWordController extends Controller
         $document->setValue('{no1_3_3}', $west);
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_3_4}', $east);
-        $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1_1+$no1_2_1_2));
+        $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1));
         
         $no1_2_1_1 = $no1_2_2_1 + $no1_2_3_1 + $no1_2_4_1 + $no1_2_5_1;
         $document->setValue('{no1_2_1_1}', $this->toformatNumber2($no1_2_1_1));
