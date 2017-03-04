@@ -97,10 +97,9 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no1-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(1);
+
+        
         if (!$this->request->isPost()) {
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
@@ -165,6 +164,9 @@ class ReviewController extends FormController
                 $this->updateStatusComment($option, 2, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
+
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -194,10 +196,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no2-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(2);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -313,6 +312,9 @@ class ReviewController extends FormController
                 $this->updateStatusComment($option, 6, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
+
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -343,10 +345,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no3-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(3);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -485,6 +484,8 @@ class ReviewController extends FormController
             if($status_comment){
                 $this->updateStatusComment($option, 11, $status_comment, $user->id, $this->discovery_surveyid);
             }
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -515,10 +516,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no4-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(4);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -657,6 +655,8 @@ class ReviewController extends FormController
             if($status_comment){
                 $this->updateStatusComment($option, 16, $status_comment, $user->id, $this->discovery_surveyid);
             }
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -687,10 +687,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no5-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(5);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -829,6 +826,8 @@ class ReviewController extends FormController
             if($status_comment){
                 $this->updateStatusComment($option, 21, $status_comment, $user->id, $this->discovery_surveyid);
             }
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -859,10 +858,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no6-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(6);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -902,6 +898,8 @@ class ReviewController extends FormController
                 $this->updateStatusComment($option, 22, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -932,10 +930,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no7-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(7);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1025,6 +1020,8 @@ class ReviewController extends FormController
                 $this->updateStatusComment($option, 25, $status_comment, $user->id, $this->discovery_surveyid);
             }
 
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -1054,10 +1051,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no8-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(8);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1197,6 +1191,8 @@ class ReviewController extends FormController
             if($status_comment){
                 $this->updateStatusComment($option, 30, $status_comment, $user->id, $this->discovery_surveyid);
             }
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -1227,10 +1223,7 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no9-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
-        }
+        $this->disabledInput(9);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1370,6 +1363,8 @@ class ReviewController extends FormController
             if($status_comment){
                 $this->updateStatusComment($option, 36, $status_comment, $user->id, $this->discovery_surveyid);
             }
+            $post = $this->request->getPost();
+            $this->updateReply($option, $post, $this->discovery_surveyid);
             $approve = $this->request->getPost("group_session_1");
             if($approve){
                 if($user->role=='cc-admin')
@@ -1406,10 +1401,25 @@ class ReviewController extends FormController
               $modelT->approve_date = $date->format('Y-m-d');
               if($modelT->save()==false)
                   echo 'error';
-              else
-                  echo 'ok';
+              else{
+                  if($approve==2){ //2 ไม่ผ่าน
+                        $this->discoverySurvey->status = 1; //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'
+                        if($level == 2){
+                            $approvalApprover = $this->discoverySurvey->getApprovals(array("conditions"=>"level=1"))->getFirst();
+                            $approvalApprover->status = 1;
+                            $approvalApprover->save();
+                        }
+                  }else if($approve==3){ //ผ่าน
+                        if($level == 1)
+                            $this->discoverySurvey->status = 2; 
+                        elseif($level==2)
+                            $this->discoverySurvey->status = 3; //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'                        
+                  }
+                  $this->discoverySurvey->save();
+                  echo 'ok';              
+              }
           }elseif($comment=='delete' && $option=='delete'){
-              $modelT = Comment::findFirst(
+              $modelT = Approval::findFirst(
                   array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                       "bind"=>array(
                           1=>$sessionid,
@@ -1454,6 +1464,7 @@ class ReviewController extends FormController
           }
       }
     }
+    
     public function updateStatusComment($option, $sessionid, $status, $admin_userid, $discovery_surveyid){
         if($status!=""){
             if($option=='add'){
@@ -1486,5 +1497,39 @@ class ReviewController extends FormController
 
             }
         }
+    }
+
+    public function updateReply($option, $post, $discovery_surveyid){
+
+        foreach($post as $key => $value ){
+            if(substr($key, 0, 5)=="reply"){
+                $commentID = substr($key,6,strlen($key)-6);
+                if($value!=""){
+                    if($option=='add'){
+                        $modelT = Comment::findFirst(
+                            array("id=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>$commentID,
+                                    2=>$discovery_surveyid)));
+
+                        $modelT->reply = $value;
+                        if($modelT->save()==false)
+                            echo 'error';
+                        else
+                            echo 'ok';
+                    }elseif($value=='delete' && $option=='delete'){
+                        $modelT = Comment::findFirst(
+                            array("id=?1 and discovery_surveyid=?2",
+                                "bind"=>array(
+                                    1=>$commentID,
+                                    2=>$discovery_surveyid)));
+                        $modelT->reply = null;
+                        $modelT->save();
+                        echo 'delete';
+
+                    }
+                }
+            }
+        }      
     }
 }

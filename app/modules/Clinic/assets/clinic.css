@@ -4327,3 +4327,14 @@ ul.notifications {
   min-height: 300px;
   border: 1px solid #e5e5e5;
 }
+
+
+
+#status ul.wizard_steps li:first-child a {  
+    
+}
+
+#status ul.wizard_steps li a.done:before, #status ul.wizard_steps li a.done .step_no{
+  background-color: gray;
+  width: auto;
+}

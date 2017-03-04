@@ -3,7 +3,7 @@
             <div class="page-title">
               <div class="title_left">
                 <h3>{{ office.name }}</h3> 
-                สถานะการยืนยันของท้องถิ่น <small>{{discoverySurvey.getApprovalStatusWithSymbol(["level=:0:","bind":[1]])}}</small> สถานะการยืนยันของจังหวัด <small>{{discoverySurvey.getApprovalStatusWithSymbol(["level=:0:","bind":[2]])}}</small>
+                 {{ partial('clinic/status') }}      
               </div>
 
               <div class="title_right">
@@ -292,8 +292,8 @@
                                 <div class="form-group">
                                   <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="text-center">
-                                      <a id="btnFinish" class="btn btn-app btn-success buttonDisabled" {% if(status==2) %}disabled{% endif %}>
-                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status==2) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
+                                      <a id="btnFinish" class="btn btn-app btn-success" {% if(status>1) %}disabled{% endif %}>
+                                        <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status>1) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
                                       </a>
                                     </div>
                                   </div>
@@ -387,6 +387,14 @@
                                       </div>
                                       <pre class="excerpt">{{ comment.description }}
                                       </pre>
+                                      <div {% if comment.status==1%}class="alert alert-warning alert-dismissible fade in" role="alert"{% endif %}>
+                                          <div id="note_comment_{{ comment.id }}" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{ comment.reply }}</div>                                          
+                                      </div>
+                                      {% if comment.status==1 and comment.isReplyComment(user) %}
+                                      <a href="#" id="pencil_comment_{{ comment.id }}"><i class="fa fa-pencil"></i> [ตอบกลับข้อคิดเห็น]</a> 
+                                      {% endif %}
+                                      <br />
+                                      <div class="ln_solid"></div>
                                     </div>
                                   </div>
                                 </li>
@@ -482,6 +490,33 @@
         <!-- /jQuery Smart Wizard -->
 
         {{ assets.outputJs('modules-clinic-no1-js') }}
-        
-    {% block script %}
-    {% endblock %}
+            
+
+<script>
+  $(document).ready(function() {
+    {% for comment in comments %}
+        $('#pencil_comment_{{ comment.id }}').click(function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $('#note_comment_{{ comment.id }}').editable('toggle').on('save', function(e, params) {
+                  $.ajax({
+                      url : "/clinic/review/no1",
+                      type: "POST",
+                      data : {
+                        reply_{{ comment.id }}:params.newValue,
+                        option:'add'
+                      },
+                      success: function(data, textStatus, jqXHR)
+                      {
+
+                      },
+                      error: function (jqXHR, textStatus, errorThrown)
+                      {
+
+                      }
+                  });
+        });
+    });;
+    {% endfor %}
+  });
+  </script>

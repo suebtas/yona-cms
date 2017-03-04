@@ -88,6 +88,40 @@ class FormController extends Controller
         $this->view->discoverySurvey = $this->discoverySurvey;
         return $this->redirect($this->url->get() . 'clinic/form/no1');
     }
+
+
+    public function disabledInput($id){
+
+        if($this->discoverySurvey->Survey->isExpired() && $this->user->role!="cc-admin"){
+            $this->assets->collection('modules-clinic-no'.$id.'-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+        }
+        $approverApprover = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(1)));
+        $approverAdmin = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(2)));
+
+        if($this->user->role=="cc-user"){            
+            if(in_array($approverApprover->status, array(3))){
+                $this->assets->collection('modules-clinic-no'.$id.'-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            }
+        }elseif($this->user->role=="cc-admin"){                        
+            if( $approverApprover == null || $approverApprover->status != 3 || 
+                in_array($approverAdmin->status, array(3)) && 
+                in_array($this->discoverySurvey->status , array(0,1,3))
+            ){
+                $this->assets->collection('modules-clinic-no'.$id.'-js')
+                    ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+            }
+        }elseif($this->user->role=="cc-approver"   ){
+            if( in_array($approverApprover->status, array(0,2,3)) && ////0=>'กำลังกรอกข้อมูล',1=>'ตรวจสอบอีกครั้ง',2=>'ไม่ผ่าน',3=>'ผ่าน'
+                in_array($this->discoverySurvey->status,array(0,1,3))){ //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'
+                $this->assets->collection('modules-clinic-no'.$id.'-js')
+                    ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+            }
+        }
+    }
+
     public function updateAnswer($option,$questionid, $answer, $officeid, $discovery_surveyid){
       if($answer!=""){
           if($option=='add'){
@@ -368,14 +402,12 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
 
-        if($this->discoverySurvey->Survey->isExpired() && $this->discoverySurvey->isExpired()){
-            $this->assets->collection('modules-clinic-no1-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+
+        $this->disabledInput(1);
 
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
+
         if (!$this->request->isPost()) {
             $this->createViewNo1();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 1 and 2","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -814,11 +846,7 @@ class FormController extends Controller
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js');
 
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no2-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(2);
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
@@ -1039,11 +1067,7 @@ class FormController extends Controller
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
 
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no3-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(3);
 
           $auth = $this->session->get('auth');
           $user = AdminUser::findFirst($auth->id);
@@ -1912,11 +1936,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no4-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(4);
         if (!$this->request->isPost())
         {
             $this->createViewNo4();
@@ -2763,11 +2783,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no5-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(5);
         if (!$this->request->isPost()) {
                 $this->createViewNo5();
 
@@ -3083,11 +3099,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no6-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(6);
         if (!$this->request->isPost()) {
             $this->createViewNo6();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -4186,13 +4198,9 @@ class FormController extends Controller
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js');
 
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no7-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
-          $auth = $this->session->get('auth');
-          $user = AdminUser::findFirst($auth->id);
+        $this->disabledInput(7);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
 
         if ($this->request->isPost()) {
             $option = $this->request->getPost("option");
@@ -5063,11 +5071,7 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js');
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no8-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(8);
         if (!$this->request->isPost()) {
               $this->createViewNo8();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -5497,11 +5501,7 @@ class FormController extends Controller
                     $auth = $this->session->get('auth');
                     $user = AdminUser::findFirst($auth->id);
 
-        if($this->discoverySurvey->Survey->isExpired()){
-            $this->assets->collection('modules-clinic-no9-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
-        }
+        $this->disabledInput(1);
           if ($this->request->isPost()) {
               $option = $this->request->getPost("option");
               $this->view->disable();

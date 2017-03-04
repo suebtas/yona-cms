@@ -5,7 +5,7 @@ namespace Clinic\Model;
 class DiscoverySurvey extends \Phalcon\Mvc\Model
 {
 
-    static $statusName = ['อยู่ระหว่างสำรวจ','พิจารณาปรับแก้ข้อมูล','สำรวจสำเร็จ'];
+    static $statusName = ['อยู่ระหว่างสำรวจ','พิจารณาปรับแก้ข้อมูล','แจ้งให้หัวหน้ายืนยัน','สำรวจสำเร็จ'];
     /**
      *
      * @var integer
@@ -106,12 +106,13 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
     }
 
 
-    public function getApprovalStatusWithSymbol($parameters = null)
+    public function getApprovalStatusWithSymbol($parameters = null, $showMessage = true)
     {
         $approval = $this->getApproval($parameters);
+        $message = "";
         if($approval!=null)
-            $message = $approval->getStatusWithSymbol();
-        else
+            $message = $approval->getStatusWithSymbol($showMessage);
+        else if($showMessage)
             $message = "กำลังตรวจสอบข้อมูล";
         return $message;
     }
@@ -130,15 +131,19 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         if($this->status!=null)
             return DiscoverySurvey::$statusName[$this->status];
     }
-    public function getStatusWithSymbol(){
+    public function getStatusWithSymbol($showMessage=true){
         $message =  '<i class="';
         if($this->status == 0)
             $message .= "fa fa-edit";
         elseif($this->status == 1)
-            $message .="fa fa-commenting";
+            $message .="fa fa-warning";
         elseif($this->status == 2)
+            $message .="fa fa-institution";
+        elseif($this->status == 3)
             $message .="fa fa-check";
-        $message .=' fa-2x"></i> '. $this->getStatusName();
+        $message .=' fa-2x"></i> ';
+        if ($showMessage)
+         $message .= $this->getStatusName();
         return $message;
     }
 

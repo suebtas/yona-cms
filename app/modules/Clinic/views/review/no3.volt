@@ -30,7 +30,7 @@
        <div class="form-group">
         <div class="col-md-12 col-sm-6 col-xs-12  col-md-offset-5">
           <div id="approval" class="btn-group" data-toggle="buttons">
-              <input type="radio" name="approve" value="1"> &nbsp; ผ่าน &nbsp;
+              <input type="radio" name="approve" value="3"> &nbsp; ผ่าน &nbsp;
               <input type="radio" name="approve" value="2"> ไม่ผ่าน
           </div>
         </div>

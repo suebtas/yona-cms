@@ -19,6 +19,12 @@ class Comment extends \Phalcon\Mvc\Model
 
     /**
      *
+     * @var string
+     */
+    public $reply;
+
+    /**
+     *
      * @var integer
      */
     public $discovery_surveyid;
@@ -82,5 +88,12 @@ class Comment extends \Phalcon\Mvc\Model
     {
         return parent::findFirst($parameters);
     }
-
+    public function isReplyComment($user){
+        if($user->role=='cc-approver' && $this->AdminUser->role=='cc-admin'){
+            return true;            
+        }else if($user->role=='cc-user' && $this->AdminUser->role=='cc-approver'){
+            return true;
+        }
+        return false;
+    }
 }
