@@ -263,6 +263,8 @@ $(document).ready(function() {
       });
     });
     $("#approval").click(function () {
+      if($('input:radio[name=approve]:checked').val()==null)
+        return ;
       $.ajax({
             url : "/clinic/review/no3",
             type: "POST",
@@ -272,7 +274,24 @@ $(document).ready(function() {
             },
             success: function(data, textStatus, jqXHR)
             {
-              
+
+                var popupTemplate =
+                '<div class="modal fade">' +
+                '  <div class="modal-dialog">' +
+                '    <div class="modal-content">' +
+                '      <div class="modal-header">' +
+                '        <button type="button" class="close" data-dismiss="modal">&times;</button>' +
+                '        <h4 class="modal-title">ยืนยันข้อมูล</h4>' +
+                '      </div>' +
+                '      <div class="modal-body" >ยืนยันข้อมูลสำเร็จ</div>' +
+                '      <div class="modal-footer">' +
+                '        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>' +
+                '      </div>' +
+                '    </div>' +
+                '  </div>' +
+                '</div>';
+
+                $(popupTemplate).modal()              
             },
             error: function (jqXHR, textStatus, errorThrown)
             {

@@ -2,6 +2,7 @@
 
 namespace Clinic\Model;
 
+use Clinic\Model\Comment;
 class Session extends \Phalcon\Mvc\Model
 {
 
@@ -25,7 +26,7 @@ class Session extends \Phalcon\Mvc\Model
     public function initialize()
     {
         $this->hasMany('id', 'Approval', 'sessionid', array('alias' => 'Approval'));
-        $this->hasMany('id', 'Comment', 'sessionid', array('alias' => 'Comment'));
+        $this->hasMany('id', 'Clinic\Model\Comment', 'sessionid', array('alias' => 'Comment'));        
         $this->hasMany('id', 'Question', 'sessionid', array('alias' => 'Question'));
         $this->belongsTo('group_sessionid', 'GroupSession', 'id', array('alias' => 'GroupSession'));
     }
@@ -40,6 +41,10 @@ class Session extends \Phalcon\Mvc\Model
         return 'session';
     }
 
+    public function getComments($parameters = null)
+    {
+        return $this->getRelated("Comment", $parameters);
+    }
     /**
      * Allows to query a set of records that match the specified conditions
      *

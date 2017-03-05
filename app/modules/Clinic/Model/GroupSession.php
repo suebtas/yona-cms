@@ -2,6 +2,7 @@
 
 namespace Clinic\Model;
 
+use Clinic\Model\Session;
 class GroupSession extends \Phalcon\Mvc\Model
 {
 
@@ -22,7 +23,8 @@ class GroupSession extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Comment', 'sessionid', array('alias' => 'Comment'));
+        $this->hasMany('id', 'Clinic\Model\Session', 'group_session_id', array('alias' => 'Session'));        
+        
     }
 
     /**
@@ -33,6 +35,11 @@ class GroupSession extends \Phalcon\Mvc\Model
     public function getSource()
     {
         return 'group_session';
+    }
+
+    public function getSession($parameters = null)
+    {
+        return $this->getRelated("Session", $parameters);
     }
 
     /**

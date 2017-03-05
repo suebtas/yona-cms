@@ -71,16 +71,16 @@
                   -->
                   <li><a><i class="fa fa-edit"></i> การสำรวจข้อมูลขั้นพื้นฐาน <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{ url.get() }}clinic/form/no1">1.ด้านสภาพทั่วไป</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no2">2.ด้านโครงสร้างพื้นฐาน</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no3">3.ด้านเศรษฐกิจ</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no4">4.ด้านสังคม</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no5">5.ด้านสาธารณสุข</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no6">6.ด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no7">7.ด้านการป้องกันและบรรเทาสาธารณภัย</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no8">8.ด้านสิ่งแวดล้อมและทรัพยากรธรรมชาติ</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no9">9.ด้านการเมือง การบริหาร</a></li>
-                      <li><a href="{{ url.get() }}clinic/form/no10">10.คำถามเพิ่มเติม</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no1">1.ด้านสภาพทั่วไป {% if commenting[1]!=0 %}<span class="info-number badge bg-red">{{ commenting[1] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no2">2.ด้านโครงสร้างพื้นฐาน {% if commenting[2]!=0 %}<span class="badge bg-red">{{ commenting[2] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no3">3.ด้านเศรษฐกิจ {% if commenting[3]!=0 %}<span class="badge bg-red">{{ commenting[3] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no4">4.ด้านสังคม {% if commenting[4]!=0 %}<span class="badge bg-red">{{ commenting[4] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no5">5.ด้านสาธารณสุข {% if commenting[5]!=0 %}<span class="badge bg-red">{{ commenting[5] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no6">6.ด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน {% if commenting[6]!=0 %}<span class="badge bg-red">{{ commenting[6] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no7">7.ด้านการป้องกันและบรรเทาสาธารณภัย {% if commenting[7]!=0 %}<span class="badge bg-red">{{ commenting[7] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no8">8.ด้านสิ่งแวดล้อมและทรัพยากรธรรมชาติ {% if commenting[8]!=0 %}<span class="badge bg-red">{{ commenting[8] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no9">9.ด้านการเมือง การบริหาร {% if commenting[9]!=0 %}<span class="badge bg-red">{{ commenting[9] }}</span> {% endif %}</a></li>
+                      <li><a href="{{ url.get() }}clinic/form/no10">10.คำถามเพิ่มเติม {% if commenting[10]!=0 %}<span class="badge bg-red">{{ commenting[10] }}</span> {% endif %}</a></li>
                     </ul>
                   </li>
                   <!--

@@ -747,7 +747,7 @@ $('#no2_5_7').editable({
 $("#btnFinish").on('click', function(){
   $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
   $.ajax({
-      url : "/clinic/form/no1",
+      url : "/clinic/form/no2",
       type: "POST",
       data : {
         no1_finish: 'finish',

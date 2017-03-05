@@ -206,7 +206,10 @@ $(document).ready(function() {
           }
       });
     });    
+
     $("#approval").click(function () {
+      if($('input:radio[name=approve]:checked').val()==null)
+        return ;
       $.ajax({
             url : "/clinic/review/no2",
             type: "POST",
@@ -231,6 +234,7 @@ $(document).ready(function() {
                 '    </div>' +
                 '  </div>' +
                 '</div>';
+                $(popupTemplate).modal()
             },
             error: function (jqXHR, textStatus, errorThrown)
             {

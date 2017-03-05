@@ -83,6 +83,8 @@ class ReviewController extends FormController
         $this->view->user = $this->user;
         $this->view->office =  $this->discoverySurvey->Office;    
         $this->view->status = $this->discoverySurvey->status;
+
+        $this->view->commenting = $this->getCountComment();
     }
     public function no1Action(){
         // no1 JS Assets

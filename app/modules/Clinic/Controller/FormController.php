@@ -12,6 +12,7 @@ use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Answer;
 use Clinic\Model\Session;
 use Clinic\Model\Comment;
+use Clinic\Model\GroupSession;
 use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
 
@@ -76,6 +77,9 @@ class FormController extends Controller
         $this->view->user = $this->user;
         $this->view->office =  Office::findFirst($this->user->officeid);
         $this->view->status = $this->discoverySurvey->status;
+
+
+        $this->view->commenting = $this->getCountComment();
     }
 
 
@@ -92,7 +96,7 @@ class FormController extends Controller
 
     public function disabledInput($id){
 
-        if($this->discoverySurvey->Survey->isExpired() && $this->user->role!="cc-admin"){
+        if($this->discoverySurvey->isExpired() && $this->user->role!="cc-admin"){
             $this->assets->collection('modules-clinic-no'.$id.'-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
         }
@@ -388,12 +392,34 @@ class FormController extends Controller
 
         $this->view->questions = $questions;
     }
+    public function getCommenting($groupSession){
+        $result = $this->modelsManager->executeQuery(
+            "SELECT sg.id, count(c.id) as c FROM Clinic\Model\Session s, Clinic\Model\GroupSession sg, Clinic\Model\Comment c 
+                WHERE c.status = 1 and sg.id = s.group_session_id and s.id = c.sessionid and sg.id = ?0 and c.discovery_surveyid = ?1",
+            [
+                0 => $groupSession,
+                1 => $this->discovery_surveyid
+            ]
+        );
+        $comment = $result->getFirst();
+        if($comment!=null)
+            return $comment->c;
+        else
+            return 0;
+
+    }
+    public function getCountComment(){
+        $commenting = [];
+        for($i=1;$i<11;$i++){
+            $commenting[$i] = FormController::getCommenting($i);
+        }
+        return $commenting;
+    }
     public function no1Action()
     {
         if(in_array($this->user->role, ['cc-admin','cc-approver']))
             return $this->redirect($this->url->get() . 'clinic/review/no1');
-        // no1 JS Assets
-
+        // no1 JS Assets        
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
@@ -401,7 +427,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no1.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
-
+        
 
         $this->disabledInput(1);
 
@@ -921,6 +947,13 @@ class FormController extends Controller
                 $this->updateAnswer($option, 56, $answer, $user->officeid,  $this->discovery_surveyid);
 
 
+                $status = $this->request->getPost("no1_finish");
+                if($status != ""){
+                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                    $discoverySurvey->status = 2;
+                    $discoverySurvey->save();
+                    echo 'ok';
+                }
             }
             else {
               $this->createViewNo2();
@@ -1119,6 +1152,14 @@ class FormController extends Controller
               $this->updateAnswer($option, 72, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no3_6_3");
               $this->updateAnswer($option, 73, $answer, $user->officeid,  $this->discovery_surveyid);
+
+                $status = $this->request->getPost("no1_finish");
+                if($status != ""){
+                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                    $discoverySurvey->status = 2;
+                    $discoverySurvey->save();
+                    echo 'ok';
+                }          
           }
           else {
                 $this->createViewNo3();
@@ -2213,6 +2254,13 @@ class FormController extends Controller
             $answer = $this->request->getPost("no4_6_8_2");
             $this->updateAnswer($option, 187, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
 
         }
 
@@ -3024,6 +3072,13 @@ class FormController extends Controller
               $answer = $this->request->getPost("no5_6_5");
               $this->updateAnswer($option, 224, $answer, $user->officeid,  $this->discovery_surveyid);
 
+                $status = $this->request->getPost("no1_finish");
+                if($status != ""){
+                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                    $discoverySurvey->status = 2;
+                    $discoverySurvey->save();
+                    echo 'ok';
+                }
           }
     }
     public function createViewNo6(){
@@ -3135,6 +3190,13 @@ class FormController extends Controller
             $answer = $this->request->getPost("no6_9");
             $this->updateAnswer($option, 233, $answer, $user->officeid,  $this->discovery_surveyid);
 
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
         }
     }
 
@@ -4553,6 +4615,14 @@ class FormController extends Controller
             $this->updateAnswer($option, 321, $answer, $user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no7_11");
             $this->updateAnswer($option, 322, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
         }
         else {
             $this->createViewNo7();
@@ -5297,6 +5367,13 @@ class FormController extends Controller
               $answer = $this->request->getPost("no8_7_20");
               $this->updateAnswer($option, 372, $answer, $user->officeid,  $this->discovery_surveyid);
 
+                $status = $this->request->getPost("no1_finish");
+                if($status != ""){
+                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                    $discoverySurvey->status = 2;
+                    $discoverySurvey->save();
+                    echo 'ok';
+                }
           }
     }
     public function createViewNo9(){
@@ -5599,6 +5676,14 @@ class FormController extends Controller
               $this->updateAnswer($option, 384, $answer, $user->officeid,  $this->discovery_surveyid);
               $answer = $this->request->getPost("no9_6");
               $this->updateAnswer($option, 385, $answer, $user->officeid,  $this->discovery_surveyid);
+
+                $status = $this->request->getPost("no1_finish");
+                if($status != ""){
+                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                    $discoverySurvey->status = 2;
+                    $discoverySurvey->save();
+                    echo 'ok';
+                }
           }
           else {
             $this->createViewNo9();

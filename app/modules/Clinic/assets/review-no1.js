@@ -130,6 +130,8 @@ $(document).ready(function() {
     });
 
     $("#approval").click(function () {
+      if($('input:radio[name=approve]:checked').val()==null)
+        return ;
       $.ajax({
             url : "/clinic/review/no1",
             type: "POST",
