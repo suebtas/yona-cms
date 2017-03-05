@@ -3832,7 +3832,7 @@ $("#btnFinish").on('click', function(){
           '      </div>' +
           '      <div class="modal-body" >ยืนยันข้อมูลสำเร็จ</div>' +
           '      <div class="modal-footer">' +
-          '        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>' +
+          '        <button type="button" onclick="location.reload();" class="btn btn-primary" data-dismiss="modal">Ok</button>' +
           '      </div>' +
           '    </div>' +
           '  </div>' +
