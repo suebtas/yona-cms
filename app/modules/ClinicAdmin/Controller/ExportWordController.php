@@ -45,12 +45,18 @@ class ExportWordController extends Controller
 
     function toformatNumber($number)
     {
-      return number_format($number, 2, ".",",");;
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 2, ".",",");;
     }
 
     function toformatNumber2($number)
     {
-      return number_format($number, 0, ".",",");;
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 0, ".",",");;
     }
 
     public function thaiMonth($m)
@@ -283,8 +289,8 @@ class ExportWordController extends Controller
         $document->setValue('{no1_3_3}', $west);
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_3_4}', $east);
-        $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1));
-        
+        $document->setValue('{no1_2_1}', $no1_2_1);
+       
         $no1_2_1_1 = $no1_2_2_1 + $no1_2_3_1 + $no1_2_4_1 + $no1_2_5_1;
         $document->setValue('{no1_2_1_1}', $this->toformatNumber2($no1_2_1_1));
         $no1_2_1_2 = $no1_2_2_2 + $no1_2_3_2 + $no1_2_4_2 + $no1_2_5_2;
