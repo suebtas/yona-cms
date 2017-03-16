@@ -3994,11 +3994,13 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$this->user->name);
         $approver = $this->discoverySurvey->getApproval();
         $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
+        if($approver!=null){
+            foreach ($approver as $key => $ap) {
+              if(($ap->status==1) && $ap->level==1){
+                $approver_name = $ap->AdminUser->name;
+              }
 
+            }
         }
         $document->setValue('{approver}',$approver_name);
 
