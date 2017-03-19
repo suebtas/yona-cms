@@ -426,6 +426,14 @@
             <div class="form-group">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="text-center">
+                  <h2><i class="fa fa-user"></i> ผู้สำรวจ<span>
+                      <a id="signing_surveyor"  data-type="text" data-pk="1" data-title="Enter username">{{signing_surveyor}}</a>
+                      </span>
+                  </h2>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="text-center">
                   <a id="btnFinish" class="btn btn-app btn-success" {% if(status>1) %}disabled{% endif %}>
                     <i id="btnFinishStatus" class="glyphicon glyphicon-ok {% if(status>1) %}glyphicon green{% endif %}"></i> เสร็จสิ้นการสำรวจข้อมูล
                   </a>

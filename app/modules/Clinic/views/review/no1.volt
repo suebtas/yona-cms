@@ -26,8 +26,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-
-       <div class="form-group">
+      <div class="form-group">
 
         {%set approval = discoverySurvey.getApproval(["level=:0:","bind":[user.getLevel()]])%} 
         {%if approval != null %}
@@ -37,15 +36,24 @@
           <strong>ยืนยันข้อมูล ครั้งที่ {{approval.order}}</strong> สถานะปัจจุบัน: {{approval.getStatusName()}}
         </div>
         {% endif %}
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="text-center">
+            <h2><i class="fa fa-user"></i> ผู้ยืนยันข้อมูลสำรวจ<span>
+                <a id="signing_approver"  data-type="text" data-pk="1" data-title="Enter username">{{signing_approver}}</a>
+                </span>
+            </h2>
+          </div>
+        </div>
+
         <div class="col-md-12 col-sm-6 col-xs-12  col-md-offset-5">
           <div id="approval" class="btn-group" data-toggle="buttons">              
               <input type="radio" name="approve" value="3"> &nbsp; ผ่าน &nbsp;
               <input type="radio" name="approve" value="2"> ไม่ผ่าน
           </div>
         </div>
-      </div>
-      
     </div>
+      
   </div>
 </div>
 

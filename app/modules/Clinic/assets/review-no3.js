@@ -299,4 +299,44 @@ $(document).ready(function() {
             }
         });
     });
+
+
+    $('#signing_approver').editable({
+           type: 'text',
+           title: 'ชื่อผู้รับสำรวจ'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+              signing_approver:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+              signing_approver:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }
+    });
 });

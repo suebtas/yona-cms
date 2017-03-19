@@ -710,3 +710,43 @@ $("#btnFinish").on('click', function(){
 
   });
 });
+
+
+$('#signing_surveyor').editable({
+        type: 'text',
+        title: 'ชื่อผู้รับสำรวจ'
+}).on('save', function(e, params) {
+  if(params.newValue!=''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          signing_surveyor:params.newValue,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }else if(params.newValue==''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          signing_surveyor:'delete',
+          option:'delete'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }
+});

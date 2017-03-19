@@ -42,6 +42,16 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
      */
     public $enddate;
     /**
+     *
+     * @var string
+     */
+    public $signing_surveyor;
+    /**
+     *
+     * @var string
+     */
+    public $signing_approver;
+    /**
      * Initialize method for model.
      */
     public function initialize()

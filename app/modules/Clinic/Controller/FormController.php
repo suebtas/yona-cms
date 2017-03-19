@@ -80,6 +80,11 @@ class FormController extends Controller
 
 
         $this->view->commenting = $this->getCountComment();
+
+        $signing_surveyor = $this->discoverySurvey->signing_surveyor;
+        $this->view->signing_surveyor = $signing_surveyor;
+        $signing_approver = $this->discoverySurvey->signing_approver;
+        $this->view->signing_approver = $signing_approver;
     }
 
 
@@ -385,9 +390,9 @@ class FormController extends Controller
                 $quests[] = $quest->active;
             }
             $this->view->quests = $quests;
+
     }
-    public function no10Action()
-    {
+    public function no10Action(){
         $questions = Session::find("active = 1 AND extend = 1");
 
         $this->view->questions = $questions;
@@ -415,8 +420,7 @@ class FormController extends Controller
         }
         return $commenting;
     }
-    public function no1Action()
-    {
+    public function no1Action(){
         if(in_array($this->user->role, ['cc-admin','cc-approver']))
             return $this->redirect($this->url->get() . 'clinic/review/no1');
         // no1 JS Assets        
@@ -638,6 +642,8 @@ class FormController extends Controller
             $answer = $this->request->getPost("no1_2_13");
             $this->updateAnswer($option, 24, $answer, $user->officeid,  $this->discovery_surveyid);
 
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -648,6 +654,20 @@ class FormController extends Controller
 
         }
 
+    }
+    public function updateSurveyor($surveyor){
+        if($surveyor=='delete'){
+                //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $this->discoverySurvey->signing_surveyor = null;//$surveyor;
+                $this->discoverySurvey->save();
+                echo 'ok';
+                
+            }else if($surveyor != ''){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->signing_surveyor = $surveyor;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
     }
     public function displayOfficeMapAction(){
         $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -947,6 +967,9 @@ class FormController extends Controller
                 $this->updateAnswer($option, 56, $answer, $user->officeid,  $this->discovery_surveyid);
 
 
+                $surveyor = $this->request->getPost("signing_surveyor");
+                $this->updateSurveyor($surveyor);
+
                 $status = $this->request->getPost("no1_finish");
                 if($status != ""){
                     $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -1091,7 +1114,7 @@ class FormController extends Controller
     public function no3Action()
     {
       // no3 JS Assets
-      $this->assets->collection('modules-clinic-no3-js')
+        $this->assets->collection('modules-clinic-no3-js')
           ->setLocal(true)
           ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
           ->setTargetPath(ROOT . '/assets/modules-clinic-no3.js')
@@ -1100,59 +1123,62 @@ class FormController extends Controller
           ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
 
 
-        $this->disabledInput(3);
+            $this->disabledInput(3);
 
-          $auth = $this->session->get('auth');
-          $user = AdminUser::findFirst($auth->id);
+            $auth = $this->session->get('auth');
+            $user = AdminUser::findFirst($auth->id);
 
-          if ($this->request->isPost()) {
-              $option = $this->request->getPost("option");
-              $this->view->disable();
-              $post = $this->request->getPost();
+            if ($this->request->isPost()) {
+                $option = $this->request->getPost("option");
+                $this->view->disable();
+                $post = $this->request->getPost();
 
-              $answer = $this->request->getPost("no3_1");
-              $this->updateAnswer($option, 57, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_1");
-              $this->updateAnswer($option, 58, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_2");
-              $this->updateAnswer($option, 59, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_3");
-              $this->updateAnswer($option, 60, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_4");
-              $this->updateAnswer($option, 61, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_5");
-              $this->updateAnswer($option, 493, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_2_6");
-              $this->updateAnswer($option, 494, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_3_1");
-              $this->updateAnswer($option, 62, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_3_2");
-              $this->updateAnswer($option, 63, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_3_3");
-              $this->updateAnswer($option, 64, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_1");
-              $this->updateAnswer($option, 65, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_2");
-              $this->updateAnswer($option, 66, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_3");
-              $this->updateAnswer($option, 67, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_4");
-              $this->updateAnswer($option, 68, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_5");
-              $this->updateAnswer($option, 495, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_4_6");
-              $this->updateAnswer($option, 496, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_5_1");
-              $this->updateAnswer($option, 69, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_5_2");
-              $this->updateAnswer($option, 70, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_1");
+                $this->updateAnswer($option, 57, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_1");
+                $this->updateAnswer($option, 58, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_2");
+                $this->updateAnswer($option, 59, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_3");
+                $this->updateAnswer($option, 60, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_4");
+                $this->updateAnswer($option, 61, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_5");
+                $this->updateAnswer($option, 493, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_2_6");
+                $this->updateAnswer($option, 494, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_3_1");
+                $this->updateAnswer($option, 62, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_3_2");
+                $this->updateAnswer($option, 63, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_3_3");
+                $this->updateAnswer($option, 64, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_1");
+                $this->updateAnswer($option, 65, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_2");
+                $this->updateAnswer($option, 66, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_3");
+                $this->updateAnswer($option, 67, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_4");
+                $this->updateAnswer($option, 68, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_5");
+                $this->updateAnswer($option, 495, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_4_6");
+                $this->updateAnswer($option, 496, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_5_1");
+                $this->updateAnswer($option, 69, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_5_2");
+                $this->updateAnswer($option, 70, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no3_6_1");
-              $this->updateAnswer($option, 71, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_6_2");
-              $this->updateAnswer($option, 72, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no3_6_3");
-              $this->updateAnswer($option, 73, $answer, $user->officeid,  $this->discovery_surveyid);
+                $this->updateAnswer($option, 71, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_6_2");
+                $this->updateAnswer($option, 72, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no3_6_3");
+                $this->updateAnswer($option, 73, $answer, $user->officeid,  $this->discovery_surveyid);
 
+                $surveyor = $this->request->getPost("signing_surveyor");
+                $this->updateSurveyor($surveyor);
+                
                 $status = $this->request->getPost("no1_finish");
                 if($status != ""){
                     $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -2254,6 +2280,9 @@ class FormController extends Controller
             $answer = $this->request->getPost("no4_6_8_2");
             $this->updateAnswer($option, 187, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
+
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -2823,7 +2852,7 @@ class FormController extends Controller
         $this->view->no5_6_5 = $no5_6_5;
     }
     public function no5Action(){
-        $this->assets->collection('modules-clinic-no5-js')
+         $this->assets->collection('modules-clinic-no5-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
             ->setTargetPath(ROOT . '/assets/modules-clinic-no5.js')
@@ -2831,255 +2860,258 @@ class FormController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js');
 
-        $this->disabledInput(5);
+            $this->disabledInput(5);
         if (!$this->request->isPost()) {
-                $this->createViewNo5();
+            $this->createViewNo5();
 
-                $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 17 and 21","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
-            }elseif ($this->request->isPost()) {
-              $this->view->disable();
-              $post = $this->request->getPost();
-              $option = $this->request->getPost("option");
+            $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 17 and 21","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+        }elseif ($this->request->isPost()) {
+            $this->view->disable();
+            $post = $this->request->getPost();
+            $option = $this->request->getPost("option");
 
-              $answer = $this->request->getPost("no5_1_1_1");
-              $this->updateAnswer($option, 188, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_1_1");
+            $this->updateAnswer($option, 188, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_1_1_2");
-              $this->updateAnswer($option, 189, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_1_2");
+            $this->updateAnswer($option, 189, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_1_2_1");
-              $this->updateAnswer($option, 190, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no5_1_2_2");
-              $this->updateAnswer($option, 191, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_2_1");
+            $this->updateAnswer($option, 190, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_2_2");
+            $this->updateAnswer($option, 191, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_1_3_1");
-              $this->updateAnswer($option, 192, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no5_1_3_2");
-              $this->updateAnswer($option, 193, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_3_1");
+            $this->updateAnswer($option, 192, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_3_2");
+            $this->updateAnswer($option, 193, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_2");
-              $this->updateAnswer($option, 194, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_2");
+            $this->updateAnswer($option, 194, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_1");
-              $this->updateAnswer($option, 503, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_1");
+            $this->updateAnswer($option, 503, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_2");
-              $this->updateAnswer($option, 504, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_2");
+            $this->updateAnswer($option, 504, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_3");
-              $this->updateAnswer($option, 505, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_3");
+            $this->updateAnswer($option, 505, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_4");
-              $this->updateAnswer($option, 506, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_4");
+            $this->updateAnswer($option, 506, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_5");
-              $this->updateAnswer($option, 507, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_5");
+            $this->updateAnswer($option, 507, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_6");
-              $this->updateAnswer($option, 508, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_6");
+            $this->updateAnswer($option, 508, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_7");
-              $this->updateAnswer($option, 509, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_7");
+            $this->updateAnswer($option, 509, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_8");
-              $this->updateAnswer($option, 510, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_8");
+            $this->updateAnswer($option, 510, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_9");
-              $this->updateAnswer($option, 511, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_9");
+            $this->updateAnswer($option, 511, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_1_10");
-              $this->updateAnswer($option, 512, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_1_10");
+            $this->updateAnswer($option, 512, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_1");
-              $this->updateAnswer($option, 513, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_1");
+            $this->updateAnswer($option, 513, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_2");
-              $this->updateAnswer($option, 514, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_2");
+            $this->updateAnswer($option, 514, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_3");
-              $this->updateAnswer($option, 515, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_3");
+            $this->updateAnswer($option, 515, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_4");
-              $this->updateAnswer($option, 516, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_4");
+            $this->updateAnswer($option, 516, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_5");
-              $this->updateAnswer($option, 517, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_5");
+            $this->updateAnswer($option, 517, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_6");
-              $this->updateAnswer($option, 518, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_6");
+            $this->updateAnswer($option, 518, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_7");
-              $this->updateAnswer($option, 519, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_7");
+            $this->updateAnswer($option, 519, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_8");
-              $this->updateAnswer($option, 520, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_8");
+            $this->updateAnswer($option, 520, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_9");
-              $this->updateAnswer($option, 521, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_9");
+            $this->updateAnswer($option, 521, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_2_10");
-              $this->updateAnswer($option, 522, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_2_10");
+            $this->updateAnswer($option, 522, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_1");
-              $this->updateAnswer($option, 523, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_1");
+            $this->updateAnswer($option, 523, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_2");
-              $this->updateAnswer($option, 524, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_2");
+            $this->updateAnswer($option, 524, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_3");
-              $this->updateAnswer($option, 525, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_3");
+            $this->updateAnswer($option, 525, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_4");
-              $this->updateAnswer($option, 526, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_4");
+            $this->updateAnswer($option, 526, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_5");
-              $this->updateAnswer($option, 527, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_5");
+            $this->updateAnswer($option, 527, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_6");
-              $this->updateAnswer($option, 528, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_6");
+            $this->updateAnswer($option, 528, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_7");
-              $this->updateAnswer($option, 529, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_7");
+            $this->updateAnswer($option, 529, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_8");
-              $this->updateAnswer($option, 530, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_8");
+            $this->updateAnswer($option, 530, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_9");
-              $this->updateAnswer($option, 531, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_9");
+            $this->updateAnswer($option, 531, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_3_10");
-              $this->updateAnswer($option, 532, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_3_10");
+            $this->updateAnswer($option, 532, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_1");
-              $this->updateAnswer($option, 533, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_1");
+            $this->updateAnswer($option, 533, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_2");
-              $this->updateAnswer($option, 534, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_2");
+            $this->updateAnswer($option, 534, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_3");
-              $this->updateAnswer($option, 535, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_3");
+            $this->updateAnswer($option, 535, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_4");
-              $this->updateAnswer($option, 536, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_4");
+            $this->updateAnswer($option, 536, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_5");
-              $this->updateAnswer($option, 537, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_5");
+            $this->updateAnswer($option, 537, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_6");
-              $this->updateAnswer($option, 538, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_6");
+            $this->updateAnswer($option, 538, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_7");
-              $this->updateAnswer($option, 539, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_7");
+            $this->updateAnswer($option, 539, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_8");
-              $this->updateAnswer($option, 540, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_8");
+            $this->updateAnswer($option, 540, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_9");
-              $this->updateAnswer($option, 541, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_9");
+            $this->updateAnswer($option, 541, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_3_4_10");
-              $this->updateAnswer($option, 542, $answer, $user->officeid,  $this->discovery_surveyid);
-              // $answer = $this->request->getPost("no5_3_1");
-              // $this->updateAnswer($option, 195, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_2");
-              // $this->updateAnswer($option, 196, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_3");
-              // $this->updateAnswer($option, 197, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_4");
-              // $this->updateAnswer($option, 198, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_5");
-              // $this->updateAnswer($option, 199, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_6");
-              // $this->updateAnswer($option, 200, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_7");
-              // $this->updateAnswer($option, 201, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_8");
-              // $this->updateAnswer($option, 202, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_9");
-              // $this->updateAnswer($option, 203, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_10_1");
-              // $this->updateAnswer($option, 204, $answer, $user->officeid,  $this->discovery_surveyid);
-              //
-              // $answer = $this->request->getPost("no5_3_10_2");
-              // $this->updateAnswer($option, 205, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_3_4_10");
+            $this->updateAnswer($option, 542, $answer, $user->officeid,  $this->discovery_surveyid);
+            // $answer = $this->request->getPost("no5_3_1");
+            // $this->updateAnswer($option, 195, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_2");
+            // $this->updateAnswer($option, 196, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_3");
+            // $this->updateAnswer($option, 197, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_4");
+            // $this->updateAnswer($option, 198, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_5");
+            // $this->updateAnswer($option, 199, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_6");
+            // $this->updateAnswer($option, 200, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_7");
+            // $this->updateAnswer($option, 201, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_8");
+            // $this->updateAnswer($option, 202, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_9");
+            // $this->updateAnswer($option, 203, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_10_1");
+            // $this->updateAnswer($option, 204, $answer, $user->officeid,  $this->discovery_surveyid);
+            //
+            // $answer = $this->request->getPost("no5_3_10_2");
+            // $this->updateAnswer($option, 205, $answer, $user->officeid,  $this->discovery_surveyid);
 
                 //no5_4
-              $answer = $this->request->getPost("no5_4_1_1");
-              $this->updateAnswer($option, 206, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_1_1");
+            $this->updateAnswer($option, 206, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_1_2");
-              $this->updateAnswer($option, 207, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_1_2");
+            $this->updateAnswer($option, 207, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_1_3");
-              $this->updateAnswer($option, 208, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_1_3");
+            $this->updateAnswer($option, 208, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_2_1");
-              $this->updateAnswer($option, 209, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_2_1");
+            $this->updateAnswer($option, 209, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_2_2");
-              $this->updateAnswer($option, 210, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_2_2");
+            $this->updateAnswer($option, 210, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_2_3");
-              $this->updateAnswer($option, 211, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_2_3");
+            $this->updateAnswer($option, 211, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_3_1");
-              $this->updateAnswer($option, 212, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_3_1");
+            $this->updateAnswer($option, 212, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_3_2");
-              $this->updateAnswer($option, 213, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_3_2");
+            $this->updateAnswer($option, 213, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_3_3");
-              $this->updateAnswer($option, 214, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_3_3");
+            $this->updateAnswer($option, 214, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_4_4");
-              $this->updateAnswer($option, 215, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_4_4");
+            $this->updateAnswer($option, 215, $answer, $user->officeid,  $this->discovery_surveyid);
 
                 //no5_5
-              $answer = $this->request->getPost("no5_5_1_1");
-              $this->updateAnswer($option, 216, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_5_1_1");
+            $this->updateAnswer($option, 216, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_5_1_2");
-              $this->updateAnswer($option, 217, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_5_1_2");
+            $this->updateAnswer($option, 217, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_5_2_1");
-              $this->updateAnswer($option, 218, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_5_2_1");
+            $this->updateAnswer($option, 218, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_5_2_2");
-              $this->updateAnswer($option, 219, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_5_2_2");
+            $this->updateAnswer($option, 219, $answer, $user->officeid,  $this->discovery_surveyid);
 
                 //no5_6
-              $answer = $this->request->getPost("no5_6_1");
-              $this->updateAnswer($option, 220, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_6_1");
+            $this->updateAnswer($option, 220, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_6_2");
-              $this->updateAnswer($option, 221, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_6_2");
+            $this->updateAnswer($option, 221, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_6_3");
-              $this->updateAnswer($option, 222, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_6_3");
+            $this->updateAnswer($option, 222, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_6_4");
-              $this->updateAnswer($option, 223, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_6_4");
+            $this->updateAnswer($option, 223, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no5_6_5");
-              $this->updateAnswer($option, 224, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_6_5");
+            $this->updateAnswer($option, 224, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                $status = $this->request->getPost("no1_finish");
-                if($status != ""){
-                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                    $discoverySurvey->status = 2;
-                    $discoverySurvey->save();
-                    echo 'ok';
-                }
-          }
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
+
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
+        }
     }
     public function createViewNo6(){
         $no6_1 = Answer::findFirst(
@@ -3189,6 +3221,9 @@ class FormController extends Controller
 
             $answer = $this->request->getPost("no6_9");
             $this->updateAnswer($option, 233, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
 
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
@@ -4616,6 +4651,9 @@ class FormController extends Controller
             $answer = $this->request->getPost("no7_11");
             $this->updateAnswer($option, 322, $answer, $user->officeid,  $this->discovery_surveyid);
 
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
+
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -5146,235 +5184,238 @@ class FormController extends Controller
               $this->createViewNo8();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
         }elseif ($this->request->isPost()) {
-              $this->view->disable();
-              $post = $this->request->getPost();
-              $option = $this->request->getPost("option");
+            $this->view->disable();
+            $post = $this->request->getPost();
+            $option = $this->request->getPost("option");
 
-              $answer = $this->request->getPost("no8_1_1_1");
-              $this->updateAnswer($option, 323, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_1_1_1");
+            $this->updateAnswer($option, 323, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_1_1_2");
-              $this->updateAnswer($option, 324, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_1_1_2");
+            $this->updateAnswer($option, 324, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_1_2");
-              $this->updateAnswer($option, 325, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_1_2");
+            $this->updateAnswer($option, 325, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_1_3");
-              $this->updateAnswer($option, 326, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_1_3");
+            $this->updateAnswer($option, 326, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_1_4");
-              $this->updateAnswer($option, 327, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_1_4");
+            $this->updateAnswer($option, 327, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                //no8_2
-              $answer = $this->request->getPost("no8_2_1_1");
-              $this->updateAnswer($option, 328, $answer, $user->officeid,  $this->discovery_surveyid);
+            //no8_2
+            $answer = $this->request->getPost("no8_2_1_1");
+            $this->updateAnswer($option, 328, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_1_2");
-              $this->updateAnswer($option, 329, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_1_2");
+            $this->updateAnswer($option, 329, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_1_3");
-              $this->updateAnswer($option, 330, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_1_3");
+            $this->updateAnswer($option, 330, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_2_1");
-              $this->updateAnswer($option, 331, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_2_1");
+            $this->updateAnswer($option, 331, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_2_2");
-              $this->updateAnswer($option, 332, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_2_2");
+            $this->updateAnswer($option, 332, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_2_3");
-              $this->updateAnswer($option, 333, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_2_3");
+            $this->updateAnswer($option, 333, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_3_1");
-              $this->updateAnswer($option, 334, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_3_1");
+            $this->updateAnswer($option, 334, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_3_2");
-              $this->updateAnswer($option, 335, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_3_2");
+            $this->updateAnswer($option, 335, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_2_3_3");
-              $this->updateAnswer($option, 336, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_2_3_3");
+            $this->updateAnswer($option, 336, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4");
-              $this->updateAnswer($option, 337, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4");
+            $this->updateAnswer($option, 337, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_1");
-              $this->updateAnswer($option, 386, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_1");
+            $this->updateAnswer($option, 386, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_2");
-              $this->updateAnswer($option, 387, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_2");
+            $this->updateAnswer($option, 387, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_3");
-              $this->updateAnswer($option, 388, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_3");
+            $this->updateAnswer($option, 388, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_4");
-              $this->updateAnswer($option, 389, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_4");
+            $this->updateAnswer($option, 389, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_5");
-              $this->updateAnswer($option, 390, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_5");
+            $this->updateAnswer($option, 390, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_6");
-              $this->updateAnswer($option, 391, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_6");
+            $this->updateAnswer($option, 391, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_7");
-              $this->updateAnswer($option, 392, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_7");
+            $this->updateAnswer($option, 392, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_8");
-              $this->updateAnswer($option, 393, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_8");
+            $this->updateAnswer($option, 393, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_9");
-              $this->updateAnswer($option, 394, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_9");
+            $this->updateAnswer($option, 394, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_10");
-              $this->updateAnswer($option, 395, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_10");
+            $this->updateAnswer($option, 395, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_11");
-              $this->updateAnswer($option, 543, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_11");
+            $this->updateAnswer($option, 543, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_12");
-              $this->updateAnswer($option, 544, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_12");
+            $this->updateAnswer($option, 544, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_13");
-              $this->updateAnswer($option, 545, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_13");
+            $this->updateAnswer($option, 545, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_14");
-              $this->updateAnswer($option, 546, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_14");
+            $this->updateAnswer($option, 546, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_15");
-              $this->updateAnswer($option, 547, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_15");
+            $this->updateAnswer($option, 547, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_16");
-              $this->updateAnswer($option, 548, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_16");
+            $this->updateAnswer($option, 548, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_17");
-              $this->updateAnswer($option, 549, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_17");
+            $this->updateAnswer($option, 549, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_18");
-              $this->updateAnswer($option, 550, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_18");
+            $this->updateAnswer($option, 550, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_19");
-              $this->updateAnswer($option, 551, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_19");
+            $this->updateAnswer($option, 551, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_4_20");
-              $this->updateAnswer($option, 552, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_4_20");
+            $this->updateAnswer($option, 552, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                //no8_5
-              $answer = $this->request->getPost("no8_5_1");
-              $this->updateAnswer($option, 338, $answer, $user->officeid,  $this->discovery_surveyid);
+            //no8_5
+            $answer = $this->request->getPost("no8_5_1");
+            $this->updateAnswer($option, 338, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_5_2_1");
-              $this->updateAnswer($option, 339, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_5_2_1");
+            $this->updateAnswer($option, 339, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_5_2_2");
-              $this->updateAnswer($option, 340, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_5_2_2");
+            $this->updateAnswer($option, 340, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_5_2_3");
-              $this->updateAnswer($option, 341, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_5_2_3");
+            $this->updateAnswer($option, 341, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_5_3");
-              $this->updateAnswer($option, 342, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_5_3");
+            $this->updateAnswer($option, 342, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_5_4");
-              $this->updateAnswer($option, 343, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_5_4");
+            $this->updateAnswer($option, 343, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                //8_6
-              $answer = $this->request->getPost("no8_6_1");
-              $this->updateAnswer($option, 344, $answer, $user->officeid,  $this->discovery_surveyid);
+            //8_6
+            $answer = $this->request->getPost("no8_6_1");
+            $this->updateAnswer($option, 344, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_6_2_1");
-              $this->updateAnswer($option, 345, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_6_2_1");
+            $this->updateAnswer($option, 345, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_6_2_2");
-              $this->updateAnswer($option, 346, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_6_2_2");
+            $this->updateAnswer($option, 346, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_6_3");
-              $this->updateAnswer($option, 347, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_6_3");
+            $this->updateAnswer($option, 347, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_6_4");
-              $this->updateAnswer($option, 348, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_6_4");
+            $this->updateAnswer($option, 348, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                //no8_7
-              $answer = $this->request->getPost("no8_7_1");
-              $this->updateAnswer($option, 349, $answer, $user->officeid,  $this->discovery_surveyid);
+            //no8_7
+            $answer = $this->request->getPost("no8_7_1");
+            $this->updateAnswer($option, 349, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_2");
-              $this->updateAnswer($option, 350, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_2");
+            $this->updateAnswer($option, 350, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_3");
-              $this->updateAnswer($option, 351, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_3");
+            $this->updateAnswer($option, 351, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_4");
-              $this->updateAnswer($option, 352, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_4");
+            $this->updateAnswer($option, 352, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_5");
-              $this->updateAnswer($option, 353, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_5");
+            $this->updateAnswer($option, 353, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_6");
-              $this->updateAnswer($option, 354, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_6");
+            $this->updateAnswer($option, 354, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_7");
-              $this->updateAnswer($option, 355, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_7");
+            $this->updateAnswer($option, 355, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_8");
-              $this->updateAnswer($option, 356, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_8");
+            $this->updateAnswer($option, 356, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_9");
-              $this->updateAnswer($option, 357, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_9");
+            $this->updateAnswer($option, 357, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_10");
-              $this->updateAnswer($option, 358, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_10");
+            $this->updateAnswer($option, 358, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_11");
-              $this->updateAnswer($option, 359, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_11");
+            $this->updateAnswer($option, 359, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_12_1");
-              $this->updateAnswer($option, 360, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_12_1");
+            $this->updateAnswer($option, 360, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_12_2");
-              $this->updateAnswer($option, 396, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_12_2");
+            $this->updateAnswer($option, 396, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_13_1");
-              $this->updateAnswer($option, 361, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_13_1");
+            $this->updateAnswer($option, 361, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_13_2");
-              $this->updateAnswer($option, 362, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_13_2");
+            $this->updateAnswer($option, 362, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_14");
-              $this->updateAnswer($option, 363, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_14");
+            $this->updateAnswer($option, 363, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_15");
-              $this->updateAnswer($option, 364, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_15");
+            $this->updateAnswer($option, 364, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_16");
-              $this->updateAnswer($option, 365, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_16");
+            $this->updateAnswer($option, 365, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_17_1_1");
-              $this->updateAnswer($option, 366, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_17_1_1");
+            $this->updateAnswer($option, 366, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_17_1_2");
-              $this->updateAnswer($option, 367, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_17_1_2");
+            $this->updateAnswer($option, 367, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_17_2_1");
-              $this->updateAnswer($option, 368, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_17_2_1");
+            $this->updateAnswer($option, 368, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_17_2_2");
-              $this->updateAnswer($option, 369, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_17_2_2");
+            $this->updateAnswer($option, 369, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_18");
-              $this->updateAnswer($option, 370, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_18");
+            $this->updateAnswer($option, 370, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_19");
-              $this->updateAnswer($option, 371, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_19");
+            $this->updateAnswer($option, 371, $answer, $user->officeid,  $this->discovery_surveyid);
 
-              $answer = $this->request->getPost("no8_7_20");
-              $this->updateAnswer($option, 372, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no8_7_20");
+            $this->updateAnswer($option, 372, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                $status = $this->request->getPost("no1_finish");
-                if($status != ""){
-                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                    $discoverySurvey->status = 2;
-                    $discoverySurvey->save();
-                    echo 'ok';
-                }
-          }
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
+
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
+        }
     }
     public function createViewNo9(){
         $no9_1 = Answer::findFirst(
@@ -5619,76 +5660,78 @@ class FormController extends Controller
                     $user = AdminUser::findFirst($auth->id);
 
         $this->disabledInput(1);
-          if ($this->request->isPost()) {
-              $option = $this->request->getPost("option");
-              $this->view->disable();
-              $post = $this->request->getPost();
+        if ($this->request->isPost()) {
+            $option = $this->request->getPost("option");
+            $this->view->disable();
+            $post = $this->request->getPost();
 
-              $answer = $this->request->getPost("no9_1");
-              $this->updateAnswer($option, 373, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_2");
-              $this->updateAnswer($option, 374, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_1_1");
-              $this->updateAnswer($option, 375, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_1_2");
-              $this->updateAnswer($option, 376, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_1_3");
-              $this->updateAnswer($option, 400, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_2_1");
-              $this->updateAnswer($option, 401, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_2_2");
-              $this->updateAnswer($option, 402, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_2_3");
-              $this->updateAnswer($option, 403, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_3_1");
-              $this->updateAnswer($option, 404, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_3_2");
-              $this->updateAnswer($option, 405, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_3_3");
-              $this->updateAnswer($option, 406, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_4_1");
-              $this->updateAnswer($option, 407, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_4_2");
-              $this->updateAnswer($option, 408, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_4_3");
-              $this->updateAnswer($option, 409, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_5_1");
-              $this->updateAnswer($option, 410, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_5_2");
-              $this->updateAnswer($option, 411, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_3_5_3");
-              $this->updateAnswer($option, 412, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_4_1");
-              $this->updateAnswer($option, 377, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_4_2");
-              $this->updateAnswer($option, 378, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_4_3");
-              $this->updateAnswer($option, 379, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_4_4");
-              $this->updateAnswer($option, 380, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_4_5");
-              $this->updateAnswer($option, 381, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_5_1");
-              $this->updateAnswer($option, 382, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_5_2");
-              $this->updateAnswer($option, 383, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_5_3");
-              $this->updateAnswer($option, 384, $answer, $user->officeid,  $this->discovery_surveyid);
-              $answer = $this->request->getPost("no9_6");
-              $this->updateAnswer($option, 385, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_1");
+            $this->updateAnswer($option, 373, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_2");
+            $this->updateAnswer($option, 374, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_1_1");
+            $this->updateAnswer($option, 375, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_1_2");
+            $this->updateAnswer($option, 376, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_1_3");
+            $this->updateAnswer($option, 400, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_2_1");
+            $this->updateAnswer($option, 401, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_2_2");
+            $this->updateAnswer($option, 402, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_2_3");
+            $this->updateAnswer($option, 403, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_3_1");
+            $this->updateAnswer($option, 404, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_3_2");
+            $this->updateAnswer($option, 405, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_3_3");
+            $this->updateAnswer($option, 406, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_4_1");
+            $this->updateAnswer($option, 407, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_4_2");
+            $this->updateAnswer($option, 408, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_4_3");
+            $this->updateAnswer($option, 409, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_5_1");
+            $this->updateAnswer($option, 410, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_5_2");
+            $this->updateAnswer($option, 411, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_3_5_3");
+            $this->updateAnswer($option, 412, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_4_1");
+            $this->updateAnswer($option, 377, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_4_2");
+            $this->updateAnswer($option, 378, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_4_3");
+            $this->updateAnswer($option, 379, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_4_4");
+            $this->updateAnswer($option, 380, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_4_5");
+            $this->updateAnswer($option, 381, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_5_1");
+            $this->updateAnswer($option, 382, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_5_2");
+            $this->updateAnswer($option, 383, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_5_3");
+            $this->updateAnswer($option, 384, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no9_6");
+            $this->updateAnswer($option, 385, $answer, $user->officeid,  $this->discovery_surveyid);
 
-                $status = $this->request->getPost("no1_finish");
-                if($status != ""){
-                    $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                    $discoverySurvey->status = 2;
-                    $discoverySurvey->save();
-                    echo 'ok';
-                }
-          }
-          else {
-            $this->createViewNo9();
-            $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
-          }
+            $surveyor = $this->request->getPost("signing_surveyor");
+            $this->updateSurveyor($surveyor);
+
+            $status = $this->request->getPost("no1_finish");
+            if($status != ""){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->status = 2;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
+        }else {
+        $this->createViewNo9();
+        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+        }
     }
 
 }
