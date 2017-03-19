@@ -9,6 +9,7 @@ use Phalcon\Exception;
 use Widget\Model\Widget;
 use Publication\Model\Publication;
 use Publication\Model\Type;
+use Clinic\Model\Survey;
 
 class IndexController extends Controller
 {
@@ -159,22 +160,23 @@ class IndexController extends Controller
       $this->redirect('/');
 
     }
-
+    //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupSessionAction($no){
+        $lastID =  1;//Survey::find()->getLast()->id;
         $this->view->disable();
         $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
         Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs
         where a.discovery_surveyid = ds.id
-        and ds.surveyid = 1 and
+        and ds.surveyid = :surveyid: and
         a.questionid = q.id and
         s.id=q.sessionid and
         gs.id = s.group_session_id and
         gs.id = '$no' and
-        ds.surveyid = 1
+        ds.surveyid = $lastID
         GROUP BY gs.name, DATE(a.last_update_survey)";
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
-        $rows = $this->modelsManager->executeQuery($phql);
+        $rows = $this->modelsManager->executeQuery($phql,array("surveyid"=>$lastID));
         if(!$rows)
             return "";
         $data = [];
@@ -189,8 +191,10 @@ class IndexController extends Controller
         echo json_encode($data);
 
     }
+    //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupCommentAction($no){
         $this->view->disable();
+        $lastID =  1;//Survey::find()->getLast()->id;
         $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(c.count_approver) as count_approver, sum(c.count_admin) as count_admin
 from session s
 left join (
@@ -206,7 +210,7 @@ group by s.name ";
 
         $di             = \Phalcon\DI::getDefault();
         $db             = $di['db'];
-        $data           = $db->query( $phsql ,["id"=>$no,"surveyid"=>"1"]);
+        $data           = $db->query( $phsql ,["id"=>$no,"surveyid"=>$lastID]);
         $data->setFetchMode(\Phalcon\Db::FETCH_OBJ);
         $rows        = $data->fetchAll();
         //var_dump($rows);
@@ -224,13 +228,13 @@ group by s.name ";
         echo json_encode($data);
 
     }
-
+    //กราฟแสดงสถานะการยืนยันข้อมูล
     public function dashboardAction(){
         $this->view->disable();
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $phql = "select DATE(a.last_update_survey) as date, count(*) as count
         from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds
-        where a.discovery_surveyid = ds.id and ds.surveyid = 1
+        where a.discovery_surveyid = ds.id and a.last_update_survey is not null  
         GROUP BY DATE(a.last_update_survey)";
         $rows = $this->modelsManager->executeQuery($phql);
         $data = [];

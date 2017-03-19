@@ -82,12 +82,13 @@ class IndexController extends Controller
         else
             $this->view->listDiscoverySurvey = DiscoverySurvey::find(array("officeid=:0:","bind"=>[$this->view->user->officeid]));
     }
+    //กราฟแสดงสถานะการยืนยันข้อมูล
     public function dashboardAction(){
         $this->view->disable();
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $phql = "select DATE(a.last_update_survey) as date, count(*) as count 
         from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds 
-        where a.discovery_surveyid = ds.id and ds.surveyid = 1  
+        where a.discovery_surveyid = ds.id and a.last_update_survey is not null  
         GROUP BY DATE(a.last_update_survey)";
         $rows = $this->modelsManager->executeQuery($phql);
         $data = [];
@@ -109,21 +110,23 @@ class IndexController extends Controller
             }*/
     }
 
+    //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupSessionAction($no){
+        $lastID = 1;//Survey::find()->getLast()->id;
         $this->view->disable();
         $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count 
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
         Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs 
         where a.discovery_surveyid = ds.id 
-        and ds.surveyid = 1 and 
+        and ds.surveyid = :surveyid: and 
         a.questionid = q.id and 
         s.id=q.sessionid and 
         gs.id = s.group_session_id and 
         gs.id = '$no' and
-        ds.surveyid = 1 
+        ds.surveyid = :surveyid:
         GROUP BY gs.name, DATE(a.last_update_survey)";
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
-        $rows = $this->modelsManager->executeQuery($phql);
+        $rows = $this->modelsManager->executeQuery($phql, array("surveyid"=>$lastID));
         if(!$rows)
             return "";
         $data = [];
