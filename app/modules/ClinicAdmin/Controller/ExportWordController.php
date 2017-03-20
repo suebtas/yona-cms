@@ -314,22 +314,10 @@ class ExportWordController extends Controller
         $document->setValue('{no1_2_12}', $this->toformatNumber2($no1_2_12));
         $document->setValue('{no1_2_13}', $this->toformatNumber2($no1_2_13));
 
-        $document->setValue('{user}',$this->user->name);
-
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
-    		$result = $document->saveAs($this->tmp_file);   
-    		//die($result);
-    	 	$this->converttowordtemplate('FormNo1_',$this->tmp_file);
-  		  //die();
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $result = $document->saveAs($this->tmp_file);   
+        $this->converttowordtemplate('FormNo1_',$this->tmp_file);
     }
 
     public function PrintFormNo2Action()
@@ -498,23 +486,23 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo2.docx');
-    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-    		//var_dump(($document));die();
-    		date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo2.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-    		$document->setValue('{year}', $this->year);
-    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-    		$document->setValue('{no2_1_1}', $this->toformatNumber2($no2_1_1));
-    		$document->setValue('{no2_1_2_1}', $this->toformatNumber2($no2_1_2_1));
-    		$document->setValue('{no2_1_2_2}', $this->toformatNumber($no2_1_2_2));
-    		$document->setValue('{no2_1_3_1}', $this->toformatNumber2($no2_1_3_1));
-    		$document->setValue('{no2_1_3_2}', $this->toformatNumber($no2_1_3_2));
-    		$document->setValue('{no2_1_4_1}', $this->toformatNumber2($no2_1_4_1));
-    		$document->setValue('{no2_1_4_2}', $this->toformatNumber($no2_1_4_2));
-    		$document->setValue('{no2_1_5_1}', $no2_1_5_1);
-    		$document->setValue('{no2_1_5_2}', $this->toformatNumber2($no2_1_5_2));
-    		$document->setValue('{no2_1_5_3}', $this->toformatNumber($no2_1_5_3));
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no2_1_1}', $this->toformatNumber2($no2_1_1));
+        $document->setValue('{no2_1_2_1}', $this->toformatNumber2($no2_1_2_1));
+        $document->setValue('{no2_1_2_2}', $this->toformatNumber($no2_1_2_2));
+        $document->setValue('{no2_1_3_1}', $this->toformatNumber2($no2_1_3_1));
+        $document->setValue('{no2_1_3_2}', $this->toformatNumber($no2_1_3_2));
+        $document->setValue('{no2_1_4_1}', $this->toformatNumber2($no2_1_4_1));
+        $document->setValue('{no2_1_4_2}', $this->toformatNumber($no2_1_4_2));
+        $document->setValue('{no2_1_5_1}', $no2_1_5_1);
+        $document->setValue('{no2_1_5_2}', $this->toformatNumber2($no2_1_5_2));
+        $document->setValue('{no2_1_5_3}', $this->toformatNumber($no2_1_5_3));
         $document->setValue('{no2_1_6}', $no2_1_6);
         $document->setValue('{no2_2_1}', $this->toformatNumber2($no2_2_1));
         $document->setValue('{no2_2_2}', $no2_2_2);
@@ -539,23 +527,11 @@ class ExportWordController extends Controller
         $no2_5_sum = $no2_5_1 + $no2_5_2 + $no2_5_3 + $no2_5_4 + $no2_5_5 + $no2_5_6 + $no2_5_7;
         $document->setValue('{no2_5_sum}', $this->toformatNumber($no2_5_sum));
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
-    		$result = $document->saveAs($this->tmp_file);   
-    		//die($result);
-    	 	$this->converttowordtemplate('FormNo2_',$this->tmp_file);
-
-        //die();
-    		
+        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $result = $document->saveAs($this->tmp_file);   
+        $this->converttowordtemplate('FormNo2_',$this->tmp_file);    		
     }
 
     public function PrintFormNo3Action()
@@ -681,22 +657,10 @@ class ExportWordController extends Controller
         $document->setValue('{no3_6_2}', $this->toformatNumber2($no3_6_2));
         $document->setValue('{no3_6_3}', $this->toformatNumber($no3_6_3));
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
-        //die($result);
         $this->converttowordtemplate('FormNo3_',$this->tmp_file);
-
-        //die();
     }
 
     public function PrintFormNo4Action()
@@ -1549,31 +1513,18 @@ class ExportWordController extends Controller
     		$document->setValue('{no4_6_7}', $no4_6_7);
     		$document->setValue('{no4_6_8_1}', $no4_6_8_1);
     		$document->setValue('{no4_6_8_2}', $no4_6_8_2);
-    		//die();
-
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
+    	
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
-    		//die($result);
     	 	$this->converttowordtemplate('FormNo4_',$this->tmp_file);
 
-        //die();
-		
     }
 
     public function PrintFormNo5Action()
     {
 
-		    $this->view->disable();
+        $this->view->disable();
         $no5_1_1_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
                             "bind"=>array(
@@ -2071,10 +2022,9 @@ class ExportWordController extends Controller
     		$document->setValue('{no5_6_4}', $no5_6_4);
     		$document->setValue('{no5_6_5}', $no5_6_5);
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = AdminUser::findFirst("officeid = {$this->user->officeid} AND role = 'cc-approver'");
-        $document->setValue('{approver}',$approver->name);
-
+       
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
     	 	$this->converttowordtemplate('FormNo5_',$this->tmp_file);
@@ -2151,22 +2101,11 @@ class ExportWordController extends Controller
     		$document->setValue('{no6_8}', $no6_8);
     		$document->setValue('{no6_9}', $no6_9);
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
-    		//die($result);
     	 	$this->converttowordtemplate('FormNo6_',$this->tmp_file);
 
-    		//die();
     }
 
     public function PrintFormNo7Action()
@@ -3231,22 +3170,11 @@ class ExportWordController extends Controller
         $document->setValue('{no7_10}', $no7_10);
         $document->setValue('{no7_11}', $no7_11);
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
+        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
-        //die($result);
         $this->converttowordtemplate('FormNo7_',$this->tmp_file);
-
-        //die();
     }
 
     public function PrintFormNo8Action()
@@ -3800,23 +3728,11 @@ class ExportWordController extends Controller
         $document->setValue('{no8_7_18}', $no8_7_18);
         $document->setValue('{no8_7_19}', $this->toformatNumber($no8_7_19));
         $document->setValue('{no8_7_20}', $this->toformatNumber($no8_7_20));
-        
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        foreach ($approver as $key => $ap) {
-          if(($ap->status==1) && $ap->level==1){
-            $approver_name = $ap->AdminUser->name;
-          }
-
-        }
-        $document->setValue('{approver}',$approver_name);
-
+       
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);
-        //die($result);
         $this->converttowordtemplate('FormNo8_',$this->tmp_file);
-
-        //die();
     }
 
     public function PrintFormNo9Action()
@@ -3991,24 +3907,11 @@ class ExportWordController extends Controller
         $document->setValue('{no9_5_3}', $no9_5_3);
         $document->setValue('{no9_6}', $no9_6);
 
-        $document->setValue('{user}',$this->user->name);
-        $approver = $this->discoverySurvey->getApproval();
-        $approver_name = "";
-        if($approver!=null){
-            foreach ($approver as $key => $ap) {
-              if(($ap->status==1) && $ap->level==1){
-                $approver_name = $ap->AdminUser->name;
-              }
-
-            }
-        }
-        $document->setValue('{approver}',$approver_name);
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
 
         $result = $document->saveAs($this->tmp_file);   
-        //die($result);
         $this->converttowordtemplate('FormNo9_',$this->tmp_file);
-
-        //die();
     }
 
     public function indexAction()
