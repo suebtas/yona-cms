@@ -3919,7 +3919,7 @@ class ExportWordController extends Controller
 </w:r>
 </w:p>';
         $document->setXML('{no9_6}', $no9_6 );*/
-        $document->setXML('{no9_6}', htmlspecialchars($no9_6) );
+        $document->setValue('{no9_6}', htmlspecialchars($no9_6) );
 
         $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
