@@ -8,8 +8,8 @@
 
 namespace ClinicAdmin\Controller;
 
-include __DIR__.'/../../../../vendor/HTMLtoOpenXML/HTMLtoOpenXML.php';
-use HTMLtoOpenXML;
+//include __DIR__.'/../../../../vendor/HTMLtoOpenXML/HTMLtoOpenXML.php';
+//use HTMLtoOpenXML;
 use Application\Mvc\Controller;
 use PhpOffice\PhpWord;
 use Clinic\Model\Answer;
