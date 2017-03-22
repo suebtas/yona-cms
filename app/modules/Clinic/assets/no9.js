@@ -564,6 +564,12 @@ $('#no9_5_3').editable({
 $('#no9_6').editable({
        type: 'text',
        title: ' ',
+       rows: 10,
+       validate: function (value) {
+          if (value.length > 500) {
+            return 'จำนวนเกิน 500 ตัวอักษร';
+          }
+      },
      }).on('save', function(e, params) {
 
       if(params.newValue!=''){
@@ -602,26 +608,8 @@ $('#no9_6').editable({
       }
   });
      
+
 //step 9.6
-$('#no9_6').on('blur', function(e, params) {
-  $.ajax({
-      url : "/clinic/form/no9",
-      type: "POST",
-      data : {
-        no9_6:this.value,
-        option:'add'
-      },
-      success: function(data, textStatus, jqXHR)
-      {
-
-      },
-      error: function (jqXHR, textStatus, errorThrown)
-      {
-
-      }
-  });
-
-});
 
 function Cal(){
   var id1 = $('#no9_4_1').text();
@@ -738,6 +726,45 @@ $('#signing_surveyor').editable({
         type: "POST",
         data : {
           signing_surveyor:'delete',
+          option:'delete'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }
+});
+
+$('#surveyor_phone').editable({
+        type: 'text',
+        title: 'หมายเลขโทรศัพท์ผู้สำรวจ'
+}).on('save', function(e, params) {
+  if(params.newValue!=''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          surveyor_phone:params.newValue,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }else if(params.newValue==''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          surveyor_phone:'delete',
           option:'delete'
         },
         success: function(data, textStatus, jqXHR)

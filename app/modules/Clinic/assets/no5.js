@@ -3383,4 +3383,43 @@ $(document).ready(function() {
         });
       }
     });
+
+    $('#surveyor_phone').editable({
+            type: 'text',
+            title: 'หมายเลขโทรศัพท์ผู้สำรวจ'
+    }).on('save', function(e, params) {
+      if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              surveyor_phone:params.newValue,
+              option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/form/no1",
+            type: "POST",
+            data : {
+              surveyor_phone:'delete',
+              option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+      }
+    });
 });

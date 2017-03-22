@@ -860,6 +860,9 @@
                             <div class="text-center">
                               <h2><i class="fa fa-user"></i> ผู้สำรวจ<span>
                                   <a id="signing_surveyor"  data-type="text" data-pk="1" data-title="Enter username">{{signing_surveyor}}</a>
+                                  </span>, 
+                                  <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
+                                  <a id="surveyor_phone"  data-type="text" data-pk="1" data-title="Enter username">{{surveyor_phone}}</a>
                                   </span>
                               </h2>
                             </div>

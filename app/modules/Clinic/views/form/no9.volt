@@ -325,9 +325,11 @@
 
                             <center>
                               <p> บทบาท/การมีส่วนร่วมของประชาชนในกิจกรรมทางการเมืองและการบริหารอื่นๆ เช่นการวางแผนพัฒนาท้องถิ่น การส่งเสริมการเลือกตั้งในเขตพื้นที่ การร่วมทำกิจกรรมสังคม ในโอกาสต่างๆ (ให้เขียนบรรยายตามความเป็นจริง) </p>
-                          <div style="padding: 5px;margin: 0px;overflow: auto;width: 100%;" id="no9_6" data-pk="1" data-type="wysihtml5"  data-title="Enter notes" data-placement="top">
+                          {#<div style="padding: 5px;margin: 0px;overflow: auto;width: 100%;" id="no9_6" data-pk="1" data-type="wysihtml5"  data-title="Enter notes" data-placement="top">
                           {{no9_6}}
-                          </div>
+                          </div>#}
+                          <a href="#" id="no9_6" data-type="textarea" data-pk="1" data-title="Enter username" > {{no9_6}} </a>
+                         
 
                               <!--<textarea name="name" id="no9_6" class="form-control" rows="8" cols="40">{{no9_6}}</textarea>-->
                                 <p> การประชุมประชาคมเพื่อระดมความคิดเห็นในการจัดทำแผน พัฒนาสามปีและการแก้ปัญหาในชุมชน  </p>
@@ -372,6 +374,9 @@
                                     <div class="text-center">
                                       <h2><i class="fa fa-user"></i> ผู้สำรวจ<span>
                                           <a id="signing_surveyor"  data-type="text" data-pk="1" data-title="Enter username">{{signing_surveyor}}</a>
+                                          </span>, 
+                                          <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
+                                          <a id="surveyor_phone"  data-type="text" data-pk="1" data-title="Enter username">{{surveyor_phone}}</a>
                                           </span>
                                       </h2>
                                     </div>
@@ -534,25 +539,6 @@
                     <!-- Select2 -->
                     <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
                     <!-- jQuery Smart Wizard -->
-                    <script>
-                    $('body').on('keydown', 'input, select, textarea', function(e) {
-                    var self = $(this)
-                      , form = self.parents('form:eq(0)')
-                      , focusable
-                      , next
-                      ;
-                    if (e.keyCode == 13) {
-                        focusable = form.find('input,a,select,button,textarea').filter(':visible');
-                        next = focusable.eq(focusable.index(this)+1);
-                        if (next.length) {
-                            next.focus();
-                        } else {
-                            form.next();
-                        }
-                        return false;
-                    }
-                  });
-                    </script>
                     <script>
                       $(document).ready(function() {
                         $('#wizard').smartWizard({

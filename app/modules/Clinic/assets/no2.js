@@ -823,6 +823,47 @@ $('#signing_surveyor').editable({
     });
   }
 });
+
+
+$('#surveyor_phone').editable({
+        type: 'text',
+        title: 'หมายเลขโทรศัพท์ผู้สำรวจ'
+}).on('save', function(e, params) {
+  if(params.newValue!=''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          surveyor_phone:params.newValue,
+          option:'add'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }else if(params.newValue==''){
+    $.ajax({
+        url : "/clinic/form/no1",
+        type: "POST",
+        data : {
+          surveyor_phone:'delete',
+          option:'delete'
+        },
+        success: function(data, textStatus, jqXHR)
+        {
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+
+        }
+    });
+  }
+});
+
 function Cal2(){
   var i1 = $('#no2_5_1').text();
   if(i1==''||i1=='Empty')

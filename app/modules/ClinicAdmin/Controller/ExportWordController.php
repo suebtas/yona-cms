@@ -8,6 +8,8 @@
 
 namespace ClinicAdmin\Controller;
 
+include __DIR__.'/../../../../vendor/HTMLtoOpenXML/HTMLtoOpenXML.php';
+use HTMLtoOpenXML;
 use Application\Mvc\Controller;
 use PhpOffice\PhpWord;
 use Clinic\Model\Answer;
@@ -3905,7 +3907,19 @@ class ExportWordController extends Controller
         $document->setValue('{no9_5_1}', $no9_5_1);
         $document->setValue('{no9_5_2}', $no9_5_2);
         $document->setValue('{no9_5_3}', $no9_5_3);
-        $document->setValue('{no9_6}', $no9_6);
+        /*$no9_6 = '<w:p>
+<w:pPr>
+<w:jc w:val="center">
+</w:pPr>
+<w:r>
+<w:rPr>
+<w:b/>
+</w:rPr>
+<w:t>This is text.</w:t>
+</w:r>
+</w:p>';
+        $document->setXML('{no9_6}', $no9_6 );*/
+        $document->setXML('{no9_6}', htmlspecialchars($no9_6) );
 
         $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);

@@ -85,6 +85,11 @@ class FormController extends Controller
         $this->view->signing_surveyor = $signing_surveyor;
         $signing_approver = $this->discoverySurvey->signing_approver;
         $this->view->signing_approver = $signing_approver;
+
+        $surveyor_phone = $this->discoverySurvey->surveyor_phone;
+        $this->view->surveyor_phone = $surveyor_phone;
+        $approver_phone = $this->discoverySurvey->approver_phone;
+        $this->view->approver_phone = $approver_phone;
     }
 
 
@@ -644,6 +649,10 @@ class FormController extends Controller
 
             $surveyor = $this->request->getPost("signing_surveyor");
             $this->updateSurveyor($surveyor);
+
+
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -665,6 +674,21 @@ class FormController extends Controller
             }else if($surveyor != ''){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                 $discoverySurvey->signing_surveyor = $surveyor;
+                $discoverySurvey->save();
+                echo 'ok';
+            }
+    }
+
+    public function updateSurveyorPhone($phone){
+        if($phone=='delete'){
+                //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $this->discoverySurvey->surveyor_phone = null;//$surveyor;
+                $this->discoverySurvey->save();
+                echo 'ok';
+                
+            }else if($phone != ''){
+                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                $discoverySurvey->surveyor_phone = $phone;
                 $discoverySurvey->save();
                 echo 'ok';
             }
