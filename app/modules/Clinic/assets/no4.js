@@ -452,7 +452,10 @@ $(document).ready(function() {
 
   $("#no4_4_1_3").on('blur',function(e){
     //alert('Changed!');
-
+    if(this.value.length>500){
+        alert('จำนวนข้อมูลมากกว่า 500 ระบบไม่บันทึกข้อมูล');
+        return;
+    }
     $.ajax({
         url : "/clinic/form/no4",
         type: "POST",
@@ -514,7 +517,10 @@ $(document).ready(function() {
   });
 
   $("#no4_4_2_3").on('blur',function(e){
-    //alert('Changed!');
+    if(this.value.length>500){
+        alert('จำนวนข้อมูลมากกว่า 500 ระบบไม่บันทึกข้อมูล');
+        return;
+    }
 
     $.ajax({
         url : "/clinic/form/no4",
@@ -577,7 +583,10 @@ $(document).ready(function() {
   });
 
   $("#no4_4_3_3").on('blur',function(e){
-    //alert('Changed!');
+    if(this.value.length>500){
+        alert('จำนวนข้อมูลมากกว่า 500 ระบบไม่บันทึกข้อมูล');
+        return;
+    }
 
     $.ajax({
         url : "/clinic/form/no4",
@@ -640,7 +649,10 @@ $(document).ready(function() {
   });
 
   $("#no4_4_4_3").on('blur',function(e){
-    //alert('Changed!');
+    if(this.value.length>500){
+        alert('จำนวนข้อมูลมากกว่า 500 ระบบไม่บันทึกข้อมูล');
+        return;
+    }
 
     $.ajax({
         url : "/clinic/form/no4",
@@ -703,7 +715,10 @@ $(document).ready(function() {
   });
 
   $("#no4_4_5_3").on('blur',function(e){
-    //alert('Changed!');
+    if(this.value.length>500){
+        alert('จำนวนข้อมูลมากกว่า 500 ระบบไม่บันทึกข้อมูล');
+        return;
+    }
 
     $.ajax({
         url : "/clinic/form/no4",

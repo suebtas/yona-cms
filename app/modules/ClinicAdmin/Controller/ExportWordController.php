@@ -316,7 +316,8 @@ class ExportWordController extends Controller
         $document->setValue('{no1_2_12}', $this->toformatNumber2($no1_2_12));
         $document->setValue('{no1_2_13}', $this->toformatNumber2($no1_2_13));
 
-        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);         
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);       
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo1_',$this->tmp_file);
@@ -530,7 +531,8 @@ class ExportWordController extends Controller
         $document->setValue('{no2_5_sum}', $this->toformatNumber($no2_5_sum));
 
         
-        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);           
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);     
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo2_',$this->tmp_file);    		
@@ -659,7 +661,8 @@ class ExportWordController extends Controller
         $document->setValue('{no3_6_2}', $this->toformatNumber2($no3_6_2));
         $document->setValue('{no3_6_3}', $this->toformatNumber($no3_6_3));
 
-        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);          
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);      
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo3_',$this->tmp_file);
@@ -1516,7 +1519,8 @@ class ExportWordController extends Controller
     		$document->setValue('{no4_6_8_1}', $no4_6_8_1);
     		$document->setValue('{no4_6_8_2}', $no4_6_8_2);
     	
-            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);         
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);       
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
     	 	$this->converttowordtemplate('FormNo4_',$this->tmp_file);
@@ -2025,7 +2029,8 @@ class ExportWordController extends Controller
     		$document->setValue('{no5_6_5}', $no5_6_5);
 
        
-            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);         
+            $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);       
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
@@ -2103,7 +2108,8 @@ class ExportWordController extends Controller
     		$document->setValue('{no6_8}', $no6_8);
     		$document->setValue('{no6_9}', $no6_9);
 
-            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+            $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);         
+            $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);       
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
     		$result = $document->saveAs($this->tmp_file);   
     	 	$this->converttowordtemplate('FormNo6_',$this->tmp_file);
@@ -3173,7 +3179,8 @@ class ExportWordController extends Controller
         $document->setValue('{no7_11}', $no7_11);
 
         
-        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);          
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);      
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo7_',$this->tmp_file);
@@ -3731,7 +3738,8 @@ class ExportWordController extends Controller
         $document->setValue('{no8_7_19}', $this->toformatNumber($no8_7_19));
         $document->setValue('{no8_7_20}', $this->toformatNumber($no8_7_20));
        
-        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);          
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);      
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
         $result = $document->saveAs($this->tmp_file);
         $this->converttowordtemplate('FormNo8_',$this->tmp_file);
@@ -3922,6 +3930,7 @@ class ExportWordController extends Controller
         $document->setValue('{no9_6}', htmlspecialchars($no9_6) );
 
         $document->setValue('{user}',$this->discoverySurvey->signing_surveyor);        
+        $document->setValue('{phone}',$this->discoverySurvey->surveyor_phone);        
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
 
         $result = $document->saveAs($this->tmp_file);   

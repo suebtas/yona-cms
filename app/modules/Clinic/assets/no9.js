@@ -566,8 +566,8 @@ $('#no9_6').editable({
        title: ' ',
        rows: 10,
        validate: function (value) {
-          if (value.length > 500) {
-            return 'จำนวนเกิน 500 ตัวอักษร';
+          if (value.length > 1000) {
+            return 'จำนวนเกิน 1000 ตัวอักษร';
           }
       },
      }).on('save', function(e, params) {
