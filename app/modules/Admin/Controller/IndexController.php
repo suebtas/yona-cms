@@ -97,19 +97,12 @@ class IndexController extends Controller
     }
 
     public function logoutAction()
-    {
+    {        
         if ($this->request->isPost()) {
-            if ($this->security->checkToken()) {
-                $this->session->remove('auth');
-                $this->session->remove('discovery_surveyid');
-                $this->session->remove('surveyid');
-            } else {
-                $this->flash->error("Security errors");
-            }
+                $this->session->destroy();
         } else {
             $this->flash->error("Security errors");
         }
-        //$this->redirect($this->url->get());
 		$this->redirect('/admin/index/login');
     }
 

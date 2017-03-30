@@ -36,8 +36,8 @@ class ReviewController extends FormController
             $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
         }else{
             $this->discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->session->get('discovery_surveyid'))));
-            $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
-            $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
+            //$this->session->set('surveyid', $this->discoverySurvey->Survey->id);
+            //$this->session->set('discovery_surveyid', $this->discoverySurvey->id);
         }
         $this->view->discoverySurvey = $this->discoverySurvey;
         $this->surveyid = $this->session->get('surveyid');
