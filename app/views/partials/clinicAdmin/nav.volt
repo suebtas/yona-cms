@@ -40,6 +40,9 @@
             <a class="item{{ helper.activeMenu().activeClass('admin-amphur') }}" href="{{ url.get() }}clinic-admin/amphur">
                 {{ helper.at('จัดการข้อมูลอำเภอ') }} <i class="pencil icon"></i>
             </a>
+            <a class="item{{ helper.activeMenu().activeClass('admin-tambon') }}" href="{{ url.get() }}clinic-admin/tambon">
+                {{ helper.at('จัดการข้อมูลตำบล') }} <i class="pencil icon"></i>
+            </a>
             <a class="item{{ helper.activeMenu().activeClass('admin-condition') }}" href="{{ url.get() }}clinic-admin/condition">
                 {{ helper.at('จัดการเงื่อนไขประมวลผลข้อมูล') }} <i class="pencil icon"></i>
             </a>

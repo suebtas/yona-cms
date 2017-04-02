@@ -22,7 +22,8 @@ class Amphur extends \Phalcon\Mvc\Model
      */
     public function initialize()
     {
-        $this->hasMany('id', 'Office', 'amphurid', array('alias' => 'Office'));
+        $this->hasMany('id', 'Clinic\Model\Office', 'amphurid', array('alias' => 'Office'));
+        $this->hasMany('id', 'Clinic\Model\Tambon', 'amphurid', array('alias' => 'Tambon'));
     }
 
     /**

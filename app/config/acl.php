@@ -145,6 +145,7 @@ return [
         'clinic/form'   => '*',
         'clinic/review' => '*',
         'clinic-admin/admin-user'   => '*',
+        'clinic-admin/tambon'   => '*',
         'clinic-admin/amphur'   => '*',
         'clinic-admin/office'   => '*',
         'clinic-admin/session'   => '*',
