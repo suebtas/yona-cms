@@ -1048,14 +1048,14 @@ $(document).ready(function() {
         if(!a2) a2="0";
           var rea1 = a1.replace(/,/g,"");
           var rea2 = a2.replace(/,/g,"");
-          var sume = parseFloat(rea1) + parseFloat(rea2)
-          var sumee = sume.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+          var sum_all = parseFloat(rea1) + parseFloat(rea2)
+          var sumee = sum_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
           $('#no1_2_1').html(sumee);
           $.ajax({
               url : "/clinic/form/no1",
               type: "POST",
               data : {
-                no1_2_1:sumee,
+                no1_2_1:sum_all,
                 option:'add'
               },
               success: function(data, textStatus, jqXHR)
