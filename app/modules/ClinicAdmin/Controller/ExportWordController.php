@@ -47,6 +47,7 @@ class ExportWordController extends Controller
 
     function toformatNumber($number)
     {
+        $number = str_replace(",", "", $number);
         if($number == null)
             return "";
         else
@@ -55,6 +56,7 @@ class ExportWordController extends Controller
 
     function toformatNumber2($number)
     {
+        $number = str_replace(",", "", $number);
         if($number == null)
             return "";
         else
@@ -1398,115 +1400,115 @@ class ExportWordController extends Controller
 
     		//die($no4_5_1_1_5);
     		$no4_5_1_1_5 = $no4_5_1_1_1 + $no4_5_1_1_2 + $no4_5_1_1_3 + $no4_5_1_1_4;
-    		$document->setValue('{no4_5_1_1_1}', $no4_5_1_1_1);
-    		$document->setValue('{no4_5_1_1_2}', $no4_5_1_1_2);
+    		$document->setValue('{no4_5_1_1_1}', $this->toformatNumber2($no4_5_1_1_1));
+    		$document->setValue('{no4_5_1_1_2}', $this->toformatNumber2($no4_5_1_1_2));
     		$document->setValue('{no4_5_1_1_3}', $this->toformatNumber2($no4_5_1_1_3));
-    		$document->setValue('{no4_5_1_1_4}', $no4_5_1_1_4);
+    		$document->setValue('{no4_5_1_1_4}', $this->toformatNumber2($no4_5_1_1_4));
     		$document->setValue('{no4_5_1_1_5}', $this->toformatNumber2($no4_5_1_1_5));
 
     		$no4_5_1_2_5 = $no4_5_1_2_1 + $no4_5_1_2_2 + $no4_5_1_2_3 + $no4_5_1_2_4;
-    		$document->setValue('{no4_5_1_2_1}', $no4_5_1_2_1);
-    		$document->setValue('{no4_5_1_2_2}', $no4_5_1_2_2);
+    		$document->setValue('{no4_5_1_2_1}', $this->toformatNumber2($no4_5_1_2_1));
+    		$document->setValue('{no4_5_1_2_2}', $this->toformatNumber2($no4_5_1_2_2));
     		$document->setValue('{no4_5_1_2_3}', $this->toformatNumber2($no4_5_1_2_3));
-    		$document->setValue('{no4_5_1_2_4}', $no4_5_1_2_4);
+    		$document->setValue('{no4_5_1_2_4}', $this->toformatNumber2($no4_5_1_2_4));
     		$document->setValue('{no4_5_1_2_5}', $this->toformatNumber2($no4_5_1_2_5));
 
     		$no4_5_1_3_5 = $no4_5_1_3_1 + $no4_5_1_3_2 + $no4_5_1_3_3 + $no4_5_1_3_4;
-    		$document->setValue('{no4_5_1_3_1}', $no4_5_1_3_1);
-    		$document->setValue('{no4_5_1_3_2}', $no4_5_1_3_2);
+    		$document->setValue('{no4_5_1_3_1}', $this->toformatNumber2($no4_5_1_3_1));
+    		$document->setValue('{no4_5_1_3_2}', $this->toformatNumber2($no4_5_1_3_2));
     		$document->setValue('{no4_5_1_3_3}', $this->toformatNumber2($no4_5_1_3_3));
-    		$document->setValue('{no4_5_1_3_4}', $no4_5_1_3_4);
+    		$document->setValue('{no4_5_1_3_4}', $this->toformatNumber2($no4_5_1_3_4));
     		$document->setValue('{no4_5_1_3_5}', $this->toformatNumber2($no4_5_1_3_5));
 
     		$no4_5_1_4_5 = $no4_5_1_4_1 + $no4_5_1_4_2 + $no4_5_1_4_3 + $no4_5_1_4_4;
-    		$document->setValue('{no4_5_1_4_1}', $no4_5_1_4_1);
-    		$document->setValue('{no4_5_1_4_2}', $no4_5_1_4_2);
+    		$document->setValue('{no4_5_1_4_1}', $this->toformatNumber2($no4_5_1_4_1));
+    		$document->setValue('{no4_5_1_4_2}', $this->toformatNumber2($no4_5_1_4_2));
     		$document->setValue('{no4_5_1_4_3}', $this->toformatNumber2($no4_5_1_4_3));
-    		$document->setValue('{no4_5_1_4_4}', $no4_5_1_4_4);
+    		$document->setValue('{no4_5_1_4_4}', $this->toformatNumber2($no4_5_1_4_4));
     		$document->setValue('{no4_5_1_4_5}', $this->toformatNumber2($no4_5_1_4_5));
 
     		$no4_5_2_1_5 = $no4_5_2_1_1 + $no4_5_2_1_2 + $no4_5_2_1_3 + $no4_5_2_1_4;
-    		$document->setValue('{no4_5_2_1_1}', $no4_5_2_1_1);
-    		$document->setValue('{no4_5_2_1_2}', $no4_5_2_1_2);
+    		$document->setValue('{no4_5_2_1_1}', $this->toformatNumber2($no4_5_2_1_1));
+    		$document->setValue('{no4_5_2_1_2}', $this->toformatNumber2($no4_5_2_1_2));
     		$document->setValue('{no4_5_2_1_3}', $this->toformatNumber2($no4_5_2_1_3));
-    		$document->setValue('{no4_5_2_1_4}', $no4_5_2_1_4);
+    		$document->setValue('{no4_5_2_1_4}', $this->toformatNumber2($no4_5_2_1_4));
     		$document->setValue('{no4_5_2_1_5}', $this->toformatNumber2($no4_5_2_1_5));
 
     		$no4_5_2_2_5 = $no4_5_2_2_1 + $no4_5_2_2_2 + $no4_5_2_2_3 + $no4_5_2_2_4;
-    		$document->setValue('{no4_5_2_2_1}', $no4_5_2_2_1);
-    		$document->setValue('{no4_5_2_2_2}', $no4_5_2_2_2);
+    		$document->setValue('{no4_5_2_2_1}', $this->toformatNumber2($no4_5_2_2_1));
+    		$document->setValue('{no4_5_2_2_2}', $this->toformatNumber2($no4_5_2_2_2));
     		$document->setValue('{no4_5_2_2_3}', $this->toformatNumber2($no4_5_2_2_3));
     		$document->setValue('{no4_5_2_2_4}', $no4_5_2_2_4);
     		$document->setValue('{no4_5_2_2_5}', $this->toformatNumber2($no4_5_2_2_5));
 
     		$no4_5_2_3_5 = $no4_5_2_3_1 + $no4_5_2_3_2 + $no4_5_2_3_3 + $no4_5_2_3_4;
-    		$document->setValue('{no4_5_2_3_1}', $no4_5_2_3_1);
-    		$document->setValue('{no4_5_2_3_2}', $no4_5_2_3_2);
+    		$document->setValue('{no4_5_2_3_1}', $this->toformatNumber2($no4_5_2_3_1));
+    		$document->setValue('{no4_5_2_3_2}', $this->toformatNumber2($no4_5_2_3_2));
     		$document->setValue('{no4_5_2_3_3}', $this->toformatNumber2($no4_5_2_3_3));
-    		$document->setValue('{no4_5_2_3_4}', $no4_5_2_3_4);
+    		$document->setValue('{no4_5_2_3_4}', $this->toformatNumber2($no4_5_2_3_4));
     		$document->setValue('{no4_5_2_3_5}', $this->toformatNumber2($no4_5_2_3_5));
 
     		$no4_5_2_4_5 = $no4_5_2_4_1 + $no4_5_2_4_2 + $no4_5_2_4_3 + $no4_5_2_4_4;
-    		$document->setValue('{no4_5_2_4_1}', $no4_5_2_4_1);
-    		$document->setValue('{no4_5_2_4_2}', $no4_5_2_4_2);
+    		$document->setValue('{no4_5_2_4_1}', $this->toformatNumber2($no4_5_2_4_1));
+    		$document->setValue('{no4_5_2_4_2}', $this->toformatNumber2($no4_5_2_4_2));
     		$document->setValue('{no4_5_2_4_3}', $this->toformatNumber2($no4_5_2_4_3));
-    		$document->setValue('{no4_5_2_4_4}', $no4_5_2_4_4);
+    		$document->setValue('{no4_5_2_4_4}', $this->toformatNumber2($no4_5_2_4_4));
     		$document->setValue('{no4_5_2_4_5}', $this->toformatNumber2($no4_5_2_4_5));
 
     		$no4_5_3_1_5 = $no4_5_3_1_1 + $no4_5_3_1_2 + $no4_5_3_1_3 + $no4_5_3_1_4;
-    		$document->setValue('{no4_5_3_1_1}', $no4_5_3_1_1);
-    		$document->setValue('{no4_5_3_1_2}', $no4_5_3_1_2);
+    		$document->setValue('{no4_5_3_1_1}', $this->toformatNumber2($no4_5_3_1_1));
+    		$document->setValue('{no4_5_3_1_2}', $this->toformatNumber2($no4_5_3_1_2));
     		$document->setValue('{no4_5_3_1_3}', $this->toformatNumber2($no4_5_3_1_3));
-    		$document->setValue('{no4_5_3_1_4}', $no4_5_3_1_4);
+    		$document->setValue('{no4_5_3_1_4}', $this->toformatNumber2($no4_5_3_1_4));
     		$document->setValue('{no4_5_3_1_5}', $this->toformatNumber2($no4_5_3_1_5));
 
     		$no4_5_3_2_5 = $no4_5_3_2_1 + $no4_5_3_2_2 + $no4_5_3_2_3 + $no4_5_3_2_4;
-    		$document->setValue('{no4_5_3_2_1}', $no4_5_3_2_1);
-    		$document->setValue('{no4_5_3_2_2}', $no4_5_3_2_2);
+    		$document->setValue('{no4_5_3_2_1}', $this->toformatNumber2($no4_5_3_2_1));
+    		$document->setValue('{no4_5_3_2_2}', $this->toformatNumber2($no4_5_3_2_2));
     		$document->setValue('{no4_5_3_2_3}', $this->toformatNumber2($no4_5_3_2_3));
-    		$document->setValue('{no4_5_3_2_4}', $no4_5_3_2_4);
+    		$document->setValue('{no4_5_3_2_4}', $this->toformatNumber2($no4_5_3_2_4));
     		$document->setValue('{no4_5_3_2_5}', $this->toformatNumber2($no4_5_3_2_5));
 
     		$no4_5_3_3_5 = $no4_5_3_3_1 + $no4_5_3_3_2 + $no4_5_3_3_3 + $no4_5_3_3_4;
-    		$document->setValue('{no4_5_3_3_1}', $no4_5_3_3_1);
-    		$document->setValue('{no4_5_3_3_2}', $no4_5_3_3_2);
+    		$document->setValue('{no4_5_3_3_1}', $this->toformatNumber2($no4_5_3_3_1));
+    		$document->setValue('{no4_5_3_3_2}', $this->toformatNumber2($no4_5_3_3_2));
     		$document->setValue('{no4_5_3_3_3}', $this->toformatNumber2($no4_5_3_3_3));
-    		$document->setValue('{no4_5_3_3_4}', $no4_5_3_3_4);
+    		$document->setValue('{no4_5_3_3_4}', $this->toformatNumber2($no4_5_3_3_4));
     		$document->setValue('{no4_5_3_3_5}', $this->toformatNumber2($no4_5_3_3_5));
 
     		$no4_5_3_4_5 = $no4_5_3_4_1 + $no4_5_3_4_2 + $no4_5_3_4_3 + $no4_5_3_4_4;
-    		$document->setValue('{no4_5_3_4_1}', $no4_5_3_4_1);
-    		$document->setValue('{no4_5_3_4_2}', $no4_5_3_4_2);
+    		$document->setValue('{no4_5_3_4_1}', $this->toformatNumber2($no4_5_3_4_1));
+    		$document->setValue('{no4_5_3_4_2}', $this->toformatNumber2($no4_5_3_4_2));
     		$document->setValue('{no4_5_3_4_3}', $this->toformatNumber2($no4_5_3_4_3));
-    		$document->setValue('{no4_5_3_4_4}', $no4_5_3_4_4);
+    		$document->setValue('{no4_5_3_4_4}', $this->toformatNumber2($no4_5_3_4_4));
     		$document->setValue('{no4_5_3_4_5}', $this->toformatNumber2($no4_5_3_4_5));
 
     		$no4_5_4_1_5 = $no4_5_4_1_1 + $no4_5_4_1_2 + $no4_5_4_1_3 + $no4_5_4_1_4;
-    		$document->setValue('{no4_5_4_1_1}', $no4_5_4_1_1);
-    		$document->setValue('{no4_5_4_1_2}', $no4_5_4_1_2);
+    		$document->setValue('{no4_5_4_1_1}', $this->toformatNumber2($no4_5_4_1_1));
+    		$document->setValue('{no4_5_4_1_2}', $this->toformatNumber2($no4_5_4_1_2));
     		$document->setValue('{no4_5_4_1_3}', $this->toformatNumber2($no4_5_4_1_3));
-    		$document->setValue('{no4_5_4_1_4}', $no4_5_4_1_4);
+    		$document->setValue('{no4_5_4_1_4}', $this->toformatNumber2($no4_5_4_1_4));
     		$document->setValue('{no4_5_4_1_5}', $this->toformatNumber2($no4_5_4_1_5));
 
     		$no4_5_4_2_5 = $no4_5_4_2_1 + $no4_5_4_2_2 + $no4_5_4_2_3 + $no4_5_4_2_4;
-    		$document->setValue('{no4_5_4_2_1}', $no4_5_4_2_1);
-    		$document->setValue('{no4_5_4_2_2}', $no4_5_4_2_2);
+    		$document->setValue('{no4_5_4_2_1}', $this->toformatNumber2($no4_5_4_2_1));
+    		$document->setValue('{no4_5_4_2_2}', $this->toformatNumber2($no4_5_4_2_2));
     		$document->setValue('{no4_5_4_2_3}', $this->toformatNumber2($no4_5_4_2_3));
-    		$document->setValue('{no4_5_4_2_4}', $no4_5_4_2_4);
+    		$document->setValue('{no4_5_4_2_4}', $this->toformatNumber2($no4_5_4_2_4));
     		$document->setValue('{no4_5_4_2_5}', $this->toformatNumber2($no4_5_4_2_5));
 
     		$no4_5_4_3_5 = $no4_5_4_3_1 + $no4_5_4_3_2 + $no4_5_4_3_3 + $no4_5_4_3_4;
-    		$document->setValue('{no4_5_4_3_1}', $no4_5_4_3_1);
-    		$document->setValue('{no4_5_4_3_2}', $no4_5_4_3_2);
+    		$document->setValue('{no4_5_4_3_1}', $this->toformatNumber2($no4_5_4_3_1));
+    		$document->setValue('{no4_5_4_3_2}', $this->toformatNumber2($no4_5_4_3_2));
     		$document->setValue('{no4_5_4_3_3}', $this->toformatNumber2($no4_5_4_3_3));
-    		$document->setValue('{no4_5_4_3_4}', $no4_5_4_3_4);
+    		$document->setValue('{no4_5_4_3_4}', $this->toformatNumber2($no4_5_4_3_4));
     		$document->setValue('{no4_5_4_3_5}', $this->toformatNumber2($no4_5_4_3_5));
 
     		$no4_5_4_4_5 = $no4_5_4_4_1 + $no4_5_4_4_2 + $no4_5_4_4_3 + $no4_5_4_4_4;
-    		$document->setValue('{no4_5_4_4_1}', $no4_5_4_4_1);
-    		$document->setValue('{no4_5_4_4_2}', $no4_5_4_4_2);
+    		$document->setValue('{no4_5_4_4_1}', $this->toformatNumber2($no4_5_4_4_1));
+    		$document->setValue('{no4_5_4_4_2}', $this->toformatNumber2($no4_5_4_4_2));
     		$document->setValue('{no4_5_4_4_3}', $this->toformatNumber2($no4_5_4_4_3));
-    		$document->setValue('{no4_5_4_4_4}', $no4_5_4_4_4);
+    		$document->setValue('{no4_5_4_4_4}', $this->toformatNumber2($no4_5_4_4_4));
     		$document->setValue('{no4_5_4_4_5}', $this->toformatNumber2($no4_5_4_4_5));
 
     		$document->setValue('{no4_6_1}', $no4_6_1);
@@ -3001,9 +3003,9 @@ class ExportWordController extends Controller
         $document->setValue('{year}', $this->year);
         $document->setValue('{office}', $this->discoverySurvey->Office->name);
         $document->setValue('{no7_1}', $no7_1);
-        $document->setValue('{no7_2_1}', $no7_2_1);
-        $document->setValue('{no7_2_2}', $no7_2_2);
-        $document->setValue('{no7_2_3}', $no7_2_3);
+        $document->setValue('{no7_2_1}', $this->toformatNumber2($no7_2_1));
+        $document->setValue('{no7_2_2}', $this->toformatNumber2($no7_2_2));
+        $document->setValue('{no7_2_3}', $this->toformatNumber($no7_2_3));
         $document->setValue('{no7_3}', $no7_3);
         $document->setValue('{no7311}', $this->toformatNumber2($no7_3_1_1));
         $document->setValue('{no7312}', $no7_3_1_2);

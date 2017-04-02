@@ -5461,11 +5461,11 @@ class FormController extends Controller
                                 2=>$this->discovery_surveyid)));
         $no9_3_1_1 = $answer9_3_1_1->answer;
         $year = split("/", $this->discoverySurvey->Survey->no);
-        $year1 = $year[1];
-        $year2 = $year[1]-1;
-        $year3 = $year[1]-2;
-        $year4 = $year[1]-3;
-        $year5 = $year[1]-4;
+        $year1 = $year[1]+1;
+        $year2 = $year[1];
+        $year3 = $year[1]-1;
+        $year4 = $year[1]-2;
+        $year5 = $year[1]-3;
 
         if($no9_3_1_1 != null)
             $this->view->no9_3_1_1 = $no9_3_1_1;

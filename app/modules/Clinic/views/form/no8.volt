@@ -513,7 +513,7 @@
 
                         <tr>
                             <td width="40%">รถเก็บขนขยะ ขนาดความจุ </td>
-                            <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a></td>
+                            <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a> ตัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ได้มาเมื่อ พ.ศ.  </td>
@@ -521,11 +521,11 @@
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่เก็บขนได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="no8_7_5" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_5}}</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_5" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_5}}</a> ตัน/วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่กำจัดได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="no8_7_6" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_6}}</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_6" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_6}}</a> ตัน/วัน</td>
                         </tr>
                     </tbody>
                   </table>
