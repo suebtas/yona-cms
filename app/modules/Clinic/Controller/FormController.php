@@ -186,6 +186,14 @@ class FormController extends Controller
             }
       }
     }
+    function toformatNumber2($number)
+    {
+        $number = str_replace(",", "", $number);
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 0, ".",",");;
+    }
     public function createViewNo1(){
         $form = new No1Form();
 
@@ -207,13 +215,13 @@ class FormController extends Controller
                                  "bind"=>array(
                                      1=>7,
                                      2=>$this->discovery_surveyid)))->answer;
-             $this->view->no1_2_1_1 = $no1_2_1_1;
+             $this->view->no1_2_1_1 = $this->toformatNumber2($no1_2_1_1);
             $no1_2_1_2 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
                                     1=>8,
                                     2=>$this->discovery_surveyid)))->answer;
-            $this->view->no1_2_1_2 = $no1_2_1_2;
+            $this->view->no1_2_1_2 = $this->toformatNumber2($no1_2_1_2);
 
             $no1_2_2_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
