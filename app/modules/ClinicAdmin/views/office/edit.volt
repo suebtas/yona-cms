@@ -3,7 +3,7 @@
     <!--controls-->
     <div class="ui segment">
 
-        <a href="{{ url.get() }}clinic-admin/amphur" class="ui button">
+        <a href="{{ url.get() }}clinic-admin/office" class="ui button">
             <i class="icon left arrow"></i> Back
         </a>
 

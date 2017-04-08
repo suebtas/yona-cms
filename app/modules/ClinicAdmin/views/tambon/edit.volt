@@ -21,9 +21,12 @@
     <!--end controls-->
 
     <div class="ui segment">
-        <div class="one fields">
+        <div class="two fields">
             <div class="field">
                 {{ form.renderDecorated('name') }}
+            </div>
+            <div class="field">
+                {{ form.renderDecorated('amphur') }}
             </div>
         </div>
     </div>
