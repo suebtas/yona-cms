@@ -25,7 +25,7 @@ class TambonController extends Controller
 
     public function indexAction()
     {
-        $this->view->entries = Amphur::find([
+        $this->view->entries = Tambon::find([
             "order" => "id DESC"
         ]);
 

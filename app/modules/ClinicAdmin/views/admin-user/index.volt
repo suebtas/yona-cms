@@ -8,7 +8,7 @@
 </div>
 <!--/end controls-->
 
-<table class="ui table very compact celled">
+<table class="ui table very compact celled" id="table">
     <thead>
     <tr>
         <th style="width: 100px"></th>
@@ -33,3 +33,34 @@
     {% endfor %}
     </tbody>
 </table>
+
+
+<!-- Datatables -->
+<script src="{{ url.path() }}clinic/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="{{ url.path() }}clinic/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+$("table").dataTable(
+    {
+        "columnDefs": [
+            { "visible": false, "targets": 4 }
+        ],
+
+        "order": [[ 4, 'asc' ]],
+        "drawCallback": function ( settings ) {
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last=null;
+ 
+            api.column(4, {page:'current'} ).data().each( function ( group, i ) {
+                if ( last !== group ) {
+                    $(rows).eq( i ).before(
+                        '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                    );
+ 
+                    last = group;
+                }
+            } );
+        }
+    }
+);
+</script>
