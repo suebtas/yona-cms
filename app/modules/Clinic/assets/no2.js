@@ -489,6 +489,30 @@ $('#no2_3_7').editable({
       }
   });
 });
+$('#no2_3_8').editable({
+       type: 'text',
+       title: ' ',
+       display: function(value) {
+         $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+       },
+     }).on('save', function(e, params) {
+  $.ajax({
+      url : "/clinic/form/no2",
+      type: "POST",
+      data : {
+        no2_3_8:params.newValue,
+        option:'add'
+      },
+      success: function(data, textStatus, jqXHR)
+      {
+
+      },
+      error: function (jqXHR, textStatus, errorThrown)
+      {
+
+      }
+  });
+});
 
 //step 3 2.4
 $('#no2_4_1').editable({

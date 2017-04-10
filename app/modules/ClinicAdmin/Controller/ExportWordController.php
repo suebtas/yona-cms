@@ -428,6 +428,11 @@ class ExportWordController extends Controller
                           "bind"=>array(
                               1=>44,
                               2=>$this->discoverySurvey->id)))->answer;
+        $no2_3_8= Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>554,
+                              2=>$this->discoverySurvey->id)))->answer;
         $no2_4_1= Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -518,6 +523,7 @@ class ExportWordController extends Controller
         $document->setValue('{no2_3_5}', $this->toformatNumber2($no2_3_5));
         $document->setValue('{no2_3_6}', $this->toformatNumber2($no2_3_6));
         $document->setValue('{no2_3_7}', $this->toformatNumber2($no2_3_7));
+        $document->setValue('{no2_3_8}', $this->toformatNumber2($no2_3_8));
         $document->setValue('{no2_4_1}', $this->toformatNumber2($no2_4_1));
         $document->setValue('{no2_4_2}', $this->toformatNumber($no2_4_2));
         $document->setValue('{no2_4_3}', $this->toformatNumber2($no2_4_3));
@@ -3391,6 +3397,56 @@ class ExportWordController extends Controller
                   "bind"=>array(
                       1=>552,
                       2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_21 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>555,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_22 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>556,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_23 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>557,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_24 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>558,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_25 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>559,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_26 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>560,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_27 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>561,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_28 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>562,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_29 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>563,
+                      2=>$this->discoverySurvey->id)))->answer;
+      $no8_4_30 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>564,
+                      2=>$this->discoverySurvey->id)))->answer;
 
       $no8_5_1 = Answer::findFirst(
               array("questionid=?1 and discovery_surveyid=?2",
@@ -3655,6 +3711,16 @@ class ExportWordController extends Controller
         $document->setValue('{no8418}', $no8_4_18);
         $document->setValue('{no8419}', $no8_4_19);
         $document->setValue('{no8420}', $no8_4_20);
+        $document->setValue('{no8421}', $no8_4_21);
+        $document->setValue('{no8422}', $no8_4_22);
+        $document->setValue('{no8423}', $no8_4_23);
+        $document->setValue('{no8424}', $no8_4_24);
+        $document->setValue('{no8425}', $no8_4_25);
+        $document->setValue('{no8426}', $no8_4_26);
+        $document->setValue('{no8427}', $no8_4_27);
+        $document->setValue('{no8428}', $no8_4_28);
+        $document->setValue('{no8429}', $no8_4_29);
+        $document->setValue('{no8430}', $no8_4_30);
 
         $document->setValue('{no8_5_1}', $no8_5_1);
         $document->setValue('{no8_5_2_1}', $no8_5_2_1);

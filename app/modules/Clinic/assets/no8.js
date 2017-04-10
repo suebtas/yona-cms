@@ -856,6 +856,207 @@ $(document).ready(function() {
           }
       });
     });
+    $("#no8_4_21").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_21: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_22").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_22: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_23").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_23: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_24").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_24: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_25").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_25: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_26").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_26: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_27").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_27: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_28").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_28: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_29").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_29: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    $("#no8_4_30").on('blur',function(e){
+    //alert('Changed!');
+
+      $.ajax({
+          url : "/clinic/form/no8",
+          type: "POST",
+          data : {
+            no8_4_30: this.value,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              //data - response from server
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
+
+          }
+      });
+    });
+    
 //no8_5
     $('#no8_5_1').editable({
            type: 'text',
