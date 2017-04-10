@@ -108,54 +108,116 @@ class DataanalyController extends FormController
                 $val3 = $this->request->getPost("txtcon3");
                 $logic1 = $this->request->getPost("Logic1");
 
+                $query = true;
+                    
+                if($val3 == "")
+                {
+                    if($years == 0)
+                    {
+                        $query = false;
+                        $message = "กรุณาเลือกปีสำรวจ";
+                    }
+                    //die($years);
+                    if($sess == 0)
+                    {
+                        $query = false;
+                        $message = $message . "\nกรุณาเลือกข้อคำถามหลัก";
+                    }
+
+                    if($quest == 0)
+                    {
+                        $query = false;
+                        $message = $message . "\nกรุณาเลือกข้อคำถามย่อย";
+                    }
+                    else
+                         $this->view->questid = $quest;
+
+                    if($con1 == "เลือกเงื่อนไข 1" OR $val1 == "")
+                    {
+                        $query = false;
+                        $message = $message . "\nกรุณาเลือกเงื่อนไข 1 หรือ ใส่ค่าเปรียบเทียบเงื่อนไข 1";
+                    }
+                    
+                    //die($logic1);
+                    if($logic1 == "AND" OR $logic1 == "OR")
+                    {
+                        if($con2 == "เลือกเงื่อนไข 2" OR $val2 == "")
+                        {
+                            $query = false;
+                            $message = $message . "\nกรุณาเลือกเงื่อนไข 2 หรือ ใส่ค่าเปรียบเทียบเงื่อนไข 2";
+                        }
+                        
+                    }
+                    
+                    //die($quest);
+                    $this->view->questid = $quest;
+                    $this->view->con1 = $con1;
+                    $this->view->val1 = $val1;
+                    $this->view->con2 = $con2;
+                    $this->view->val2 = $val2;
+                    $this->view->val3 = $val3;
+                    $this->view->logic1 = $logic1;
+                }
+                
+
+
                 //die($con2);
 
-                $Survey = Survey::findFirst("no = '{$years}'");
+                if($query == true)
+                {
+                    $Survey = Survey::findFirst("no = '{$years}'");
 
-                $Survey2 = Survey::findFirst("no = '1/{$year2}'");
+                    $Survey2 = Survey::findFirst("no = '1/{$year2}'");
+
+                    
+                    if($logic1 == "0")
+                    {
+                        $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey->id} ORDER BY O.name";
+
+                        if($Survey2 != null)
+                            $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey2->id} ORDER BY O.name";
+                        
+                    }
+                    elseif($logic1 != "0")
+                    {
+                        $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND D.surveyid = {$Survey->id} ORDER BY O.name";
+
+                        if($Survey2 != null)
+                            $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND D.surveyid = {$Survey2->id} ORDER BY O.name";
+                    }
+                    //die($sql);
+                    if($val3 != null AND $val3 != "")
+                    {
+
+                        $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where A.answer LIKE '%".$val3."%' AND D.surveyid = {$Survey->id} ORDER BY O.name";
+
+                        if($Survey2 != null)
+                            $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where A.answer LIKE '%".$val3."%' AND D.surveyid = {$Survey2->id} ORDER BY O.name";
+                        
+                    }
+                                    
+                    $data = $this->modelsManager->executeQuery($sql);
+
+                    if($Survey2 != null)
+                        $data2 = $this->modelsManager->executeQuery($sql2);
+                    else
+                        $data2 = null;
+                
+
+                    $this->view->questid = $quest;
+                    $this->view->con1 = $con1;
+                    $this->view->val1 = $val1;
+                    $this->view->con2 = $con2;
+                    $this->view->val2 = $val2;
+                    $this->view->val3 = $val3;
+                    $this->view->logic1 = $logic1;
+                }
+                else
+                {
+                    $this->view->message = $message;
+                }
 
                 
-                if($logic1 == "0")
-                {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey->id} ORDER BY O.name";
-
-                    if($Survey2 != null)
-                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." AND D.surveyid = {$Survey2->id} ORDER BY O.name";
-                    
-                }
-                elseif($logic1 != "0")
-                {
-                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND D.surveyid = {$Survey->id} ORDER BY O.name";
-
-                    if($Survey2 != null)
-                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where questionid = ".$quest." AND A.answer ".$con1." ".$val1." ".$logic1." A.answer ".$con2." ".$val2." AND D.surveyid = {$Survey2->id} ORDER BY O.name";
-                }
-                //die($sql);
-                if($val3 != null AND $val3 != "")
-                {
-
-                    $sql =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where A.answer LIKE '%".$val3."%' AND D.surveyid = {$Survey->id} ORDER BY O.name";
-
-                    if($Survey2 != null)
-                        $sql2 =  "SELECT A.discovery_surveyid, O.name, O.amphurid, A.answer FROM Clinic\Model\Answer A LEFT JOIN Clinic\Model\DiscoverySurvey D ON D.id = A.discovery_surveyid LEFT JOIN Clinic\Model\Office O ON D.officeid = O.id Where A.answer LIKE '%".$val3."%' AND D.surveyid = {$Survey2->id} ORDER BY O.name";
-                    
-                }
-                                
-                $data = $this->modelsManager->executeQuery($sql);
-
-                if($Survey2 != null)
-                    $data2 = $this->modelsManager->executeQuery($sql2);
-                else
-                    $data2 = null;
-            
-
-                $this->view->questid = $quest;
-                $this->view->con1 = $con1;
-                $this->view->val1 = $val1;
-                $this->view->con2 = $con2;
-                $this->view->val2 = $val2;
-                $this->view->val3 = $val3;
-                $this->view->logic1 = $logic1;
 
             }
             $result = [];
