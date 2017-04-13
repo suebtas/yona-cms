@@ -31,6 +31,7 @@
     <!--end controls-->
 
     <div class="ui segment">
+        <div class="ui error message"></div>
         {% if form is not empty %}
         <div class="ui grid">
             <div class="twelve wide column">
@@ -61,9 +62,23 @@
             title: {
                 identifier: 'title',
                 rules: [
-                    {type: 'empty'}
+                    {
+                        type: 'empty',
+                        prompt : 'Please enter your title'
+                    }
                 ]
+            },
+            preview_src:{
+                identifier: 'preview_src',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt : 'Please enter your image'
+                    }
+                ]
+
             }
+            
         }
     });
 </script><!--/end ui semantic-->
