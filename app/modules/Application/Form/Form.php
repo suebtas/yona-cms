@@ -105,10 +105,11 @@ abstract class Form extends \Phalcon\Forms\Form
      */
     private function renderImage($element)
     {
-        $html = '<div class="form-group">';
+        $html = '<div class="field"';
+        $html .= '<div class="form-group">';
 
         if ($element->getLabel()) {
-            $html .= '<label>' . $element->getLabel() . '</label>';
+            $html .= '<label for="'.$element->getName() . '">' . $element->getLabel() . '</label>';
         }
         if ($element->getValue()) {
             $html .= '<section onclick="selectText(this);">' . $element->getValue() . '</section>';
@@ -130,14 +131,14 @@ abstract class Form extends \Phalcon\Forms\Form
                             <span class="btn btn-default btn-file">
                                 <span class="fileinput-new">Select image</span>
                                 <span class="fileinput-exists">Change</span>
-                                <input type="file" name="'.$element->getName() . '">
+                                <input type="file"  id="'.$element->getName() . '" name="'.$element->getName() . '">
                             </span>
                             <a href="#" class="btn btn-default fileinput-exists"
                                data-dismiss="fileinput">Remove</a>
                         </div>
                     </div>
                 </div>';
-
+        $html .= '</div>';
         return $html;
     }
 

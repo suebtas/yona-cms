@@ -67,7 +67,9 @@
                         prompt : 'Please enter your title'
                     }
                 ]
-            },
+            }
+            {% if model is not empty and model.getId() is empty %}
+            ,
             preview_src:{
                 identifier: 'preview_src',
                 rules: [
@@ -78,6 +80,7 @@
                 ]
 
             }
+            {% endif %}
             
         }
     });
