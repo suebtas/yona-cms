@@ -3,404 +3,76 @@ function jump(str){
   $('#wizard').smartWizard('goToStep',array[1]);
 }
 $(document).ready(function() {
+  //paramitor (name,path,type,display)
+    //editable
+    Process('no6_1','no6','editable',true);
+    Process('no6_2','no6','editable',true);
+    Process('no6_3','no6','editable',true);
+    Process('no6_4','no6','editable',true);
+    Process('no6_5','no6','editable',true);
+    Process('no6_6','no6','editable',true);
+    Process('no6_7','no6','editable',true);
+    Process('no6_8','no6','editable',true);
+    Process('no6_9','no6','editable',true);
+    Process('signing_surveyor','no6','editable',true);
+    Process('surveyor_phone','no6','editable',true);
 
-    $.fn.editable.defaults.mode = 'inline';
+    function Process(name,path,type,display){
+            //editable
+            if(type == 'editable'){
+            $.fn.editable.defaults.mode = 'inline';
+            $('#'+name).editable({
+                   type: 'text',
+                   title: '',
+                   display: function(value) {
+                     if(display == true)
+                     $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                     else
+                     $(this).text(value);
+                   },
+                 }).on('save', function(e, params) {
+                   //property key for insert or update
+                   dataStringAdd={};
+                   dataStringAdd[name]=params.newValue;
+                   dataStringAdd['option']='add';
 
-    $('#no6_1').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_1:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
+                    //property key for delete
+                   dataStringDelete={};
+                   dataStringDelete[name]='delete';
+                   dataStringDelete['option']='delete';
+                if(params.newValue!=''){
+                $.ajax({
+                    url : "/clinic/form/" + path,
+                    type: "POST",
+                    data : dataStringAdd,
+                    success: function(data, textStatus, jqXHR)
+                    {
 
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_1:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-            }
-        });
-      }
-    });
+                    }
+                });
+              }else if(params.newValue==''){
+                $.ajax({
+                    url : "/clinic/form/" + path,
+                    type: "POST",
+                    data : dataStringDelete,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-    $('#no6_2').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_2:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
+                    }
+                });
+              }
+            });
+          }
 
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_2:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
+        }
 
-            }
-        });
-      }
-    });
-
-    $('#no6_3').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_3:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_3:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_4').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_4:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_4:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_5').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_5:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_5:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_6').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_6:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_6:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_7').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_7:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_7:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_8').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_8:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_8:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-    $('#no6_9').editable({
-           type: 'text',
-           title: '',
-           display: function(value) {
-             $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-           },
-           }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_9:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no6",
-            type: "POST",
-            data : {
-              no6_9:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-                //updateSumno4_5_4_4_5();
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
 
     $("#btnFinish").on('click', function(){
       $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
@@ -443,82 +115,5 @@ $(document).ready(function() {
       });
     });
 
-    $('#signing_surveyor').editable({
-           type: 'text',
-           title: 'ชื่อผู้รับสำรวจ'
-    }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              signing_surveyor:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
 
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              signing_surveyor:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
-
-
-    $('#surveyor_phone').editable({
-            type: 'text',
-            title: 'หมายเลขโทรศัพท์ผู้สำรวจ'
-    }).on('save', function(e, params) {
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              surveyor_phone:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no1",
-            type: "POST",
-            data : {
-              surveyor_phone:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-    });
 });
