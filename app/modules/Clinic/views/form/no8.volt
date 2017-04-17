@@ -935,7 +935,7 @@
   <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
   <!-- jQuery Smart Wizard -->
   <script>
-  $('body').on('keydown', 'input, select, textarea', function(e) {
+  $('body').on('keydown', 'input, select', function(e) {
   var self = $(this)
     , form = self.parents('form:eq(0)')
     , focusable

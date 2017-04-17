@@ -4,7 +4,7 @@
     <div class="page-title">
       <div class="title_left">
           <h3>{{ office.name }}</h3>
-          {{ partial('clinic/status') }}   
+          {{ partial('clinic/status') }}
       </div>
 
       <div class="title_right">
@@ -129,9 +129,9 @@
                         </tr>
                         <tr>
                             <td width="30%">โรงพยาบาลเอกชน </td>
-                            <td width="20%">จำนวน <a href="#" id="no5_1_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_1}}</a> แห่ง</td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_4_1" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_4_1}}</a> แห่ง</td>
                             <td width="30%">เตียงคนไข้ </td>
-                            <td width="20%">จำนวน <a href="#" id="no5_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_3_2}}</a> คน</td>
+                            <td width="20%">จำนวน <a href="#" id="no5_1_4_2" data-type="text" data-pk="1" data-title="Enter username">{{no5_1_4_2}}</a> คน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -426,7 +426,7 @@
                             <div class="text-center">
                               <h2><i class="fa fa-user"></i> ผู้สำรวจ<span>
                                   <a id="signing_surveyor"  data-type="text" data-pk="1" data-title="Enter username">{{signing_surveyor}}</a>
-                                  </span>, 
+                                  </span>,
                                   <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
                                   <a id="surveyor_phone"  data-type="text" data-pk="1" data-title="Enter username">{{surveyor_phone}}</a>
                                   </span>
@@ -531,10 +531,10 @@
                               <pre class="excerpt">{{ comment.description }}
                               </pre>
                               <div {% if comment.status==1%}class="alert alert-warning alert-dismissible fade in" role="alert"{% endif %}>
-                                <div id="note_comment_{{ comment.id }}" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{ comment.reply }}</div>                                          
+                                <div id="note_comment_{{ comment.id }}" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{ comment.reply }}</div>
                               </div>
                               {% if comment.status==1 and comment.isReplyComment(user) %}
-                                <a href="#" id="pencil_comment_{{ comment.id }}"><i class="fa fa-pencil"></i> [ตอบกลับข้อคิดเห็น]</a> 
+                                <a href="#" id="pencil_comment_{{ comment.id }}"><i class="fa fa-pencil"></i> [ตอบกลับข้อคิดเห็น]</a>
                               {% endif %}
                               <br />
                               <div class="ln_solid"></div>
@@ -578,14 +578,14 @@
   <link href="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
   <script src="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
-  <!-- wysihtml5 -->      
-  <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">  
-  <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
+  <!-- wysihtml5 -->
+  <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
+  <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>
   <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
   <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
 
   <!-- input-x -->
-  <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.css rel="stylesheet">  
+  <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.css rel="stylesheet">
   <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.js"></script>
 
   <!-- Select2 -->

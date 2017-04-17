@@ -113,15 +113,15 @@ class FormController extends Controller
         $approverApprover = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(1)));
         $approverAdmin = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(2)));
 
-        if($this->user->role=="cc-user"){            
+        if($this->user->role=="cc-user"){
             if(in_array($approverApprover->status, array(3))){
                 $this->assets->collection('modules-clinic-no'.$id.'-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
             }
-        }elseif($this->user->role=="cc-admin"){                        
-            if( $approverApprover == null || $approverApprover->status != 3 || 
-                in_array($approverAdmin->status, array(3)) && 
+        }elseif($this->user->role=="cc-admin"){
+            if( $approverApprover == null || $approverApprover->status != 3 ||
+                in_array($approverAdmin->status, array(3)) &&
                 in_array($this->discoverySurvey->status , array(0,1,3))
             ){
                 $this->assets->collection('modules-clinic-no'.$id.'-js')
@@ -412,7 +412,7 @@ class FormController extends Controller
     }
     public function getCommenting($groupSession){
         $result = $this->modelsManager->executeQuery(
-            "SELECT sg.id, count(c.id) as c FROM Clinic\Model\Session s, Clinic\Model\GroupSession sg, Clinic\Model\Comment c 
+            "SELECT sg.id, count(c.id) as c FROM Clinic\Model\Session s, Clinic\Model\GroupSession sg, Clinic\Model\Comment c
                 WHERE c.status = 1 and sg.id = s.group_session_id and s.id = c.sessionid and sg.id = ?0 and c.discovery_surveyid = ?1",
             [
                 0 => $groupSession,
@@ -436,7 +436,7 @@ class FormController extends Controller
     public function no1Action(){
         if(in_array($this->user->role, ['cc-admin','cc-approver']))
             return $this->redirect($this->url->get() . 'clinic/review/no1');
-        // no1 JS Assets        
+        // no1 JS Assets
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
@@ -444,7 +444,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no1.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
-        
+
 
         $this->disabledInput(1);
 
@@ -678,7 +678,7 @@ class FormController extends Controller
                 $this->discoverySurvey->signing_surveyor = null;//$surveyor;
                 $this->discoverySurvey->save();
                 echo 'ok';
-                
+
             }else if($surveyor != ''){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                 $discoverySurvey->signing_surveyor = $surveyor;
@@ -693,7 +693,7 @@ class FormController extends Controller
                 $this->discoverySurvey->surveyor_phone = null;//$surveyor;
                 $this->discoverySurvey->save();
                 echo 'ok';
-                
+
             }else if($phone != ''){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                 $discoverySurvey->surveyor_phone = $phone;
@@ -1218,14 +1218,14 @@ class FormController extends Controller
 
                 $surveyor = $this->request->getPost("signing_surveyor");
                 $this->updateSurveyor($surveyor);
-                
+
                 $status = $this->request->getPost("no1_finish");
                 if($status != ""){
                     $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                     $discoverySurvey->status = 2;
                     $discoverySurvey->save();
                     echo 'ok';
-                }          
+                }
           }
           else {
                 $this->createViewNo3();
@@ -2925,6 +2925,11 @@ class FormController extends Controller
             $this->updateAnswer($option, 192, $answer, $user->officeid,  $this->discovery_surveyid);
             $answer = $this->request->getPost("no5_1_3_2");
             $this->updateAnswer($option, 193, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no5_1_4_1");
+            $this->updateAnswer($option, 501, $answer, $user->officeid,  $this->discovery_surveyid);
+            $answer = $this->request->getPost("no5_1_4_2");
+            $this->updateAnswer($option, 502, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $answer = $this->request->getPost("no5_2");
             $this->updateAnswer($option, 194, $answer, $user->officeid,  $this->discovery_surveyid);
