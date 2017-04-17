@@ -64,7 +64,7 @@
                 rules: [
                     {
                         type: 'empty',
-                        prompt : 'Please enter your title'
+                        prompt : 'โปรดกำหนดหัวข้อ (Title)'
                     }
                 ]
             }
@@ -75,7 +75,7 @@
                 rules: [
                     {
                         type: 'empty',
-                        prompt : 'Please enter your image'
+                        prompt : 'โปรดเลือกรูปภาพ (Thumbnail Image)'
                     }
                 ]
 
