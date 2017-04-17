@@ -226,7 +226,18 @@
           <a href="#" id="no2_3_5" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_5}}</a>
         </td>
         <td>
-          แหง
+          แห่ง
+        </td>
+      </tr>
+      <tr>
+        <td>
+        ระบบเสียงตามสาย/หอกระจายข่าวในพื้นที่
+        </td>
+        <td>
+          <a href="#" id="no2_3_8" data-type="text" data-pk="1" data-title="Enter username">{{no2_3_8}}</a>
+        </td>
+        <td>
+          แห่ง
         </td>
       </tr>
       <tr>

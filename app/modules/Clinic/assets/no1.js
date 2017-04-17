@@ -68,13 +68,17 @@ $(document).ready(function() {
   $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   var rai = parseFloat($("#no1_1_2").val()).toFixed(2);
   $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  //ใส่ format
+  $("#no1_2_1_1").html($("#no1_2_1_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  //ใส่ format
+  $("#no1_2_1_2").html($("#no1_2_1_2").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
 
   $(".select2_single").select2({
     placeholder: "Select a state",
     allowClear: true
   });
   $(".select2_group").select2({});
-  // no1_1_3_1
+
   $("#btnFinish").on('click', function(){
     $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
     $.ajax({
@@ -221,9 +225,11 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR)
                 {
                     if(name == 'no1_2_2_1' || name == 'no1_2_3_1' || name == 'no1_2_4_1' || name == 'no1_2_5_1')
-                    callPopulationMale();
+                      callPopulationMale();
                     else if (name == 'no1_2_2_2' || name == 'no1_2_3_2' || name == 'no1_2_4_2' || name == 'no1_2_5_2')
-                    callPopulationFemale();
+                      callPopulationFemale();
+                    else if (name == 'no1_2_6_1' || name == 'no1_2_7_1' || name == 'no1_2_8_1')
+                      callDensity();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
@@ -237,6 +243,12 @@ $(document).ready(function() {
                 data : dataStringDelete,
                 success: function(data, textStatus, jqXHR)
                 {
+                    if(name == 'no1_2_2_1' || name == 'no1_2_3_1' || name == 'no1_2_4_1' || name == 'no1_2_5_1')
+                      callPopulationMale();
+                    else if (name == 'no1_2_2_2' || name == 'no1_2_3_2' || name == 'no1_2_4_2' || name == 'no1_2_5_2')
+                      callPopulationFemale();
+                    else if (name == 'no1_2_6_1' || name == 'no1_2_7_1' || name == 'no1_2_8_1')
+                      callDensity();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
@@ -313,14 +325,14 @@ $(document).ready(function() {
         if(!a2) a2="0";
           var rea1 = a1.replace(/,/g,"");
           var rea2 = a2.replace(/,/g,"");
-          var sume = parseFloat(rea1) + parseFloat(rea2)
-          var sumee = sume.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+          var sum_all = parseInt(rea1) + parseInt(rea2)
+          var sumee = sum_all.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
           $('#no1_2_1').html(sumee);
           $.ajax({
               url : "/clinic/form/no1",
               type: "POST",
               data : {
-                no1_2_1:sumee,
+                no1_2_1:sum_all,
                 option:'add'
               },
               success: function(data, textStatus, jqXHR)
@@ -346,23 +358,23 @@ $(document).ready(function() {
     var ic4 = $('#no1_2_5_1').text();
     if(ic4==''||ic4=='Empty')
       ic4=0;
-      if(!ic1) ic1="0";
-      if(!ic2) ic2="0";
-      if(!ic3) ic3="0";
-      if(!ic4) ic4="0";
-      var ic1 = ic1.replace(/,/g,"");
-      var ic2 = ic2.replace(/,/g,"");
-      var ic3 = ic3.replace(/,/g,"");
-      var ic4 = ic4.replace(/,/g,"");
-    var sumd = parseFloat(ic1) + parseFloat(ic2) + parseFloat(ic3) + parseFloat(ic4);
-      sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
-    var sums = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-    $('#no1_2_1_1').html(sums);
+    if(!ic1) ic1="0";
+    if(!ic2) ic2="0";
+    if(!ic3) ic3="0";
+    if(!ic4) ic4="0";
+    var ic1 = ic1.replace(/,/g,"");
+    var ic2 = ic2.replace(/,/g,"");
+    var ic3 = ic3.replace(/,/g,"");
+    var ic4 = ic4.replace(/,/g,"");
+    var sum_integer = parseInt(ic1) + parseInt(ic2) + parseInt(ic3) + parseInt(ic4);
+    //sumd = parseFloat(Math.round(sum_integer * 100) / 100).toFixed(2);
+    var sum_numberformat = sum_integer.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    $('#no1_2_1_1').html(sum_numberformat);
     $.ajax({
         url : "/clinic/form/no1",
         type: "POST",
         data : {
-          no1_2_1_1:sums,
+          no1_2_1_1:sum_integer,
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
@@ -396,27 +408,27 @@ $(document).ready(function() {
       var id2 = id2.replace(/,/g,"");
       var id3 = id3.replace(/,/g,"");
       var id4 = id4.replace(/,/g,"");
-    var sumd = parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4);
-      sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
-    var sumg = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-    $('#no1_2_1_2').html(sumg);
+      var sum_interger = parseInt(id1) + parseInt(id2) + parseInt(id3) + parseInt(id4);
+      //sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
+      var sum_numberformat = sum_interger.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+      $('#no1_2_1_2').html(sum_numberformat);
 
-    $.ajax({
-        url : "/clinic/form/no1",
-        type: "POST",
-        data : {
-          no1_2_1_2:sumd,
-          option:'add'
-        },
-        success: function(data, textStatus, jqXHR)
-        {
-            callPopulationAll();
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
+      $.ajax({
+          url : "/clinic/form/no1",
+          type: "POST",
+          data : {
+            no1_2_1_2:sum_interger,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+              callPopulationAll();
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
 
-        }
-    });
+          }
+      });
 
   }
   callPopulationAll();
@@ -434,8 +446,7 @@ $(document).ready(function() {
     var id4 = $('#no1_2_8_1').text();
     if(id4==''||id4=='Empty')
       id4=0;
-    var id5 = $('#no1_1_2').val();
-
+      var id5 = $('#area-kgm').val();
       if(id5==''||id5=='Empty')
         id5=0;
 
@@ -450,27 +461,29 @@ $(document).ready(function() {
       var id4 = id4.replace(/,/g,"");
       var id5 = id5.replace(/,/g,"");
 
-    var sumd = (parseFloat(id1) + parseFloat(id2) + parseFloat(id3) + parseFloat(id4)) / (parseFloat(id5)/625);
-    sumd = parseFloat(Math.round(sumd * 100) / 100).toFixed(2);
-    var sumg = sumd.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-    $('#no1_2_9').html(sumg);
+      var sum_float = (parseInt(id1) + parseInt(id2) + parseInt(id3) + parseInt(id4)) / (parseFloat(id5));
+      //2000 10 ตร.กม.
+      //2000 / 1 =  
+      sum_float = parseFloat(Math.round(sum_float * 100) / 100).toFixed(2);
+      var sum_numberformat = sum_float.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+      $('#no1_2_9').html(sum_numberformat);
 
-    $.ajax({
-        url : "/clinic/form/no1",
-        type: "POST",
-        data : {
-          no1_2_9:sumg,
-          option:'add'
-        },
-        success: function(data, textStatus, jqXHR)
-        {
-          //callDensity();
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
+      $.ajax({
+          url : "/clinic/form/no1",
+          type: "POST",
+          data : {
+            no1_2_9:sum_float,
+            option:'add'
+          },
+          success: function(data, textStatus, jqXHR)
+          {
+            //callDensity();
+          },
+          error: function (jqXHR, textStatus, errorThrown)
+          {
 
-        }
-    });
+          }
+      });
 
   }
   callDensity();

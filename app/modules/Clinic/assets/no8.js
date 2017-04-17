@@ -29,10 +29,11 @@ $(document).ready(function() {
     Process('no8_7_15','no8','editable',true);
     Process('no8_7_16','no8','editable',true);
     Process('no8_7_17_1_2','no8','editable',true);
+    Process('no8_7_17_2_2','no8','editable',true);    
     Process('no8_7_19','no8','editable',true);
     Process('no8_7_20','no8','editable',true);
-    Process('signing_surveyor','no1','editable',true);
-    Process('surveyor_phone','no1','editable',true);
+    Process('signing_surveyor','no1','editable',false);
+    Process('surveyor_phone','no1','editable',false);
 
     //input blur
     Process('no8_2_1_1','no8','blur',true);
@@ -65,6 +66,17 @@ $(document).ready(function() {
     Process('no8_4_18','no8','blur',true);
     Process('no8_4_19','no8','blur',true);
     Process('no8_4_20','no8','blur',true);
+    Process('no8_4_21','no8','blur',true);
+    Process('no8_4_22','no8','blur',true);
+    Process('no8_4_23','no8','blur',true);
+    Process('no8_4_24','no8','blur',true);
+    Process('no8_4_25','no8','blur',true);
+    Process('no8_4_26','no8','blur',true);
+    Process('no8_4_27','no8','blur',true);
+    Process('no8_4_28','no8','blur',true);
+    Process('no8_4_29','no8','blur',true);
+    Process('no8_4_30','no8','blur',true);
+
     Process('no8_5_2_2','no8','blur',true);
     Process('no8_5_2_3','no8','blur',true);
     Process('no8_6_2_1','no8','blur',true);
@@ -141,20 +153,38 @@ $(document).ready(function() {
               dataString={};
               dataString[name]=this.value;
               dataString['option']='add';
+              if(this.value == ""){
+                dataString={};
+                dataString[name]='delete';
+                dataString['option']='delete';
+                $.ajax({
+                    url : "/clinic/form/"+path,
+                    type: "POST",
+                    data : dataString,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        //data - response from server
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-              $.ajax({
-                  url : "/clinic/form/"+path,
-                  type: "POST",
-                  data : dataString,
-                  success: function(data, textStatus, jqXHR)
-                  {
-                      //data - response from server
-                  },
-                  error: function (jqXHR, textStatus, errorThrown)
-                  {
+                    }
+                });
+              }else{
+                $.ajax({
+                    url : "/clinic/form/"+path,
+                    type: "POST",
+                    data : dataString,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        //data - response from server
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-                  }
-              });
+                    }
+                });
+              }
             });
           }
         }

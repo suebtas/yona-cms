@@ -31,6 +31,7 @@
     <!--end controls-->
 
     <div class="ui segment">
+        <div class="ui error message"></div>
         {% if form is not empty %}
         <div class="ui grid">
             <div class="twelve wide column">
@@ -61,9 +62,26 @@
             title: {
                 identifier: 'title',
                 rules: [
-                    {type: 'empty'}
+                    {
+                        type: 'empty',
+                        prompt : 'โปรดกำหนดหัวข้อ (Title)'
+                    }
                 ]
             }
+            {% if model is not empty and model.getId() is empty %}
+            ,
+            preview_src:{
+                identifier: 'preview_src',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt : 'โปรดเลือกรูปภาพ (Thumbnail Image)'
+                    }
+                ]
+
+            }
+            {% endif %}
+            
         }
     });
 </script><!--/end ui semantic-->

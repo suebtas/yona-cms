@@ -186,7 +186,7 @@
         <table class="table table-striped table-bordered">
           <thead>
             <th colspan="3">
-              <center>สถานประกอบเทศพาณิชย์ ์</center>
+              <center>สถานประกอบเทศพาณิชย์</center>
             </th>
           </thead>
           <tr>

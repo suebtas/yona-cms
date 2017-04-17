@@ -142,6 +142,17 @@
                         
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-12 col-sm-3 col-xs-12">
+                            <h2><label for="lbl" class="control-label">ข้อความเตือน</label></h2>
+                        </div>
+                    </td>
+                    <td><textarea rows="5" cols="50" id="message" class="form-control col-md-2 col-xs-6">{{message}}</textarea></td>
+                    <td>
+                        
+                    </td>
+                </tr>
             </tbody>
         </table>
 

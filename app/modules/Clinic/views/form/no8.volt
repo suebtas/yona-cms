@@ -227,78 +227,98 @@
                   <table id="user" class="table table-bordered table-striped" style="clear: both" style="margin-top:1%">
                     <thead>
                       <tr>
-                        <th colspan="4">ธรรมชาติ</th>
+                        <th colspan="6">ธรรมชาติ</th>
                       </tr>
                     </thead>
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="40%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-6" tabindex="2" value={{no8_4_1}}></td>
+                          <td width="25%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-4" tabindex="2" value={{no8_4_1}}></td>
                           <td width="5%">6.</td>
-                          <td width="40%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-6" tabindex="7" value={{no8_4_6}}></td>
+                          <td width="25%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-4" tabindex="7" value={{no8_4_6}}></td>
+                          <td width="5%">11.</td>
+                          <td width="25%"><input type="text" id="no8_4_21" required="required" class="form-control col-md-4 col-xs-4" tabindex="12" value={{no8_4_21}}></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="40%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-6" tabindex="3" value={{no8_4_2}}></td>
+                          <td width="25%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-4" tabindex="3" value={{no8_4_2}}></td>
                           <td width="5%">7.</td>
-                          <td width="40%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-6" tabindex="8" value={{no8_4_7}}></td>
+                          <td width="25%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-4" tabindex="8" value={{no8_4_7}}></td>
+                          <td width="5%">12.</td>
+                          <td width="25%"><input type="text" id="no8_4_22" required="required" class="form-control col-md-4 col-xs-4" tabindex="13" value={{no8_4_22}}></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="40%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-6" tabindex="4" value={{no8_4_3}}></td>
+                          <td width="25%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-4" tabindex="4" value={{no8_4_3}}></td>
                           <td width="5%">8.</td>
-                          <td width="40%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-6" tabindex="9" value={{no8_4_8}}></td>
+                          <td width="25%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-4" tabindex="9" value={{no8_4_8}}></td>
+                          <td width="5%">13.</td>
+                          <td width="25%"><input type="text" id="no8_4_23" required="required" class="form-control col-md-4 col-xs-4" tabindex="14" value={{no8_4_23}}></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="40%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-6" tabindex="5" value={{no8_4_4}}></td>
+                          <td width="25%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-4" tabindex="5" value={{no8_4_4}}></td>
                           <td width="5%">9.</td>
-                          <td width="40%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-6" tabindex="10" value={{no8_4_9}}></td>
+                          <td width="25%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-4" tabindex="10" value={{no8_4_9}}></td>
+                          <td width="5%">14.</td>
+                          <td width="25%"><input type="text" id="no8_4_24" required="required" class="form-control col-md-4 col-xs-4" tabindex="15" value={{no8_4_24}}></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="40%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-6" tabindex="6" value={{no8_4_5}}></td>
+                          <td width="25%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-4" tabindex="6" value={{no8_4_5}}></td>
                           <td width="5%">10.</td>
-                          <td width="40%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-6" tabindex="11" value={{no8_4_10}}></td>
+                          <td width="25%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-4" tabindex="11" value={{no8_4_10}}></td>
+                          <td width="5%">15.</td>
+                          <td width="25%"><input type="text" id="no8_4_25" required="required" class="form-control col-md-4 col-xs-4" tabindex="16" value={{no8_4_25}}></td>
                         </tr>
                     </tbody>
                   </table>
                   <table id="user" class="table table-bordered table-striped" style="clear: both" style="margin-top:1%">
                     <thead>
                       <tr>
-                        <th colspan="4">ที่มนุษย์สร้างขึ้น</th>
+                        <th colspan="6">ที่มนุษย์สร้างขึ้น</th>
                       </tr>
                     </thead>
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="40%"><input type="text" id="no8_4_11" required="required" class="form-control col-md-4 col-xs-6" tabindex="2" value={{no8_4_11}}></td>
+                          <td width="25%"><input type="text" id="no8_4_11" required="required" class="form-control col-md-4 col-xs-4" tabindex="17" value={{no8_4_11}}></td>
                           <td width="5%">6.</td>
-                          <td width="40%"><input type="text" id="no8_4_16" required="required" class="form-control col-md-4 col-xs-6" tabindex="7" value={{no8_4_16}}></td>
+                          <td width="25%"><input type="text" id="no8_4_16" required="required" class="form-control col-md-4 col-xs-4" tabindex="22" value={{no8_4_16}}></td>
+                          <td width="5%">11.</td>
+                          <td width="25%"><input type="text" id="no8_4_26" required="required" class="form-control col-md-4 col-xs-4" tabindex="27" value={{no8_4_26}}></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="40%"><input type="text" id="no8_4_12" required="required" class="form-control col-md-4 col-xs-6" tabindex="3" value={{no8_4_12}}></td>
+                          <td width="25%"><input type="text" id="no8_4_12" required="required" class="form-control col-md-4 col-xs-4" tabindex="18" value={{no8_4_12}}></td>
                           <td width="5%">7.</td>
-                          <td width="40%"><input type="text" id="no8_4_17" required="required" class="form-control col-md-4 col-xs-6" tabindex="8" value={{no8_4_17}}></td>
+                          <td width="25%"><input type="text" id="no8_4_17" required="required" class="form-control col-md-4 col-xs-4" tabindex="23" value={{no8_4_17}}></td>
+                          <td width="5%">12.</td>
+                          <td width="25%"><input type="text" id="no8_4_27" required="required" class="form-control col-md-4 col-xs-4" tabindex="28" value={{no8_4_27}}></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="40%"><input type="text" id="no8_4_13" required="required" class="form-control col-md-4 col-xs-6" tabindex="4" value={{no8_4_13}}></td>
+                          <td width="25%"><input type="text" id="no8_4_13" required="required" class="form-control col-md-4 col-xs-4" tabindex="19" value={{no8_4_13}}></td>
                           <td width="5%">8.</td>
-                          <td width="40%"><input type="text" id="no8_4_18" required="required" class="form-control col-md-4 col-xs-6" tabindex="9" value={{no8_4_18}}></td>
+                          <td width="25%"><input type="text" id="no8_4_18" required="required" class="form-control col-md-4 col-xs-4" tabindex="24" value={{no8_4_18}}></td>
+                          <td width="5%">13.</td>
+                          <td width="25%"><input type="text" id="no8_4_28" required="required" class="form-control col-md-4 col-xs-4" tabindex="29" value={{no8_4_28}}></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="40%"><input type="text" id="no8_4_14" required="required" class="form-control col-md-4 col-xs-6" tabindex="5" value={{no8_4_14}}></td>
+                          <td width="25%"><input type="text" id="no8_4_14" required="required" class="form-control col-md-4 col-xs-4" tabindex="20" value={{no8_4_14}}></td>
                           <td width="5%">9.</td>
-                          <td width="40%"><input type="text" id="no8_4_19" required="required" class="form-control col-md-4 col-xs-6" tabindex="10" value={{no8_4_19}}></td>
+                          <td width="25%"><input type="text" id="no8_4_19" required="required" class="form-control col-md-4 col-xs-4" tabindex="25" value={{no8_4_19}}></td>
+                          <td width="5%">14.</td>
+                          <td width="25%"><input type="text" id="no8_4_29" required="required" class="form-control col-md-4 col-xs-4" tabindex="30" value={{no8_4_29}}></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="40%"><input type="text" id="no8_4_15" required="required" class="form-control col-md-4 col-xs-6" tabindex="6" value={{no8_4_15}}></td>
+                          <td width="25%"><input type="text" id="no8_4_15" required="required" class="form-control col-md-4 col-xs-4" tabindex="21" value={{no8_4_15}}></td>
                           <td width="5%">10.</td>
-                          <td width="40%"><input type="text" id="no8_4_20" required="required" class="form-control col-md-4 col-xs-6" tabindex="11" value={{no8_4_20}}></td>
+                          <td width="25%"><input type="text" id="no8_4_20" required="required" class="form-control col-md-4 col-xs-4" tabindex="26" value={{no8_4_20}}></td>
+                          <td width="5%">15.</td>
+                          <td width="25%"><input type="text" id="no8_4_30" required="required" class="form-control col-md-4 col-xs-4" tabindex="31" value={{no8_4_30}}></td>
                         </tr>
                     </tbody>
                   </table>
@@ -513,7 +533,7 @@
 
                         <tr>
                             <td width="40%">รถเก็บขนขยะ ขนาดความจุ </td>
-                            <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a></td>
+                            <td width="30%"><a href="#" id="no8_7_3" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_3}}</a> ตัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ได้มาเมื่อ พ.ศ.  </td>
@@ -521,11 +541,11 @@
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่เก็บขนได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="no8_7_5" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_5}}</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_5" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_5}}</a> ตัน/วัน</td>
                         </tr>
                         <tr>
                             <td width="40%">ขยะที่กำจัดได้ จำนวน </td>
-                            <td width="30%"><a href="#" id="no8_7_6" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_6}}</a> ลบ.ม./วัน</td>
+                            <td width="30%"><a href="#" id="no8_7_6" data-type="text" data-pk="1" data-title="Enter username">{{no8_7_6}}</a> ตัน/วัน</td>
                         </tr>
                     </tbody>
                   </table>
@@ -915,7 +935,7 @@
   <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
   <!-- jQuery Smart Wizard -->
   <script>
-  $('body').on('keydown', 'input, select, textarea', function(e) {
+  $('body').on('keydown', 'input, select', function(e) {
   var self = $(this)
     , form = self.parents('form:eq(0)')
     , focusable

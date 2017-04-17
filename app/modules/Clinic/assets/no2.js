@@ -28,6 +28,7 @@ $(document).ready(function() {
     Process('no2_3_5','no2','editable',true);
     Process('no2_3_6','no2','editable',true);
     Process('no2_3_7','no2','editable',true);
+    Process('no2_3_8','no2','editable',true);
 
     Process('no2_4_1','no2','editable',true);
     Process('no2_4_2','no2','editable',true);
@@ -75,7 +76,7 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR)
                 {
                     if(name == 'no2_5_1' || name == 'no2_5_2' || name == 'no2_5_3' || name == 'no2_5_4' || name == 'no2_5_5' || name == 'no2_5_6' || name == 'no2_5_7')
-                    CalAllArea();
+                      CalAllArea();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {
@@ -89,6 +90,8 @@ $(document).ready(function() {
                 data : dataStringDelete,
                 success: function(data, textStatus, jqXHR)
                 {
+                  if(name == 'no2_5_1' || name == 'no2_5_2' || name == 'no2_5_3' || name == 'no2_5_4' || name == 'no2_5_5' || name == 'no2_5_6' || name == 'no2_5_7')
+                      CalAllArea();
                 },
                 error: function (jqXHR, textStatus, errorThrown)
                 {

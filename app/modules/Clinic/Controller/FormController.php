@@ -186,6 +186,14 @@ class FormController extends Controller
             }
       }
     }
+    function toformatNumber2($number)
+    {
+        $number = str_replace(",", "", $number);
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 0, ".",",");;
+    }
     public function createViewNo1(){
         $form = new No1Form();
 
@@ -207,13 +215,13 @@ class FormController extends Controller
                                  "bind"=>array(
                                      1=>7,
                                      2=>$this->discovery_surveyid)))->answer;
-             $this->view->no1_2_1_1 = $no1_2_1_1;
+             $this->view->no1_2_1_1 = $this->toformatNumber2($no1_2_1_1);
             $no1_2_1_2 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
                                 "bind"=>array(
                                     1=>8,
                                     2=>$this->discovery_surveyid)))->answer;
-            $this->view->no1_2_1_2 = $no1_2_1_2;
+            $this->view->no1_2_1_2 = $this->toformatNumber2($no1_2_1_2);
 
             $no1_2_2_1 = Answer::findFirst(
                             array("questionid=?1 and discovery_surveyid=?2",
@@ -829,6 +837,12 @@ class FormController extends Controller
                               1=>44,
                               2=>$this->discovery_surveyid)))->answer;
         $this->view->no2_3_7 = $no2_3_7;
+        $no2_3_8= Answer::findFirst(
+                      array("questionid=?1 and discovery_surveyid=?2",
+                          "bind"=>array(
+                              1=>554,
+                              2=>$this->discovery_surveyid)))->answer;
+        $this->view->no2_3_8 = $no2_3_8;
         $no2_4_1= Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
@@ -965,6 +979,8 @@ class FormController extends Controller
                 $this->updateAnswer($option, 43, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no2_3_7");
                 $this->updateAnswer($option, 44, $answer, $user->officeid,  $this->discovery_surveyid);
+                $answer = $this->request->getPost("no2_3_8");
+                $this->updateAnswer($option, 554, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no2_4_1");
                 $this->updateAnswer($option, 45, $answer, $user->officeid,  $this->discovery_surveyid);
                 $answer = $this->request->getPost("no2_4_2");
@@ -4944,6 +4960,76 @@ class FormController extends Controller
                       2=>$this->discovery_surveyid)))->answer;
       $this->view->no8_4_20 = $no8_4_20;
 
+      $no8_4_21 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>555,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_21 = $no8_4_21;
+
+      $no8_4_22 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>556,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_22 = $no8_4_22;
+
+      $no8_4_23 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>557,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_23 = $no8_4_23;
+
+      $no8_4_24 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>558,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_24 = $no8_4_24;
+
+      $no8_4_25 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>559,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_25 = $no8_4_25;
+
+      $no8_4_26 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>560,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_26 = $no8_4_26;
+
+      $no8_4_27 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>561,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_27 = $no8_4_27;
+
+      $no8_4_28 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>562,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_28 = $no8_4_28;
+
+      $no8_4_29 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>563,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_29 = $no8_4_29;
+
+      $no8_4_30 = Answer::findFirst(
+              array("questionid=?1 and discovery_surveyid=?2",
+                  "bind"=>array(
+                      1=>564,
+                      2=>$this->discovery_surveyid)))->answer;
+      $this->view->no8_4_30 = $no8_4_30;
+
       $no8_5_1 = Answer::findFirst(
               array("questionid=?1 and discovery_surveyid=?2",
                   "bind"=>array(
@@ -5323,6 +5409,36 @@ class FormController extends Controller
             $answer = $this->request->getPost("no8_4_20");
             $this->updateAnswer($option, 552, $answer, $user->officeid,  $this->discovery_surveyid);
 
+            $answer = $this->request->getPost("no8_4_21");
+            $this->updateAnswer($option, 555, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_22");
+            $this->updateAnswer($option, 556, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_23");
+            $this->updateAnswer($option, 557, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_24");
+            $this->updateAnswer($option, 558, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_25");
+            $this->updateAnswer($option, 559, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_26");
+            $this->updateAnswer($option, 560, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_27");
+            $this->updateAnswer($option, 561, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_28");
+            $this->updateAnswer($option, 562, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_29");
+            $this->updateAnswer($option, 563, $answer, $user->officeid,  $this->discovery_surveyid);
+
+            $answer = $this->request->getPost("no8_4_30");
+            $this->updateAnswer($option, 564, $answer, $user->officeid,  $this->discovery_surveyid);
+
             //no8_5
             $answer = $this->request->getPost("no8_5_1");
             $this->updateAnswer($option, 338, $answer, $user->officeid,  $this->discovery_surveyid);
@@ -5466,11 +5582,11 @@ class FormController extends Controller
                                 2=>$this->discovery_surveyid)));
         $no9_3_1_1 = $answer9_3_1_1->answer;
         $year = split("/", $this->discoverySurvey->Survey->no);
-        $year1 = $year[1];
-        $year2 = $year[1]-1;
-        $year3 = $year[1]-2;
-        $year4 = $year[1]-3;
-        $year5 = $year[1]-4;
+        $year1 = $year[1]+1;
+        $year2 = $year[1];
+        $year3 = $year[1]-1;
+        $year4 = $year[1]-2;
+        $year5 = $year[1]-3;
 
         if($no9_3_1_1 != null)
             $this->view->no9_3_1_1 = $no9_3_1_1;
