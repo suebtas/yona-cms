@@ -29,7 +29,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-trophy"></i> <span>Clinic Center</span></a>
+              <a href="/index.html" class="site_title"><i class="fa fa-trophy"></i> <span>Clinic Center</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -97,7 +97,7 @@
                       <li><a href="morisjs.html">เปรียบเทียบข้อมูล</a></li>
                     </ul>
                   </li>
-                  
+
                   <li><a><i class="fa fa-print"></i>ออกรายงานและส่งออกข้อมูล<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">ออกรายงานประจำปี</a></li>
@@ -109,12 +109,12 @@
                   -->
                   {% if user.role=='cc-admin' %}
                   <li><a><i class="fa fa-area-chart"></i>วิเคราะห์ข้อมูล<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu"> 
+                    <ul class="nav child_menu">
                       <li><a href="{{ url.get() }}clinic/dataanaly">ประมวลผลข้อมูล</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-list-alt"></i>รายงาน<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu"> 
+                    <ul class="nav child_menu">
                       <li><a href="{{ url.get() }}printfile/index/user">รายงานผู้ใช้ระบบ</a></li>
                       <li><a href="{{ url.get() }}printfile/index/report">รายงานประจำปี</a></li>
                       <li><a href="{{ url.get() }}printfile/index/surveystatus">รายงานสถานะการกรอกข้อมูล</a></li>
@@ -134,17 +134,17 @@
 
 
                   <li><a><i class="fa fa-bullhorn"></i>แจ้งเตือนข่าวสาร<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu"> 
+                    <ul class="nav child_menu">
                     {% if user.role=='cc-admin' %}
                       <li><a href="{{ url.get() }}clinic/news">ส่งข่าวสาร</a></li>
                     {% endif %}
                       <li><a href="{{ url.get() }}clinic/news/check">สถานะการรับข่าวสาร</a></li>
-                    
+
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-object-group"></i>Website<span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu"> 
+                    <ul class="nav child_menu">
                       <li><a href="{{ url.get() }}clinic/forum">กระทู้</a></li>
                       {% if user.role=='cc-admin' OR user.role=='admin' %}
                         <li><a href="{{ url.get() }}clinic/message">ข้อความ</a></li>
@@ -153,13 +153,13 @@
                   </li>
                 </ul>
               </div>
-              
+
             </div>
             <!-- /sidebar menu -->
             {% if user.role=='cc-admin' %}
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              {{ link_to("admin/index", '<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>',"data-toggle":"tooltip","data-placement":"top","title":"Settings") }} 
+              {{ link_to("admin/index", '<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>',"data-toggle":"tooltip","data-placement":"top","title":"Settings") }}
               <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Logout" onclick="document.getElementById('logout-form').submit()">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                </a>
@@ -273,7 +273,7 @@
         <!-- page content -->
 
             {{ content() }}
-                    
+
         <!-- /page content -->
 
         <!-- footer content -->
@@ -288,6 +288,6 @@
     </div>
 
 
-    
+
   </body>
 </html>
