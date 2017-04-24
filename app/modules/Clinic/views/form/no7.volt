@@ -3,7 +3,7 @@
     <div class="page-title">
       <div class="title_left">
         <h3>{{ office.name }}</h3>
-        {{ partial('clinic/status') }}   
+        {{ partial('clinic/status') }}
       </div>
 
       <div class="title_right">
@@ -1008,7 +1008,7 @@
                                     <div class="text-center">
                                       <h2><i class="fa fa-user"></i> ผู้สำรวจ<span>
                                           <a id="signing_surveyor"  data-type="text" data-pk="1" data-title="Enter username">{{signing_surveyor}}</a>
-                                          </span>, 
+                                          </span>,
                                           <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
                                           <a id="surveyor_phone"  data-type="text" data-pk="1" data-title="Enter username">{{surveyor_phone}}</a>
                                           </span>
@@ -1113,10 +1113,10 @@
                                         <pre class="excerpt">{{ comment.description }}
                                         </pre>
                                         <div {% if comment.status==1%}class="alert alert-warning alert-dismissible fade in" role="alert"{% endif %}>
-                                            <div id="note_comment_{{ comment.id }}" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{ comment.reply }}</div>                                          
+                                            <div id="note_comment_{{ comment.id }}" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{ comment.reply }}</div>
                                         </div>
                                         {% if comment.status==1 and comment.isReplyComment(user) %}
-                                           <a href="#" id="pencil_comment_{{ comment.id }}"><i class="fa fa-pencil"></i> [ตอบกลับข้อคิดเห็น]</a> 
+                                           <a href="#" id="pencil_comment_{{ comment.id }}"><i class="fa fa-pencil"></i> [ตอบกลับข้อคิดเห็น]</a>
                                         {% endif %}
                                         <br />
                                         <div class="ln_solid"></div>
@@ -1144,6 +1144,7 @@
                   </div>
                     <!-- jQuery -->
                     <script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
+                    <script src="{{ url.path() }}clinic/js/process.js"></script>
                     <!-- Bootstrap -->
                     <script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
                     <!-- FastClick -->
@@ -1162,21 +1163,21 @@
                     <link href="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
                     <script src="{{ url.path() }}clinic/vendors/x-editable/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
-                    <!-- wysihtml5 -->      
-                    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">  
-                    <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
+                    <!-- wysihtml5 -->
+                    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet">
+                    <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>
                     <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
                     <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>
 
                     <!-- input-x -->
-                    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.css rel="stylesheet">  
+                    <link href="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.css rel="stylesheet">
                     <script src="{{ url.path() }}clinic/vendors/x-editable/inputs-ext/address/address.js"></script>
 
                     <!-- Select2 -->
                     <script src="{{ url.path() }}clinic/vendors/select2/dist/js/select2.full.min.js"></script>
                     <!-- jQuery Smart Wizard -->
                     <script>
-                    $('body').on('keydown', 'input, select, textarea', function(e) {
+                    $('body').on('keydown', 'input, select', function(e) {
                     var self = $(this)
                       , form = self.parents('form:eq(0)')
                       , focusable

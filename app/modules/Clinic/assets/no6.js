@@ -5,73 +5,17 @@ function jump(str){
 $(document).ready(function() {
   //paramitor (name,path,type,display)
     //editable
-    Process('no6_1','no6','editable',true);
-    Process('no6_2','no6','editable',true);
-    Process('no6_3','no6','editable',true);
-    Process('no6_4','no6','editable',true);
-    Process('no6_5','no6','editable',true);
-    Process('no6_6','no6','editable',true);
-    Process('no6_7','no6','editable',true);
-    Process('no6_8','no6','editable',true);
-    Process('no6_9','no6','editable',true);
-    Process('signing_surveyor','no6','editable',true);
-    Process('surveyor_phone','no6','editable',true);
-
-    function Process(name,path,type,display){
-            //editable
-            if(type == 'editable'){
-            $.fn.editable.defaults.mode = 'inline';
-            $('#'+name).editable({
-                   type: 'text',
-                   title: '',
-                   display: function(value) {
-                     if(display == true)
-                     $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                     else
-                     $(this).text(value);
-                   },
-                 }).on('save', function(e, params) {
-                   //property key for insert or update
-                   dataStringAdd={};
-                   dataStringAdd[name]=params.newValue;
-                   dataStringAdd['option']='add';
-
-                    //property key for delete
-                   dataStringDelete={};
-                   dataStringDelete[name]='delete';
-                   dataStringDelete['option']='delete';
-                if(params.newValue!=''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringAdd,
-                    success: function(data, textStatus, jqXHR)
-                    {
-
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }else if(params.newValue==''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringDelete,
-                    success: function(data, textStatus, jqXHR)
-                    {
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }
-            });
-          }
-
-        }
+    Process('no6_1','no6','editable',true,'');
+    Process('no6_2','no6','editable',true,'');
+    Process('no6_3','no6','editable',true,'');
+    Process('no6_4','no6','editable',true,'');
+    Process('no6_5','no6','editable',true,'');
+    Process('no6_6','no6','editable',true,'');
+    Process('no6_7','no6','editable',true,'');
+    Process('no6_8','no6','editable',true,'');
+    Process('no6_9','no6','editable',true,'');
+    Process('signing_surveyor','no6','editable',true,'');
+    Process('surveyor_phone','no6','editable',true,'');
 
 
     $("#btnFinish").on('click', function(){

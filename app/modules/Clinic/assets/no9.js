@@ -5,161 +5,34 @@ function jump(str){
 $(document).ready(function() {
     //paramitor (name,path,type,display)
     //editable
-    Process('no9_3_1_1','no9','editable',false);
-    Process('no9_3_1_2','no9','editable',true);
-    Process('no9_3_1_3','no9','editable',true);
-    Process('no9_3_2_1','no9','editable',false);
-    Process('no9_3_2_2','no9','editable',true);
-    Process('no9_3_2_3','no9','editable',true);
-    Process('no9_3_3_1','no9','editable',false);
-    Process('no9_3_3_2','no9','editable',true);
-    Process('no9_3_3_3','no9','editable',true);
-    Process('no9_3_4_1','no9','editable',false);
-    Process('no9_3_4_2','no9','editable',true);
-    Process('no9_3_4_3','no9','editable',true);
-    Process('no9_3_5_1','no9','editable',false);
-    Process('no9_3_5_2','no9','editable',true);
-    Process('no9_3_5_3','no9','editable',true);
-    Process('no9_4_1','no9','editable',true);
-    Process('no9_4_2','no9','editable',true);
-    Process('no9_4_3','no9','editable',true);
-    Process('no9_4_4','no9','editable',true);
-    Process('no9_5_2','no9','editable',true);
-    Process('no9_5_3','no9','editable',true);
-    Process('signing_surveyor','no1','editable',true);
-    Process('surveyor_phone','no1','editable',true);
+    Process('no9_3_1_1','no9','editable',false,'');
+    Process('no9_3_1_2','no9','editable',true,'');
+    Process('no9_3_1_3','no9','editable',true,'');
+    Process('no9_3_2_1','no9','editable',false,'');
+    Process('no9_3_2_2','no9','editable',true,'');
+    Process('no9_3_2_3','no9','editable',true,'');
+    Process('no9_3_3_1','no9','editable',false,'');
+    Process('no9_3_3_2','no9','editable',true,'');
+    Process('no9_3_3_3','no9','editable',true,'');
+    Process('no9_3_4_1','no9','editable',false,'');
+    Process('no9_3_4_2','no9','editable',true,'');
+    Process('no9_3_4_3','no9','editable',true,'');
+    Process('no9_3_5_1','no9','editable',false,'');
+    Process('no9_3_5_2','no9','editable',true,'');
+    Process('no9_3_5_3','no9','editable',true,'');
+    Process('no9_4_1','no9','editable',true,'Cal');
+    Process('no9_4_2','no9','editable',true,'Cal');
+    Process('no9_4_3','no9','editable',true,'Cal');
+    Process('no9_4_4','no9','editable',true,'Cal');
+    Process('no9_5_2','no9','editable',true,'');
+    Process('no9_5_3','no9','editable',true,'');
+    Process('signing_surveyor','no1','editable',true,'');
+    Process('surveyor_phone','no1','editable',true,'');
     //input blur
-    Process('no9_1','no9','blur',true);
-    Process('no9_2','no9','blur',true);
-    Process('no9_5_1','no9','blur',true);
-
-    function Process(name,path,type,display){
-            //editable
-            if(type == 'editable'){
-            $.fn.editable.defaults.mode = 'inline';
-            $('#'+name).editable({
-                   type: 'text',
-                   title: '',
-                   display: function(value) {
-                     if(display == true)
-                     $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                     else
-                     $(this).text(value);
-                   },
-                 }).on('save', function(e, params) {
-                   //property key for insert or update
-                   dataStringAdd={};
-                   dataStringAdd[name]=params.newValue;
-                   dataStringAdd['option']='add';
-
-                    //property key for delete
-                   dataStringDelete={};
-                   dataStringDelete[name]='delete';
-                   dataStringDelete['option']='delete';
-                if(params.newValue!=''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringAdd,
-                    success: function(data, textStatus, jqXHR)
-                    {
-                      if (name == "no9_4_1" || name == "no9_4_2" || name == "no9_4_3" || name == "no9_4_4") {
-                        Cal();
-                      }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }else if(params.newValue==''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringDelete,
-                    success: function(data, textStatus, jqXHR)
-                    {
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }
-            });
-          }
-          //input blur
-          else if (type == 'blur') {
-            $("#"+name).on('blur',function(e){
-              //alert('Changed!');
-              dataString={};
-              dataString[name]=this.value;
-              dataString['option']='add';
-
-              $.ajax({
-                  url : "/clinic/form/"+path,
-                  type: "POST",
-                  data : dataString,
-                  success: function(data, textStatus, jqXHR)
-                  {
-                      //data - response from server
-                  },
-                  error: function (jqXHR, textStatus, errorThrown)
-                  {
-
-                  }
-              });
-            });
-          }
-        }
-
-        $('#no9_6').editable({
-       type: 'text',
-       title: ' ',
-       rows: 10,
-       cols:50,
-       validate: function (value) {
-          if (value.length > 1000) {
-            return 'จำนวนเกิน 1000 ตัวอักษร';
-          }
-      },
-     }).on('save', function(e, params) {
-
-      if(params.newValue!=''){
-        $.ajax({
-            url : "/clinic/form/no9",
-            type: "POST",
-            data : {
-              no9_6:params.newValue,
-              option:'add'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }else if(params.newValue==''){
-        $.ajax({
-            url : "/clinic/form/no9",
-            type: "POST",
-            data : {
-              no9_6:'delete',
-              option:'delete'
-            },
-            success: function(data, textStatus, jqXHR)
-            {
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-
-            }
-        });
-      }
-  });
+    Process('no9_1','no9','blur',true,'');
+    Process('no9_2','no9','blur',true,'');
+    Process('no9_5_1','no9','blur',true,'');
+    Process('no9_6','no9','blur',true,'');
 
 function Cal(){
   var id1 = $('#no9_4_1').text();

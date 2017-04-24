@@ -928,6 +928,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no2.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js');
+            
 
 
         $this->disabledInput(2);

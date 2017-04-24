@@ -5,168 +5,89 @@ function jump(str){
 $(document).ready(function() {
     //paramitor (name,path,type,display)
     //editable
-    Process('no5_1_1_1','no5','editable',true);
-    Process('no5_1_1_2','no5','editable',true);
-    Process('no5_1_2_1','no5','editable',true);
-    Process('no5_1_2_2','no5','editable',true);
-    Process('no5_1_3_1','no5','editable',true);
-    Process('no5_1_3_2','no5','editable',true);
-    Process('no5_1_4_1','no5','editable',true);
-    Process('no5_1_4_2','no5','editable',true);
-    Process('no5_2','no5','editable',true);
-    Process('no5_3_1','no5','editable',true);
-    Process('no5_3_2','no5','editable',true);
-    Process('no5_3_3','no5','editable',true);
-    Process('no5_3_4','no5','editable',true);
-    Process('no5_3_5','no5','editable',true);
-    Process('no5_3_6','no5','editable',true);
-    Process('no5_3_7','no5','editable',true);
-    Process('no5_3_8','no5','editable',true);
-    Process('no5_3_9','no5','editable',true);
-    Process('no5_3_1_1','no5','editable',true);
-    Process('no5_3_1_2','no5','editable',true);
-    Process('no5_3_1_3','no5','editable',true);
-    Process('no5_3_1_4','no5','editable',true);
-    Process('no5_3_1_5','no5','editable',true);
-    Process('no5_3_1_6','no5','editable',true);
-    Process('no5_3_1_7','no5','editable',true);
-    Process('no5_3_1_8','no5','editable',true);
-    Process('no5_3_1_9','no5','editable',true);
-    Process('no5_3_1_10','no5','editable',true);
-    Process('no5_3_2_1','no5','editable',true);
-    Process('no5_3_2_2','no5','editable',true);
-    Process('no5_3_2_3','no5','editable',true);
-    Process('no5_3_2_4','no5','editable',true);
-    Process('no5_3_2_5','no5','editable',true);
-    Process('no5_3_2_6','no5','editable',true);
-    Process('no5_3_2_7','no5','editable',true);
-    Process('no5_3_2_8','no5','editable',true);
-    Process('no5_3_2_9','no5','editable',true);
-    Process('no5_3_2_10','no5','editable',true);
-    Process('no5_3_3_1','no5','editable',true);
-    Process('no5_3_3_2','no5','editable',true);
-    Process('no5_3_3_3','no5','editable',true);
-    Process('no5_3_3_4','no5','editable',true);
-    Process('no5_3_3_5','no5','editable',true);
-    Process('no5_3_3_6','no5','editable',true);
-    Process('no5_3_3_7','no5','editable',true);
-    Process('no5_3_3_8','no5','editable',true);
-    Process('no5_3_3_9','no5','editable',true);
-    Process('no5_3_3_10','no5','editable',true);
-    Process('no5_3_4_1','no5','editable',true);
-    Process('no5_3_4_2','no5','editable',true);
-    Process('no5_3_4_3','no5','editable',true);
-    Process('no5_3_4_4','no5','editable',true);
-    Process('no5_3_4_5','no5','editable',true);
-    Process('no5_3_4_6','no5','editable',true);
-    Process('no5_3_4_7','no5','editable',true);
-    Process('no5_3_4_8','no5','editable',true);
-    Process('no5_3_4_9','no5','editable',true);
-    Process('no5_3_4_10','no5','editable',true);
-    Process('no5_3_10_1','no5','editable',true);
-    Process('no5_3_10_2','no5','editable',true);
-    Process('no5_4_1_1','no5','editable',true);
-    Process('no5_4_1_2','no5','editable',true);
-    Process('no5_4_1_3','no5','editable',true);
-    Process('no5_4_2_1','no5','editable',true);
-    Process('no5_4_2_2','no5','editable',true);
-    Process('no5_4_2_3','no5','editable',true);
-    Process('no5_4_3_1','no5','editable',true);
-    Process('no5_4_3_2','no5','editable',true);
-    Process('no5_4_3_3','no5','editable',true);
-    Process('no5_4_4','no5','editable',true);
-    Process('no5_5_1_1','no5','editable',true);
-    Process('no5_5_1_2','no5','editable',true);
-    Process('no5_5_2_1','no5','editable',true);
-    Process('no5_5_2_2','no5','editable',true);
-    Process('signing_surveyor','no5','editable',true);
-    Process('surveyor_phone','no5','editable',true);
+    Process('no5_1_1_1','no5','editable',true,'');
+    Process('no5_1_1_2','no5','editable',true,'');
+    Process('no5_1_2_1','no5','editable',true,'');
+    Process('no5_1_2_2','no5','editable',true,'');
+    Process('no5_1_3_1','no5','editable',true,'');
+    Process('no5_1_3_2','no5','editable',true,'');
+    Process('no5_1_4_1','no5','editable',true,'');
+    Process('no5_1_4_2','no5','editable',true,'');
+    Process('no5_2','no5','editable',true,'');
+    Process('no5_3_1','no5','editable',true,'');
+    Process('no5_3_2','no5','editable',true,'');
+    Process('no5_3_3','no5','editable',true,'');
+    Process('no5_3_4','no5','editable',true,'');
+    Process('no5_3_5','no5','editable',true,'');
+    Process('no5_3_6','no5','editable',true,'');
+    Process('no5_3_7','no5','editable',true,'');
+    Process('no5_3_8','no5','editable',true,'');
+    Process('no5_3_9','no5','editable',true,'');
+    Process('no5_3_1_1','no5','editable',true,'');
+    Process('no5_3_1_2','no5','editable',true,'');
+    Process('no5_3_1_3','no5','editable',true,'');
+    Process('no5_3_1_4','no5','editable',true,'');
+    Process('no5_3_1_5','no5','editable',true,'');
+    Process('no5_3_1_6','no5','editable',true,'');
+    Process('no5_3_1_7','no5','editable',true,'');
+    Process('no5_3_1_8','no5','editable',true,'');
+    Process('no5_3_1_9','no5','editable',true,'');
+    Process('no5_3_1_10','no5','editable',true,'');
+    Process('no5_3_2_1','no5','editable',true,'');
+    Process('no5_3_2_2','no5','editable',true,'');
+    Process('no5_3_2_3','no5','editable',true,'');
+    Process('no5_3_2_4','no5','editable',true,'');
+    Process('no5_3_2_5','no5','editable',true,'');
+    Process('no5_3_2_6','no5','editable',true,'');
+    Process('no5_3_2_7','no5','editable',true,'');
+    Process('no5_3_2_8','no5','editable',true,'');
+    Process('no5_3_2_9','no5','editable',true,'');
+    Process('no5_3_2_10','no5','editable',true,'');
+    Process('no5_3_3_1','no5','editable',true,'');
+    Process('no5_3_3_2','no5','editable',true,'');
+    Process('no5_3_3_3','no5','editable',true,'');
+    Process('no5_3_3_4','no5','editable',true,'');
+    Process('no5_3_3_5','no5','editable',true,'');
+    Process('no5_3_3_6','no5','editable',true,'');
+    Process('no5_3_3_7','no5','editable',true,'');
+    Process('no5_3_3_8','no5','editable',true,'');
+    Process('no5_3_3_9','no5','editable',true,'');
+    Process('no5_3_3_10','no5','editable',true,'');
+    Process('no5_3_4_1','no5','editable',true,'');
+    Process('no5_3_4_2','no5','editable',true,'');
+    Process('no5_3_4_3','no5','editable',true,'');
+    Process('no5_3_4_4','no5','editable',true,'');
+    Process('no5_3_4_5','no5','editable',true,'');
+    Process('no5_3_4_6','no5','editable',true,'');
+    Process('no5_3_4_7','no5','editable',true,'');
+    Process('no5_3_4_8','no5','editable',true,'');
+    Process('no5_3_4_9','no5','editable',true,'');
+    Process('no5_3_4_10','no5','editable',true,'');
+    Process('no5_3_10_1','no5','editable',true,'');
+    Process('no5_3_10_2','no5','editable',true,'');
+    Process('no5_4_1_1','no5','editable',true,'');
+    Process('no5_4_1_2','no5','editable',true,'');
+    Process('no5_4_1_3','no5','editable',true,'');
+    Process('no5_4_2_1','no5','editable',true,'');
+    Process('no5_4_2_2','no5','editable',true,'');
+    Process('no5_4_2_3','no5','editable',true,'');
+    Process('no5_4_3_1','no5','editable',true,'');
+    Process('no5_4_3_2','no5','editable',true,'');
+    Process('no5_4_3_3','no5','editable',true,'');
+    Process('no5_4_4','no5','editable',true,'');
+    Process('no5_5_1_1','no5','editable',true,'');
+    Process('no5_5_1_2','no5','editable',true,'');
+    Process('no5_5_2_1','no5','editable',true,'');
+    Process('no5_5_2_2','no5','editable',true,'');
+    Process('signing_surveyor','no5','editable',true,'');
+    Process('surveyor_phone','no5','editable',true,'');
 
     //input blur
-    Process('no5_6_1','no5','blur',true);
-    Process('no5_6_2','no5','blur',true);
-    Process('no5_6_3','no5','blur',true);
-    Process('no5_6_4','no5','blur',true);
-    Process('no5_6_5','no5','blur',true);
-
-    function Process(name,path,type,display){
-            //editable
-            if(type == 'editable'){
-            $.fn.editable.defaults.mode = 'inline';
-            $('#'+name).editable({
-                   type: 'text',
-                   title: '',
-                   display: function(value) {
-                     if(display == true)
-                     $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                     else
-                     $(this).text(value);
-                   },
-                 }).on('save', function(e, params) {
-                   //property key for insert or update
-                   dataStringAdd={};
-                   dataStringAdd[name]=params.newValue;
-                   dataStringAdd['option']='add';
-
-                    //property key for delete
-                   dataStringDelete={};
-                   dataStringDelete[name]='delete';
-                   dataStringDelete['option']='delete';
-                if(params.newValue!=''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringAdd,
-                    success: function(data, textStatus, jqXHR)
-                    {
-
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }else if(params.newValue==''){
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataStringDelete,
-                    success: function(data, textStatus, jqXHR)
-                    {
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
-
-                    }
-                });
-              }
-            });
-          }
-          //input blur
-          else if (type == 'blur') {
-            $("#"+name).on('blur',function(e){
-              //alert('Changed!');
-              dataString={};
-              dataString[name]=this.value;
-              dataString['option']='add';
-
-              $.ajax({
-                  url : "/clinic/form/"+path,
-                  type: "POST",
-                  //datastring for blur type 
-                  data : dataString,
-                  success: function(data, textStatus, jqXHR)
-                  {
-                      //data - response from server
-                  },
-                  error: function (jqXHR, textStatus, errorThrown)
-                  {
-
-                  }
-              });
-            });
-          }
-        }
+    Process('no5_6_1','no5','blur',true,'');
+    Process('no5_6_2','no5','blur',true,'');
+    Process('no5_6_3','no5','blur',true,'');
+    Process('no5_6_4','no5','blur',true,'');
+    Process('no5_6_5','no5','blur',true,'');
 
     $("#btnFinish").on('click', function(){
       $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
