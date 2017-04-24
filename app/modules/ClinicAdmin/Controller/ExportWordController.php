@@ -279,14 +279,14 @@ class ExportWordController extends Controller
         //die($no6_9);
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         
-    		$document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo1.docx');
-    		//$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
-    		//var_dump(($document));die();
-    		date_default_timezone_set('Asia/Bangkok');
+        $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormNo1.docx');
+        //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+        //var_dump(($document));die();
+        date_default_timezone_set('Asia/Bangkok');
 
-    		$document->setValue('{year}', $this->year);
-    		$document->setValue('{office}', $this->discoverySurvey->Office->name);
-    		$document->setValue('{no1_2}', $this->toformatNumber($no1_2));
+        $document->setValue('{year}', $this->year);
+        $document->setValue('{office}', $this->discoverySurvey->Office->name);
+        $document->setValue('{no1_2}', $this->toformatNumber($no1_2));
         $document->setValue('{calno1_2}', $this->toformatNumber($no1_2/625));
         $document->setValue('{no1_3_1}', $north);
         $document->setValue('{no1_3_2}', $south);

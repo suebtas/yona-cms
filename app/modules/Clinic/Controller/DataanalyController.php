@@ -13,11 +13,12 @@ use Clinic\Model\Survey;
 use Clinic\Model\DiscoverySurvey;
 use Clinic\Model\Office;
 use Clinic\Model\Amphur;
+use PhpOffice\PhpWord;
 use Phalcon\Mvc\Model\Resultset;
 
 class DataanalyController extends FormController
 {
-
+    public $tmp_file = 'data/cache/FormNoTMP.xlsx';
     public function initialize()
     {
         date_default_timezone_set('asia/bangkok');
@@ -97,7 +98,8 @@ class DataanalyController extends FormController
             $this->view->year2 = $year2;
             $this->view->year = $years;
             $data = null;
-            if($this->request->getPost("Query"))
+            $message = "";
+            if($this->request->getPost("Query") OR  $this->request->getPost("Report"))
             {
                 $sess = $this->request->getPost("Sessiones");
                 $quest = $this->request->getPost("Questions");
@@ -110,13 +112,14 @@ class DataanalyController extends FormController
 
                 $query = true;
                     
+                if($years == 0)
+                {
+                    $query = false;
+                    $message = "กรุณาเลือกปีสำรวจ";
+                }
                 if($val3 == "")
                 {
-                    if($years == 0)
-                    {
-                        $query = false;
-                        $message = "กรุณาเลือกปีสำรวจ";
-                    }
+                    
                     //die($years);
                     if($sess == 0)
                     {
@@ -159,7 +162,7 @@ class DataanalyController extends FormController
                     $this->view->logic1 = $logic1;
                 }
                 
-
+                $this->view->val3 = $val3;
 
                 //die($con2);
 
@@ -229,7 +232,7 @@ class DataanalyController extends FormController
                 $result[$item->name][$year1] = $item->answer;
             }
 
-
+            if (is_array($data2) || is_object($data2))
             foreach($data2 as $item){
                 //array['xxx1' => array[2559=>10,2558=>10]]
                 //array['xxx2' => array[2559=>10,2558=>10]]
@@ -249,7 +252,8 @@ class DataanalyController extends FormController
                 $countAmphs[$d->amphurid]++;
             }
 
-
+            
+            if (is_array($data2) || is_object($data2))
             foreach($data2 as $d)
             {
                 $countAmphs2[$d->amphurid]++;
@@ -280,7 +284,141 @@ class DataanalyController extends FormController
             "order" => "id DESC"
         ]);
 
+        if($this->request->getPost("Report"))
+        {
+                $message = $message . "\nออกรายงาน";
+                $this->view->message = __DIR__.'/../views/dataanaly/FormAnalyReport.docx';
+
+
+                $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        
+                $document = new \PhpOffice\PhpWord\TemplateProcessor(__DIR__.'/../Form/FormAnalyReport.docx');
+                //$document = $phpWord->loadTemplate(__DIR__.'/../Form/FormNo2.docx');
+                //var_dump(($document));die();
+                date_default_timezone_set('Asia/Bangkok');
+
+                $document->setValue('{year}', $years);
+
+                $document->cloneRow('No', count($result));
+                $document->cloneRow('no', count($amphurs));
+
+                $document->setValue('{year1}', $year1);
+                $document->setValue('{year2}', $year2);
+
+                $i = 1;
+                //var_dump($result);
+                //die();
+                foreach($result as $key=>$item)
+                {
+                    $document->setValue('No#'.$i, $i);
+                    $document->setValue('Off#'.$i, $key);
+                    
+                    $document->setValue('New#'.$i, str_replace("&nbsp;","",$item[$year1]) );
+               
+                    if(isset($item[$year2]))
+                        $document->setValue('Old#'.$i, str_replace("&nbsp;","",$item[$year2]));
+                    else
+                        $document->setValue('Old#'.$i, "");
+                    
+                    $i++;
+                }
+                //die();
+
+                $i = 1;
+                foreach($amphurs as $item)
+                {
+                    $document->setValue('no#'.$i, $i);
+                    $document->setValue('pro#'.$i, $item->name);
+                    $document->setValue('cNew#'.$i, $this->toformatNumber2($countAmphs[$item->id]));
+                    $document->setValue('cOld#'.$i,  $this->toformatNumber2($countAmphs2[$item->id]));
+                    $i++;
+                }
+
+                $d = strtotime("today");
+                $today = date("Y-m-d",$d);
+                $document->setValue('{date}', $this->getTHdate($today));
+                //var_dump(($data));die();
+                //$document->setValue('S'.$work['Day'].'#'.$index, $work['Status']);
+
+                $result = $document->saveAs($this->tmp_file);   
+                $this->converttowordtemplate('FormAnalyReport_',$this->tmp_file);
+
+                die();
+
+        }
+
+
+
         
     }
+
+    function toformatNumber($number)
+    {
+        $number = str_replace(",", "", $number);
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 2, ".",",");;
+    }
+
+    function toformatNumber2($number)
+    {
+        $number = str_replace(",", "", $number);
+        if($number == null)
+            return "";
+        else
+            return number_format($number, 0, ".",",");;
+    }
+
+    public function getTHdate($eDate)
+	{
+		//$cdate =  explode(" ", $eDate);
+		
+		$cdate2 = explode("-", $eDate);
+		
+		$thdate = $cdate2[2];
+		switch($cdate2[1])
+		{
+			case 1 : $thdate = $thdate . " " . "มกราคม "; break;
+			case 2 : $thdate = $thdate . " " . "กุมภาพันธ์ "; break;
+			case 3 : $thdate = $thdate . " " . "มีนาคม "; break;
+			case 4 : $thdate = $thdate . " " . "เมษายน "; break;
+			case 5 : $thdate = $thdate . " " . "พฤษภาคม "; break;
+			case 6 : $thdate = $thdate . " " . "มิถุนายน "; break;
+			case 7 : $thdate = $thdate . " " . "กรกฎาคม "; break;
+			case 8 : $thdate = $thdate . " " . "สิงหาคม "; break;
+			case 9 : $thdate = $thdate . " " . "กันยายน "; break;
+			case 10 : $thdate = $thdate . " " . "ตุลาคม "; break;
+			case 11 : $thdate = $thdate . " " . "พฤศจิกายน "; break;
+			case 12 : $thdate = $thdate . " " . "ธันวาคม "; break;
+		}
+		
+			$thdate = $thdate .( $cdate2[0]+543);
+		
+		return $thdate;
+	}
+
+    public function converttowordtemplate($name,$temp_file){		
+		// Save file
+		$fname = $name. date("d.m.Y-H.i") . ".docx";
+		$response = new \Phalcon\Http\Response();
+
+		// Redirect output to a client’s web browser (Excel2007)
+		$response->setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+		$response->setHeader('Content-Disposition', 'attachment;filename="' . $fname . '"');
+		$response->setHeader('Cache-Control', 'max-age=0');
+
+		// If you're serving to IE 9, then the following may be needed
+		$response->setHeader('Cache-Control', 'max-age=1');
+
+		//Set the content of the response
+		$response->setContent(file_get_contents($temp_file));
+		// delete temp file
+		//unlink($temp_file);
+
+		$response->setStatusCode(200, "OK");
+		//Return the response
+		$response->send();
+	}
 
 }

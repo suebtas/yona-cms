@@ -157,6 +157,7 @@
         </table>
 
         <input name="Query" type="submit" value=">>ผลลัพธ์<<" class="btn btn-success">
+        <input name="Report" type="submit" value=">>พิมพ์รายงาน<<" class="btn btn-info">
 
         <table class="ui table very compact celled">
             <thead>
