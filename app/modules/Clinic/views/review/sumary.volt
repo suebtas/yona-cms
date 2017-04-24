@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -110,4 +110,5 @@
     <script src="{{ url.path() }}clinic/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
     <script src="{{ url.path() }}clinic/vendors/google-code-prettify/src/prettify.js"></script>
     <script src="{{ url.path() }}clinic/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    
 {% endblock %}

@@ -76,7 +76,7 @@
         </div>
         <!-- jQuery -->
         <script src="{{ url.path() }}clinic/vendors/jquery/dist/jquery.min.js"></script>
-        <script src="{{ url.path() }}clinic/js/process.js"></script>
+        
         <!-- Bootstrap -->
         <script src="{{ url.path() }}clinic/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- FastClick -->

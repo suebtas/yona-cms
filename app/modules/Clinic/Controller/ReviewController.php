@@ -30,7 +30,7 @@ class ReviewController extends FormController
         if(!$this->session->has('discovery_surveyid')){
             $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
             if($this->discoverySurvey==null){
-                echo 'error';             
+                echo 'error';
             }
             $this->session->set('surveyid', $this->discoverySurvey->Survey->id);
             $this->session->set('discovery_surveyid', $this->discoverySurvey->id);
@@ -42,7 +42,7 @@ class ReviewController extends FormController
         $this->view->discoverySurvey = $this->discoverySurvey;
         $this->surveyid = $this->session->get('surveyid');
         $this->discovery_surveyid = $this->session->get('discovery_surveyid');
-        
+
 
         $this->setClinicEnvironment();
         $this->view->languages_disabled = true;
@@ -65,7 +65,9 @@ class ReviewController extends FormController
             ->setTargetPath(ROOT . '/assets/modules-clinic.js')
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/process.js');
+
             //->addJs(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.js');
 
 
@@ -81,7 +83,7 @@ class ReviewController extends FormController
         $this->user = AdminUser::findFirst($auth->id);
         //กำหนดค่าใน view
         $this->view->user = $this->user;
-        $this->view->office =  $this->discoverySurvey->Office;    
+        $this->view->office =  $this->discoverySurvey->Office;
         $this->view->status = $this->discoverySurvey->status;
 
         $this->view->commenting = $this->getCountComment();
@@ -96,7 +98,7 @@ class ReviewController extends FormController
                 $this->discoverySurvey->signing_approver = null;//$approver;
                 $this->discoverySurvey->save();
                 echo 'ok';
-                
+
             }else if($approver != ''){
                 //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                 $this->discoverySurvey->signing_approver = $approver;
@@ -119,7 +121,7 @@ class ReviewController extends FormController
 
         $this->disabledInput(1);
 
-        
+
         if (!$this->request->isPost()) {
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
@@ -148,7 +150,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -160,7 +162,7 @@ class ReviewController extends FormController
 
             parent::createViewNo1();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -195,7 +197,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -230,7 +232,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -247,7 +249,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -264,7 +266,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -281,7 +283,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -290,10 +292,10 @@ class ReviewController extends FormController
             }
             $this->view->comment_session_4 = $detail;
             $this->view->status_comment_session_4 = $status;
-            
+
             parent::createViewNo2();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -345,7 +347,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -381,7 +383,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -398,7 +400,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -415,7 +417,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -432,7 +434,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -441,7 +443,7 @@ class ReviewController extends FormController
             }
             $this->view->comment_session_4 = $detail;
             $this->view->status_comment_session_4= $status;
-            
+
             $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
@@ -449,7 +451,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -460,7 +462,7 @@ class ReviewController extends FormController
             $this->view->status_comment_session_5= $status;
             parent::createViewNo3();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -481,7 +483,7 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_4");
             if($comment){
                 $this->updateComment($option, 10, $comment, $user->id, $this->discovery_surveyid);
-            }            
+            }
             $comment = $this->request->getPost("session_5");
             if($comment){
                 $this->updateComment($option, 11, $comment, $user->id, $this->discovery_surveyid);
@@ -518,7 +520,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -554,7 +556,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -571,7 +573,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -588,7 +590,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -605,7 +607,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -614,7 +616,7 @@ class ReviewController extends FormController
             }
             $this->view->comment_session_4 = $detail;
             $this->view->status_comment_session_4= $status;
-            
+
             $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
@@ -622,7 +624,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -633,7 +635,7 @@ class ReviewController extends FormController
             $this->view->status_comment_session_5= $status;
             parent::createViewNo4();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -654,7 +656,7 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_4");
             if($comment){
                 $this->updateComment($option, 15, $comment, $user->id, $this->discovery_surveyid);
-            }            
+            }
             $comment = $this->request->getPost("session_5");
             if($comment){
                 $this->updateComment($option, 16, $comment, $user->id, $this->discovery_surveyid);
@@ -691,7 +693,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -727,7 +729,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -744,7 +746,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -761,7 +763,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -778,7 +780,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -787,7 +789,7 @@ class ReviewController extends FormController
             }
             $this->view->comment_session_4 = $detail;
             $this->view->status_comment_session_4= $status;
-            
+
             $comment = Comment::findFirst(
                             array("sessionid=?1 and discovery_surveyid=?2 and admin_userid=?3",
                                 "bind"=>array(
@@ -795,7 +797,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -806,7 +808,7 @@ class ReviewController extends FormController
             $this->view->status_comment_session_5= $status;
             parent::createViewNo5();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -827,7 +829,7 @@ class ReviewController extends FormController
             $comment = $this->request->getPost("session_4");
             if($comment){
                 $this->updateComment($option, 20, $comment, $user->id, $this->discovery_surveyid);
-            }            
+            }
             $comment = $this->request->getPost("session_5");
             if($comment){
                 $this->updateComment($option, 21, $comment, $user->id, $this->discovery_surveyid);
@@ -864,7 +866,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -900,7 +902,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -912,7 +914,7 @@ class ReviewController extends FormController
 
             parent::createViewNo6();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -938,7 +940,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
         }
 
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -972,7 +974,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -989,7 +991,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1006,7 +1008,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1018,7 +1020,7 @@ class ReviewController extends FormController
 
             parent::createViewNo7();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -1060,7 +1062,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -1095,7 +1097,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1112,7 +1114,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1129,7 +1131,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1146,7 +1148,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1163,7 +1165,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1175,7 +1177,7 @@ class ReviewController extends FormController
 
             parent::createViewNo8();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -1233,7 +1235,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -1269,7 +1271,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1286,7 +1288,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1303,7 +1305,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1320,7 +1322,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1337,7 +1339,7 @@ class ReviewController extends FormController
                                     2=>$this->discovery_surveyid,
                                     3=>$user->id)));
             if(!$comment){
-              $detail = null;              
+              $detail = null;
               $status = null;
             }
             else{
@@ -1349,7 +1351,7 @@ class ReviewController extends FormController
 
             parent::createViewNo9();
 
-        }elseif($this->request->isPost()){            
+        }elseif($this->request->isPost()){
             $this->view->disable();
             $option = $this->request->getPost("option");
 
@@ -1407,7 +1409,7 @@ class ReviewController extends FormController
                 if($level!=null)
                     $this->updateApprove($option, 1, $approve, $level, $user->id, $this->discovery_surveyid);
             }
-            
+
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
         }
@@ -1446,12 +1448,12 @@ class ReviewController extends FormController
                         }
                   }else if($approve==3){ //ผ่าน
                         if($level == 1)
-                            $this->discoverySurvey->status = 2; 
+                            $this->discoverySurvey->status = 2;
                         elseif($level==2)
-                            $this->discoverySurvey->status = 3; //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'                        
+                            $this->discoverySurvey->status = 3; //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'
                   }
                   $this->discoverySurvey->save();
-                  echo 'ok';              
+                  echo 'ok';
               }
           }elseif($comment=='delete' && $option=='delete'){
               $modelT = Approval::findFirst(
@@ -1499,7 +1501,7 @@ class ReviewController extends FormController
           }
       }
     }
-    
+
     public function updateStatusComment($option, $sessionid, $status, $admin_userid, $discovery_surveyid){
         if($status!=""){
             if($option=='add'){
@@ -1565,6 +1567,6 @@ class ReviewController extends FormController
                     }
                 }
             }
-        }      
+        }
     }
 }

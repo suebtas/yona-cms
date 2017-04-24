@@ -28,7 +28,7 @@
     <div class="x_content">
 
        <div class="form-group">
-        {%set approval = discoverySurvey.getApproval(["level=:0:","bind":[user.getLevel()]])%} 
+        {%set approval = discoverySurvey.getApproval(["level=:0:","bind":[user.getLevel()]])%}
         {%if approval != null %}
         <div class="alert alert-{% if approval.status != 3 %}warning{%elseif approval.status == 3%}info{%endif%} alert-dismissible fade in" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -45,7 +45,7 @@
             </h2>
           </div>
         </div>
-        
+
         <div class="col-md-12 col-sm-6 col-xs-12  col-md-offset-5">
           <div id="approval" class="btn-group" data-toggle="buttons">
               <input type="radio" name="approve" value="3"> &nbsp; ผ่าน &nbsp;
@@ -53,7 +53,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
   </div>
 </div>
@@ -167,4 +167,5 @@
     <script src="{{ url.path() }}clinic/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
     <script src="{{ url.path() }}clinic/vendors/google-code-prettify/src/prettify.js"></script>
     <script src="{{ url.path() }}clinic/vendors/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js"></script>
+    
 {% endblock %}

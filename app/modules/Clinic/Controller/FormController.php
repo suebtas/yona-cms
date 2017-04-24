@@ -70,7 +70,8 @@ class FormController extends Controller
             ->setTargetPath(ROOT . '/assets/modules-clinic.js')
             ->setTargetUri('assets/modules-clinic.js')
             ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/clinic.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/process.js');
             //->addJs(APPLICATION_PATH . '/modules/Clinic/assets/inputs-ext/address/address.js');
 
         //กำหนดค่าใน view
@@ -928,7 +929,7 @@ class FormController extends Controller
             ->setTargetUri('assets/modules-clinic-no2.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js');
-            
+
 
 
         $this->disabledInput(2);
