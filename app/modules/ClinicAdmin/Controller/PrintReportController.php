@@ -22,6 +22,9 @@ use Clinic\Model\Office;
 use Clinic\Model\BoundaryOffice;
 use Clinic\Model\BoundaryTambon;
 use Clinic\Model\Tambon;
+use Clinic\Model\Amphur;
+use Clinic\Model\Survey;
+
 
 class PrintReportController extends Controller
 {
@@ -125,12 +128,26 @@ class PrintReportController extends Controller
         $objWriter->save($this->tmp_file);
   	 	$this->converttoexceltemplate('FormNoExtend_',$this->tmp_file);
     }
-    public function No2Action(){
+
+    public function No2Action($currentYear){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no2.xls');
-
-        $phql = "select amp.name, q.description, 
+        if(!is_numeric($currentYear))
+            exit();
+        $currentServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$currentYear)));
+        if($currentServey)
+            $currentServeyID = $currentServey->id;
+        else 
+            $currentServeyID = -1;
+        $lastYear =  (int)$currentYear - 1 ;
+        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        if($previousServey)
+            $previousServeyID = $previousServey->ID;
+        else
+            $previousServeyID = -1;
+        
+       /* $phql = "select amp.name, q.description, 
                     case ds.surveyid when 1 then sum(a.answer) end y2559,
                     case ds.surveyid when 2 then sum(a.answer) end y2558
                     from Clinic\Model\Answer a, 
@@ -147,28 +164,26 @@ class PrintReportController extends Controller
                         a.questionid = 26
                     group by ds.surveyid, a.questionid, amp.name,q.description";
 
-
+        */
+        
         $phql = "select question.id, amphur.name,  sum(answer2558.answer) y2558,  sum(answer2559.answer) y2559 
-        from 
-            Clinic\Model\DiscoverySurvey discovery_survey 
-            left join Clinic\Model\Answer answer2558 on (answer2558.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = 3) 
-            left join Clinic\Model\Answer answer2559 on (answer2559.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = 1) 
-            join Clinic\Model\Question question on (question.id = answer2558.questionid or question.id = answer2559.questionid) 
-            left join Clinic\Model\Office office on (office.id = discovery_survey.officeid) 
-            left join Clinic\Model\Amphur amphur on (office.amphurid = amphur.id)
-        group by  question.id, amphur.name";
+            from 
+                Clinic\Model\DiscoverySurvey discovery_survey 
+                left join Clinic\Model\Answer answer2558 on (answer2558.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = $previousServeyID) 
+                left join Clinic\Model\Answer answer2559 on (answer2559.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = $currentServeyID ) 
+                join Clinic\Model\Question question on (question.id = answer2558.questionid or question.id = answer2559.questionid) 
+                left join Clinic\Model\Office office on (office.id = discovery_survey.officeid) 
+                left join Clinic\Model\Amphur amphur on (office.amphurid = amphur.id)
+            group by  question.id, amphur.name";
        // where 
        //     question.id = 26 
 
-        $data = $this->modelsManager->executeQuery($phql);
+        $data = $this->modelsManager->executeQuery($phql, array("lastYear"=>$previousServeyID, "currentYear"=>$currentServeyID));
         $result = [];
         foreach($data as $r => $dataRow) {
-            $result[$dataRow["id"]][$dataRow["name"]]['name'] =  $dataRow["name"];
-            $result[$dataRow["id"]][$dataRow["name"]]['y2558'] =  $dataRow["y2558"];
-            $result[$dataRow["id"]][$dataRow["name"]]['y2559'] =  $dataRow["y2559"];
+            //result[อำเภอ][id]{  [y2558]=> y2558, [y2559]=> 2559   }
+            $result[$dataRow["name"]][$dataRow["id"]] = array('y2558'=>$dataRow["y2558"], 'y2559'=>$dataRow["y2559"]);
         }
-        //var_dump( $result );
-        //die();
         $baseRow = 7;
         $row = 0;
         
@@ -178,108 +193,75 @@ class PrintReportController extends Controller
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
         }
 
-        $data = $result[26];
-
-        // var_dump( $data );
-        // die();
-
         $baseRow = 7;
         $row = 0;
         $r=0;
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
+        foreach($result as $key => $dataRow) {
             $row = $baseRow + $r;
+            
             $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('B'.$row, $dataRow["name"])
-                                        ->setCellValue('C'.$row, $dataRow["y2558"])
-                                        ->setCellValue('D'.$row, $dataRow["y2559"]);
+                                        ->setCellValue('B'.$row, $key)
+                                        ->setCellValue('C'.$row, $dataRow[26]["y2558"])
+                                        ->setCellValue('D'.$row, $dataRow[26]["y2559"])
+                                        ->setCellValue('E'.$row, $dataRow[28]["y2558"])
+                                        ->setCellValue('F'.$row, $dataRow[28]["y2559"])
+                                        ->setCellValue('G'.$row, $dataRow[30]["y2558"])
+                                        ->setCellValue('H'.$row, $dataRow[30]["y2559"])
+                                        ->setCellValue('I'.$row, $dataRow[33]["y2558"])
+                                        ->setCellValue('J'.$row, $dataRow[33]["y2559"])
+                                        ->setCellValue('K'.$row, $dataRow[35]["y2558"])
+                                        ->setCellValue('L'.$row, $dataRow[35]["y2559"]);
             $r+=1;
         }
 
-        $data = $result[28];
-        $baseRow = 7;
+        $phql = "select question.id, amphur.name amphur_name, office.name office_name, sum(answer2558.answer) y2558,  sum(answer2559.answer) y2559 
+            from 
+                Clinic\Model\DiscoverySurvey discovery_survey 
+                left join Clinic\Model\Answer answer2558 on (answer2558.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = $previousServeyID) 
+                left join Clinic\Model\Answer answer2559 on (answer2559.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = $currentServeyID ) 
+                join Clinic\Model\Question question on (question.id = answer2558.questionid or question.id = answer2559.questionid) 
+                left join Clinic\Model\Office office on (office.id = discovery_survey.officeid) 
+                left join Clinic\Model\Amphur amphur on (office.amphurid = amphur.id)
+            group by  question.id, amphur.name, office.name";
+
+        $data = $this->modelsManager->executeQuery($phql, array("lastYear"=>$previousServeyID, "currentYear"=>$currentServeyID));
+        $result = [];
+        foreach($data as $dataRow) {
+            //result[อำเภอ][อบท][id]{  [y2558]=> y2558, [y2559]=> 2559   }
+            $result[$dataRow["amphur_name"]][$dataRow["office_name"]][$dataRow["id"]] = 
+                array( 'y2558' => $dataRow["y2558"], 'y2559' =>  $dataRow["y2559"]);
+        }
+        $baseRow = 15 + 8;
         $row = 0;
-        $r=0;
-
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
-            $row = $baseRow + $r;
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('E'.$row, $dataRow["y2558"])
-                                        ->setCellValue('F'.$row, $dataRow["y2559"]);
-            $r+=1;
-        }
-
-
-        $data = $result[30];
-        $baseRow = 7;
-        $row = 0;
-        $r=0;
-
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
-            $row = $baseRow + $r;
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('G'.$row, $dataRow["y2558"])
-                                        ->setCellValue('H'.$row, $dataRow["y2559"]);
-            $r+=1;
-        }
-
-
-        $data = $result[32];
-        $baseRow = 7;
-        $row = 0;
-        $r=0;
-
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
-            $row = $baseRow + $r;
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('I'.$row, $dataRow["y2558"])
-                                        ->setCellValue('J'.$row, $dataRow["y2559"]);
-            $r+=1;
-        }
-
-        //สะพาน
-        $data = $result[35];
-        $baseRow = 7;
-        $row = 0;
-        $r=0;
-
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
-            $row = $baseRow + $r;
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('K'.$row, $dataRow["y2558"])
-                                        ->setCellValue('L'.$row, $dataRow["y2559"]);
-            $r+=1;
-        }
-        /*
-        $data = $result[36];
-        $baseRow = 7;
-        $row = 0;
-        $r=0;
-
-        foreach($data as  $dataRow) {
-        //for($r=0;$r<8;$r++) {
-            $row = $baseRow + $r;
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('M'.$row, $dataRow["y2558"])
-                                        ->setCellValue('N'.$row, $dataRow["y2559"]);
-            $r+=1;
-        }
-        */
-        /*
-        foreach($data as $r => $dataRow) {
+            
+        $amphur = Amphur::findByName("อำเภอเมือง")->getFirst();
+        for($r=0;$r<$amphur->office->count();$r++) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
-            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('B'.$row, $dataRow["name"])
-                                        ->setCellValue('C'.$row, $dataRow["y2558"])
-                                        ->setCellValue('D'.$row, $dataRow["y2559"]);
         }
-        */
         $objPHPExcel->getActiveSheet()->removeRow($row+1,1);
+
+        $data = $result["อำเภอเมือง"];
+        $row = 0;
+        $r=0;
+        foreach($data as $key =>  $dataRow) {
+            $row = $baseRow + $r;
+            $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
+                                        ->setCellValue('B'.$row, $key)
+                                        ->setCellValue('C'.$row, $dataRow[26]["y2558"])
+                                        ->setCellValue('D'.$row, $dataRow[26]["y2559"])
+                                        ->setCellValue('E'.$row, $dataRow[28]["y2558"])
+                                        ->setCellValue('F'.$row, $dataRow[28]["y2559"])
+                                        ->setCellValue('G'.$row, $dataRow[30]["y2558"])
+                                        ->setCellValue('H'.$row, $dataRow[30]["y2559"])
+                                        ->setCellValue('I'.$row, $dataRow[33]["y2558"])
+                                        ->setCellValue('J'.$row, $dataRow[33]["y2559"])
+                                        ->setCellValue('K'.$row, $dataRow[35]["y2558"])
+                                        ->setCellValue('L'.$row, $dataRow[35]["y2559"]);
+            $r+=1;
+        }
+
+
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save($this->tmp_file);
   	 	$this->converttoexceltemplate('FormNo2_',$this->tmp_file);
