@@ -178,20 +178,21 @@ class PrintReportController extends Controller
        // where 
        //     question.id = 26 
 
+        $accumulate_r=0;
         $data = $this->modelsManager->executeQuery($phql, array("lastYear"=>$previousServeyID, "currentYear"=>$currentServeyID));
         $result = [];
         foreach($data as $r => $dataRow) {
             //result[อำเภอ][id]{  [y2558]=> y2558, [y2559]=> 2559   }
             $result[$dataRow["name"]][$dataRow["id"]] = array('y2558'=>$dataRow["y2558"], 'y2559'=>$dataRow["y2559"]);
         }
-        $baseRow = 7;
+        $baseRow = 7 + $accumulate_r;
         $row = 0;
-        
-        
+            
         for($r=0;$r<8;$r++) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
         }
+        $accumulate_r += $r;
 
         $baseRow = 7;
         $row = 0;
@@ -213,7 +214,6 @@ class PrintReportController extends Controller
                                         ->setCellValue('L'.$row, $dataRow[35]["y2559"]);
             $r+=1;
         }
-
         $phql = "select question.id, amphur.name amphur_name, office.name office_name, sum(answer2558.answer) y2558,  sum(answer2559.answer) y2559 
             from 
                 Clinic\Model\DiscoverySurvey discovery_survey 
@@ -231,17 +231,47 @@ class PrintReportController extends Controller
             $result[$dataRow["amphur_name"]][$dataRow["office_name"]][$dataRow["id"]] = 
                 array( 'y2558' => $dataRow["y2558"], 'y2559' =>  $dataRow["y2559"]);
         }
-        $baseRow = 15 + 8;
+
+        $r = $this->setFormNo2($objPHPExcel, 15, $accumulate_r, $result, "อำเภอเมือง");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 24, $accumulate_r, $result, "อำเภอแกลง");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 32, $accumulate_r, $result, "อำเภอบ้านค่าย");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 41, $accumulate_r, $result, "อำเภอบ้านฉาง");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 50, $accumulate_r, $result, "อำเภอปลวกแดง");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 59, $accumulate_r, $result, "อำเภอวังจันทร์");
+        $accumulate_r += $r;
+        
+        $r = $this->setFormNo2($objPHPExcel, 68, $accumulate_r, $result, "อำเภอเขาชะเมา");
+        $accumulate_r += $r;
+
+        $r = $this->setFormNo2($objPHPExcel, 77, $accumulate_r, $result, "อำเภอนิคมพัฒนา");
+        $accumulate_r += $r;
+
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo2_',$this->tmp_file);
+    }
+    public function setFormNo2($objPHPExcel, $atRow, $accumulate_r ,$result, $amphurName){
+        $baseRow = $atRow + $accumulate_r;
         $row = 0;
-            
-        $amphur = Amphur::findByName("อำเภอเมือง")->getFirst();
-        for($r=0;$r<$amphur->office->count();$r++) {
+        $amphur = Amphur::findByName($amphurName)->getFirst();
+        for($r=0;$r<=$amphur->office->count();$r++) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
         }
         $objPHPExcel->getActiveSheet()->removeRow($row+1,1);
 
-        $data = $result["อำเภอเมือง"];
+        $data = $result[$amphurName];
+        $accumulate_r += $r;
         $row = 0;
         $r=0;
         foreach($data as $key =>  $dataRow) {
@@ -260,13 +290,8 @@ class PrintReportController extends Controller
                                         ->setCellValue('L'.$row, $dataRow[35]["y2559"]);
             $r+=1;
         }
-
-
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save($this->tmp_file);
-  	 	$this->converttoexceltemplate('FormNo2_',$this->tmp_file);
+        return $r;
     }
-
     public function TestNo1Action()
     {
         $this->view->disable();
