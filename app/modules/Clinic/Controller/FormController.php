@@ -5805,7 +5805,7 @@ class FormController extends Controller
                     $auth = $this->session->get('auth');
                     $user = AdminUser::findFirst($auth->id);
 
-        $this->disabledInput(1);
+        $this->disabledInput(9);
         if ($this->request->isPost()) {
             $option = $this->request->getPost("option");
             $this->view->disable();
