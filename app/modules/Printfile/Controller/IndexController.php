@@ -208,7 +208,7 @@ class IndexController extends Controller
         //parent::searchAction();
 
 
-        $survey = Survey::findFirst("status = 'A'");
+        $survey = Survey::findFirst("status = '1'");
         $listDiscoverySurvey = DiscoverySurvey::find("surveyid = {$survey->id}");
 
         //var_dump($links);
