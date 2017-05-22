@@ -12,7 +12,7 @@
                   </p>
                     <h1 class="jumbotron thfont text-dark bg-dark" style="color:white">{{ publication.getTitle() }}</h1>
 
-                    <span class="jumbotron date col-lg-12 " style="font-size:80%"><i>วันที่ {{ publication.getDate('d/m/Y') }}</i> </span>
+                    <span class="jumbotron date col-xs-12 " style="font-size:80%"><i>วันที่ {{ publication.getDate('d/m/Y') }}</i> </span>
 
                     {% if publication.preview_inner %}
                         {% set image = helper.image([

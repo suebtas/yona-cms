@@ -133,17 +133,15 @@
                     <li>
                         <a class="page-scroll" href="/" style="color:rgb(47, 47, 47)">หน้าหลัก</a>
                     </li>
-                    
+
                     <li>
                         <a class="page-scroll" href="/news" style="color:rgb(47, 47, 47)">ข่าวประชาสัมพันธ์</a>
                     </li>
-                    
+
                     <li>
-                        <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">กิจกรรม</a>
+                        <a class="page-scroll" href="/event" style="color:rgb(47, 47, 47)">ผลงานและกิจกรรม</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="/portfolio" style="color:rgb(47, 47, 47)">ผลงาน</a>
-                    </li>
+
                     <li>
                         <a class="page-scroll" href="/report" style="color:rgb(47, 47, 47)">รายงาน</a>
                     </li>

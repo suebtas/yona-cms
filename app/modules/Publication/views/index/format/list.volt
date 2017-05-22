@@ -27,7 +27,7 @@
           </div>
           <div class="col-md-6" align="left">
             <blockquote class=" blockquote" >
-            <a href="{{ link }}" class="text-info"><h3 class="thfontb">{{ helper.announce(item.getTitle(), 50) }}</h3></a>
+            <a href="{{ link }}" class="text-info"><h3 class="thfontb">{{ helper.announce(item.getTitle(), 54) }}</h3></a>
             <i style="font-size:80%">วันที่ {{ item.getDate('d.m.Y') }}</i>
             <p style="font-size:100%">{{ helper.announce(item.getText(), 250) }}</p></blockquote>
 

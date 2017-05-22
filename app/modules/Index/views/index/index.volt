@@ -43,7 +43,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-xs-6">
+                    <div class="col-md-6">
                         <center><span class="thfont">ข่าวประชาสัมพันธ์</span></center>
                         <div class="line">
                         </div>
@@ -80,7 +80,8 @@
 
 
                     </div>
-                    <div class="col-xs-6 ">
+
+                    <div class="col-md-6 ">
                         <center><span class="thfont">กิจกรรมและผลงาน</span></center>
                         <div class="line"></div>
                         <div id="owl-d" class="owl-carousel">
@@ -102,7 +103,7 @@
                                 {#{% if image.isExists() %}
                                     {{ image.imageHTML() }}
                                 {% endif %}#}
-                                <img src="{{ image.cachedRelPath() }}"  class="img-responsive" style="width:300;max-height:210px" alt="">
+                                <img src="<?php if(strpos($item->getSlug(), 'watch') !== false){$slug = substr($item->getSlug(),-11); echo "https://img.youtube.com/vi/" . $slug . "/0.jpg";}else {echo $image->cachedRelPath();} ?>" class="img-responsive" style="width:300;max-height:210px"  alt="Image 1">
                                 <a href="{{url}}" class="text-info">
                                   <p>{{ helper.announce(item.getTitle(), 130) }}</p>
                                 </a>
@@ -113,9 +114,10 @@
 
                         </div>
                     </div>
+
                 </div>
 
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <center><span class="thfont">รายงานและเอกสาร</span></center>
                     <div class="line"></div>
                     <div id="owl-e" class="owl-carousel">
@@ -136,7 +138,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-md-6">
                     <center><span class="thfont">กระทู้ล่าสุด</span></center>
                     <div class="line"></div>
                     <div id="owl-f" class="owl-carousel" >
