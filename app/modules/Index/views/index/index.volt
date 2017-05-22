@@ -65,8 +65,8 @@
                                   ])
                               %}
                               <div class="item" style="background:rgb(226, 226, 226);color:rgb(9, 94, 219)">
+                                  <a href="{{url}}"><img src="{{ image.cachedRelPath() }}"  class="img-responsive" style="width:300;max-height:210px" alt=""></a>
 
-                                      <img src="{{ image.cachedRelPath() }}"  class="img-responsive" style="width:300;max-height:210px" alt="">
 
                                   <a href="{{url}}" class="text-info">
                                     <p>{{ helper.announce(item.getTitle(), 130) }}</p>
@@ -103,7 +103,7 @@
                                 {#{% if image.isExists() %}
                                     {{ image.imageHTML() }}
                                 {% endif %}#}
-                                <img src="<?php if(strpos($item->getSlug(), 'watch') !== false){$slug = substr($item->getSlug(),-11); echo "https://img.youtube.com/vi/" . $slug . "/0.jpg";}else {echo $image->cachedRelPath();} ?>" class="img-responsive" style="width:300;max-height:210px"  alt="Image 1">
+                                <a href="{{url}}"><img src="<?php if(strpos($item->getSlug(), 'watch') !== false){$slug = substr($item->getSlug(),-11); echo "https://img.youtube.com/vi/" . $slug . "/0.jpg";}else {echo $image->cachedRelPath();} ?>" class="img-responsive" style="width:300;max-height:210px"  alt="Image 1"></a>
                                 <a href="{{url}}" class="text-info">
                                   <p>{{ helper.announce(item.getTitle(), 130) }}</p>
                                 </a>
@@ -131,7 +131,7 @@
                           ])
                       %}
                         <div class="item" style="background:rgb(59, 59, 59)">
-                            <img src="website/img/doc.png" class="img-responsive" alt="Touch">
+                            <a href="{{url}}"><img src="{{ image.cachedRelPath() }}" class="img-responsive" alt="Touch"></a>
                             <a href="{{url}}"><h3>{{ helper.announce(item.getTitle(), 130) }}</h3></a>
                             <i>{{ item.getDate('วันที่ d M Y') }}</i>
                         </div>
