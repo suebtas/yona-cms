@@ -229,7 +229,10 @@ class DataanalyController extends FormController
                 //array['xxx2' => array[2559=>10,2558=>10]]
                 //array['xxx1'][] = [2559=>10,2558=>10]
                 //array['xxx1'][] = [2559=>10,2558=>10]
-                $result[$item->name][$year1] = $item->answer;
+                if($val3 == "")
+                    $result[$item->name][$year1] = $this->toformatNumber($item->answer);
+                else
+                    $result[$item->name][$year1] = $item->answer;
             }
 
             if (is_array($data2) || is_object($data2))
@@ -238,7 +241,10 @@ class DataanalyController extends FormController
                 //array['xxx2' => array[2559=>10,2558=>10]]
                 //array['xxx1'][] = [2559=>10,2558=>10]
                 //array['xxx1'][] = [2559=>10,2558=>10]
-                $result[$item->name][$year2] = $item->answer;
+                if($val3 == "")
+                    $result[$item->name][$year2] = $this->toformatNumber($item->answer);
+                else
+                    $result[$item->name][$year2] = $item->answer;
             }
             
             $this->view->test = $result;
@@ -313,14 +319,32 @@ class DataanalyController extends FormController
                     $document->setValue('No#'.$i, $i);
                     $document->setValue('Off#'.$i, $key);
                     
-                    $document->setValue('New#'.$i, str_replace("&nbsp;","",$item[$year1]) );
+                    //$document->setValue('New#'.$i, str_replace("&nbsp;","",$item[$year1]) );
+
+                    if($val3 != "")
+                    {
+                        $document->setValue('New#'.$i, $item[$year1]);
                
-                    if(isset($item[$year2]))
-                        $document->setValue('Old#'.$i, str_replace("&nbsp;","",$item[$year2]));
+                        if(isset($item[$year2]))
+                            //$document->setValue('Old#'.$i, str_replace("&nbsp;","",$item[$year2]));
+                            $document->setValue('Old#'.$i, $item[$year2]);
+                        else
+                            $document->setValue('Old#'.$i, "");
+ 
+                    }
                     else
-                        $document->setValue('Old#'.$i, "");
-                    
+                    {
+                        $document->setValue('New#'.$i, $this->toformatNumber($item[$year1]));
+               
+                        if(isset($item[$year2]))
+                            //$document->setValue('Old#'.$i, str_replace("&nbsp;","",$item[$year2]));
+                            $document->setValue('Old#'.$i, $this->toformatNumber($item[$year2]));
+                        else
+                            $document->setValue('Old#'.$i, "");
+                    }
+
                     $i++;
+                    
                 }
                 //die();
 
@@ -332,12 +356,13 @@ class DataanalyController extends FormController
                     $document->setValue('cNew#'.$i, $this->toformatNumber2($countAmphs[$item->id]));
                     $document->setValue('cOld#'.$i,  $this->toformatNumber2($countAmphs2[$item->id]));
                     $i++;
+                    //echo $this->toformatNumber($countAmphs[$item->id]);
                 }
-
+                //die();
                 $d = strtotime("today");
                 $today = date("Y-m-d",$d);
                 $document->setValue('{date}', $this->getTHdate($today));
-                //var_dump(($data));die();
+                //var_dump(($data));
                 //$document->setValue('S'.$work['Day'].'#'.$index, $work['Status']);
 
                 $result = $document->saveAs($this->tmp_file);   

@@ -162,7 +162,7 @@ class IndexController extends Controller
     }
     //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupSessionAction($no){
-        $lastID =  1;//Survey::find()->getLast()->id;
+        $lastID =  4;//Survey::find()->getLast()->id;
         $this->view->disable();
         $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
@@ -194,7 +194,7 @@ class IndexController extends Controller
     //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupCommentAction($no){
         $this->view->disable();
-        $lastID =  1;//Survey::find()->getLast()->id;
+        $lastID =  4;//Survey::find()->getLast()->id;
         $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(c.count_approver) as count_approver, sum(c.count_admin) as count_admin
 from session s
 left join (
@@ -234,9 +234,9 @@ group by s.name ";
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $phql = "select DATE(a.last_update_survey) as date, count(*) as count
         from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds
-        where a.discovery_surveyid = ds.id and a.last_update_survey is not null  
-        GROUP BY DATE(a.last_update_survey)";
-        $rows = $this->modelsManager->executeQuery($phql);
+        where a.discovery_surveyid = ds.id   
+        GROUP BY DATE(a.last_update_survey)"; //-- and a.last_update_survey is not null
+        $rows = $this->modelsManager->executeQuery($phql); 
         $data = [];
         foreach ($rows as $row) {
             if($row["date"]!=null){

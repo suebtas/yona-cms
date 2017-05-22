@@ -112,7 +112,7 @@ class IndexController extends Controller
 
     //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupSessionAction($no){
-        $lastID = 1;//Survey::find()->getLast()->id;
+        $lastID = 4;//Survey::find()->getLast()->id;
         $this->view->disable();
         $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count 
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
