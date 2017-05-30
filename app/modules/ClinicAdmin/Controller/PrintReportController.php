@@ -435,10 +435,40 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo5_',$this->tmp_file);
     }
 
+
     public function No6Action($serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no6.xls');
+
+
+        if(!is_numeric($serveyID))
+            exit();
+        $currentServey = Survey::findFirst($serveyID);
+        if($currentServey)
+            $currentServeyID = $currentServey->id;
+        else 
+            $currentServeyID = -1;
+        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
+        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        if($previousServey)
+            $previousServeyID = $previousServey->ID;
+        else
+            $previousServeyID = -1;
+
+        $resultSummary = $this->getSummaryAnswerByQuestionID($currentServeyID, $previousServeyID);
+        $result = $this->getAllAmphurAnswerByQuestionID($currentServeyID, $previousServeyID);
+
+
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
+        $objWriter->save($this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo6_',$this->tmp_file);
+    }
+
+    public function No7Action($serveyID){
+        $this->view->disable();
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no7.xls');
 
 
         if(!is_numeric($serveyID))
@@ -524,14 +554,13 @@ class PrintReportController extends Controller
 
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save($this->tmp_file);
-  	 	$this->converttoexceltemplate('FormNo6_',$this->tmp_file);
+  	 	$this->converttoexceltemplate('FormNo7_',$this->tmp_file);
     }
 
-
-    public function No7Action($serveyID){
+    public function No8Action($serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
-        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no7.xls');
+        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no8.xls');
 
 
         if(!is_numeric($serveyID))
@@ -601,35 +630,6 @@ class PrintReportController extends Controller
             $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
             $accumulate_r += $r;
         }
-
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
-        $objWriter->save($this->tmp_file);
-  	 	$this->converttoexceltemplate('FormNo7_',$this->tmp_file);
-    }
-
-    public function No8Action($serveyID){
-        $this->view->disable();
-        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
-        $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no8.xls');
-
-
-        if(!is_numeric($serveyID))
-            exit();
-        $currentServey = Survey::findFirst($serveyID);
-        if($currentServey)
-            $currentServeyID = $currentServey->id;
-        else 
-            $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
-        if($previousServey)
-            $previousServeyID = $previousServey->ID;
-        else
-            $previousServeyID = -1;
-
-        $resultSummary = $this->getSummaryAnswerByQuestionID($currentServeyID, $previousServeyID);
-        $result = $this->getAllAmphurAnswerByQuestionID($currentServeyID, $previousServeyID);
-
 
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save($this->tmp_file);
