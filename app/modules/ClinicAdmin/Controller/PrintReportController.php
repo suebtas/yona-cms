@@ -73,10 +73,65 @@ class PrintReportController extends Controller
 
     public $tmp_file = 'data/cache/FormNoTMP.xlsx';
 
-    public function No1Action(){
+    public function No1Action($serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no1.xls');
+
+        if(!is_numeric($serveyID))
+            exit();
+        $currentServey = Survey::findFirst($serveyID);
+        if($currentServey)
+            $currentServeyID = $currentServey->id;
+        else 
+            $currentServeyID = -1;
+        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
+        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        if($previousServey)
+            $previousServeyID = $previousServey->ID;
+        else
+            $previousServeyID = -1;
+
+        $resultSummary = $this->getSummaryAnswerByQuestionID($currentServeyID, $previousServeyID);
+        $result = $this->getAllAmphurAnswerByQuestionID($currentServeyID, $previousServeyID);
+
+        //Sheet 0: ประชากร
+        $accumulate_r=0;
+
+
+
+        $questions = array(            
+            array('QuestionID'=>2,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
+            //1.2       พื้นที่
+            array('QuestionID'=>553,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
+            //1.2.1     จำนวนประชากรทั้งหมด
+            array('QuestionID'=>7,'ColumnID'=>array('G'=>'y2558','H'=>'y2559')),
+            //1.2.1.1   ชาย
+            array('QuestionID'=>8,'ColumnID'=>array('I'=>'y2558','J'=>'y2559')),
+            //1.2.1.2   หญิง
+            array('QuestionID'=>20,'ColumnID'=>array('K'=>'y2558','L'=>'y2559')),
+            //1.2.9     ความหนาแน่นของประชากร
+        );
+        $objPHPExcel->setActiveSheetIndex(0);
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary);
+        $accumulate_r += $r;
+
+        $amphurs = array(
+            array("อำเภอเมือง",15),
+            array("อำเภอแกลง",24),
+            array("อำเภอบ้านค่าย",32),
+            array("อำเภอบ้านฉาง",41),
+            array("อำเภอปลวกแดง",50),
+            array("อำเภอวังจันทร์",59),
+            array("อำเภอเขาชะเมา",68),
+            array("อำเภอนิคมพัฒนา",77),
+            );// array( อำเภอ และ แสดงผลแถวที่ x )
+        //set amphur 
+        foreach($amphurs as $amphur){
+            $displayColumns = $questions;
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $accumulate_r += $r;
+        }
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save($this->tmp_file);
   	 	$this->converttoexceltemplate('FormNo1_',$this->tmp_file);
@@ -459,6 +514,52 @@ class PrintReportController extends Controller
         $resultSummary = $this->getSummaryAnswerByQuestionID($currentServeyID, $previousServeyID);
         $result = $this->getAllAmphurAnswerByQuestionID($currentServeyID, $previousServeyID);
 
+
+        //Sheet 0: คดี
+        $accumulate_r=0;
+
+
+
+        $questions = array(            
+            array('QuestionID'=>225,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
+            //6.1   คดีเด็กและเยาวชนที่ถูกดำเนินคดี จำนวน
+            array('QuestionID'=>226,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
+            //6.2   คดีอุกฉกรรจ์และสะเทือนขวัญ จำนวน
+            array('QuestionID'=>227,'ColumnID'=>array('G'=>'y2558','H'=>'y2559')),
+            //6.3   คดีชีวิต ร่างกายและเพศ จำนวน
+            array('QuestionID'=>228,'ColumnID'=>array('I'=>'y2558','J'=>'y2559')),
+            //6.4   คดียาเสพติด
+            array('QuestionID'=>229,'ColumnID'=>array('K'=>'y2558','L'=>'y2559')),
+            //6.5   คดีเกี่ยวกับปราบปรามการค้าประเวณี จำนวน
+            array('QuestionID'=>230,'ColumnID'=>array('M'=>'y2558','N'=>'y2559')),
+            //6.6   คดีการมีและเผยแพร่วัตถุลามก จำนวน
+            array('QuestionID'=>231,'ColumnID'=>array('O'=>'y2558','P'=>'y2559')),
+            //6.7   อุบัติเหตุบนท้องถนน จำนวน
+            array('QuestionID'=>232,'ColumnID'=>array('Q'=>'y2558','R'=>'y2559')),
+            //6.8   ผู้ประสบอันตรายหรือเจ็บป่วยเนื่องจากการทำงาน จำนวน
+            array('QuestionID'=>233,'ColumnID'=>array('S'=>'y2558','T'=>'y2559')),
+            //6.9   ผู้ประสบภัยที่เป็นนักท่องเที่ยวต่างชาติ จำนวน
+        );
+        $objPHPExcel->setActiveSheetIndex(0);
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $accumulate_r += $r;
+
+        $amphurs = array(
+            array("อำเภอเมือง",18),
+            array("อำเภอแกลง",25),
+            array("อำเภอบ้านค่าย",32),
+            array("อำเภอบ้านฉาง",50),
+            array("อำเภอปลวกแดง",74),
+            array("อำเภอวังจันทร์",93),
+            array("อำเภอเขาชะเมา",116),
+            array("อำเภอนิคมพัฒนา",140),
+            );// array( อำเภอ และ แสดงผลแถวที่ x )
+        //set amphur 
+        foreach($amphurs as $amphur){
+            $displayColumns = $questions;
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $accumulate_r += $r;
+        }
 
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
         $objWriter->save($this->tmp_file);
