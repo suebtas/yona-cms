@@ -29,7 +29,7 @@ $(document).ready(function() {
 				{ "visible": false, "targets": 1 },
 				{ "width": "10%", "targets": [2,3,4,5] }
         	],
-			"order": [[ 2, 'desc' ]],
+			"order": [[ 1, 'desc' ]],
 			"drawCallback": function ( settings ) {
             var api = this.api();
             var rows = api.rows( {page:'current'} ).nodes();
