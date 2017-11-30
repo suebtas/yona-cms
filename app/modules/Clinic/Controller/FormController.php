@@ -360,28 +360,28 @@ class FormController extends Controller
             $no1_3_1 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 1",
                             "bind" => array(
-                                1=>$this->user->officeid
+                                1=>$this->discoverySurvey->officeid
                                 )
                             )
                         );
             $no1_3_2 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 2",
                             "bind" => array(
-                                1=>$this->user->officeid
+                                1=>$this->discoverySurvey->officeid
                                 )
                             )
                         );
             $no1_3_3 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 3",
                             "bind" => array(
-                                1=>$this->user->officeid
+                                1=>$this->discoverySurvey->officeid
                                 )
                             )
                         );
             $no1_3_4 = BoundaryTambon::toArrayCloseTambonID(
                         array("owner_officeid = ?1 and boundaryid = 4",
                             "bind" => array(
-                                1=>$this->user->officeid
+                                1=>$this->discoverySurvey->officeid
                                 )
                             )
 
