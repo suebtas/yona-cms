@@ -370,23 +370,24 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="50%"><input type="text" id="no5_6_1" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_1}}></td>
+                          <td width="50%">
+                          <textarea rows="1" cols="50" id="no5_6_1" class="form-control col-md-2 col-xs-6">{{no5_6_1}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="50%"><input type="text" id="no5_6_2" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_2}}></td>
+                          <td width="50%"><textarea rows="1" cols="50" id="no5_6_2" class="form-control col-md-2 col-xs-6">{{no5_6_2}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="50%"><input type="text" id="no5_6_3" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_3}}></td>
+                          <td width="50%"><textarea rows="1" cols="50" id="no5_6_3" class="form-control col-md-2 col-xs-6">{{no5_6_3}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="50%"><input type="text" id="no5_6_4" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_4}}></td>
+                          <td width="50%"><textarea rows="1" cols="50" id="no5_6_4" class="form-control col-md-2 col-xs-6">{{no5_6_4}}</textarea></td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="50%"><input type="text" id="no5_6_5" required="required" class="form-control col-md-4 col-xs-6" value={{no5_6_5}}></td>
+                          <td width="50%"><textarea rows="1" cols="50" id="no5_6_5" class="form-control col-md-2 col-xs-6">{{no5_6_5}}</textarea></td>
                         </tr>
                     </tbody>
                   </table>

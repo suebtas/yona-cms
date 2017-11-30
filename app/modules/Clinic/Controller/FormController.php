@@ -2856,7 +2856,7 @@ class FormController extends Controller
                                 1=>219,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no5_5_2_2 = $no5_5_2_2;
-
+        
         //no5_6
         $no5_6_1 = Answer::findFirst(
                         array("questionid=?1 and discovery_surveyid=?2",
@@ -2892,6 +2892,12 @@ class FormController extends Controller
                                 1=>224,
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no5_6_5 = $no5_6_5;
+        //echo($no5_6_1);
+        //echo($no5_6_2);
+        //echo($no5_6_3);
+        //echo($no5_6_4);
+        //echo($no5_6_5);
+        //die("TEST");
     }
     public function no5Action(){
          $this->assets->collection('modules-clinic-no5-js')
