@@ -78,9 +78,9 @@ class IndexController extends Controller
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/dashboard.js');
         if($this->view->user->role=='cc-admin')
-            $this->view->listDiscoverySurvey = DiscoverySurvey::find();
+            $this->view->listDiscoverySurvey = DiscoverySurvey::find(array("order"=>"surveyid desc"));
         else
-            $this->view->listDiscoverySurvey = DiscoverySurvey::find(array("officeid=:0:","bind"=>[$this->view->user->officeid]));
+            $this->view->listDiscoverySurvey = DiscoverySurvey::find(array("officeid=:0:","bind"=>[$this->view->user->officeid],"order"=>"surveyid desc"));
     }
     //กราฟแสดงสถานะการยืนยันข้อมูล
     public function dashboardAction(){

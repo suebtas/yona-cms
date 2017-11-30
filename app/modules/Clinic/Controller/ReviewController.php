@@ -28,7 +28,7 @@ class ReviewController extends FormController
         $this->user = AdminUser::findFirst($auth->id);
 
         if(!$this->session->has('discovery_surveyid')){
-            $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
+            $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid,"order"=>"id desc"));
             if($this->discoverySurvey==null){
                 echo 'error';
             }
