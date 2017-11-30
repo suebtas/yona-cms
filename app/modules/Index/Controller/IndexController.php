@@ -195,18 +195,18 @@ class IndexController extends Controller
     public function serveyGroupCommentAction($no){
         $this->view->disable();
         $lastID =  4;//Survey::find()->getLast()->id;
-        $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(c.count_approver) as count_approver, sum(c.count_admin) as count_admin
-from session s
-left join (
-	select c.sessionid,
-	count(case u.role when 'cc-approver' then 1 end ) 'count_approver' ,
-	count(case u.role when 'cc-admin' then 1 end ) 'count_admin'
-	from admin_user u, comment c , discovery_survey ds
-	where c.discovery_surveyid = ds.id and ds.surveyid = :surveyid and c.admin_userid = u.id	group by c.sessionid ) c on (s.id = c.sessionid)
-left join (
-	select count(a.answer) c, q.sessionid from answer a,question q, discovery_survey ds where (q.id = a.questionid and ds.id = a.discovery_surveyid and ds.surveyid = :surveyid) group by q.sessionid ) as aq on (s.id = aq.sessionid)
-where s.active = 1 and s.id = :id
-group by s.name ";
+        $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(ap2.c) as count_approver  , sum(ap3.c) as count_admin
+                from session s
+                left join (
+                    select count(a.answer) c, q.sessionid from answer a,question q, discovery_survey ds where (q.id = a.questionid and ds.id = a.discovery_surveyid and ds.surveyid = :surveyid and ds.status = 3 ) group by q.sessionid ) as ap3 on (s.id = ap3.sessionid)
+                    
+                left join (
+                    select count(a.answer) c, q.sessionid from answer a,question q, discovery_survey ds where (q.id = a.questionid and ds.id = a.discovery_surveyid and ds.surveyid = :surveyid and ds.status = 2 ) group by q.sessionid ) as ap2 on (s.id = ap2.sessionid)
+                    
+                left join (
+                    select count(a.answer) c, q.sessionid from answer a,question q, discovery_survey ds where (q.id = a.questionid and ds.id = a.discovery_surveyid and ds.surveyid = :surveyid) group by q.sessionid ) as aq on (s.id = aq.sessionid)
+                where s.active = 1 and s.id = :id
+                group by s.name ";
 
         $di             = \Phalcon\DI::getDefault();
         $db             = $di['db'];

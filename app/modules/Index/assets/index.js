@@ -191,7 +191,7 @@ $(function() {
 
 
 // Stacked Bars Chart
-
+//สถานะการยืนยันข้อมูล
 	$(function() {
 
         var ds = new Array();
@@ -218,37 +218,36 @@ $(function() {
 			ticks.push([item,series.label]);
 
 			if(item==1){
-			values.push({
-					label: "Data Answer",
-					data: d1,
-					color: "#CC0000"
-		//          bars: {order: 1}
-				});
-			values.push({
-					label: "Data Approver",
-					data:d2,
-					color: "#CCCC00"
-		//          bars: {order: 2}
-				});
-			values.push({
-					label: "Data Admin",
-					data:d3,
-					color: "#CCFF00"
-			//        bars: {order: 3}
-				});
+				values.push({
+						label: "Data Answer",
+						data: d1,
+						color: "#d96459"
+			//          bars: {order: 1}
+					});
+				values.push({
+						label: "Data Approver",
+						data:d2,
+						color: "#f2e394"
+			//          bars: {order: 2}
+					});
+				values.push({
+						label: "Data Admin",
+						data:d3,
+						color: "#588c7e"
+				//        bars: {order: 3}
+					});
 			}else{
-
 				values.push({
 						data: d1,
-						color: "#CC0000"
+						color: "#d96459"
 					});
 				values.push({
 						data:d2,
-						color: "#CCCC00"
+						color: "#f2e394"
 					});
 				values.push({
 						data:d3,
-						color: "#CCFF00"
+						color: "#588c7e"
 					});				
 			}
 			var stack = 0,
@@ -274,11 +273,11 @@ $(function() {
 					barWidth: 0.5
 				},
 				xaxis: {
-					axisLabel: "World Cities",
+					axisLabel: "Approver status",
 					axisLabelUseCanvas: true,
-					axisLabelFontSizePixels: 12,
-					axisLabelFontFamily: 'Verdana, Arial',
-					axisLabelPadding: 10,
+					axisLabelFontSizePixels: 10,
+					axisLabelFontFamily: 'Tahoma',
+					axisLabelPadding: 100,
 					ticks: ticks
 					
 				}
