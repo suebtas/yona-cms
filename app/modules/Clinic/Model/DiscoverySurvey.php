@@ -165,7 +165,7 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
     {
         $now = new \DateTime(); // Today
         //echo $now->format('d/m/Y'); // echos today! 
-        $dateEnd  = new \DateTime($this->getEndDate());
+        $dateEnd  = new \DateTime($this->getEndDate().'T24:00:00.00Z');
 
         return  $now->getTimestamp() > $dateEnd->getTimestamp();
     }

@@ -32,7 +32,7 @@ class FormController extends Controller
             return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
 
         if(!$this->session->has('discovery_surveyid')){
-            $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid));
+            $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid,"order"=>"id desc"));
             if($this->discoverySurvey==null){
                 $this->discoverySurvey = new DiscoverySurvey();
                 $this->discoverySurvey->officeid  = $this->user->officeid;
