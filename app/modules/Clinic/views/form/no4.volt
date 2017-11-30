@@ -104,7 +104,6 @@
                 {% endblock %}
                 <form class="form-horizontal form-label-left">
 
-                  <div class="form-group">
                   <table class="table table-bordered table-striped" style="clear: both">
                     <tbody>
                         <tr>
@@ -119,7 +118,6 @@
                         </tr>
                     </tbody>
                   </table>
-                </form>
 
               </div>
 
