@@ -105,22 +105,20 @@
                 <form class="form-horizontal form-label-left">
 
                   <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ชุมชน จำนวน
-                    </label>
-                    <div class="col-md-2 text-center">
-                         <a href="#" id="no4_1" data-type="text" data-pk="1" data-title="Enter username">{{no4_1}}</a>
+                  <table class="table table-bordered table-striped" style="clear: both">
+                    <tbody>
+                        <tr>
+                            <td width="40%">ชุมชน จำนวน  </td>
+                            <td width="40%"> <a href="#" id="no4_1" data-type="text" style="z-index:10" data-pk="1" data-title="Enter username">{{no4_1}}</a> แห่ง</td>
 
-                    </div>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง  </label>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="map"> ครัวเรือน จำนวน
-                    </label>
-                    <div class="col-md-2 text-center">
-                      <a href="#" id="no4_2" data-type="text" data-pk="1" data-title="Enter username">{{no4_2}}</a>
-                    </div>
-                    <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> ครัวเรือน  </label>
-                  </div>
+                        </tr>
+                        <tr>
+                            <td width="40%">ครัวเรือน จำนวนวัด </td>
+                            <td width="40%"><a href="#" id="no4_2" data-type="text" data-pk="1" style="z-index:10"  data-title="Enter username">{{no4_2}}</a> ครัวเรือน</td>
+
+                        </tr>
+                    </tbody>
+                  </table>
                 </form>
 
               </div>
