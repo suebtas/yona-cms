@@ -91,7 +91,14 @@ class ReviewController extends FormController
         $this->view->signing_approver = $this->discoverySurvey->signing_approver;
         $this->view->signing_surveyor = $this->discoverySurvey->signing_surveyor;
     }
-
+    public function setAdminAction($no="no1"){
+        if(!$this->session->get('admin-enable'))
+            $this->session->set('admin-enable', true);
+        else{
+            $this->session->set('admin-enable', false);
+        }
+        return $this->redirect($this->url->get() . 'clinic/form/'.$no);
+    }
     public function updateSigningApprover($approver){
         if($surveyor=='delete'){
                 //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -115,11 +122,14 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no1.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no1-js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
 
-        $this->disabledInput(1);
+       //$this->disabledInput(1);
 
 
         if (!$this->request->isPost()) {
@@ -215,7 +225,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no2.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no2-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
 
@@ -366,7 +379,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no3.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no3-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
 
@@ -539,7 +555,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no4.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no4-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
 
@@ -712,7 +731,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no5.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no5-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
 
@@ -885,7 +907,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no6.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no6-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
 
@@ -957,7 +982,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no7.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no7-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
 
@@ -1080,7 +1108,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no8.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no8-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
 
@@ -1254,7 +1285,10 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-no9.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        $adminEnable = $this->session->get('admin-enable');
+        if(!isset($adminEnable) || $adminEnable==false)
+            $this->assets->collection('modules-clinic-no9-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
 
