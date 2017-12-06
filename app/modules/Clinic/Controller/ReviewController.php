@@ -124,12 +124,12 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no1-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
-
-       //$this->disabledInput(1);
+            $this->disabledInput(1);
+        }
 
 
         if (!$this->request->isPost()) {
@@ -227,12 +227,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no2-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
 
-        $this->disabledInput(2);
+            $this->disabledInput(2);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -381,12 +382,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no3-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
 
-        $this->disabledInput(3);
+            $this->disabledInput(3);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -557,12 +559,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no4-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
 
-        $this->disabledInput(4);
+            $this->disabledInput(4);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -733,12 +736,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no5-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
 
-        $this->disabledInput(5);
+            $this->disabledInput(5);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -909,12 +913,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no6-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
 
-        $this->disabledInput(6);
+            $this->disabledInput(6);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -984,12 +989,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no7-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
 
-        $this->disabledInput(7);
+            $this->disabledInput(7);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1110,12 +1116,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no8-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
 
-        $this->disabledInput(8);
+            $this->disabledInput(8);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1287,12 +1294,13 @@ class ReviewController extends FormController
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
         $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false)
+        if(!isset($adminEnable) || $adminEnable==false){
             $this->assets->collection('modules-clinic-no9-js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
 
-        $this->disabledInput(9);
+            $this->disabledInput(9);
+        }
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
