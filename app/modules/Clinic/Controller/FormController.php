@@ -28,8 +28,10 @@ class FormController extends Controller
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
 
+        $adminEnable = $this->session->get('admin-enable');        
         if(in_array($this->user->role, ['cc-admin','cc-approver'])) //ถ้า เป็น cc-admin และ cc-approver ให้ไปหน้า review
-            return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
+            if($this->request->isGet() || isset($adminEnable) && $adminEnable==false)
+                return $this->redirect($this->url->get() . 'clinic/review/'. $this->router->getActionName());
 
         if(!$this->session->has('discovery_surveyid')){
             $this->discoverySurvey = DiscoverySurvey::findFirst(array("officeid=?0","bind"=>$this->user->officeid,"order"=>"id desc"));
@@ -435,8 +437,6 @@ class FormController extends Controller
         return $commenting;
     }
     public function no1Action(){
-        if(in_array($this->user->role, ['cc-admin','cc-approver']))
-            return $this->redirect($this->url->get() . 'clinic/review/no1');
         // no1 JS Assets
         $this->assets->collection('modules-clinic-no1-js')
             ->setLocal(true)
@@ -919,8 +919,6 @@ class FormController extends Controller
     }
     public function no2Action()
     {
-        if(in_array($this->user->role, ['cc-admin','cc-approver']))
-            return $this->redirect($this->url->get() . 'clinic/review/no2');
         // no2 JS Assets
         $this->assets->collection('modules-clinic-no2-js')
             ->setLocal(true)
