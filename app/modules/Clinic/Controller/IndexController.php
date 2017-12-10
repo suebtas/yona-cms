@@ -48,7 +48,7 @@ class IndexController extends Controller
         foreach($surveies as $survey){
             $result[$survey->no]["summaryTotal"] = $survey->DiscoverySurvey->count();
 
-            $result[$survey->no]["summarySurveyReady"] = $survey->getDiscoverySurvey(["status=3"])->count();
+            $result[$survey->no]["summarySurveyReady"] = $survey->getDiscoverySurvey(["status in (1,2,3)"])->count();
             
             $result[$survey->no]["percentSurveyReady"] = $result[$survey->no]["summarySurveyReady"] /$result[$survey->no]["summaryTotal"] * 100;
 
