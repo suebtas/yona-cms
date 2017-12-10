@@ -48,22 +48,22 @@ class IndexController extends Controller
         foreach($surveies as $survey){
             $result[$survey->no]["summaryTotal"] = $survey->DiscoverySurvey->count();
 
-            $result[$survey->no]["summarySurveyReady"] = $survey->getDiscoverySurvey(["status=2"])->count();
+            $result[$survey->no]["summarySurveyReady"] = $survey->getDiscoverySurvey(["status=3"])->count();
             
             $result[$survey->no]["percentSurveyReady"] = $result[$survey->no]["summarySurveyReady"] /$result[$survey->no]["summaryTotal"] * 100;
 
 
-            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 1";
+            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 3 and a.level = 1";
             $rows = $this->modelsManager->executeQuery($phql,[$survey->id]);
             $result[$survey->no]["summaryApprovalReady"] = $rows->getFirst()->c;
 
             $result[$survey->no]["percentApprovalReady"] = $result[$survey->no]["summaryApprovalReady"] /$result[$survey->no]["summaryTotal"] * 100;
 
 
-            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 1 and a.level = 2";
+            $phql = "select count(*) c from Clinic\Model\DiscoverySurvey ds , Clinic\Model\Approval a where ds.surveyid = ?0 and a.discovery_surveyid = ds.id and a.status = 3 and a.level = 2";
             $rows = $this->modelsManager->executeQuery($phql,array($survey->id));
             $result[$survey->no]["summaryAdminReady"] = $rows->getFirst()->c;
-            $result[$survey->no]["percentAdminReady"] = $result[$survey->no]["summaryAdminReady"] /$result[$survey->no]["summaryTotal"] * 100;
+            $result[$survey->no]["percentAdminReady"] = $result[$survey->no]["summaryAdminReady"] / $result[$survey->no]["summaryTotal"] * 100;
         }
         $this->view->summary = $result;
         //var_dump($this->view->summaryTotal["summaryAdminReady"]["1/2559"]);
