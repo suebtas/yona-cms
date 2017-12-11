@@ -108,8 +108,17 @@ class FormController extends Controller
 
 
     public function disabledInput($id){
+        // no1 JS Assets
+        $this->assets->collection('modules-clinic-no'.$id.'-js')
+        ->setLocal(true)
+        ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
+        ->setTargetPath(ROOT . '/assets/modules-clinic-no'.$id.'.js')
+        ->setTargetUri('assets/modules-clinic-no'.$id.'.js')
+        ->join(true)
+        ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no'.$id.'.js');
 
-        if($this->discoverySurvey->isExpired() && $this->user->role!="cc-admin"){
+        $adminEnable = $this->session->get('admin-enable');  
+        if($adminEnable!=true && $this->discoverySurvey->isExpired() && $this->user->role!="cc-admin"){
             $this->assets->collection('modules-clinic-no'.$id.'-js')
                 ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
         }
@@ -117,16 +126,16 @@ class FormController extends Controller
         $approverAdmin = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(2)));
 
         if($this->user->role=="cc-user"){
-            if(in_array($approverApprover->status, array(3))){
+            if( in_array($approverAdmin->status, array(3)) ||
+                in_array($approverApprover->status, array(3)) || //approver 0=>'กำลังกรอกข้อมูล',1=>'ตรวจสอบอีกครั้ง',2=>'ไม่ผ่าน',3=>'ผ่าน'
+                in_array($this->discoverySurvey->status,array(2,3))){ //discoverySurvey 0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'
                 $this->assets->collection('modules-clinic-no'.$id.'-js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js')
-                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+                ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
             }
         }elseif($this->user->role=="cc-admin"){
             if( $approverApprover == null || $approverApprover->status != 3 ||
                 in_array($approverAdmin->status, array(3)) &&
-                in_array($this->discoverySurvey->status , array(0,1,3))
-            ){
+                in_array($this->discoverySurvey->status , array(0,1,3))){
                 $this->assets->collection('modules-clinic-no'.$id.'-js')
                     ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
             }
@@ -409,8 +418,11 @@ class FormController extends Controller
 
     }
     public function no10Action(){
-        $questions = Session::find("active = 1 AND extend = 1");
 
+        $this->disabledInput(10);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
+        $questions = Session::find("active = 1 AND extend = 1");
         $this->view->questions = $questions;
     }
     public function getCommenting($groupSession){
@@ -437,18 +449,7 @@ class FormController extends Controller
         return $commenting;
     }
     public function no1Action(){
-        // no1 JS Assets
-        $this->assets->collection('modules-clinic-no1-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no1.js')
-            ->setTargetUri('assets/modules-clinic-no1.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js');
-
-
         $this->disabledInput(1);
-
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
 
@@ -919,18 +920,7 @@ class FormController extends Controller
     }
     public function no2Action()
     {
-        // no2 JS Assets
-        $this->assets->collection('modules-clinic-no2-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no2.js')
-            ->setTargetUri('assets/modules-clinic-no2.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js');
-
-
-
-        $this->disabledInput(2);
+            $this->disabledInput(2);
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
 
@@ -1153,16 +1143,6 @@ class FormController extends Controller
     }
     public function no3Action()
     {
-      // no3 JS Assets
-        $this->assets->collection('modules-clinic-no3-js')
-          ->setLocal(true)
-          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-          ->setTargetPath(ROOT . '/assets/modules-clinic-no3.js')
-          ->setTargetUri('assets/modules-clinic-no3.js')
-          ->join(true)
-          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js');
-
-
             $this->disabledInput(3);
 
             $auth = $this->session->get('auth');
@@ -2034,15 +2014,7 @@ class FormController extends Controller
                                 2=>$this->discovery_surveyid)))->answer;
         $this->view->no4_6_8_2 = $no4_6_8_2;
     }
-    public function no4Action(){
-        $this->assets->collection('modules-clinic-no4-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no4.js')
-            ->setTargetUri('assets/modules-clinic-no4.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js');
-
+    public function no4Action(){        
         $this->disabledInput(4);
         if (!$this->request->isPost())
         {
@@ -2897,16 +2869,10 @@ class FormController extends Controller
         //echo($no5_6_5);
         //die("TEST");
     }
-    public function no5Action(){
-         $this->assets->collection('modules-clinic-no5-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no5.js')
-            ->setTargetUri('assets/modules-clinic-no5.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js');
-
-            $this->disabledInput(5);
+    public function no5Action(){ 
+        $this->disabledInput(5);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
             $this->createViewNo5();
 
@@ -3229,15 +3195,9 @@ class FormController extends Controller
         $this->view->no6_9 = $no6_9;
     }
     public function no6Action(){
-        $this->assets->collection('modules-clinic-no6-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no6.js')
-            ->setTargetUri('assets/modules-clinic-no6.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js');
-
         $this->disabledInput(6);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
             $this->createViewNo6();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -4336,16 +4296,6 @@ class FormController extends Controller
       $this->view->no7_11 = $no7_11;
     }
     public function no7Action(){
-      // no7 JS Assets
-      $this->assets->collection('modules-clinic-no7-js')
-          ->setLocal(true)
-          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-          ->setTargetPath(ROOT . '/assets/modules-clinic-no7.js')
-          ->setTargetUri('assets/modules-clinic-no7.js')
-          ->join(true)
-          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js');
-
-
         $this->disabledInput(7);
         $auth = $this->session->get('auth');
         $user = AdminUser::findFirst($auth->id);
@@ -5291,16 +5241,9 @@ class FormController extends Controller
       $this->view->no8_7_20 = $no8_7_20;
     }
     public function no8Action(){
-        // no1 JS Assets
-        $this->assets->collection('modules-clinic-no8-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no8.js')
-            ->setTargetUri('assets/modules-clinic-no8.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js');
-
         $this->disabledInput(8);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
               $this->createViewNo8();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
@@ -5799,18 +5742,9 @@ class FormController extends Controller
     }
     public function no9Action()
     {
-      // no9 JS Assets
-      $this->assets->collection('modules-clinic-no9-js')
-          ->setLocal(true)
-          ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-          ->setTargetPath(ROOT . '/assets/modules-clinic-no9.js')
-          ->setTargetUri('assets/modules-clinic-no9.js')
-          ->join(true)
-          ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js');
-                    $auth = $this->session->get('auth');
-                    $user = AdminUser::findFirst($auth->id);
-
         $this->disabledInput(9);
+        $auth = $this->session->get('auth');
+        $user = AdminUser::findFirst($auth->id);
         if ($this->request->isPost()) {
             $option = $this->request->getPost("option");
             $this->view->disable();

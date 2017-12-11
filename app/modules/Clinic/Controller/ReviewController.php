@@ -45,6 +45,7 @@ class ReviewController extends FormController
 
 
         $this->setClinicEnvironment();
+        $this->view->adminEnable = $this->session->get('admin-enable');  
         $this->view->languages_disabled = true;
         //$this->surveyid = $this->session->get('surveyid');
         //$this->discovery_surveyid = $this->session->get('discovery_surveyid');
@@ -79,6 +80,8 @@ class ReviewController extends FormController
             ->setTargetUri('assets/modules-clinic-app.js')
             ->join(true)
             ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        
+
         $auth = $this->session->get('auth');
         $this->user = AdminUser::findFirst($auth->id);
         //กำหนดค่าใน view
@@ -113,24 +116,44 @@ class ReviewController extends FormController
                 echo 'ok';
             }
     }
-    public function no1Action(){
-        // no1 JS Assets
-        $this->assets->collection('modules-clinic-no1-js')
+    public function disabledInput($id){
+        // load action no1 JS Assets
+        $approverAdmin = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(2)));
+        $adminEnable = $this->session->get('admin-enable');        
+        $name = "no$id";
+        $this->assets->collection('modules-clinic-'.$name.'-js')
             ->setLocal(true)
             ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no1.js')
-            ->setTargetUri('assets/modules-clinic-no1.js')
+            ->setTargetPath(ROOT . '/assets/modules-clinic-'.$name.'.js')
+            ->setTargetUri('assets/modules-clinic-'.$name.'.js')
             ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no1.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no1.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(1);
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/'.$name.'.js') 
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js');
+        if($adminEnable==false){
+            $this->assets->collection('modules-clinic-'.$name.'-js')
+            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js');
+            if($this->user->role=="cc-admin"){
+                if( in_array($approverAdmin->status, array(3)) &&
+                    in_array($this->discoverySurvey->status , array(0,1,3))){
+                    $this->assets->collection('modules-clinic-'.$name.'-js')
+                        ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+                }
+            }
         }
-
-
+        if($this->user->role=="cc-approver"   ){
+            if( in_array($approverAdmin->status, array(3)) //&& ////0=>'กำลังกรอกข้อมูล',1=>'ตรวจสอบอีกครั้ง',2=>'ไม่ผ่าน',3=>'ผ่าน'
+                ){ //0=>'อยู่ระหว่างสำรวจ',1=>'พิจารณาปรับแก้ข้อมูล',2=>'แจ้งให้หัวหน้ายืนยัน',3=>'สำรวจสำเร็จ'
+                $this->assets->collection('modules-clinic-'.$name.'-js')
+                    ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/disable.js');
+            }
+        }
+        
+        $this->assets->collection('modules-clinic-'.$name.'-js')
+        ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-'.$name.'.js');
+        
+    }
+    public function no1Action(){
+        $this->disabledInput(1);
         if (!$this->request->isPost()) {
             $auth = $this->session->get('auth');
             $user = AdminUser::findFirst($auth->id);
@@ -215,22 +238,7 @@ class ReviewController extends FormController
     }
 
     public function no2Action(){
-
-        // no1 JS Assets
-        $this->assets->collection('modules-clinic-no2-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no2.js')
-            ->setTargetUri('assets/modules-clinic-no2.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no2.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no2.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(2);
-        }
+        $this->disabledInput(2);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -368,22 +376,7 @@ class ReviewController extends FormController
 
 
     public function no3Action(){
-
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no3-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no3.js')
-            ->setTargetUri('assets/modules-clinic-no3.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no3.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no3.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(3);
-        }
+        $this->disabledInput(3);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -544,21 +537,7 @@ class ReviewController extends FormController
 
     public function no4Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no4-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no4.js')
-            ->setTargetUri('assets/modules-clinic-no4.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no4.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no4.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(4);
-        }
+        $this->disabledInput(4);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -719,21 +698,7 @@ class ReviewController extends FormController
 
     public function no5Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no5-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no5.js')
-            ->setTargetUri('assets/modules-clinic-no5.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no5.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no5.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(5);
-        }
+        $this->disabledInput(5);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -894,21 +859,7 @@ class ReviewController extends FormController
 
     public function no6Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no6-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no6.js')
-            ->setTargetUri('assets/modules-clinic-no6.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no6.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no6.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(6);
-        }
+        $this->disabledInput(6);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -968,21 +919,7 @@ class ReviewController extends FormController
 
     public function no7Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no7-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no7.js')
-            ->setTargetUri('assets/modules-clinic-no7.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no7.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no7.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(7);
-        }
+        $this->disabledInput(7);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1093,21 +1030,7 @@ class ReviewController extends FormController
 
     public function no8Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no8-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no8.js')
-            ->setTargetUri('assets/modules-clinic-no8.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no8.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no8.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(8);
-        }
+        $this->disabledInput(8);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');
@@ -1269,21 +1192,7 @@ class ReviewController extends FormController
 
     public function no9Action(){
 
-        // no3 JS Assets
-        $this->assets->collection('modules-clinic-no9-js')
-            ->setLocal(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin())
-            ->setTargetPath(ROOT . '/assets/modules-clinic-no9.js')
-            ->setTargetUri('assets/modules-clinic-no9.js')
-            ->join(true)
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/no9.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/app.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review.js')
-            ->addJs(APPLICATION_PATH . '/modules/Clinic/assets/review-no9.js');
-        $adminEnable = $this->session->get('admin-enable');
-        if(!isset($adminEnable) || $adminEnable==false){
-            $this->disabledInput(9);
-        }
+        $this->disabledInput(9);
         if (!$this->request->isPost()) {
             $form = new No1Form();
             $auth = $this->session->get('auth');

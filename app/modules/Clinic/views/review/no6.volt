@@ -15,7 +15,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="setAdmin/{{ dispatcher.getActionName() }}">แก้ไข / ยกเลิกแก้ไข</a>
+            <li><a href="setAdmin/{{ dispatcher.getActionName() }}">{% if adminEnable==false %} แก้ไข {% else %} ยกเลิกแก้ไข{% endif %}ข</a>
             </li>
           </ul>
         </li>

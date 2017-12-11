@@ -1,6 +1,6 @@
-{# app/modules/Clinic/views/review/no5.volt #}
+{# app/modules/Clinic/views/review/no10.volt #}
 
-{% extends "form/no5.volt" %}
+{% extends "form/no10.volt" %}
 
 {% block review %}
 
@@ -15,7 +15,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="setAdmin/{{ dispatcher.getActionName() }}">{% if adminEnable==false %} แก้ไข {% else %} ยกเลิกแก้ไข{% endif %}</a>
+            <li><a href="setAdmin/{{ dispatcher.getActionName() }}">แก้ไข / ยกเลิกแก้ไข</a>
             </li>
           </ul>
         </li>
@@ -26,7 +26,6 @@
     <div class="x_content">
 
        <div class="form-group">
-
         {%set approval = discoverySurvey.getApproval(["level=:0:","bind":[user.getLevel()]])%}
         {%if approval != null %}
         <div class="alert alert-{% if approval.status != 3 %}warning{%elseif approval.status == 3%}info{%endif%} alert-dismissible fade in" role="alert">
@@ -68,6 +67,22 @@
 
 		<a href="#" id="pencil_session_1"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
         <a href="#" id="status_session_1" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_1}}"></a><br>
+		<span class="text-muted"> <br>
+		 ตรวจสอบข้อมูล</span>
+
+		<br />
+		<div class="ln_solid"></div>
+{% endblock %}
+{% block comment_tab2 %}
+		<div class="ln_solid"></div>
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        <div id="note_session_2" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_2}}</div>
+    </div>
+
+		<a href="#" id="pencil_session_2"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
+        <a href="#" id="status_session_2" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_2}}"></a><br>
 		<span class="text-muted"> <br>
 		 ตรวจสอบข้อมูล</span>
 
@@ -118,23 +133,6 @@
 
     <a href="#" id="pencil_session_5"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
         <a href="#" id="status_session_5" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_5}}"></a><br>
-    <span class="text-muted"> <br>
-     ตรวจสอบข้อมูล</span>
-
-    <br />
-    <div class="ln_solid"></div>
-{% endblock %}
-
-{% block comment_tab6 %}
-    <div class="ln_solid"></div>
-    <div class="alert alert-warning alert-dismissible fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-        </button>
-        <div id="note_session_6" data-pk="1" data-type="wysihtml5" data-toggle="manual" data-original-title="Enter notes">{{comment_session_6}}</div>
-    </div>
-
-    <a href="#" id="pencil_session_6"><i class="fa fa-pencil"></i> [แก้ไขข้อคิดเห็น ประกอบการพิจารณาข้อมูล]</a>:
-        <a href="#" id="status_session_6" data-type="select" data-pk="1"  data-title="Select status" data-value="{{status_comment_session_6}}"></a><br>
     <span class="text-muted"> <br>
      ตรวจสอบข้อมูล</span>
 
