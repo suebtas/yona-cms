@@ -204,7 +204,7 @@ $(function() {
 
 		// Extract the first coordinate pair; jQuery has parsed it, so
 		// the data is now just an ordinary JavaScript object
-
+		
 		var firstcoordinate = "(" + series.data[0][0] + ", " + series.data[0][1] + ")";
 		
     	var data = [];
@@ -313,7 +313,7 @@ $(function() {
 */
 
 
-// Stacked Bars Chart
+	// กราฟจำนวนการอนุมัติ
 
 	$(function() {
 

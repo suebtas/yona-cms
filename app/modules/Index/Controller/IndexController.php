@@ -162,7 +162,7 @@ class IndexController extends Controller
     }
     //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupSessionAction($no){
-        $lastID =  4;//Survey::find()->getLast()->id;
+        $lastID = Survey::find()->getLast()->id;
         $this->view->disable();
         $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count
         from Clinic\Model\DiscoverySurvey ds, Clinic\Model\Answer a,
@@ -175,16 +175,18 @@ class IndexController extends Controller
         gs.id = '$no' and
         ds.surveyid = $lastID
         GROUP BY gs.name, DATE(a.last_update_survey)";
+        $phql = "select gs.name, DATE(a.last_update_survey) as date ,count(*) as count from Clinic\Model\Answer a,Clinic\Model\Question q, Clinic\Model\Session s, Clinic\Model\GroupSession gs where a.questionid = q.id and s.id=q.sessionid and gs.id = s.group_session_id and gs.id = '$no' GROUP BY gs.name, DATE(a.last_update_survey)";
+        
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $rows = $this->modelsManager->executeQuery($phql,array("surveyid"=>$lastID));
         if(!$rows)
             return "";
         $data = [];
         foreach ($rows as $row) {
-            if($row["date"]!=null){
+            //if($row["date"]!=null){
                 $date = explode("-",$row["date"]);
                 $data["data"][] = ["date"=>["dd"=>$date[2],"mm"=>$date[1],"yy"=>$date[0]],"count"=>$row["count"]];
-            }
+            //}
         }
 
         $data["label"] = $row["name"];
@@ -194,7 +196,7 @@ class IndexController extends Controller
     //กราฟแสดงสถิติการตอบแบบสำรวจในแต่ละด้าน
     public function serveyGroupCommentAction($no){
         $this->view->disable();
-        $lastID =  4;//Survey::find()->getLast()->id;
+        $lastID =  Survey::find()->getLast()->id;
         $phsql = "select s.name as name, sum(aq.c) as count_answer , sum(ap2.c) as count_approver  , sum(ap3.c) as count_admin
                 from session s
                 left join (

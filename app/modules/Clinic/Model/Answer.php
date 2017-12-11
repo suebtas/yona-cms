@@ -22,13 +22,13 @@ class Answer extends \Phalcon\Mvc\Model
      * @var integer
      */
     public $discovery_surveyid;
-
+    public $create_survey;
+    public $last_update_survey;
     /**
      *
      * @var integer
      */
     public $questionid;
-
     /**
      * Initialize method for model.
      */
@@ -37,7 +37,18 @@ class Answer extends \Phalcon\Mvc\Model
         $this->belongsTo('questionid', 'Clinic\Model\Question', 'id', array('alias' => 'Question'));
         $this->belongsTo('discovery_surveyid', 'Clinic\Model\DiscoverySurvey', 'id', array('alias' => 'DiscoverySurvey'));
     }
+    public function beforeValidationOnCreate()
+    {
+        $this->create_survey = (new \DateTime('NOW'))->format('Y-m-d h:i:s');
 
+    }
+      /**
+     * Sets the timestamp before update the confirmation
+     */
+    public function beforeValidationOnUpdate()
+    {
+        $this->last_update_survey = (new \DateTime('NOW'))->format('Y-m-d h:i:s');
+    }
     /**
      * Returns table name mapped in the model.
      *
