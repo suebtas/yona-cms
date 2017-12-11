@@ -85,12 +85,14 @@ class IndexController extends Controller
     //กราฟแสดงสถานะการยืนยันข้อมูล
     public function dashboardAction(){
         $this->view->disable();
+        $lastID = Survey::find()->getLast()->id;
         //$phql = "select DATE(last_update_survey) as date,count(*) as count from Clinic\Model\Answer GROUP BY DATE(last_update_survey)";
         $phql = "select DATE(a.last_update_survey) as date, count(*) as count 
         from Clinic\Model\Answer a, Clinic\Model\DiscoverySurvey ds 
-        where a.discovery_surveyid = ds.id and a.last_update_survey is not null  
+        where a.discovery_surveyid = ds.id and a.last_update_survey is not null  and 
+        ds.surveyid = :surveyid:
         GROUP BY DATE(a.last_update_survey)";
-        $rows = $this->modelsManager->executeQuery($phql);
+        $rows = $this->modelsManager->executeQuery($phql, array("surveyid"=>$lastID));
         $data = [];
         foreach ($rows as $row) {
             if($row["date"]!=null){
