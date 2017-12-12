@@ -40,6 +40,7 @@ class Answer extends \Phalcon\Mvc\Model
     public function beforeValidationOnCreate()
     {
         $this->create_survey = (new \DateTime('NOW'))->format('Y-m-d h:i:s');
+        $this->last_update_survey = (new \DateTime('NOW'))->format('Y-m-d h:i:s');
 
     }
       /**
