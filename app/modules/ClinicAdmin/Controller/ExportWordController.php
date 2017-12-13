@@ -2160,12 +2160,12 @@ class ExportWordController extends Controller
       $no7_5 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>495,
+                              1=>499,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_6 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
                           "bind"=>array(
-                              1=>496,
+                              1=>500,
                               2=>$this->discoverySurvey->id)))->answer;
       $no7_3_1_1 = Answer::findFirst(
                       array("questionid=?1 and discovery_surveyid=?2",
@@ -3097,6 +3097,7 @@ class ExportWordController extends Controller
         $document->setValue('{no74104}', $this->toformatNumber($no7_4_10_4));
 
         $document->setValue('{no7_5}', $no7_5);
+        //die($no7_5."OK");
         $document->setValue('{no7511}', $this->toformatNumber2($no7_5_1_1));
         $document->setValue('{no7512}', $no7_5_1_2);
         $document->setValue('{no7513}', $no7_5_1_3);
