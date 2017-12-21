@@ -4,12 +4,17 @@
         if(type == 'editable'){
         $.fn.editable.defaults.mode = 'inline';
         $('#'+name).editable({
-               type: 'text',
-               title: '',
-               display: function(value) {
+                type: 'text',
+                title: '',
+                validate: function(value) {
+                  if($.trim(value) == '-') {
+                      return 'ให้กำหนดค่าเป็น Empty';
+                  }
+              },
+              display: function(value) { 
                  if(display == true)
                  $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-                 else
+                  else
                  $(this).text(value);
                },
              }).on('save', function(e, params) {
@@ -302,7 +307,7 @@
         var id3 = id3.replace(/,/g,"");
         var id5 = id5.replace(/,/g,"");
 
-      var sum_float = (parseInt(id1) + parseInt(id2) + parseInt(id3)) / (parseFloat(id5));
+        var sum_float = (parseInt(id1) + parseInt(id2) + parseInt(id3)) / (parseFloat(id5));
         //2000 10 ตร.กม.
         //2000 / 1 =
         sum_float = parseFloat(Math.round(sum_float * 100) / 100).toFixed(2);

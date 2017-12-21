@@ -4,6 +4,8 @@ $(document).ready(function() {
     for (var i=0; i < elems.length; i++) {
         //$("#"+elems[i].id).editable('option', 'disabled', true);
         $("#"+elems[i].id).prop("disabled", true);
+        $("#"+elems[i].id).attr("disabled", "disabled");
+        
     }
     var elems = document.body.getElementsByTagName("input");
     for (var i=0; i < elems.length; i++) {
@@ -14,6 +16,12 @@ $(document).ready(function() {
     for (var i=0; i < elems.length; i++) {
         //$("#"+elems[i].id).editable('option', 'disabled', true);
         $("#"+elems[i].id).editable('option', 'disabled', true);
+        $("#"+elems[i].id).attr("disabled", "disabled");
+        
+
+        if($("#"+elems[i].id).editable('getValue', true)=="")
+            $("#"+elems[i].id).editable("option", "value","-");        
+        
     }
  
     
