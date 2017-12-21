@@ -32,8 +32,8 @@ $(document).ready(function() {
     Process('no8_7_17_2_2','no8','editable',true,'');
     Process('no8_7_19','no8','editable',true,'');
     Process('no8_7_20','no8','editable',true,'');
-    Process('signing_surveyor','no1','editable',false,'');
-    Process('surveyor_phone','no1','editable',false,'');
+    Process('signing_surveyor','no8','editable',false,'');
+    Process('surveyor_phone','no8','editable',false,'');
 
     //input blur
     Process('no8_2_1_1','no8','blur',true,'');

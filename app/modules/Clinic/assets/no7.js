@@ -188,8 +188,8 @@ $(document).ready(function() {
       Process('no7_10','no7','editable',true,'');
       Process('no7_11','no7','editable',true,'');
 
-      Process('signing_surveyor','no1','editable',true,'');
-      Process('surveyor_phone','no1','editable',true,'');
+      Process('signing_surveyor','no7','editable',false,'');
+      Process('surveyor_phone','no7','editable',false,'');
 
       //input blur
       Process('no7_3_1_2','no7','blur',true,'');

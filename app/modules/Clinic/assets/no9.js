@@ -26,8 +26,8 @@ $(document).ready(function() {
     Process('no9_4_4','no9','editable',true,'Cal');
     Process('no9_5_2','no9','editable',true,'');
     Process('no9_5_3','no9','editable',true,'');
-    Process('signing_surveyor','no1','editable',true,'');
-    Process('surveyor_phone','no1','editable',true,'');
+    Process('signing_surveyor','no9','editable',false,'');
+    Process('surveyor_phone','no9','editable',false,'');
     //input blur
     Process('no9_1','no9','blur',true,'');
     Process('no9_2','no9','blur',true,'');

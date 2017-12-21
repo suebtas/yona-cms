@@ -79,8 +79,8 @@ $(document).ready(function() {
     Process('no5_5_1_2','no5','editable',true,'');
     Process('no5_5_2_1','no5','editable',true,'');
     Process('no5_5_2_2','no5','editable',true,'');
-    Process('signing_surveyor','no5','editable',true,'');
-    Process('surveyor_phone','no5','editable',true,'');
+    Process('signing_surveyor','no5','editable',false,'');
+    Process('surveyor_phone','no5','editable',false,'');
 
     //input blur
     Process('no5_6_1','no5','blur',true,'');

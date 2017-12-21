@@ -88,8 +88,8 @@ $(document).ready(function() {
   Process('no4_6_6','no4','editable',true,'');
   Process('no4_6_7','no4','editable',true,'');
   Process('no4_6_8_2','no4','editable',true,'');
-  Process('signing_surveyor','no1','editable',true,'');
-  Process('surveyor_phone','no1','editable',true,'');
+  Process('signing_surveyor','no4','editable',false,'');
+  Process('surveyor_phone','no4','editable',false,'');
   //input blur
   Process('no4_4_1_1','no4','blur',true,'');
   Process('no4_4_1_2','no4','blur',true,'');

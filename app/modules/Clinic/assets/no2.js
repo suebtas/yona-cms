@@ -41,8 +41,8 @@ $(document).ready(function() {
     Process('no2_5_5','no2','editable',true,'CalAllArea');
     Process('no2_5_6','no2','editable',true,'CalAllArea');
     Process('no2_5_7','no2','editable',true,'CalAllArea');
-    Process('signing_surveyor','no1','editable',true,'');
-    Process('surveyor_phone','no1','editable',true,'');
+    Process('signing_surveyor','no2','editable',false,'');
+    Process('surveyor_phone','no2','editable',false,'');
 
 $("#btnFinish").on('click', function(){
   $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");

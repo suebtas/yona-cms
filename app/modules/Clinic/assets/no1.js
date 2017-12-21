@@ -191,7 +191,7 @@ $(document).ready(function() {
     Process('no1_2_4_2','no1','editable',true,'callPopulationFemale');
     Process('no1_2_5_1','no1','editable',true,'callPopulationMale');
     Process('no1_2_5_2','no1','editable',true,'callPopulationFemale');
-    Process('signing_surveyor','no1','editable',true,'');
-    Process('surveyor_phone','no1','editable',true,'');
+    Process('signing_surveyor','no1','editable',false,'');
+    Process('surveyor_phone','no1','editable',false,'');
 
 });

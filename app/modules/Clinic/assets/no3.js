@@ -26,8 +26,8 @@ $(document).ready(function() {
     Process('no3_6_1','no3','editable',true,'');
     Process('no3_6_2','no3','editable',true,'');
     Process('no3_6_3','no3','editable',true,'');
-    Process('signing_surveyor','no1','editable',true,'');
-    Process('surveyor_phone','no1','editable',true,'');
+    Process('signing_surveyor','no3','editable',false,'');
+    Process('surveyor_phone','no3','editable',false,'');
 
 
 $("#btnFinish").on('click', function(){
