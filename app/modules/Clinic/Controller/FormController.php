@@ -15,7 +15,7 @@ use Clinic\Model\Comment;
 use Clinic\Model\GroupSession;
 use Phalcon\Mvc\Model\Resultset;
 use Clinic\Form\Question\No1Form;
-
+use Clinic\Model\SigningApprover;
 class FormController extends Controller
 {
     public $discoverySurvey;
@@ -84,13 +84,11 @@ class FormController extends Controller
 
         $this->view->commenting = $this->getCountComment();
 
-        $signing_surveyor = $this->discoverySurvey->signing_surveyor;
-        $this->view->signing_surveyor = $signing_surveyor;
-        $signing_approver = $this->discoverySurvey->signing_approver;
-        $this->view->signing_approver = $signing_approver;
+        //$signing_approver = $this->discoverySurvey->signing_approver;
+        //$this->view->signing_approver = $signing_approver;
 
-        $surveyor_phone = $this->discoverySurvey->surveyor_phone;
-        $this->view->surveyor_phone = $surveyor_phone;
+        //$surveyor_phone = $this->discoverySurvey->surveyor_phone;
+        //$this->view->surveyor_phone = $surveyor_phone;
         $approver_phone = $this->discoverySurvey->approver_phone;
         $this->view->approver_phone = $approver_phone;
     }
@@ -456,7 +454,7 @@ class FormController extends Controller
         if (!$this->request->isPost()) {
             $this->createViewNo1();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 1 and 2","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
-
+            $this->getSurveyor(1);
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -658,11 +656,12 @@ class FormController extends Controller
             $this->updateAnswer($option, 24, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,1);
+            
 
 
             $surveyor_phone = $this->request->getPost("surveyor_phone");
-            $this->updateSurveyorPhone($surveyor_phone);
+            $this->updateSurveyorPhone($surveyor_phone, 1);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -674,32 +673,71 @@ class FormController extends Controller
         }
 
     }
-    public function updateSurveyor($surveyor){
+    public function getSurveyor($group_session_id){        
+        $modelT = SigningApprover::findFirst(array("discovery_surveyid=?0 and group_session_id =?1","bind"=>array($this->discovery_surveyid, $group_session_id)));                
+        $this->view->signing_surveyor = $modelT->name;
+        $this->view->surveyor_phone = $modelT->phone;
+        //$signing_surveyor = $this->discoverySurvey->signing_surveyor;
+        //$this->view->signing_surveyor = $signing_surveyor;
+        //$surveyor_phone = $this->discoverySurvey->surveyor_phone;
+        //$this->view->surveyor_phone = $surveyor_phone;
+    }
+    public function updateSurveyor($surveyor,$group_session_id){
         if($surveyor=='delete'){
                 //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                $this->discoverySurvey->signing_surveyor = null;//$surveyor;
-                $this->discoverySurvey->save();
+                //$this->discoverySurvey->signing_surveyor = null;//$surveyor;
+                //$this->discoverySurvey->save();
+                $modelT = SigningApprover::findFirst(array("discovery_surveyid=?0 and group_session_id =?1","bind"=>array($this->discovery_surveyid, $group_session_id)));                
+                $modelT->name = null;
+                $modelT->save();
                 echo 'ok';
 
             }else if($surveyor != ''){
-                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                $discoverySurvey->signing_surveyor = $surveyor;
-                $discoverySurvey->save();
+                //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                //$discoverySurvey->signing_surveyor = $surveyor;
+                //$discoverySurvey->save();
+
+                $modelT = SigningApprover::findFirst(array("discovery_surveyid=?0 and group_session_id =?1","bind"=>array($this->discovery_surveyid, $group_session_id)));                
+                
+                if(!$modelT){
+                    $modelT = new SigningApprover();
+                    $modelT->discovery_surveyid = $this->discovery_surveyid;
+                    $modelT->group_session_id = $group_session_id;
+                    
+                }
+                $modelT->name = $surveyor;
+                $modelT->save();
+                
+
                 echo 'ok';
             }
     }
 
-    public function updateSurveyorPhone($phone){
+    public function updateSurveyorPhone($phone, $group_session_id){
         if($phone=='delete'){
                 //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                $this->discoverySurvey->surveyor_phone = null;//$surveyor;
-                $this->discoverySurvey->save();
+                //$this->discoverySurvey->surveyor_phone = null;//$surveyor;
+                //$this->discoverySurvey->save();
+                $modelT = SigningApprover::findFirst(array("discovery_surveyid=?0 and group_session_id =?1","bind"=>array($this->discovery_surveyid, $group_session_id)));                
+                $modelT->phone = null;
+                $modelT->save();
                 echo 'ok';
 
-            }else if($phone != ''){
-                $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                $discoverySurvey->surveyor_phone = $phone;
-                $discoverySurvey->save();
+        }else if($phone != ''){
+                //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+                //$discoverySurvey->surveyor_phone = $phone;
+                //$discoverySurvey->save();
+
+                $modelT = SigningApprover::findFirst(array("discovery_surveyid=?0 and group_session_id =?1","bind"=>array($this->discovery_surveyid, $group_session_id)));                
+                
+                if(!$modelT){
+                    $modelT = new SigningApprover();
+                    $modelT->discovery_surveyid = $this->discovery_surveyid;
+                    $modelT->group_session_id = $group_session_id;
+                    
+                }
+                $modelT->phone = $phone;
+                $modelT->save();
                 echo 'ok';
             }
     }
@@ -998,7 +1036,10 @@ class FormController extends Controller
 
 
                 $surveyor = $this->request->getPost("signing_surveyor");
-                $this->updateSurveyor($surveyor);
+                $this->updateSurveyor($surveyor,2);
+
+                $surveyor_phone = $this->request->getPost("surveyor_phone");
+                $this->updateSurveyorPhone($surveyor_phone, 2);
 
                 $status = $this->request->getPost("no1_finish");
                 if($status != ""){
@@ -1011,6 +1052,7 @@ class FormController extends Controller
             else {
               $this->createViewNo2();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 3 and 6","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+              $this->getSurveyor(2);
             }
     }
     public function createViewNo3(){
@@ -1197,7 +1239,10 @@ class FormController extends Controller
                 $this->updateAnswer($option, 73, $answer, $user->officeid,  $this->discovery_surveyid);
 
                 $surveyor = $this->request->getPost("signing_surveyor");
-                $this->updateSurveyor($surveyor);
+                $this->updateSurveyor($surveyor,3);
+
+                $surveyor_phone = $this->request->getPost("surveyor_phone");
+                $this->updateSurveyorPhone($surveyor_phone, 3);
 
                 $status = $this->request->getPost("no1_finish");
                 if($status != ""){
@@ -1210,6 +1255,7 @@ class FormController extends Controller
           else {
                 $this->createViewNo3();
                 $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 7 and 11","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+                $this->getSurveyor(3);
           }
     }
     public function createViewNo4(){
@@ -2020,6 +2066,7 @@ class FormController extends Controller
         {
             $this->createViewNo4();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 12 and 16","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->getSurveyor(4);
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -2293,7 +2340,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 187, $answer, $this->user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,4);
+
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 4);
 
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
@@ -2875,8 +2925,8 @@ class FormController extends Controller
         $user = AdminUser::findFirst($auth->id);
         if (!$this->request->isPost()) {
             $this->createViewNo5();
-
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 17 and 21","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->getSurveyor(5);
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -3119,8 +3169,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 224, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,5);
 
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 5);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -3201,6 +3253,7 @@ class FormController extends Controller
         if (!$this->request->isPost()) {
             $this->createViewNo6();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->getSurveyor(6);
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -3234,8 +3287,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 233, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,6);
 
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 6);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -4653,8 +4708,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 322, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,7);
 
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 7);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -4666,6 +4723,7 @@ class FormController extends Controller
         else {
             $this->createViewNo7();
             $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 23 and 25","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->getSurveyor(7);
         }
     }
     public function createViewNo8(){
@@ -5247,6 +5305,7 @@ class FormController extends Controller
         if (!$this->request->isPost()) {
               $this->createViewNo8();
               $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+              $this->getSurveyor(8);
         }elseif ($this->request->isPost()) {
             $this->view->disable();
             $post = $this->request->getPost();
@@ -5500,8 +5559,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 372, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,8);
 
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 8);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -5804,8 +5865,10 @@ class FormController extends Controller
             $this->updateAnswer($option, 385, $answer, $user->officeid,  $this->discovery_surveyid);
 
             $surveyor = $this->request->getPost("signing_surveyor");
-            $this->updateSurveyor($surveyor);
+            $this->updateSurveyor($surveyor,9);
 
+            $surveyor_phone = $this->request->getPost("surveyor_phone");
+            $this->updateSurveyorPhone($surveyor_phone, 9);
             $status = $this->request->getPost("no1_finish");
             if($status != ""){
                 $discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
@@ -5814,8 +5877,9 @@ class FormController extends Controller
                 echo 'ok';
             }
         }else {
-        $this->createViewNo9();
-        $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->createViewNo9();
+            $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
+            $this->getSurveyor(9);
         }
     }
 
