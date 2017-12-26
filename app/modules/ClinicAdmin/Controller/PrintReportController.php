@@ -113,7 +113,20 @@ class PrintReportController extends Controller
             //1.2.9     ความหนาแน่นของประชากร
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary);
+        $titleSummary = array(
+            'C'=>$previousServey->no,'D'=>$currentServey->no,
+            'E'=>$previousServey->no,'F'=>$currentServey->no,
+            'G'=>$previousServey->no,'H'=>$currentServey->no,
+            'I'=>$previousServey->no,'J'=>$currentServey->no,
+            'K'=>$previousServey->no,'L'=>$currentServey->no
+        );
+
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำรอบ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -129,7 +142,8 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            //$this->setHeadTable($objPHPExcel, ($amphur[1]+$accumulate_r-1), $titleSummary);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
@@ -188,7 +202,12 @@ class PrintReportController extends Controller
         $questions = array(array('QuestionID'=>57,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')));
 
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary, $years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -213,8 +232,12 @@ class PrintReportController extends Controller
             array('QuestionID'=>65,'ColumnID'=>array('C'=>'y2559'))
             );
         $objPHPExcel->setActiveSheetIndex(1);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปีงบประมาณ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $accumulate_r = 0;
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 5, $accumulate_r ,$resultSummary);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 5, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
         
 
@@ -231,7 +254,7 @@ class PrintReportController extends Controller
         //set amphur โรงแรม
         foreach($amphurs as $amphur){
             $displayColumns = array(array('QuestionID'=>65,'ColumnID'=>array('C'=>'y2559')));
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
         $sheets = array(
@@ -246,10 +269,15 @@ class PrintReportController extends Controller
         );// array(index เลข worksheet index , อำเภอ และ แสดงผลแถวที่ 6 )
         foreach($sheets as $key => $amphur){
             $objPHPExcel->setActiveSheetIndex($key);
+
+            $currentInTermYear = substr($currentServey->no,2,4);
+            $lastInTermYear = substr($previousServey->no,2,4);
+            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $accumulate_r = 0;            
             //set amphur รายได้เฉลี่ยประชากร            
             $displayColumns = array(array('QuestionID'=>57,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')));
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         
         }
@@ -294,7 +322,12 @@ class PrintReportController extends Controller
             array('QuestionID'=>74,'ColumnID'=>array('G'=>'y2558','H'=>'y2559'))//4.1     จำนวนชุมชน  
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม  ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -314,7 +347,7 @@ class PrintReportController extends Controller
                 array('QuestionID'=>17,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')), //1.2.6.1 ประชากรแฝงจำนวน
                 array('QuestionID'=>74,'ColumnID'=>array('G'=>'y2558','H'=>'y2559'))//4.1     จำนวนชุมชน  
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
         
@@ -333,7 +366,12 @@ class PrintReportController extends Controller
             
         );
         $objPHPExcel->setActiveSheetIndex(1);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม  ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -357,7 +395,7 @@ class PrintReportController extends Controller
                 array('QuestionID'=>138,'ColumnID'=>array('I'=>'y2558','J'=>'y2559')),//4.5.2.4.5   จำนวนครู ระดับประถมศึกษา
                 array('QuestionID'=>158,'ColumnID'=>array('M'=>'y2558','N'=>'y2559')) //4.5.3.4.5   จำนวนครู ระดับมัธยม
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -423,7 +461,12 @@ class PrintReportController extends Controller
             //5.3.4.9   อสม. โรงพยาบาลเอกชน
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -439,7 +482,7 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -458,7 +501,12 @@ class PrintReportController extends Controller
             array('QuestionID'=>194,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),//5.2   จำนวนคลินิกเอกชน
         );
         $objPHPExcel->setActiveSheetIndex(1);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -481,7 +529,7 @@ class PrintReportController extends Controller
                 //5.1.4.1   โรงพยาบาลเอกชน
                 array('QuestionID'=>194,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),//5.2   จำนวนคลินิกเอกชน
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -541,7 +589,12 @@ class PrintReportController extends Controller
             //6.9   ผู้ประสบภัยที่เป็นนักท่องเที่ยวต่างชาติ จำนวน
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -557,7 +610,7 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -603,7 +656,12 @@ class PrintReportController extends Controller
             //7.6   จำนวนรถบันได (แยกตามความสูง) 
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -619,7 +677,7 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -633,7 +691,12 @@ class PrintReportController extends Controller
             //7.10   อาสาสมัครป้องกัน และบรรเทาสาธารณภัย จำนวน  
         );
         $objPHPExcel->setActiveSheetIndex(1);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -649,7 +712,7 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -693,7 +756,12 @@ class PrintReportController extends Controller
             //7.4   จำนวนขยะที่เก็บขนได้ 
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานปริมาณขยะและจำนวนรถยนต์ที่ใช้จัดเก็บขยะ ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -709,7 +777,7 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -727,8 +795,12 @@ class PrintReportController extends Controller
         foreach($amphurs as $key => $amphur ){
             $accumulate_r = 0;
             $objPHPExcel->setActiveSheetIndex($key);
+            $currentInTermYear = substr($currentServey->no,2,4);
+            $lastInTermYear = substr($previousServey->no,2,4);
+            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
 
@@ -741,7 +813,6 @@ class PrintReportController extends Controller
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no9.xls');
-
 
         if(!is_numeric($serveyID))
             exit();
@@ -764,15 +835,21 @@ class PrintReportController extends Controller
         $accumulate_r=0;
 
         $questions = array(            
-            array('QuestionID'=>402,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
-            //9.3.2.2   รับจริง(บาท)
-            array('QuestionID'=>405,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
-            //9.3.3.2   รับจริง(บาท)
-            array('QuestionID'=>408,'ColumnID'=>array('G'=>'y2558','H'=>'y2559')),
-            //9.3.4.2   รับจริง(บาท)
+            array('QuestionID'=>405,'ColumnID'=>array('C'=>'y2559')), //9.3.3.2   รับจริง(บาท)
+            array('QuestionID'=>408,'ColumnID'=>array('D'=>'y2559')), //9.3.4.2   รับจริง(บาท)
+            array('QuestionID'=>411,'ColumnID'=>array('E'=>'y2559')), //9.3.5.2   รับจริง(บาท)
+            array('QuestionID'=>406,'ColumnID'=>array('F'=>'y2559')), //9.3.3.3   จ่ายจริง(บาท)
+            array('QuestionID'=>409,'ColumnID'=>array('G'=>'y2559')), //9.3.4.3   จ่ายจริง(บาท)
+            array('QuestionID'=>412,'ColumnID'=>array('H'=>'y2559')), //9.3.5.2   จ่ายจริง(บาท)
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($currentServey->no,2,4)-2;
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการเมืองการปกครอง ประจำปีงบประมาณ $lastInTermYear ถึง $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
         $accumulate_r += $r;
 
         $amphurs = array(
@@ -788,11 +865,46 @@ class PrintReportController extends Controller
         //set amphur 
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
 
+
+        //Sheet 1: รวม
+        $accumulate_r=0;
+
+        $questions = array(
+            array('QuestionID'=>411,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
+            //9.3.4.2   รับจริง ปีล่าสุด(บาท)
+            array('QuestionID'=>412,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
+            //9.3.5.2   จ่ายจริง ปีล่าสุด(บาท)
+        );
+        $objPHPExcel->setActiveSheetIndex(1);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        //$r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
+        //$accumulate_r += $r;
+
+        $amphurs = array(
+            array("อำเภอเมือง",7),
+            array("อำเภอแกลง",16),
+            array("อำเภอบ้านค่าย",25),
+            array("อำเภอบ้านฉาง",34),
+            array("อำเภอปลวกแดง",43),
+            array("อำเภอวังจันทร์",52),
+            array("อำเภอเขาชะเมา",61),
+            array("อำเภอนิคมพัฒนา",70),
+            );// array( อำเภอ และ แสดงผลแถวที่ x )
+        //set amphur 
+        foreach($amphurs as $amphur){
+            $displayColumns = $questions;
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
+            $accumulate_r += $r;
+        }        
 
         //Sheet 2-9
         $accumulate_r=0;
@@ -812,13 +924,18 @@ class PrintReportController extends Controller
         foreach($amphurs as $key => $amphur ){
             $accumulate_r = 0;
             $objPHPExcel->setActiveSheetIndex($key);
+
+            $currentInTermYear = substr($currentServey->no,2,4);
+            $lastInTermYear = substr($previousServey->no,2,4);
+            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $displayColumns = array(            
                 array('QuestionID'=>405,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
                 //9.3.3.2   ปี 3 รับจริง(บาท)
                 array('QuestionID'=>408,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
                 //9.3.4.2   ปี 4 รัับจริง(บาท)
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
             $accumulate_r += $r;
         }
 
@@ -921,7 +1038,12 @@ class PrintReportController extends Controller
             array('QuestionID'=>35,'ColumnID'=>array('K'=>'y2558','L'=>'y2559'))
             );
         $objPHPExcel->setActiveSheetIndex(0);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary);
+        $currentInTermYear = substr($currentServey->no,2,4);
+        $lastInTermYear = substr($previousServey->no,2,4);
+        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำรอบ $lastInTermYear กับ $currentInTermYear";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
         $accumulate_r += $r;
 
         $result = $this->getAllAmphurAnswerByQuestionID($currentServeyID,$previousServeyID);
@@ -946,7 +1068,8 @@ class PrintReportController extends Controller
                 array('QuestionID'=>33,'ColumnID'=>array('I'=>'y2558','J'=>'y2559')),
                 array('QuestionID'=>35,'ColumnID'=>array('K'=>'y2558','L'=>'y2559')),
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $this->setHeadTable($objPHPExcel, ($amphur[1]+$accumulate_r-1), $titleSummary);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
         /*
@@ -1025,7 +1148,8 @@ class PrintReportController extends Controller
             array('QuestionID'=>55,'ColumnID'=>array('O'=>'y2558','P'=>'y2559'))
             );
         $objPHPExcel->setActiveSheetIndex(1);
-        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary);
+        $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
+        $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
         $accumulate_r += $r;
         //กำหนด ชื่ออำเภอ, แถวเริ่มข้อมูลในอำเภอ
         $amphurs = array(
@@ -1050,7 +1174,7 @@ class PrintReportController extends Controller
                 array('QuestionID'=>54,'ColumnID'=>array('M'=>'y2558','N'=>'y2559')),
                 array('QuestionID'=>55,'ColumnID'=>array('O'=>'y2558','P'=>'y2559')),
             );
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
         /*
@@ -1181,9 +1305,14 @@ class PrintReportController extends Controller
         return $r;
     }
 
-    //$r = $this->setFormExcelSummarySheet(array(array('QuestionID'=>57,'ColumnID'=>array('C'=>'y2558','D'=>'y2559'))), $objPHPExcel, 6, $accumulate_r ,$resultSummary);
-        
-    public function setFormExcelSummarySheet($questions, &$objPHPExcel, $atRow, $accumulate_r ,$resultSummary){
+    public function setHeadTable(&$objPHPExcel, $atRow ,$titles){  
+        foreach($titles as $key => $title){
+            $objPHPExcel->getActiveSheet()->setCellValue($key.$atRow, $title);
+        }
+    }
+    //$r = $this->setFormExcelSummarySheet(array(array('QuestionID'=>57,'ColumnID'=>array('C'=>'y2558','D'=>'y2559'))), $objPHPExcel, 6, $accumulate_r ,$resultSummary);    
+
+    public function setFormExcelSummarySheet($questions, &$objPHPExcel, $atRow, $accumulate_r ,$resultSummary, $years){
         $baseRow = $atRow + $accumulate_r;
         $row = 0;
             
@@ -1197,11 +1326,19 @@ class PrintReportController extends Controller
         $baseRow = $atRow;
         $row = 0;
         $r=0;
+        
+        foreach($questions as $question){
+            foreach($question['ColumnID'] as $key => $col){
+                $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow -1 ), $years[$col]); // Set Table header
+            }
+        }    
         foreach($resultSummary as $key => $dataRow) {
             $row = $baseRow + $r;
             
             $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
-                                        ->setCellValue('B'.$row, $key);
+                                        ->setCellValue('B'.$row, $key);            
+            
+                                        
             foreach($questions as $question){
                 foreach($question['ColumnID'] as $key => $col){
                     if(is_numeric($question['QuestionID']))
@@ -1220,10 +1357,15 @@ class PrintReportController extends Controller
         }
         return $r;
     }
-    public function setFormExcelSheet($questions, $objPHPExcel, $atRow, $accumulate_r ,$result, $amphurName){
+    public function setFormExcelSheet($questions, $objPHPExcel, $atRow, $accumulate_r ,$result, $amphurName ,$years){
         $baseRow = $atRow + $accumulate_r;
         $row = 0;
         $amphur = Amphur::findByName($amphurName)->getFirst();
+        foreach($questions as $question){
+            foreach($question['ColumnID'] as $key => $col){
+                $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow +$accumulate_r -1 ), $years[$col]); // Set Table header
+            }
+        }   
         for($r=0;$r<=$amphur->office->count();$r++) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
@@ -1234,6 +1376,7 @@ class PrintReportController extends Controller
         $accumulate_r += $r;
         $row = 0;
         $r=0;
+        
         foreach($data as $key =>  $dataRow) {
             $row = $baseRow + $r;
             /*$objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)
