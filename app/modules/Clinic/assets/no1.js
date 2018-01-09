@@ -67,7 +67,10 @@ $(document).ready(function() {
 
   $("#area-kgm").val(kgm.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   var rai = parseFloat($("#no1_1_2").val()).toFixed(2);
+  
   $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  //ใส่ format
+  $("#no1_2_1").html($("#no1_2_1_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   //ใส่ format
   $("#no1_2_1_1").html($("#no1_2_1_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   //ใส่ format
