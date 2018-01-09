@@ -1,7 +1,7 @@
 
     function Process(name,path,type,display,fn){
-        //editable
-        if(type == 'editable'){
+      //editable
+      if(type == 'editable'){
         $.fn.editable.defaults.mode = 'inline';
         $('#'+name).editable({
                 type: 'text',
@@ -10,53 +10,57 @@
                   if($.trim(value) == '-') {
                       return 'ให้กำหนดค่าเป็น Empty';
                   }
-              },
-              display: function(value) { 
-                 if(display == true)
-                 $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+                },
+                display: function(value) { 
+                  if(display == true)
+                    $(this).text(value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
                   else
-                 $(this).text(value);
-               },
-             }).on('save', function(e, params) {
-                dataString={};
+                    $(this).text(value);
+                },
+        }).on('save', function(e, params) {
+            dataString={};
 
-                if(params.newValue!=''){
-                  //property key for insert or update
-                  dataString[name]=params.newValue;
-                  dataString['option']='add';
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataString,
-                    success: function(data, textStatus, jqXHR)
-                    {
-                        if(fn != '')
-                          window[fn]();
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
+            if(params.newValue!=''){
+              //property key for insert or update
+              if(display == true)
+                dataString[name] = params.newValue.replace(/,/g,"");
+              else
+                dataString[name] = params.newValue;
 
-                    }
-                });
-              }else if(params.newValue==''){
-                //property key for delete
-                dataString[name]='delete';
-                dataString['option']='delete';
-                $.ajax({
-                    url : "/clinic/form/" + path,
-                    type: "POST",
-                    data : dataString,
-                    success: function(data, textStatus, jqXHR)
-                    {
+              dataString['option']='add';
+              $.ajax({
+                  url : "/clinic/form/" + path,
+                  type: "POST",
+                  data : dataString,
+                  success: function(data, textStatus, jqXHR)
+                  {
                       if(fn != '')
                         window[fn]();
-                    },
-                    error: function (jqXHR, textStatus, errorThrown)
-                    {
+                  },
+                  error: function (jqXHR, textStatus, errorThrown)
+                  {
 
-                    }
-                });
-              }
+                  }
+              });
+            }else if(params.newValue==''){
+              //property key for delete
+              dataString[name]='delete';
+              dataString['option']='delete';
+              $.ajax({
+                  url : "/clinic/form/" + path,
+                  type: "POST",
+                  data : dataString,
+                  success: function(data, textStatus, jqXHR)
+                  {
+                    if(fn != '')
+                      window[fn]();
+                  },
+                  error: function (jqXHR, textStatus, errorThrown)
+                  {
+
+                  }
+              });
+            }
         });
       }
 
