@@ -127,7 +127,7 @@ $(document).ready(function() {
         url : "/clinic/form/no1",
         type: "POST",
         data : {
-          no1_1_2: this.value,
+          no1_1_2: this.value.replace(/,/g,""),//this.value, //value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")
           option:'add'
         },
         success: function(data, textStatus, jqXHR)
