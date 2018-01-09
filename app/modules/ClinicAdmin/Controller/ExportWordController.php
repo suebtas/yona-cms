@@ -71,7 +71,7 @@ class ExportWordController extends Controller
         case "jan" : return "มกราคม "; break;
         case "feb" : return "กุมภาพันธ์ "; break;
         case "mar" : return "มีนาคม "; break;
-        case "apr" : return "เมษยน "; break;
+        case "apr" : return "เมษายน "; break;
         case "may" : return "พฤษภาคม "; break;
         case "jun" : return "มิถุนายน "; break;
         case "jul" : return "กรกฎาคม "; break;
@@ -3987,7 +3987,8 @@ class ExportWordController extends Controller
         $document->setValue('{no9_4_2}', $this->toformatNumber($no9_4_2));
         $document->setValue('{no9_4_3}', $this->toformatNumber($no9_4_3));
         $document->setValue('{no9_4_4}', $this->toformatNumber($no9_4_4));
-        $no9_4_5 = $no9_4_1 + $no9_4_2 + $no9_4_3 + $no9_4_4;
+
+        //$no9_4_5 = (int)($no9_4_1) + (int)($no9_4_2) + (int)($no9_4_3) + (int)($no9_4_4);
         $document->setValue('{no9_4_5}', $this->toformatNumber($no9_4_5));
         $document->setValue('{no9_5_1}', $no9_5_1);
         $document->setValue('{no9_5_2}', $no9_5_2);

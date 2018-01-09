@@ -209,6 +209,7 @@
                     คลอง ลำธาร ห้วย จำนวน </label>
                     <div class="col-md-2">
                         <input type="text" id="no8_4" required="required" class="form-control col-md-3 col-xs-6" tabindex="1" value={{no8_4}}>
+                        
                     </div>
                     <label class="control-label col-md-1 col-sm-1 col-xs-12" for="map"> แห่ง ได้แก่ </label>
                   </div>
@@ -222,43 +223,88 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="25%"><input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-4" tabindex="2" value={{no8_4_1}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_1" required="required" class="form-control col-md-4 col-xs-4" tabindex="2" value={{no8_4_1}}-->
+                          <textarea name="name" id="no8_4_1" class="form-control" rows="1" cols="20" tabindex="2">{{no8_4_1}}</textarea>
+                          </td>
                           <td width="5%">6.</td>
-                          <td width="25%"><input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-4" tabindex="7" value={{no8_4_6}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_6" required="required" class="form-control col-md-4 col-xs-4" tabindex="7" value={{no8_4_6}}-->
+                          <textarea name="name" id="no8_4_6" class="form-control" rows="1" cols="20" tabindex="7">{{no8_4_6}}</textarea>
+                          </td>
                           <td width="5%">11.</td>
-                          <td width="25%"><input type="text" id="no8_4_21" required="required" class="form-control col-md-4 col-xs-4" tabindex="12" value={{no8_4_21}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_21" required="required" class="form-control col-md-4 col-xs-4" tabindex="12" value={{no8_4_21}}-->
+                          <textarea name="name" id="no8_4_21" class="form-control" rows="1" cols="20" tabindex="12">{{no8_4_21}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="25%"><input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-4" tabindex="3" value={{no8_4_2}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_2" required="required" class="form-control col-md-4 col-xs-4" tabindex="3" value={{no8_4_2}}-->
+                          <textarea name="name" id="no8_4_2" class="form-control" rows="1" cols="20" tabindex="3">{{no8_4_2}}</textarea>
+                          </td>
                           <td width="5%">7.</td>
-                          <td width="25%"><input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-4" tabindex="8" value={{no8_4_7}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_7" required="required" class="form-control col-md-4 col-xs-4" tabindex="8" value={{no8_4_7}}-->
+                          <textarea name="name" id="no8_4_7" class="form-control" rows="1" cols="20" tabindex="8">{{no8_4_7}}</textarea>
+                          </td>
                           <td width="5%">12.</td>
-                          <td width="25%"><input type="text" id="no8_4_22" required="required" class="form-control col-md-4 col-xs-4" tabindex="13" value={{no8_4_22}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_22" required="required" class="form-control col-md-4 col-xs-4" tabindex="13" value={{no8_4_22}}-->
+                          <textarea name="name" id="no8_4_22" class="form-control" rows="1" cols="20" tabindex="13">{{no8_4_22}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="25%"><input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-4" tabindex="4" value={{no8_4_3}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_3" required="required" class="form-control col-md-4 col-xs-4" tabindex="4" value={{no8_4_3}}-->
+                          <textarea name="name" id="no8_4_3" class="form-control" rows="1" cols="20" tabindex="4">{{no8_4_3}}</textarea>
+                          </td>
                           <td width="5%">8.</td>
-                          <td width="25%"><input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-4" tabindex="9" value={{no8_4_8}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_8" required="required" class="form-control col-md-4 col-xs-4" tabindex="9" value={{no8_4_8}}-->
+                          <textarea name="name" id="no8_4_8" class="form-control" rows="1" cols="20" tabindex="9">{{no8_4_8}}</textarea>
+                          </td>
                           <td width="5%">13.</td>
-                          <td width="25%"><input type="text" id="no8_4_23" required="required" class="form-control col-md-4 col-xs-4" tabindex="14" value={{no8_4_23}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_23" required="required" class="form-control col-md-4 col-xs-4" tabindex="14" value={{no8_4_23}}-->
+                          <textarea name="name" id="no8_4_23" class="form-control" rows="1" cols="20" tabindex="14">{{no8_4_23}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="25%"><input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-4" tabindex="5" value={{no8_4_4}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_4" required="required" class="form-control col-md-4 col-xs-4" tabindex="5" value={{no8_4_4}}-->
+                          <textarea name="name" id="no8_4_4" class="form-control" rows="1" cols="20" tabindex="5">{{no8_4_4}}</textarea>
+                          </td>
                           <td width="5%">9.</td>
-                          <td width="25%"><input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-4" tabindex="10" value={{no8_4_9}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_9" required="required" class="form-control col-md-4 col-xs-4" tabindex="10" value={{no8_4_9}}-->
+                          <textarea name="name" id="no8_4_9" class="form-control" rows="1" cols="20" tabindex="10">{{no8_4_9}}</textarea>
+                          </td>
                           <td width="5%">14.</td>
-                          <td width="25%"><input type="text" id="no8_4_24" required="required" class="form-control col-md-4 col-xs-4" tabindex="15" value={{no8_4_24}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_24" required="required" class="form-control col-md-4 col-xs-4" tabindex="15" value={{no8_4_24}}-->
+                          <textarea name="name" id="no8_4_24" class="form-control" rows="1" cols="20" tabindex="15">{{no8_4_24}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="25%"><input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-4" tabindex="6" value={{no8_4_5}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_5" required="required" class="form-control col-md-4 col-xs-4" tabindex="6" value={{no8_4_5}}-->
+                          <textarea name="name" id="no8_4_5" class="form-control" rows="1" cols="20" tabindex="26">{{no8_4_5}}</textarea>
+                          </td>
                           <td width="5%">10.</td>
-                          <td width="25%"><input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-4" tabindex="11" value={{no8_4_10}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_10" required="required" class="form-control col-md-4 col-xs-4" tabindex="11" value={{no8_4_10}}-->
+                          <textarea name="name" id="no8_4_10" class="form-control" rows="1" cols="20" tabindex="11">{{no8_4_10}}</textarea>
+                          </td>
                           <td width="5%">15.</td>
-                          <td width="25%"><input type="text" id="no8_4_25" required="required" class="form-control col-md-4 col-xs-4" tabindex="16" value={{no8_4_25}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_25" required="required" class="form-control col-md-4 col-xs-4" tabindex="16" value={{no8_4_25}}-->
+                          <textarea name="name" id="no8_4_25" class="form-control" rows="1" cols="20" tabindex="16">{{no8_4_25}}</textarea>
+                          </td>
                         </tr>
                     </tbody>
                   </table>
@@ -271,43 +317,88 @@
                     <tbody>
                         <tr>
                           <td width="5%">1.</td>
-                          <td width="25%"><input type="text" id="no8_4_11" required="required" class="form-control col-md-4 col-xs-4" tabindex="17" value={{no8_4_11}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_11" required="required" class="form-control col-md-4 col-xs-4" tabindex="17" value={{no8_4_11}}-->
+                          <textarea name="name" id="no8_4_11" class="form-control" rows="1" cols="20" tabindex="17">{{no8_4_11}}</textarea>
+                          </td>
                           <td width="5%">6.</td>
-                          <td width="25%"><input type="text" id="no8_4_16" required="required" class="form-control col-md-4 col-xs-4" tabindex="22" value={{no8_4_16}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_16" required="required" class="form-control col-md-4 col-xs-4" tabindex="22" value={{no8_4_16}}-->
+                          <textarea name="name" id="no8_4_16" class="form-control" rows="1" cols="20" tabindex="22">{{no8_4_16}}</textarea>
+                          </td>
                           <td width="5%">11.</td>
-                          <td width="25%"><input type="text" id="no8_4_26" required="required" class="form-control col-md-4 col-xs-4" tabindex="27" value={{no8_4_26}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_26" required="required" class="form-control col-md-4 col-xs-4" tabindex="27" value={{no8_4_26}}-->
+                          <textarea name="name" id="no8_4_26" class="form-control" rows="1" cols="20" tabindex="27">{{no8_4_26}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">2.</td>
-                          <td width="25%"><input type="text" id="no8_4_12" required="required" class="form-control col-md-4 col-xs-4" tabindex="18" value={{no8_4_12}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_12" required="required" class="form-control col-md-4 col-xs-4" tabindex="18" value={{no8_4_12}}-->
+                          <textarea name="name" id="no8_4_12" class="form-control" rows="1" cols="20" tabindex="18">{{no8_4_12}}</textarea>
+                          </td>
                           <td width="5%">7.</td>
-                          <td width="25%"><input type="text" id="no8_4_17" required="required" class="form-control col-md-4 col-xs-4" tabindex="23" value={{no8_4_17}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_17" required="required" class="form-control col-md-4 col-xs-4" tabindex="23" value={{no8_4_17}}-->
+                          <textarea name="name" id="no8_4_17" class="form-control" rows="1" cols="20" tabindex="23">{{no8_4_17}}</textarea>
+                          </td>
                           <td width="5%">12.</td>
-                          <td width="25%"><input type="text" id="no8_4_27" required="required" class="form-control col-md-4 col-xs-4" tabindex="28" value={{no8_4_27}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_27" required="required" class="form-control col-md-4 col-xs-4" tabindex="28" value={{no8_4_27}}-->
+                          <textarea name="name" id="no8_4_27" class="form-control" rows="1" cols="20" tabindex="28">{{no8_4_27}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">3.</td>
-                          <td width="25%"><input type="text" id="no8_4_13" required="required" class="form-control col-md-4 col-xs-4" tabindex="19" value={{no8_4_13}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_13" required="required" class="form-control col-md-4 col-xs-4" tabindex="19" value={{no8_4_13}}-->
+                          <textarea name="name" id="no8_4_13" class="form-control" rows="1" cols="20" tabindex="19">{{no8_4_13}}</textarea>
+                          </td>
                           <td width="5%">8.</td>
-                          <td width="25%"><input type="text" id="no8_4_18" required="required" class="form-control col-md-4 col-xs-4" tabindex="24" value={{no8_4_18}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_18" required="required" class="form-control col-md-4 col-xs-4" tabindex="24" value={{no8_4_18}}-->
+                          <textarea name="name" id="no8_4_18" class="form-control" rows="1" cols="20" tabindex="24">{{no8_4_18}}</textarea>
+                          </td>
                           <td width="5%">13.</td>
-                          <td width="25%"><input type="text" id="no8_4_28" required="required" class="form-control col-md-4 col-xs-4" tabindex="29" value={{no8_4_28}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_28" required="required" class="form-control col-md-4 col-xs-4" tabindex="29" value={{no8_4_28}}-->
+                          <textarea name="name" id="no8_4_28" class="form-control" rows="1" cols="20" tabindex="29">{{no8_4_28}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">4.</td>
-                          <td width="25%"><input type="text" id="no8_4_14" required="required" class="form-control col-md-4 col-xs-4" tabindex="20" value={{no8_4_14}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_14" required="required" class="form-control col-md-4 col-xs-4" tabindex="20" value={{no8_4_14}}-->
+                          <textarea name="name" id="no8_4_14" class="form-control" rows="1" cols="20" tabindex="20">{{no8_4_14}}</textarea>
+                          </td>
                           <td width="5%">9.</td>
-                          <td width="25%"><input type="text" id="no8_4_19" required="required" class="form-control col-md-4 col-xs-4" tabindex="25" value={{no8_4_19}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_19" required="required" class="form-control col-md-4 col-xs-4" tabindex="25" value={{no8_4_19}}-->
+                          <textarea name="name" id="no8_4_19" class="form-control" rows="1" cols="20" tabindex="25">{{no8_4_19}}</textarea>
+                          </td>
                           <td width="5%">14.</td>
-                          <td width="25%"><input type="text" id="no8_4_29" required="required" class="form-control col-md-4 col-xs-4" tabindex="30" value={{no8_4_29}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_29" required="required" class="form-control col-md-4 col-xs-4" tabindex="30" value={{no8_4_29}}-->
+                          <textarea name="name" id="no8_4_29" class="form-control" rows="1" cols="20" tabindex="30">{{no8_4_29}}</textarea>
+                          </td>
                         </tr>
                         <tr>
                           <td width="5%">5.</td>
-                          <td width="25%"><input type="text" id="no8_4_15" required="required" class="form-control col-md-4 col-xs-4" tabindex="21" value={{no8_4_15}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_15" required="required" class="form-control col-md-4 col-xs-4" tabindex="21" value={{no8_4_15}}-->
+                          <textarea name="name" id="no8_4_15" class="form-control" rows="1" cols="20" tabindex="21">{{no8_4_15}}</textarea>
+                          </td>
                           <td width="5%">10.</td>
-                          <td width="25%"><input type="text" id="no8_4_20" required="required" class="form-control col-md-4 col-xs-4" tabindex="26" value={{no8_4_20}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_20" required="required" class="form-control col-md-4 col-xs-4" tabindex="26" value={{no8_4_20}}-->
+                          <textarea name="name" id="no8_4_20" class="form-control" rows="1" cols="20" tabindex="26">{{no8_4_20}}</textarea>
+                          </td>
                           <td width="5%">15.</td>
-                          <td width="25%"><input type="text" id="no8_4_30" required="required" class="form-control col-md-4 col-xs-4" tabindex="31" value={{no8_4_30}}></td>
+                          <td width="25%">
+                          <!--input type="text" id="no8_4_30" required="required" class="form-control col-md-4 col-xs-4" tabindex="31" value={{no8_4_30}}-->
+                          <textarea name="name" id="no8_4_30" class="form-control" rows="1" cols="20" tabindex="31">{{no8_4_30}}</textarea>
+                          </td>
                         </tr>
                     </tbody>
                   </table>
