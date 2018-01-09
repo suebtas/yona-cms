@@ -18,45 +18,45 @@
                  $(this).text(value);
                },
              }).on('save', function(e, params) {
-               dataString={};
+                dataString={};
 
-            if(params.newValue!=''){
-               //property key for insert or update
-              dataString[name]=params.newValue;
-              dataString['option']='add';
-            $.ajax({
-                url : "/clinic/form/" + path,
-                type: "POST",
-                data : dataString,
-                success: function(data, textStatus, jqXHR)
-                {
-                    if(fn != '')
-                      window[fn]();
-                },
-                error: function (jqXHR, textStatus, errorThrown)
-                {
+                if(params.newValue!=''){
+                  //property key for insert or update
+                  dataString[name]=params.newValue;
+                  dataString['option']='add';
+                $.ajax({
+                    url : "/clinic/form/" + path,
+                    type: "POST",
+                    data : dataString,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                        if(fn != '')
+                          window[fn]();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-                }
-            });
-          }else if(params.newValue==''){
-            //property key for delete
-            dataString[name]='delete';
-            dataString['option']='delete';
-            $.ajax({
-                url : "/clinic/form/" + path,
-                type: "POST",
-                data : dataString,
-                success: function(data, textStatus, jqXHR)
-                {
-                  if(fn != '')
-                    window[fn]();
-                },
-                error: function (jqXHR, textStatus, errorThrown)
-                {
+                    }
+                });
+              }else if(params.newValue==''){
+                //property key for delete
+                dataString[name]='delete';
+                dataString['option']='delete';
+                $.ajax({
+                    url : "/clinic/form/" + path,
+                    type: "POST",
+                    data : dataString,
+                    success: function(data, textStatus, jqXHR)
+                    {
+                      if(fn != '')
+                        window[fn]();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
 
-                }
-            });
-          }
+                    }
+                });
+              }
         });
       }
 
