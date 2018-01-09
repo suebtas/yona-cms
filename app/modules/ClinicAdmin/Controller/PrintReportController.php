@@ -101,7 +101,7 @@ class PrintReportController extends Controller
 
 
         $questions = array(            
-            array('QuestionID'=>2,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
+            array('QuestionID'=>2,'ColumnID'=>array('C'=>'y2558','D'=>'y2559'),'Formula'=>'=x/625'),
             //1.2       พื้นที่
             array('QuestionID'=>553,'ColumnID'=>array('E'=>'y2558','F'=>'y2559')),
             //1.2.1     จำนวนประชากรทั้งหมด
@@ -113,14 +113,6 @@ class PrintReportController extends Controller
             //1.2.9     ความหนาแน่นของประชากร
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $titleSummary = array(
-            'C'=>$previousServey->no,'D'=>$currentServey->no,
-            'E'=>$previousServey->no,'F'=>$currentServey->no,
-            'G'=>$previousServey->no,'H'=>$currentServey->no,
-            'I'=>$previousServey->no,'J'=>$currentServey->no,
-            'K'=>$previousServey->no,'L'=>$currentServey->no
-        );
-
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
         $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำรอบ $lastInTermYear กับ $currentInTermYear";
@@ -143,7 +135,7 @@ class PrintReportController extends Controller
         foreach($amphurs as $amphur){
             $displayColumns = $questions;
             //$this->setHeadTable($objPHPExcel, ($amphur[1]+$accumulate_r-1), $titleSummary);
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0],$years);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');//Excel5
@@ -1341,9 +1333,14 @@ class PrintReportController extends Controller
                                         
             foreach($questions as $question){
                 foreach($question['ColumnID'] as $key => $col){
-                    if(is_numeric($question['QuestionID']))
-                        $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $dataRow[$question['QuestionID']][$col]);
-                    elseif(is_array($question['QuestionID'])){
+                    if(is_numeric($question['QuestionID'])){
+                        if(isset($question['Formula'])){
+                            $formulate = preg_replace("/x/i",$dataRow[$question['QuestionID']][$col],$question['Formula']);
+                            $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $formulate);
+                        }else{
+                            $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $dataRow[$question['QuestionID']][$col]);
+                        }
+                    }elseif(is_array($question['QuestionID'])){
                         $value=0;
                         foreach ($question['QuestionID'] as $a_key => $questionNo){                            
                             $value += $dataRow[$questionNo][$col];
@@ -1387,10 +1384,14 @@ class PrintReportController extends Controller
             $objPHPExcel->getActiveSheet()->setCellValue('A'.$row, $r+1)->setCellValue('B'.$row, $key);
             foreach($questions as $q){
                 foreach($q['ColumnID'] as $key => $col){                    
-                    //$objPHPExcel->getActiveSheet()->setCellValue($key.$row, $dataRow[$q['QuestionID']][$col]);
-
+                    //$objPHPExcel->getActiveSheet()->setCellValue($key.$row, $dataRow[$q['QuestionID']][$col]);                    
                     if(is_numeric($q['QuestionID']))
-                        $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $dataRow[$q['QuestionID']][$col]);
+                        if(isset($q['Formula'])){
+                            $formulate = preg_replace("/x/i",$dataRow[$q['QuestionID']][$col],$q['Formula']);
+                            $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $formulate);
+                        }else{
+                            $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $dataRow[$q['QuestionID']][$col]);
+                        }
                     elseif(is_array($q['QuestionID'])){
                         $value=0;
                         foreach ($q['QuestionID'] as $a_key => $questionNo){                            
