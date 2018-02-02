@@ -265,6 +265,11 @@ $(document).ready(function() {
       });
     });
     $("#approval").click(function () {
+      obj = $('#signing_approver').editable('getValue');
+      if(obj.signing_approver=="") {
+              alert( 'โปรดกำหนด ชื่อผู้ยืนยันข้อมูลสำรวจ');
+              return false;
+      }
       if($('input:radio[name=approve]:checked').val()==null)
         return ;
       $.ajax({
@@ -302,6 +307,44 @@ $(document).ready(function() {
         });
     });
 
+    $('#approver_phone').editable({
+        type: 'text',
+        title: 'ชื่อผู้รับสำรวจ'
+    }).on('save', function(e, params) {
+    if(params.newValue!=''){
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+                approver_phone:params.newValue,
+                option:'add'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+    }else if(params.newValue==''){
+        $.ajax({
+            url : "/clinic/review/no1",
+            type: "POST",
+            data : {
+                approver_phone:'delete',
+                option:'delete'
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+    }
+    });
     $('#signing_approver').editable({
            type: 'text',
            title: 'ชื่อผู้รับสำรวจ'
