@@ -826,17 +826,17 @@ class PrintReportController extends Controller
         //Sheet 0: รวม 3 ปี
         $accumulate_r=0;
 
-        $questions = array(            
-            array('QuestionID'=>405,'ColumnID'=>array('C'=>'y2559')), //9.3.3.2   รับจริง(บาท)
-            array('QuestionID'=>408,'ColumnID'=>array('D'=>'y2559')), //9.3.4.2   รับจริง(บาท)
-            array('QuestionID'=>411,'ColumnID'=>array('E'=>'y2559')), //9.3.5.2   รับจริง(บาท)
-            array('QuestionID'=>406,'ColumnID'=>array('F'=>'y2559')), //9.3.3.3   จ่ายจริง(บาท)
-            array('QuestionID'=>409,'ColumnID'=>array('G'=>'y2559')), //9.3.4.3   จ่ายจริง(บาท)
-            array('QuestionID'=>412,'ColumnID'=>array('H'=>'y2559')), //9.3.5.2   จ่ายจริง(บาท)
-        );
-        $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($currentServey->no,2,4)-2;
+        $questions = array(            
+            array('QuestionID'=>405,'ColumnID'=>array('C'=>'y2559') ,'Title'=>array('C'=>'ปี '. ($currentInTermYear-2))), //9.3.3.2   รับจริง(บาท)
+            array('QuestionID'=>408,'ColumnID'=>array('D'=>'y2559') ,'Title'=>array('D'=>'ปี '. ($currentInTermYear-1))), //9.3.4.2   รับจริง(บาท)
+            array('QuestionID'=>411,'ColumnID'=>array('E'=>'y2559') ,'Title'=>array('E'=>'ปี '. ($currentInTermYear))), //9.3.5.2   รับจริง(บาท)
+            array('QuestionID'=>406,'ColumnID'=>array('F'=>'y2559') ,'Title'=>array('F'=>'ปี '. ($currentInTermYear-2))), //9.3.3.3   จ่ายจริง(บาท)
+            array('QuestionID'=>409,'ColumnID'=>array('G'=>'y2559') ,'Title'=>array('G'=>'ปี '. ($currentInTermYear-1))), //9.3.4.3   จ่ายจริง(บาท)
+            array('QuestionID'=>412,'ColumnID'=>array('H'=>'y2559') ,'Title'=>array('H'=>'ปี '. ($currentInTermYear))) //9.3.5.2   จ่ายจริง(บาท)
+        );
+        $objPHPExcel->setActiveSheetIndex(0);
         $title = "รายงานเปรียบเทียบข้อมูลด้านการเมืองการปกครอง ประจำปีงบประมาณ $lastInTermYear ถึง $currentInTermYear";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
@@ -1318,12 +1318,19 @@ class PrintReportController extends Controller
         $baseRow = $atRow;
         $row = 0;
         $r=0;
-        
-        foreach($questions as $question){
-            foreach($question['ColumnID'] as $key => $col){
-                $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow -1 ), $years[$col]); // Set Table header
-            }
-        }    
+        if(!isset($questions[0]['Title'])){
+            foreach($questions as $question){
+                foreach($question['ColumnID'] as $key => $col){
+                    $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow -1 ), $years[$col]); // Set Table header
+                }
+            }    
+        }else{
+            foreach($questions as $question){
+                foreach($question['Title'] as $key => $col){
+                    $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow -1 ), $col); // Set Table header
+                }
+            }  
+        }
         foreach($resultSummary as $key => $dataRow) {
             $row = $baseRow + $r;
             
@@ -1358,11 +1365,19 @@ class PrintReportController extends Controller
         $baseRow = $atRow + $accumulate_r;
         $row = 0;
         $amphur = Amphur::findByName($amphurName)->getFirst();
-        foreach($questions as $question){
-            foreach($question['ColumnID'] as $key => $col){
-                $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow +$accumulate_r -1 ), $years[$col]); // Set Table header
-            }
-        }   
+        if(!isset($questions[0]['Title'])){
+            foreach($questions as $question){
+                foreach($question['ColumnID'] as $key => $col){
+                    $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow +$accumulate_r -1 ), $years[$col]); // Set Table header
+                }
+            }   
+        }else{
+            foreach($questions as $question){                
+                foreach($question['Title'] as $key => $col){
+                    $objPHPExcel->getActiveSheet()->setCellValue( $key . ($atRow +$accumulate_r -1 ), $col); // Set Table header
+                }
+            }  
+        }
         for($r=0;$r<=$amphur->office->count();$r++) {
             $row = $baseRow + $r;
             $objPHPExcel->getActiveSheet()->insertNewRowBefore($row+1,1);
