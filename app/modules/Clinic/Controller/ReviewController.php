@@ -92,7 +92,8 @@ class ReviewController extends FormController
         $this->view->commenting = $this->getCountComment();
 
         $this->view->signing_approver = $this->discoverySurvey->signing_approver;
-        $this->view->signing_surveyor = $this->discoverySurvey->signing_surveyor;
+        $this->view->approver_phone = $this->discoverySurvey->approver_phone;        
+
     }
     public function setAdminAction($no="no1"){
         if(!$this->session->get('admin-enable'))
@@ -103,19 +104,32 @@ class ReviewController extends FormController
         return $this->redirect($this->url->get() . 'clinic/form/'.$no);
     }
     public function updateSigningApprover($approver){
-        if($surveyor=='delete'){
+        if($approver=='delete'){
                 //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
                 $this->discoverySurvey->signing_approver = null;//$approver;
                 $this->discoverySurvey->save();
                 echo 'ok';
 
-            }else if($approver != ''){
-                //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
-                $this->discoverySurvey->signing_approver = $approver;
+        }else if($approver != ''){
+            //$discoverySurvey = DiscoverySurvey::findFirst(array("id=?0","bind"=>array($this->discovery_surveyid)));
+            $this->discoverySurvey->signing_approver = $approver;
+            $this->discoverySurvey->save();
+            echo 'ok';
+        }
+    }
+    public function updateApproverPhone($phone){
+        if($phone=='delete'){
+                $this->discoverySurvey->approver_phone = null;
                 $this->discoverySurvey->save();
                 echo 'ok';
-            }
+
+        }else if($phone != ''){
+            $this->discoverySurvey->approver_phone = $phone;
+            $this->discoverySurvey->save();
+            echo 'ok';
+        }
     }
+    
     public function disabledInput($id){
         // load action no1 JS Assets
         $approverAdmin = $this->discoverySurvey->getApproval(array("conditions"=>"level=:0:","bind"=>array(2)));
@@ -232,8 +246,12 @@ class ReviewController extends FormController
 
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
+
+            $phone = $this->request->getPost("approver_phone");
+            $this->updateApproverPhone($phone);
         }
 
+        $this->getSurveyor(1);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 1 and 2","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -369,8 +387,11 @@ class ReviewController extends FormController
 
             $approver = $this->request->getPost("signing_approver");
             $this->updateSigningApprover($approver);
-        }
 
+            $phone = $this->request->getPost("approver_phone");
+            $this->updateApproverPhone($phone);
+        }
+        $this->getSurveyor(2);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 3 and 6","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -531,6 +552,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(3);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 7 and 11","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -692,6 +714,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(4);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 12 and 16","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -853,6 +876,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(5);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 17 and 21","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -913,6 +937,7 @@ class ReviewController extends FormController
 
         }
 
+        $this->getSurveyor(6);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid = 22","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -1025,6 +1050,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(7);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 23 and 25","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -1186,6 +1212,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(8);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 26 and 31","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
 
@@ -1348,6 +1375,7 @@ class ReviewController extends FormController
             $this->updateSigningApprover($approver);
         }
 
+        $this->getSurveyor(9);
         $this->view->comments = Comment::find(array("discovery_surveyid=?0 and sessionid between 32 and 36","bind"=>array($this->discovery_surveyid),"order"=>"sessionid"));
     }
     public function updateApprove($option, $sessionid, $approve,$level, $admin_userid, $discovery_surveyid){
