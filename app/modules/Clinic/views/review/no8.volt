@@ -37,9 +37,29 @@
 
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="text-center">
+          {% if user.role == "cc-approver" %}
             <h2><i class="fa fa-user"></i> ผู้ยืนยันข้อมูลสำรวจ<span>
                 <a id="signing_approver"  data-type="text" data-pk="1" data-title="Enter username">{{signing_approver}}</a>
-                </span>
+                </span>,
+              <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
+              <a id="approver_phone"  data-type="text" data-pk="1" data-title="Enter username">{{approver_phone}}</a>
+              </span>
+            </h2>
+          {% else %}
+            <h2><i class="fa fa-user"></i> ผู้รับรองข้อมูล<span>
+                {{signing_approver}}
+                </span>,
+              <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
+              {{approver_phone}}
+              </span>
+            </h2>
+          {% endif %}
+            <h2><i class="fa fa-user"></i> ผู้บันทึกข้อมูล<span>
+                {{signing_surveyor}}
+                </span>,
+              <i class="fa fa-phone"></i> เบอร์โทรติดต่อ<span>
+              {{surveyor_phone}}
+              </span>
             </h2>
           </div>
         </div>
