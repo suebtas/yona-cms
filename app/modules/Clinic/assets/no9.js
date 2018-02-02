@@ -81,6 +81,11 @@ Cal();
 
 
 $("#btnFinish").on('click', function(){
+  obj = $('#signing_surveyor').editable('getValue');
+  if(obj.signing_surveyor=="") {
+        alert( 'โปรดกำหนด ชื่อผู้บันทึกข้อมูล');
+        return false;
+  }
 
   $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
   $.ajax({

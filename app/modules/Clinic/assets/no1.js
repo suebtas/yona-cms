@@ -70,7 +70,7 @@ $(document).ready(function() {
   
   $("#no1_1_2").val(rai.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   //ใส่ format
-  $("#no1_2_1").html($("#no1_2_1_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  $("#no1_2_1").html($("#no1_2_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   //ใส่ format
   $("#no1_2_1_1").html($("#no1_2_1_1").html().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
   //ใส่ format
@@ -83,6 +83,11 @@ $(document).ready(function() {
   $(".select2_group").select2({});
 
   $("#btnFinish").on('click', function(){
+    obj = $('#signing_surveyor').editable('getValue');
+    if(obj.signing_surveyor=="") {
+          alert( 'โปรดกำหนด ชื่อผู้บันทึกข้อมูล');
+          return false;
+    }
     $("#btnFinishStatus").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
     $.ajax({
         url : "/clinic/form/no1",
