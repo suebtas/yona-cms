@@ -323,6 +323,8 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);       
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
+        
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo1_',$this->tmp_file);
     }
@@ -544,6 +546,7 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);        
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo2_',$this->tmp_file);    		
     }
@@ -675,6 +678,7 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);       
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo3_',$this->tmp_file);
     }
@@ -1534,6 +1538,7 @@ class ExportWordController extends Controller
             $document->setValue('{user}',$signingApprover->name);         
             $document->setValue('{phone}',$signingApprover->phone);     
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+            $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
     		$result = $document->saveAs($this->tmp_file);   
     	 	$this->converttowordtemplate('FormNo4_',$this->tmp_file);
 
@@ -2045,6 +2050,7 @@ class ExportWordController extends Controller
             $document->setValue('{user}',$signingApprover->name);         
             $document->setValue('{phone}',$signingApprover->phone);          
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+            $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
     		$result = $document->saveAs($this->tmp_file);   
     		//die($result);
     	 	$this->converttowordtemplate('FormNo5_',$this->tmp_file);
@@ -2125,6 +2131,7 @@ class ExportWordController extends Controller
             $document->setValue('{user}',$signingApprover->name);         
             $document->setValue('{phone}',$signingApprover->phone);       
             $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+            $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
     		$result = $document->saveAs($this->tmp_file);   
     	 	$this->converttowordtemplate('FormNo6_',$this->tmp_file);
 
@@ -3198,6 +3205,7 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);       
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo7_',$this->tmp_file);
     }
@@ -3818,6 +3826,7 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);     
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
         $result = $document->saveAs($this->tmp_file);
         $this->converttowordtemplate('FormNo8_',$this->tmp_file);
     }
@@ -4011,6 +4020,7 @@ class ExportWordController extends Controller
         $document->setValue('{user}',$signingApprover->name);         
         $document->setValue('{phone}',$signingApprover->phone);            
         $document->setValue('{approver}',$this->discoverySurvey->signing_approver);
+        $document->setValue('{phone2}',$this->discoverySurvey->approver_phone);
 
         $result = $document->saveAs($this->tmp_file);   
         $this->converttowordtemplate('FormNo9_',$this->tmp_file);
