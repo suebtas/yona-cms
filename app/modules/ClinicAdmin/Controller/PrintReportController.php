@@ -115,7 +115,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำรอบ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำปี $lastInTermYear กับ $currentInTermYear";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
@@ -1032,7 +1032,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำรอบ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำปี $lastInTermYear กับ $currentInTermYear";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
