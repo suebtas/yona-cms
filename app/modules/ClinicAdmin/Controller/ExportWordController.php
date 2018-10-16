@@ -294,7 +294,7 @@ class ExportWordController extends Controller
         $document->setValue('{no1_3_3}', $west);
         $document->setValue('{no1_3_4}', $east);
         $document->setValue('{no1_3_4}', $east);
-        $document->setValue('{no1_2_1}', $no1_2_1);
+        $document->setValue('{no1_2_1}', $this->toformatNumber2($no1_2_1));
        
         $no1_2_1_1 = $no1_2_2_1 + $no1_2_3_1 + $no1_2_4_1 + $no1_2_5_1;
         $document->setValue('{no1_2_1_1}', $this->toformatNumber2($no1_2_1_1));
@@ -1968,13 +1968,13 @@ class ExportWordController extends Controller
     		$document->setValue('{year}', $this->year);
     		$document->setValue('{office}', $this->discoverySurvey->Office->name);
     		$document->setValue('{no5_1_1_1}', $no5_1_1_1);
-    		$document->setValue('{no5_1_1_2}', $no5_1_1_2);
+    		$document->setValue('{no5_1_1_2}', $this->toformatNumber2($no5_1_1_2));
     		$document->setValue('{no5_1_2_1}', $no5_1_2_1);
-    		$document->setValue('{no5_1_2_2}', $no5_1_2_2);
+    		$document->setValue('{no5_1_2_2}', $this->toformatNumber2($no5_1_2_2));
     		$document->setValue('{no5_1_3_1}', $no5_1_3_1);
-    		$document->setValue('{no5_1_3_2}', $no5_1_3_2);
+    		$document->setValue('{no5_1_3_2}', $this->toformatNumber2($no5_1_3_2));
             $document->setValue('{no5_1_4_1}', $no5_1_4_1);
-            $document->setValue('{no5_1_4_2}', $no5_1_4_2);
+            $document->setValue('{no5_1_4_2}', $this->toformatNumber2($no5_1_4_2));
 
     		$document->setValue('{no5_2}', $no5_2);
 
@@ -3811,9 +3811,9 @@ class ExportWordController extends Controller
 
         $document->setValue('{no8_7_13_1}', $no8_7_13_1);
         $document->setValue('{no8_7_13_2}', $no8_7_13_2);
-        $document->setValue('{no8_7_14}', $no8_7_14);
-        $document->setValue('{no8_7_15}', $no8_7_15);
-        $document->setValue('{no8_7_16}', $no8_7_16);
+        $document->setValue('{no8_7_14}', $this->toformatNumber($no8_7_14));
+        $document->setValue('{no8_7_15}', $this->toformatNumber($no8_7_15));
+        $document->setValue('{no8_7_16}', $this->toformatNumber($no8_7_16));
         $document->setValue('{no8_7_17_1_1}', $no8_7_17_1_1);
         $document->setValue('{no8_7_17_1_2}', $this->toformatNumber($no8_7_17_1_2));
         $document->setValue('{no8_7_17_2_1}', $no8_7_17_2_1);
