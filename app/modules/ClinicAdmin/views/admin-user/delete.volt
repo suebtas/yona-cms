@@ -1,5 +1,5 @@
 <div class="ui segment">
-    <a href="{{ url.get() }}admin/admin-user/edit/{{ model.getId() }}?lang={{ constant('LANG') }}" class="ui button">
+    <a href="{{ url.get() }}clinic-admin/admin-user/edit/{{ model.getId() }}?lang={{ constant('LANG') }}" class="ui button">
         <i class="icon left arrow"></i> Back
     </a>
 

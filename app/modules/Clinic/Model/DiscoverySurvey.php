@@ -59,6 +59,7 @@ class DiscoverySurvey extends \Phalcon\Mvc\Model
         $this->hasMany('id', 'Clinic\Model\Answer', 'discovery_surveyid', array('alias' => 'Answer'));
         $this->hasMany('id', 'Clinic\Model\Approval', 'discovery_surveyid', array('alias' => 'Approval'));
         $this->hasMany('id', 'Clinic\Model\Comment', 'discovery_surveyid', array('alias' => 'Comment'));
+        $this->hasMany('id', 'Clinic\Model\SigningApprover', 'discovery_surveyid', array('alias' => 'SigningApprover'));
         $this->belongsTo('officeid', 'Clinic\Model\Office', 'id', array('alias' => 'Office'));
         $this->belongsTo('surveyid', 'Clinic\Model\Survey', 'id', array('alias' => 'Survey'));
     }

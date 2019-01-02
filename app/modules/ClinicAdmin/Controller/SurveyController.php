@@ -106,7 +106,7 @@ class SurveyController extends Controller
         }
 
         if ($this->request->isPost()) {
-            $data = DiscoverySurvey::find(array("conditions"=>"surveyid=?0","bind"=>array($model->id)));
+            /*$data = DiscoverySurvey::find(array("conditions"=>"surveyid=?0","bind"=>array($model->id)));
             foreach($data as $discoverySurvey){
                 foreach($discoverySurvey->Answer as $answer){
                      $answer->delete();
@@ -119,7 +119,7 @@ class SurveyController extends Controller
                      $comment->delete();
                 }
                 $discoverySurvey->delete();
-            }
+            }*/
             
             $model->delete();
             $this->flash->warning('Deleting Survey <b>' . $model->getNo() . '</b>');

@@ -230,7 +230,7 @@
 
                       </script>
                     <input type="button" class="btn btn-default" name="name" value="RESET MAP POSITION" onclick='myMap()'>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw107lu2gelK81xf0LPUZPdzHSxgWu0Ag&callback=myMap"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbOl79FfYQDApH3d330AptI-HoSA5gbsk&callback=myMap"></script>
                     <p>ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ่นจังหวัดระยอง</p>
 
                     <p>

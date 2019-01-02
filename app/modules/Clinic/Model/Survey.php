@@ -152,6 +152,27 @@ class Survey extends \Phalcon\Mvc\Model
 
         return !($now->getTimestamp() > $dateBegin->getTimestamp() && $now->getTimestamp() < $dateEnd->getTimestamp());
     }
+    public function beforeDelete()
+    {
+        foreach($this->DiscoverySurvey as $discover){
+
+            foreach($discover->Comment as $comment){
+                $comment->delete();
+            }
+            foreach($discover->SigningApprover as $signingApprover){
+                $signingApprover->delete();
+            }
+            
+            foreach($discover->Approval as $approval){
+                $approval->delete();
+            }
+            foreach($discover->Answer as $answer){
+                $answer->delete();
+            }
+            $discover->delete();
+        }
+        return true;
+    }
     public function getStatusWithSymbol(){
         $message = '<i class="';
         if ($this->isExpired())
