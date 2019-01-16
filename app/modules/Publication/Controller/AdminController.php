@@ -7,6 +7,7 @@ use Publication\Model\Publication;
 use Publication\Form\PublicationForm;
 use Publication\Model\Type;
 
+use Publication\Model\UploadHandler;
 class AdminController extends Controller
 {
 
@@ -101,6 +102,13 @@ class AdminController extends Controller
 
     }
 
+    public function uploadAction(){
+        //error_reporting(E_ALL | E_STRICT);
+        $this->view->disable();
+        $upload_handler = new UploadHandler();
+
+        
+    }
     public function editAction($id)
     {
         $id = (int) $id;

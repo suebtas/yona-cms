@@ -77,7 +77,6 @@ class Publication extends Model
             ]
         ));
 
-        $this->validate($validator);
         return $this->validationHasFailed() != true;
     }
 
