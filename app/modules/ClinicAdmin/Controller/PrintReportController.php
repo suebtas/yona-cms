@@ -215,7 +215,7 @@ class PrintReportController extends Controller
         //set amphur รายได้เฉลี่ยประชากร
         foreach($amphurs as $amphur){
             $displayColumns = array(array('QuestionID'=>57,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')));
-            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0]);
+            $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
         
@@ -1060,7 +1060,7 @@ class PrintReportController extends Controller
                 array('QuestionID'=>33,'ColumnID'=>array('I'=>'y2558','J'=>'y2559')),
                 array('QuestionID'=>35,'ColumnID'=>array('K'=>'y2558','L'=>'y2559')),
             );
-            $this->setHeadTable($objPHPExcel, ($amphur[1]+$accumulate_r-1), $titleSummary);
+            //$this->setHeadTable($objPHPExcel, ($amphur[1]+$accumulate_r-1), $titleSummary);
             $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
             $accumulate_r += $r;
         }
@@ -1418,7 +1418,7 @@ class PrintReportController extends Controller
             }
             $r+=1;
         }
-        return $r;
+        return $amphur->office->count();
     }    
     
     public function getSummaryAnswerByQuestionID($currentServeyID, $previousServeyID){
