@@ -73,7 +73,7 @@ class PrintReportController extends Controller
 
     public $tmp_file = 'data/cache/FormNoTMP.xlsx';
 
-    public function No1Action($serveyID){
+    public function No1Action($previousServeyID,$serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no1.xls');
@@ -85,8 +85,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -115,7 +115,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำปี $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสภาพทั่วไป ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
@@ -143,7 +143,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo1_',$this->tmp_file);
     }
 
-    public function No3Action($serveyID){
+    public function No3Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no3.xls');
@@ -153,9 +153,9 @@ class PrintReportController extends Controller
         if($currentServey)
             $currentServeyID = $currentServey->id;
         else 
-            $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+            $currentServeyID = -1;    
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -196,7 +196,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary, $years);
@@ -225,7 +225,7 @@ class PrintReportController extends Controller
             );
         $objPHPExcel->setActiveSheetIndex(1);
         $currentInTermYear = substr($currentServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปีงบประมาณ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านเศรษฐกิจ ประจำปี $currentInTermYear";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $accumulate_r = 0;
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
@@ -264,7 +264,7 @@ class PrintReportController extends Controller
 
             $currentInTermYear = substr($currentServey->no,2,4);
             $lastInTermYear = substr($previousServey->no,2,4);
-            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $title = "ประจำปีงบประมาณ {$previousServey->no} กับ {$currentServey->no}";
             $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $accumulate_r = 0;            
             //set amphur รายได้เฉลี่ยประชากร            
@@ -281,7 +281,7 @@ class PrintReportController extends Controller
     }
 
 
-    public function No4Action($serveyID){
+    public function No4Action($previousServeyID,$serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no4.xls');
@@ -294,8 +294,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -316,7 +316,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม  ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม  ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -360,7 +360,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(1);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม  ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสังคม ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary,$years);
@@ -396,7 +396,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo4_',$this->tmp_file);
     }
 
-    public function No5Action($serveyID){
+    public function No5Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no5.xls');
@@ -409,8 +409,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -455,7 +455,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -495,7 +495,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(1);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านสาธารณสุข ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -531,7 +531,7 @@ class PrintReportController extends Controller
     }
 
 
-    public function No6Action($serveyID){
+    public function No6Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no6.xls');
@@ -544,8 +544,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -583,7 +583,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านคุณภาพชีวิตและความปลอดภัยในทรัพย์สิน ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -611,7 +611,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo6_',$this->tmp_file);
     }
 
-    public function No7Action($serveyID){
+    public function No7Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no7.xls');
@@ -624,8 +624,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -650,7 +650,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -685,7 +685,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(1);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการป้องกันและบรรเทาสาธารณภัย ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -713,7 +713,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo7_',$this->tmp_file);
     }
 
-    public function No8Action($serveyID){
+    public function No8Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no8.xls');
@@ -726,8 +726,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);        
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -750,7 +750,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานปริมาณขยะและจำนวนรถยนต์ที่ใช้จัดเก็บขยะ ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานปริมาณขยะและจำนวนรถยนต์ที่ใช้จัดเก็บขยะ ประจำปีงบประมาณ {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -789,7 +789,7 @@ class PrintReportController extends Controller
             $objPHPExcel->setActiveSheetIndex($key);
             $currentInTermYear = substr($currentServey->no,2,4);
             $lastInTermYear = substr($previousServey->no,2,4);
-            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $title = "ประจำปีงบประมาณ {$previousServey->no} กับ {$currentServey->no}";
             $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $displayColumns = $questions;
             $r = $this->setFormExcelSheet($displayColumns, $objPHPExcel, $amphur[1], $accumulate_r, $result, $amphur[0], $years);
@@ -801,7 +801,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNo8_',$this->tmp_file);
     }
 
-    public function No9Action($serveyID){
+    public function No9Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no9.xls');
@@ -813,8 +813,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);   
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -837,7 +837,7 @@ class PrintReportController extends Controller
             array('QuestionID'=>412,'ColumnID'=>array('H'=>'y2559') ,'Title'=>array('H'=>'ปี '. ($currentInTermYear))) //9.3.5.2   จ่ายจริง(บาท)
         );
         $objPHPExcel->setActiveSheetIndex(0);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านการเมืองการปกครอง ประจำปีงบประมาณ $lastInTermYear ถึง $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านการเมืองการปกครอง ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         
@@ -875,7 +875,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(1);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+        $title = "ประจำปีงบประมาณ {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         //$r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 6, $accumulate_r ,$resultSummary,$years);
@@ -919,7 +919,7 @@ class PrintReportController extends Controller
 
             $currentInTermYear = substr($currentServey->no,2,4);
             $lastInTermYear = substr($previousServey->no,2,4);
-            $title = "ประจำปีงบประมาณ $lastInTermYear กับ $currentInTermYear";
+            $title = "ประจำปีงบประมาณ {$previousServey->no} กับ {$currentServey->no}";
             $objPHPExcel->getActiveSheet()->setCellValue('A2', $title);
             $displayColumns = array(            
                 array('QuestionID'=>405,'ColumnID'=>array('C'=>'y2558','D'=>'y2559')),
@@ -950,8 +950,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);   
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -969,7 +969,7 @@ class PrintReportController extends Controller
   	 	$this->converttoexceltemplate('FormNoExtend_',$this->tmp_file);
     }
 
-    public function No2Action($serveyID){
+    public function No2Action($previousServeyID, $serveyID){
         $this->view->disable();
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load(__DIR__.'/../Form/template_no2.xls');
@@ -980,8 +980,8 @@ class PrintReportController extends Controller
             $currentServeyID = $currentServey->id;
         else 
             $currentServeyID = -1;
-        $lastYear =  ((int)substr($currentServey->no,2)) - 1 ;
-        $previousServey = Survey::findFirst(array("no = ?0","bind"=>array("1/".$lastYear)));
+        
+        $previousServey =Survey::findFirst($previousServeyID);   
         if($previousServey)
             $previousServeyID = $previousServey->ID;
         else
@@ -1032,7 +1032,7 @@ class PrintReportController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         $currentInTermYear = substr($currentServey->no,2,4);
         $lastInTermYear = substr($previousServey->no,2,4);
-        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำปี $lastInTermYear กับ $currentInTermYear";
+        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำปี {$previousServey->no} กับ {$currentServey->no}";
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
@@ -1138,8 +1138,11 @@ class PrintReportController extends Controller
             array('QuestionID'=>53,'ColumnID'=>array('K'=>'y2558','L'=>'y2559')),
             array('QuestionID'=>54,'ColumnID'=>array('M'=>'y2558','N'=>'y2559')),
             array('QuestionID'=>55,'ColumnID'=>array('O'=>'y2558','P'=>'y2559'))
-            );
+            );         
         $objPHPExcel->setActiveSheetIndex(1);
+
+        $title = "รายงานเปรียบเทียบข้อมูลด้านโครงสร้างพื้นฐาน ประจำปี {$previousServey->no} กับ {$currentServey->no}";
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $title);   
         $years = ['y2558'=> 'ปี '.substr($previousServey->no,2,4),'y2559'=> 'ปี '.substr($currentServey->no,2,4)];
         $r = $this->setFormExcelSummarySheet($questions, $objPHPExcel, 7, $accumulate_r ,$resultSummary, $years);
         $accumulate_r += $r;

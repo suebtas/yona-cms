@@ -2,3 +2,4 @@
 composer.lock
 app/config/
 data/cache/
+public/img/
