@@ -42,6 +42,11 @@ class Office extends \Phalcon\Mvc\Model
      */
     public $mapsize;
 
+    /**
+     *
+     * @var int
+     */
+    public $_order;
     public $active;
 
     /**
@@ -111,5 +116,14 @@ class Office extends \Phalcon\Mvc\Model
     public function getActive()
     {
         return $this->active;
+    }
+
+    public function setOrder($order)
+    {
+        $this->_order = $order;
+    }
+    public function getOrder()
+    {
+        return $this->_order;
     }
 }

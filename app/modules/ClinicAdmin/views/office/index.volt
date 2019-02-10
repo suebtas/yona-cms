@@ -14,6 +14,8 @@
         <th>{{ helper.at('Edit') }}</th>
         <th>{{ helper.at('Name') }}</th>
         <th>{{ helper.at('amphur') }}</th>
+        <th>{{ helper.at('amphurid') }}</th>
+        <th>{{ helper.at('order') }}</th>
         <th>{{ helper.at('Active') }}</th>
     </tr>
     </thead>
@@ -24,6 +26,8 @@
             <td><a href="{{ url }}" class="mini ui icon button"><i class="pencil icon"></i></a></td>
             <td>{{ office.getName() }}</td>
             <td>{{ office.amphur.getName() }}</td>
+            <th>{{ office.amphur.getOrder() }}</th>
+            <td>{{ office.getOrder() }}</td>
             <td>{% if office.getActive() %}<i class="icon checkmark green"></i>{% endif %}</td>
         </tr>
     {% endfor %}
@@ -37,10 +41,10 @@
 $("table").dataTable(
     {
         "columnDefs": [
-            { "visible": false, "targets": 2 }
+            { "visible": false, "targets": [2,3] }
         ],
 
-        "order": [[ 2, 'asc' ]],
+        "order": [[ 3, 'asc' ]],
         "drawCallback": function ( settings ) {
             var api = this.api();
             var rows = api.rows( {page:'current'} ).nodes();

@@ -67,4 +67,8 @@ class Amphur extends \Phalcon\Mvc\Model
     {
         return $this->name;
     }
+    public function getOrder()
+    {
+        return $this->_order;
+    }
 }

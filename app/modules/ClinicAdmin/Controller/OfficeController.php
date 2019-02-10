@@ -26,7 +26,7 @@ class OfficeController extends Controller
     public function indexAction()
     {
         $this->view->entries = Office::find([
-            "order" => "id DESC"
+            "order" => "amphurid asc, _order asc"
         ]);
 
         $this->helper->title($this->helper->at('Manage Office'), true);

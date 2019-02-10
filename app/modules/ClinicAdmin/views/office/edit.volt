@@ -29,6 +29,9 @@
                 {{ form.renderDecorated('amphur') }}
             </div>
             <div class="field">
+                {{ form.renderDecorated('_order') }}
+            </div>
+            <div class="field">
                 {{ form.renderDecorated('active') }}
             </div>
         </div>

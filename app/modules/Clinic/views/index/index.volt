@@ -69,6 +69,8 @@
                           <th>สถานะการยืนยันของท้องถิ่น</th>
                           <th>สถานะการยืนยันของจังหวัด</th>
                           <th>icon</th>
+                          <th>amphurorder</th>
+                          <th>order</th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -79,6 +81,8 @@
                           <th>สถานะการยืนยันของท้องถิ่น</th>
                           <th>สถานะการยืนยันของจังหวัด</th>
                           <th>icon</th>
+                          <th>amphurorder</th>
+                          <th>order</th>
                         </tr>
                       </tfoot>
 
@@ -94,6 +98,8 @@
                           <td>{%if approverApprove!=null %} {{approverApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
                           <td>{%if adminApprove!=null %} {{adminApprove.getStatusWithSymbol()}} {%else%}<i class="fa fa-hourglass-start  fa-2x"></i> กำลังตรวจข้อมูล {%endif%}</td>
                           <td>{{discoverySurvey.getStatusWithEndDateSymbol()}} </td>
+                          <td>{{discoverySurvey.Office.Amphur.getOrder()}}</td>
+                          <td>{{discoverySurvey.Office.getOrder()}}</td>
 
                         </tr>
                         {% endfor %}

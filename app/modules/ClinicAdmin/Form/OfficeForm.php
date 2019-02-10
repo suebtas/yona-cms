@@ -36,6 +36,11 @@ class OfficeForm extends Form
         );
 
         $this->add(
+            (new Text('_order', [
+                'required' => true,
+            ]))->setLabel('Order')
+        );
+        $this->add(
             (new Check('active'))
                 ->setLabel('Active')
         );

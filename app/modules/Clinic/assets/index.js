@@ -26,10 +26,10 @@ $(document).ready(function() {
 				
         	},
 			"columnDefs": [
-				{ "visible": false, "targets": 1 },
+				{ "visible": false, "targets": [1,6,7] },
 				{ "width": "10%", "targets": [2,3,4,5] }
         	],
-			"order": [[ 1, 'desc' ]],
+			"order": [[ 1, 'desc' ],[ 6, 'asc' ]],
 			"drawCallback": function ( settings ) {
             var api = this.api();
             var rows = api.rows( {page:'current'} ).nodes();
