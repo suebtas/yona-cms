@@ -1405,7 +1405,10 @@ class PrintReportController extends Controller
                     //$objPHPExcel->getActiveSheet()->setCellValue($key.$row, $dataRow[$q['QuestionID']][$col]);                    
                     if(is_numeric($q['QuestionID']))
                         if(isset($q['Formula'])){
-                            $formulate = preg_replace("/x/i",$dataRow[$q['QuestionID']][$col],$q['Formula']);
+                            $value = $dataRow[$q['QuestionID']][$col];
+                            if(!isset($value) )
+                                $value = 0;
+                            $formulate = preg_replace("/x/i",$value,$q['Formula']);
                             $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $formulate);
                         }else{
                             $objPHPExcel->getActiveSheet()->setCellValue( $key.$row, $dataRow[$q['QuestionID']][$col]);
@@ -1448,7 +1451,7 @@ class PrintReportController extends Controller
     }
     public function getAllAmphurAnswerByQuestionID($currentServeyID, $previousServeyID){
 
-        $phql = "select question.id, amphur.name amphur_name, office.name office_name, sum(IFNULL(answer2558.answer,0)) y2558,  sum(IFNULL(answer2559.answer,0)) y2559 
+        $phql = "select question.id, amphur.name amphur_name, office.name office_name, sum(IFNULL(answer2558.answer,0)) y2558,  sum(IFNULL(answer2559.answer,0)) y2559 , amphur._order, office._order
             from 
                 Clinic\Model\DiscoverySurvey discovery_survey 
                 left join Clinic\Model\Answer answer2558 on (answer2558.discovery_surveyid = discovery_survey.id and discovery_survey.surveyid = $previousServeyID) 
@@ -1456,7 +1459,8 @@ class PrintReportController extends Controller
                 join Clinic\Model\Question question on (question.id = answer2558.questionid or question.id = answer2559.questionid) 
                 left join Clinic\Model\Office office on (office.id = discovery_survey.officeid) 
                 left join Clinic\Model\Amphur amphur on (office.amphurid = amphur.id)
-            group by  question.id, amphur.name, office.name";
+            group by  question.id, amphur.name, office.name, amphur._order, office._order
+            order by amphur._order, office._order";
 
         $data = $this->modelsManager->executeQuery($phql, array("lastYear"=>$previousServeyID, "currentYear"=>$currentServeyID));
         $result = [];
