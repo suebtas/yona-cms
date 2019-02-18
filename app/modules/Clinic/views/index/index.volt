@@ -71,6 +71,7 @@
                           <th>icon</th>
                           <th>amphurorder</th>
                           <th>order</th>
+                          <th>ลำดับ</th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -83,12 +84,13 @@
                           <th>icon</th>
                           <th>amphurorder</th>
                           <th>order</th>
+                          <th>ลำดับ</th>
                         </tr>
                       </tfoot>
 
 
                       <tbody>
-                        {% for discoverySurvey in listDiscoverySurvey %}
+                        {% for index, discoverySurvey in listDiscoverySurvey %}
                         <tr>
                           <td>{{link_to("clinic/form/showdiscoverysurvey/"~discoverySurvey.id,discoverySurvey.Office.name)}}</td>
                           <td>{{discoverySurvey.Survey.description}} ({{discoverySurvey.Survey.getDateOfStartSurvey()}} ถึง {{discoverySurvey.Survey.getDateOfEndSurvey()}})</td>                          
@@ -100,7 +102,7 @@
                           <td>{{discoverySurvey.getStatusWithEndDateSymbol()}} </td>
                           <td>{{discoverySurvey.Office.Amphur.getOrder()}}</td>
                           <td>{{discoverySurvey.Office.getOrder()}}</td>
-
+                          <td>{{discoverySurvey.Office.getOrder()}}</td>
                         </tr>
                         {% endfor %}
                       </tbody>
