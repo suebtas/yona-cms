@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>clinic center</title>
-    <meta name="description" content="This is a free Bootstrap landing page theme created for BootstrapZero. Feature video background and one page design." />
+    <meta name="description" content="ศูนย์เครือข่ายเพื่อแก้ไขปัญหาและส่งเสริมการมีส่วนร่วมในการพัฒนาท้องถิ้น ขององค์การบริหารส่วนจังหวัดระยอง โดยมีผู้แทนของภาคส่วนต่าง ๆ ในท้องถิ่นเข้าร่วมเป็นคณะกรรมการศูนย์เครือข่าย ฯ เพื่อทำหน้าที่บริหารศูนย์เครือข่าย ฯ ให้เป็นไปตามเจตนารมณ์ของคณะกรรมการการกระจายอำนาจให้แก่องค์กรปกครองส่วนท้องถิ่น สำนักนายกรัฐมนตรี" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="Codeply">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
